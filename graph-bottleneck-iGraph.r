@@ -23,7 +23,7 @@ pId <- mget(pName, KEGGPATHNAME2ID)[[1]]
 retrieveKGML(pId, organism="cel", destfile=tmp, method="wget", quiet=TRUE)
 
 # First we read in KGML file for human MAPK signaling pathway (with KEGG ID hsa04010)
-mapkKGML <- system.file("extdata/hsa04010.xml", package="KEGGgraph")
+mapkKGML <- system.file("extdata/hsa00010.xml", package="KEGGgraph")
 
 ####################################################
 # Conversion from Kegg Pathway into a graph object #
@@ -122,19 +122,29 @@ relax(rdp)
 # Clear the RedPort [optional]
 resetd(rdp)
 
-##################################
-# Graph minimum cut [bottleneck] #
-##################################
+####################
+# Grapg Bottleneck #
+####################
 
+# *** APPROACH 01 ***
+
+# Graph minimum cut [bottleneck]
 min_cut(iGraph, value.only=FALSE)
 
-###########################
-# General info [optional] #
-###########################
+# --------------------------------------------------------------------------------------
 
-# Top 10 most betweenness vertices
-toprBetweenness <- sort(V(iGraph)$betweenness, decreasing=TRUE)[1:10]
-toprBetweenness
+# *** APPROACH 02 ***
+# Definition of hubs and bottlenecks.
+# We defined hubs as all proteins that are in the top 20% of the degree distribution 
+# (i.e., proteins that have the 20% highest number of neighbors). 
+
+# Accordingly, we defined bottlenecks as the proteins that are in the top 20% in terms of 
+# betweenness. Varying this cutoff from 10% to 40% had no significant impact on results
+betweenness_percentual_rate <- 0.2
+
+topBetweenness <- sort(V(iGraph)$betweenness, decreasing=TRUE)
+top20Betweenness <- topBetweenness[1:as.integer(length(topBetweenness) * betweenness_percentual_rate)]
+print(top20Betweenness)
 
 ###############
 # Data export #
