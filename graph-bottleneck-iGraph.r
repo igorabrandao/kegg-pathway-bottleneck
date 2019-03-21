@@ -22,7 +22,7 @@ pName <- "p53 signaling pathway"
 pId <- mget(pName, KEGGPATHNAME2ID)[[1]]
 retrieveKGML(pId, organism="cel", destfile=tmp, method="wget", quiet=TRUE)
 
-# First we read in KGML file for human MAPK signaling pathway (with KEGG ID hsa04010)
+# First we read in KGML file for human MAPK signaling pathway (with KEGG ID hsa00010)
 mapkKGML <- system.file("extdata/hsa00010.xml", package="KEGGgraph")
 
 ####################################################
@@ -79,6 +79,20 @@ V(iGraph)$betweenness <- betweenness(iGraph, normalized = TRUE)
 # normalizes betweenness
 V(iGraph)$betweenness <- V(iGraph)$betweenness/max(V(iGraph)$betweenness)
 
+closeness(iGraph, vids=V(iGraph))
+
+#################################
+# Vertex clustering coefficient #
+#################################
+
+# calculates the local clustering coefficient for each vertex
+V(iGraph)$clustering <- transitivity(iGraph, type = c("local"), vids = NULL,
+                                      weights = NULL, isolates = c("NaN", "zero"))
+
+# calculates the global clustering coefficient
+transitivity(iGraph, type = c("global"), vids = NULL,
+                              weights = NULL, isolates = c("NaN", "zero"))
+
 ################################
 # Display the graph in RedPort #
 ################################
@@ -97,7 +111,8 @@ iGraph <- att.setv(g = iGraph, from = "betweenness", to = "nodeColor",
                    cols = color_col, na.col = "grey80", breaks = seq(0, 1, 0.1))
 
 # Set the betweenness into label name [warning: bad visualization]
-V(iGraph)$nodeAlias <- paste0(names(V(iGraph)), " | ", V(iGraph)$betweenness)
+V(iGraph)$nodeAlias <- paste0(names(V(iGraph)), " | ", V(iGraph)$betweenness
+                              , " | ", V(iGraph)$clustering)
 
 # Set the graph direction
 E(iGraph)$arrowDirection <- 1
@@ -144,7 +159,10 @@ betweenness_percentual_rate <- 0.2
 
 topBetweenness <- sort(V(iGraph)$betweenness, decreasing=TRUE)
 top20Betweenness <- topBetweenness[1:as.integer(length(topBetweenness) * betweenness_percentual_rate)]
-print(top20Betweenness)
+
+# Print the top 20%
+V(iGraph)[match(top20Betweenness, V(iGraph)$betweenness)]
+top20Betweenness
 
 ###############
 # Data export #
