@@ -79,7 +79,12 @@ V(iGraph)$betweenness <- betweenness(iGraph, normalized = TRUE)
 # normalizes betweenness
 V(iGraph)$betweenness <- V(iGraph)$betweenness/max(V(iGraph)$betweenness)
 
-closeness(iGraph, vids=V(iGraph))
+#################################
+# Vertex closeness #
+#################################
+
+# closeness refers to how connected a node is to its neighbors
+V(iGraph)$closeness <- closeness(iGraph, vids=V(iGraph))
 
 #################################
 # Vertex clustering coefficient #
@@ -111,8 +116,8 @@ iGraph <- att.setv(g = iGraph, from = "betweenness", to = "nodeColor",
                    cols = color_col, na.col = "grey80", breaks = seq(0, 1, 0.1))
 
 # Set the betweenness into label name [warning: bad visualization]
-V(iGraph)$nodeAlias <- paste0(names(V(iGraph)), " | ", V(iGraph)$betweenness
-                              , " | ", V(iGraph)$clustering)
+V(iGraph)$nodeAlias <- paste0(names(V(iGraph)), " | B: ", V(iGraph)$betweenness
+                              , " | Clu: ", V(iGraph)$clustering, " | Clo: ", V(iGraph)$closeness)
 
 # Set the graph direction
 E(iGraph)$arrowDirection <- 1
@@ -173,3 +178,17 @@ save(iGraph, file = "iGraph.RData", compress = "xz")
 
 # Load the iGraph object
 load("iGraph.RData")
+
+# --------------------------------------------------------------------------------------
+
+# XLSX export
+library("xlsx")
+
+# Get th data frame
+iGraph_df <- as.data.frame(list(Vertex=V(iGraph)$name, Betweenness=V(iGraph)$betweenness, 
+              Clustering=V(iGraph)$clustering, Closeness=V(iGraph)$closeness, 
+              Group=V(iGraph)$group), stringsAsFactors=FALSE)
+
+# Write the data set in a workbook
+write.xlsx(iGraph_df, file = "igraph.xlsx",
+           sheetName = "IGRAPH-DATA", append = FALSE)
