@@ -151,6 +151,12 @@ resetd(rdp)
 # Graph minimum cut [bottleneck]
 min_cut(iGraph, value.only=FALSE)
 
+# A subgraph of a connected graph is a minimum spanning tree if it is tree, 
+# and the sum of its edge weights are the minimal among all tree subgraphs of the graph. 
+# A minimum spanning forest of a graph is the graph consisting of the minimum spanning 
+# trees of its components.
+mst(iGraph)
+
 # --------------------------------------------------------------------------------------
 
 # *** APPROACH 02 ***

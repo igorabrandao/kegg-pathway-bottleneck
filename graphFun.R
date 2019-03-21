@@ -1,3 +1,6 @@
+# LOADING PACKAGES
+library(KEGGREST)
+
 # pathway2dataframe ####
 
 #' Get the edges from a given KEGG pathway
@@ -129,5 +132,6 @@ graphProperties <- function(edges){
   result$clusteringCoef <- igraph::transitivity(g, vids = result$node,
                                                 isolates = "zero",
                                                 type = "local")
+  result$closenessCoef <- igraph::closeness(g, vids=result$node)
   return(result)
 }
