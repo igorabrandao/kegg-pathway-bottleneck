@@ -21,7 +21,7 @@ sapply(files.sources, source)
 ##############################################
 # Define which pathway will be analysed
 prefix <- "hsa"
-code <- "04020"
+code <- "00010"
 pathway <- paste0(prefix, code)
 
 ##############################################
