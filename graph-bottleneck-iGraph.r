@@ -119,6 +119,8 @@ iGraph <- att.setv(g = iGraph, from = "betweenness", to = "nodeColor",
 V(iGraph)$nodeAlias <- paste0(names(V(iGraph)), " | B: ", V(iGraph)$betweenness
                               , " | Clu: ", V(iGraph)$clustering, " | Clo: ", V(iGraph)$closeness)
 
+V(iGraph)$nodeAlias <- names(V(iGraph))
+
 # Set the graph direction
 E(iGraph)$arrowDirection <- 1
 V(iGraph)$nodeLineWidth <- 5
@@ -174,6 +176,16 @@ top20Betweenness <- topBetweenness[1:as.integer(length(topBetweenness) * between
 # Print the top 20%
 V(iGraph)[match(top20Betweenness, V(iGraph)$betweenness)]
 top20Betweenness
+
+# --------------------------------------------------------------------------------------
+
+# *** APPROACH 03 ***
+
+# Articulation points [cut vertices]
+
+# They are vertices whose removal increases the number of connected 
+# components in a graph
+articulation_points(iGraph)
 
 ###############
 # Data export #
