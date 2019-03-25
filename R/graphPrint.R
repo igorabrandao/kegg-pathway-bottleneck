@@ -1,6 +1,6 @@
-########################################
+#########################################
 # Functions to print the iGraph_ object #
-########################################
+#########################################
 
 printBottleneckInRedPort <- function(iGraph_, bottleneck_, verbose_=FALSE) {
   # Set the color palette according to the communities count
@@ -44,6 +44,11 @@ printBottleneckInRedPort <- function(iGraph_, bottleneck_, verbose_=FALSE) {
 
   # Select the bottlenecks
   selectNodes(rdp, names(bottleneck_))
+
+  # print log
+  if (verbose_) {
+    print("Bottleneck visualization in RedPort generated successfully!")
+  }
 }
 
 # getPathwayImage ####
@@ -69,29 +74,35 @@ printBottleneckInRedPort <- function(iGraph_, bottleneck_, verbose_=FALSE) {
 #' @importFrom pathview pathview
 #'
 #' @author
-#' Diego Morais
+#' Diego Morais / Igor Brandão
 
-printBottleneckPathwayImage <- function(pathway, IDs = NULL) {
+printBottleneckPathwayImage <- function(pathway_, bottleneck_, verbose_=FALSE) {
+
+  # Basic info
   species <- gsub("^([[:alpha:]]*).*$", "\\1", pathway)
-  if(is.null(IDs)){
-    IDs <- KEGGREST::keggLink(species, pathway)
-    IDs <- gsub("^[[:alpha:]]*:(.*$)", "\\1", IDs)
-  }
-  pathway <- gsub("^[[:alpha:]]*(.*$)", "\\1", pathway)
+
+  pathway <- gsub("^[[:alpha:]]*(.*$)", "\\1", pathway_)
+  bottleneck <- gsub("^[[:alpha:]]*:(.*$)", "\\1", names(bottleneck_))
   data(bods, package = "pathview", verbose = FALSE)
-  now <- format(Sys.time(), "%Y%m%dT%H%M%S")
-  img <- suppressWarnings(suppressMessages(pathview::pathview(gene.data = IDs,
-                                                              pathway.id = pathway,
-                                                              out.suffix = now,
-                                                              species = species,
-                                                              high = list(gene = "darkseagreen1"),
-                                                              kegg.native = TRUE,
-                                                              same.layer = FALSE,
-                                                              new.signature = FALSE,
-                                                              plot.col.key = FALSE,
-                                                              map.symbol = FALSE, # bug
-                                                              gene.annotpkg = NA, # bug
-                                                              map.null = FALSE))) # cpd size
+
+  # Generate the pathway with bottlenecks
+  img <- pathview::pathview(gene.data = bottleneck, pathway.id = pathway,
+        species = species,
+        out.suffix = "_bottleneck",
+        high = list(gene = "#FF6961"),
+        kegg.native = TRUE,
+        same.layer = FALSE,
+        new.signature = FALSE,
+        plot.col.key = TRUE,
+        map.symbol = TRUE, # bug
+        gene.annotpkg = NA, # bug
+        map.null = FALSE) # cpd size
+
+  # Remove the generated xml file
   invisible(suppressWarnings(file.remove(paste0(species, pathway, ".xml"))))
-  return(NULL)
+
+  # print log
+  if (verbose_) {
+    print(paste0("Pathway ", pathway_, " visualization generated successfully!"))
+  }
 }
