@@ -2,7 +2,7 @@
 # Functions to print the iGraph_ object #
 ########################################
 
-printRedPort <- function(iGraph_, verbose_=FALSE) {
+printBottleneckInRedPort <- function(iGraph_, bottleneck_, verbose_=FALSE) {
   # Set the color palette according to the communities count
   myColors <- rainbow(length(unique(V(iGraph_)$group)))
 
@@ -43,7 +43,7 @@ printRedPort <- function(iGraph_, verbose_=FALSE) {
   relax(rdp)
 
   # Select the bottlenecks
-  selectNodes(rdp, names(articulation_points(iGraph_)))
+  selectNodes(rdp, names(bottleneck_))
 }
 
 # getPathwayImage ####
@@ -71,7 +71,7 @@ printRedPort <- function(iGraph_, verbose_=FALSE) {
 #' @author
 #' Diego Morais
 
-getPathwayImage <- function(pathway, IDs = NULL) {
+printBottleneckPathwayImage <- function(pathway, IDs = NULL) {
   species <- gsub("^([[:alpha:]]*).*$", "\\1", pathway)
   if(is.null(IDs)){
     IDs <- KEGGREST::keggLink(species, pathway)

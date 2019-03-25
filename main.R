@@ -41,8 +41,11 @@ iGraph <- setGraphCloseness(iGraph)
 # Vertex clustering
 iGraph <- setGraphClustering(iGraph)
 
-# Print the graph in RedPort
-printRedPort(iGraph)
-
 # Perform the graph bottleneck calculation
 graphBottleneck <- getGraphBottleneck(iGraph, TRUE)
+
+# Print the graph in RedPort
+printBottleneckInRedPort(iGraph, graphBottleneck)
+
+# Export KEGG  pathway image
+printBottleneckPathwayImage(pathway)
