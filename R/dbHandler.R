@@ -56,7 +56,7 @@ query <- function(sql_) {
   return(result)
 }
 
-insertPathway <- function(data_) {
+insertPathway <- function(data_, verbose_=FALSE) {
   # Connect to DB
   con <- connect()
 
@@ -66,8 +66,11 @@ insertPathway <- function(data_) {
                  values ('%s', '%s', %s, NOW());",
                  data_["specie"], data_["code"], data_["gene_count"])
 
-  # Debug purpose
-  # print(sql)
+  # Print the SQL statement
+  if (verbose_) {
+    # Debug purpose
+    print(sql)
+  }
 
   # Send the query
   rs <- dbSendQuery(con, sql)
@@ -85,7 +88,7 @@ insertPathway <- function(data_) {
   return(id)
 }
 
-insertGene <- function(data_) {
+insertGene <- function(data_, verbose_=FALSE) {
   # Connect to DB
   con <- connect()
 
@@ -96,8 +99,11 @@ insertGene <- function(data_) {
                  data_["pathway_id"], data_["name"], data_["ko"], data_["entrez"],
                  data_["description"], data_["is_bottleneck"], data_["belong_to_specie"])
 
-  # Debug purpose
-  print(sql)
+  # Print the SQL statement
+  if (verbose_) {
+    # Debug purpose
+    print(sql)
+  }
 
   # Send the query
   rs <- dbSendQuery(con, sql)

@@ -69,6 +69,7 @@ pathwayToDataframe <- function(pathway_) {
 #' Diego Morais / Igor Brandão
 
 getPathwayHighlightedGenes <- function(pathway_, IDs = NULL) {
+  img <- NULL
   species <- gsub("^([[:alpha:]]*).*$", "\\1", pathway_)
 
   if(is.null(IDs)) {
@@ -79,21 +80,28 @@ getPathwayHighlightedGenes <- function(pathway_, IDs = NULL) {
   pathway <- gsub("^[[:alpha:]]*(.*$)", "\\1", pathway_)
   now <- format(Sys.time(), "%Y-%m-%d--%H-%M-%S")
 
-  img <- suppressWarnings(suppressMessages(
-    pathview::pathview(gene.data = IDs,
-      pathway.id = pathway,
-      out.suffix = now,
-      species = species,
-      high = list(gene = "darkseagreen1"),
-      kegg.native = TRUE,
-      same.layer = FALSE,
-      new.signature = FALSE,
-      plot.col.key = FALSE,
-      map.symbol = FALSE, # bug
-      gene.annotpkg = NA, # bug
-      map.null = FALSE)
-    )
-  ) # cpd size
+  tryCatch({
+    img <- suppressWarnings(suppressMessages(
+      pathview::pathview(gene.data = IDs,
+                         pathway.id = pathway,
+                         out.suffix = now,
+                         species = species,
+                         high = list(gene = "darkseagreen1"),
+                         kegg.native = TRUE,
+                         same.layer = FALSE,
+                         new.signature = FALSE,
+                         plot.col.key = FALSE,
+                         map.symbol = FALSE, # bug
+                         gene.annotpkg = NA, # bug
+                         map.null = FALSE)
+    )) # cpd size
+  }, warning = function(w) {
+    # warning-handler-code
+  }, error = function(e) {
+    # error-handler-code
+  }, finally = {
+    # cleanup-code
+  })
 
   # Remove generated files
   rm(gene.idtype.bods, korg, cpd.simtypes, gene.idtype.list)
