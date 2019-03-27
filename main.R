@@ -43,7 +43,7 @@ iGraph <- setGraphClustering(iGraph)
 
 # Perform the graph bottleneck calculation
 graphBottleneck <- getGraphBottleneck(iGraph, TRUE)
-
+graphBottleneck
 # Print the graph in RedPort
 printBottleneckInRedPort(iGraph, graphBottleneck)
 

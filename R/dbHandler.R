@@ -66,7 +66,8 @@ insertPathway <- function(data_) {
                  values ('%s', '%s', %s, NOW());",
                  data_["specie"], data_["code"], data_["gene_count"])
 
-  print(sql)
+  # Debug purpose
+  # print(sql)
 
   # Send the query
   rs <- dbSendQuery(con, sql)
@@ -92,8 +93,11 @@ insertGene <- function(data_) {
   sql <- sprintf("insert into gene
                  (pathway_id, name, ko, entrez, description, is_bottleneck, belong_to_specie)
                  values (%s, '%s', '%s', '%s', '%s', %s, %s);",
-                 data["pathway_id"], data["name"], data["ko"], data["entrez"],
-                 data["description"], data["is_bottleneck"], data["belong_to_specie"])
+                 data_["pathway_id"], data_["name"], data_["ko"], data_["entrez"],
+                 data_["description"], data_["is_bottleneck"], data_["belong_to_specie"])
+
+  # Debug purpose
+  print(sql)
 
   # Send the query
   rs <- dbSendQuery(con, sql)
