@@ -1,3 +1,7 @@
+#########################################
+# Functions to handle Mysql connections #
+#########################################
+
 library(RMySQL)
 library(DBI)
 
@@ -8,6 +12,7 @@ connect <- function(verbose_=FALSE) {
                    password="pwd",
                    dbname="kegg-bottleneck",
                    host="10.7.43.4")
+  on.exit(dbDisconnect(con))
 
   if (verbose_) {
     if (exists(con)) {
@@ -27,9 +32,6 @@ listTables <- function() {
 
   # Perform the function tasks
   print(dbListTables(con))
-
-  # Disconnect form DB
-  dbDisconnect(con)
 }
 
 query <- function(sql_) {
@@ -45,9 +47,53 @@ query <- function(sql_) {
   # Clear the result
   dbClearResult(res)
 
-  # Disconnect from the database
-  dbDisconnect(con)
-
   # Return the fetched data
   return(result)
+}
+
+insertPathway <- function(data_) {
+  # Connect to DB
+  con <- connect()
+
+  # Construct the insert statement
+  sql <- sprintf("insert into pathway
+                 (specie, code, gene_count, timestamp)
+                 values (%d, '%d', '%s', NOW());",
+                 data["specie"], data["code"], data["gene_count"])
+
+  # Send the query
+  rs <- dbSendQuery(con, sql)
+
+  # Clear the result
+  dbClearResult(rs)
+
+  # Get the last inserted ID
+  id <- dbGetQuery(con, "select last_insert_id();")[1,1]
+
+  # Return the last inserted ID
+  return(id)
+}
+
+insertGene <- function(data_) {
+  # Connect to DB
+  con <- connect()
+
+  # Construct the insert statement
+  sql <- sprintf("insert into gene
+                 (pathway_id, name, ko, entrez, description, is_bottleneck, belong_to_specie)
+                 values (%s, '%d', '%d', '%d', '%d', '%s', '%s');",
+                 data["pathway_id"], data["name"], data["ko"], data["entrez"],
+                 data["description"], data["is_bottleneck"], data["belong_to_specie"])
+
+  # Send the query
+  rs <- dbSendQuery(con, sql)
+
+  # Clear the result
+  dbClearResult(rs)
+
+  # Get the last inserted ID
+  id <- dbGetQuery(con, "select last_insert_id();")[1,1]
+
+  # Return the last inserted ID
+  return(id)
 }
