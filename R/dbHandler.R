@@ -5,8 +5,8 @@
 connect <- function(verbose_=FALSE) {
   # Connect to database
   con <- dbConnect(RMySQL::MySQL(),
-                   user="igorbrandao",
-                   password="Yuyuhakusho091518",
+                   user="usr",
+                   password="pwd",
                    dbname="kegg-bottleneck",
                    host="10.7.43.4")
 
