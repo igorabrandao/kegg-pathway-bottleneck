@@ -24,10 +24,17 @@ prefix <- "hsa"
 code <- "00010"
 pathway <- paste0(prefix, code)
 
+# Load EC from KO dictionnaire
+load(paste0("./dictionnaires", "/", "KO2EC.RData"))
+
 ##############################################
 
+# Load the KEGG reference pathway
+referencePathway <- getReferencePathway(code, KO2EC)
+iGraph <- graph_from_data_frame(referencePathway, directed=FALSE)
+
 # Load the KEGG pathway and convert it into iGraph object
-iGraph <- graph_from_data_frame(pathwayToDataframe(pathway))
+# Graph <- graph_from_data_frame(pathwayToDataframe(pathway))
 
 # Vertex communites
 iGraph <- setGraphCommunity(iGraph)
@@ -43,7 +50,7 @@ iGraph <- setGraphClustering(iGraph)
 
 # Perform the graph bottleneck calculation
 graphBottleneck <- getGraphBottleneck(iGraph, TRUE)
-graphBottleneck
+
 # Print the graph in RedPort
 printBottleneckInRedPort(iGraph, graphBottleneck)
 

@@ -42,6 +42,145 @@ pathwayToDataframe <- function(pathway_) {
   return(aux)
 }
 
+# getReferencePathway ####
+
+#' Get the reference KEGG pathway
+#'
+#' Given a KEGG pathway ID and a list of KOs/ECs, this function returns a
+#' data.frame ready to create an igraph object with ECs.
+#'
+#' @param pathway A KEGG pathway ID.
+#' @param ko_ec_dictionnaire_ Data.frame containing the KOs/ECs equivalence
+#'
+#' @return This function returns a data.frame containing the edges from a
+#' KEGG pathway by its ECs.
+#'
+#' @examples
+#' \dontrun{
+#' df <- pathwayToDataframe("00010", KO2EC)
+#' }
+#'
+#' @importFrom KEGGREST keggGet
+#' @importFrom KEGGgraph parseKGML
+#' @importFrom KEGGgraph KEGGpathway2Graph
+#'
+#' @author
+#' Diego Morais / Igor Brandão
+#'
+
+getReferencePathway <- function(pathway_, ko_ec_dictionnaire_) {
+  # Remove
+  pathway_ <- "00010"
+
+  # Load the ECs list from KEGG according to a pathway CODE
+  ecs <- keggLink("ec", paste0("map", pathway_))
+  ecs <- unname(ecs)
+
+  # Load the KEGG XML according to the KO reference pathway
+  kgml <- suppressMessages(KEGGREST::keggGet(paste0("ko", pathway_), "kgml"))
+
+  # Parse the XML data
+  mapkpathway <- KEGGgraph::parseKGML(kgml)
+
+  # Get the graph object
+  mapkG <- KEGGgraph::KEGGpathway2Graph(mapkpathway, FALSE)
+
+  # Remove intermediary variables
+  rm(mapkpathway, kgml)
+
+  # Get the edge data and convert it into a dataFrame
+  graphData <- names(mapkG@edgeData@data)
+  graphData <- as.data.frame(graphData, stringsAsFactors = FALSE)
+
+  # Change the data.frame columns name
+  graphData$node2 <- gsub("^.*\\|(.*)$", "\\1", graphData$graphData)
+  colnames(graphData)[1] <- "node1"
+  graphData$node1 <- gsub("^(.*)\\|.*$", "\\1", graphData$node1)
+
+  # Remove ko: prefix
+  graphData$node1 <- gsub("ko:", "", graphData$node1)
+  graphData$node2 <- gsub("ko:", "", graphData$node2)
+
+  # Just for test purpose (remove after)
+  ko_ec_dictionnaire_ <- KO2EC
+
+  # Filter: get just the row in which its KOs belong to KO/EC dictionary
+  graphData <- graphData[graphData$node1 %in% names(ko_ec_dictionnaire_) &
+                           graphData$node2 %in% names(ko_ec_dictionnaire_),]
+
+  # Run through all data in first column
+  for(ko in unique(graphData$node1)) {
+    # Count how many ECs are related to the current KO
+    flag <- ifelse(length(KO2EC[[ko]])>1, TRUE, FALSE)
+
+    if (flag) {
+      # Which rows should be replaced
+      toReplace <- which(graphData$node1==ko)
+
+      # Receive all column 2 entries according toReplace
+      node2 <- graphData[toReplace, 2]
+      node2 <- sort(node2)
+
+      # Get the clean data from KO/EC dictionary
+      info <- unname(unlist(ko_ec_dictionnaire_[ko]))
+
+      # Create a temporary data.frame to "replace" the original data
+      temp <- data.frame(node1 = rep(info, length(toReplace)),
+                         node2 = sort(rep(node2, length(info))), stringsAsFactors = FALSE)
+
+      # Remove the rows in original data.frame that should be translated to ECs
+      graphData <- graphData[-toReplace,]
+
+      # Add the temporary data.frame to the original one
+      graphData <- rbind(graphData, temp)
+    } else {
+      graphData$node1[which(graphData$node1==ko)] <- ko_ec_dictionnaire_[ko]
+    }
+  }
+
+  # Run through all data in first column
+  for(ko in unique(graphData$node2)) {
+    # Count how many ECs are related to the current KO
+    flag <- ifelse(length(KO2EC[[ko]])>1, TRUE, FALSE)
+
+    if (flag) {
+      # Which rows should be replaced
+      toReplace <- which(graphData$node2==ko)
+
+      # Receive all column 1 entries according toReplace
+      node1 <- unlist(graphData[toReplace, 1])
+      node1 <- sort(node1)
+
+      # Get the clean data from KO/EC dictionary
+      info <- unname(unlist(ko_ec_dictionnaire_[ko]))
+
+      # Create a temporary data.frame to "replace" the original data
+      temp <- data.frame(node2 = rep(info, length(toReplace)),
+                         node1 = sort(rep(node1, length(info))), stringsAsFactors = FALSE)
+
+      # Invert the data frame column order
+      temp <- temp[, c(2, 1)]
+
+      # Remove the rows in original data.frame that should be translated to ECs
+      graphData <- graphData[-toReplace,]
+
+      # Add the temporary data.frame to the original one
+      graphData <- rbind(graphData, temp)
+    } else {
+      graphData$node2[which(graphData$node2==ko)] <- ko_ec_dictionnaire_[ko]
+    }
+  }
+
+  # Remove duplicates
+  graphData <- unique(graphData)
+  temp <- data.frame(node1 = unlist(graphData$node2),
+                     node2 = unlist(graphData$node1), stringsAsFactors = FALSE)
+  graphData <- rbind(graphData, temp)
+  # Re-index data.frame
+  rownames(graphData) <- NULL
+  return(graphData)
+}
+
 # getPathwayHighlightedGenes ####
 
 #' Get the image from a given KEGG pathway
