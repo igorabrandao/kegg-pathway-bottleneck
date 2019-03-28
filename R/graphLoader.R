@@ -181,6 +181,17 @@ getReferencePathway <- function(pathway_, ko_ec_dictionnaire_) {
   return(graphData)
 }
 
+entrezToEC <- function(entrez_, ko_dictionnaire_, ec_dictionnaire_) {
+  load("dictionnaires/KO00010.RData")
+  load("dictionnaires/KO2EC.RData")
+  ko_dictionnaire_ <- ENTREZ2KO
+  ec_dictionnaire_ <- KO2EC
+  return(ec_dictionnaire_[[ko_dictionnaire_[[as.character(entrez_)]]]])
+}
+
+# unlist(entrezToECMulti(c(2821, 669)))
+entrezToECMulti <- Vectorize(entrezToEC, vectorize.args = "entrez_")
+
 # getPathwayHighlightedGenes ####
 
 #' Get the image from a given KEGG pathway

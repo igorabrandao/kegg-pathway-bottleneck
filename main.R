@@ -25,12 +25,15 @@ code <- "00010"
 pathway <- paste0(prefix, code)
 
 # Load EC from KO dictionnaire
-load(paste0("./dictionnaires", "/", "KO2EC.RData"))
+ec_dictionnaire <-  get(load(paste0("./dictionnaires", "/", "KO2EC.RData")))
+
+# Load the KO dictionnaire data
+ko_dictionnaire <- get(load(paste0("./dictionnaires", "/", "KO", code, ".RData")))
 
 ##############################################
 
 # Load the KEGG reference pathway
-referencePathway <- getReferencePathway(code, KO2EC)
+referencePathway <- getReferencePathway(code, ec_dictionnaire)
 iGraph <- graph_from_data_frame(referencePathway, directed=FALSE)
 
 # Load the KEGG pathway and convert it into iGraph object
