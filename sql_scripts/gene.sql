@@ -26,4 +26,4 @@ DELETE FROM `kegg-bottleneck`.gene WHERE `pathway_id` >= 89;
 
 -- Select all table data
 SELECT * FROM `kegg-bottleneck`.gene
-WHERE `pathway_id` = 120;
+WHERE `pathway_id` = 125;

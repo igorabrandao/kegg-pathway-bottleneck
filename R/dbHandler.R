@@ -2,9 +2,6 @@
 # Functions to handle Mysql connections #
 #########################################
 
-library(RMySQL)
-library(DBI)
-
 connect <- function(verbose_=FALSE) {
   # Connect to database
   con <- dbConnect(RMySQL::MySQL(),
