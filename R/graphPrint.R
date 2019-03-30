@@ -82,7 +82,8 @@ printBottleneckPathwayImage <- function(pathway_, bottleneck_, verbose_=FALSE) {
   species <- gsub("^([[:alpha:]]*).*$", "\\1", pathway)
 
   pathway <- gsub("^[[:alpha:]]*(.*$)", "\\1", pathway_)
-  bottleneck <- gsub("^[[:alpha:]]*:(.*$)", "\\1", names(bottleneck_))
+  #bottleneck <- gsub("^[[:alpha:]]*:(.*$)", "\\1", names(bottleneck_))
+  bottleneck <- bottleneck_
   data(bods, package = "pathview", verbose = FALSE)
 
   # Generate the pathway with bottlenecks

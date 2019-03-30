@@ -10,6 +10,7 @@
 #' Igor Brandão
 
 # Import the necessary libraries
+library(KEGGREST)
 library(igraph)
 library(RedeR)
 library(RColorBrewer)
@@ -58,4 +59,4 @@ graphBottleneck <- getGraphBottleneck(iGraph, TRUE)
 printBottleneckInRedPort(iGraph, graphBottleneck)
 
 # Export KEGG  pathway image
-printBottleneckPathwayImage(pathway, graphBottleneck, TRUE)
+printBottleneckPathwayImage(pathway, ECToEntrez(graphBottleneck), TRUE)

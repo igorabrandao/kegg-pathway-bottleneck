@@ -69,9 +69,6 @@ pathwayToDataframe <- function(pathway_) {
 #'
 
 getReferencePathway <- function(pathway_, ko_ec_dictionnaire_) {
-  # Remove
-  pathway_ <- "00010"
-
   # Load the ECs list from KEGG according to a pathway CODE
   ecs <- keggLink("ec", paste0("map", pathway_))
   ecs <- unname(ecs)
@@ -100,9 +97,6 @@ getReferencePathway <- function(pathway_, ko_ec_dictionnaire_) {
   # Remove ko: prefix
   graphData$node1 <- gsub("ko:", "", graphData$node1)
   graphData$node2 <- gsub("ko:", "", graphData$node2)
-
-  # Just for test purpose (remove after)
-  ko_ec_dictionnaire_ <- KO2EC
 
   # Filter: get just the row in which its KOs belong to KO/EC dictionary
   graphData <- graphData[graphData$node1 %in% names(ko_ec_dictionnaire_) &
@@ -191,6 +185,24 @@ entrezToEC <- function(entrez_, ko_dictionnaire_, ec_dictionnaire_) {
 
 # unlist(entrezToECMulti(c(2821, 669)))
 entrezToECMulti <- Vectorize(entrezToEC, vectorize.args = "entrez_")
+
+ECToEntrez <- function(ec_list_) {
+  # Unlist the
+  unlistEC <- unlist(ec_dictionnaire)
+  unlistKO <- unlist(ko_dictionnaire)
+
+  # Get the KO from EC
+  ko_list <- names(which(unlistEC == as_ids(ec_list_)))
+
+  # Retrieve the entrez list
+  entrez_list <- list()
+
+  for (ko in ko_list) {
+    entrez_list <- append(entrez_list, names(which(unlistKO == ko)))
+  }
+
+  return(unlist(entrez_list))
+}
 
 # getPathwayHighlightedGenes ####
 
