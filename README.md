@@ -24,7 +24,6 @@ This project folders are organized in the following way:
 * João Vitor Ferreira ( jvfecav@gmail.com )
 * Leonardo Campos ( leofields@gmail.com )
 * Rodrigo Dalmolin ( dalmolin_r@yahoo.com.br )
-* Wallace Bezerra ( wallaceptng@gmail.com )
 
 ## Changelog:
 
