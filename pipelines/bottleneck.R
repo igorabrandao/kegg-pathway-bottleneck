@@ -62,4 +62,4 @@ graphBottleneck <- getGraphBottleneck(iGraph, TRUE)
 printBottleneckInRedPort(iGraph, graphBottleneck)
 
 # Export KEGG  pathway image
-printBottleneckPathwayImage(pathway, ECToEntrez(graphBottleneck), TRUE)
+printBottleneckPathwayImage(pathway, ECToEntrez(graphBottleneck, ec_dictionnaire, ko_dictionnaire), TRUE)

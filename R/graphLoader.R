@@ -204,10 +204,10 @@ entrezToEC <- function(entrez_, ko_dictionnaire_, ec_dictionnaire_) {
 # unlist(entrezToECMulti(c(2821, 669)))
 entrezToECMulti <- Vectorize(entrezToEC, vectorize.args = "entrez_")
 
-ECToEntrez <- function(ec_list_) {
-  # Unlist the
-  unlistEC <- unlist(ec_dictionnaire)
-  unlistKO <- unlist(ko_dictionnaire)
+ECToEntrez <- function(ec_list_, ec_dictionnaire_, ko_dictionnaire_) {
+  # Unlist the dictionaries
+  unlistEC <- unlist(ec_dictionnaire_)
+  unlistKO <- unlist(ko_dictionnaire_)
 
   # Get the KO from EC
   ko_list <- names(which(unlistEC == as_ids(ec_list_)))
