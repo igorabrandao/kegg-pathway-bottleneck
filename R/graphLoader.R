@@ -26,19 +26,21 @@
 #' @importFrom KEGGgraph KEGGpathway2Graph
 #'
 #' @author
-#' Diego Morais
+#' Diego Morais & Igor Brandão
 
 pathwayToDataframe <- function(pathway_) {
   genesOnly <- !grepl("^ko", pathway_)
   kgml <- suppressMessages(KEGGREST::keggGet(pathway_, "kgml"))
   mapkpathway <- KEGGgraph::parseKGML(kgml)
   mapkG <- KEGGgraph::KEGGpathway2Graph(mapkpathway, genesOnly)
-  rm(pathway_, mapkpathway, kgml)
   aux <- names(mapkG@edgeData@data)
   aux <- as.data.frame(aux, stringsAsFactors = FALSE)
   aux$node2 <- gsub("^.*\\|(.*)$", "\\1", aux$aux)
   colnames(aux)[1] <- "node1"
   aux$node1 <- gsub("^(.*)\\|.*$", "\\1", aux$node1)
+  aux$org <- gsub("^([[:alpha:]]*).*$", "\\1", pathway_)
+  aux$pathway <- gsub("^[[:alpha:]]*(.*$)", "\\1", pathway_)
+  rm(pathway_, mapkpathway, kgml)
   return(aux)
 }
 
