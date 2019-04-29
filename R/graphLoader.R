@@ -44,6 +44,9 @@ pathwayToDataframe <- function(pathway_) {
     aux$org <- gsub("^([[:alpha:]]*).*$", "\\1", pathway_)
     aux$pathway <- gsub("^[[:alpha:]]*(.*$)", "\\1", pathway_)
     rm(pathway_, mapkpathway, kgml)
+
+    print(aux)
+
     return(aux)
   } else {
     # It means the organism doesn't have the pathway
