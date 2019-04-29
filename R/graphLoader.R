@@ -38,26 +38,18 @@ pathwayToDataframe <- function(pathway_) {
   aux$node2 <- gsub("^.*\\|(.*)$", "\\1", aux$aux)
   colnames(aux)[1] <- "node1"
   aux$node1 <- gsub("^(.*)\\|.*$", "\\1", aux$node1)
-  aux$org <- gsub("^([[:alpha:]]*).*$", "\\1", pathway_)
-  aux$pathway <- gsub("^[[:alpha:]]*(.*$)", "\\1", pathway_)
-  rm(pathway_, mapkpathway, kgml)
-  return(aux)
-}
 
-pathwayToDataframeKO <- function(pathway_) {
-  genesOnly <- !grepl("^ko", pathway_)
-  kgml <- suppressMessages(KEGGREST::keggGet(paste0("ko", pathway_), "kgml"))
-  mapkpathway <- KEGGgraph::parseKGML(kgml)
-  mapkG <- KEGGgraph::KEGGpathway2Graph(mapkpathway, genesOnly)
-  aux <- names(mapkG@edgeData@data)
-  aux <- as.data.frame(aux, stringsAsFactors = FALSE)
-  aux$node2 <- gsub("^.*\\|(.*)$", "\\1", aux$aux)
-  colnames(aux)[1] <- "node1"
-  aux$node1 <- gsub("^(.*)\\|.*$", "\\1", aux$node1)
-  aux$org <- gsub("^([[:alpha:]]*).*$", "\\1", pathway_)
-  aux$pathway <- gsub("^[[:alpha:]]*(.*$)", "\\1", pathway_)
-  rm(pathway_, mapkpathway, kgml)
-  return(aux)
+  if (length(unlist(aux)) > 0) {
+    # It means the organism has the pathway
+    aux$org <- gsub("^([[:alpha:]]*).*$", "\\1", pathway_)
+    aux$pathway <- gsub("^[[:alpha:]]*(.*$)", "\\1", pathway_)
+    rm(pathway_, mapkpathway, kgml)
+    return(aux)
+  } else {
+    # It means the organism doesn't have the pathway
+    rm(pathway_, mapkpathway, kgml)
+    return(NULL)
+  }
 }
 
 # getReferencePathway ####

@@ -72,8 +72,10 @@ for(row in start_of:1) {
     print(paste0("<<< Requesting ", pathway_code, "... >>>"))
     cat("\n")
 
-    temp <- pathwayToDataframeKO(pathway_code)
+    # Get the enzyme list from pathway
+    temp <- pathwayToDataframe(pathway_code)
 
+    # Check if the organism has the current pathway
     if (is.not.null(temp)) {
       # Add each pathways enzymes into enzymeFrequency dataFrame
       enzymeFrequency <- rbind(enzymeFrequency, temp)
@@ -90,9 +92,4 @@ enzymeTotalFrequency <- enzymeFrequency[,c(1)]
 
 # Count the enzymes frequencies and transform it into a dataFrame
 enzymeTotalFrequency <- as.data.frame(table(enzymeTotalFrequency), stringsAsFactors = FALSE)
-
-##########################################
-# Count the enzyme frequency by organism #
-##########################################
-
 
