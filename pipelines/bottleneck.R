@@ -2,7 +2,7 @@
 # Example how to use the graph bottlenck package #
 ##################################################
 
-# main ####
+# bottleneck ####
 
 #' This is an example how to use the graph bottleneck package
 #'
