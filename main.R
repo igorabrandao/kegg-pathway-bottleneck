@@ -31,6 +31,9 @@ ec_dictionnaire <-  get(load(paste0("./dictionnaires", "/", "KO2EC.RData")))
 # Load the KO dictionnaire data
 ko_dictionnaire <- get(load(paste0("./dictionnaires", "/", "KO", code, ".RData")))
 
+# Load the pathways by organisms data
+organism2pathway <- get(load(paste0("./dictionnaires", "/", "organism2pathway.RData")))
+
 ##############################################
 
 # Load the KEGG reference pathway
