@@ -13,6 +13,9 @@
 # Import the necessary libraries
 library(KEGGREST)
 library(igraph)
+library(RCurl)
+library(rvest)
+library(stringr)
 
 ##############################################
 
@@ -36,8 +39,8 @@ enzymeFrequency <- data.frame()
 ##############################################
 
 # Loop over species matrix
-# for(row in start_of:length(organism2pathway)) {
-for(row in start_of:1) {
+for(row in start_of:length(organism2pathway)) {
+# for(row in start_of:1) {
   #################################
   # Get the organism general info #
   #################################
@@ -83,12 +86,22 @@ for(row in start_of:1) {
   }
 }
 
-####################################
-# Count the enzyme total frequency #
-####################################
+##############################
+# Convert the entrez into EC #
+##############################
 
 # Get just the first column of enzyme frequency dataFrame
 enzymeTotalFrequency <- enzymeFrequency[,c(1)]
+
+# Check if enzyme frequency dataFrame is not null
+if (is.not.null(enzymeFrequency)) {
+  # Call the function to convert the entrez code into EC
+  convertEntrezToECWithoutDict(enzymeTotalFrequency)
+}
+
+####################################
+# Count the enzyme total frequency #
+####################################
 
 # Count the enzymes frequencies and transform it into a dataFrame
 enzymeTotalFrequency <- as.data.frame(table(enzymeTotalFrequency), stringsAsFactors = FALSE)

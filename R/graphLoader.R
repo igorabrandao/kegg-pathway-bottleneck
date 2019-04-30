@@ -44,9 +44,6 @@ pathwayToDataframe <- function(pathway_) {
     aux$org <- gsub("^([[:alpha:]]*).*$", "\\1", pathway_)
     aux$pathway <- gsub("^[[:alpha:]]*(.*$)", "\\1", pathway_)
     rm(pathway_, mapkpathway, kgml)
-
-    print(aux)
-
     return(aux)
   } else {
     # It means the organism doesn't have the pathway
@@ -188,35 +185,6 @@ getReferencePathway <- function(pathway_, ko_ec_dictionnaire_) {
   return(graphData)
 }
 
-entrezToEC <- function(entrez_, ko_dictionnaire_, ec_dictionnaire_) {
-  load("dictionnaires/KO00010.RData")
-  load("dictionnaires/KO2EC.RData")
-  ko_dictionnaire_ <- ENTREZ2KO
-  ec_dictionnaire_ <- KO2EC
-  return(ec_dictionnaire_[[ko_dictionnaire_[[as.character(entrez_)]]]])
-}
-
-# unlist(entrezToECMulti(c(2821, 669)))
-entrezToECMulti <- Vectorize(entrezToEC, vectorize.args = "entrez_")
-
-ECToEntrez <- function(ec_list_, ec_dictionnaire_, ko_dictionnaire_) {
-  # Unlist the dictionaries
-  unlistEC <- unlist(ec_dictionnaire_)
-  unlistKO <- unlist(ko_dictionnaire_)
-
-  # Get the KO from EC
-  ko_list <- names(which(unlistEC == as_ids(ec_list_)))
-
-  # Retrieve the entrez list
-  entrez_list <- list()
-
-  for (ko in ko_list) {
-    entrez_list <- append(entrez_list, names(which(unlistKO == ko)))
-  }
-
-  return(unlist(entrez_list))
-}
-
 # getPathwayHighlightedGenes ####
 
 #' Get the image from a given KEGG pathway
@@ -338,4 +306,108 @@ getGraphProperties <- function(iGraph_) {
                                                 type = "local")
   result$closenessCoef <- igraph::closeness(g, vids=result$node)
   return(result)
+}
+
+##################################
+# Identifiers conversion section #
+##################################
+
+entrezToEC <- function(entrez_, ko_dictionnaire_, ec_dictionnaire_) {
+  load("dictionnaires/KO00010.RData")
+  load("dictionnaires/KO2EC.RData")
+  ko_dictionnaire_ <- ENTREZ2KO
+  ec_dictionnaire_ <- KO2EC
+  return(ec_dictionnaire_[[ko_dictionnaire_[[as.character(entrez_)]]]])
+}
+
+# unlist(entrezToECMulti(c(2821, 669)))
+entrezToECMulti <- Vectorize(entrezToEC, vectorize.args = "entrez_")
+
+ECToEntrez <- function(ec_list_, ec_dictionnaire_, ko_dictionnaire_) {
+  # Unlist the dictionaries
+  unlistEC <- unlist(ec_dictionnaire_)
+  unlistKO <- unlist(ko_dictionnaire_)
+
+  # Get the KO from EC
+  ko_list <- names(which(unlistEC == as_ids(ec_list_)))
+
+  # Retrieve the entrez list
+  entrez_list <- list()
+
+  for (ko in ko_list) {
+    entrez_list <- append(entrez_list, names(which(unlistKO == ko)))
+  }
+
+  return(unlist(entrez_list))
+}
+
+# convertEntrezToECWithoutDict ####
+
+#' Receive an entrez list and return an EC dataFrame
+#'
+#' Given a list of entrez, this function computes converts it via web scraping
+#' into EC dataFrame.
+#'
+#' @param entrez_list_ A list containing entrez codes.
+#'
+#' @return This function returns a data.frame containing one column: EC code.
+#'
+#' @examples
+#' \dontrun{
+#' ec_df <- convertEntrezToECWithoutDict(enzymeTotalFrequency)
+#' }
+#'
+#' @importFrom RCurl
+#' @importFrom rvest
+#' @importFrom stringr
+#'
+#' @author
+#' Igor Brandão
+
+convertEntrezToECWithoutDict <- function(entrez_list_) {
+  # Test only (REMOVE!)
+  entrez_list_ <- enzymeTotalFrequency
+
+  # Empty EC list dataFrame
+  ec_list_df <- data.frame("EC" = character(0), stringsAsFactors = FALSE)
+
+  # Remove the names from list to get just the values
+  entrez_list_ <- unname(entrez_list_)
+
+  # Break the list into chunks
+  chunk_size <- 50
+  chunked_entrez_list <- split(entrez_list_, ceiling(seq_along(entrez_list_)/chunk_size))
+
+  # Loop over each chunk
+  for(idx in 1:length(chunked_entrez_list)) {
+    # Format the entrez list to be requested
+    request_param <- paste0("https://www.kegg.jp/dbget-bin/www_bget?",
+                            paste(unlist(chunked_entrez_list[1]), collapse= "+", sep=""))
+
+    # Get the entire KEGG webpage
+    scraping <- getURL(paste0("https://www.kegg.jp/dbget-bin/www_bget?", request_param))
+
+    # Replace the <br> for another symbol
+    scraping <- gsub("<br />", "-|-", scraping, fixed = TRUE)
+
+    # Read the page HTML
+    scraping <- read_html(scraping)
+
+    # Get the raw EC list
+    ec_list <- unlist(str_extract_all(toString(scraping), "\\[EC:(.*?)\\]"))
+
+    # Clean the EC list
+    for(item in 1:length(ec_list)) {
+      # Apply the regex to remove trash from EC string
+      ec_list[item] <- str_replace_all(ec_list[item], "\\[EC:(.*?)\\>", "")
+      ec_list[item] <- str_replace_all(ec_list[item], "</a>\\]", "")
+      ec_list[item] <- str_replace_all(ec_list[item], "</a>(.*?)\\>", " / ")
+
+      # Add the EC item to the dataFrame
+      ec_list_df[nrow(ec_list_df) + 1,] = ec_list[item]
+    }
+  }
+
+  # Return the dataFrame containing the EC list
+  return(ec_list_df)
 }
