@@ -349,6 +349,8 @@ ECToEntrez <- function(ec_list_, ec_dictionnaire_, ko_dictionnaire_) {
 #' into EC dataFrame.
 #'
 #' @param entrez_list_ A list containing entrez codes.
+#' @param chunk_size_ How many entrez should be processed at a time.
+#' @param verbose_ Print every status message.
 #'
 #' @return This function returns a data.frame containing one column: EC code.
 #'
@@ -364,9 +366,15 @@ ECToEntrez <- function(ec_list_, ec_dictionnaire_, ko_dictionnaire_) {
 #' @author
 #' Igor Brandão
 
-convertEntrezToECWithoutDict <- function(entrez_list_) {
-  # Test only (REMOVE!)
-  entrez_list_ <- enzymeTotalFrequency
+convertEntrezToECWithoutDict <- function(entrez_list_, chunk_size_=50, verbose_=FALSE) {
+
+  if (verbose_) {
+    cat("\n")
+    print("------------------------------------------------")
+    print("INITIALIZING THE ENTREZ -> EC CONVERSION")
+    print("------------------------------------------------")
+    cat("\n")
+  }
 
   # Empty EC list dataFrame
   ec_list_df <- data.frame("EC" = character(0), stringsAsFactors = FALSE)
@@ -375,14 +383,24 @@ convertEntrezToECWithoutDict <- function(entrez_list_) {
   entrez_list_ <- unname(entrez_list_)
 
   # Break the list into chunks
-  chunk_size <- 50
+  chunk_size <- chunk_size_
   chunked_entrez_list <- split(entrez_list_, ceiling(seq_along(entrez_list_)/chunk_size))
 
   # Loop over each chunk
   for(idx in 1:length(chunked_entrez_list)) {
     # Format the entrez list to be requested
     request_param <- paste0("https://www.kegg.jp/dbget-bin/www_bget?",
-                            paste(unlist(chunked_entrez_list[1]), collapse= "+", sep=""))
+                            paste(unlist(chunked_entrez_list[idx]), collapse= "+", sep=""))
+
+    if (verbose_) {
+      cat("\n")
+      print("------------------------------------------------")
+      print(paste0("RUNNING CHUNK [", idx, " OF ", length(chunked_entrez_list), "] WITH SIZE: ", chunk_size))
+      cat("\n")
+      print(paste0("REQUEST: ", request_param))
+      print("------------------------------------------------")
+      cat("\n")
+    }
 
     # Get the entire KEGG webpage
     scraping <- getURL(paste0("https://www.kegg.jp/dbget-bin/www_bget?", request_param))
@@ -402,10 +420,24 @@ convertEntrezToECWithoutDict <- function(entrez_list_) {
       ec_list[item] <- str_replace_all(ec_list[item], "\\[EC:(.*?)\\>", "")
       ec_list[item] <- str_replace_all(ec_list[item], "</a>\\]", "")
       ec_list[item] <- str_replace_all(ec_list[item], "</a>(.*?)\\>", " / ")
+      ec_list[item] <- str_replace_all(ec_list[item], "</a>", " / ")
+      ec_list[item] <- str_replace_all(ec_list[item], "]", "")
+
+      if (verbose_) {
+        print(paste0(item, ") ", unlist(chunked_entrez_list[idx])[item], " -> ", ec_list[item]))
+      }
 
       # Add the EC item to the dataFrame
       ec_list_df[nrow(ec_list_df) + 1,] = ec_list[item]
     }
+  }
+
+  if (verbose_) {
+    cat("\n")
+    print("------------------------------------------------")
+    print("ENTREZ -> EC CONVERSION FINISHED WITH SUCCESS!")
+    print("------------------------------------------------")
+    cat("\n")
   }
 
   # Return the dataFrame containing the EC list
