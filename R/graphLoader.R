@@ -416,12 +416,6 @@ convertEntrezToECWithoutDict <- function(entrez_list_, chunk_size_=50, verbose_=
     # Get the entire KEGG webpage
     scraping <- getURL(paste0("https://www.kegg.jp/dbget-bin/www_bget?", request_param))
 
-    # Replace the <br> for another symbol
-    scraping <- gsub("<br />", "-|-", scraping, fixed = TRUE)
-
-    # Read the page HTML
-    scraping <- read_html(scraping)
-
     # Get the raw EC list
     ec_list <- unlist(str_extract_all(toString(scraping), "\\[EC:(.*?)\\]"))
 
@@ -435,7 +429,7 @@ convertEntrezToECWithoutDict <- function(entrez_list_, chunk_size_=50, verbose_=
       ec_list[item] <- str_replace_all(ec_list[item], "]", "")
 
       if (verbose_) {
-        log <- paste0(log, paste0(item, ") ", unlist(chunked_entrez_list[idx])[item], " -> ", ec_list[item]))
+        log <- paste0(log, paste0((item), ") ", unlist(chunked_entrez_list[idx])[item], " -> ", ec_list[item]))
         log <- paste0(log, "\n")
       }
 
