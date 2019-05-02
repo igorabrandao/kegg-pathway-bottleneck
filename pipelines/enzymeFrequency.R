@@ -99,7 +99,7 @@ ec_list_df <- data.frame("EC" = character(0), stringsAsFactors = FALSE)
 # Check if enzyme frequency dataFrame is not null
 if (is.not.null(enzymeFrequency)) {
   # Call the function to convert the entrez code into EC
-  ec_list_df <- convertEntrezToECWithoutDict(enzymeTotalFrequency, 250, TRUE)
+  ec_list_df <- convertEntrezToECWithoutDict(enzymeTotalFrequency, 100, TRUE)
 }
 
 ####################################

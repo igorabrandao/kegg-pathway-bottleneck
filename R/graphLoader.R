@@ -386,6 +386,9 @@ convertEntrezToECWithoutDict <- function(entrez_list_, chunk_size_=50, verbose_=
   chunk_size <- chunk_size_
   chunked_entrez_list <- split(entrez_list_, ceiling(seq_along(entrez_list_)/chunk_size))
 
+  # Log variable
+  log <- ""
+
   # Loop over each chunk
   for(idx in 1:length(chunked_entrez_list)) {
     # Format the entrez list to be requested
@@ -400,6 +403,14 @@ convertEntrezToECWithoutDict <- function(entrez_list_, chunk_size_=50, verbose_=
       print(paste0("REQUEST: ", request_param))
       print("------------------------------------------------")
       cat("\n")
+
+      log <- paste0(log, "\n\n")
+      log <- paste0(log, "------------------------------------------------\n")
+      log <- paste0(log, (paste0("RUNNING CHUNK [", idx, " OF ", length(chunked_entrez_list), "] WITH SIZE: ", chunk_size)))
+      log <- paste0(log, "\n")
+      log <- paste0(log, paste0("REQUEST: ", request_param))
+      log <- paste0(log, "\n------------------------------------------------")
+      log <- paste0(log, "\n\n")
     }
 
     # Get the entire KEGG webpage
@@ -424,7 +435,8 @@ convertEntrezToECWithoutDict <- function(entrez_list_, chunk_size_=50, verbose_=
       ec_list[item] <- str_replace_all(ec_list[item], "]", "")
 
       if (verbose_) {
-        print(paste0(item, ") ", unlist(chunked_entrez_list[idx])[item], " -> ", ec_list[item]))
+        log <- paste0(log, paste0(item, ") ", unlist(chunked_entrez_list[idx])[item], " -> ", ec_list[item]))
+        log <- paste0(log, "\n")
       }
 
       # Add the EC item to the dataFrame
@@ -433,6 +445,9 @@ convertEntrezToECWithoutDict <- function(entrez_list_, chunk_size_=50, verbose_=
   }
 
   if (verbose_) {
+    # Write the log into file
+    write(log, file = "./log/entrez_ec_conversion_log.txt")
+
     cat("\n")
     print("------------------------------------------------")
     print("ENTREZ -> EC CONVERSION FINISHED WITH SUCCESS!")
