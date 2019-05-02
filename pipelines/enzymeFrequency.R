@@ -90,22 +90,22 @@ for(row in start_of:length(organism2pathway)) {
 # Convert the entrez into EC #
 ##############################
 
-# Get just the first column of enzyme frequency dataFrame
-enzymeTotalFrequency <- enzymeFrequency[,c(1)]
-
 # Empty EC list dataFrame
 ec_list_df <- data.frame("EC" = character(0), stringsAsFactors = FALSE)
 
 # Check if enzyme frequency dataFrame is not null
 if (is.not.null(enzymeFrequency)) {
   # Call the function to convert the entrez code into EC
-  ec_list_df <- convertEntrezToECWithoutDict(enzymeTotalFrequency, 100, TRUE)
+  ec_list_df <- convertEntrezToECWithoutDict(enzymeFrequency[,c(1)], 100, TRUE)
 }
+
+# Add the EC column into ezyme frequency dataFrame
+ec_list_df[(nrow(ec_list_df) + 1):nrow(enzymeFrequency),] = NA # it's temporaly until fix the conversion function
+enzymeFrequency = cbind(enzymeFrequency, ec_list_df)
 
 ####################################
 # Count the enzyme total frequency #
 ####################################
 
 # Count the enzymes frequencies and transform it into a dataFrame
-enzymeTotalFrequency <- as.data.frame(table(enzymeTotalFrequency), stringsAsFactors = FALSE)
-
+enzymeTotalFrequency <- as.data.frame(table(enzymeFrequency[,c(5)]), stringsAsFactors = FALSE)

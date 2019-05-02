@@ -368,6 +368,8 @@ ECToEntrez <- function(ec_list_, ec_dictionnaire_, ko_dictionnaire_) {
 
 convertEntrezToECWithoutDict <- function(entrez_list_, chunk_size_=50, verbose_=FALSE) {
 
+  # TODO: Fix the missing rows by each chunk
+
   if (verbose_) {
     cat("\n")
     print("------------------------------------------------")
