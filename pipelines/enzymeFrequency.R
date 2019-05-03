@@ -1,8 +1,8 @@
-##################################################
-# Script to perform the enzyme frequencies count #
-##################################################
+####################################################
+# Pipeline to perform the enzyme frequencies count #
+####################################################
 
-# enzymeFrequency ####
+# enzymeFrequency.R #
 
 #' This is the pipeline script to perform
 #' the enzymes frequencies counting
@@ -17,7 +17,11 @@ library(RCurl)
 library(rvest)
 library(stringr)
 
-##############################################
+#-------------------------------------------------------------------------------------------#
+
+###########################
+# Pipeline basic settings #
+###########################
 
 # Import the graphLoader functions
 files.sources = paste0("./R", "/", "graphLoader.R")
@@ -36,7 +40,11 @@ is.not.null <- function(x) !is.null(x)
 # Empty enzyme frequency dataFrame
 enzymeFrequency <- data.frame()
 
-##############################################
+#-------------------------------------------------------------------------------------------#
+
+####################################
+# Step 1: Get all pathways enzymes #
+####################################
 
 # Loop over species matrix
 for(row in start_of:length(organism2pathway)) {
@@ -86,9 +94,14 @@ for(row in start_of:length(organism2pathway)) {
   }
 }
 
-##############################
-# Convert the entrez into EC #
-##############################
+# Remove the temp variable
+rm(temp)
+
+#-------------------------------------------------------------------------------------------#
+
+######################################
+# Step 2: Convert the entrez into EC #
+######################################
 
 # Empty EC list dataFrame
 ec_list_df <- data.frame("EC" = character(0), stringsAsFactors = FALSE)
@@ -103,9 +116,11 @@ if (is.not.null(enzymeFrequency)) {
 ec_list_df[(nrow(ec_list_df) + 1):nrow(enzymeFrequency),] = NA # it's temporaly until fix the conversion function
 enzymeFrequency = cbind(enzymeFrequency, ec_list_df)
 
-####################################
-# Count the enzyme total frequency #
-####################################
+#-------------------------------------------------------------------------------------------#
+
+############################################
+# Step 3: Count the enzyme total frequency #
+############################################
 
 # Count the enzymes frequencies and transform it into a dataFrame
 enzymeTotalFrequency <- as.data.frame(table(enzymeFrequency[,c(5)]), stringsAsFactors = FALSE)
