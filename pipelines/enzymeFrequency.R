@@ -101,8 +101,8 @@ enzymeFrequency$node2 <- NULL
 names(temp_df)[names(temp_df) == "node2"] <- "node1"
 enzymeFrequency <- rbind(enzymeFrequency, temp_df)
 
-# Remove the temp variable
-rm(temp, temp_df)
+# Remove intermediary variables
+rm(temp, temp_df, idx)
 
 #-------------------------------------------------------------------------------------------#
 
@@ -177,7 +177,7 @@ for(row in start_of:length(unlist(enzymeFrequency$entrez))) {
 }
 
 # Remove intermediary variables
-rm(current_pathway, highlighted_enzymes)
+rm(current_pathway, highlighted_enzymes, row)
 
 #-------------------------------------------------------------------------------------------#
 

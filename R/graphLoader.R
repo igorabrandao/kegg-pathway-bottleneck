@@ -253,13 +253,14 @@ getPathwayHighlightedGenes <- function(pathway_, IDs = NULL) {
   invisible(suppressWarnings(file.remove(paste0(species, pathway, ".", now, ".png"))))
 
   # Get the highlighted genes
-  highlightedGenes <- list(unique(img$plot.data.gene$kegg.names))
+  highlightedGenes <- list(unique(img$plot.data.gene$all.mapped))
 
-  # Convert the list into a vector
+  # Split all the enzymes
+  highlightedGenes <- sapply(strsplit(unlist(highlightedGenes), ','), '[')
   highlightedGenes <- unlist(highlightedGenes, use.names=FALSE)
 
   # Return the highlighted genes
-  return(highlightedGenes)
+  return(unique(highlightedGenes))
 }
 
 # getGraphProperties ####
@@ -375,7 +376,7 @@ convertEntrezToECWithoutDict <- function(entrez_list_, chunk_size_=50, verbose_=
   }
 
   # Empty EC list dataFrame
-  ec_list_df <- data.frame("EC" = character(0), stringsAsFactors = FALSE)
+  ec_list_df <- data.frame("ec" = character(0), stringsAsFactors = FALSE)
 
   # Remove the names from list to get just the values
   entrez_list_ <- unname(entrez_list_)
