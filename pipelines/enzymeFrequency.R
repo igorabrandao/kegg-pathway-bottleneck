@@ -11,11 +11,12 @@
 #' Igor Brandão
 
 # Import the necessary libraries
-library(KEGGREST)
+library(KEGGREST) # graph handler
 library(igraph)
-library(RCurl)
-library(rvest)
-library(stringr)
+library(RCurl) # http connections
+library(rvest) # web scraping
+library(stringr) # regex manipulation
+library(pracma) # string manipulation
 
 #-------------------------------------------------------------------------------------------#
 
@@ -94,17 +95,38 @@ for(row in start_of:length(organism2pathway)) {
   }
 }
 
+# Convert the node2 column into node1 rows
+temp_df <- as.data.frame(enzymeFrequency[,c(2, 3, 4)], stringsAsFactors = FALSE)
+enzymeFrequency$node2 <- NULL
+names(temp_df)[names(temp_df) == "node2"] <- "node1"
+enzymeFrequency <- rbind(enzymeFrequency, temp_df)
+
 # Remove the temp variable
-rm(temp)
+rm(temp, temp_df)
+
+#-------------------------------------------------------------------------------------------#
+
+####################################
+# Step 2: Clear duplicates enzymes #
+####################################
+
+# Rename [node1 -> entrez] column name
+names(enzymeFrequency)[names(enzymeFrequency) == "node1"] <- "entrez"
+
+# Remove duplicated rows based on entrez column
+enzymeFrequency <- enzymeFrequency[!duplicated(enzymeFrequency[c("entrez","pathway")]),]
+
+# Reindex the enzymeFrequency rows
+rownames(enzymeFrequency) <- 1:nrow(enzymeFrequency)
 
 #-------------------------------------------------------------------------------------------#
 
 ######################################
-# Step 2: Convert the entrez into EC #
+# Step 3: Convert the entrez into EC #
 ######################################
 
 # Empty EC list dataFrame
-ec_list_df <- data.frame("EC" = character(0), stringsAsFactors = FALSE)
+ec_list_df <- data.frame("ec" = character(0), stringsAsFactors = FALSE)
 
 # Check if enzyme frequency dataFrame is not null
 if (is.not.null(enzymeFrequency)) {
@@ -116,10 +138,51 @@ if (is.not.null(enzymeFrequency)) {
 ec_list_df[(nrow(ec_list_df) + 1):nrow(enzymeFrequency),] = NA # it's temporaly until fix the conversion function
 enzymeFrequency = cbind(enzymeFrequency, ec_list_df)
 
+# Remove intermediary variables
+rm(ec_list_df)
+
+#-------------------------------------------------------------------------------------------#
+
+########################################################
+# Step 4: Check if the enzyme appears into the pathway #
+########################################################
+
+current_pathway <- ""
+highlighted_enzymes <- NULL
+
+# Add a new column to the enzymeFrquency dataFrame
+enzymeFrequency$belong_to_pathway <- 0
+
+# Order the dataFrame
+enzymeFrequency <- enzymeFrequency[order(enzymeFrequency$org, enzymeFrequency$pathway),]
+
+# Loop over the enzymeFrequency dataFrame
+for(row in start_of:length(unlist(enzymeFrequency$entrez))) {
+  # Check if the current pathway is the same of the previous one
+  if (!strcmp(current_pathway, paste0(enzymeFrequency$org[row], enzymeFrequency$pathway[row]))) {
+    # Update the current pathway
+    current_pathway <- paste0(enzymeFrequency$org[row], enzymeFrequency$pathway[row])
+
+    # Get the highlighted enzymes list
+    highlighted_enzymes <- getPathwayHighlightedGenes(current_pathway)
+  }
+
+  # Get just the enzyme number without specie
+  current_enzyme <- gsub("^[[:alpha:]]*(.*$)", "\\1", str_replace(enzymeFrequency$entrez[row], ":", ""))
+
+  # Verify if the current enzyme is highlighted and set its status
+  if (current_enzyme %in% highlighted_enzymes) {
+    enzymeFrequency$belong_to_pathway[row] <- 1
+  }
+}
+
+# Remove intermediary variables
+rm(current_pathway, highlighted_enzymes)
+
 #-------------------------------------------------------------------------------------------#
 
 ############################################
-# Step 3: Count the enzyme total frequency #
+# Step 5: Count the enzyme total frequency #
 ############################################
 
 # Count the enzymes frequencies and transform it into a dataFrame

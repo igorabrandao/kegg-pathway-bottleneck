@@ -313,10 +313,6 @@ getGraphProperties <- function(iGraph_) {
 ##################################
 
 entrezToEC <- function(entrez_, ko_dictionnaire_, ec_dictionnaire_) {
-  load("dictionnaires/KO00010.RData")
-  load("dictionnaires/KO2EC.RData")
-  ko_dictionnaire_ <- ENTREZ2KO
-  ec_dictionnaire_ <- KO2EC
   return(ec_dictionnaire_[[ko_dictionnaire_[[as.character(entrez_)]]]])
 }
 

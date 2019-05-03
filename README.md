@@ -5,17 +5,17 @@ This project aims to find bottlenecks into KEGG Pathways
 
 This project folders are organized in the following way:
 
+**dictionnaires** => Dictionaries used as support to the pipelines.
+
+**man** => Project documentation for a future R package.
+
+**misc** => Other files such as spreadsheet.
+
 **pipelines** => Contains the main pipelines realted to this research, e.g: bottlenecks calculation, enzyme frequencies counter etc.
 
 **R** => The auxiliary functions are located here.
 
-**misc** => Other files such as spreadsheet.
-
-**dictionnaires** => Dictionaries used as support to the pipelines.
-
 **sql_scrpts** => SQL scripts to handle data stored into Mysql database.
-
-**man** => Project documentation for a future R package.
 
 ## Team:
 
