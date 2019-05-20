@@ -365,7 +365,23 @@ ECToEntrez <- function(ec_list_, ec_dictionnaire_, ko_dictionnaire_) {
 
 convertEntrezToECWithoutDict <- function(entrez_list_, chunk_size_=50, verbose_=FALSE) {
 
-  # TODO: Fix the missing rows by each chunk
+  # Perform an auxiliar scraping into mygene plataform to convert Entrez to EC
+  #' @param entrez_number_ Entrez number withou specie
+  #' @examples
+  #' \dontrun{
+  #' ec_result <- auxiliarScrap(entrez_number_)
+  #' }
+  #
+  auxiliarScrap <- function (entrez_number_) {
+    # Perform an auxiliar scraping
+    scraping_aux <- getURL(paste0("http://mygene.info/v3/gene/", entrez_number_, "?fields=ec%2Cname"))
+
+    # Get the raw EC list
+    ec_value <- unlist(str_extract_all(toString(scraping_aux), "(\\d+)(?:\\.(\\d+)\\.(\\d+)\\.(\\d+))"))
+
+    # Return the result
+    return(paste(ec_value, collapse = '/'));
+  }
 
   if (verbose_) {
     cat("\n")
@@ -390,6 +406,9 @@ convertEntrezToECWithoutDict <- function(entrez_list_, chunk_size_=50, verbose_=
 
   # Loop over each chunk
   for(idx in 1:length(chunked_entrez_list)) {
+    # Store just the number code of each entrez
+    current_entrez_list <- str_extract(unlist(chunked_entrez_list[idx]), "\\-*\\d+\\.*\\d*")
+
     # Format the entrez list to be requested
     request_param <- paste0("https://www.kegg.jp/dbget-bin/www_bget?",
                             paste(unlist(chunked_entrez_list[idx]), collapse= "+", sep=""))
@@ -397,7 +416,7 @@ convertEntrezToECWithoutDict <- function(entrez_list_, chunk_size_=50, verbose_=
     if (verbose_) {
       cat("\n")
       print("------------------------------------------------")
-      print(paste0("RUNNING CHUNK [", idx, " OF ", length(chunked_entrez_list), "] WITH SIZE: ", chunk_size))
+      print(paste0("RUNNING CHUNK [", idx, " OF ", length(chunked_entrez_list), "] WITH SIZE: ", chunk_size_))
       cat("\n")
       print(paste0("REQUEST: ", request_param))
       print("------------------------------------------------")
@@ -405,7 +424,7 @@ convertEntrezToECWithoutDict <- function(entrez_list_, chunk_size_=50, verbose_=
 
       log <- paste0(log, "\n\n")
       log <- paste0(log, "------------------------------------------------\n")
-      log <- paste0(log, (paste0("RUNNING CHUNK [", idx, " OF ", length(chunked_entrez_list), "] WITH SIZE: ", chunk_size)))
+      log <- paste0(log, (paste0("RUNNING CHUNK [", idx, " OF ", length(chunked_entrez_list), "] WITH SIZE: ", chunk_size_)))
       log <- paste0(log, "\n")
       log <- paste0(log, paste0("REQUEST: ", request_param))
       log <- paste0(log, "\n------------------------------------------------")
@@ -418,22 +437,34 @@ convertEntrezToECWithoutDict <- function(entrez_list_, chunk_size_=50, verbose_=
     # Get the raw EC list
     ec_list <- unlist(str_extract_all(toString(scraping), "\\[EC:(.*?)\\]"))
 
-    # Clean the EC list
-    for(item in 1:length(ec_list)) {
-      # Apply the regex to remove trash from EC string
-      ec_list[item] <- str_replace_all(ec_list[item], "\\[EC:(.*?)\\>", "")
-      ec_list[item] <- str_replace_all(ec_list[item], "</a>\\]", "")
-      ec_list[item] <- str_replace_all(ec_list[item], "</a>(.*?)\\>", " / ")
-      ec_list[item] <- str_replace_all(ec_list[item], "</a>", " / ")
-      ec_list[item] <- str_replace_all(ec_list[item], "]", "")
+    # Verify if the output in KEGG is correct
+    if (length(ec_list) == length(current_entrez_list)) {
+      # Get the EC from KEGG page
+      for(item in 1:length(ec_list)) {
+        # Apply the regex to remove trash from EC string
+        ec_list[item] <- str_replace_all(ec_list[item], "\\[EC:(.*?)\\>", "")
+        ec_list[item] <- str_replace_all(ec_list[item], "</a>\\]", "")
+        ec_list[item] <- str_replace_all(ec_list[item], "</a>(.*?)\\>", " / ")
+        ec_list[item] <- str_replace_all(ec_list[item], "</a>", " / ")
+        ec_list[item] <- str_replace_all(ec_list[item], "]", "")
 
-      if (verbose_) {
-        log <- paste0(log, paste0((item), ") ", unlist(chunked_entrez_list[idx])[item], " -> ", ec_list[item]))
-        log <- paste0(log, "\n")
+        if (verbose_) {
+          log <- paste0(log, paste0((item), ") ", unlist(chunked_entrez_list[idx])[item], " -> ", ec_list[item]))
+          log <- paste0(log, "\n")
+        }
+
+        # Add the EC item to the dataFrame
+        if (is.not.null(ec_list[item])) {
+          ec_list_df[nrow(ec_list_df) + 1,] = ec_list[item]
+        } else {
+          ec_list_df[nrow(ec_list_df) + 1,] = auxiliarScrap(current_entrez_list[item])
+        }
       }
-
-      # Add the EC item to the dataFrame
-      ec_list_df[nrow(ec_list_df) + 1,] = ec_list[item]
+    } else {
+      # Alternative method
+      for (item in 1:length(current_entrez_list)) {
+        ec_list_df[nrow(ec_list_df) + 1,] = auxiliarScrap(current_entrez_list[item])
+      }
     }
   }
 
