@@ -25,7 +25,8 @@ library(pracma) # string manipulation
 ###########################
 
 # Import the graphLoader functions
-files.sources = paste0("./R", "/", "graphLoader.R")
+files.sources[1] = paste0("./R", "/", "graphLoader.R")
+files.sources[2] = paste0("./R", "/", "graphBottleneck.R")
 sapply(files.sources, source)
 
 # Load the pathways by organisms data
@@ -158,12 +159,12 @@ enzymeFrequency <- enzymeFrequency[order(enzymeFrequency$org, enzymeFrequency$pa
 # Loop over the enzymeFrequency dataFrame
 for(row in start_of:length(unlist(enzymeFrequency$entrez))) {
   # Check if the current pathway is the same of the previous one
-  if (!strcmp(current_pathway, paste0(enzymeFrequency$org[row], enzymeFrequency$pathway[row]))) {
+  if ( current_pathway != paste0(enzymeFrequency$org[row], enzymeFrequency$pathway[row]) ) {
     # Update the current pathway
     current_pathway <- paste0(enzymeFrequency$org[row], enzymeFrequency$pathway[row])
 
     # Get the highlighted enzymes list
-    highlighted_enzymes <- getPathwayHighlightedGenes(current_pathway)
+    highlighted_enzymes <- getPathwayHighlightedGenes(current_pathway, allMapped_=TRUE)
   }
 
   # Get just the enzyme number without specie
@@ -180,8 +181,64 @@ rm(current_pathway, highlighted_enzymes, row)
 
 #-------------------------------------------------------------------------------------------#
 
+###############################################
+# Step 5: Check if the enzyme is a bottleneck #
+###############################################
+
+#Para calcular o bottleneck, pegar o objeto iGraph
+#e aplicar a função de calculo de bottleneckss diretamente
+#sem necessidade de filtrar os nós pintados para cada organismo
+
+# TODO: Test code (remove later)
+xpto <- getPathwayHighlightedGenes("hsa00010", allMapped_=TRUE)
+xpto2 <- getPathwayHighlightedGenes("hsa00010", allMapped_=FALSE)
+
+iGraph <- pathwayToDataframe("hsa00010")
+iGraph <- igraph::graph_from_data_frame(iGraph, directed = FALSE)
+
+# Vertex communites
+iGraph <- setGraphCommunity(iGraph)
+
+# Vertex betweenness
+iGraph <- setGraphBetwenness(iGraph)
+
+# Vertex closeness
+iGraph <- setGraphCloseness(iGraph)
+
+# Vertex clustering
+iGraph <- setGraphClustering(iGraph)
+
+# Perform the graph bottleneck calculation
+graphBottleneck <- getGraphBottleneck(iGraph, TRUE)
+
+
+
+
+current_pathway <- ""
+pathway_bottlenecks <- NULL
+
+# Add a new column to the enzymeFrquency dataFrame
+enzymeFrequency$is_bottleneck <- 0
+
+# Loop over the enzymeFrequency dataFrame
+for(row in start_of:length(unlist(enzymeFrequency$entrez))) {
+  # Check if the current pathway is the same of the previous one
+  if ( current_pathway != paste0(enzymeFrequency$org[row], enzymeFrequency$pathway[row]) ) {
+    # Update the current pathway
+    current_pathway <- paste0(enzymeFrequency$org[row], enzymeFrequency$pathway[row])
+
+    # Get the pathway bottlenecks list
+    #pathway_bottlenecks <- getPathwayHighlightedGenes(current_pathway)
+  }
+}
+
+# Remove intermediary variables
+rm(current_pathway, highlighted_enzymes, row)
+
+#-------------------------------------------------------------------------------------------#
+
 ############################################
-# Step 5: Count the enzyme total frequency #
+# Step 6: Count the enzyme total frequency #
 ############################################
 
 # Count the enzymes frequencies and transform it into a dataFrame

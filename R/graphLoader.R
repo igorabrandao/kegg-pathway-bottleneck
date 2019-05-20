@@ -196,6 +196,9 @@ getReferencePathway <- function(pathway_, ko_ec_dictionnaire_) {
 #'
 #' @param IDs Character vector containing ENTREZ or KO identifiers.
 #'
+#' @param allMapped_ Flag to set if the result contains just the first
+#' Entrez representing a single EC (FALSE) or contains all the Entrez
+#'
 #' @return This function saves an image (PNG) in the current working directory
 #' and returns the identifiers of the highlighted nodes.
 #'
@@ -211,7 +214,7 @@ getReferencePathway <- function(pathway_, ko_ec_dictionnaire_) {
 #' @author
 #' Diego Morais / Igor Brandão
 
-getPathwayHighlightedGenes <- function(pathway_, IDs = NULL) {
+getPathwayHighlightedGenes <- function(pathway_, IDs = NULL, allMapped_ = TRUE) {
   img <- NULL
   species <- gsub("^([[:alpha:]]*).*$", "\\1", pathway_)
 
@@ -253,10 +256,15 @@ getPathwayHighlightedGenes <- function(pathway_, IDs = NULL) {
   invisible(suppressWarnings(file.remove(paste0(species, pathway, ".", now, ".png"))))
 
   # Get the highlighted genes
-  highlightedGenes <- list(unique(img$plot.data.gene$all.mapped))
+  if (allMapped_) {
+    highlightedGenes <- list(unique(img$plot.data.gene$all.mapped))
+    highlightedGenes <- sapply(strsplit(unlist(highlightedGenes), ','), '[')
+  } else {
+    highlightedGenes <- list(unique(img$plot.data.gene$kegg.names))
+  }
+
 
   # Split all the enzymes
-  highlightedGenes <- sapply(strsplit(unlist(highlightedGenes), ','), '[')
   highlightedGenes <- unlist(highlightedGenes, use.names=FALSE)
 
   # Return the highlighted genes
