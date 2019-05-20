@@ -135,7 +135,6 @@ if (is.not.null(enzymeFrequency)) {
 }
 
 # Add the EC column into ezyme frequency dataFrame
-ec_list_df[(nrow(ec_list_df) + 1):nrow(enzymeFrequency),] = NA # it's temporaly until fix the conversion function
 enzymeFrequency = cbind(enzymeFrequency, ec_list_df)
 
 # Remove intermediary variables

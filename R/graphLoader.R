@@ -380,7 +380,7 @@ convertEntrezToECWithoutDict <- function(entrez_list_, chunk_size_=50, verbose_=
     ec_value <- unlist(str_extract_all(toString(scraping_aux), "(\\d+)(?:\\.(\\d+)\\.(\\d+)\\.(\\d+))"))
 
     # Return the result
-    return(paste(ec_value, collapse = '/'));
+    return(paste(ec_value, collapse = ' / '));
   }
 
   if (verbose_) {
@@ -437,32 +437,37 @@ convertEntrezToECWithoutDict <- function(entrez_list_, chunk_size_=50, verbose_=
     # Get the raw EC list
     ec_list <- unlist(str_extract_all(toString(scraping), "\\[EC:(.*?)\\]"))
 
-    # Verify if the output in KEGG is correct
-    if (length(ec_list) == length(current_entrez_list)) {
-      # Get the EC from KEGG page
-      for(item in 1:length(ec_list)) {
+    # Get the raw Entrez list
+    entrez_list <- unlist(str_extract_all(toString(scraping), "<code><nobr>+([0-9])+&nbsp;&nbsp"))
+    entrez_list <- str_extract(unlist(entrez_list), "\\-*\\d+\\.*\\d*")
+
+    # Run each entrez to define how it gonne be converted
+    for (item in 1:length(current_entrez_list)) {
+      # Check if the KEGG html contains the current entrez
+      entrez_position <- which(current_entrez_list[item]==entrez_list)
+
+      # Use KEGG data
+      if (length(entrez_position) > 0) {
         # Apply the regex to remove trash from EC string
-        ec_list[item] <- str_replace_all(ec_list[item], "\\[EC:(.*?)\\>", "")
-        ec_list[item] <- str_replace_all(ec_list[item], "</a>\\]", "")
-        ec_list[item] <- str_replace_all(ec_list[item], "</a>(.*?)\\>", " / ")
-        ec_list[item] <- str_replace_all(ec_list[item], "</a>", " / ")
-        ec_list[item] <- str_replace_all(ec_list[item], "]", "")
+        ec_list[entrez_position] <- str_replace_all(ec_list[entrez_position], "\\[EC:(.*?)\\>", "")
+        ec_list[entrez_position] <- str_replace_all(ec_list[entrez_position], "</a>\\]", "")
+        ec_list[entrez_position] <- str_replace_all(ec_list[entrez_position], "</a>(.*?)\\>", " / ")
+        ec_list[entrez_position] <- str_replace_all(ec_list[entrez_position], "</a>", " / ")
+        ec_list[entrez_position] <- str_replace_all(ec_list[entrez_position], "]", "")
 
         if (verbose_) {
-          log <- paste0(log, paste0((item), ") ", unlist(chunked_entrez_list[idx])[item], " -> ", ec_list[item]))
+          log <- paste0(log, paste0((item), ") ", unlist(chunked_entrez_list[idx])[entrez_position], " -> ", ec_list[entrez_position]))
           log <- paste0(log, "\n")
         }
 
         # Add the EC item to the dataFrame
-        if (is.not.null(ec_list[item])) {
-          ec_list_df[nrow(ec_list_df) + 1,] = ec_list[item]
+        if (is.not.null(ec_list[entrez_position]) & !is.na(ec_list[entrez_position])) {
+          ec_list_df[nrow(ec_list_df) + 1,] = paste(ec_list[entrez_position], collapse = ' / ')
         } else {
-          ec_list_df[nrow(ec_list_df) + 1,] = auxiliarScrap(current_entrez_list[item])
+          ec_list_df[nrow(ec_list_df) + 1,] = auxiliarScrap(current_entrez_list[entrez_position])
         }
-      }
-    } else {
-      # Alternative method
-      for (item in 1:length(current_entrez_list)) {
+      } else {
+        # Alternative method
         ec_list_df[nrow(ec_list_df) + 1,] = auxiliarScrap(current_entrez_list[item])
       }
     }
