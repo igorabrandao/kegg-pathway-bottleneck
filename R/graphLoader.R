@@ -28,8 +28,8 @@
 #' @author
 #' Diego Morais & Igor Brandão
 
-pathwayToDataframe <- function(pathway_) {
-  genesOnly <- !grepl("^ko", pathway_)
+pathwayToDataframe <- function(pathway_, replaceOrg=FALSE, orgToReplace='') {
+  genesOnly <- !grepl("^ko|^ec", pathway_)
   kgml <- suppressMessages(KEGGREST::keggGet(pathway_, "kgml"))
   mapkpathway <- KEGGgraph::parseKGML(kgml)
   mapkG <- KEGGgraph::KEGGpathway2Graph(mapkpathway, genesOnly)
@@ -41,7 +41,12 @@ pathwayToDataframe <- function(pathway_) {
 
   if (length(unlist(aux)) > 0) {
     # It means the organism has the pathway
-    aux$org <- gsub("^([[:alpha:]]*).*$", "\\1", pathway_)
+    if (!replaceOrg) {
+      aux$org <- gsub("^([[:alpha:]]*).*$", "\\1", pathway_)
+    } else {
+      aux$org <-orgToReplace
+    }
+
     aux$pathway <- gsub("^[[:alpha:]]*(.*$)", "\\1", pathway_)
     rm(pathway_, mapkpathway, kgml)
     return(aux)

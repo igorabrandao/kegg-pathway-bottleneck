@@ -25,6 +25,7 @@ library(pracma) # string manipulation
 ###########################
 
 # Import the graphLoader functions
+files.sources = NULL
 files.sources[1] = paste0("./R", "/", "graphLoader.R")
 files.sources[2] = paste0("./R", "/", "graphBottleneck.R")
 sapply(files.sources, source)
@@ -78,7 +79,7 @@ for(row in start_of:length(organism2pathway)) {
     pathway <- unlist(org)[idx]
 
     # Format the pathway code
-    pathway_code <- paste0(specie, pathway)
+    pathway_code <- paste0('ec', pathway)
 
     # Status message
     cat("\n")
@@ -86,21 +87,33 @@ for(row in start_of:length(organism2pathway)) {
     cat("\n")
 
     # Get the enzyme list from pathway
-    temp <- pathwayToDataframe(pathway_code)
+    temp <- pathwayToDataframe(pathway_code, TRUE, specie)
 
     # Check if the organism has the current pathway
     if (is.not.null(temp)) {
+      # Calculates the network bottleneck
+      iGraph <- igraph::graph_from_data_frame(temp, directed = FALSE)
+
+      # Perform the graph bottleneck calculation
+      graphBottleneck <- as_ids(getGraphBottleneck(iGraph, FALSE))
+
+      # Convert the node2 column into node1 rows
+      temp_df <- as.data.frame(temp[,c(2, 3, 4)], stringsAsFactors = FALSE)
+      temp$node2 <- NULL
+      names(temp_df)[names(temp_df) == "node2"] <- "node1"
+      temp <- rbind(temp, temp_df)
+
+      # Add a new column to the enzymeFrquency dataFrame
+      temp$is_bottleneck <- 0
+
+      # Assign the bottlenecks
+      temp$is_bottleneck[which(temp[,1] %in% graphBottleneck)] <- 1
+
       # Add each pathways enzymes into enzymeFrequency dataFrame
       enzymeFrequency <- rbind(enzymeFrequency, temp)
     }
   }
 }
-
-# Convert the node2 column into node1 rows
-temp_df <- as.data.frame(enzymeFrequency[,c(2, 3, 4)], stringsAsFactors = FALSE)
-enzymeFrequency$node2 <- NULL
-names(temp_df)[names(temp_df) == "node2"] <- "node1"
-enzymeFrequency <- rbind(enzymeFrequency, temp_df)
 
 # Remove intermediary variables
 rm(temp, temp_df, idx)
@@ -111,40 +124,19 @@ rm(temp, temp_df, idx)
 # Step 2: Clear duplicates enzymes #
 ####################################
 
-# Rename [node1 -> entrez] column name
-names(enzymeFrequency)[names(enzymeFrequency) == "node1"] <- "entrez"
+# Rename the nodes column
+names(enzymeFrequency)[names(enzymeFrequency) == "node1"] <- "ec"
 
 # Remove duplicated rows based on entrez column
-enzymeFrequency <- enzymeFrequency[!duplicated(enzymeFrequency[c("entrez","pathway")]),]
+enzymeFrequency <- enzymeFrequency[!duplicated(enzymeFrequency[c("ec","pathway")]),]
 
 # Reindex the enzymeFrequency rows
 rownames(enzymeFrequency) <- 1:nrow(enzymeFrequency)
 
 #-------------------------------------------------------------------------------------------#
 
-######################################
-# Step 3: Convert the entrez into EC #
-######################################
-
-# Empty EC list dataFrame
-ec_list_df <- data.frame("ec" = character(0), stringsAsFactors = FALSE)
-
-# Check if enzyme frequency dataFrame is not null
-if (is.not.null(enzymeFrequency)) {
-  # Call the function to convert the entrez code into EC
-  ec_list_df <- convertEntrezToECWithoutDict(enzymeFrequency[,c(1)], 50, TRUE)
-}
-
-# Add the EC column into ezyme frequency dataFrame
-enzymeFrequency = cbind(enzymeFrequency, ec_list_df)
-
-# Remove intermediary variables
-rm(ec_list_df)
-
-#-------------------------------------------------------------------------------------------#
-
 ########################################################
-# Step 4: Check if the enzyme appears into the pathway #
+# Step 3: Check if the enzyme appears into the pathway #
 ########################################################
 
 current_pathway <- ""
@@ -157,7 +149,8 @@ enzymeFrequency$belong_to_pathway <- 0
 enzymeFrequency <- enzymeFrequency[order(enzymeFrequency$org, enzymeFrequency$pathway),]
 
 # Loop over the enzymeFrequency dataFrame
-for(row in start_of:length(unlist(enzymeFrequency$entrez))) {
+for(row in start_of:length(unlist(enzymeFrequency$ec))) {
+
   # Check if the current pathway is the same of the previous one
   if ( current_pathway != paste0(enzymeFrequency$org[row], enzymeFrequency$pathway[row]) ) {
     # Update the current pathway
@@ -165,10 +158,22 @@ for(row in start_of:length(unlist(enzymeFrequency$entrez))) {
 
     # Get the highlighted enzymes list
     highlighted_enzymes <- getPathwayHighlightedGenes(current_pathway, allMapped_=TRUE)
+
+    # Concat the org string
+    highlighted_enzymes <- paste(enzymeFrequency$org[row], highlighted_enzymes, sep=":")
+
+    # Convert it into dataframe
+    highlighted_enzymes <- as.data.frame(highlighted_enzymes, stringsAsFactors = FALSE)
+
+    # Convert the highlighted list into EC number
+    highlighted_enzymes <- convertEntrezToECWithoutDict(highlighted_enzymes[,c(1)], 50, TRUE)
+
+    # Remove the duplicates
+    highlighted_enzymes <- highlighted_enzymes[!duplicated(highlighted_enzymes),]
   }
 
   # Get just the enzyme number without specie
-  current_enzyme <- gsub("^[[:alpha:]]*(.*$)", "\\1", str_replace(enzymeFrequency$entrez[row], ":", ""))
+  current_enzyme <- gsub("^[[:alpha:]]*(.*$)", "\\1", str_replace(enzymeFrequency$ec[row], ":", ""))
 
   # Verify if the current enzyme is highlighted and set its status
   if (current_enzyme %in% highlighted_enzymes) {
@@ -181,64 +186,8 @@ rm(current_pathway, highlighted_enzymes, row)
 
 #-------------------------------------------------------------------------------------------#
 
-###############################################
-# Step 5: Check if the enzyme is a bottleneck #
-###############################################
-
-#Para calcular o bottleneck, pegar o objeto iGraph
-#e aplicar a função de calculo de bottleneckss diretamente
-#sem necessidade de filtrar os nós pintados para cada organismo
-
-# TODO: Test code (remove later)
-xpto <- getPathwayHighlightedGenes("hsa00010", allMapped_=TRUE)
-xpto2 <- getPathwayHighlightedGenes("hsa00010", allMapped_=FALSE)
-
-iGraph <- pathwayToDataframe("hsa00010")
-iGraph <- igraph::graph_from_data_frame(iGraph, directed = FALSE)
-
-# Vertex communites
-iGraph <- setGraphCommunity(iGraph)
-
-# Vertex betweenness
-iGraph <- setGraphBetwenness(iGraph)
-
-# Vertex closeness
-iGraph <- setGraphCloseness(iGraph)
-
-# Vertex clustering
-iGraph <- setGraphClustering(iGraph)
-
-# Perform the graph bottleneck calculation
-graphBottleneck <- getGraphBottleneck(iGraph, TRUE)
-
-
-
-
-current_pathway <- ""
-pathway_bottlenecks <- NULL
-
-# Add a new column to the enzymeFrquency dataFrame
-enzymeFrequency$is_bottleneck <- 0
-
-# Loop over the enzymeFrequency dataFrame
-for(row in start_of:length(unlist(enzymeFrequency$entrez))) {
-  # Check if the current pathway is the same of the previous one
-  if ( current_pathway != paste0(enzymeFrequency$org[row], enzymeFrequency$pathway[row]) ) {
-    # Update the current pathway
-    current_pathway <- paste0(enzymeFrequency$org[row], enzymeFrequency$pathway[row])
-
-    # Get the pathway bottlenecks list
-    #pathway_bottlenecks <- getPathwayHighlightedGenes(current_pathway)
-  }
-}
-
-# Remove intermediary variables
-rm(current_pathway, highlighted_enzymes, row)
-
-#-------------------------------------------------------------------------------------------#
-
 ############################################
-# Step 6: Count the enzyme total frequency #
+# Step 4: Count the enzyme total frequency #
 ############################################
 
 # Count the enzymes frequencies and transform it into a dataFrame

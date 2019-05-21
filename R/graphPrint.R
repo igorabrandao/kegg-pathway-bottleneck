@@ -2,6 +2,10 @@
 # Functions to print the iGraph_ object #
 #########################################
 
+library(igraph)
+library(RedeR)
+library(RColorBrewer)
+
 printBottleneckInRedPort <- function(iGraph_, bottleneck_, verbose_=FALSE) {
   # Set the color palette according to the communities count
   myColors <- rainbow(length(unique(V(iGraph_)$group)))
