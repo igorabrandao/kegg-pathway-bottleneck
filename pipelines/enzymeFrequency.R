@@ -42,7 +42,7 @@ is.not.null <- function(x) !is.null(x)
 
 # Empty enzyme frequency dataFrame
 enzymeList <- data.frame()
-pathwaysNotExtracted <- data.frame()
+pathwaysNotExtracted <- data.frame(org = character(0), pathway = character(0))
 
 #-------------------------------------------------------------------------------------------#
 
@@ -50,7 +50,7 @@ pathwaysNotExtracted <- data.frame()
 # Step 1: Get all pathways enzymes #
 ####################################
 
-getPathwayEnzymes <- function(row, removeNoise=TRUE) {
+getPathwayEnzymes <- function(row, removeNoise=TRUE, replaceEmptyGraph=TRUE) {
   #################################
   # Get the organism general info #
   #################################
@@ -88,13 +88,26 @@ getPathwayEnzymes <- function(row, removeNoise=TRUE) {
     # Get the enzyme list from pathway
     temp <- pathwayToDataframe(pathway_code, TRUE, specie)
 
+    # Handle empty graph
     if (is.null(temp)) {
-      # Save the not extracted pathway
-      not_extracted_tmp$org <- specie
-      not_extracted_tmp$pathway <- pathway
+      if (replaceEmptyGraph) {
+        # Try to find the specific pathway for an organism
+        pathway_code_tmp <- paste0(specie, pathway)
 
-      # Add each pathways not extracted
-      pathwaysNotExtracted <<- rbind(pathwaysNotExtracted, not_extracted_tmp)
+        # Status message
+        cat("\n")
+        print(paste0("<<< Requesting specific pathway for ", pathway_code_tmp, "... >>>"))
+        cat("\n")
+
+        temp <- pathwayToDataframe(pathway_code_tmp, TRUE, specie)
+      } else {
+        # Save the not extracted pathway
+        not_extracted_tmp<-data.frame(specie, pathway)
+        names(not_extracted_tmp)<-c("org", "pathway")
+
+        # Add each pathways not extracted
+        pathwaysNotExtracted <<- rbind(pathwaysNotExtracted, not_extracted_tmp)
+      }
     }
 
     # Check if the organism has the current pathway
@@ -168,6 +181,11 @@ checkGenePresence <- function(row) {
   if ( current_pathway != paste0(enzymeList$org[row], enzymeList$pathway[row]) ) {
     # Update the current pathway
     current_pathway <<- paste0(enzymeList$org[row], enzymeList$pathway[row])
+
+    # Status message
+    cat("\n")
+    print(paste0("<<< Working on ", current_pathway, " pathway... >>>"))
+    cat("\n")
 
     # Get the highlighted enzymes list
     highlighted_enzymes <<- getPathwayHighlightedGenes(current_pathway, allMapped_=TRUE)
