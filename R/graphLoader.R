@@ -29,32 +29,37 @@
 #' Diego Morais & Igor Brandão
 
 pathwayToDataframe <- function(pathway_, replaceOrg=FALSE, orgToReplace='') {
-  genesOnly <- !grepl("^ko|^ec", pathway_)
-  kgml <- suppressMessages(KEGGREST::keggGet(pathway_, "kgml"))
-  mapkpathway <- KEGGgraph::parseKGML(kgml)
-  mapkG <- KEGGgraph::KEGGpathway2Graph(mapkpathway, genesOnly)
-  aux <- names(mapkG@edgeData@data)
-  aux <- as.data.frame(aux, stringsAsFactors = FALSE)
-  aux$node2 <- gsub("^.*\\|(.*)$", "\\1", aux$aux)
-  colnames(aux)[1] <- "node1"
-  aux$node1 <- gsub("^(.*)\\|.*$", "\\1", aux$node1)
+  tryCatch({
+    genesOnly <- !grepl("^ko|^ec", pathway_)
+    kgml <- suppressMessages(KEGGREST::keggGet(pathway_, "kgml"))
+    mapkpathway <- KEGGgraph::parseKGML(kgml)
+    mapkG <- KEGGgraph::KEGGpathway2Graph(mapkpathway, genesOnly)
+    aux <- names(mapkG@edgeData@data)
+    aux <- as.data.frame(aux, stringsAsFactors = FALSE)
+    aux$node2 <- gsub("^.*\\|(.*)$", "\\1", aux$aux)
+    colnames(aux)[1] <- "node1"
+    aux$node1 <- gsub("^(.*)\\|.*$", "\\1", aux$node1)
 
-  if (length(unlist(aux)) > 0) {
-    # It means the organism has the pathway
-    if (!replaceOrg) {
-      aux$org <- gsub("^([[:alpha:]]*).*$", "\\1", pathway_)
+    if (length(unlist(aux)) > 0) {
+      # It means the organism has the pathway
+      if (!replaceOrg) {
+        aux$org <- gsub("^([[:alpha:]]*).*$", "\\1", pathway_)
+      } else {
+        aux$org <-orgToReplace
+      }
+
+      aux$pathway <- gsub("^[[:alpha:]]*(.*$)", "\\1", pathway_)
+      rm(pathway_, mapkpathway, kgml)
+      return(aux)
     } else {
-      aux$org <-orgToReplace
+      # It means the organism doesn't have the pathway
+      rm(pathway_, mapkpathway, kgml)
+      return(NULL)
     }
-
-    aux$pathway <- gsub("^[[:alpha:]]*(.*$)", "\\1", pathway_)
-    rm(pathway_, mapkpathway, kgml)
-    return(aux)
-  } else {
-    # It means the organism doesn't have the pathway
-    rm(pathway_, mapkpathway, kgml)
+  }, error=function(e){
+    print(paste0('The pathway ', pathway_, ' could no be found. Skipping it...'))
     return(NULL)
-  }
+  })
 }
 
 # getReferencePathway ####

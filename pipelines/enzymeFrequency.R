@@ -2,7 +2,7 @@
 # Pipeline to perform the enzyme frequencies count #
 ####################################################
 
-# enzymeFrequency.R #
+# enzymeList.R #
 
 #' This is the pipeline script to perform
 #' the enzymes frequencies counting
@@ -41,7 +41,7 @@ start_of <- 1
 is.not.null <- function(x) !is.null(x)
 
 # Empty enzyme frequency dataFrame
-enzymeFrequency <- data.frame()
+enzymeList <- data.frame()
 
 #-------------------------------------------------------------------------------------------#
 
@@ -83,11 +83,23 @@ for(row in start_of:length(organism2pathway)) {
 
     # Status message
     cat("\n")
-    print(paste0("<<< Requesting ", pathway_code, "... >>>"))
+    print(paste0("<<< Requesting ", specie, ": ", pathway_code, "... >>>"))
     cat("\n")
 
     # Get the enzyme list from pathway
     temp <- pathwayToDataframe(pathway_code, TRUE, specie)
+
+    if (is.null(temp)) {
+      # Try to find the specific pathway for an organism
+      pathway_code_tmp <- paste0(specie, pathway)
+
+      # Status message
+      cat("\n")
+      print(paste0("<<< Requesting specific pathway for ", pathway_code_tmp, "... >>>"))
+      cat("\n")
+
+      temp <- pathwayToDataframe(pathway_code_tmp, TRUE, specie)
+    }
 
     # Check if the organism has the current pathway
     if (is.not.null(temp)) {
@@ -109,14 +121,14 @@ for(row in start_of:length(organism2pathway)) {
       # Assign the bottlenecks
       temp$is_bottleneck[which(temp[,1] %in% graphBottleneck)] <- 1
 
-      # Add each pathways enzymes into enzymeFrequency dataFrame
-      enzymeFrequency <- rbind(enzymeFrequency, temp)
+      # Add each pathways enzymes into enzymeList dataFrame
+      enzymeList <- rbind(enzymeList, temp)
     }
   }
 }
 
 # Remove intermediary variables
-rm(temp, temp_df, idx)
+rm(temp, temp_df, idx, pathway_code_tmp)
 
 #-------------------------------------------------------------------------------------------#
 
@@ -125,13 +137,16 @@ rm(temp, temp_df, idx)
 ####################################
 
 # Rename the nodes column
-names(enzymeFrequency)[names(enzymeFrequency) == "node1"] <- "ec"
+names(enzymeList)[names(enzymeList) == "node1"] <- "ec"
 
 # Remove duplicated rows based on entrez column
-enzymeFrequency <- enzymeFrequency[!duplicated(enzymeFrequency[c("ec","pathway")]),]
+enzymeList <- enzymeList[!duplicated(enzymeList[c("ec","pathway")]),]
 
-# Reindex the enzymeFrequency rows
-rownames(enzymeFrequency) <- 1:nrow(enzymeFrequency)
+# Reindex the enzymeList rows
+rownames(enzymeList) <- 1:nrow(enzymeList)
+
+# Make a copy of data without paths values
+enzymeListWithoutPaths <- enzymeList[!grepl("^path", enzymeList$ec),]
 
 #-------------------------------------------------------------------------------------------#
 
@@ -143,24 +158,24 @@ current_pathway <- ""
 highlighted_enzymes <- NULL
 
 # Add a new column to the enzymeFrquency dataFrame
-enzymeFrequency$belong_to_pathway <- 0
+enzymeList$is_expressed <- 0
 
 # Order the dataFrame
-enzymeFrequency <- enzymeFrequency[order(enzymeFrequency$org, enzymeFrequency$pathway),]
+enzymeList <- enzymeList[order(enzymeList$org, enzymeList$pathway),]
 
-# Loop over the enzymeFrequency dataFrame
-for(row in start_of:length(unlist(enzymeFrequency$ec))) {
+# Loop over the enzymeList dataFrame
+for(row in start_of:length(unlist(enzymeList$ec))) {
 
   # Check if the current pathway is the same of the previous one
-  if ( current_pathway != paste0(enzymeFrequency$org[row], enzymeFrequency$pathway[row]) ) {
+  if ( current_pathway != paste0(enzymeList$org[row], enzymeList$pathway[row]) ) {
     # Update the current pathway
-    current_pathway <- paste0(enzymeFrequency$org[row], enzymeFrequency$pathway[row])
+    current_pathway <- paste0(enzymeList$org[row], enzymeList$pathway[row])
 
     # Get the highlighted enzymes list
     highlighted_enzymes <- getPathwayHighlightedGenes(current_pathway, allMapped_=TRUE)
 
     # Concat the org string
-    highlighted_enzymes <- paste(enzymeFrequency$org[row], highlighted_enzymes, sep=":")
+    highlighted_enzymes <- paste(enzymeList$org[row], highlighted_enzymes, sep=":")
 
     # Convert it into dataframe
     highlighted_enzymes <- as.data.frame(highlighted_enzymes, stringsAsFactors = FALSE)
@@ -173,11 +188,11 @@ for(row in start_of:length(unlist(enzymeFrequency$ec))) {
   }
 
   # Get just the enzyme number without specie
-  current_enzyme <- gsub("^[[:alpha:]]*(.*$)", "\\1", str_replace(enzymeFrequency$ec[row], ":", ""))
+  current_enzyme <- gsub("^[[:alpha:]]*(.*$)", "\\1", str_replace(enzymeList$ec[row], ":", ""))
 
   # Verify if the current enzyme is highlighted and set its status
   if (current_enzyme %in% highlighted_enzymes) {
-    enzymeFrequency$belong_to_pathway[row] <- 1
+    enzymeList$is_expressed[row] <- 1
   }
 }
 
@@ -190,5 +205,12 @@ rm(current_pathway, highlighted_enzymes, row)
 # Step 4: Count the enzyme total frequency #
 ############################################
 
+# Filter just the enzymes with some frequency
+enzymeTotalFrequency <- enzymeList[enzymeList$is_expressed == 1,]
+
 # Count the enzymes frequencies and transform it into a dataFrame
-enzymeTotalFrequency <- as.data.frame(table(enzymeFrequency[,c(5)]), stringsAsFactors = FALSE)
+enzymeTotalFrequency <- as.data.frame(table(enzymeTotalFrequency$ec), stringsAsFactors = FALSE)
+names(enzymeTotalFrequency)[names(enzymeTotalFrequency) == "Var1"] <- "ec"
+
+enzymeList[which(enzymeList$ec %in% enzymeTotalFrequency$ec),]
+
