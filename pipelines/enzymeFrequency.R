@@ -71,6 +71,9 @@ getPathwayEnzymes <- function(row, removeNoise=TRUE, replaceEmptyGraph=TRUE) {
     # Load all enzymes from its pathway #
     #####################################
 
+    # Set the flag extraction by Entrez
+    extracted_by_entrez <- FALSE
+
     # Get the pathway object
     pathway <- unlist(org)[idx]
 
@@ -96,7 +99,11 @@ getPathwayEnzymes <- function(row, removeNoise=TRUE, replaceEmptyGraph=TRUE) {
         print(paste0("<<< Requesting specific pathway for ", pathway_code_tmp, "... >>>"))
         cat("\n")
 
+        # Receive the specie data as Entrez
         temp <- pathwayToDataframe(pathway_code_tmp, TRUE, specie)
+
+        # Set the specific flag
+        extracted_by_entrez <- TRUE
       } else {
         # Save the not extracted pathway
         not_extracted_tmp<-data.frame(specie, pathway)
@@ -134,6 +141,16 @@ getPathwayEnzymes <- function(row, removeNoise=TRUE, replaceEmptyGraph=TRUE) {
 
       # Assign the bottlenecks
       temp$is_bottleneck[which(temp[,1] %in% graphBottleneck)] <- 1
+
+      # If necessary convert Entrez to EC
+      if (extracted_by_entrez) {
+        # Status message
+        cat("\n")
+        print(paste0("<<< Converting Entrez to EC for pathway: ", pathway_code_tmp, "... >>>"))
+        cat("\n")
+
+        temp$node1 <<- convertEntrezToECWithoutDict(temp$node1, 50, TRUE)
+      }
 
       # Add each pathways enzymes into enzymeList dataFrame
       enzymeList <<- rbind(enzymeList, temp)

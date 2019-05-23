@@ -30,11 +30,25 @@
 
 pathwayToDataframe <- function(pathway_, replaceOrg=FALSE, orgToReplace='') {
   tryCatch({
+    # Determine the genesOnly parameter (Default true)
     genesOnly <- !grepl("^ko|^ec", pathway_)
+
+    # Request the graph data from KEGG
     kgml <- suppressMessages(KEGGREST::keggGet(pathway_, "kgml"))
+
+    # Convert it into graph object
     mapkpathway <- KEGGgraph::parseKGML(kgml)
     mapkG <- KEGGgraph::KEGGpathway2Graph(mapkpathway, genesOnly)
+
+    # Get the node data
     aux <- names(mapkG@edgeData@data)
+
+    # If node data is empty, use the edge data
+    if (is.null(aux) | length(aux) == 0) {
+      aux <- names(mapkG@edgeL)
+    }
+
+    # Adjust the columns
     aux <- as.data.frame(aux, stringsAsFactors = FALSE)
     aux$node2 <- gsub("^.*\\|(.*)$", "\\1", aux$aux)
     colnames(aux)[1] <- "node1"
@@ -260,7 +274,7 @@ getPathwayHighlightedGenes <- function(pathway_, IDs = NULL, allMapped_ = TRUE) 
   })
 
   # Remove generated files
-  rm(gene.idtype.bods, korg, cpd.simtypes, gene.idtype.list)
+  suppressWarnings(rm(gene.idtype.bods, korg, cpd.simtypes, gene.idtype.list))
   invisible(suppressWarnings(file.remove(paste0(species, pathway, ".xml"))))
   invisible(suppressWarnings(file.remove(paste0(species, pathway, ".png"))))
   invisible(suppressWarnings(file.remove(paste0(species, pathway, ".", now, ".png"))))
@@ -272,7 +286,6 @@ getPathwayHighlightedGenes <- function(pathway_, IDs = NULL, allMapped_ = TRUE) 
   } else {
     highlightedGenes <- list(unique(img$plot.data.gene$kegg.names))
   }
-
 
   # Split all the enzymes
   highlightedGenes <- unlist(highlightedGenes, use.names=FALSE)
