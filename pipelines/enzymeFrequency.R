@@ -41,6 +41,15 @@ start_of <- 1
 enzymeList <- data.frame()
 pathwaysNotExtracted <- data.frame(org = character(0), pathway = character(0))
 
+# Auxiliar function to generate messages
+printMessage <- function(message_) {
+  cat("\n")
+  print("------------------------------------------------")
+  print(message_)
+  print("------------------------------------------------")
+  cat("\n")
+}
+
 #-------------------------------------------------------------------------------------------#
 
 ####################################
@@ -59,11 +68,7 @@ getPathwayEnzymes <- function(row, removeNoise=TRUE, replaceEmptyGraph=TRUE) {
   specie <- names(org)
 
   # Status message
-  cat("\n")
-  print("------------------------------------------------")
-  print(paste0("COUNTING ", specie, " ENZYMES FREQUENCIES [", row, " OF ", length(organism2pathway), "]"))
-  print("------------------------------------------------")
-  cat("\n")
+  printMessage(paste0("COUNTING ", specie, " ENZYMES FREQUENCIES [", row, " OF ", length(organism2pathway), "]"))
 
   # Loop over the current organism pathways code
   for(idx in start_of:length(unlist(org))) {
@@ -81,9 +86,7 @@ getPathwayEnzymes <- function(row, removeNoise=TRUE, replaceEmptyGraph=TRUE) {
     pathway_code <- paste0('ec', pathway)
 
     # Status message
-    cat("\n")
-    print(paste0("<<< Requesting ", specie, ": ", pathway_code, "... >>>"))
-    cat("\n")
+    printMessage(paste0("<<< Requesting ", specie, ": ", pathway_code, "... >>>"))
 
     # Get the enzyme list from pathway
     temp <- pathwayToDataframe(pathway_code, TRUE, specie)
@@ -95,9 +98,7 @@ getPathwayEnzymes <- function(row, removeNoise=TRUE, replaceEmptyGraph=TRUE) {
         pathway_code_tmp <- paste0(specie, pathway)
 
         # Status message
-        cat("\n")
-        print(paste0("<<< Requesting specific pathway for ", pathway_code_tmp, "... >>>"))
-        cat("\n")
+        printMessage(paste0("<<< Requesting specific pathway for ", pathway_code_tmp, "... >>>"))
 
         # Receive the specie data as Entrez
         temp <- pathwayToDataframe(pathway_code_tmp, TRUE, specie)
@@ -145,11 +146,10 @@ getPathwayEnzymes <- function(row, removeNoise=TRUE, replaceEmptyGraph=TRUE) {
       # If necessary convert Entrez to EC
       if (extracted_by_entrez) {
         # Status message
-        cat("\n")
-        print(paste0("<<< Converting Entrez to EC for pathway: ", pathway_code_tmp, "... >>>"))
-        cat("\n")
+        printMessage(paste0("<<< Converting Entrez to EC for pathway: ", pathway_code_tmp, "... >>>"))
 
-        temp$node1 <<- convertEntrezToECWithoutDict(temp$node1, 50, TRUE)
+        # Convert Entrez to EC
+        temp$node1 <- convertEntrezToECWithoutDict(temp$node1, 50, TRUE)
       }
 
       # Add each pathways enzymes into enzymeList dataFrame
