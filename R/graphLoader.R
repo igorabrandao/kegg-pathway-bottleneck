@@ -414,107 +414,114 @@ convertEntrezToECWithoutDict <- function(entrez_list_, chunk_size_=50, verbose_=
     return(paste(ec_value, collapse = ' / '));
   }
 
-  if (verbose_) {
-    cat("\n")
-    print("------------------------------------------------")
-    print("INITIALIZING THE ENTREZ -> EC CONVERSION")
-    print("------------------------------------------------")
-    cat("\n")
-  }
-
-  # Empty EC list dataFrame
-  ec_list_df <- data.frame("ec" = character(0), stringsAsFactors = FALSE)
-
-  # Remove the names from list to get just the values
-  entrez_list_ <- unname(entrez_list_)
-
-  # Break the list into chunks
-  chunk_size <- chunk_size_
-  chunked_entrez_list <- split(entrez_list_, ceiling(seq_along(entrez_list_)/chunk_size))
-
-  # Log variable
-  log <- ""
-
-  # Loop over each chunk
-  for(idx in 1:length(chunked_entrez_list)) {
-    # Store just the number code of each entrez
-    current_entrez_list <- str_extract(unlist(chunked_entrez_list[idx]), "\\-*\\d+\\.*\\d*")
-
-    # Format the entrez list to be requested
-    request_param <- paste0("https://www.kegg.jp/dbget-bin/www_bget?",
-                            paste(unlist(chunked_entrez_list[idx]), collapse= "+", sep=""))
-
+  tryCatch({
     if (verbose_) {
       cat("\n")
       print("------------------------------------------------")
-      print(paste0("RUNNING CHUNK [", idx, " OF ", length(chunked_entrez_list), "] WITH SIZE: ", chunk_size_))
-      cat("\n")
-      print(paste0("REQUEST: ", request_param))
+      print("INITIALIZING THE ENTREZ -> EC CONVERSION")
       print("------------------------------------------------")
       cat("\n")
-
-      log <- paste0(log, "\n\n")
-      log <- paste0(log, "------------------------------------------------\n")
-      log <- paste0(log, (paste0("RUNNING CHUNK [", idx, " OF ", length(chunked_entrez_list), "] WITH SIZE: ", chunk_size_)))
-      log <- paste0(log, "\n")
-      log <- paste0(log, paste0("REQUEST: ", request_param))
-      log <- paste0(log, "\n------------------------------------------------")
-      log <- paste0(log, "\n\n")
     }
 
-    # Get the entire KEGG webpage
-    scraping <- getURL(request_param)
+    # Empty EC list dataFrame
+    ec_list_df <- data.frame("ec" = character(0), stringsAsFactors = FALSE)
 
-    # Get the raw EC list
-    ec_list <- unlist(str_extract_all(toString(scraping), "\\[EC:(.*?)\\]"))
+    # Remove the names from list to get just the values
+    entrez_list_ <- unname(entrez_list_)
 
-    # Get the raw Entrez list
-    entrez_list <- unlist(str_extract_all(toString(scraping), "<code><nobr>+([0-9])+&nbsp;&nbsp"))
-    entrez_list <- str_extract(unlist(entrez_list), "\\-*\\d+\\.*\\d*")
+    # Break the list into chunks
+    chunk_size <- chunk_size_
+    chunked_entrez_list <- split(entrez_list_, ceiling(seq_along(entrez_list_)/chunk_size))
 
-    # Run each entrez to define how it gonne be converted
-    for (item in 1:length(current_entrez_list)) {
-      # Check if the KEGG html contains the current entrez
-      entrez_position <- which(current_entrez_list[item]==entrez_list)
+    # Log variable
+    log <- ""
 
-      # Use KEGG data
-      if (length(entrez_position) > 0) {
-        # Apply the regex to remove trash from EC string
-        ec_list[entrez_position] <- str_replace_all(ec_list[entrez_position], "\\[EC:(.*?)\\>", "")
-        ec_list[entrez_position] <- str_replace_all(ec_list[entrez_position], "</a>\\]", "")
-        ec_list[entrez_position] <- str_replace_all(ec_list[entrez_position], "</a>(.*?)\\>", " / ")
-        ec_list[entrez_position] <- str_replace_all(ec_list[entrez_position], "</a>", " / ")
-        ec_list[entrez_position] <- str_replace_all(ec_list[entrez_position], "]", "")
+    # Loop over each chunk
+    for(idx in 1:length(chunked_entrez_list)) {
+      # Store just the number code of each entrez
+      current_entrez_list <- str_extract(unlist(chunked_entrez_list[idx]), "\\-*\\d+\\.*\\d*")
 
-        if (verbose_) {
-          log <- paste0(log, paste0((item), ") ", unlist(chunked_entrez_list[idx])[entrez_position], " -> ", ec_list[entrez_position]))
-          log <- paste0(log, "\n")
-        }
+      # Format the entrez list to be requested
+      request_param <- paste0("https://www.kegg.jp/dbget-bin/www_bget?",
+                              paste(unlist(chunked_entrez_list[idx]), collapse= "+", sep=""))
 
-        # Add the EC item to the dataFrame
-        if (!is.null(ec_list[entrez_position]) & !is.na(ec_list[entrez_position])) {
-          ec_list_df[nrow(ec_list_df) + 1,] = paste(ec_list[entrez_position], collapse = ' / ')
+      if (verbose_) {
+        cat("\n")
+        print("------------------------------------------------")
+        print(paste0("RUNNING CHUNK [", idx, " OF ", length(chunked_entrez_list), "] WITH SIZE: ", chunk_size_))
+        cat("\n")
+        print(paste0("REQUEST: ", request_param))
+        print("------------------------------------------------")
+        cat("\n")
+
+        log <- paste0(log, "\n\n")
+        log <- paste0(log, "------------------------------------------------\n")
+        log <- paste0(log, (paste0("RUNNING CHUNK [", idx, " OF ", length(chunked_entrez_list), "] WITH SIZE: ", chunk_size_)))
+        log <- paste0(log, "\n")
+        log <- paste0(log, paste0("REQUEST: ", request_param))
+        log <- paste0(log, "\n------------------------------------------------")
+        log <- paste0(log, "\n\n")
+      }
+
+      # Get the entire KEGG webpage
+      scraping <- getURL(request_param)
+
+      # Get the raw EC list
+      ec_list <- unlist(str_extract_all(toString(scraping), "\\[EC:(.*?)\\]"))
+
+      # Get the raw Entrez list
+      entrez_list <- unlist(str_extract_all(toString(scraping), "<code><nobr>+([0-9])+&nbsp;&nbsp"))
+      entrez_list <- str_extract(unlist(entrez_list), "\\-*\\d+\\.*\\d*")
+
+      # Run each entrez to define how it gonne be converted
+      for (item in 1:length(current_entrez_list)) {
+        # Check if the KEGG html contains the current entrez
+        entrez_position <- which(current_entrez_list[item]==entrez_list)
+
+        # Use KEGG data
+        if (length(entrez_position) > 0) {
+          # Apply the regex to remove trash from EC string
+          ec_list[entrez_position] <- str_replace_all(ec_list[entrez_position], "\\[EC:(.*?)\\>", "")
+          ec_list[entrez_position] <- str_replace_all(ec_list[entrez_position], "</a>\\]", "")
+          ec_list[entrez_position] <- str_replace_all(ec_list[entrez_position], "</a>(.*?)\\>", " / ")
+          ec_list[entrez_position] <- str_replace_all(ec_list[entrez_position], "</a>", " / ")
+          ec_list[entrez_position] <- str_replace_all(ec_list[entrez_position], "]", "")
+
+          if (verbose_) {
+            log <- paste0(log, paste0((item), ") ", unlist(chunked_entrez_list[idx])[entrez_position], " -> ", ec_list[entrez_position]))
+            log <- paste0(log, "\n")
+          }
+
+          # Add the EC item to the dataFrame
+          if (!is.null(ec_list[entrez_position]) & !is.na(ec_list[entrez_position])) {
+            ec_list_df[nrow(ec_list_df) + 1,] = paste(ec_list[entrez_position], collapse = ' / ')
+          } else {
+            ec_list_df[nrow(ec_list_df) + 1,] = auxiliarScrap(current_entrez_list[entrez_position])
+          }
         } else {
-          ec_list_df[nrow(ec_list_df) + 1,] = auxiliarScrap(current_entrez_list[entrez_position])
+          # Alternative method
+          ec_list_df[nrow(ec_list_df) + 1,] = auxiliarScrap(current_entrez_list[item])
         }
-      } else {
-        # Alternative method
-        ec_list_df[nrow(ec_list_df) + 1,] = auxiliarScrap(current_entrez_list[item])
       }
     }
-  }
 
-  if (verbose_) {
-    # Write the log into file
-    write(log, file = "./log/entrez_ec_conversion_log.txt")
+    if (verbose_) {
+      # Write the log into file
+      write(log, file = "./log/entrez_ec_conversion_log.txt")
 
-    cat("\n")
-    print("------------------------------------------------")
-    print("ENTREZ -> EC CONVERSION FINISHED WITH SUCCESS!")
-    print("------------------------------------------------")
-    cat("\n")
-  }
+      cat("\n")
+      print("------------------------------------------------")
+      print("ENTREZ -> EC CONVERSION FINISHED WITH SUCCESS!")
+      print("------------------------------------------------")
+      cat("\n")
+    }
 
-  # Return the dataFrame containing the EC list
-  return(ec_list_df)
+    # Return the dataFrame containing the EC list
+    return(ec_list_df)
+
+  }, error=function(e){
+    print(paste0('Some error happened during the [Entrez -> EC] convertion. Skipping it...'))
+
+    return(NULL)
+  })
 }

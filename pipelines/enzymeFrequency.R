@@ -52,9 +52,9 @@ printMessage <- function(message_) {
 
 #-------------------------------------------------------------------------------------------#
 
-####################################
-# Step 1: Get all pathways enzymes #
-####################################
+###########################
+# Pipeline main functions #
+###########################
 
 getPathwayEnzymes <- function(row, removeNoise=TRUE, replaceEmptyGraph=TRUE) {
   #################################
@@ -132,6 +132,7 @@ getPathwayEnzymes <- function(row, removeNoise=TRUE, replaceEmptyGraph=TRUE) {
       graphBottleneck <- as_ids(getGraphBottleneck(iGraph, FALSE))
 
       # Convert the node2 column into node1 rows
+      temp_df <- NULL
       temp_df <- as.data.frame(temp[,c(2, 3, 4)], stringsAsFactors = FALSE)
       temp$node2 <- NULL
       names(temp_df)[names(temp_df) == "node2"] <- "node1"
@@ -148,6 +149,12 @@ getPathwayEnzymes <- function(row, removeNoise=TRUE, replaceEmptyGraph=TRUE) {
         # Status message
         printMessage(paste0("<<< Converting Entrez to EC for pathway: ", pathway_code_tmp, "... >>>"))
 
+        # Remove duplicated rows based on entrez column
+        temp <- temp[!duplicated(temp[c("node1","pathway")]),]
+
+        # Reindex the temp rows
+        rownames(temp) <- 1:nrow(temp)
+
         # Convert Entrez to EC
         temp$node1 <- convertEntrezToECWithoutDict(temp$node1, 50, TRUE)
       }
@@ -157,38 +164,6 @@ getPathwayEnzymes <- function(row, removeNoise=TRUE, replaceEmptyGraph=TRUE) {
     }
   }
 }
-
-sapply(start_of:length(organism2pathway), function(idx) getPathwayEnzymes(idx))
-
-#-------------------------------------------------------------------------------------------#
-
-####################################
-# Step 2: Clear duplicates enzymes #
-####################################
-
-# Rename the nodes column
-names(enzymeList)[names(enzymeList) == "node1"] <- "ec"
-
-# Remove duplicated rows based on entrez column
-enzymeList <- enzymeList[!duplicated(enzymeList[c("ec","pathway")]),]
-
-# Reindex the enzymeList rows
-rownames(enzymeList) <- 1:nrow(enzymeList)
-
-#-------------------------------------------------------------------------------------------#
-
-########################################################
-# Step 3: Check if the enzyme appears into the pathway #
-########################################################
-
-current_pathway <- ""
-highlighted_enzymes <- NULL
-
-# Add a new column to the enzymeFrquency dataFrame
-enzymeList$is_presented <- 0
-
-# Order the dataFrame
-enzymeList <- enzymeList[order(enzymeList$org, enzymeList$pathway),]
 
 checkGenePresence <- function(row) {
   # Check if the current pathway is the same of the previous one
@@ -226,12 +201,44 @@ checkGenePresence <- function(row) {
   }
 }
 
+#-------------------------------------------------------------------------------------------#
+
+####################################
+# Step 1: Get all pathways enzymes #
+####################################
+
+sapply(start_of:length(organism2pathway), function(idx) getPathwayEnzymes(idx))
+
+####################################
+# Step 2: Clear duplicates enzymes #
+####################################
+
+# Rename the nodes column
+names(enzymeList)[names(enzymeList) == "node1"] <- "ec"
+
+# Remove duplicated rows based on entrez column
+enzymeList <- enzymeList[!duplicated(enzymeList[c("ec","pathway")]),]
+
+# Reindex the enzymeList rows
+rownames(enzymeList) <- 1:nrow(enzymeList)
+
+########################################################
+# Step 3: Check if the enzyme appears into the pathway #
+########################################################
+
+current_pathway <- ""
+highlighted_enzymes <- NULL
+
+# Add a new column to the enzymeFrquency dataFrame
+enzymeList$is_presented <- 0
+
+# Order the dataFrame
+enzymeList <- enzymeList[order(enzymeList$org, enzymeList$pathway),]
+
 sapply(start_of:length(unlist(enzymeList$ec)), function(idx) checkGenePresence(idx))
 
 # Remove intermediary variables
 rm(current_pathway, highlighted_enzymes)
-
-#-------------------------------------------------------------------------------------------#
 
 ############################################
 # Step 4: Count the enzyme total frequency #
@@ -259,5 +266,5 @@ aggregate(x = enzymeList,
           by = list(enzymeList$ec, enzymeList$pathway),
           FUN = length)
 
-#enzymeList[which(enzymeList$ec %in% enzymeTotalFrequency$ec),]
 
+#enzymeList[which(enzymeList$ec %in% enzymeTotalFrequency$ec),]
