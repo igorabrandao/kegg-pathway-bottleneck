@@ -37,9 +37,6 @@ organism2pathway <- get(load(paste0("./dictionnaires", "/", "organism2pathway.RD
 # default value 1 (the value should be >= 1)
 start_of <- 1
 
-# Function to detect null values
-is.not.null <- function(x) !is.null(x)
-
 # Empty enzyme frequency dataFrame
 enzymeList <- data.frame()
 pathwaysNotExtracted <- data.frame(org = character(0), pathway = character(0))
@@ -111,7 +108,7 @@ getPathwayEnzymes <- function(row, removeNoise=TRUE, replaceEmptyGraph=TRUE) {
     }
 
     # Check if the organism has the current pathway
-    if (is.not.null(temp)) {
+    if (!is.null(temp)) {
       # Remove unnecessary data before bottleneck calculation
       if (removeNoise) {
         temp <- temp[!grepl("^path:", temp$node1),]

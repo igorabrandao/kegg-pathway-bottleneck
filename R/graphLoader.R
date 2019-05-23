@@ -450,7 +450,7 @@ convertEntrezToECWithoutDict <- function(entrez_list_, chunk_size_=50, verbose_=
     }
 
     # Get the entire KEGG webpage
-    scraping <- getURL(paste0("https://www.kegg.jp/dbget-bin/www_bget?", request_param))
+    scraping <- getURL(request_param)
 
     # Get the raw EC list
     ec_list <- unlist(str_extract_all(toString(scraping), "\\[EC:(.*?)\\]"))
@@ -479,7 +479,7 @@ convertEntrezToECWithoutDict <- function(entrez_list_, chunk_size_=50, verbose_=
         }
 
         # Add the EC item to the dataFrame
-        if (is.not.null(ec_list[entrez_position]) & !is.na(ec_list[entrez_position])) {
+        if (!is.null(ec_list[entrez_position]) & !is.na(ec_list[entrez_position])) {
           ec_list_df[nrow(ec_list_df) + 1,] = paste(ec_list[entrez_position], collapse = ' / ')
         } else {
           ec_list_df[nrow(ec_list_df) + 1,] = auxiliarScrap(current_entrez_list[entrez_position])
