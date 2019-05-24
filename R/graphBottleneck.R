@@ -112,7 +112,7 @@ getTopBetweenness <- function(iGraph_, betweenness_percentual_rate_=0.2, verbose
 }
 
 getGraphBottleneck <- function(iGraph_, verbose_=FALSE) {
-  articulation_points <- articulation_points(iGraph_)
+  articulation_points <- igraph::articulation_points(iGraph_)
 
   # print the articulation points
   if (verbose_) {

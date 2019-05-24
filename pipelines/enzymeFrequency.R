@@ -18,6 +18,13 @@ library(rvest) # web scraping
 library(stringr) # regex manipulation
 library(pracma) # string manipulation
 
+
+library(progress)
+library(parallel)
+library(snow)
+library(doSNOW)
+library(foreach)
+
 #-------------------------------------------------------------------------------------------#
 
 ###########################
@@ -38,7 +45,7 @@ organism2pathway <- get(load(paste0("./dictionnaires", "/", "organism2pathway.RD
 start_of <- 1
 
 # Empty enzyme frequency dataFrame
-enzymeList <- data.frame()
+enzymeList <- NULL
 pathwaysNotExtracted <- data.frame(org = character(0), pathway = character(0))
 
 # Auxiliar function to generate messages
@@ -57,6 +64,7 @@ printMessage <- function(message_) {
 ###########################
 
 getPathwayEnzymes <- function(row, removeNoise=TRUE, replaceEmptyGraph=TRUE) {
+
   #################################
   # Get the organism general info #
   #################################
@@ -67,11 +75,35 @@ getPathwayEnzymes <- function(row, removeNoise=TRUE, replaceEmptyGraph=TRUE) {
   # Get its name
   specie <- names(org)
 
+  ###########################
+  # Set parallelism options #
+  ###########################
+
+  nCores <- parallel::detectCores()
+  cl <- snow::makeSOCKcluster(nCores)
+  on.exit(snow::stopCluster(cl))
+  doSNOW::registerDoSNOW(cl)
+
+  progress <- function() {
+    pb$tick()
+  }
+
+  opts <- list(progress = progress)
+  ntasks <- length(unlist(org))
+
+  pb <- progress::progress_bar$new(format = "running [:bar] :percent elapsed time :elapsed",
+                                   total = ntasks, clear = FALSE,
+                                   width = 60)
+
   # Status message
   printMessage(paste0("COUNTING ", specie, " ENZYMES FREQUENCIES [", row, " OF ", length(organism2pathway), "]"))
 
   # Loop over the current organism pathways code
-  for(idx in start_of:length(unlist(org))) {
+  enzymeList <<- foreach::foreach(idx = seq.int(1, ntasks), .export=c('printMessage', 'pathwayToDataframe', 'as_ids',
+                                                                     'getGraphBottleneck', 'convertEntrezToECWithoutDict',
+                                                                     'pathwaysNotExtracted'),
+                                 .combine = "rbind", .options.snow = opts) %dopar%
+  {
     #####################################
     # Load all enzymes from its pathway #
     #####################################
@@ -123,23 +155,26 @@ getPathwayEnzymes <- function(row, removeNoise=TRUE, replaceEmptyGraph=TRUE) {
         temp <- temp[!grepl("^path:", temp$node2),]
         temp <- temp[!grepl("^map:", temp$node1),]
         temp <- temp[!grepl("^map:", temp$node2),]
+        temp <- temp[!grepl("^cpd:", temp$node1),]
+        temp <- temp[!grepl("^cpd:", temp$node2),]
+        temp <- temp[!grepl("^gl:", temp$node1),]
+        temp <- temp[!grepl("^gl:", temp$node2),]
       }
 
       # Calculates the network bottleneck
       iGraph <- igraph::graph_from_data_frame(temp, directed = FALSE)
 
       # Perform the graph bottleneck calculation
-      graphBottleneck <- as_ids(getGraphBottleneck(iGraph, FALSE))
+      graphBottleneck <- igraph::as_ids(getGraphBottleneck(iGraph, FALSE))
 
       # Convert the node2 column into node1 rows
-      temp_df <- NULL
-      temp_df <- as.data.frame(temp[,c(2, 3, 4)], stringsAsFactors = FALSE)
-      temp$node2 <- NULL
-      names(temp_df)[names(temp_df) == "node2"] <- "node1"
-      temp <- rbind(temp, temp_df)
+      aux <- unique(c(temp$node1, temp$node2))
+      auxorg <- temp$org[1]
+      auxpathway <- temp$pathway[1]
 
       # Add a new column to the enzymeFrquency dataFrame
-      temp$is_bottleneck <- 0
+      temp <- data.frame(node1 = aux, org = auxorg, pathway = auxpathway, is_bottleneck = 0,
+                         is_presented = 0, stringsAsFactors = FALSE)
 
       # Assign the bottlenecks
       temp$is_bottleneck[which(temp[,1] %in% graphBottleneck)] <- 1
@@ -150,18 +185,17 @@ getPathwayEnzymes <- function(row, removeNoise=TRUE, replaceEmptyGraph=TRUE) {
         printMessage(paste0("<<< Converting Entrez to EC for pathway: ", pathway_code_tmp, "... >>>"))
 
         # Remove duplicated rows based on entrez column
-        temp <- temp[!duplicated(temp[c("node1","pathway")]),]
-
-        # Reindex the temp rows
-        rownames(temp) <- 1:nrow(temp)
+        temp <- temp[!(duplicated(temp$node1) & duplicated(temp$pathway)),]
 
         # Convert Entrez to EC
         temp$node1 <- convertEntrezToECWithoutDict(temp$node1, 50, TRUE)
       }
 
       # Add each pathways enzymes into enzymeList dataFrame
-      enzymeList <<- rbind(enzymeList, temp)
+      # enzymeList <<- rbind(enzymeList, temp)
     }
+
+    return(temp)
   }
 }
 
@@ -205,8 +239,7 @@ checkGenePresence <- function(row) {
 # Step 1: Get all pathways enzymes #
 ####################################
 
-sapply(start_of:length(organism2pathway), function(idx) getPathwayEnzymes(idx))
-
+sapply(start_of:length(organism2pathway), function(idx) getPathwayEnzymes(idx, replaceEmptyGraph=FALSE))
 
 ####################################
 # Step 2: Clear duplicates enzymes #
