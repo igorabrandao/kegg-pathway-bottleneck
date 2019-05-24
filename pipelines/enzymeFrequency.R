@@ -172,9 +172,7 @@ checkGenePresence <- function(row) {
     current_pathway <<- paste0(enzymeList$org[row], enzymeList$pathway[row])
 
     # Status message
-    cat("\n")
-    print(paste0("<<< Working on ", current_pathway, " pathway... >>>"))
-    cat("\n")
+    printMessage(paste0("<<< Working on ", current_pathway, " pathway... >>>"))
 
     # Get the highlighted enzymes list
     highlighted_enzymes <<- getPathwayHighlightedGenes(current_pathway, allMapped_=TRUE)
@@ -208,6 +206,7 @@ checkGenePresence <- function(row) {
 ####################################
 
 sapply(start_of:length(organism2pathway), function(idx) getPathwayEnzymes(idx))
+
 
 ####################################
 # Step 2: Clear duplicates enzymes #
