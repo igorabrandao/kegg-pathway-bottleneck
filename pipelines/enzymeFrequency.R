@@ -99,7 +99,7 @@ getPathwayEnzymes <- function(row, removeNoise=TRUE, replaceEmptyGraph=TRUE) {
   printMessage(paste0("COUNTING ", specie, " ENZYMES FREQUENCIES [", row, " OF ", length(organism2pathway), "]"))
 
   # Loop over the current organism pathways code
-  enzymeList <<- foreach::foreach(idx = seq.int(1, ntasks), .export=c('printMessage', 'pathwayToDataframe', 'as_ids',
+  result <- foreach::foreach(idx = seq.int(1, ntasks), .export=c('printMessage', 'pathwayToDataframe', 'as_ids',
                                                                      'getGraphBottleneck', 'convertEntrezToECWithoutDict',
                                                                      'pathwaysNotExtracted'),
                                  .combine = "rbind", .options.snow = opts) %dopar%
@@ -124,8 +124,8 @@ getPathwayEnzymes <- function(row, removeNoise=TRUE, replaceEmptyGraph=TRUE) {
     temp <- pathwayToDataframe(pathway_code, TRUE, specie)
 
     # Handle empty graph
-    if (is.null(temp)) {
-      if (replaceEmptyGraph) {
+    if (replaceEmptyGraph) {
+      if (is.null(temp)) {
         # Try to find the specific pathway for an organism
         pathway_code_tmp <- paste0(specie, pathway)
 
@@ -137,14 +137,14 @@ getPathwayEnzymes <- function(row, removeNoise=TRUE, replaceEmptyGraph=TRUE) {
 
         # Set the specific flag
         extracted_by_entrez <- TRUE
-      } else {
-        # Save the not extracted pathway
-        not_extracted_tmp<-data.frame(specie, pathway)
-        names(not_extracted_tmp)<-c("org", "pathway")
-
-        # Add each pathways not extracted
-        pathwaysNotExtracted <<- rbind(pathwaysNotExtracted, not_extracted_tmp)
       }
+    } else {
+      # Save the not extracted pathway
+      not_extracted_tmp<-data.frame(specie, pathway)
+      names(not_extracted_tmp)<-c("org", "pathway")
+
+      # Add each pathways not extracted
+      pathwaysNotExtracted <<- rbind(pathwaysNotExtracted, not_extracted_tmp)
     }
 
     # Check if the organism has the current pathway
@@ -197,6 +197,8 @@ getPathwayEnzymes <- function(row, removeNoise=TRUE, replaceEmptyGraph=TRUE) {
 
     return(temp)
   }
+
+  return(result)
 }
 
 checkGenePresence <- function(row) {
@@ -239,7 +241,9 @@ checkGenePresence <- function(row) {
 # Step 1: Get all pathways enzymes #
 ####################################
 
-sapply(start_of:length(organism2pathway), function(idx) getPathwayEnzymes(idx, replaceEmptyGraph=FALSE))
+enzymeList <- lapply(start_of:2, getPathwayEnzymes, replaceEmptyGraph=FALSE)
+enzymeList <- do.call("rbind", enzymeList)
+#enzymeList <- sapply(start_of:length(organism2pathway), function(idx) getPathwayEnzymes(idx, replaceEmptyGraph=FALSE))
 
 ####################################
 # Step 2: Clear duplicates enzymes #
