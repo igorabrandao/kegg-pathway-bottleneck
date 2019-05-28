@@ -63,7 +63,7 @@ printMessage <- function(message_) {
 # Pipeline main functions #
 ###########################
 
-getPathwayEnzymes <- function(row, removeNoise=TRUE, replaceEmptyGraph=TRUE) {
+getPathwayEnzymes <- function(row, removeNoise_=TRUE, replaceEmptyGraph_=TRUE) {
 
   #################################
   # Get the organism general info #
@@ -99,9 +99,9 @@ getPathwayEnzymes <- function(row, removeNoise=TRUE, replaceEmptyGraph=TRUE) {
   printMessage(paste0("COUNTING ", specie, " ENZYMES FREQUENCIES [", row, " OF ", length(organism2pathway), "]"))
 
   # Loop over the current organism pathways code
-  result <- foreach::foreach(idx = seq.int(1, ntasks), .export=c('printMessage', 'pathwayToDataframe', 'as_ids',
+  result <- foreach::foreach(idx = seq.int(1, ntasks), .export=c('printMessage', 'pathwayToDataframe', 'as_ids', 'str_replace',
                                                                      'getGraphBottleneck', 'convertEntrezToECWithoutDict',
-                                                                     'pathwaysNotExtracted'),
+                                                                     'pathwaysNotExtracted', 'getPathwayHighlightedGenes'),
                                  .combine = "rbind", .options.snow = opts) %dopar%
   {
     #####################################
@@ -124,8 +124,8 @@ getPathwayEnzymes <- function(row, removeNoise=TRUE, replaceEmptyGraph=TRUE) {
     temp <- pathwayToDataframe(pathway_code, TRUE, specie)
 
     # Handle empty graph
-    if (replaceEmptyGraph) {
-      if (is.null(temp)) {
+    if (is.null(temp) | length(temp) == 0) {
+      if (replaceEmptyGraph_) {
         # Try to find the specific pathway for an organism
         pathway_code_tmp <- paste0(specie, pathway)
 
@@ -138,19 +138,18 @@ getPathwayEnzymes <- function(row, removeNoise=TRUE, replaceEmptyGraph=TRUE) {
         # Set the specific flag
         extracted_by_entrez <- TRUE
       }
-    } else {
-      # Save the not extracted pathway
-      not_extracted_tmp<-data.frame(specie, pathway)
-      names(not_extracted_tmp)<-c("org", "pathway")
+      else {
+        temp <- data.frame(node1 = NA, org = specie, pathway = pathway, is_bottleneck = 0,
+                           is_presented = 0, stringsAsFactors = FALSE)
 
-      # Add each pathways not extracted
-      pathwaysNotExtracted <<- rbind(pathwaysNotExtracted, not_extracted_tmp)
+        return(temp)
+      }
     }
 
     # Check if the organism has the current pathway
-    if (!is.null(temp)) {
+    if (!is.null(temp) & length(temp) != 0) {
       # Remove unnecessary data before bottleneck calculation
-      if (removeNoise) {
+      if (removeNoise_) {
         temp <- temp[!grepl("^path:", temp$node1),]
         temp <- temp[!grepl("^path:", temp$node2),]
         temp <- temp[!grepl("^map:", temp$node1),]
@@ -179,8 +178,30 @@ getPathwayEnzymes <- function(row, removeNoise=TRUE, replaceEmptyGraph=TRUE) {
       # Assign the bottlenecks
       temp$is_bottleneck[which(temp[,1] %in% graphBottleneck)] <- 1
 
+      ################################################
+      # Check if the enzyme appears into the pathway #
+      ################################################
+
+      # Get the highlighted enzymes list
+      highlighted_enzymes <- getPathwayHighlightedGenes(paste0(specie, pathway), allMapped_=TRUE)
+
+      # Concat the org string
+      highlighted_enzymes <- paste(specie, highlighted_enzymes, sep=":")
+
+      # Convert it into dataframe
+      highlighted_enzymes <- as.data.frame(highlighted_enzymes, stringsAsFactors = FALSE)
+
       # If necessary convert Entrez to EC
       if (extracted_by_entrez) {
+        # Remove the duplicates
+        highlighted_enzymes <- highlighted_enzymes[!duplicated(highlighted_enzymes),]
+
+        # Get just the enzyme number without specie
+        current_enzyme <- gsub("^[[:alpha:]]*(.*$)", "\\1", str_replace(temp$node1, ":", ""))
+
+        # Verify if the current enzyme is highlighted and set its status
+        temp$is_presented[which(current_enzyme %in% highlighted_enzymes)] <- 1
+
         # Status message
         printMessage(paste0("<<< Converting Entrez to EC for pathway: ", pathway_code_tmp, "... >>>"))
 
@@ -189,50 +210,27 @@ getPathwayEnzymes <- function(row, removeNoise=TRUE, replaceEmptyGraph=TRUE) {
 
         # Convert Entrez to EC
         temp$node1 <- convertEntrezToECWithoutDict(temp$node1, 50, TRUE)
-      }
+      } else {
+        # Convert the highlighted list into EC number
+        highlighted_enzymes <- convertEntrezToECWithoutDict(highlighted_enzymes[,c(1)], 50, TRUE)
 
-      # Add each pathways enzymes into enzymeList dataFrame
-      # enzymeList <<- rbind(enzymeList, temp)
+        # Remove the duplicates
+        highlighted_enzymes <- highlighted_enzymes[!duplicated(highlighted_enzymes),]
+
+        # Get just the enzyme number without specie
+        current_enzyme <- gsub("^[[:alpha:]]*(.*$)", "\\1", str_replace(temp$node1, ":", ""))
+
+        # Verify if the current enzyme is highlighted and set its status
+        temp$is_presented[which(current_enzyme %in% highlighted_enzymes)] <- 1
+      }
     }
 
+    # Return the specie [FOREACH]
     return(temp)
   }
 
+  # Return the entire dataSet [FUNCTION]
   return(result)
-}
-
-checkGenePresence <- function(row) {
-  # Check if the current pathway is the same of the previous one
-  if ( current_pathway != paste0(enzymeList$org[row], enzymeList$pathway[row]) ) {
-    # Update the current pathway
-    current_pathway <<- paste0(enzymeList$org[row], enzymeList$pathway[row])
-
-    # Status message
-    printMessage(paste0("<<< Working on ", current_pathway, " pathway... >>>"))
-
-    # Get the highlighted enzymes list
-    highlighted_enzymes <<- getPathwayHighlightedGenes(current_pathway, allMapped_=TRUE)
-
-    # Concat the org string
-    highlighted_enzymes <<- paste(enzymeList$org[row], highlighted_enzymes, sep=":")
-
-    # Convert it into dataframe
-    highlighted_enzymes <<- as.data.frame(highlighted_enzymes, stringsAsFactors = FALSE)
-
-    # Convert the highlighted list into EC number
-    highlighted_enzymes <<- convertEntrezToECWithoutDict(highlighted_enzymes[,c(1)], 50, TRUE)
-
-    # Remove the duplicates
-    highlighted_enzymes <<- highlighted_enzymes[!duplicated(highlighted_enzymes),]
-  }
-
-  # Get just the enzyme number without specie
-  current_enzyme <- gsub("^[[:alpha:]]*(.*$)", "\\1", str_replace(enzymeList$ec[row], ":", ""))
-
-  # Verify if the current enzyme is highlighted and set its status
-  if (current_enzyme %in% highlighted_enzymes) {
-    enzymeList$is_presented[row] <<- 1
-  }
 }
 
 #-------------------------------------------------------------------------------------------#
@@ -241,9 +239,9 @@ checkGenePresence <- function(row) {
 # Step 1: Get all pathways enzymes #
 ####################################
 
-enzymeList <- lapply(start_of:2, getPathwayEnzymes, replaceEmptyGraph=FALSE)
+enzymeList <- lapply(start_of:2, getPathwayEnzymes, replaceEmptyGraph_=FALSE)
 enzymeList <- do.call("rbind", enzymeList)
-#enzymeList <- sapply(start_of:length(organism2pathway), function(idx) getPathwayEnzymes(idx, replaceEmptyGraph=FALSE))
+#enzymeList <- sapply(start_of:length(organism2pathway), function(idx) getPathwayEnzymes(idx, replaceEmptyGraph_=FALSE))
 
 ####################################
 # Step 2: Clear duplicates enzymes #
@@ -253,31 +251,13 @@ enzymeList <- do.call("rbind", enzymeList)
 names(enzymeList)[names(enzymeList) == "node1"] <- "ec"
 
 # Remove duplicated rows based on entrez column
-enzymeList <- enzymeList[!duplicated(enzymeList[c("ec","pathway")]),]
+enzymeList <- enzymeList[!duplicated(enzymeList[c("ec", "org", "pathway")]),]
 
 # Reindex the enzymeList rows
 rownames(enzymeList) <- 1:nrow(enzymeList)
 
-########################################################
-# Step 3: Check if the enzyme appears into the pathway #
-########################################################
-
-current_pathway <- ""
-highlighted_enzymes <- NULL
-
-# Add a new column to the enzymeFrquency dataFrame
-enzymeList$is_presented <- 0
-
-# Order the dataFrame
-enzymeList <- enzymeList[order(enzymeList$org, enzymeList$pathway),]
-
-sapply(start_of:length(unlist(enzymeList$ec)), function(idx) checkGenePresence(idx))
-
-# Remove intermediary variables
-rm(current_pathway, highlighted_enzymes)
-
 ############################################
-# Step 4: Count the enzyme total frequency #
+# Step 3: Count the enzyme total frequency #
 ############################################
 
 # Filter just the enzymes with some frequency
@@ -303,4 +283,4 @@ aggregate(x = enzymeList,
           FUN = length)
 
 
-#enzymeList[which(enzymeList$ec %in% enzymeTotalFrequency$ec),]
+enzymeList[which(enzymeList$ec %in% enzymeTotalFrequency$ec),]

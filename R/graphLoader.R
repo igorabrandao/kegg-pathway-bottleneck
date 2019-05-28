@@ -45,7 +45,7 @@ pathwayToDataframe <- function(pathway_, replaceOrg=FALSE, orgToReplace='') {
 
     # If node data is empty, use the edge data
     if (is.null(aux) | length(aux) == 0) {
-      aux <- names(mapkG@edgeL)
+      return(NULL)
     }
 
     # Adjust the columns
