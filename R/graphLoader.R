@@ -394,7 +394,7 @@ ECToEntrez <- function(ec_list_, ec_dictionnaire_, ko_dictionnaire_) {
 #' @author
 #' Igor Brandão
 
-convertEntrezToECWithoutDict <- function(entrez_list_, chunk_size_=50, verbose_=FALSE) {
+convertEntrezToECWithoutDict <- function(entrez_list_, chunk_size_=50, verbose_=FALSE, pathway_name_='') {
 
   # Perform an auxiliar scraping into mygene plataform to convert Entrez to EC
   #' @param entrez_number_ Entrez number withou specie
@@ -507,7 +507,7 @@ convertEntrezToECWithoutDict <- function(entrez_list_, chunk_size_=50, verbose_=
 
     if (verbose_) {
       # Write the log into file
-      write(log, file = "./log/entrez_ec_conversion_log.txt")
+      write(log, file = paste0("./log/entrez_ec_conversion_log_", pathway_name_, ".txt"))
 
       cat("\n")
       print("------------------------------------------------")

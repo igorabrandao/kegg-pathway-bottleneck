@@ -101,7 +101,7 @@ getPathwayEnzymes <- function(row, removeNoise_=TRUE, replaceEmptyGraph_=TRUE) {
   result <- foreach::foreach(idx = seq.int(1, ntasks), .export=c('printMessage', 'pathwayToDataframe', 'as_ids', 'str_replace',
                                                                      'getGraphBottleneck', 'convertEntrezToECWithoutDict',
                                                                      'getPathwayHighlightedGenes'),
-                                 .combine = "rbind", .options.snow = opts) %dopar%
+                                 .combine = "rbind", .options.snow = opts) %do%
   {
     #sink("log.txt", append=TRUE)
 
@@ -198,12 +198,11 @@ getPathwayEnzymes <- function(row, removeNoise_=TRUE, replaceEmptyGraph_=TRUE) {
         highlighted_enzymes <- highlighted_enzymes[!duplicated(highlighted_enzymes),]
 
         # Get just the enzyme number without specie
+        highlighted_enzymes <- gsub("^[[:alpha:]]*(.*$)", "\\1", str_replace(highlighted_enzymes, ":", ""))
         current_enzyme <- gsub("^[[:alpha:]]*(.*$)", "\\1", str_replace(temp$node1, ":", ""))
 
         # Verify if the current enzyme is highlighted and set its status
-        if (is.null(highlighted_enzymes) | length(highlighted_enzymes) == 0) {
-          temp$is_presented[which(current_enzyme %in% highlighted_enzymes)] <- 1
-        }
+        temp$is_presented[which(current_enzyme %in% highlighted_enzymes)] <- 1
 
         # Status message
         printMessage(paste0("<<< Converting Entrez to EC for pathway: ", pathway_code_tmp, "... >>>"))
@@ -212,7 +211,10 @@ getPathwayEnzymes <- function(row, removeNoise_=TRUE, replaceEmptyGraph_=TRUE) {
         temp <- temp[!(duplicated(temp$node1) & duplicated(temp$pathway)),]
 
         # Convert Entrez to EC
-        temp$node1 <- convertEntrezToECWithoutDict(temp$node1, 50, TRUE)
+        temp$node1 <- convertEntrezToECWithoutDict(temp$node1, 50, TRUE, pathway_name_=pathway_code_tmp)
+
+        # Remove duplicated rows based on entrez column
+        temp <- temp[!(duplicated(temp$node1) & duplicated(temp$pathway)),]
       } else {
         # Convert the highlighted list into EC number
         highlighted_enzymes <- convertEntrezToECWithoutDict(highlighted_enzymes[,c(1)], 50, TRUE)
@@ -224,20 +226,13 @@ getPathwayEnzymes <- function(row, removeNoise_=TRUE, replaceEmptyGraph_=TRUE) {
         current_enzyme <- gsub("^[[:alpha:]]*(.*$)", "\\1", str_replace(temp$node1, ":", ""))
 
         # Verify if the current enzyme is highlighted and set its status
-        if (is.null(highlighted_enzymes) | length(highlighted_enzymes) == 0) {
-          temp$is_presented[which(current_enzyme %in% highlighted_enzymes)] <- 1
-        }
+        temp$is_presented[which(current_enzyme %in% highlighted_enzymes)] <- 1
       }
-
-
-      printMessage(paste0("is_present indexes: ", str(which(current_enzyme %in% highlighted_enzymes))))
     }
 
     # Return the specie [FOREACH]
     return(temp)
   }
-
-  doSNOW::stopCluster(c1)
 
   # Return the entire dataSet [FUNCTION]
   return(result)
@@ -249,9 +244,10 @@ getPathwayEnzymes <- function(row, removeNoise_=TRUE, replaceEmptyGraph_=TRUE) {
 # Step 1: Get all pathways enzymes #
 ####################################
 
-enzymeList <- lapply(start_of:2, getPathwayEnzymes, replaceEmptyGraph_=FALSE)
+enzymeList <- lapply(start_of:1, getPathwayEnzymes, replaceEmptyGraph_=FALSE)
 enzymeList <- do.call("rbind", enzymeList)
-#enzymeList <- sapply(start_of:length(organism2pathway), function(idx) getPathwayEnzymes(idx, replaceEmptyGraph_=FALSE))
+
+#enzymeList <- lapply(start_of:length(organism2pathway), getPathwayEnzymes, replaceEmptyGraph_=FALSE)
 
 ####################################
 # Step 2: Clear duplicates enzymes #
