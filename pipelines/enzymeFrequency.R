@@ -46,7 +46,6 @@ start_of <- 1
 
 # Empty enzyme frequency dataFrame
 enzymeList <- NULL
-pathwaysNotExtracted <- data.frame(org = character(0), pathway = character(0))
 
 # Auxiliar function to generate messages
 printMessage <- function(message_) {
@@ -101,9 +100,11 @@ getPathwayEnzymes <- function(row, removeNoise_=TRUE, replaceEmptyGraph_=TRUE) {
   # Loop over the current organism pathways code
   result <- foreach::foreach(idx = seq.int(1, ntasks), .export=c('printMessage', 'pathwayToDataframe', 'as_ids', 'str_replace',
                                                                      'getGraphBottleneck', 'convertEntrezToECWithoutDict',
-                                                                     'pathwaysNotExtracted', 'getPathwayHighlightedGenes'),
+                                                                     'getPathwayHighlightedGenes'),
                                  .combine = "rbind", .options.snow = opts) %dopar%
   {
+    #sink("log.txt", append=TRUE)
+
     #####################################
     # Load all enzymes from its pathway #
     #####################################
@@ -200,7 +201,9 @@ getPathwayEnzymes <- function(row, removeNoise_=TRUE, replaceEmptyGraph_=TRUE) {
         current_enzyme <- gsub("^[[:alpha:]]*(.*$)", "\\1", str_replace(temp$node1, ":", ""))
 
         # Verify if the current enzyme is highlighted and set its status
-        temp$is_presented[which(current_enzyme %in% highlighted_enzymes)] <- 1
+        if (is.null(highlighted_enzymes) | length(highlighted_enzymes) == 0) {
+          temp$is_presented[which(current_enzyme %in% highlighted_enzymes)] <- 1
+        }
 
         # Status message
         printMessage(paste0("<<< Converting Entrez to EC for pathway: ", pathway_code_tmp, "... >>>"))
@@ -221,13 +224,20 @@ getPathwayEnzymes <- function(row, removeNoise_=TRUE, replaceEmptyGraph_=TRUE) {
         current_enzyme <- gsub("^[[:alpha:]]*(.*$)", "\\1", str_replace(temp$node1, ":", ""))
 
         # Verify if the current enzyme is highlighted and set its status
-        temp$is_presented[which(current_enzyme %in% highlighted_enzymes)] <- 1
+        if (is.null(highlighted_enzymes) | length(highlighted_enzymes) == 0) {
+          temp$is_presented[which(current_enzyme %in% highlighted_enzymes)] <- 1
+        }
       }
+
+
+      printMessage(paste0("is_present indexes: ", str(which(current_enzyme %in% highlighted_enzymes))))
     }
 
     # Return the specie [FOREACH]
     return(temp)
   }
+
+  doSNOW::stopCluster(c1)
 
   # Return the entire dataSet [FUNCTION]
   return(result)
