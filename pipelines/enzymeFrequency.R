@@ -18,7 +18,6 @@ library(rvest) # web scraping
 library(stringr) # regex manipulation
 library(pracma) # string manipulation
 
-
 library(progress)
 library(parallel)
 library(snow)
@@ -43,9 +42,6 @@ organism2pathway <- get(load(paste0("./dictionnaires", "/", "organism2pathway.RD
 # Define in which specie the processing should begin
 # default value 1 (the value should be >= 1)
 start_of <- 1
-
-# Empty enzyme frequency dataFrame
-enzymeList <- NULL
 
 # Auxiliar function to generate messages
 printMessage <- function(message_) {
@@ -98,13 +94,11 @@ getPathwayEnzymes <- function(row, removeNoise_=TRUE, replaceEmptyGraph_=TRUE) {
   printMessage(paste0("COUNTING ", specie, " ENZYMES FREQUENCIES [", row, " OF ", length(organism2pathway), "]"))
 
   # Loop over the current organism pathways code
-  result <- foreach::foreach(idx = seq.int(1, ntasks), .export=c('printMessage', 'pathwayToDataframe', 'as_ids', 'str_replace',
+  enzymeList <- foreach::foreach(idx = seq.int(1, ntasks), .export=c('printMessage', 'pathwayToDataframe', 'as_ids', 'str_replace',
                                                                      'getGraphBottleneck', 'convertEntrezToECWithoutDict',
                                                                      'getPathwayHighlightedGenes'),
                                  .combine = "rbind", .options.snow = opts) %do%
   {
-    #sink("log.txt", append=TRUE)
-
     #####################################
     # Load all enzymes from its pathway #
     #####################################
@@ -234,8 +228,25 @@ getPathwayEnzymes <- function(row, removeNoise_=TRUE, replaceEmptyGraph_=TRUE) {
     return(temp)
   }
 
+  ##############################
+  # Prepare the data to export #
+  ##############################
+
+  # Rename the nodes column
+  names(enzymeList)[names(enzymeList) == "node1"] <- "ec"
+
+  # Remove duplicated rows based on EC column
+  enzymeList <- enzymeList[!duplicated(enzymeList[c("ec", "org", "pathway")]),]
+
+  # Reindex the enzymeList rows
+  rownames(enzymeList) <- 1:nrow(enzymeList)
+
+  # Export the specie data
+  save(enzymeList, file=paste0('./output/', row, '_', specie, '.RData'))
+  save(enzymeList, file=paste0('./output/', row, '_', specie, '.RData'))
+
   # Return the entire dataSet [FUNCTION]
-  return(result)
+  return(enzymeList)
 }
 
 #-------------------------------------------------------------------------------------------#
@@ -244,26 +255,14 @@ getPathwayEnzymes <- function(row, removeNoise_=TRUE, replaceEmptyGraph_=TRUE) {
 # Step 1: Get all pathways enzymes #
 ####################################
 
-enzymeList <- lapply(start_of:1, getPathwayEnzymes, replaceEmptyGraph_=FALSE)
-enzymeList <- do.call("rbind", enzymeList)
+lapply(start_of:1, getPathwayEnzymes, replaceEmptyGraph_=FALSE)
+
+#enzymeList <- do.call("rbind", enzymeList)
 
 #enzymeList <- lapply(start_of:length(organism2pathway), getPathwayEnzymes, replaceEmptyGraph_=FALSE)
 
-####################################
-# Step 2: Clear duplicates enzymes #
-####################################
-
-# Rename the nodes column
-names(enzymeList)[names(enzymeList) == "node1"] <- "ec"
-
-# Remove duplicated rows based on entrez column
-enzymeList <- enzymeList[!duplicated(enzymeList[c("ec", "org", "pathway")]),]
-
-# Reindex the enzymeList rows
-rownames(enzymeList) <- 1:nrow(enzymeList)
-
 ############################################
-# Step 3: Count the enzyme total frequency #
+# Step 2: Count the enzyme total frequency #
 ############################################
 
 # Filter just the enzymes with some frequency
@@ -280,7 +279,7 @@ enzymeFrequencyByPathway
 
 # APAGAR DEPOIS!
 # Count the proteins by its orthologous_group and specie
-result <- setNames(aggregate(enzymeList[,c('ec')],
+enzymeList <- setNames(aggregate(enzymeList[,c('ec')],
                              by=list(enzymeList$pathway), length),
                    c('ec', 'pathway', 'frequency'))
 
