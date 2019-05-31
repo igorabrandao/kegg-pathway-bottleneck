@@ -263,8 +263,34 @@ getPathwayEnzymes <- function(row, removeNoise_=TRUE, replaceEmptyGraph_=TRUE) {
 
 lapply(start_of:length(organism2pathway), getPathwayEnzymes, replaceEmptyGraph_=FALSE)
 
+#-------------------------------------------------------------------------------------------#
+
+##############################################
+# Step 2: Group all files into one dataframe #
+##############################################
+
+# Data frame to merge all data
+enzymeList <- NULL
+
+# Get the list of files
+folder = "./output/"
+file_list <- list.files(path=folder, pattern='*.RData')
+
+# Load all files at once
+big.list.of.data.frames <- lapply(file_list, function(file) {
+  get(load(file=paste0(folder, file)))
+})
+
+# Combine multiple data frames in one
+enzymeList <- do.call(rbind, big.list.of.data.frames)
+
+# Remove temporaly variables
+rm(big.list.of.data.frames)
+
+#-------------------------------------------------------------------------------------------#
+
 ############################################
-# Step 2: Count the enzyme total frequency #
+# Step 3: Count the enzyme total frequency #
 ############################################
 
 # Filter just the enzymes with some frequency
