@@ -12,6 +12,8 @@
 
 # Import the necessary libraries
 library(KEGGREST) # graph handler
+library(KEGGgraph)
+library(pathview)
 library(igraph)
 library(RCurl) # http connections
 library(rvest) # web scraping
@@ -243,7 +245,7 @@ getPathwayEnzymes <- function(row, removeNoise_=TRUE, replaceEmptyGraph_=TRUE) {
 
   # Export the specie data
   save(enzymeList, file=paste0('./output/', row, '_', specie, '.RData'))
-  save(enzymeList, file=paste0('./output/', row, '_', specie, '.RData'))
+  save(enzymeList, file=paste0('~/data3/kegg-pathway-bottleneck/output/', row, '_', specie, '.RData'))
 
   # Return the entire dataSet [FUNCTION]
   return(enzymeList)
@@ -255,11 +257,11 @@ getPathwayEnzymes <- function(row, removeNoise_=TRUE, replaceEmptyGraph_=TRUE) {
 # Step 1: Get all pathways enzymes #
 ####################################
 
-lapply(start_of:1, getPathwayEnzymes, replaceEmptyGraph_=FALSE)
+#lapply(start_of:1, getPathwayEnzymes, replaceEmptyGraph_=FALSE)
 
 #enzymeList <- do.call("rbind", enzymeList)
 
-#enzymeList <- lapply(start_of:length(organism2pathway), getPathwayEnzymes, replaceEmptyGraph_=FALSE)
+lapply(start_of:length(organism2pathway), getPathwayEnzymes, replaceEmptyGraph_=FALSE)
 
 ############################################
 # Step 2: Count the enzyme total frequency #
