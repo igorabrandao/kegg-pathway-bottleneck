@@ -289,9 +289,13 @@ rm(big.list.of.data.frames)
 
 #-------------------------------------------------------------------------------------------#
 
-############################################
-# Step 3: Count the enzyme total frequency #
-############################################
+######################################
+# Step 3: Count the enzyme frequency #
+######################################
+
+#-------------------#
+# [TOTAL FREQUENCY] #
+#-------------------#
 
 # Filter just the enzymes with some frequency
 enzymeTotalFrequency <- enzymeList[enzymeList$is_presented == 1,]
@@ -300,20 +304,19 @@ enzymeTotalFrequency <- enzymeList[enzymeList$is_presented == 1,]
 enzymeTotalFrequency <- as.data.frame(table(enzymeTotalFrequency$ec), stringsAsFactors = FALSE)
 names(enzymeTotalFrequency)[names(enzymeTotalFrequency) == "Var1"] <- "ec"
 
-# TODO: Calcular a frequência dos genes presentes por rota
+#------------------------#
+# [FREQUENCY BY PATHWAY] #
+#------------------------#
 
 # Count the enzyme frequency by pathway code
-enzymeFrequencyByPathway
+enzymeFrequencyByPathway <- aggregate(x = enzymeList,
+                                      by = list(enzymeList$ec, enzymeList$pathway),
+                                      FUN = length)
 
-# APAGAR DEPOIS!
-# Count the proteins by its orthologous_group and specie
-enzymeList <- setNames(aggregate(enzymeList[,c('ec')],
-                             by=list(enzymeList$pathway), length),
-                   c('ec', 'pathway', 'frequency'))
+# Remove unnecessary columns
+enzymeFrequencyByPathway[3:6] <- list(NULL)
 
-aggregate(x = enzymeList,
-          by = list(enzymeList$ec, enzymeList$pathway),
-          FUN = length)
-
-
-enzymeList[which(enzymeList$ec %in% enzymeTotalFrequency$ec),]
+# Rename the columns
+names(enzymeFrequencyByPathway)[names(enzymeFrequencyByPathway) == "Group.1"] <- "ec"
+names(enzymeFrequencyByPathway)[names(enzymeFrequencyByPathway) == "Group.2"] <- "pathway"
+names(enzymeFrequencyByPathway)[names(enzymeFrequencyByPathway) == "is_presented"] <- "Freq"
