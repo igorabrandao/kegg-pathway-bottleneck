@@ -303,14 +303,18 @@ enzymeTotalFrequency <- enzymeList[enzymeList$is_presented == 1,]
 # Count the enzymes frequencies and transform it into a dataFrame
 enzymeTotalFrequency <- as.data.frame(table(enzymeTotalFrequency$ec), stringsAsFactors = FALSE)
 names(enzymeTotalFrequency)[names(enzymeTotalFrequency) == "Var1"] <- "ec"
+names(enzymeTotalFrequency)[names(enzymeTotalFrequency) == "Freq"] <- "frequency"
 
 #------------------------#
 # [FREQUENCY BY PATHWAY] #
 #------------------------#
 
+# Filter just the enzymes with some frequency
+enzymeFrequencyByPathway <- enzymeList[enzymeList$is_presented == 1,]
+
 # Count the enzyme frequency by pathway code
-enzymeFrequencyByPathway <- aggregate(x = enzymeList,
-                                      by = list(enzymeList$ec, enzymeList$pathway),
+enzymeFrequencyByPathway <- aggregate(x = enzymeFrequencyByPathway,
+                                      by = list(enzymeFrequencyByPathway$ec, enzymeFrequencyByPathway$pathway),
                                       FUN = length)
 
 # Remove unnecessary columns
@@ -319,4 +323,13 @@ enzymeFrequencyByPathway[3:6] <- list(NULL)
 # Rename the columns
 names(enzymeFrequencyByPathway)[names(enzymeFrequencyByPathway) == "Group.1"] <- "ec"
 names(enzymeFrequencyByPathway)[names(enzymeFrequencyByPathway) == "Group.2"] <- "pathway"
-names(enzymeFrequencyByPathway)[names(enzymeFrequencyByPathway) == "is_presented"] <- "Freq"
+names(enzymeFrequencyByPathway)[names(enzymeFrequencyByPathway) == "is_presented"] <- "frequency"
+
+#---------------------------#
+# [FREQUENCY BY BOTTLENECK] #
+#---------------------------#
+
+#-----------------------#
+# [FREQUENCY BY SPECIE] #
+#-----------------------#
+
