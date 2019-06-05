@@ -70,7 +70,7 @@ pathwayToDataframe <- function(pathway_, replaceOrg=FALSE, orgToReplace='') {
       rm(pathway_, mapkpathway, kgml)
       return(NULL)
     }
-  }, error=function(e){
+  }, error=function(e) {
     print(paste0('The pathway ', pathway_, ' could no be found. Skipping it...'))
     return(NULL)
   })

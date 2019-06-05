@@ -61,75 +61,61 @@ printMessage <- function(message_) {
 # Pipeline main functions #
 ###########################
 
-getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE) {
+getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE, chunkSize_=50) {
 
   ################################
   # Get the pathway general info #
   ################################
 
   # Get the current pathway
-  pathway <- pathwayList[index_]
+  pathway <- pathwayList[index_,]
+
+  # Format the pathway code
+  pathway_code <- paste0('ec', pathway)
 
   # Count the total of species
-  totalSpecies <- length(unlist(org))
+  totalSpecies <- length(organism2pathway)
 
   # Status message
   printMessage(paste0("COUNTING ", pathway, " ENZYMES FREQUENCIES [", index_, " OF ", nrow(pathwayList), "]"))
 
-  # Loop over the current organism pathways code
+  #####################################
+  # Load all enzymes from its pathway #
+  #####################################
+
+  # Get the enzyme list from pathway
+  pathwayData <- pathwayToDataframe(pathway_code, FALSE)
+
+  # Handle empty graph
+  if (is.null(pathwayData) | length(pathwayData) == 0) {
+    pathwayData <- data.frame(node1 = NA, org = specie, pathway = pathway, is_bottleneck = 0,
+                       is_presented = 0, stringsAsFactors = FALSE)
+
+    return(temp)
+  }
+
+  ######################################
+  # Set the parameters for each specie #
+  ######################################
+
+  # Loop over the organism list
   enzymeList <- foreach::foreach(idx = seq.int(1, totalSpecies),
                                  .export=c('printMessage', 'pathwayToDataframe', 'as_ids', 'str_replace',
                                            'getGraphBottleneck', 'convertEntrezToECWithoutDict',
                                            'getPathwayHighlightedGenes'),
-                                 .combine = "rbind", .options.snow = opts) %do%
+                                 .combine = "rbind") %do%
   {
-    #####################################
-    # Load all enzymes from its pathway #
-    #####################################
+    tryCatch({
+      # Get its name
+      specie <- names(organism2pathway[idx])
 
-    # Set the flag extraction by Entrez
-    extracted_by_entrez <- FALSE
+      # Get the pathway graph and change the column org with the current specie
+      temp <- pathwayData
+      temp[,c('org')] <- specie
 
-    # Get the current organism
-    org <- organism2pathway[idx]
+      # Status message
+      printMessage(paste0("<<< Working on ", specie, pathway, " pathway... >>>"))
 
-    # Get its name
-    specie <- names(org)
-
-    # Format the pathway code
-    pathway_code <- paste0('ec', pathway)
-
-    # Status message
-    printMessage(paste0("<<< Requesting ", pathway_code, " for specie: ", specie, "... >>>"))
-
-    # Get the enzyme list from pathway
-    temp <- pathwayToDataframe(pathway_code, TRUE, specie)
-
-    # Handle empty graph
-    if (is.null(temp) | length(temp) == 0) {
-      if (replaceEmptyGraph_) {
-        # Try to find the specific pathway for an organism
-        pathway_code_tmp <- paste0(specie, pathway)
-
-        # Status message
-        printMessage(paste0("<<< Requesting specific pathway for ", pathway_code_tmp, "... >>>"))
-
-        # Receive the specie data as Entrez
-        temp <- pathwayToDataframe(pathway_code_tmp, TRUE, specie)
-
-        # Set the specific flag
-        extracted_by_entrez <- TRUE
-      }
-      else {
-        temp <- data.frame(node1 = NA, org = specie, pathway = pathway, is_bottleneck = 0,
-                           is_presented = 0, stringsAsFactors = FALSE)
-
-        return(temp)
-      }
-    }
-
-    # Check if the organism has the current pathway
-    if (!is.null(temp) & length(temp) != 0) {
       # Remove unnecessary data before bottleneck calculation
       if (removeNoise_) {
         temp <- temp[!grepl("^path:", temp$node1),]
@@ -173,48 +159,41 @@ getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE
       # Convert it into dataframe
       highlighted_enzymes <- as.data.frame(highlighted_enzymes, stringsAsFactors = FALSE)
 
-      # If necessary convert Entrez to EC
-      if (extracted_by_entrez) {
-        # Remove the duplicates
-        highlighted_enzymes <- highlighted_enzymes[!duplicated(highlighted_enzymes),]
+      # Convert the highlighted list into EC number
+      highlighted_enzymes <- convertEntrezToECWithoutDict(highlighted_enzymes[,c(1)], chunkSize_, FALSE)
 
-        # Get just the enzyme number without specie
-        highlighted_enzymes <- gsub("^[[:alpha:]]*(.*$)", "\\1", str_replace(highlighted_enzymes, ":", ""))
-        current_enzyme <- gsub("^[[:alpha:]]*(.*$)", "\\1", str_replace(temp$node1, ":", ""))
+      # Remove the duplicates
+      highlighted_enzymes <- highlighted_enzymes[!duplicated(highlighted_enzymes),]
 
-        # Verify if the current enzyme is highlighted and set its status
-        temp$is_presented[which(current_enzyme %in% highlighted_enzymes)] <- 1
+      # Get just the enzyme number without specie
+      current_enzyme <- gsub("^[[:alpha:]]*(.*$)", "\\1", str_replace(temp$node1, ":", ""))
 
-        # Status message
-        printMessage(paste0("<<< Converting Entrez to EC for pathway: ", pathway_code_tmp, "... >>>"))
+      # Verify if the current enzyme is highlighted and set its status
+      temp$is_presented[which(current_enzyme %in% highlighted_enzymes)] <- 1
 
-        # Remove duplicated index_s based on entrez column
-        temp <- temp[!(duplicated(temp$node1) & duplicated(temp$pathway)),]
+      # Return the specie [FOREACH]
+      return(temp)
 
-        # Convert Entrez to EC
-        temp$node1 <- convertEntrezToECWithoutDict(temp$node1, 50, TRUE, pathway_name_=pathway_code_tmp)
+    }, error=function(e) {
+      # Status message
+      printMessage(paste0('The pathway ', specie, pathway, ' could no be processed. View the log file for more information. Skipping it...'))
 
-        # Remove duplicated index_s based on entrez column
-        temp <- temp[!(duplicated(temp$node1) & duplicated(temp$pathway)),]
-      } else {
-        # Convert the highlighted list into EC number
-        highlighted_enzymes <- convertEntrezToECWithoutDict(highlighted_enzymes[,c(1)], 50, TRUE)
+      # Save the error message
+      err <- conditionMessage(e)
 
-        # Remove the duplicates
-        highlighted_enzymes <- highlighted_enzymes[!duplicated(highlighted_enzymes),]
-
-        # Get just the enzyme number without specie
-        current_enzyme <- gsub("^[[:alpha:]]*(.*$)", "\\1", str_replace(temp$node1, ":", ""))
-
-        # Verify if the current enzyme is highlighted and set its status
-        temp$is_presented[which(current_enzyme %in% highlighted_enzymes)] <- 1
+      # Save the log file
+      if (dir.exists(file.path('./log/'))) {
+        write(err, file=paste0('./log/', format(Sys.time(), "%Y%m%d_%H%M%S_"), specie, pathway, '.txt'))
       }
-    }
 
-    # Return the specie [FOREACH]
-    sink('teste', append = T)
-    return(temp)
-  }
+      # Add a new column to the enzymeFrquency dataFrame
+      temp <- data.frame(node1 = NA, org = specie, pathway = pathway, is_bottleneck = 0,
+                         is_presented = 0, stringsAsFactors = FALSE)
+
+      return(temp)
+    })
+
+  } # END OF FOREACH
 
   ##############################
   # Prepare the data to export #
@@ -227,19 +206,19 @@ getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE
   enzymeList <- enzymeList[!duplicated(enzymeList[c("ec", "org", "pathway")]),]
 
   # Reindex the enzymeList index_s
-  index_names(enzymeList) <- 1:nindex_(enzymeList)
+  rownames(enzymeList) <- 1:nrow(enzymeList)
 
   # Export the specie data
   if (dir.exists(file.path('./output/'))) {
-    save(enzymeList, file=paste0('./output/', index_, '_', specie, '.RData'))
+    save(enzymeList, file=paste0('./output/', pathway, '.RData'))
   }
 
   if (dir.exists(file.path('~/data3/'))) {
-    save(enzymeList, file=paste0('~/data3/kegg-pathway-bottleneck/output/', index_, '_', specie, '.RData'))
+    save(enzymeList, file=paste0('~/data3/kegg-pathway-bottleneck/output/', pathway, '.RData'))
   }
 
-  # Return the entire dataSet [FUNCTION]
-  return(enzymeList)
+  # Function finished with success
+  return(TRUE)
 }
 
 #-------------------------------------------------------------------------------------------#
