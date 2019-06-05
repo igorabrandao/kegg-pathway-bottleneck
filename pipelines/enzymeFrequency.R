@@ -40,10 +40,11 @@ sapply(files.sources, source)
 
 # Load the pathways by organisms data
 organism2pathway <- get(load(paste0("./dictionnaires", "/", "organism2pathway.RData")))
+pathwayList <- get(load(paste0("./dictionnaires", "/", "pathwayList.RData")))
 
 # Define in which specie the processing should begin
 # default value 1 (the value should be >= 1)
-start_of <- 40
+start_of <- 1
 
 # Auxiliar function to generate messages
 printMessage <- function(message_) {
@@ -60,45 +61,26 @@ printMessage <- function(message_) {
 # Pipeline main functions #
 ###########################
 
-getPathwayEnzymes <- function(row, removeNoise_=TRUE, replaceEmptyGraph_=TRUE) {
+getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE) {
 
-  #################################
-  # Get the organism general info #
-  #################################
+  ################################
+  # Get the pathway general info #
+  ################################
 
-  # Get the current organism
-  org <- organism2pathway[row]
+  # Get the current pathway
+  pathway <- pathwayList[index_]
 
-  # Get its name
-  specie <- names(org)
-
-  ###########################
-  # Set parallelism options #
-  ###########################
-
-  nCores <- parallel::detectCores()
-  cl <- snow::makeSOCKcluster(nCores)
-  on.exit(snow::stopCluster(cl))
-  doSNOW::registerDoSNOW(cl)
-
-  progress <- function() {
-    pb$tick()
-  }
-
-  opts <- list(progress = progress)
-  ntasks <- length(unlist(org))
-
-  pb <- progress::progress_bar$new(format = "running [:bar] :percent elapsed time :elapsed",
-                                   total = ntasks, clear = FALSE,
-                                   width = 60)
+  # Count the total of species
+  totalSpecies <- length(unlist(org))
 
   # Status message
-  printMessage(paste0("COUNTING ", specie, " ENZYMES FREQUENCIES [", row, " OF ", length(organism2pathway), "]"))
+  printMessage(paste0("COUNTING ", pathway, " ENZYMES FREQUENCIES [", index_, " OF ", nrow(pathwayList), "]"))
 
   # Loop over the current organism pathways code
-  enzymeList <- foreach::foreach(idx = seq.int(1, ntasks), .export=c('printMessage', 'pathwayToDataframe', 'as_ids', 'str_replace',
-                                                                     'getGraphBottleneck', 'convertEntrezToECWithoutDict',
-                                                                     'getPathwayHighlightedGenes'),
+  enzymeList <- foreach::foreach(idx = seq.int(1, totalSpecies),
+                                 .export=c('printMessage', 'pathwayToDataframe', 'as_ids', 'str_replace',
+                                           'getGraphBottleneck', 'convertEntrezToECWithoutDict',
+                                           'getPathwayHighlightedGenes'),
                                  .combine = "rbind", .options.snow = opts) %do%
   {
     #####################################
@@ -108,14 +90,17 @@ getPathwayEnzymes <- function(row, removeNoise_=TRUE, replaceEmptyGraph_=TRUE) {
     # Set the flag extraction by Entrez
     extracted_by_entrez <- FALSE
 
-    # Get the pathway object
-    pathway <- unlist(org)[idx]
+    # Get the current organism
+    org <- organism2pathway[idx]
+
+    # Get its name
+    specie <- names(org)
 
     # Format the pathway code
     pathway_code <- paste0('ec', pathway)
 
     # Status message
-    printMessage(paste0("<<< Requesting ", specie, ": ", pathway_code, "... >>>"))
+    printMessage(paste0("<<< Requesting ", pathway_code, " for specie: ", specie, "... >>>"))
 
     # Get the enzyme list from pathway
     temp <- pathwayToDataframe(pathway_code, TRUE, specie)
@@ -163,7 +148,7 @@ getPathwayEnzymes <- function(row, removeNoise_=TRUE, replaceEmptyGraph_=TRUE) {
       # Perform the graph bottleneck calculation
       graphBottleneck <- igraph::as_ids(getGraphBottleneck(iGraph, FALSE))
 
-      # Convert the node2 column into node1 rows
+      # Convert the node2 column into node1 index_s
       aux <- unique(c(temp$node1, temp$node2))
       auxorg <- temp$org[1]
       auxpathway <- temp$pathway[1]
@@ -203,13 +188,13 @@ getPathwayEnzymes <- function(row, removeNoise_=TRUE, replaceEmptyGraph_=TRUE) {
         # Status message
         printMessage(paste0("<<< Converting Entrez to EC for pathway: ", pathway_code_tmp, "... >>>"))
 
-        # Remove duplicated rows based on entrez column
+        # Remove duplicated index_s based on entrez column
         temp <- temp[!(duplicated(temp$node1) & duplicated(temp$pathway)),]
 
         # Convert Entrez to EC
         temp$node1 <- convertEntrezToECWithoutDict(temp$node1, 50, TRUE, pathway_name_=pathway_code_tmp)
 
-        # Remove duplicated rows based on entrez column
+        # Remove duplicated index_s based on entrez column
         temp <- temp[!(duplicated(temp$node1) & duplicated(temp$pathway)),]
       } else {
         # Convert the highlighted list into EC number
@@ -238,19 +223,19 @@ getPathwayEnzymes <- function(row, removeNoise_=TRUE, replaceEmptyGraph_=TRUE) {
   # Rename the nodes column
   names(enzymeList)[names(enzymeList) == "node1"] <- "ec"
 
-  # Remove duplicated rows based on EC column
+  # Remove duplicated index_s based on EC column
   enzymeList <- enzymeList[!duplicated(enzymeList[c("ec", "org", "pathway")]),]
 
-  # Reindex the enzymeList rows
-  rownames(enzymeList) <- 1:nrow(enzymeList)
+  # Reindex the enzymeList index_s
+  index_names(enzymeList) <- 1:nindex_(enzymeList)
 
   # Export the specie data
   if (dir.exists(file.path('./output/'))) {
-    save(enzymeList, file=paste0('./output/', row, '_', specie, '.RData'))
+    save(enzymeList, file=paste0('./output/', index_, '_', specie, '.RData'))
   }
 
   if (dir.exists(file.path('~/data3/'))) {
-    save(enzymeList, file=paste0('~/data3/kegg-pathway-bottleneck/output/', row, '_', specie, '.RData'))
+    save(enzymeList, file=paste0('~/data3/kegg-pathway-bottleneck/output/', index_, '_', specie, '.RData'))
   }
 
   # Return the entire dataSet [FUNCTION]
