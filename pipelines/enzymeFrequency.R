@@ -43,7 +43,7 @@ organism2pathway <- get(load(paste0("./dictionnaires", "/", "organism2pathway.RD
 
 # Define in which specie the processing should begin
 # default value 1 (the value should be >= 1)
-start_of <- 40
+start_of <- 18
 
 # Auxiliar function to generate messages
 printMessage <- function(message_) {
@@ -244,8 +244,13 @@ getPathwayEnzymes <- function(row, removeNoise_=TRUE, replaceEmptyGraph_=TRUE) {
   rownames(enzymeList) <- 1:nrow(enzymeList)
 
   # Export the specie data
-  save(enzymeList, file=paste0('./output/', row, '_', specie, '.RData'))
-  save(enzymeList, file=paste0('~/data3/kegg-pathway-bottleneck/output/', row, '_', specie, '.RData'))
+  if (dir.exists(file.path('./output/'))) {
+    save(enzymeList, file=paste0('./output/', row, '_', specie, '.RData'))
+  }
+
+  if (dir.exists(file.path('~/data3/'))) {
+    save(enzymeList, file=paste0('~/data3/kegg-pathway-bottleneck/output/', row, '_', specie, '.RData'))
+  }
 
   # Return the entire dataSet [FUNCTION]
   return(enzymeList)
@@ -258,6 +263,7 @@ getPathwayEnzymes <- function(row, removeNoise_=TRUE, replaceEmptyGraph_=TRUE) {
 ####################################
 
 #lapply(start_of:1, getPathwayEnzymes, replaceEmptyGraph_=FALSE)
+lapply(start_of:start_of, getPathwayEnzymes, replaceEmptyGraph_=FALSE)
 
 #enzymeList <- do.call("rbind", enzymeList)
 

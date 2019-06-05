@@ -21,8 +21,8 @@ sapply(files.sources, source)
 
 ##############################################
 # Define which pathway will be analysed
-prefix <- "hsa"
-code <- "00010"
+prefix <- "ec"
+code <- "00260"
 pathway <- paste0(prefix, code)
 
 # Load EC from KO dictionnaire
@@ -37,11 +37,11 @@ organism2pathway <- get(load(paste0("./dictionnaires", "/", "organism2pathway.RD
 ##############################################
 
 # Load the KEGG reference pathway
-referencePathway <- getReferencePathway(code, ec_dictionnaire)
-iGraph <- graph_from_data_frame(referencePathway, directed=FALSE)
+# referencePathway <- getReferencePathway(code, ec_dictionnaire)
+# iGraph <- graph_from_data_frame(referencePathway, directed=FALSE)
 
 # Load the KEGG pathway and convert it into iGraph object
-# Graph <- graph_from_data_frame(pathwayToDataframe(pathway))
+iGraph <- graph_from_data_frame(pathwayToDataframe(pathway))
 
 # Vertex communites
 iGraph <- setGraphCommunity(iGraph)
