@@ -43,7 +43,7 @@ organism2pathway <- get(load(paste0("./dictionnaires", "/", "organism2pathway.RD
 
 # Define in which specie the processing should begin
 # default value 1 (the value should be >= 1)
-start_of <- 18
+start_of <- 40
 
 # Auxiliar function to generate messages
 printMessage <- function(message_) {
@@ -227,6 +227,7 @@ getPathwayEnzymes <- function(row, removeNoise_=TRUE, replaceEmptyGraph_=TRUE) {
     }
 
     # Return the specie [FOREACH]
+    sink('teste', append = T)
     return(temp)
   }
 
