@@ -43,7 +43,7 @@ organism2pathway <- get(load(paste0("./dictionnaires", "/", "organism2pathway.RD
 
 # Define in which specie the processing should begin
 # default value 1 (the value should be >= 1)
-start_of <- 1
+start_of <- 40
 
 # Auxiliar function to generate messages
 printMessage <- function(message_) {
