@@ -56,6 +56,26 @@ printMessage <- function(message_) {
 # Pipeline main functions #
 ###########################
 
+#' Get the list of pathways from pathwayList and export
+#' the enzyme list for each specie by pathway
+#'
+#' @param index_ Index from pathwayList representing a single pathway, e.g: 1 = 00010.
+#' @param removeNoise_ Remove undesirable enzyme such as: map, path, cpd or gl.
+#' @param replaceEmptyGraph_ If a reference pathway does not exist, it can be replaced by an
+#' organism specific pathway when its TRUE, cc just ignore the pathway and anotate in log.
+#' @param chunkSize_ During the requests to KEGG DB to avoid long time o waiting you can set
+#' the size of list sent to http request.
+#'
+#' @return This function does not return nothing, just export files.
+#'
+#' @examples
+#' \dontrun{
+#' getPathwayEnzymes(1, TRUE, TRUE, 50)
+#' }
+#'
+#' @author
+#' Igor Brandão
+
 getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE, chunkSize_=50) {
 
   ################################
@@ -236,7 +256,7 @@ getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE
 ####################################
 
 #lapply(start_of:1, getPathwayEnzymes, replaceEmptyGraph_=FALSE)
-lapply(start_of:start_of, getPathwayEnzymes, replaceEmptyGraph_=FALSE)
+lapply(3:5, getPathwayEnzymes, replaceEmptyGraph_=FALSE)
 
 #enzymeList <- do.call("rbind", enzymeList)
 
@@ -285,43 +305,34 @@ enzymeTotalFrequency <- enzymeTotalFrequency[,,2]
 # Count the enzymes frequencies and transform it into a dataFrame
 enzymeTotalFrequency <- as.data.frame.matrix(enzymeTotalFrequency, stringsAsFactors = FALSE)
 
-# Add columns according to the specie list
-enzymeTotalFrequency <- cbind(enzymeTotalFrequency, as.list(c('is_bottleneck', 'freq', 'total_freq')))
+# Sum each frequency
+enzymeTotalFrequency$freq <- rowSums(enzymeTotalFrequency)
+
+# Calculate the total frequency
+enzymeTotalFrequency$total_freq <- max(enzymeTotalFrequency$freq)
+
+# Calculate the frequency percentage
+enzymeTotalFrequency$percentage <- (enzymeTotalFrequency$freq / enzymeTotalFrequency$total_freq) * 100
+
+# Calculate the mean frequency
+enzymeTotalFrequency$mean <- mean(enzymeTotalFrequency$freq)
+
+# Calculate the standard deviation of frequency
+enzymeTotalFrequency$std <- sd(enzymeTotalFrequency$freq)
+
+# Set the is_bottleneck flag from enzymeList
+selectedEC <- enzymeList[enzymeList$ec%in%row.names(enzymeTotalFrequency),]
+
+# Remove duplicates EC
+selectedEC <- selectedEC[!duplicated(selectedEC[,c('ec')]),]
+
+# Align the column is_bottleneck
+mergeTemp <- merge(enzymeTotalFrequency, selectedEC, by.x=0, by.y="ec", all.x=T)
+enzymeTotalFrequency$is_bottleneck <- mergeTemp$is_bottleneck
 
 # Remove the quotes from column name
 colnames(enzymeTotalFrequency) <- gsub("\"", "", colnames(enzymeTotalFrequency))
 
-# Set the is_bottleneck flag from enzymeList (not working)
-sapply(enzymeTotalFrequency, function(idx)
-  enzymeTotalFrequency[idx, ]$is_bottleneck <- enzymeList[enzymeList$ec == row.names(enzymeTotalFrequency[idx, ]),]$is_bottleneck[1]
-)
-
-
-#------------------------#
-# [FREQUENCY BY PATHWAY] #
-#------------------------#
-
-# Filter just the enzymes with some frequency
-enzymeFrequencyByPathway <- enzymeList[enzymeList$is_presented == 1,]
-
-# Count the enzyme frequency by pathway code
-enzymeFrequencyByPathway <- aggregate(x = enzymeFrequencyByPathway,
-                                      by = list(enzymeFrequencyByPathway$ec, enzymeFrequencyByPathway$pathway),
-                                      FUN = length)
-
-# Remove unnecessary columns
-enzymeFrequencyByPathway[3:6] <- list(NULL)
-
-# Rename the columns
-names(enzymeFrequencyByPathway)[names(enzymeFrequencyByPathway) == "Group.1"] <- "ec"
-names(enzymeFrequencyByPathway)[names(enzymeFrequencyByPathway) == "Group.2"] <- "pathway"
-names(enzymeFrequencyByPathway)[names(enzymeFrequencyByPathway) == "is_presented"] <- "frequency"
-
-#---------------------------#
-# [FREQUENCY BY BOTTLENECK] #
-#---------------------------#
-
-#-----------------------#
-# [FREQUENCY BY SPECIE] #
-#-----------------------#
+# Remove temp var
+rm(selectedEC, mergeTemp)
 
