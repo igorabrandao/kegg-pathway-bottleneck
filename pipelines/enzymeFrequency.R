@@ -188,6 +188,8 @@ getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE
       temp$is_presented[which(current_enzyme %in% highlighted_enzymes)] <- 1
 
       # Save the intermediary data
+      names(temp)[names(temp) == "node1"] <- "ec"
+
       if (!dir.exists(file.path(paste0('./output/', pathway)))) {
         dir.create(file.path(paste0('./output/', pathway)), showWarnings = FALSE)
       }
@@ -272,7 +274,8 @@ lapply(start_of:nrow(pathwayList), getPathwayEnzymes, replaceEmptyGraph_=FALSE)
 enzymeList <- NULL
 
 # Get the list of files
-folder = "./output/"
+pathway_folder = "00010"
+folder = paste0("./output/", pathway_folder, "/")
 file_list <- list.files(path=folder, pattern='*.RData')
 
 # Load all files at once
@@ -335,4 +338,3 @@ colnames(enzymeTotalFrequency) <- gsub("\"", "", colnames(enzymeTotalFrequency))
 
 # Remove temp var
 rm(selectedEC, mergeTemp)
-
