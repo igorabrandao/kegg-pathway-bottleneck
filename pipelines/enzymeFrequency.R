@@ -167,6 +167,18 @@ getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE
       # Verify if the current enzyme is highlighted and set its status
       temp$is_presented[which(current_enzyme %in% highlighted_enzymes)] <- 1
 
+      # Save the intermediary data
+      if (!dir.exists(file.path(paste0('./output/', pathway)))) {
+        dir.create(file.path(paste0('./output/', pathway)), showWarnings = FALSE)
+      }
+
+      if (dir.exists(file.path('~/data3/'))) {
+        dir.create(file.path(paste0('~/data3/kegg-pathway-bottleneck/output/', pathway)), showWarnings = FALSE)
+        save(temp, file=paste0('~/data3/kegg-pathway-bottleneck/output/', pathway, '/', idx, '_',  specie, '.RData'))
+      }
+
+      save(temp, file=paste0('./output/', pathway, '/', idx, '_',  specie, '.RData'))
+
       # Return the specie [FOREACH]
       return(temp)
 
