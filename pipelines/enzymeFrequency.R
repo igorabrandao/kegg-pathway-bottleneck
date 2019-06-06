@@ -19,11 +19,6 @@ library(RCurl) # http connections
 library(rvest) # web scraping
 library(stringr) # regex manipulation
 library(pracma) # string manipulation
-
-library(progress)
-library(parallel)
-library(snow)
-library(doSNOW)
 library(foreach)
 
 #-------------------------------------------------------------------------------------------#
@@ -75,6 +70,7 @@ getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE
 
   # Count the total of species
   totalSpecies <- length(organism2pathway)
+  totalSpecies <- 10 # TODO: REMOVER DEPOIS
 
   # Status message
   printMessage(paste0("COUNTING ", pathway, " ENZYMES FREQUENCIES [", index_, " OF ", nrow(pathwayList), "]"))
@@ -232,7 +228,7 @@ lapply(start_of:start_of, getPathwayEnzymes, replaceEmptyGraph_=FALSE)
 
 #enzymeList <- do.call("rbind", enzymeList)
 
-lapply(start_of:length(organism2pathway), getPathwayEnzymes, replaceEmptyGraph_=FALSE)
+lapply(start_of:nrow(pathwayList), getPathwayEnzymes, replaceEmptyGraph_=FALSE)
 
 #-------------------------------------------------------------------------------------------#
 
@@ -268,13 +264,26 @@ rm(big.list.of.data.frames)
 # [TOTAL FREQUENCY] #
 #-------------------#
 
-# Filter just the enzymes with some frequency
-enzymeTotalFrequency <- enzymeList[enzymeList$is_presented == 1,]
+# Get the enzymeList as a 3 way table
+enzymeTotalFrequency <- table(enzymeList$ec,enzymeList$org,enzymeList$is_presented)
+
+# Get just the table sinalyzing the presence of the enzyme
+enzymeTotalFrequency <- enzymeTotalFrequency[,,2]
 
 # Count the enzymes frequencies and transform it into a dataFrame
-enzymeTotalFrequency <- as.data.frame(table(enzymeTotalFrequency$ec), stringsAsFactors = FALSE)
-names(enzymeTotalFrequency)[names(enzymeTotalFrequency) == "Var1"] <- "ec"
-names(enzymeTotalFrequency)[names(enzymeTotalFrequency) == "Freq"] <- "frequency"
+enzymeTotalFrequency <- as.data.frame.matrix(enzymeTotalFrequency, stringsAsFactors = FALSE)
+
+# Add columns according to the specie list
+enzymeTotalFrequency <- cbind(enzymeTotalFrequency, as.list(c('is_bottleneck', 'freq', 'total_freq')))
+
+# Remove the quotes from column name
+colnames(enzymeTotalFrequency) <- gsub("\"", "", colnames(enzymeTotalFrequency))
+
+# Set the is_bottleneck flag from enzymeList (not working)
+sapply(enzymeTotalFrequency, function(idx)
+  enzymeTotalFrequency[idx, ]$is_bottleneck <- enzymeList[enzymeList$ec == row.names(enzymeTotalFrequency[idx, ]),]$is_bottleneck[1]
+)
+
 
 #------------------------#
 # [FREQUENCY BY PATHWAY] #
