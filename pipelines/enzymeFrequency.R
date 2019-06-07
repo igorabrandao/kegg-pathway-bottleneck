@@ -90,7 +90,6 @@ getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE
 
   # Count the total of species
   totalSpecies <- length(organism2pathway)
-  totalSpecies <- 10 # TODO: REMOVER DEPOIS
 
   # Status message
   printMessage(paste0("COUNTING ", pathway, " ENZYMES FREQUENCIES [", index_, " OF ", nrow(pathwayList), "]"))
@@ -169,23 +168,33 @@ getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE
       # Get the highlighted enzymes list
       highlighted_enzymes <- getPathwayHighlightedGenes(paste0(specie, pathway), allMapped_=TRUE)
 
-      # Concat the org string
-      highlighted_enzymes <- paste(specie, highlighted_enzymes, sep=":")
+      if (!is.null(highlighted_enzymes)) {
+        # Concat the org string
+        highlighted_enzymes <- paste(specie, highlighted_enzymes, sep=":")
 
-      # Convert it into dataframe
-      highlighted_enzymes <- as.data.frame(highlighted_enzymes, stringsAsFactors = FALSE)
+        # Convert it into dataframe
+        highlighted_enzymes <- as.data.frame(highlighted_enzymes, stringsAsFactors = FALSE)
 
-      # Convert the highlighted list into EC number
-      highlighted_enzymes <- convertEntrezToECWithoutDict(highlighted_enzymes[,c(1)], chunkSize_, FALSE)
+        # Convert the highlighted list into EC number
+        highlighted_enzymes <- convertEntrezToECWithoutDict(highlighted_enzymes[,c(1)], chunkSize_, FALSE)
 
-      # Remove the duplicates
-      highlighted_enzymes <- highlighted_enzymes[!duplicated(highlighted_enzymes),]
+        # Remove the duplicates
+        highlighted_enzymes <- highlighted_enzymes[!duplicated(highlighted_enzymes),]
 
-      # Get just the enzyme number without specie
-      current_enzyme <- gsub("^[[:alpha:]]*(.*$)", "\\1", str_replace(temp$node1, ":", ""))
+        # Get just the enzyme number without specie
+        current_enzyme <- gsub("^[[:alpha:]]*(.*$)", "\\1", str_replace(temp$node1, ":", ""))
 
-      # Verify if the current enzyme is highlighted and set its status
-      temp$is_presented[which(current_enzyme %in% highlighted_enzymes)] <- 1
+        # Verify if the current enzyme is highlighted and set its status
+        temp$is_presented[which(current_enzyme %in% highlighted_enzymes)] <- 1
+
+      } else {
+        err <- paste0("Pathview library doesn't support the pathway: ", specie, pathway)
+
+        # Save the log file
+        if (dir.exists(file.path('./log/'))) {
+          write(err, file=paste0('./log/', format(Sys.time(), "%Y%m%d_%H%M%S_"), specie, pathway, '.txt'))
+        }
+      }
 
       # Save the intermediary data
       names(temp)[names(temp) == "node1"] <- "ec"
@@ -258,7 +267,7 @@ getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE
 ####################################
 
 #lapply(start_of:1, getPathwayEnzymes, replaceEmptyGraph_=FALSE)
-lapply(3:5, getPathwayEnzymes, replaceEmptyGraph_=FALSE)
+lapply(1:1, getPathwayEnzymes, replaceEmptyGraph_=FALSE)
 
 #enzymeList <- do.call("rbind", enzymeList)
 

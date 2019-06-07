@@ -279,6 +279,11 @@ getPathwayHighlightedGenes <- function(pathway_, IDs = NULL, allMapped_ = TRUE) 
   invisible(suppressWarnings(file.remove(paste0(species, pathway, ".png"))))
   invisible(suppressWarnings(file.remove(paste0(species, pathway, ".", now, ".png"))))
 
+  # Check if the highlighted list is NULL
+  if (is.null(img)) {
+    return(NULL)
+  }
+
   # Get the highlighted genes
   if (allMapped_) {
     highlightedGenes <- list(unique(img$plot.data.gene$all.mapped))
