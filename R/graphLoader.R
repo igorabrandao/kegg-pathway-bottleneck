@@ -209,29 +209,37 @@ getReferencePathway <- function(pathway_, ko_ec_dictionnaire_) {
   return(graphData)
 }
 
-# TODO: Finalizar função de busca de highlights por meio do XML
-getPathwayHighlightedGenes2 <- function(pathway_) {
-  tryCatch({
-    # Determine the genesOnly parameter (Default true)
-    genesOnly <- !grepl("^ko|^ec", pathway_)
+# getPathwayHighlightedGenes ####
 
+#' Get the image from a given KEGG pathway
+#'
+#' Given a KEGG pathway ID, this function saves its image in the current
+#' working directory.
+#'
+#' @param pathway_ A KEGG pathway ID.
+#'
+#' @return This function returns a list of highlighted enzymes according
+#' to the pathway
+#'
+#' @examples
+#' \dontrun{
+#' getPathwayImage("hsa00010")
+#' }
+#'
+#' @importFrom KEGGREST keggLink
+#' @importFrom pathview pathview
+#'
+#' @author
+#' Igor Brandão
+#'
+getPathwayHighlightedGenes <- function(pathway_, genesOnly_=TRUE) {
+  tryCatch({
     # Request the graph data from KEGG
     kgml <- suppressMessages(KEGGREST::keggGet(pathway_, "kgml"))
 
-    # Convert the xml into list
-    kgml <- read_xml(kgml)
-
-    # Get all the <entry>s
-    entry <- xml_find_all(kgml, "//entry")
-
-    teste <- xml_attr(xml_find_all(entry, "//entry/*[self::type or
-                                                      self::realvariable]"), "name")
-
-    return(kgml)
-
     # Convert it into graph object
     mapkpathway <- KEGGgraph::parseKGML(kgml)
-    mapkG <- KEGGgraph::KEGGpathway2Graph(mapkpathway, genesOnly)
+    mapkG <- KEGGgraph::KEGGpathway2Graph(mapkpathway)
 
     # Get the node data
     aux <- names(mapkG@edgeData@data)
@@ -247,116 +255,17 @@ getPathwayHighlightedGenes2 <- function(pathway_) {
     colnames(aux)[1] <- "node1"
     aux$node1 <- gsub("^(.*)\\|.*$", "\\1", aux$node1)
 
-    if (length(unlist(aux)) > 0) {
-      # It means the organism has the pathway
-      if (!replaceOrg) {
-        aux$org <- gsub("^([[:alpha:]]*).*$", "\\1", pathway_)
-      } else {
-        aux$org <-orgToReplace
-      }
+    # Convert the node2 column into node1 index_s
+    aux <- unique(c(aux$node1, aux$node2))
 
-      aux$pathway <- gsub("^[[:alpha:]]*(.*$)", "\\1", pathway_)
-      rm(pathway_, mapkpathway, kgml)
-      return(aux)
-    } else {
-      # It means the organism doesn't have the pathway
-      rm(pathway_, mapkpathway, kgml)
-      return(NULL)
-    }
+    aux <- gsub("^[[:alpha:]]*(.*$)", "\\1", str_replace(aux, ":", ""))
+
+    return(unique(aux))
+
   }, error=function(e) {
-    print(paste0('The pathway ', pathway_, ' could no be found. Skipping it...'))
+    print(paste0('It wasnt possible to retrieve the highlights from pathway ', pathway_, ' . Skipping it...'))
     return(NULL)
   })
-}
-
-# getPathwayHighlightedGenes ####
-
-#' Get the image from a given KEGG pathway
-#'
-#' Given a KEGG pathway ID, this function saves its image in the current
-#' working directory.
-#'
-#' @param pathway A KEGG pathway ID.
-#'
-#' @param IDs Character vector containing ENTREZ or KO identifiers.
-#'
-#' @param allMapped_ Flag to set if the result contains just the first
-#' Entrez representing a single EC (FALSE) or contains all the Entrez
-#'
-#' @return This function saves an image (PNG) in the current working directory
-#' and returns the identifiers of the highlighted nodes.
-#'
-#' @examples
-#' \dontrun{
-#' getPathwayImage("hsa00010")
-#' getPathwayImage("ko00010")
-#' }
-#'
-#' @importFrom KEGGREST keggLink
-#' @importFrom pathview pathview
-#'
-#' @author
-#' Diego Morais / Igor Brandão
-
-getPathwayHighlightedGenes <- function(pathway_, IDs = NULL, allMapped_ = TRUE) {
-  img <- NULL
-  species <- gsub("^([[:alpha:]]*).*$", "\\1", pathway_)
-
-  if(is.null(IDs)) {
-    IDs <- KEGGREST::keggLink(species, pathway_)
-    IDs <- gsub("^[[:alpha:]]*:(.*$)", "\\1", IDs)
-  }
-
-  pathway <- gsub("^[[:alpha:]]*(.*$)", "\\1", pathway_)
-  now <- format(Sys.time(), "%Y-%m-%d--%H-%M-%S")
-
-  tryCatch({
-    img <- suppressWarnings(suppressMessages(
-      pathview::pathview(gene.data = IDs,
-                         pathway.id = pathway,
-                         out.suffix = now,
-                         species = species,
-                         high = list(gene = "darkseagreen1"),
-                         kegg.native = TRUE,
-                         same.layer = FALSE,
-                         new.signature = FALSE,
-                         plot.col.key = FALSE,
-                         map.symbol = FALSE, # bug
-                         gene.annotpkg = NA, # bug
-                         map.null = FALSE)
-    )) # cpd size
-  }, warning = function(w) {
-    # warning-handler-code
-  }, error = function(e) {
-    # error-handler-code
-  }, finally = {
-    # cleanup-code
-  })
-
-  # Remove generated files
-  suppressWarnings(rm(gene.idtype.bods, korg, cpd.simtypes, gene.idtype.list))
-  invisible(suppressWarnings(file.remove(paste0(species, pathway, ".xml"))))
-  invisible(suppressWarnings(file.remove(paste0(species, pathway, ".png"))))
-  invisible(suppressWarnings(file.remove(paste0(species, pathway, ".", now, ".png"))))
-
-  # Check if the highlighted list is NULL
-  if (is.null(img)) {
-    return(NULL)
-  }
-
-  # Get the highlighted genes
-  if (allMapped_) {
-    highlightedGenes <- list(unique(img$plot.data.gene$all.mapped))
-    highlightedGenes <- sapply(strsplit(unlist(highlightedGenes), ','), '[')
-  } else {
-    highlightedGenes <- list(unique(img$plot.data.gene$kegg.names))
-  }
-
-  # Split all the enzymes
-  highlightedGenes <- unlist(highlightedGenes, use.names=FALSE)
-
-  # Return the highlighted genes
-  return(unique(highlightedGenes))
 }
 
 # getGraphProperties ####

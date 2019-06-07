@@ -13,7 +13,6 @@
 # Import the necessary libraries
 library(KEGGREST) # graph handler
 library(KEGGgraph)
-library(pathview)
 library(igraph)
 library(RCurl) # http connections
 library(rvest) # web scraping
@@ -141,7 +140,7 @@ getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE
                        is_presented = 0, stringsAsFactors = FALSE)
 
     # Assign the bottlenecks
-    pathwayData$is_bottleneck[which(temp[,1] %in% graphBottleneck)] <- 1
+    pathwayData$is_bottleneck[which(pathwayData[,1] %in% graphBottleneck)] <- 1
   }
 
   ######################################
@@ -171,7 +170,7 @@ getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE
       ################################################
 
       # Get the highlighted enzymes list
-      highlighted_enzymes <- getPathwayHighlightedGenes(paste0(specie, pathway), allMapped_=TRUE)
+      highlighted_enzymes <- getPathwayHighlightedGenes(paste0(specie, pathway))
 
       if (!is.null(highlighted_enzymes)) {
         # Concat the org string
