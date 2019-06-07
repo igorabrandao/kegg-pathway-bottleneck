@@ -106,7 +106,42 @@ getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE
     pathwayData <- data.frame(node1 = NA, org = specie, pathway = pathway, is_bottleneck = 0,
                        is_presented = 0, stringsAsFactors = FALSE)
 
-    return(temp)
+    return(pathwayData)
+
+  } else {
+    ############################
+    # Prepare the pathway data #
+    ############################
+
+    # Remove unnecessary data before bottleneck calculation
+    if (removeNoise_) {
+      pathwayData <- pathwayData[!grepl("^path:", pathwayData$node1),]
+      pathwayData <- pathwayData[!grepl("^path:", pathwayData$node2),]
+      pathwayData <- pathwayData[!grepl("^map:", pathwayData$node1),]
+      pathwayData <- pathwayData[!grepl("^map:", pathwayData$node2),]
+      pathwayData <- pathwayData[!grepl("^cpd:", pathwayData$node1),]
+      pathwayData <- pathwayData[!grepl("^cpd:", pathwayData$node2),]
+      pathwayData <- pathwayData[!grepl("^gl:", pathwayData$node1),]
+      pathwayData <- pathwayData[!grepl("^gl:", pathwayData$node2),]
+    }
+
+    # Calculates the network bottleneck
+    iGraph <- igraph::graph_from_data_frame(pathwayData, directed = FALSE)
+
+    # Perform the graph bottleneck calculation
+    graphBottleneck <- igraph::as_ids(getGraphBottleneck(iGraph, FALSE))
+
+    # Convert the node2 column into node1 index_s
+    aux <- unique(c(pathwayData$node1, pathwayData$node2))
+    auxorg <- pathwayData$org[1]
+    auxpathway <- pathwayData$pathway[1]
+
+    # Add a new column to the enzymeFrquency dataFrame
+    pathwayData <- data.frame(node1 = aux, org = auxorg, pathway = auxpathway, is_bottleneck = 0,
+                       is_presented = 0, stringsAsFactors = FALSE)
+
+    # Assign the bottlenecks
+    pathwayData$is_bottleneck[which(temp[,1] %in% graphBottleneck)] <- 1
   }
 
   ######################################
@@ -124,42 +159,12 @@ getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE
       # Get its name
       specie <- names(organism2pathway[idx])
 
-      # Get the pathway graph and change the column org with the current specie
-      temp <- pathwayData
-      temp[,c('org')] <- specie
-
       # Status message
       printMessage(paste0("<<< Working on ", specie, pathway, " pathway... >>>"))
 
-      # Remove unnecessary data before bottleneck calculation
-      if (removeNoise_) {
-        temp <- temp[!grepl("^path:", temp$node1),]
-        temp <- temp[!grepl("^path:", temp$node2),]
-        temp <- temp[!grepl("^map:", temp$node1),]
-        temp <- temp[!grepl("^map:", temp$node2),]
-        temp <- temp[!grepl("^cpd:", temp$node1),]
-        temp <- temp[!grepl("^cpd:", temp$node2),]
-        temp <- temp[!grepl("^gl:", temp$node1),]
-        temp <- temp[!grepl("^gl:", temp$node2),]
-      }
-
-      # Calculates the network bottleneck
-      iGraph <- igraph::graph_from_data_frame(temp, directed = FALSE)
-
-      # Perform the graph bottleneck calculation
-      graphBottleneck <- igraph::as_ids(getGraphBottleneck(iGraph, FALSE))
-
-      # Convert the node2 column into node1 index_s
-      aux <- unique(c(temp$node1, temp$node2))
-      auxorg <- temp$org[1]
-      auxpathway <- temp$pathway[1]
-
-      # Add a new column to the enzymeFrquency dataFrame
-      temp <- data.frame(node1 = aux, org = auxorg, pathway = auxpathway, is_bottleneck = 0,
-                         is_presented = 0, stringsAsFactors = FALSE)
-
-      # Assign the bottlenecks
-      temp$is_bottleneck[which(temp[,1] %in% graphBottleneck)] <- 1
+      # Get the pathway graph and change the column org with the current specie
+      temp <- pathwayData
+      temp[,c('org')] <- specie
 
       ################################################
       # Check if the enzyme appears into the pathway #

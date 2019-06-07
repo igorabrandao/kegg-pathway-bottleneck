@@ -209,6 +209,66 @@ getReferencePathway <- function(pathway_, ko_ec_dictionnaire_) {
   return(graphData)
 }
 
+# TODO: Finalizar função de busca de highlights por meio do XML
+getPathwayHighlightedGenes2 <- function(pathway_) {
+  tryCatch({
+    # Determine the genesOnly parameter (Default true)
+    genesOnly <- !grepl("^ko|^ec", pathway_)
+
+    # Request the graph data from KEGG
+    kgml <- suppressMessages(KEGGREST::keggGet(pathway_, "kgml"))
+
+    # Convert the xml into list
+    kgml <- read_xml(kgml)
+
+    # Get all the <entry>s
+    entry <- xml_find_all(kgml, "//entry")
+
+    teste <- xml_attr(xml_find_all(entry, "//entry/*[self::type or
+                                                      self::realvariable]"), "name")
+
+    return(kgml)
+
+    # Convert it into graph object
+    mapkpathway <- KEGGgraph::parseKGML(kgml)
+    mapkG <- KEGGgraph::KEGGpathway2Graph(mapkpathway, genesOnly)
+
+    # Get the node data
+    aux <- names(mapkG@edgeData@data)
+
+    # If node data is empty, use the edge data
+    if (is.null(aux) | length(aux) == 0) {
+      return(NULL)
+    }
+
+    # Adjust the columns
+    aux <- as.data.frame(aux, stringsAsFactors = FALSE)
+    aux$node2 <- gsub("^.*\\|(.*)$", "\\1", aux$aux)
+    colnames(aux)[1] <- "node1"
+    aux$node1 <- gsub("^(.*)\\|.*$", "\\1", aux$node1)
+
+    if (length(unlist(aux)) > 0) {
+      # It means the organism has the pathway
+      if (!replaceOrg) {
+        aux$org <- gsub("^([[:alpha:]]*).*$", "\\1", pathway_)
+      } else {
+        aux$org <-orgToReplace
+      }
+
+      aux$pathway <- gsub("^[[:alpha:]]*(.*$)", "\\1", pathway_)
+      rm(pathway_, mapkpathway, kgml)
+      return(aux)
+    } else {
+      # It means the organism doesn't have the pathway
+      rm(pathway_, mapkpathway, kgml)
+      return(NULL)
+    }
+  }, error=function(e) {
+    print(paste0('The pathway ', pathway_, ' could no be found. Skipping it...'))
+    return(NULL)
+  })
+}
+
 # getPathwayHighlightedGenes ####
 
 #' Get the image from a given KEGG pathway
