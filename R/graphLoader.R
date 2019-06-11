@@ -292,26 +292,78 @@ getPathwayHighlightedGenes <- function(pathway_, genesOnly_=TRUE) {
 #' @importFrom igraph closeness
 #'
 #' @author
-#' Diego Morais
+#' Diego Morais / Igor Brandão
 
 getGraphProperties <- function(iGraph_) {
-  g <- igraph::graph_from_data_frame(iGraph_, directed = TRUE)
-  betweenness <- igraph::betweenness(g, normalized = TRUE)
-  result <- data.frame(node = names(betweenness), betweenness = betweenness,
-                       stringsAsFactors = FALSE)
-  rownames(result) <- NULL
-  k <- as.data.frame(table(iGraph_$node1))
-  result$connectivity <- 0
-  result$connectivity <- k[match(result$node, k$Var1), 2]
-  result$connectivity[is.na(result$connectivity)] <- 0
-  result$triangles <- vapply(result$node, function(x){
-    as.integer(igraph::count_triangles(g, vids = x))
-  }, integer(1))
-  result$clusteringCoef <- igraph::transitivity(g, vids = result$node,
-                                                isolates = "zero",
-                                                type = "local")
-  result$closenessCoef <- igraph::closeness(g, vids=result$node)
-  return(result)
+
+  tryCatch({
+    # Convert the dataFrame to iGraph object
+    g <- igraph::graph_from_data_frame(iGraph_, directed = TRUE)
+
+    # Calculates betweenness
+    # Measure of centrality in a graph based on shortest paths
+    betweenness <- igraph::betweenness(g, normalized = TRUE)
+
+    # Define the result dataFrame
+    result <- data.frame(node = names(betweenness), betweenness = betweenness,
+                         stringsAsFactors = FALSE)
+
+    rownames(result) <- NULL
+
+    k <- as.data.frame(table(iGraph_$node1))
+
+    # Calculates the connectivity
+    # # minimum number of elements (nodes or edges) that need to be removed to separate
+    # the remaining nodes into isolated subgraphs.
+    result$connectivity <- 0
+    result$connectivity <- k[match(result$node, k$Var1), 2]
+    result$connectivity[is.na(result$connectivity)] <- 0
+
+    # Calculates the triangles
+    # How many triangles a vertex is part of, in a graph, or just list the triangles of a graph.
+    result$triangles <- vapply(result$node, function(x){
+      as.integer(igraph::count_triangles(g, vids = x))
+    }, integer(1))
+
+    # Calculates the clustering coefficient
+    # Transitivity measures the probability that the adjacent vertices of a vertex are connected
+    result$clusteringCoef <- igraph::transitivity(g, vids = result$node,
+                                                  isolates = "zero",
+                                                  type = "local")
+
+    # Calculates the closeness coefficient
+    # Measures how many steps is required to access every other vertex from a given vertex.
+    result$closenessCoef <- suppressWarnings(igraph::closeness(g, vids=result$node))
+
+    # Calculates the vertex communities
+    # greedy method (hiearchical, fast method)
+    c3 = cluster_edge_betweenness(g)
+    result$community <- as.integer(membership(c3))
+
+    # Calculates the Eigenvector Centrality Scores of Network Positions
+    # It is a measure of the influence of a node in a network.
+    eigen_centrality <- igraph::eigen_centrality(g, directed = TRUE)
+    result$eigenvectorScore <- unlist(eigen_centrality[1]) # Just the scores
+
+    # Calculates the eccentricity of a vertex
+    # It is defined as the maximum distance of one vertex from other vertex
+    result$eccentricity <- igraph::eccentricity(g, vids=result$node)
+
+    # Calculates the radius of a vertex (entire graph)
+    # The smallest eccentricity in a graph is called its radius
+    result$radius <- igraph::radius(g)
+
+    # Calculates the diameter of a vertex (entire graph)
+    # The diameter of a graph is the length of the longest geodesic
+    result$diameter <- igraph::diameter(g, directed = TRUE)
+
+    # Return the result data frame
+    return(result)
+
+  }, error=function(e) {
+    print(paste0('It wasnt possible to retrieve properties from the graph. Skipping it...'))
+    return(NULL)
+  })
 }
 
 ##################################

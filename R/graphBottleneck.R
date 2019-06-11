@@ -1,11 +1,6 @@
 ############################################
 # Functions to manipulate graph properties #
-# related to  bottlencks                   #
 ############################################
-
-###########
-# Setters #
-###########
 
 # setGraphCommunity ####
 

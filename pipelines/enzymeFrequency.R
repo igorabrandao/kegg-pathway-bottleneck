@@ -124,6 +124,9 @@ getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE
       pathwayData <- pathwayData[!grepl("^gl:", pathwayData$node2),]
     }
 
+    # Get the graph properties
+    graphProperties <- getGraphProperties(pathwayData)
+
     # Calculates the network bottleneck
     iGraph <- igraph::graph_from_data_frame(pathwayData, directed = FALSE)
 
@@ -136,8 +139,20 @@ getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE
     auxpathway <- pathwayData$pathway[1]
 
     # Add a new column to the enzymeFrquency dataFrame
-    pathwayData <- data.frame(node1 = aux, org = auxorg, pathway = auxpathway, is_bottleneck = 0,
-                       is_presented = 0, stringsAsFactors = FALSE)
+    if (is.null(graphProperties)) {
+      pathwayData <- data.frame(node1 = aux, org = auxorg, pathway = auxpathway, is_bottleneck = 0,
+                                is_presented = 0, betweenness = NA, connectivity = NA, triangles = NA, clusteringCoef = NA,
+                                closenessCoef = NA, community = NA, eigenvectorScore = NA, eccentricity = NA,
+                                radius = NA, diameter = NA, stringsAsFactors = FALSE)
+    } else {
+      pathwayData <- data.frame(node1 = aux, org = auxorg, pathway = auxpathway, is_bottleneck = 0,
+                                is_presented = 0, betweenness = graphProperties$betweenness, connectivity = graphProperties$connectivity,
+                                triangles = graphProperties$triangles, clusteringCoef = graphProperties$clusteringCoef,
+                                closenessCoef = graphProperties$closenessCoef, community = graphProperties$community,
+                                eigenvectorScore = graphProperties$eigenvectorScore, eccentricity = graphProperties$eccentricity,
+                                radius = graphProperties$radius, diameter = graphProperties$diameter,
+                                stringsAsFactors = FALSE)
+    }
 
     # Assign the bottlenecks
     pathwayData$is_bottleneck[which(pathwayData[,1] %in% graphBottleneck)] <- 1
