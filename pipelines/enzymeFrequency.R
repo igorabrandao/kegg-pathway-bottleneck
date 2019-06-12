@@ -302,7 +302,7 @@ lapply(start_of:nrow(pathwayList), getPathwayEnzymes, replaceEmptyGraph_=FALSE)
 enzymeList <- NULL
 
 # Get the list of files
-pathway_folder = "00010"
+pathway_folder = "00020"
 folder = paste0("./output/", pathway_folder, "/")
 file_list <- list.files(path=folder, pattern='*.RData')
 
@@ -360,6 +360,18 @@ selectedEC <- selectedEC[!duplicated(selectedEC[,c('ec')]),]
 # Align the column is_bottleneck
 mergeTemp <- merge(enzymeTotalFrequency, selectedEC, by.x=0, by.y="ec", all.x=T)
 enzymeTotalFrequency$is_bottleneck <- mergeTemp$is_bottleneck
+
+# Add the metric columns
+enzymeTotalFrequency$betweenness <- mergeTemp$betweenness
+enzymeTotalFrequency$connectivity <- mergeTemp$connectivity
+enzymeTotalFrequency$triangles <- mergeTemp$triangles
+enzymeTotalFrequency$clusteringCoef <- mergeTemp$clusteringCoef
+enzymeTotalFrequency$closenessCoef <- mergeTemp$closenessCoef
+enzymeTotalFrequency$community <- mergeTemp$community
+enzymeTotalFrequency$eigenvectorScore <- mergeTemp$eigenvectorScore
+enzymeTotalFrequency$eccentricity <- mergeTemp$eccentricity
+enzymeTotalFrequency$radius <- mergeTemp$radius
+enzymeTotalFrequency$diameter <- mergeTemp$diameter
 
 # Remove the quotes from column name
 colnames(enzymeTotalFrequency) <- gsub("\"", "", colnames(enzymeTotalFrequency))
