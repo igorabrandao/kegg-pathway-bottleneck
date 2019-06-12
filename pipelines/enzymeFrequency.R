@@ -266,13 +266,129 @@ getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE
   # Reindex the enzymeList index_s
   rownames(enzymeList) <- 1:nrow(enzymeList)
 
-  # Export the specie data
+  # Export the pathway data
   if (dir.exists(file.path('./output/'))) {
-    save(enzymeList, file=paste0('./output/', pathway, '.RData'))
+    save(enzymeList, file=paste0('./output/', index_, "_", pathway, '.RData'))
   }
 
   if (dir.exists(file.path('~/data3/'))) {
     save(enzymeList, file=paste0('~/data3/kegg-pathway-bottleneck/output/', index_, "_", pathway, '.RData'))
+  }
+
+  # Function finished with success
+  return(TRUE)
+}
+
+#' Get the list of pathways from pathwayList and export
+#' the total frequency for each pathway
+#'
+#' @param index_ Index from pathwayList representing a single pathway, e.g: 1 = 00010.
+#'
+#' @return This function does not return nothing, just export files.
+#'
+#' @examples
+#' \dontrun{
+#' getTotalFrequency(1)
+#' }
+#'
+#' @author
+#' Igor Brandão
+
+getTotalFrequency <- function(index_) {
+
+  # Get the current pathway
+  pathway <- pathwayList[index_,]
+
+  # Data frame to merge all data
+  enzymeList <- NULL
+
+  # Get the list of files
+  folder = paste0("./output/", pathway, "/")
+  file_list <- list.files(path=folder, pattern='*.RData')
+
+  # Check if the folder contains files
+  if (is.null(file_list) | length(file_list) == 0) {
+    return(FALSE)
+  }
+
+  # Load all files at once
+  big.list.of.data.frames <- lapply(file_list, function(file) {
+    get(load(file=paste0(folder, file)))
+  })
+
+  # Combine multiple data frames in one
+  enzymeList <- do.call(rbind, big.list.of.data.frames)
+
+  # Remove temporaly variables
+  rm(big.list.of.data.frames)
+
+  #-------------------------------#
+  # [TOTAL FREQUENCY CALCULATION] #
+  #-------------------------------#
+
+  # Get the enzymeList as a 3 way table
+  enzymeTotalFrequency <- table(enzymeList$ec,enzymeList$org,enzymeList$is_presented)
+
+  # Get just the table sinalyzing the presence of the enzyme
+  enzymeTotalFrequency <- enzymeTotalFrequency[,,2]
+
+  # Count the enzymes frequencies and transform it into a dataFrame
+  enzymeTotalFrequency <- as.data.frame.matrix(enzymeTotalFrequency, stringsAsFactors = FALSE)
+
+  # Sum each frequency
+  enzymeTotalFrequency$freq <- rowSums(enzymeTotalFrequency)
+
+  # Calculate the total frequency
+  enzymeTotalFrequency$total_freq <- max(enzymeTotalFrequency$freq)
+
+  # Calculate the frequency percentage
+  enzymeTotalFrequency$percentage <- (enzymeTotalFrequency$freq / enzymeTotalFrequency$total_freq) * 100
+
+  # Calculate the mean frequency
+  enzymeTotalFrequency$mean <- mean(enzymeTotalFrequency$freq)
+
+  # Calculate the standard deviation of frequency
+  enzymeTotalFrequency$std <- sd(enzymeTotalFrequency$freq)
+
+  #-------------------#
+  # [PATHWAY METRICS] #
+  #-------------------#
+
+  # Set the is_bottleneck flag from enzymeList
+  selectedEC <- enzymeList[enzymeList$ec%in%row.names(enzymeTotalFrequency),]
+
+  # Remove duplicates EC
+  selectedEC <- selectedEC[!duplicated(selectedEC[,c('ec')]),]
+
+  # Align the column is_bottleneck
+  mergeTemp <- merge(enzymeTotalFrequency, selectedEC, by.x=0, by.y="ec", all.x=T)
+  enzymeTotalFrequency$is_bottleneck <- mergeTemp$is_bottleneck
+
+  # Add the metric columns
+  enzymeTotalFrequency$betweenness <- mergeTemp$betweenness
+  enzymeTotalFrequency$connectivity <- mergeTemp$connectivity
+  enzymeTotalFrequency$triangles <- mergeTemp$triangles
+  enzymeTotalFrequency$clusteringCoef <- mergeTemp$clusteringCoef
+  enzymeTotalFrequency$closenessCoef <- mergeTemp$closenessCoef
+  enzymeTotalFrequency$community <- mergeTemp$community
+  enzymeTotalFrequency$eigenvectorScore <- mergeTemp$eigenvectorScore
+  enzymeTotalFrequency$eccentricity <- mergeTemp$eccentricity
+  enzymeTotalFrequency$radius <- mergeTemp$radius
+  enzymeTotalFrequency$diameter <- mergeTemp$diameter
+
+  # Remove the quotes from column name
+  colnames(enzymeTotalFrequency) <- gsub("\"", "", colnames(enzymeTotalFrequency))
+
+  # Remove temp var
+  rm(selectedEC, mergeTemp)
+
+  # Export the pathway data
+  if (dir.exists(file.path('./output/'))) {
+    save(enzymeTotalFrequency, file=paste0('./output/', index_, "_", pathway, '.RData'))
+  }
+
+  if (dir.exists(file.path('~/data3/'))) {
+    save(enzymeTotalFrequency, file=paste0('~/data3/kegg-pathway-bottleneck/output/', index_, "_", pathway, '.RData'))
   }
 
   # Function finished with success
@@ -285,96 +401,21 @@ getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE
 # Step 1: Get all pathways enzymes #
 ####################################
 
-#lapply(start_of:1, getPathwayEnzymes, replaceEmptyGraph_=FALSE)
+# [TEST ONLY]
 lapply(2:2, getPathwayEnzymes, replaceEmptyGraph_=FALSE)
 
-#enzymeList <- do.call("rbind", enzymeList)
-
+# Call the function for all pathways
 lapply(start_of:nrow(pathwayList), getPathwayEnzymes, replaceEmptyGraph_=FALSE)
 
 #-------------------------------------------------------------------------------------------#
 
 ##############################################
 # Step 2: Group all files into one dataframe #
+# Step 3: Count the enzyme frequency #
 ##############################################
 
-# Data frame to merge all data
-enzymeList <- NULL
+# [TEST ONLY]
+lapply(2:2, getTotalFrequency)
 
-# Get the list of files
-pathway_folder = "00020"
-folder = paste0("./output/", pathway_folder, "/")
-file_list <- list.files(path=folder, pattern='*.RData')
-
-# Load all files at once
-big.list.of.data.frames <- lapply(file_list, function(file) {
-  get(load(file=paste0(folder, file)))
-})
-
-# Combine multiple data frames in one
-enzymeList <- do.call(rbind, big.list.of.data.frames)
-
-# Remove temporaly variables
-rm(big.list.of.data.frames)
-
-#-------------------------------------------------------------------------------------------#
-
-######################################
-# Step 3: Count the enzyme frequency #
-######################################
-
-#-------------------#
-# [TOTAL FREQUENCY] #
-#-------------------#
-
-# Get the enzymeList as a 3 way table
-enzymeTotalFrequency <- table(enzymeList$ec,enzymeList$org,enzymeList$is_presented)
-
-# Get just the table sinalyzing the presence of the enzyme
-enzymeTotalFrequency <- enzymeTotalFrequency[,,2]
-
-# Count the enzymes frequencies and transform it into a dataFrame
-enzymeTotalFrequency <- as.data.frame.matrix(enzymeTotalFrequency, stringsAsFactors = FALSE)
-
-# Sum each frequency
-enzymeTotalFrequency$freq <- rowSums(enzymeTotalFrequency)
-
-# Calculate the total frequency
-enzymeTotalFrequency$total_freq <- max(enzymeTotalFrequency$freq)
-
-# Calculate the frequency percentage
-enzymeTotalFrequency$percentage <- (enzymeTotalFrequency$freq / enzymeTotalFrequency$total_freq) * 100
-
-# Calculate the mean frequency
-enzymeTotalFrequency$mean <- mean(enzymeTotalFrequency$freq)
-
-# Calculate the standard deviation of frequency
-enzymeTotalFrequency$std <- sd(enzymeTotalFrequency$freq)
-
-# Set the is_bottleneck flag from enzymeList
-selectedEC <- enzymeList[enzymeList$ec%in%row.names(enzymeTotalFrequency),]
-
-# Remove duplicates EC
-selectedEC <- selectedEC[!duplicated(selectedEC[,c('ec')]),]
-
-# Align the column is_bottleneck
-mergeTemp <- merge(enzymeTotalFrequency, selectedEC, by.x=0, by.y="ec", all.x=T)
-enzymeTotalFrequency$is_bottleneck <- mergeTemp$is_bottleneck
-
-# Add the metric columns
-enzymeTotalFrequency$betweenness <- mergeTemp$betweenness
-enzymeTotalFrequency$connectivity <- mergeTemp$connectivity
-enzymeTotalFrequency$triangles <- mergeTemp$triangles
-enzymeTotalFrequency$clusteringCoef <- mergeTemp$clusteringCoef
-enzymeTotalFrequency$closenessCoef <- mergeTemp$closenessCoef
-enzymeTotalFrequency$community <- mergeTemp$community
-enzymeTotalFrequency$eigenvectorScore <- mergeTemp$eigenvectorScore
-enzymeTotalFrequency$eccentricity <- mergeTemp$eccentricity
-enzymeTotalFrequency$radius <- mergeTemp$radius
-enzymeTotalFrequency$diameter <- mergeTemp$diameter
-
-# Remove the quotes from column name
-colnames(enzymeTotalFrequency) <- gsub("\"", "", colnames(enzymeTotalFrequency))
-
-# Remove temp var
-rm(selectedEC, mergeTemp)
+# Call the function for all pathways
+lapply(start_of:nrow(pathwayList), getTotalFrequency)
