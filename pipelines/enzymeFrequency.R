@@ -272,7 +272,7 @@ getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE
   }
 
   if (dir.exists(file.path('~/data3/'))) {
-    save(enzymeList, file=paste0('~/data3/kegg-pathway-bottleneck/output/', pathway, '.RData'))
+    save(enzymeList, file=paste0('~/data3/kegg-pathway-bottleneck/output/', index_, "_", pathway, '.RData'))
   }
 
   # Function finished with success
