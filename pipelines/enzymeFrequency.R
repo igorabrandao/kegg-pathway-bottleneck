@@ -286,7 +286,7 @@ getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE
 ####################################
 
 #lapply(start_of:1, getPathwayEnzymes, replaceEmptyGraph_=FALSE)
-lapply(1:1, getPathwayEnzymes, replaceEmptyGraph_=FALSE)
+lapply(2:2, getPathwayEnzymes, replaceEmptyGraph_=FALSE)
 
 #enzymeList <- do.call("rbind", enzymeList)
 
