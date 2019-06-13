@@ -102,7 +102,7 @@ getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE
 
   # Handle empty graph
   if (is.null(pathwayData) | length(pathwayData) == 0) {
-    pathwayData <- data.frame(node1 = NA, org = specie, pathway = pathway, is_bottleneck = 0,
+    pathwayData <- data.frame(node1 = NA, org = 'ec', pathway = pathway, is_bottleneck = 0,
                        is_presented = 0, stringsAsFactors = FALSE)
 
     return(pathwayData)
@@ -151,7 +151,7 @@ getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE
                                 closenessCoef = graphProperties$closenessCoef, community = graphProperties$community,
                                 eigenvectorScore = graphProperties$eigenvectorScore, eccentricity = graphProperties$eccentricity,
                                 radius = graphProperties$radius, diameter = graphProperties$diameter,
-                                diameter = graphProperties$degree, stringsAsFactors = FALSE)
+                                degree = graphProperties$degree, stringsAsFactors = FALSE)
     }
 
     # Assign the bottlenecks
@@ -406,7 +406,7 @@ getTotalFrequency <- function(index_) {
 lapply(2:2, getPathwayEnzymes, replaceEmptyGraph_=FALSE)
 
 # Call the function for all pathways
-lapply(400:nrow(pathwayList), getPathwayEnzymes, replaceEmptyGraph_=FALSE)
+lapply(50:nrow(pathwayList), getPathwayEnzymes, replaceEmptyGraph_=FALSE)
 
 #-------------------------------------------------------------------------------------------#
 
