@@ -143,7 +143,7 @@ getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE
       pathwayData <- data.frame(node1 = aux, org = auxorg, pathway = auxpathway, is_bottleneck = 0,
                                 is_presented = 0, betweenness = NA, connectivity = NA, triangles = NA, clusteringCoef = NA,
                                 closenessCoef = NA, community = NA, eigenvectorScore = NA, eccentricity = NA,
-                                radius = NA, diameter = NA, stringsAsFactors = FALSE)
+                                radius = NA, diameter = NA, degree = NA, stringsAsFactors = FALSE)
     } else {
       pathwayData <- data.frame(node1 = aux, org = auxorg, pathway = auxpathway, is_bottleneck = 0,
                                 is_presented = 0, betweenness = graphProperties$betweenness, connectivity = graphProperties$connectivity,
@@ -151,7 +151,7 @@ getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE
                                 closenessCoef = graphProperties$closenessCoef, community = graphProperties$community,
                                 eigenvectorScore = graphProperties$eigenvectorScore, eccentricity = graphProperties$eccentricity,
                                 radius = graphProperties$radius, diameter = graphProperties$diameter,
-                                stringsAsFactors = FALSE)
+                                diameter = graphProperties$degree, stringsAsFactors = FALSE)
     }
 
     # Assign the bottlenecks
@@ -375,6 +375,7 @@ getTotalFrequency <- function(index_) {
   enzymeTotalFrequency$eccentricity <- mergeTemp$eccentricity
   enzymeTotalFrequency$radius <- mergeTemp$radius
   enzymeTotalFrequency$diameter <- mergeTemp$diameter
+  enzymeTotalFrequency$degree <- mergeTemp$degree
 
   # Remove the quotes from column name
   colnames(enzymeTotalFrequency) <- gsub("\"", "", colnames(enzymeTotalFrequency))
@@ -405,7 +406,7 @@ getTotalFrequency <- function(index_) {
 lapply(2:2, getPathwayEnzymes, replaceEmptyGraph_=FALSE)
 
 # Call the function for all pathways
-lapply(start_of:nrow(pathwayList), getPathwayEnzymes, replaceEmptyGraph_=FALSE)
+lapply(400:nrow(pathwayList), getPathwayEnzymes, replaceEmptyGraph_=FALSE)
 
 #-------------------------------------------------------------------------------------------#
 

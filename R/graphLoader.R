@@ -357,6 +357,10 @@ getGraphProperties <- function(iGraph_) {
     # The diameter of a graph is the length of the longest geodesic
     result$diameter <- igraph::diameter(g, directed = TRUE)
 
+    # Calculates the degree of a vertex
+    # The degree of a vertex is the number of adjacent edges
+    result$degree <- igraph::degree(g, v=result$node)
+
     # Return the result data frame
     return(result)
 
