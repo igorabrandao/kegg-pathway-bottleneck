@@ -361,6 +361,18 @@ getGraphProperties <- function(iGraph_) {
     # The degree of a vertex is the number of adjacent edges
     result$degree <- igraph::degree(g, v=result$node)
 
+    # Calculates the Kleinberg's authority centrality scores
+    # The authority scores of the vertices are defined as the principal
+    # eigenvector of t(A)*A, where A is the adjacency matrix of the graph
+    authority_score <- igraph::authority_score(g)
+    result$authorityScore <- unlist(authority_score[1]) # Just the scores
+
+    # Calculates the Kleinberg's hub centrality scores
+    # The hub scores of the vertices are defined as the principal eigenvector
+    # of A*t(A), where A is the adjacency matrix of the graph
+    hub_score <- igraph::hub_score(g)
+    result$hubScore <- unlist(hub_score[1]) # Just the scores
+
     # Return the result data frame
     return(result)
 
