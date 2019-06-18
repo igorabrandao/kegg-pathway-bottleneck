@@ -21,19 +21,19 @@ BiocManager::install("KEGGREST")
 BiocManager::install("KEGGgraph")
 
 # igraph
-install.packages("igraph")
+install.packages("igraph", repos = "http://cran.us.r-project.org")
 
 # RCurl
-install.packages("RCurl")
+install.packages("RCurl", repos = "http://cran.us.r-project.org")
 
 # rvest
-install.packages("rvest")
+install.packages("rvest", repos = "http://cran.us.r-project.org")
 
 # stringr
-install.packages("stringr")
+install.packages("stringr", repos = "http://cran.us.r-project.org")
 
 # pracma
-install.packages("pracma")
+install.packages("pracma", repos = "http://cran.us.r-project.org")
 
 # foreach
-install.packages("foreach")
+install.packages("foreach", repos = "http://cran.us.r-project.org")
