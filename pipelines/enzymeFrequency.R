@@ -102,7 +102,7 @@ getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE
 
   # Handle empty graph
   if (is.null(pathwayData) | length(pathwayData) == 0) {
-    pathwayData <- data.frame(node1 = NA, org = 'ec', pathway = pathway, is_bottleneck = 0,
+    pathwayData <- data.frame(node1 = NA, org = specie, pathway = pathway, is_bottleneck = 0,
                        is_presented = 0, stringsAsFactors = FALSE)
 
     return(pathwayData)
@@ -143,7 +143,7 @@ getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE
       pathwayData <- data.frame(node1 = aux, org = auxorg, pathway = auxpathway, is_bottleneck = 0,
                                 is_presented = 0, betweenness = NA, connectivity = NA, triangles = NA, clusteringCoef = NA,
                                 closenessCoef = NA, community = NA, eigenvectorScore = NA, eccentricity = NA,
-                                radius = NA, diameter = NA, degree = NA, stringsAsFactors = FALSE)
+                                radius = NA, diameter = NA, stringsAsFactors = FALSE)
     } else {
       pathwayData <- data.frame(node1 = aux, org = auxorg, pathway = auxpathway, is_bottleneck = 0,
                                 is_presented = 0, betweenness = graphProperties$betweenness, connectivity = graphProperties$connectivity,
@@ -151,7 +151,7 @@ getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE
                                 closenessCoef = graphProperties$closenessCoef, community = graphProperties$community,
                                 eigenvectorScore = graphProperties$eigenvectorScore, eccentricity = graphProperties$eccentricity,
                                 radius = graphProperties$radius, diameter = graphProperties$diameter,
-                                degree = graphProperties$degree, stringsAsFactors = FALSE)
+                                stringsAsFactors = FALSE)
     }
 
     # Assign the bottlenecks
@@ -376,6 +376,8 @@ getTotalFrequency <- function(index_) {
   enzymeTotalFrequency$radius <- mergeTemp$radius
   enzymeTotalFrequency$diameter <- mergeTemp$diameter
   enzymeTotalFrequency$degree <- mergeTemp$degree
+  enzymeTotalFrequency$authorityScore <- mergeTemp$authorityScore
+  enzymeTotalFrequency$hubScore <- mergeTemp$hubScore
 
   # Remove the quotes from column name
   colnames(enzymeTotalFrequency) <- gsub("\"", "", colnames(enzymeTotalFrequency))
@@ -396,6 +398,94 @@ getTotalFrequency <- function(index_) {
   return(TRUE)
 }
 
+#' Recalculates the pathway properties
+#'
+#' @param index_ Index from pathwayList representing a single pathway, e.g: 1 = 00010.
+#' @param removeNoise_ Remove undesirable enzyme such as: map, path, cpd or gl.
+#'
+#' @return This function does not return nothing, just export files.
+#'
+#' @examples
+#' \dontrun{
+#' reapplyGraphProperties(1)
+#' }
+#'
+#' @author
+#' Igor Brandão
+
+reapplyGraphProperties <- function(index_, removeNoise_=TRUE) {
+
+  # Get the current pathway
+  pathway <- pathwayList[index_,]
+
+  # Status message
+  printMessage(paste0("RECALCULATING ", pathway, " GRAPH METRICS"))
+
+  # Get the list of files
+  folder = paste0("./output/", pathway, "/")
+  file_list <- list.files(path=folder, pattern='*.RData')
+
+  # Check if the folder contains files
+  if (is.null(file_list) | length(file_list) == 0) {
+    return(FALSE)
+  }
+
+  # Format the pathway code
+  pathway_code <- paste0('ec', pathway)
+
+  # Get the enzyme list from pathway
+  pathwayData <- pathwayToDataframe(pathway_code, FALSE)
+
+  # Handle empty graph
+  if (is.null(pathwayData) | length(pathwayData) == 0) {
+    return(FALSE)
+  } else {
+    # Remove unnecessary data before properties calculation
+    if (removeNoise_) {
+      pathwayData <- pathwayData[!grepl("^path:", pathwayData$node1),]
+      pathwayData <- pathwayData[!grepl("^path:", pathwayData$node2),]
+      pathwayData <- pathwayData[!grepl("^map:", pathwayData$node1),]
+      pathwayData <- pathwayData[!grepl("^map:", pathwayData$node2),]
+      pathwayData <- pathwayData[!grepl("^cpd:", pathwayData$node1),]
+      pathwayData <- pathwayData[!grepl("^cpd:", pathwayData$node2),]
+      pathwayData <- pathwayData[!grepl("^gl:", pathwayData$node1),]
+      pathwayData <- pathwayData[!grepl("^gl:", pathwayData$node2),]
+    }
+
+    # Get the graph properties
+    graphProperties <- getGraphProperties(pathwayData)
+
+    # Change dataFrames inside the files
+    lapply(file_list, function(file) {
+      # Load the dataframe
+      temp <- get(load(file=paste0(folder, file)))
+
+      # Update its columns
+      temp$betweenness <- graphProperties$betweenness
+      temp$connectivity <- graphProperties$connectivity
+      temp$triangles <- graphProperties$triangles
+      temp$clusteringCoef <- graphProperties$clusteringCoef
+      temp$closenessCoef <- graphProperties$closenessCoef
+      temp$community <- graphProperties$community
+      temp$eigenvectorScore <- graphProperties$eigenvectorScore
+      temp$eccentricity <- graphProperties$eccentricity
+      temp$radius <- graphProperties$radius
+      temp$diameter <- graphProperties$diameter
+      temp$degree <- graphProperties$degree
+      temp$authorityScore <- graphProperties$authorityScore
+      temp$hubScore <- graphProperties$hubScore
+
+      # Export the pathway data
+      if (dir.exists(file.path('./output/'))) {
+        save(temp, file=paste0(folder, file))
+      }
+    })
+  }
+
+  # Function finished with success
+  return(TRUE)
+}
+
 #-------------------------------------------------------------------------------------------#
 
 ####################################
@@ -406,7 +496,7 @@ getTotalFrequency <- function(index_) {
 lapply(2:2, getPathwayEnzymes, replaceEmptyGraph_=FALSE)
 
 # Call the function for all pathways
-lapply(50:nrow(pathwayList), getPathwayEnzymes, replaceEmptyGraph_=FALSE)
+lapply(start_of:nrow(pathwayList), getPathwayEnzymes, replaceEmptyGraph_=FALSE)
 
 #-------------------------------------------------------------------------------------------#
 
@@ -420,3 +510,16 @@ lapply(2:2, getTotalFrequency)
 
 # Call the function for all pathways
 lapply(start_of:nrow(pathwayList), getTotalFrequency)
+
+#-------------------------------------------------------------------------------------------#
+
+##################################
+# [OPTIONAL]                     #
+# Recalculates the graph metrics #
+##################################
+
+# [TEST ONLY]
+lapply(59:70, reapplyGraphProperties)
+
+# Call the function for all pathways
+lapply(start_of:nrow(pathwayList), reapplyGraphProperties)
