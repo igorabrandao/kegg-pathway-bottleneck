@@ -283,6 +283,7 @@ getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE
 #' the total frequency for each pathway
 #'
 #' @param index_ Index from pathwayList representing a single pathway, e.g: 1 = 00010.
+#' @param resumeInfo_ If TRUE export only summary data without each specie columns.
 #'
 #' @return This function does not return nothing, just export files.
 #'
@@ -294,10 +295,13 @@ getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE
 #' @author
 #' Igor Brandão
 
-getTotalFrequency <- function(index_) {
+getTotalFrequency <- function(index_, resumeInfo_=TRUE) {
 
   # Get the current pathway
   pathway <- pathwayList[index_,]
+
+  # Status message
+  printMessage(paste0("CALCULATING TOTAL FREQUENCY OF PATHWAY ", pathway))
 
   # Data frame to merge all data
   enzymeList <- NULL
@@ -385,9 +389,18 @@ getTotalFrequency <- function(index_) {
   # Remove temp var
   rm(selectedEC, mergeTemp)
 
+  # Check if its necessary remove species columns
+  if (resumeInfo_) {
+    enzymeTotalFrequency <- enzymeTotalFrequency[,(ncol(enzymeTotalFrequency)-17):ncol(enzymeTotalFrequency)]
+  }
+
   # Export the pathway data
-  if (dir.exists(file.path('./output/'))) {
-    save(enzymeTotalFrequency, file=paste0('./output/', index_, "_", pathway, '.RData'))
+  if (!dir.exists(file.path(paste0('./output/totalFrequency/', pathway)))) {
+    dir.create(file.path(paste0('./output/totalFrequency/')), showWarnings = FALSE)
+  }
+
+  if (dir.exists(file.path('./output/totalFrequency/'))) {
+    save(enzymeTotalFrequency, file=paste0('./output/totalFrequency/', index_, "_", pathway, '.RData'))
   }
 
   if (dir.exists(file.path('~/data3/'))) {
@@ -506,7 +519,7 @@ lapply(start_of:nrow(pathwayList), getPathwayEnzymes, replaceEmptyGraph_=FALSE)
 ##############################################
 
 # [TEST ONLY]
-lapply(2:2, getTotalFrequency)
+lapply(1:80, getTotalFrequency)
 
 # Call the function for all pathways
 lapply(start_of:nrow(pathwayList), getTotalFrequency)
