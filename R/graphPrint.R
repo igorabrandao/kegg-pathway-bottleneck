@@ -5,6 +5,8 @@
 library(igraph)
 library(RedeR)
 library(RColorBrewer)
+library(visNetwork)
+library(scales)
 
 printBottleneckInRedPort <- function(iGraph_, bottleneck_, verbose_=FALSE) {
   # Set the color palette according to the communities count
@@ -110,4 +112,96 @@ printBottleneckPathwayImage <- function(pathway_, bottleneck_, verbose_=FALSE) {
   if (verbose_) {
     print(paste0("Pathway ", pathway_, " visualization generated successfully!"))
   }
+}
+
+#' Function to generate interactive networks based on visNetwork library
+#'
+#' @param network_ Network data frame with all properties.
+#' @param networkProperties_ Contains main information about the network nodes.
+#' @param pathway_ Network name.
+#'
+#' @return This function does not return nothing, just export files.
+#'
+#' @examples
+#' \dontrun{
+#' printInteractiveNetwork(pathwayData)
+#' }
+#'
+#' @author
+#' Igor Brandão
+
+generateInteractiveNetwork <- function(network_, networkProperties_, pathway_="") {
+
+  # Color pallet
+  pal <- brewer.pal(9, "YlOrRd")
+  pal2 <- brewer.pal(8, "Dark2")
+
+  # Calculates the network bottleneck
+  iGraph <- igraph::graph_from_data_frame(network_, directed = FALSE)
+
+  # Convert the iGraph object toVisNetworkData
+  data <- toVisNetworkData(iGraph)
+
+  # Create vis object
+  vis.nodes <- networkProperties_
+  vis.links <- data$edges
+
+  # Set network nodes properties
+  vis.nodes$shape[which(vis.nodes$is_bottleneck == 0)] <- "dot"
+  vis.nodes$shape[which(vis.nodes$is_bottleneck == 1)] <- "star"
+
+  vis.nodes$shadow <- TRUE # Nodes will drop shadow
+  vis.nodes$id    <- row.names(vis.nodes) # Node ID
+  vis.nodes$label  <- row.names(vis.nodes) # Node label
+  vis.nodes$title  <- row.names(vis.nodes) # Text on click
+  vis.nodes$borderWidth <- 2 # Node border width
+
+  # Properties when node highlighted
+  vis.nodes$color.highlight.background <- "orange"
+  vis.nodes$color.highlight.border <- "darkred"
+
+  # Generates the background color scale
+  betweennessScaleValues <- cut(vis.nodes$betweenness, breaks = seq(min(vis.nodes$betweenness),
+                                max(vis.nodes$betweenness), len = 100),
+                                include.lowest = TRUE)
+
+  # Apply the background color scale
+  vis.nodes$color.background <- colorRampPalette(pal)(99)[betweennessScaleValues]
+
+  # Apply the border color by community
+  vis.nodes$color.border <- colorRampPalette(pal2)(9)[vis.nodes$community]
+  vis.nodes$borderWidth <- 4
+
+  # Apply node size according to its frequency
+  vis.nodes$size <- scales::rescale(vis.nodes$freq, to=c(10, 30))
+
+  # Set network links properties
+  vis.links$width <- 1 # line width
+  vis.links$color <- "gray"    # line color
+  vis.links$arrows <- "middle" # arrows: 'from', 'to', or 'middle'
+  vis.links$smooth <- FALSE    # should the edges be curved?
+  vis.links$shadow <- FALSE    # edge shadow
+
+  # Generate the visNetwor object
+  visNetworkObj <- visNetwork(nodes = vis.nodes, edges = vis.links,
+             background="#eeefff",
+             main=paste0("Pathway ", pathway_),
+             submain=paste0("Nodes: ", length(V(iGraph)), " Edges: ", length(E(iGraph))),
+             footer= "Note: nodes sizes are related to its frequencies")
+
+  # Define the legend groups
+  visNetworkObj <- visGroups(visNetworkObj, groupname = "Bottleneck", shape = "star",
+                       color = list(background = "gray", border="black"))
+
+  visNetworkObj <- visGroups(visNetworkObj, groupname = "Non-bottleneck", shape = "dot",
+                       color = list(background = "tomato", border="black"))
+
+  # Add a legend
+  visLegend(visNetworkObj, main="Legend", position="left", ncol=1)
+
+  # Add options
+  visOptions(visNetworkObj, highlightNearest = TRUE, selectedBy = "community")
+
+  # Generate the network
+  return(visNetworkObj)
 }

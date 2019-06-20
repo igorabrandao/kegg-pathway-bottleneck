@@ -30,6 +30,7 @@ library(foreach)
 files.sources = NULL
 files.sources[1] = paste0("./R", "/", "graphLoader.R")
 files.sources[2] = paste0("./R", "/", "graphBottleneck.R")
+files.sources[3] = paste0("./R", "/", "graphPrint.R")
 sapply(files.sources, source)
 
 # Load the pathways by organisms data
@@ -499,7 +500,78 @@ reapplyGraphProperties <- function(index_, removeNoise_=TRUE) {
   return(TRUE)
 }
 
+#' Function to generate interactive networks
+#'
+#' @param index_ Index from pathwayList representing a single pathway, e.g: 1 = 00010.
+#' @param removeNoise_ Remove undesirable enzyme such as: map, path, cpd or gl.
+#'
+#' @return This function does not return nothing, just export files.
+#'
+#' @examples
+#' \dontrun{
+#' printInteractiveNetwork(1)
+#' }
+#'
+#' @author
+#' Igor Brandão
+
+printInteractiveNetwork <- function(index_, removeNoise_=TRUE) {
+
+  # Get the current pathway
+  pathway <- pathwayList[index_,]
+
+  # Status message
+  printMessage(paste0("GENERATING ", pathway, " INTERATIVE NETWORK"))
+
+  # Format the pathway code
+  pathway_code <- paste0('ec', pathway)
+
+  # Get the enzyme list from pathway
+  pathwayData <- pathwayToDataframe(pathway_code, FALSE)
+
+  # Handle empty graph
+  if (is.null(pathwayData) | length(pathwayData) == 0) {
+    return(FALSE)
+  } else {
+    # Remove unnecessary data before properties calculation
+    if (removeNoise_) {
+      pathwayData <- pathwayData[!grepl("^path:", pathwayData$node1),]
+      pathwayData <- pathwayData[!grepl("^path:", pathwayData$node2),]
+      pathwayData <- pathwayData[!grepl("^map:", pathwayData$node1),]
+      pathwayData <- pathwayData[!grepl("^map:", pathwayData$node2),]
+      pathwayData <- pathwayData[!grepl("^cpd:", pathwayData$node1),]
+      pathwayData <- pathwayData[!grepl("^cpd:", pathwayData$node2),]
+      pathwayData <- pathwayData[!grepl("^gl:", pathwayData$node1),]
+      pathwayData <- pathwayData[!grepl("^gl:", pathwayData$node2),]
+    }
+
+    # Get the network properties
+    propertyFile <- paste0('./output/totalFrequency/', index_, '_', pathway, '.RData')
+
+    if (file.exists(propertyFile)) {
+      networkProperties <- get(load(file=propertyFile))
+    } else {
+      printMessage(paste0("The propertie file from pathway  ", pathway, " could no be found. Skipping it..."))
+      return(FALSE)
+    }
+
+    #--------------------------#
+    # [GENERATING THE NETWORK] #
+    #--------------------------#
+
+    # Print the network
+    print(generateInteractiveNetwork(pathwayData, networkProperties, pathway))
+  }
+
+  # Function finished with success
+  return(TRUE)
+}
+
 #-------------------------------------------------------------------------------------------#
+
+#################
+# Pipeline flow #
+#################
 
 ####################################
 # Step 1: Get all pathways enzymes #
@@ -536,3 +608,15 @@ lapply(59:70, reapplyGraphProperties)
 
 # Call the function for all pathways
 lapply(start_of:nrow(pathwayList), reapplyGraphProperties)
+
+#-------------------------------------------------------------------------------------------#
+
+################################
+# Step 4: Generate the network #
+################################
+
+# [TEST ONLY]
+lapply(2:2, printInteractiveNetwork)
+
+# Call the function for all pathways
+lapply(start_of:nrow(pathwayList), printInteractiveNetwork)
