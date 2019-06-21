@@ -515,6 +515,59 @@ reapplyGraphProperties <- function(index_, removeNoise_=TRUE) {
 #' @author
 #' Igor Brandão
 
+generateCorrelationStudy <- function(index_) {
+
+  # Get the current pathway
+  pathway <- pathwayList[index_,]
+
+  # Status message
+  printMessage(paste0("GENERATING ", pathway, " CORRELATION STUDY"))
+
+  # Get the network properties
+  propertyFile <- paste0('./output/totalFrequency/', index_, '_', pathway, '.RData')
+
+  if (file.exists(propertyFile)) {
+    networkProperties <- get(load(file=propertyFile))
+  } else {
+    printMessage(paste0("The propertie file from pathway  ", pathway, " could no be found. Skipping it..."))
+    return(FALSE)
+  }
+
+  #---------------------------#
+  # [GENERATING CORRELATIONS] #
+  #---------------------------#
+
+  # Create the correlations
+  correlations <- cor(networkProperties)
+
+  # Export the network
+  if (!dir.exists(file.path(paste0('./output/correlation/')))) {
+    dir.create(file.path(paste0('./output/correlation/')), showWarnings = FALSE)
+  }
+
+  if (dir.exists(file.path('./output/correlation/'))) {
+    save(correlations, file=paste0('./output/correlation/', index_, "_", pathway, '.RData'))
+  }
+
+  # Function finished with success
+  return(TRUE)
+}
+
+#' Function to generate interactive networks
+#'
+#' @param index_ Index from pathwayList representing a single pathway, e.g: 1 = 00010.
+#' @param removeNoise_ Remove undesirable enzyme such as: map, path, cpd or gl.
+#'
+#' @return This function does not return nothing, just export files.
+#'
+#' @examples
+#' \dontrun{
+#' printInteractiveNetwork(1)
+#' }
+#'
+#' @author
+#' Igor Brandão
+
 printInteractiveNetwork <- function(index_, removeNoise_=TRUE) {
 
   # Get the current pathway
@@ -638,8 +691,20 @@ lapply(start_of:nrow(pathwayList), reapplyGraphProperties)
 
 #-------------------------------------------------------------------------------------------#
 
+##########################################
+# Step 4: Generate the correlation study #
+##########################################
+
+# [TEST ONLY]
+lapply(1:100, generateCorrelationStudy)
+
+# Call the function for all pathways
+lapply(start_of:nrow(pathwayList), generateCorrelationStudy)
+
+#-------------------------------------------------------------------------------------------#
+
 ################################
-# Step 4: Generate the network #
+# Step 5: Generate the network #
 ################################
 
 # [TEST ONLY]
