@@ -500,16 +500,15 @@ reapplyGraphProperties <- function(index_, removeNoise_=TRUE) {
   return(TRUE)
 }
 
-#' Function to generate interactive networks
+#' Function to generate correlation matrix
 #'
 #' @param index_ Index from pathwayList representing a single pathway, e.g: 1 = 00010.
-#' @param removeNoise_ Remove undesirable enzyme such as: map, path, cpd or gl.
 #'
 #' @return This function does not return nothing, just export files.
 #'
 #' @examples
 #' \dontrun{
-#' printInteractiveNetwork(1)
+#' generateCorrelationStudy(1)
 #' }
 #'
 #' @author
