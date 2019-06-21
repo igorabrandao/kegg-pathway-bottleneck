@@ -220,11 +220,11 @@ getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE
       names(temp)[names(temp) == "node1"] <- "ec"
 
       if (!dir.exists(file.path(paste0('./output/', pathway)))) {
-        dir.create(file.path(paste0('./output/', pathway)), showWarnings = FALSE)
+        dir.create(file.path(paste0('./output/', pathway)), showWarnings = FALSE, mode = "0775")
       }
 
       if (dir.exists(file.path('~/data3/'))) {
-        dir.create(file.path(paste0('~/data3/kegg-pathway-bottleneck/output/', pathway)), showWarnings = FALSE)
+        dir.create(file.path(paste0('~/data3/kegg-pathway-bottleneck/output/', pathway)), showWarnings = FALSE, mode = "0775")
         save(temp, file=paste0('~/data3/kegg-pathway-bottleneck/output/', pathway, '/', idx, '_',  specie, '.RData'))
       }
 
@@ -397,7 +397,7 @@ getTotalFrequency <- function(index_, resumeInfo_=TRUE) {
 
   # Export the pathway data
   if (!dir.exists(file.path(paste0('./output/totalFrequency/', pathway)))) {
-    dir.create(file.path(paste0('./output/totalFrequency/')), showWarnings = FALSE)
+    dir.create(file.path(paste0('./output/totalFrequency/')), showWarnings = FALSE, mode = "0775")
   }
 
   if (dir.exists(file.path('./output/totalFrequency/'))) {
@@ -541,7 +541,7 @@ generateCorrelationStudy <- function(index_) {
 
   # Export the network
   if (!dir.exists(file.path(paste0('./output/correlation/')))) {
-    dir.create(file.path(paste0('./output/correlation/')), showWarnings = FALSE)
+    dir.create(file.path(paste0('./output/correlation/')), showWarnings = FALSE, mode = "0775")
   }
 
   if (dir.exists(file.path('./output/correlation/'))) {
@@ -619,7 +619,7 @@ printInteractiveNetwork <- function(index_, removeNoise_=TRUE) {
 
     # Export the network
     if (!dir.exists(file.path(paste0('./output/network/')))) {
-      dir.create(file.path(paste0('./output/network/')), showWarnings = FALSE)
+      dir.create(file.path(paste0('./output/network/')), showWarnings = FALSE, mode = "0775")
     }
 
     if (dir.exists(file.path('./output/network/'))) {
