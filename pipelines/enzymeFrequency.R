@@ -103,7 +103,7 @@ getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE
 
   # Handle empty graph
   if (is.null(pathwayData) | length(pathwayData) == 0) {
-    pathwayData <- data.frame(node1 = NA, org = specie, pathway = pathway, is_bottleneck = 0,
+    pathwayData <- data.frame(node1 = NA, org = 'ec', pathway = pathway, is_bottleneck = 0,
                        is_presented = 0, stringsAsFactors = FALSE)
 
     return(pathwayData)
