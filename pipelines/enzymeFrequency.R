@@ -559,8 +559,35 @@ printInteractiveNetwork <- function(index_, removeNoise_=TRUE) {
     # [GENERATING THE NETWORK] #
     #--------------------------#
 
+    # Generate the network
+    generatedNetwork <- generateInteractiveNetwork(pathwayData, networkProperties, pathway)
+
     # Print the network
-    print(generateInteractiveNetwork(pathwayData, networkProperties, pathway))
+    print(generatedNetwork)
+
+    # Export the network
+    if (!dir.exists(file.path(paste0('./output/network/')))) {
+      dir.create(file.path(paste0('./output/network/')), showWarnings = FALSE)
+    }
+
+    if (dir.exists(file.path('./output/network/'))) {
+      filename <- paste0(index_, '_', pathway, '.html')
+
+      # Save the HTML file
+      visSave(generatedNetwork, file = filename, selfcontained = TRUE,
+              background = "#eeefff")
+
+      if (file.exists(filename)) {
+        # Copy the file into correct directory
+        file.copy(filename, paste0('./output/network/', filename), overwrite = TRUE)
+
+        # Remove the generated file
+        file.remove(filename)
+      } else {
+        printMessage(paste0("Network file not found. Skipping it..."))
+        return(FALSE)
+      }
+    }
   }
 
   # Function finished with success
@@ -591,7 +618,7 @@ lapply(start_of:nrow(pathwayList), getPathwayEnzymes, replaceEmptyGraph_=FALSE)
 ##############################################
 
 # [TEST ONLY]
-lapply(1:80, getTotalFrequency)
+lapply(7:7, getTotalFrequency)
 
 # Call the function for all pathways
 lapply(start_of:nrow(pathwayList), getTotalFrequency)
@@ -604,7 +631,7 @@ lapply(start_of:nrow(pathwayList), getTotalFrequency)
 ##################################
 
 # [TEST ONLY]
-lapply(59:70, reapplyGraphProperties)
+lapply(7:7, reapplyGraphProperties)
 
 # Call the function for all pathways
 lapply(start_of:nrow(pathwayList), reapplyGraphProperties)
@@ -616,7 +643,7 @@ lapply(start_of:nrow(pathwayList), reapplyGraphProperties)
 ################################
 
 # [TEST ONLY]
-lapply(2:2, printInteractiveNetwork)
+lapply(54:100, printInteractiveNetwork)
 
 # Call the function for all pathways
 lapply(start_of:nrow(pathwayList), printInteractiveNetwork)

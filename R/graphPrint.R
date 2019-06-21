@@ -147,23 +147,29 @@ generateInteractiveNetwork <- function(network_, networkProperties_, pathway_=""
   vis.links <- data$edges
 
   # Set network nodes properties
+  vis.nodes$shape <- "dot"
   vis.nodes$shape[which(vis.nodes$is_bottleneck == 0)] <- "dot"
   vis.nodes$shape[which(vis.nodes$is_bottleneck == 1)] <- "star"
 
   vis.nodes$shadow <- TRUE # Nodes will drop shadow
   vis.nodes$id    <- row.names(vis.nodes) # Node ID
   vis.nodes$label  <- row.names(vis.nodes) # Node label
-  vis.nodes$title  <- row.names(vis.nodes) # Text on click
+  vis.nodes$title  <- paste0(row.names(vis.nodes), " degree: ", vis.nodes$degree, " betweenness: ", vis.nodes$betweenness) # Text on click
   vis.nodes$borderWidth <- 2 # Node border width
 
   # Properties when node highlighted
   vis.nodes$color.highlight.background <- "orange"
   vis.nodes$color.highlight.border <- "darkred"
 
-  # Generates the background color scale
-  betweennessScaleValues <- cut(vis.nodes$betweenness, breaks = seq(min(vis.nodes$betweenness),
-                                max(vis.nodes$betweenness), len = 100),
-                                include.lowest = TRUE)
+  betweennessScaleValues <- 1
+
+  tryCatch({
+    # Generates the background color scale
+    betweennessScaleValues <- cut(vis.nodes$betweenness, breaks = seq(min(vis.nodes$betweenness),
+                                  max(vis.nodes$betweenness), len = 100),
+                                  include.lowest = TRUE)
+
+  }, error=function(e) {})
 
   # Apply the background color scale
   vis.nodes$color.background <- colorRampPalette(pal)(99)[betweennessScaleValues]
@@ -184,7 +190,7 @@ generateInteractiveNetwork <- function(network_, networkProperties_, pathway_=""
 
   # Generate the visNetwor object
   visNetworkObj <- visNetwork(nodes = vis.nodes, edges = vis.links,
-             background="#eeefff",
+             background="#eeefff", width = '1200px', height = '800px',
              main=paste0("Pathway ", pathway_),
              submain=paste0("Nodes: ", length(V(iGraph)), " Edges: ", length(E(iGraph))),
              footer= "Note: nodes sizes are related to its frequencies")
@@ -197,10 +203,11 @@ generateInteractiveNetwork <- function(network_, networkProperties_, pathway_=""
                        color = list(background = "tomato", border="black"))
 
   # Add a legend
-  visLegend(visNetworkObj, main="Legend", position="left", ncol=1)
+  visNetworkObj <- visLegend(visNetworkObj, enabled = TRUE, useGroups = TRUE,
+            main="Legend", position="right", ncol=1)
 
-  # Add options
-  visOptions(visNetworkObj, highlightNearest = TRUE, selectedBy = "community")
+  # Add custom options
+  visNetworkObj <- visOptions(visNetworkObj, highlightNearest = TRUE, selectedBy = "is_bottleneck")
 
   # Generate the network
   return(visNetworkObj)

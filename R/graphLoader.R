@@ -227,7 +227,6 @@ getReferencePathway <- function(pathway_, ko_ec_dictionnaire_) {
 #' }
 #'
 #' @importFrom KEGGREST keggLink
-#' @importFrom pathview pathview
 #'
 #' @author
 #' Igor Brandão
