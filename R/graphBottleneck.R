@@ -155,39 +155,42 @@ getGraphBottleneck <- function(iGraph_, verbose_=FALSE) {
 
 classifyBottleneck <- function(networkProperties_, pathway_="") {
 
-  applyClassification <- function(node_) {
+  applyClassification <- function(idx_) {
+    node <- networkProperties_[idx_,]
     classification <- ''
 
     ######################################
     # Step 1: Check if the node is a hub #
     ######################################
 
-    # Get the top 20% degrees
+    # Get the top 20% degrees (Yu, Kim et al)
     degree_percentual_rate_ <- 0.2
     topDegrees <- sort(networkProperties_$degree, decreasing=TRUE)
     topDegrees <- topDegrees[1:as.integer(length(topDegrees) * degree_percentual_rate_)]
 
-    if (node_$degree %in% topDegrees) {
+    if (node$degree %in% topDegrees) {
       classification <- paste0(classification, 'H')
     } else {
       classification <- paste0(classification, 'NH')
     }
 
     # Step 2: Check if the node is a bottleneck
-    if (node_$is_bottleneck) {
+    if (node$is_bottleneck) {
       classification <- paste0(classification, 'B')
     } else {
       classification <- paste0(classification, 'NB')
     }
 
     # Return the bottleneck classification
-    return(classification)
+    networkProperties_[idx_,]$bottleneck_classification <<- classification
   }
 
   # First of all add the classification column
   networkProperties_$bottleneck_classification <- NA
 
   # Process each node
-  sapply(1:nrow(networkProperties_), function(idx)
-    networkProperties_[idx,]$bottleneck_classification <- applyClassification(networkProperties_[idx,]))
+  sapply(1:nrow(networkProperties_), applyClassification)
+
+  # Return the updated dataframe
+  return(networkProperties_)
 }

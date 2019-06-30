@@ -489,6 +489,9 @@ reapplyGraphProperties <- function(index_, removeNoise_=TRUE) {
       temp$authorityScore <- graphProperties$authorityScore
       temp$hubScore <- graphProperties$hubScore
 
+      # Classify the bottleneck
+      temp <- classifyBottleneck(temp)
+
       # Export the pathway data
       if (dir.exists(file.path('./output/'))) {
         save(temp, file=paste0(folder, file))
@@ -683,7 +686,7 @@ lapply(start_of:nrow(pathwayList), getTotalFrequency)
 ##################################
 
 # [TEST ONLY]
-lapply(7:7, reapplyGraphProperties)
+lapply(3:3, reapplyGraphProperties)
 
 # Call the function for all pathways
 lapply(start_of:nrow(pathwayList), reapplyGraphProperties)
