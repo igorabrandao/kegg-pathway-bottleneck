@@ -707,7 +707,7 @@ lapply(start_of:nrow(pathwayList), generateCorrelationStudy)
 ################################
 
 # [TEST ONLY]
-lapply(54:100, printInteractiveNetwork)
+lapply(3:3, printInteractiveNetwork)
 
 # Call the function for all pathways
 lapply(start_of:nrow(pathwayList), printInteractiveNetwork)
