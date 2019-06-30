@@ -124,7 +124,7 @@ printBottleneckPathwayImage <- function(pathway_, bottleneck_, verbose_=FALSE) {
 #'
 #' @examples
 #' \dontrun{
-#' printInteractiveNetwork(pathwayData)
+#' printInteractiveNetwork(pathwayData, properties)
 #' }
 #'
 #' @author
@@ -145,6 +145,9 @@ generateInteractiveNetwork <- function(network_, networkProperties_, pathway_=""
   # Create vis object
   vis.nodes <- networkProperties_
   vis.links <- data$edges
+
+  vis.nodes$color.border <- "white"
+  vis.nodes$borderWidth <- 0
 
   # Apply the border color by bottleneck status
   vis.nodes$color.border[which(vis.nodes$is_bottleneck == 0)] <- "white"
