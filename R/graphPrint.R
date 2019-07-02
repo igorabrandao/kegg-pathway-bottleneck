@@ -204,10 +204,10 @@ generateInteractiveNetwork <- function(network_, networkProperties_, pathway_=""
 
   # Add a legend
   visNetworkObj <- visLegend(visNetworkObj, enabled = TRUE, useGroups = TRUE,
-            main="Legend", position="right", ncol=1)
+            main="Legend", position="left", ncol=1)
 
   # Add custom options
-  visNetworkObj <- visOptions(visNetworkObj, highlightNearest = TRUE, selectedBy = "is_bottleneck")
+  visNetworkObj <- visOptions(visNetworkObj, highlightNearest = TRUE, selectedBy = "bottleneck_classification")
 
   # Generate the network
   return(visNetworkObj)
