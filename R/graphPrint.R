@@ -156,9 +156,9 @@ generateInteractiveNetwork <- function(network_, networkProperties_, pathway_=""
   vis.nodes$borderWidth[which(vis.nodes$is_bottleneck == 1)] <- 4
 
   vis.nodes$shadow <- TRUE # Nodes will drop shadow
-  vis.nodes$id    <- row.names(vis.nodes) # Node ID
-  vis.nodes$label  <- row.names(vis.nodes) # Node label
-  vis.nodes$title  <- paste0(row.names(vis.nodes), " degree: ", vis.nodes$degree, " betweenness: ", vis.nodes$betweenness) # Text on click
+  vis.nodes$id     <- row.names(vis.nodes) # Node ID
+  vis.nodes$label  <- paste0(row.names(vis.nodes), "\n(", vis.nodes$bottleneck_classification, ")") # Node label
+  vis.nodes$title  <- paste0(vis.nodes$bottleneck_classification, " - ", row.names(vis.nodes), " degree: ", vis.nodes$degree, " betweenness: ", vis.nodes$betweenness) # Text on click
   vis.nodes$borderWidth <- 2 # Node border width
 
   # Properties when node highlighted
