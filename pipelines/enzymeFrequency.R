@@ -383,6 +383,7 @@ getTotalFrequency <- function(index_, resumeInfo_=TRUE) {
   enzymeTotalFrequency$degree <- mergeTemp$degree
   enzymeTotalFrequency$authorityScore <- mergeTemp$authorityScore
   enzymeTotalFrequency$hubScore <- mergeTemp$hubScore
+  enzymeTotalFrequency$bottleneck_classification <- mergeTemp$bottleneck_classification
 
   # Remove the quotes from column name
   colnames(enzymeTotalFrequency) <- gsub("\"", "", colnames(enzymeTotalFrequency))
@@ -673,7 +674,7 @@ lapply(start_of:nrow(pathwayList), getPathwayEnzymes, replaceEmptyGraph_=FALSE)
 ##############################################
 
 # [TEST ONLY]
-lapply(7:7, getTotalFrequency)
+lapply(1:1, getTotalFrequency)
 
 # Call the function for all pathways
 lapply(start_of:nrow(pathwayList), getTotalFrequency)
@@ -686,7 +687,7 @@ lapply(start_of:nrow(pathwayList), getTotalFrequency)
 ##################################
 
 # [TEST ONLY]
-lapply(3:3, reapplyGraphProperties)
+lapply(1:1, reapplyGraphProperties)
 
 # Call the function for all pathways
 lapply(start_of:nrow(pathwayList), reapplyGraphProperties)
