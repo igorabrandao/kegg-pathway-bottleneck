@@ -124,7 +124,7 @@ printBottleneckPathwayImage <- function(pathway_, bottleneck_, verbose_=FALSE) {
 #'
 #' @examples
 #' \dontrun{
-#' printInteractiveNetwork(pathwayData)
+#' printInteractiveNetwork(pathwayData, properties)
 #' }
 #'
 #' @author
@@ -146,15 +146,19 @@ generateInteractiveNetwork <- function(network_, networkProperties_, pathway_=""
   vis.nodes <- networkProperties_
   vis.links <- data$edges
 
-  # Set network nodes properties
-  vis.nodes$shape <- "dot"
-  vis.nodes$shape[which(vis.nodes$is_bottleneck == 0)] <- "dot"
-  vis.nodes$shape[which(vis.nodes$is_bottleneck == 1)] <- "star"
+  vis.nodes$color.border <- "white"
+  vis.nodes$borderWidth <- 0
+
+  # Apply the border color by bottleneck status
+  vis.nodes$color.border[which(vis.nodes$is_bottleneck == 0)] <- "white"
+  vis.nodes$color.border[which(vis.nodes$is_bottleneck == 1)] <- "blue"
+  vis.nodes$borderWidth[which(vis.nodes$is_bottleneck == 0)] <- 0
+  vis.nodes$borderWidth[which(vis.nodes$is_bottleneck == 1)] <- 4
 
   vis.nodes$shadow <- TRUE # Nodes will drop shadow
-  vis.nodes$id    <- row.names(vis.nodes) # Node ID
-  vis.nodes$label  <- row.names(vis.nodes) # Node label
-  vis.nodes$title  <- paste0(row.names(vis.nodes), " degree: ", vis.nodes$degree, " betweenness: ", vis.nodes$betweenness) # Text on click
+  vis.nodes$id     <- row.names(vis.nodes) # Node ID
+  vis.nodes$label  <- paste0(row.names(vis.nodes), "\n(", vis.nodes$bottleneck_classification, ")") # Node label
+  vis.nodes$title  <- paste0(vis.nodes$bottleneck_classification, " - ", row.names(vis.nodes), " degree: ", vis.nodes$degree, " betweenness: ", vis.nodes$betweenness) # Text on click
   vis.nodes$borderWidth <- 2 # Node border width
 
   # Properties when node highlighted
@@ -173,10 +177,6 @@ generateInteractiveNetwork <- function(network_, networkProperties_, pathway_=""
 
   # Apply the background color scale
   vis.nodes$color.background <- colorRampPalette(pal)(99)[betweennessScaleValues]
-
-  # Apply the border color by community
-  vis.nodes$color.border <- colorRampPalette(pal2)(9)[vis.nodes$community]
-  vis.nodes$borderWidth <- 4
 
   # Apply node size according to its frequency
   vis.nodes$size <- scales::rescale(vis.nodes$freq, to=c(10, 30))
@@ -204,10 +204,10 @@ generateInteractiveNetwork <- function(network_, networkProperties_, pathway_=""
 
   # Add a legend
   visNetworkObj <- visLegend(visNetworkObj, enabled = TRUE, useGroups = TRUE,
-            main="Legend", position="right", ncol=1)
+            main="Legend", position="left", ncol=1)
 
   # Add custom options
-  visNetworkObj <- visOptions(visNetworkObj, highlightNearest = TRUE, selectedBy = "is_bottleneck")
+  visNetworkObj <- visOptions(visNetworkObj, highlightNearest = TRUE, selectedBy = "bottleneck_classification")
 
   # Generate the network
   return(visNetworkObj)

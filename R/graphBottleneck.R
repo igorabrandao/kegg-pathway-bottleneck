@@ -106,6 +106,21 @@ getTopBetweenness <- function(iGraph_, betweenness_percentual_rate_=0.2, verbose
   return(topBetweennessWithRate)
 }
 
+#' Function to calculates the pathway bottlenecks
+#'
+#' @param iGraph_ Pathway iGraph object.
+#' @param verbose_ Whether or not print the status message
+#'
+#' @return This function does not return nothing, just export files.
+#'
+#' @examples
+#' \dontrun{
+#' getGraphBottleneck(iGraph)
+#' }
+#'
+#' @author
+#' Igor Brandão
+
 getGraphBottleneck <- function(iGraph_, verbose_=FALSE) {
   articulation_points <- igraph::articulation_points(iGraph_)
 
@@ -116,4 +131,66 @@ getGraphBottleneck <- function(iGraph_, verbose_=FALSE) {
   }
 
   return(articulation_points)
+}
+
+#' Function to classify the bottlenecks into the following groups:
+#'
+#' HB - Hub botlenecks
+#' NHB - Non Hub bottlenecks
+#' HNB - Hub non bottlenecks
+#' NHNB - Non hub non bottlenecks
+#'
+#' @param networkProperties_ Contains main information about the network nodes.
+#' @param pathway_ Network name.
+#'
+#' @return This function returns the same inputted data frame with an additional column
+#'
+#' @examples
+#' \dontrun{
+#' classifyBottleneck(network, properties)
+#' }
+#'
+#' @author
+#' Igor Brandão
+
+classifyBottleneck <- function(networkProperties_, pathway_="") {
+
+  applyClassification <- function(idx_) {
+    node <- networkProperties_[idx_,]
+    classification <- ''
+
+    ######################################
+    # Step 1: Check if the node is a hub #
+    ######################################
+
+    # Get the top 20% degrees (Yu, Kim et al)
+    degree_percentual_rate_ <- 0.2
+    topDegrees <- sort(networkProperties_$degree, decreasing=TRUE)
+    topDegrees <- topDegrees[1:as.integer(length(topDegrees) * degree_percentual_rate_)]
+
+    if (node$degree %in% topDegrees) {
+      classification <- paste0(classification, 'H')
+    } else {
+      classification <- paste0(classification, 'NH')
+    }
+
+    # Step 2: Check if the node is a bottleneck
+    if (node$is_bottleneck) {
+      classification <- paste0(classification, 'B')
+    } else {
+      classification <- paste0(classification, 'NB')
+    }
+
+    # Return the bottleneck classification
+    networkProperties_[idx_,]$bottleneck_classification <<- classification
+  }
+
+  # First of all add the classification column
+  networkProperties_$bottleneck_classification <- NA
+
+  # Process each node
+  sapply(1:nrow(networkProperties_), applyClassification)
+
+  # Return the updated dataframe
+  return(networkProperties_)
 }
