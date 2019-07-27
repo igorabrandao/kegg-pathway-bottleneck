@@ -393,7 +393,7 @@ getTotalFrequency <- function(index_, resumeInfo_=TRUE) {
 
   # Check if its necessary remove species columns
   if (resumeInfo_) {
-    enzymeTotalFrequency <- enzymeTotalFrequency[,(ncol(enzymeTotalFrequency)-17):ncol(enzymeTotalFrequency)]
+    enzymeTotalFrequency <- enzymeTotalFrequency[,(ncol(enzymeTotalFrequency)-18):ncol(enzymeTotalFrequency)]
   }
 
   # Export the pathway data
