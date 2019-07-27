@@ -1,8 +1,28 @@
-#############################################
-# Functions to handle iGraph object loading #
-#############################################
+#****************************************#
+# Functions to handle graph manipulation #
+#****************************************#
 
-# pathwayToDataframe ####
+# graphFunctions.R #
+
+# ---- IMPORT SECTION ----
+
+#' This is set of functions to handle graphs
+#'
+#' @author
+#' Igor Brandão
+
+# Import the necessary libraries
+library(KEGGREST)
+library(KEGGgraph)
+library(igraph)
+library(RCurl) # http connections
+library(rvest) # web scraping
+library(stringr) # regex manipulation
+library(pracma) # string manipulation
+
+#*******************************************************************************************#
+
+# ---- GRAPH LOADING SECTION ----
 
 #' Get the edges from a given KEGG pathway
 #'
@@ -76,8 +96,6 @@ pathwayToDataframe <- function(pathway_, replaceOrg=FALSE, orgToReplace='') {
   })
 }
 
-# getReferencePathway ####
-
 #' Get the reference KEGG pathway
 #'
 #' Given a KEGG pathway ID and a list of KOs/ECs, this function returns a
@@ -100,7 +118,6 @@ pathwayToDataframe <- function(pathway_, replaceOrg=FALSE, orgToReplace='') {
 #'
 #' @author
 #' Diego Morais / Igor Brandão
-#'
 
 getReferencePathway <- function(pathway_, ko_ec_dictionnaire_) {
   # Load the ECs list from KEGG according to a pathway CODE
@@ -209,8 +226,6 @@ getReferencePathway <- function(pathway_, ko_ec_dictionnaire_) {
   return(graphData)
 }
 
-# getPathwayHighlightedGenes ####
-
 #' Get the image from a given KEGG pathway
 #'
 #' Given a KEGG pathway ID, this function saves its image in the current
@@ -230,7 +245,7 @@ getReferencePathway <- function(pathway_, ko_ec_dictionnaire_) {
 #'
 #' @author
 #' Igor Brandão
-#'
+
 getPathwayHighlightedGenes <- function(pathway_, genesOnly_=TRUE) {
   tryCatch({
     # Request the graph data from KEGG
@@ -267,132 +282,61 @@ getPathwayHighlightedGenes <- function(pathway_, genesOnly_=TRUE) {
   })
 }
 
-# getGraphProperties ####
+#*******************************************************************************************#
 
-#' Get some graph properties from a directed graph
+# ---- CONVERSIONS SECTION ----
+
+#' Converts the entrez identifiers to EC number based on KO dictionary
 #'
-#' Given a data.frame of directed edges, this function computes the connectivity,
-#' clustering coefficient, and betweenness.
+#' @param entrez_ Entrez list.
+#' @param ko_dictionnaire_ KO dictionary.
+#' @param ec_dictionnaire_ EC dictionary.
 #'
-#' @param iGraph_ A data.frame containing directed edges from a KEGG graph.
+#' @return This function returns a list with EC numbers
 #'
-#' @return This function returns a data.frame containing three columns: connectivity,
-#' clustering coefficient, and betweenness.
-#'
-#' @examples
-#' \dontrun{
-#' df <- getGraphProperties(pathwayToDataframe("hsa00010"))
-#' }
-#'
-#' @importFrom igraph graph_from_data_frame
-#' @importFrom igraph betweenness
-#' @importFrom igraph count_triangles
-#' @importFrom igraph transitivity
-#' @importFrom igraph closeness
 #'
 #' @author
-#' Diego Morais / Igor Brandão
-
-getGraphProperties <- function(iGraph_) {
-
-  tryCatch({
-    # Convert the dataFrame to iGraph object
-    g <- igraph::graph_from_data_frame(iGraph_, directed = TRUE)
-
-    # Calculates betweenness
-    # Measure of centrality in a graph based on shortest paths
-    betweenness <- igraph::betweenness(g, normalized = TRUE)
-
-    # Define the result dataFrame
-    result <- data.frame(node = names(betweenness), betweenness = betweenness,
-                         stringsAsFactors = FALSE)
-
-    rownames(result) <- NULL
-
-    k <- as.data.frame(table(iGraph_$node1))
-
-    # Calculates the connectivity
-    # # minimum number of elements (nodes or edges) that need to be removed to separate
-    # the remaining nodes into isolated subgraphs.
-    result$connectivity <- 0
-    result$connectivity <- k[match(result$node, k$Var1), 2]
-    result$connectivity[is.na(result$connectivity)] <- 0
-
-    # Calculates the triangles
-    # How many triangles a vertex is part of, in a graph, or just list the triangles of a graph.
-    result$triangles <- vapply(result$node, function(x){
-      as.integer(igraph::count_triangles(g, vids = x))
-    }, integer(1))
-
-    # Calculates the clustering coefficient
-    # Transitivity measures the probability that the adjacent vertices of a vertex are connected
-    result$clusteringCoef <- igraph::transitivity(g, vids = result$node,
-                                                  isolates = "zero",
-                                                  type = "local")
-
-    # Calculates the closeness coefficient
-    # Measures how many steps is required to access every other vertex from a given vertex.
-    result$closenessCoef <- suppressWarnings(igraph::closeness(g, vids=result$node))
-
-    # Calculates the vertex communities
-    # greedy method (hiearchical, fast method)
-    c3 = cluster_edge_betweenness(g)
-    result$community <- as.integer(membership(c3))
-
-    # Calculates the Eigenvector Centrality Scores of Network Positions
-    # It is a measure of the influence of a node in a network.
-    eigen_centrality <- igraph::eigen_centrality(g, directed = TRUE)
-    result$eigenvectorScore <- unlist(eigen_centrality[1]) # Just the scores
-
-    # Calculates the eccentricity of a vertex
-    # It is defined as the maximum distance of one vertex from other vertex
-    result$eccentricity <- igraph::eccentricity(g, vids=result$node)
-
-    # Calculates the radius of a vertex (entire graph)
-    # The smallest eccentricity in a graph is called its radius
-    result$radius <- igraph::radius(g)
-
-    # Calculates the diameter of a vertex (entire graph)
-    # The diameter of a graph is the length of the longest geodesic
-    result$diameter <- igraph::diameter(g, directed = TRUE)
-
-    # Calculates the degree of a vertex
-    # The degree of a vertex is the number of adjacent edges
-    result$degree <- igraph::degree(g, v=result$node)
-
-    # Calculates the Kleinberg's authority centrality scores
-    # The authority scores of the vertices are defined as the principal
-    # eigenvector of t(A)*A, where A is the adjacency matrix of the graph
-    authority_score <- igraph::authority_score(g)
-    result$authorityScore <- unlist(authority_score[1]) # Just the scores
-
-    # Calculates the Kleinberg's hub centrality scores
-    # The hub scores of the vertices are defined as the principal eigenvector
-    # of A*t(A), where A is the adjacency matrix of the graph
-    hub_score <- igraph::hub_score(g)
-    result$hubScore <- unlist(hub_score[1]) # Just the scores
-
-    # Return the result data frame
-    return(result)
-
-  }, error=function(e) {
-    print(paste0('It wasnt possible to retrieve properties from the graph. Skipping it...'))
-    return(NULL)
-  })
-}
-
-##################################
-# Identifiers conversion section #
-##################################
+#' Igor Brandão
 
 entrezToEC <- function(entrez_, ko_dictionnaire_, ec_dictionnaire_) {
   return(ec_dictionnaire_[[ko_dictionnaire_[[as.character(entrez_)]]]])
 }
 
-# unlist(entrezToECMulti(c(2821, 669)))
-entrezToECMulti <- Vectorize(entrezToEC, vectorize.args = "entrez_")
+#' Converts the entrez identifiers to EC number based on KO dictionary
+#' in a vetorized way
+#'
+#' @param entrez_ Entrez list.
+#' @param ko_dictionnaire_ KO dictionary.
+#' @param ec_dictionnaire_ EC dictionary.
+#'
+#' @return This function returns a list with EC numbers
+#'
+#' @examples
+#' \dontrun{
+#' unlist(entrezToECMulti(c(2821, 669)))
+#' }
+#'
+#' @author
+#' Igor Brandão
 
-ECToEntrez <- function(ec_list_, ec_dictionnaire_, ko_dictionnaire_) {
+entrezToECMulti <- function() {
+  # entrezToECMulti <- Vectorize(entrezToEC, vectorize.args = "entrez_")
+  return(Vectorize(entrezToEC, vectorize.args = "entrez_"))
+}
+
+#' Converts the EC numbers list to Entrez identifier based on KO dictionary
+#' in a vetorized way
+#'
+#' @param dictionaries EC list.
+#' @param ec_dictionnaire_ EC dictionary.
+#' @param ko_dictionnaire_ KO dictionary.
+#'
+#' @return This function returns a list with EC numbers
+#'
+#' @author
+#' Igor Brandão
+
+ecToEntrez <- function(ec_list_, ec_dictionnaire_, ko_dictionnaire_) {
   # Unlist the dictionaries
   unlistEC <- unlist(ec_dictionnaire_)
   unlistKO <- unlist(ko_dictionnaire_)
@@ -409,8 +353,6 @@ ECToEntrez <- function(ec_list_, ec_dictionnaire_, ko_dictionnaire_) {
 
   return(unlist(entrez_list))
 }
-
-# convertEntrezToECWithoutDict ####
 
 #' Receive an entrez list and return an EC dataFrame
 #'
@@ -566,3 +508,305 @@ convertEntrezToECWithoutDict <- function(entrez_list_, chunk_size_=50, verbose_=
     return(NULL)
   })
 }
+
+#*******************************************************************************************#
+
+# ---- GRAPH PROPERTIES SECTION ----
+
+#' Get some graph properties from a directed graph
+#'
+#' Given a data.frame of directed edges, this function computes the connectivity,
+#' clustering coefficient, and betweenness.
+#'
+#' @param iGraph_ A data.frame containing directed edges from a KEGG graph.
+#'
+#' @return This function returns a data.frame containing three columns: connectivity,
+#' clustering coefficient, and betweenness.
+#'
+#' @examples
+#' \dontrun{
+#' df <- getGraphProperties(pathwayToDataframe("hsa00010"))
+#' }
+#'
+#' @importFrom igraph graph_from_data_frame
+#' @importFrom igraph betweenness
+#' @importFrom igraph count_triangles
+#' @importFrom igraph transitivity
+#' @importFrom igraph closeness
+#'
+#' @author
+#' Diego Morais / Igor Brandão
+
+getGraphProperties <- function(iGraph_) {
+
+  tryCatch({
+    # Convert the dataFrame to iGraph object
+    g <- igraph::graph_from_data_frame(iGraph_, directed = TRUE)
+
+    # Calculates betweenness
+    # Measure of centrality in a graph based on shortest paths
+    betweenness <- igraph::betweenness(g, normalized = TRUE)
+
+    # Define the result dataFrame
+    result <- data.frame(node = names(betweenness), betweenness = betweenness,
+                         stringsAsFactors = FALSE)
+
+    rownames(result) <- NULL
+
+    k <- as.data.frame(table(iGraph_$node1))
+
+    # Calculates the connectivity
+    # # minimum number of elements (nodes or edges) that need to be removed to separate
+    # the remaining nodes into isolated subgraphs.
+    result$connectivity <- 0
+    result$connectivity <- k[match(result$node, k$Var1), 2]
+    result$connectivity[is.na(result$connectivity)] <- 0
+
+    # Calculates the triangles
+    # How many triangles a vertex is part of, in a graph, or just list the triangles of a graph.
+    result$triangles <- vapply(result$node, function(x){
+      as.integer(igraph::count_triangles(g, vids = x))
+    }, integer(1))
+
+    # Calculates the clustering coefficient
+    # Transitivity measures the probability that the adjacent vertices of a vertex are connected
+    result$clusteringCoef <- igraph::transitivity(g, vids = result$node,
+                                                  isolates = "zero",
+                                                  type = "local")
+
+    # Calculates the closeness coefficient
+    # Measures how many steps is required to access every other vertex from a given vertex.
+    result$closenessCoef <- suppressWarnings(igraph::closeness(g, vids=result$node))
+
+    # Calculates the vertex communities
+    # greedy method (hiearchical, fast method)
+    c3 = cluster_edge_betweenness(g)
+    result$community <- as.integer(membership(c3))
+
+    # Calculates the Eigenvector Centrality Scores of Network Positions
+    # It is a measure of the influence of a node in a network.
+    eigen_centrality <- igraph::eigen_centrality(g, directed = TRUE)
+    result$eigenvectorScore <- unlist(eigen_centrality[1]) # Just the scores
+
+    # Calculates the eccentricity of a vertex
+    # It is defined as the maximum distance of one vertex from other vertex
+    result$eccentricity <- igraph::eccentricity(g, vids=result$node)
+
+    # Calculates the radius of a vertex (entire graph)
+    # The smallest eccentricity in a graph is called its radius
+    result$radius <- igraph::radius(g)
+
+    # Calculates the diameter of a vertex (entire graph)
+    # The diameter of a graph is the length of the longest geodesic
+    result$diameter <- igraph::diameter(g, directed = TRUE)
+
+    # Calculates the degree of a vertex
+    # The degree of a vertex is the number of adjacent edges
+    result$degree <- igraph::degree(g, v=result$node)
+
+    # Calculates the Kleinberg's authority centrality scores
+    # The authority scores of the vertices are defined as the principal
+    # eigenvector of t(A)*A, where A is the adjacency matrix of the graph
+    authority_score <- igraph::authority_score(g)
+    result$authorityScore <- unlist(authority_score[1]) # Just the scores
+
+    # Calculates the Kleinberg's hub centrality scores
+    # The hub scores of the vertices are defined as the principal eigenvector
+    # of A*t(A), where A is the adjacency matrix of the graph
+    hub_score <- igraph::hub_score(g)
+    result$hubScore <- unlist(hub_score[1]) # Just the scores
+
+    # Return the result data frame
+    return(result)
+
+  }, error=function(e) {
+    print(paste0('It wasnt possible to retrieve properties from the graph. Skipping it...'))
+    return(NULL)
+  })
+}
+
+#' Given an iGraph object, this function set each vertex communities
+#'
+#' @param iGraph_ An iGraph object.
+#'
+#' @return This function returns the same iGraph object with an extra 'group' column.
+#'
+#' @examples
+#' \dontrun{
+#' iGraphObj <- setGraphCommunity(iGraphObj)
+#' }
+#'
+#' @importFrom igraph cluster_edge_betweenness
+#' @importFrom igraph membership
+#' @importFrom igraph modularity
+#'
+#' @author
+#' Igor Brandão
+
+setGraphCommunity <- function(iGraph_, verbose_=FALSE) {
+  # greedy method (hiearchical, fast method)
+  c3 = cluster_edge_betweenness(iGraph_)
+
+  # define the cluster attribute
+  V(iGraph_)$group <- membership(c3)
+
+  # modularity measure
+  if (verbose_) {
+    print(modularity(c3))
+    print("Graph community setted successfully!")
+  }
+
+  # return the iGraph object
+  return(iGraph_)
+}
+
+setGraphBetwenness <- function(iGraph_, normalized_=TRUE, verbose_=FALSE) {
+  # calculates the betweenness
+  V(iGraph_)$betweenness <- betweenness(iGraph_, normalized = normalized_)
+
+  # normalizes betweenness
+  if (normalized_) {
+    V(iGraph_)$betweenness <- V(iGraph_)$betweenness/max(V(iGraph_)$betweenness)
+  }
+
+  # print the betweenness
+  if (verbose_) {
+    print(V(iGraph_)$betweenness)
+    print("Graph betweenness setted successfully!")
+  }
+
+  # return the iGraph object
+  return(iGraph_)
+}
+
+setGraphCloseness <- function(iGraph_, verbose_=FALSE) {
+  # closeness refers to how connected a node is to its neighbors
+  V(iGraph_)$closeness <- closeness(iGraph_, vids=V(iGraph_))
+
+  # print the closeness
+  if (verbose_) {
+    print(V(iGraph_)$closeness)
+    print("Graph closeness setted successfully!")
+  }
+
+  # return the iGraph object
+  return(iGraph_)
+}
+
+setGraphClustering <- function(iGraph_, verbose_=FALSE) {
+  # calculates the local clustering coefficient for each vertex
+  V(iGraph_)$clustering <- transitivity(iGraph_, type = c("local"), vids = NULL,
+                                        weights = NULL, isolates = c("NaN", "zero"))
+
+  # print the clustering
+  if (verbose_) {
+    print(V(iGraph_)$clustering)
+    print("Graph clustering setted successfully!")
+  }
+
+  # return the iGraph object
+  return(iGraph_)
+}
+
+getTopBetweenness <- function(iGraph_, betweenness_percentual_rate_=0.2, verbose_=FALSE) {
+  topBetweenness <- sort(V(iGraph)$betweenness, decreasing=TRUE)
+  topBetweennessWithRate <- topBetweenness[1:as.integer(length(topBetweenness) * betweenness_percentual_rate_)]
+
+  # print the clustering
+  if (verbose_) {
+    print(V(iGraph)[match(topBetweennessWithRate, V(iGraph)$betweenness)])
+    print(topBetweennessWithRate)
+  }
+
+  return(topBetweennessWithRate)
+}
+
+#' Function to calculates the pathway bottlenecks
+#'
+#' @param iGraph_ Pathway iGraph object.
+#' @param verbose_ Whether or not print the status message
+#'
+#' @return This function does not return nothing, just export files.
+#'
+#' @examples
+#' \dontrun{
+#' getGraphBottleneck(iGraph)
+#' }
+#'
+#' @author
+#' Igor Brandão
+
+getGraphBottleneck <- function(iGraph_, verbose_=FALSE) {
+  articulation_points <- igraph::articulation_points(iGraph_)
+
+  # print the articulation points
+  if (verbose_) {
+    print(articulation_points)
+    print("Graph bottlenecks calculated successfully!")
+  }
+
+  return(articulation_points)
+}
+
+#' Function to classify the bottlenecks into the following groups:
+#'
+#' HB - Hub botlenecks
+#' NHB - Non Hub bottlenecks
+#' HNB - Hub non bottlenecks
+#' NHNB - Non hub non bottlenecks
+#'
+#' @param networkProperties_ Contains main information about the network nodes.
+#' @param pathway_ Network name.
+#'
+#' @return This function returns the same inputted data frame with an additional column
+#'
+#' @examples
+#' \dontrun{
+#' classifyBottleneck(network, properties)
+#' }
+#'
+#' @author
+#' Igor Brandão
+
+classifyBottleneck <- function(networkProperties_, pathway_="") {
+
+  applyClassification <- function(idx_) {
+    node <- networkProperties_[idx_,]
+    classification <- ''
+
+    #************************************#
+    # Step 1: Check if the node is a hub #
+    #************************************#
+
+    # Get the top 20% degrees (Yu, Kim et al)
+    degree_percentual_rate_ <- 0.2
+    topDegrees <- sort(networkProperties_$degree, decreasing=TRUE)
+    topDegrees <- topDegrees[1:as.integer(length(topDegrees) * degree_percentual_rate_)]
+
+    if (node$degree %in% topDegrees) {
+      classification <- paste0(classification, 'H')
+    } else {
+      classification <- paste0(classification, 'NH')
+    }
+
+    # Step 2: Check if the node is a bottleneck
+    if (node$is_bottleneck) {
+      classification <- paste0(classification, 'B')
+    } else {
+      classification <- paste0(classification, 'NB')
+    }
+
+    # Return the bottleneck classification
+    networkProperties_[idx_,]$bottleneck_classification <<- classification
+  }
+
+  # First of all add the classification column
+  networkProperties_$bottleneck_classification <- NA
+
+  # Process each node
+  sapply(1:nrow(networkProperties_), applyClassification)
+
+  # Return the updated dataframe
+  return(networkProperties_)
+}
+

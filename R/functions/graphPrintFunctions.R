@@ -1,12 +1,38 @@
-#########################################
-# Functions to print the iGraph_ object #
-#########################################
+#*****************************************#
+# Functions to handle graph visualization #
+#*****************************************#
 
+# graphPrintFunctions.R #
+
+# ---- IMPORT SECTION ----
+
+#' This is set of functions to handle graph visualization
+#'
+#' @author
+#' Igor Brandão
+
+# Import the necessary libraries
 library(igraph)
 library(RedeR)
 library(RColorBrewer)
 library(visNetwork)
 library(scales)
+
+#*******************************************************************************************#
+
+# ---- GRAPH PRINT SECTION ----
+
+#' Function to generate interactive networks based on redPort library
+#'
+#' @param iGraph_ iGraph object.
+#' @param bottleneck_ List containing the bottlenecks to be colored.
+#' @param verbose_ Flag to display or not the processing messages.
+#'
+#' @return This function does not return nothing, just open a redPort
+#' window instance..
+#'
+#' @author
+#' Igor Brandão
 
 printBottleneckInRedPort <- function(iGraph_, bottleneck_, verbose_=FALSE) {
   # Set the color palette according to the communities count
@@ -56,8 +82,6 @@ printBottleneckInRedPort <- function(iGraph_, bottleneck_, verbose_=FALSE) {
     print("Bottleneck visualization in RedPort generated successfully!")
   }
 }
-
-# getPathwayImage ####
 
 #' Get the image from a given KEGG pathway
 #'

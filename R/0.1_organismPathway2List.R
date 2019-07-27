@@ -1,8 +1,10 @@
-###################################################
+#*************************************************#
 # Adapt the organism2pathway data to pathway list #
-###################################################
+#*************************************************#
 
-# pathwayList.R #
+# ---- PATHWAYS CONVERSION TO LIST SECTION ----
+
+# 0.1_organismPathway2List.R #
 
 #' This is the pipeline script to perform
 #' the conversion from organism2pathway to pathway list
@@ -13,7 +15,7 @@
 #-------------------------------------------------------------------------------------------#
 
 # Load the pathways by organisms data
-organism2pathway <- get(load(paste0("./dictionnaires", "/", "organism2pathway.RData")))
+organism2pathway <- get(load(paste0("./dictionaries", "/", "organism2pathway.RData")))
 
 # Convert the list to dataFrame
 pathwayList <- data.frame(pathway=unlist(organism2pathway), stringsAsFactors=FALSE)
@@ -23,4 +25,4 @@ pathwayList <-as.data.frame(pathwayList[!duplicated(pathwayList),], stringsAsFac
 names(pathwayList) <- "pathway"
 
 # Export into a new file
-save(pathwayList, file='./dictionnaires/pathwayList.RData')
+save(pathwayList, file='./dictionaries/pathwayList.RData')

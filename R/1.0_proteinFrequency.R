@@ -1,8 +1,10 @@
-####################################################
+#**************************************************#
 # Pipeline to perform the enzyme frequencies count #
-####################################################
+#**************************************************#
 
-# enzymeList.R #
+# ---- IMPORT SECTION ----
+
+# 1.0_proteinFrequency.R #
 
 #' This is the pipeline script to perform
 #' the enzymes frequencies counting
@@ -11,50 +13,38 @@
 #' Igor Brandão
 
 # Import the necessary libraries
-library(KEGGREST) # graph handler
-library(KEGGgraph)
-library(igraph)
-library(RCurl) # http connections
-library(rvest) # web scraping
-library(stringr) # regex manipulation
-library(pracma) # string manipulation
 library(foreach)
 
-#-------------------------------------------------------------------------------------------#
+#*******************************************************************************************#
 
-###########################
+# ---- SETTINGS SECTION ----
+
+#*************************#
 # Pipeline basic settings #
-###########################
+#*************************#
 
 # Import the graphLoader functions
 files.sources = NULL
-files.sources[1] = paste0("./R", "/", "graphLoader.R")
-files.sources[2] = paste0("./R", "/", "graphBottleneck.R")
-files.sources[3] = paste0("./R", "/", "graphPrint.R")
+files.sources[1] = paste0("./R/functions", "/", "graphFunctions.R")
+files.sources[2] = paste0("./R/functions", "/", "graphPrintFunctions.R")
+files.sources[3] = paste0("./R/functions", "/", "helperFunctions.R")
 sapply(files.sources, source)
 
 # Load the pathways by organisms data
-organism2pathway <- get(load(paste0("./dictionnaires", "/", "organism2pathway.RData")))
-pathwayList <- get(load(paste0("./dictionnaires", "/", "pathwayList.RData")))
+organism2pathway <- get(load(paste0("./dictionaries", "/", "organism2pathway.RData")))
+pathwayList <- get(load(paste0("./dictionaries", "/", "pathwayList.RData")))
 
 # Define in which specie the processing should begin
 # default value 1 (the value should be >= 1)
 start_of <- 1
 
-# Auxiliar function to generate messages
-printMessage <- function(message_) {
-  cat("\n")
-  print("------------------------------------------------")
-  print(message_)
-  print("------------------------------------------------")
-  cat("\n")
-}
+#*******************************************************************************************#
 
-#-------------------------------------------------------------------------------------------#
+# ---- FUNCTIONS SECTION ----
 
-###########################
+#*************************#
 # Pipeline main functions #
-###########################
+#*************************#
 
 #' Get the list of pathways from pathwayList and export
 #' the enzyme list for each specie by pathway
@@ -78,9 +68,9 @@ printMessage <- function(message_) {
 
 getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE, chunkSize_=50) {
 
-  ################################
+  #******************************#
   # Get the pathway general info #
-  ################################
+  #******************************#
 
   # Get the current pathway
   pathway <- pathwayList[index_,]
@@ -94,9 +84,9 @@ getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE
   # Status message
   printMessage(paste0("COUNTING ", pathway, " ENZYMES FREQUENCIES [", index_, " OF ", nrow(pathwayList), "]"))
 
-  #####################################
+  #***********************************#
   # Load all enzymes from its pathway #
-  #####################################
+  #***********************************#
 
   # Get the enzyme list from pathway
   pathwayData <- pathwayToDataframe(pathway_code, FALSE)
@@ -109,9 +99,9 @@ getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE
     return(pathwayData)
 
   } else {
-    ############################
+    #*************************##
     # Prepare the pathway data #
-    ############################
+    #*************************##
 
     # Remove unnecessary data before bottleneck calculation
     if (removeNoise_) {
@@ -159,9 +149,9 @@ getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE
     pathwayData$is_bottleneck[which(pathwayData[,1] %in% graphBottleneck)] <- 1
   }
 
-  ######################################
+  #************************************#
   # Set the parameters for each specie #
-  ######################################
+  #************************************#
 
   # Loop over the organism list
   enzymeList <- foreach::foreach(idx = seq.int(1, totalSpecies),
@@ -181,9 +171,9 @@ getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE
       temp <- pathwayData
       temp[,c('org')] <- specie
 
-      ################################################
+      #**********************************************#
       # Check if the enzyme appears into the pathway #
-      ################################################
+      #**********************************************#
 
       # Get the highlighted enzymes list
       highlighted_enzymes <- getPathwayHighlightedGenes(paste0(specie, pathway))
@@ -254,9 +244,9 @@ getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE
 
   } # END OF FOREACH
 
-  ##############################
+  #****************************#
   # Prepare the data to export #
-  ##############################
+  #****************************#
 
   # Rename the nodes column
   names(enzymeList)[names(enzymeList) == "node1"] <- "ec"
@@ -650,15 +640,17 @@ printInteractiveNetwork <- function(index_, removeNoise_=TRUE) {
   return(TRUE)
 }
 
-#-------------------------------------------------------------------------------------------#
+#*******************************************************************************************#
 
-#################
+# ---- PIPELINE SECTION ----
+
+#***************#
 # Pipeline flow #
-#################
+#***************#
 
-####################################
+#**********************************#
 # Step 1: Get all pathways enzymes #
-####################################
+#**********************************#
 
 # [TEST ONLY]
 lapply(2:2, getPathwayEnzymes, replaceEmptyGraph_=FALSE)
@@ -666,12 +658,12 @@ lapply(2:2, getPathwayEnzymes, replaceEmptyGraph_=FALSE)
 # Call the function for all pathways
 lapply(start_of:nrow(pathwayList), getPathwayEnzymes, replaceEmptyGraph_=FALSE)
 
-#-------------------------------------------------------------------------------------------#
+#*******************************************************************************************#
 
-##############################################
+#********************************************#
 # Step 2: Group all files into one dataframe #
-# Step 3: Count the enzyme frequency #
-##############################################
+# Step 3: Count the enzyme frequency         #
+#********************************************#
 
 # [TEST ONLY]
 lapply(1:1, getTotalFrequency)
@@ -679,24 +671,24 @@ lapply(1:1, getTotalFrequency)
 # Call the function for all pathways
 lapply(start_of:nrow(pathwayList), getTotalFrequency)
 
-#-------------------------------------------------------------------------------------------#
+#*******************************************************************************************#
 
-##################################
+#********************************#
 # [OPTIONAL]                     #
 # Recalculates the graph metrics #
-##################################
+#********************************#
 
 # [TEST ONLY]
-lapply(1:1, reapplyGraphProperties)
+lapply(3:nrow(pathwayList), reapplyGraphProperties)
 
 # Call the function for all pathways
 lapply(start_of:nrow(pathwayList), reapplyGraphProperties)
 
-#-------------------------------------------------------------------------------------------#
+#*******************************************************************************************#
 
-##########################################
+#****************************************#
 # Step 4: Generate the correlation study #
-##########################################
+#****************************************#
 
 # [TEST ONLY]
 lapply(1:100, generateCorrelationStudy)
@@ -704,11 +696,11 @@ lapply(1:100, generateCorrelationStudy)
 # Call the function for all pathways
 lapply(start_of:nrow(pathwayList), generateCorrelationStudy)
 
-#-------------------------------------------------------------------------------------------#
+#*******************************************************************************************#
 
-################################
+#******************************#
 # Step 5: Generate the network #
-################################
+#******************************#
 
 # [TEST ONLY]
 lapply(1:1, printInteractiveNetwork)
