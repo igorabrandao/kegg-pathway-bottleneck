@@ -653,7 +653,7 @@ printInteractiveNetwork <- function(index_, removeNoise_=TRUE) {
 #**********************************#
 
 # [TEST ONLY]
-lapply(2:2, getPathwayEnzymes, replaceEmptyGraph_=FALSE)
+lapply(12:12, getPathwayEnzymes, replaceEmptyGraph_=FALSE)
 
 # Call the function for all pathways
 lapply(start_of:nrow(pathwayList), getPathwayEnzymes, replaceEmptyGraph_=FALSE)
@@ -666,7 +666,7 @@ lapply(start_of:nrow(pathwayList), getPathwayEnzymes, replaceEmptyGraph_=FALSE)
 #********************************************#
 
 # [TEST ONLY]
-lapply(1:1, getTotalFrequency)
+lapply(4:10, getTotalFrequency)
 
 # Call the function for all pathways
 lapply(start_of:nrow(pathwayList), getTotalFrequency)
@@ -679,7 +679,7 @@ lapply(start_of:nrow(pathwayList), getTotalFrequency)
 #********************************#
 
 # [TEST ONLY]
-lapply(3:nrow(pathwayList), reapplyGraphProperties)
+lapply(13:nrow(pathwayList), reapplyGraphProperties)
 
 # Call the function for all pathways
 lapply(start_of:nrow(pathwayList), reapplyGraphProperties)
