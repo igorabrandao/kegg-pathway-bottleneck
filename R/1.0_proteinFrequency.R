@@ -324,83 +324,92 @@ getTotalFrequency <- function(index_, resumeInfo_=TRUE) {
   # Get the enzymeList as a 3 way table
   enzymeTotalFrequency <- table(enzymeList$ec,enzymeList$org,enzymeList$is_presented)
 
-  # Get just the table sinalyzing the presence of the enzyme
-  enzymeTotalFrequency <- enzymeTotalFrequency[,,2]
+  tryCatch({
+    # Get just the table sinalyzing the presence of the enzyme
+    enzymeTotalFrequency <- enzymeTotalFrequency[,,2]
 
-  # Count the enzymes frequencies and transform it into a dataFrame
-  enzymeTotalFrequency <- as.data.frame.matrix(enzymeTotalFrequency, stringsAsFactors = FALSE)
+    # Count the enzymes frequencies and transform it into a dataFrame
+    enzymeTotalFrequency <- as.data.frame.matrix(enzymeTotalFrequency, stringsAsFactors = FALSE)
 
-  # Sum each frequency
-  enzymeTotalFrequency$freq <- rowSums(enzymeTotalFrequency)
+    # Sum each frequency
+    enzymeTotalFrequency$freq <- rowSums(enzymeTotalFrequency)
 
-  # Calculate the total frequency
-  enzymeTotalFrequency$total_freq <- max(enzymeTotalFrequency$freq)
+    # Calculate the total frequency
+    enzymeTotalFrequency$total_freq <- max(enzymeTotalFrequency$freq)
 
-  # Calculate the frequency percentage
-  enzymeTotalFrequency$percentage <- (enzymeTotalFrequency$freq / enzymeTotalFrequency$total_freq) * 100
+    # Calculate the frequency percentage
+    enzymeTotalFrequency$percentage <- (enzymeTotalFrequency$freq / enzymeTotalFrequency$total_freq) * 100
 
-  # Calculate the mean frequency
-  enzymeTotalFrequency$mean <- mean(enzymeTotalFrequency$freq)
+    # Calculate the mean frequency
+    enzymeTotalFrequency$mean <- mean(enzymeTotalFrequency$freq)
 
-  # Calculate the standard deviation of frequency
-  enzymeTotalFrequency$std <- sd(enzymeTotalFrequency$freq)
+    # Calculate the standard deviation of frequency
+    enzymeTotalFrequency$std <- sd(enzymeTotalFrequency$freq)
 
-  #-------------------#
-  # [PATHWAY METRICS] #
-  #-------------------#
+    #-------------------#
+    # [PATHWAY METRICS] #
+    #-------------------#
 
-  # Set the is_bottleneck flag from enzymeList
-  selectedEC <- enzymeList[enzymeList$ec%in%row.names(enzymeTotalFrequency),]
+    # Set the is_bottleneck flag from enzymeList
+    selectedEC <- enzymeList[enzymeList$ec%in%row.names(enzymeTotalFrequency),]
 
-  # Remove duplicates EC
-  selectedEC <- selectedEC[!duplicated(selectedEC[,c('ec')]),]
+    # Remove duplicates EC
+    selectedEC <- selectedEC[!duplicated(selectedEC[,c('ec')]),]
 
-  # Align the column is_bottleneck
-  mergeTemp <- merge(enzymeTotalFrequency, selectedEC, by.x=0, by.y="ec", all.x=T)
-  enzymeTotalFrequency$is_bottleneck <- mergeTemp$is_bottleneck
+    # Align the column is_bottleneck
+    mergeTemp <- merge(enzymeTotalFrequency, selectedEC, by.x=0, by.y="ec", all.x=T)
+    enzymeTotalFrequency$is_bottleneck <- mergeTemp$is_bottleneck
 
-  # Add the metric columns
-  enzymeTotalFrequency$betweenness <- mergeTemp$betweenness
-  enzymeTotalFrequency$connectivity <- mergeTemp$connectivity
-  enzymeTotalFrequency$triangles <- mergeTemp$triangles
-  enzymeTotalFrequency$clusteringCoef <- mergeTemp$clusteringCoef
-  enzymeTotalFrequency$closenessCoef <- mergeTemp$closenessCoef
-  enzymeTotalFrequency$community <- mergeTemp$community
-  enzymeTotalFrequency$eigenvectorScore <- mergeTemp$eigenvectorScore
-  enzymeTotalFrequency$eccentricity <- mergeTemp$eccentricity
-  enzymeTotalFrequency$radius <- mergeTemp$radius
-  enzymeTotalFrequency$diameter <- mergeTemp$diameter
-  enzymeTotalFrequency$degree <- mergeTemp$degree
-  enzymeTotalFrequency$authorityScore <- mergeTemp$authorityScore
-  enzymeTotalFrequency$hubScore <- mergeTemp$hubScore
-  enzymeTotalFrequency$bottleneck_classification <- mergeTemp$bottleneck_classification
+    # Add the metric columns
+    enzymeTotalFrequency$betweenness <- mergeTemp$betweenness
+    enzymeTotalFrequency$connectivity <- mergeTemp$connectivity
+    enzymeTotalFrequency$triangles <- mergeTemp$triangles
+    enzymeTotalFrequency$clusteringCoef <- mergeTemp$clusteringCoef
+    enzymeTotalFrequency$closenessCoef <- mergeTemp$closenessCoef
+    enzymeTotalFrequency$community <- mergeTemp$community
+    enzymeTotalFrequency$eigenvectorScore <- mergeTemp$eigenvectorScore
+    enzymeTotalFrequency$eccentricity <- mergeTemp$eccentricity
+    enzymeTotalFrequency$radius <- mergeTemp$radius
+    enzymeTotalFrequency$diameter <- mergeTemp$diameter
+    enzymeTotalFrequency$degree <- mergeTemp$degree
+    enzymeTotalFrequency$authorityScore <- mergeTemp$authorityScore
+    enzymeTotalFrequency$hubScore <- mergeTemp$hubScore
+    enzymeTotalFrequency$bottleneck_classification <- mergeTemp$bottleneck_classification
+    enzymeTotalFrequency$pathway <- pathway
 
-  # Remove the quotes from column name
-  colnames(enzymeTotalFrequency) <- gsub("\"", "", colnames(enzymeTotalFrequency))
+    # Remove the quotes from column name
+    colnames(enzymeTotalFrequency) <- gsub("\"", "", colnames(enzymeTotalFrequency))
 
-  # Remove temp var
-  rm(selectedEC, mergeTemp)
+    # Remove temp var
+    rm(selectedEC, mergeTemp)
 
-  # Check if its necessary remove species columns
-  if (resumeInfo_) {
-    enzymeTotalFrequency <- enzymeTotalFrequency[,(ncol(enzymeTotalFrequency)-18):ncol(enzymeTotalFrequency)]
-  }
+    # Check if its necessary remove species columns
+    if (resumeInfo_) {
+      enzymeTotalFrequency <- enzymeTotalFrequency[,(ncol(enzymeTotalFrequency)-19):ncol(enzymeTotalFrequency)]
+    }
 
-  # Export the pathway data
-  if (!dir.exists(file.path(paste0('./output/totalFrequency/', pathway)))) {
-    dir.create(file.path(paste0('./output/totalFrequency/')), showWarnings = FALSE, mode = "0775")
-  }
+    # Export the pathway data
+    if (!dir.exists(file.path(paste0('./output/totalFrequency/', pathway)))) {
+      dir.create(file.path(paste0('./output/totalFrequency/')), showWarnings = FALSE, mode = "0775")
+    }
 
-  if (dir.exists(file.path('./output/totalFrequency/'))) {
-    save(enzymeTotalFrequency, file=paste0('./output/totalFrequency/', index_, "_", pathway, '.RData'))
-  }
+    if (dir.exists(file.path('./output/totalFrequency/'))) {
+      save(enzymeTotalFrequency, file=paste0('./output/totalFrequency/', index_, "_", pathway, '.RData'))
+    }
 
-  if (dir.exists(file.path('~/data3/'))) {
-    save(enzymeTotalFrequency, file=paste0('~/data3/kegg-pathway-bottleneck/output/', index_, "_", pathway, '.RData'))
-  }
+    if (dir.exists(file.path('~/data3/'))) {
+      save(enzymeTotalFrequency, file=paste0('~/data3/kegg-pathway-bottleneck/output/', index_, "_", pathway, '.RData'))
+    }
 
-  # Function finished with success
-  return(TRUE)
+    # Function finished with success
+    return(TRUE)
+  }, error=function(e) {
+    # Status message
+    printMessage(paste0("WARNING: THE PATHWAY ", pathway, " DOESNT HAVE ANY PRESENTED PROTEIN."))
+
+    # Function finished with error
+    return(NULL)
+  })
 }
 
 #' Recalculates the pathway properties
@@ -653,7 +662,7 @@ printInteractiveNetwork <- function(index_, removeNoise_=TRUE) {
 #**********************************#
 
 # [TEST ONLY]
-lapply(12:12, getPathwayEnzymes, replaceEmptyGraph_=FALSE)
+lapply(66:66, getPathwayEnzymes, replaceEmptyGraph_=FALSE)
 
 # Call the function for all pathways
 lapply(start_of:nrow(pathwayList), getPathwayEnzymes, replaceEmptyGraph_=FALSE)
@@ -666,7 +675,7 @@ lapply(start_of:nrow(pathwayList), getPathwayEnzymes, replaceEmptyGraph_=FALSE)
 #********************************************#
 
 # [TEST ONLY]
-lapply(4:10, getTotalFrequency)
+lapply(67:nrow(pathwayList), getTotalFrequency)
 
 # Call the function for all pathways
 lapply(start_of:nrow(pathwayList), getTotalFrequency)
@@ -679,7 +688,7 @@ lapply(start_of:nrow(pathwayList), getTotalFrequency)
 #********************************#
 
 # [TEST ONLY]
-lapply(13:nrow(pathwayList), reapplyGraphProperties)
+lapply(362:362, reapplyGraphProperties)
 
 # Call the function for all pathways
 lapply(start_of:nrow(pathwayList), reapplyGraphProperties)
