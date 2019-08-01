@@ -17,88 +17,11 @@ library(ggplot2)
 library(dplyr)
 options(scipen = 999, digits = 2) # sig digits
 
-#*******************************************************************************************#
-
-# ---- SETTINGS SECTION ----
-
-#*************************#
-# Pipeline basic settings #
-#*************************#
-
 # Import the graphLoader functions
 files.sources = NULL
-files.sources[1] = paste0("./R/functions", "/", "helperFunctions.R")
+files.sources[1] = paste0("./R/functions", "/", "statisticsHelper.R")
+files.sources[2] = paste0("./R/functions", "/", "helperFunctions.R")
 sapply(files.sources, source)
-
-# Folder containing the necessary info
-folder_name = 'totalFrequency'
-
-#*******************************************************************************************#
-
-# ---- DATASET SECTION ----
-
-generateDataSet <- function(verbose_ = TRUE) {
-  # Status message
-  if (verbose_) {
-    printMessage("GENERATING THE DATASET BASE")
-  }
-
-  # Get the list of files
-  folder = paste0("./output/", folder_name, "/")
-  file_list <- list.files(path = folder, pattern = '*.RData')
-
-  # Check if the folder contains files
-  if (is.null(file_list) | length(file_list) == 0) {
-    return(FALSE)
-  }
-
-  # Load all files at once
-  big.list.of.data.frames <- lapply(file_list, function(file) {
-    get(load(file = paste0(folder, file)))
-  })
-
-  # Combine multiple data frames in one
-  enzymeList <- do.call(rbind, big.list.of.data.frames)
-
-  # Remove temporaly variables
-  rm(big.list.of.data.frames)
-
-  # Handle empty graph
-  if (is.null(enzymeList) | length(enzymeList) == 0) {
-    # Status message
-    if (verbose_) {
-      printMessage("AN ERROR OCCURRED DURING THE DATASET GENERATION")
-    }
-
-    return(NULL)
-  } else {
-    # Remove unnecessary columns
-    enzymeList <- enzymeList[, c('pathway','freq','percentage','is_bottleneck','bottleneck_classification')]
-
-    # Status message
-    if (verbose_) {
-      printMessage("DATASET GENERATED WITH SUCCESS!")
-      printMessage("SAVING THE GENERATED DATASET...")
-    }
-
-    # Export the pathway data
-    if (!dir.exists(file.path('./output/statistics/'))) {
-      dir.create(file.path(paste0('./output/statistics/')), showWarnings = FALSE, mode = "0775")
-      dir.create(file.path(paste0('./output/statistics/hypergeometric/')), showWarnings = FALSE, mode = "0775")
-    }
-
-    if (dir.exists(file.path('./output/statistics/hypergeometric/'))) {
-      save(enzymeList, file = paste0('./output/statistics/hypergeometric/hypergeometric.RData'))
-    }
-
-    if (dir.exists(file.path('~/data3/'))) {
-      save(enzymeList, file = paste0('~/data3/kegg-pathway-bottleneck/output/statistics/hypergeometric/hypergeometric.RData'))
-    }
-
-    # Return the generated dataSet
-    return(enzymeList)
-  }
-}
 
 #*******************************************************************************************#
 
