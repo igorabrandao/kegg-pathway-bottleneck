@@ -73,12 +73,7 @@ generateDataSet <- function(verbose_ = TRUE) {
     return(NULL)
   } else {
     # Remove unnecessary columns
-    enzymeList <-
-      enzymeList[, c('pathway',
-                     'freq',
-                     'percentage',
-                     'is_bottleneck',
-                     'bottleneck_classification')]
+    enzymeList <- enzymeList[, c('pathway','freq','percentage','is_bottleneck','bottleneck_classification')]
 
     # Status message
     if (verbose_) {
@@ -88,32 +83,16 @@ generateDataSet <- function(verbose_ = TRUE) {
 
     # Export the pathway data
     if (!dir.exists(file.path('./output/statistics/'))) {
-      dir.create(file.path(paste0('./output/statistics/')),
-                 showWarnings = FALSE,
-                 mode = "0775")
-      dir.create(file.path(paste0(
-        './output/statistics/hypergeometric/'
-      )),
-      showWarnings = FALSE,
-      mode = "0775")
+      dir.create(file.path(paste0('./output/statistics/')), showWarnings = FALSE, mode = "0775")
+      dir.create(file.path(paste0('./output/statistics/hypergeometric/')), showWarnings = FALSE, mode = "0775")
     }
 
     if (dir.exists(file.path('./output/statistics/hypergeometric/'))) {
-      save(
-        enzymeList,
-        file = paste0(
-          './output/statistics/hypergeometric/hypergeometric.RData'
-        )
-      )
+      save(enzymeList, file = paste0('./output/statistics/hypergeometric/hypergeometric.RData'))
     }
 
     if (dir.exists(file.path('~/data3/'))) {
-      save(
-        enzymeList,
-        file = paste0(
-          '~/data3/kegg-pathway-bottleneck/output/statistics/hypergeometric/hypergeometric.RData'
-        )
-      )
+      save(enzymeList, file = paste0('~/data3/kegg-pathway-bottleneck/output/statistics/hypergeometric/hypergeometric.RData'))
     }
 
     # Return the generated dataSet
@@ -144,7 +123,7 @@ hypergeometricAnalysis <- function(dataSet_, verbose_ = TRUE) {
     m = as.integer(nrow(dataSet_[dataSet_$is_bottleneck == 1, ]))  # Number of success states in the population
     n = as.integer(nrow(dataSet_[dataSet_$is_bottleneck == 0, ]))  # Number of unsuccessful states in the population
     k = as.integer(m)  # Number of draws (i.e. quantity drawn in each trial)
-    x = as.integer(m / 2)  # Number of observed successes
+    x = as.integer(k / 2)  # Number of observed successes
     #**********************************************************************************#
 
     # Status message
