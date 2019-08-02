@@ -27,6 +27,22 @@ sapply(files.sources, source)
 
 # ---- HYPERGEOMETRIC SECTION ----
 
+#' Function to generate hypergeometric analysis
+#'
+#' @param dataSet_ Dataframe containing the data to be analysed.
+#' @param verbose_ Print every status message.
+#'
+#' @return This function does not return nothing, just export files
+#' containing the analysis.
+#'
+#' @examples
+#' \dontrun{
+#' hypergeometricAnalysis(dataSet)
+#' }
+#'
+#' @author
+#' Igor Brandão
+
 hypergeometricAnalysis <- function(dataSet_, verbose_ = TRUE) {
   # Handle empty dataSet
   if (is.null(dataSet_) | length(dataSet_) == 0) {
