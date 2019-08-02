@@ -55,19 +55,32 @@ hypergeometricAnalysis <- function(dataSet_, verbose_ = TRUE) {
   } else {
     # Define the set of tests based on proteins frequencies
     # e.g: Most 20% frequents proteins
-    testSet <- c(100, 75, 50, 25, 20, 15, 10, 5, 2, 1)
+    testSet <- c(75, 50, 25, 20, 15, 10, 5, 2, 1, -2, -5, -10, -15, -20, -25, -50, -75)
 
     # Run each test instance
     for (idx in 1:length(testSet)) {
-      # Status message
-      if (verbose_) {
-        printMessage(paste0("RUNNING TOP ", testSet[idx], "%"))
+      # Define if it's TOP or LOW frequencies
+      if (testSet[idx] > 0) {
+        orderType = "TOP"
+      } else {
+        orderType = "LOW"
       }
 
-      # Select the most frequent proteins based on testSet parameter
-      freq_percentual_rate_ <- (testSet[idx]/100)
+      # Status message
+      if (verbose_) {
+        printMessage(paste0("RUNNING ", orderType, " ", abs(testSet[idx]), "%"))
+      }
+
+        # Select the most frequent proteins based on testSet parameter
+      freq_percentual_rate_ <- abs(testSet[idx]/100)
       topFreq = NULL
-      topFreq <- dataSet_[order(-dataSet_$freq),]
+
+      if (strcmp(orderType, "TOP")) {
+        topFreq <- dataSet_[order(-dataSet_$freq),]
+      } else {
+        topFreq <- dataSet_[order(dataSet_$freq),]
+      }
+
       topFreq <- topFreq[1:as.integer(nrow(topFreq) * freq_percentual_rate_),]
 
       #**********************************************************************************#
@@ -120,7 +133,7 @@ hypergeometricAnalysis <- function(dataSet_, verbose_ = TRUE) {
           size = 3,
           vjust = 0
         ) +
-        labs(title = paste0("Probability mass function [PMF] of X = x Bottlenecks Proteins [TOP ", testSet[idx], "% frequencies]"),
+        labs(title = paste0("Probability mass function [PMF] of X = x Bottlenecks Proteins [", orderType, " ", abs(testSet[idx]), "% frequencies]"),
              subtitle = paste0("Hypergeometric(B = ", m, ", NB = ", n, ", Draws = ", k,
                                ", Obs. = ", x, ", Expected = ", expectedBottlenecks, ")\n\n",
                                "Prabability: ", hProbability, "\n\n",
@@ -135,7 +148,7 @@ hypergeometricAnalysis <- function(dataSet_, verbose_ = TRUE) {
       }
 
       if (dir.exists(file.path('./output/statistics/hypergeometric/'))) {
-        ggsave(paste0("./output/statistics/hypergeometric/top", testSet[idx], ".png"), width = 20, height = 15, units = "cm")
+        ggsave(paste0("./output/statistics/hypergeometric/", tolower(orderType), abs(testSet[idx]), ".png"), width = 20, height = 15, units = "cm")
       }
     }
   }
