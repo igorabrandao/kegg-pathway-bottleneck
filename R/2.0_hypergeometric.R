@@ -37,61 +37,91 @@ hypergeometricAnalysis <- function(dataSet_, verbose_ = TRUE) {
 
     return(NULL)
   } else {
-    #**********************************************************************************#
-    # Test parameters
-    # What is the probability of selecting x bottlenecks from a sample of k taken from an
-    # dataSet containing m bottlenecks proteins and n non bottlenecks proteins?
-    #**********************************************************************************#
+    # Define the set of tests based on proteins frequencies
+    # e.g: Most 20% frequents proteins
+    testSet <- c(100, 75, 50, 25, 20, 15, 10, 5, 2, 1)
 
-    m = as.integer(nrow(dataSet_[dataSet_$is_bottleneck == 1, ]))  # Number of success states in the population
-    n = as.integer(nrow(dataSet_[dataSet_$is_bottleneck == 0, ]))  # Number of unsuccessful states in the population
-    k = as.integer(m)  # Number of draws (i.e. quantity drawn in each trial)
-    x = as.integer(k / 2)  # Number of observed successes
-    #**********************************************************************************#
+    # Run each test instance
+    for (idx in 1:length(testSet)) {
+      # Status message
+      if (verbose_) {
+        printMessage(paste0("RUNNING TOP ", testSet[idx], "%"))
+      }
 
-    # Status message
-    if (verbose_) {
-      printMessage("CALCULATING THE H-PROBABILITY")
+      # Select the most frequent proteins based on testSet parameter
+      freq_percentual_rate_ <- (testSet[idx]/100)
+      topFreq = NULL
+      topFreq <- dataSet_[order(-dataSet_$freq),]
+      topFreq <- topFreq[1:as.integer(nrow(topFreq) * freq_percentual_rate_),]
+
+      #**********************************************************************************#
+      # Test parameters
+      # What is the probability of selecting x bottlenecks from a sample of k taken from an
+      # dataSet containing m bottlenecks proteins and n non bottlenecks proteins?
+      #**********************************************************************************#
+      m = as.integer(nrow(topFreq[topFreq$is_bottleneck == 1, ]))  # Number of success states in the population
+      n = as.integer(nrow(topFreq[topFreq$is_bottleneck == 0, ]))  # Number of unsuccessful states in the population
+      k = as.integer(m)  # Number of draws (i.e. quantity drawn in each trial)
+      x = as.integer(k / 2)  # Number of observed successes
+      #**********************************************************************************#
+
+      # Status message
+      if (verbose_) {
+        printMessage("CALCULATING THE H-PROBABILITY")
+      }
+
+      # Returns the cumulative probability (percentile) p at the specified value (quantile) q
+      hProbability = dhyper(x = x, m = m, n = n, k = k)
+
+      # Expected number of bottlenecks proteins
+      expectedBottlenecks = as.integer(k * m / (m + n))
+
+      # Variance
+      var = k * m / (m + n) * (m + n - k) / (m + n) * n / (m + n - 1)
+
+      #**********************************************************************************#
+
+      # Status message
+      if (verbose_) {
+        printMessage("PLOTTING THE DISTRIBUTION")
+      }
+
+      # Determine the distribution range
+      rangeDistance = 15
+      range = (expectedBottlenecks-rangeDistance):(expectedBottlenecks+rangeDistance)
+
+      # Calculates the distribution for a range
+      density = dhyper(x = range, m = m, n = n, k = k)
+
+      # Plot the bottlenecks distribution
+      data.frame(numBottlenecks = range, density) %>%
+        mutate(legend = ifelse(numBottlenecks == expectedBottlenecks, paste0("x = ", expectedBottlenecks), "others")) %>%
+        ggplot(aes(x = factor(numBottlenecks), y = density, fill = legend)) +
+        geom_col() +
+        geom_text(
+          aes(label = round(density,2), y = density + 0.01),
+          position = position_dodge(0.9),
+          size = 3,
+          vjust = 0
+        ) +
+        labs(title = paste0("Probability mass function [PMF] of X = x Bottlenecks Proteins [TOP ", testSet[idx], "% frequencies]"),
+             subtitle = paste0("Hypergeometric(B = ", m, ", NB = ", n, ", Draws = ", k,
+                               ", Obs. = ", x, ", Expected = ", expectedBottlenecks, ")\n\n",
+                               "Prabability: ", hProbability, "\n\n",
+                               "Var: ", format(round(var, 3), nsmall = 3)),
+             x = "Number of bottlenecks proteins (x)",
+             y = "Density")
+
+      # Export the hypergeometric analysis
+      if (!dir.exists(file.path('./output/statistics/'))) {
+        dir.create(file.path(paste0('./output/statistics/')), showWarnings = FALSE, mode = "0775")
+        dir.create(file.path(paste0('./output/statistics/hypergeometric/')), showWarnings = FALSE, mode = "0775")
+      }
+
+      if (dir.exists(file.path('./output/statistics/hypergeometric/'))) {
+        ggsave(paste0("./output/statistics/hypergeometric/top", testSet[idx], ".png"), width = 20, height = 15, units = "cm")
+      }
     }
-
-    # Returns the cumulative probability (percentile) p at the specified value (quantile) q
-    hProbability = dhyper(x = x, m = m, n = n, k = k)
-
-    # Expected number of bottlenecks proteins
-    expectedBottlenecks = as.integer(k * m / (m + n))
-
-    # Variance
-    var = k * m / (m + n) * (m + n - k) / (m + n) * n / (m + n - 1)
-
-    #**********************************************************************************#
-
-    # Status message
-    if (verbose_) {
-      printMessage("PLOTTING THE DISTRIBUTION")
-    }
-
-    # Determine the distribution range
-    rangeDistance = 30
-    range = (expectedBottlenecks-rangeDistance):(expectedBottlenecks+rangeDistance)
-
-    # Calculates the distribution for a range
-    density = dhyper(x = range, m = m, n = n, k = k)
-
-    # Plot the bottlenecks distribution
-    data.frame(numBottlenecks = range, density) %>%
-      mutate(legend = ifelse(numBottlenecks == expectedBottlenecks, paste0("x = ", expectedBottlenecks), "others")) %>%
-      ggplot(aes(x = factor(numBottlenecks), y = density, fill = legend)) +
-      geom_col() +
-      geom_text(
-        aes(label = round(density,2), y = density + 0.01),
-        position = position_dodge(0.9),
-        size = 3,
-        vjust = 0
-      ) +
-      labs(title = "Probability mass function [PMF] of X = x Bottlenecks Proteins",
-           subtitle = paste0("Hypergeometric(k = ", k, ", M = ", m, ", N = ", n, ")"),
-           x = "Number of bottlenecks proteins (x)",
-           y = "Density")
   }
 }
 
