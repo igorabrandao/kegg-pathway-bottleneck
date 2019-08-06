@@ -301,6 +301,9 @@ getTotalFrequency <- function(index_, resumeInfo_=TRUE) {
   folder = paste0("./output/", pathway, "/")
   file_list <- list.files(path=folder, pattern='*.RData')
 
+  # Define the number of species
+  total_species <- length(file_list)
+
   # Check if the folder contains files
   if (is.null(file_list) | length(file_list) == 0) {
     return(FALSE)
@@ -335,16 +338,19 @@ getTotalFrequency <- function(index_, resumeInfo_=TRUE) {
     enzymeTotalFrequency$freq <- rowSums(enzymeTotalFrequency)
 
     # Calculate the total frequency
-    enzymeTotalFrequency$total_freq <- max(enzymeTotalFrequency$freq)
+    enzymeTotalFrequency$max_freq <- max(enzymeTotalFrequency$freq)
+
+    # Count valids species (have highlights != 0)
+    enzymeTotalFrequency$total_species <- (total_species - sum(sapply(enzymeTotalFrequency, function(x) all(x == 0))))
 
     # Calculate the frequency percentage
-    enzymeTotalFrequency$percentage <- (enzymeTotalFrequency$freq / enzymeTotalFrequency$total_freq) * 100
+    enzymeTotalFrequency$percentage <- (enzymeTotalFrequency$freq / enzymeTotalFrequency$total_species) * 100
 
-    # Calculate the mean frequency
-    enzymeTotalFrequency$mean <- mean(enzymeTotalFrequency$freq)
+    # Calculate the mean frequency (%)
+    enzymeTotalFrequency$mean <- mean(enzymeTotalFrequency$percentage)
 
     # Calculate the standard deviation of frequency
-    enzymeTotalFrequency$std <- sd(enzymeTotalFrequency$freq)
+    enzymeTotalFrequency$std <- sd(enzymeTotalFrequency$percentage)
 
     #-------------------#
     # [PATHWAY METRICS] #
@@ -385,7 +391,7 @@ getTotalFrequency <- function(index_, resumeInfo_=TRUE) {
 
     # Check if its necessary remove species columns
     if (resumeInfo_) {
-      enzymeTotalFrequency <- enzymeTotalFrequency[,(ncol(enzymeTotalFrequency)-19):ncol(enzymeTotalFrequency)]
+      enzymeTotalFrequency <- enzymeTotalFrequency[,(ncol(enzymeTotalFrequency)-20):ncol(enzymeTotalFrequency)]
     }
 
     # Export the pathway data
@@ -675,7 +681,7 @@ lapply(start_of:nrow(pathwayList), getPathwayEnzymes, replaceEmptyGraph_=FALSE)
 #********************************************#
 
 # [TEST ONLY]
-lapply(67:nrow(pathwayList), getTotalFrequency)
+lapply(1:1, getTotalFrequency)
 
 # Call the function for all pathways
 lapply(start_of:nrow(pathwayList), getTotalFrequency)
