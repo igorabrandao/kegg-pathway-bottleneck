@@ -272,7 +272,9 @@ getPathwayHighlightedGenes <- function(pathway_, genesOnly_=TRUE) {
     # Convert the node2 column into node1 index_s
     aux <- unique(c(aux$node1, aux$node2))
 
-    aux <- gsub("^[[:alpha:]]*(.*$)", "\\1", str_replace(aux, ":", ""))
+    # Remove the prefix from each highlighted enzyme
+    aux <- gsub(".*:", "", aux)
+    #aux <- gsub("^[[:alpha:]]*(.*$)", "\\1", str_replace(aux, ":", ""))
 
     return(unique(aux))
 
@@ -422,7 +424,8 @@ convertEntrezToECWithoutDict <- function(entrez_list_, chunk_size_=50, verbose_=
     # Loop over each chunk
     for(idx in 1:length(chunked_entrez_list)) {
       # Store just the number code of each entrez
-      current_entrez_list <- str_extract(unlist(chunked_entrez_list[idx]), "\\-*\\d+\\.*\\d*")
+      current_entrez_list <- gsub(".*:", "", unlist(chunked_entrez_list[idx]))
+      #current_entrez_list <- str_extract(unlist(chunked_entrez_list[idx]), "\\-*\\d+\\.*\\d*")
 
       # Format the entrez list to be requested
       request_param <- paste0("https://www.kegg.jp/dbget-bin/www_bget?",
@@ -453,8 +456,13 @@ convertEntrezToECWithoutDict <- function(entrez_list_, chunk_size_=50, verbose_=
       ec_list <- unlist(str_extract_all(toString(scraping), "\\[EC:(.*?)\\]"))
 
       # Get the raw Entrez list
-      entrez_list <- unlist(str_extract_all(toString(scraping), "<code><nobr>+([0-9])+&nbsp;&nbsp"))
-      entrez_list <- str_extract(unlist(entrez_list), "\\-*\\d+\\.*\\d*")
+      entrez_list <- unlist(str_extract_all(toString(scraping), "<code><nobr>.+([0-9])+&nbsp;&nbsp"))
+      #entrez_list <- str_extract(unlist(entrez_list), "\\-*\\d+\\.*\\d*")
+
+      # Clear the entrez info
+      entrez_list <- str_extract(unlist(entrez_list), "<nobr>(.*?)&")
+      entrez_list <- str_replace_all(entrez_list, "<nobr>", "")
+      entrez_list <- str_replace_all(entrez_list, "&", "")
 
       # Run each entrez to define how it gonne be converted
       for (item in 1:length(current_entrez_list)) {
