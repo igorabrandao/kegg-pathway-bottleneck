@@ -55,18 +55,21 @@ start_of <- 1
 #' organism specific pathway when its TRUE, cc just ignore the pathway and anotate in log.
 #' @param chunkSize_ During the requests to KEGG DB to avoid long time o waiting you can set
 #' the size of list sent to http request.
+#' @param specieRangeMin_ Represent the start index to look up the species
+#' @param specieRangeMax_ Represent the end index point to look up the species
 #'
 #' @return This function does not return nothing, just export files.
 #'
 #' @examples
 #' \dontrun{
-#' getPathwayEnzymes(1, TRUE, TRUE, 50)
+#' getPathwayEnzymes(1, TRUE, TRUE, 50, 1, length(organism2pathway))
 #' }
 #'
 #' @author
 #' Igor Brandão
 
-getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE, chunkSize_=50) {
+getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE, chunkSize_=50,
+                              specieRangeMin_=1, specieRangeMax_=length(organism2pathway)) {
 
   #******************************#
   # Get the pathway general info #
@@ -154,7 +157,7 @@ getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE
   #************************************#
 
   # Loop over the organism list
-  enzymeList <- foreach::foreach(idx = seq.int(1, totalSpecies),
+  enzymeList <- foreach::foreach(idx = seq.int(specieRangeMin_, specieRangeMax_),
                                  .export=c('printMessage', 'pathwayToDataframe', 'as_ids', 'str_replace',
                                            'getGraphBottleneck', 'convertEntrezToECWithoutDict',
                                            'getPathwayHighlightedGenes'),
@@ -509,6 +512,84 @@ reapplyGraphProperties <- function(index_, removeNoise_=TRUE) {
   return(TRUE)
 }
 
+#' Check each specie for each pathway and try to fill the species that doesn't
+#' have any enzymes present
+#'
+#' @param index_ Index from pathwayList representing a single pathway, e.g: 1 = 00010.
+#'
+#' @return This function does not return nothing, just export files.
+#'
+#' @examples
+#' \dontrun{
+#' fillMissingEnzymesPresence(1)
+#' }
+#'
+#' @author
+#' Igor Brandão
+
+fillMissingEnzymesPresence <- function(index_) {
+
+  # Get the current pathway
+  pathway <- pathwayList[index_,]
+
+  # Status message
+  printMessage(paste0("FILLING MISSING ENZYME PRESENCE IN PATHWAY ", pathway))
+
+  # Get the list of files
+  folder = paste0("./output/", pathway, "/")
+  file_list <- list.files(path=folder, pattern='*.RData')
+
+  # Check if the folder contains files
+  if (is.null(file_list) | length(file_list) == 0) {
+    return(FALSE)
+  }
+
+  # Verify each specie (by file)
+  lapply(file_list, function(file) {
+
+    tryCatch({
+      # Set the specie index
+      file_idx <- as.numeric(gsub("([0-9]+).*$", "\\1", file))
+      print(file)
+
+      # Load the dataframe
+      temp <- get(load(file=paste0(folder, file)))
+
+      # Check if the file is valid
+      if (is.null(temp) | length(temp) == 0) {
+        return(FALSE)
+      } else {
+        # Count the enzymes presence
+        presence_count <- (nrow(temp) - sum(sapply(temp$is_presented, function(x) all(x == 0))))
+
+        # Verify if the specie doesn't have any presence
+        if (presence_count == 0) {
+          # Try to get the enzymes presence info
+          temp <- getPathwayEnzymes(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE, chunkSize_=50,
+                                    specieRangeMin_=file_idx, specieRangeMax_=file_idx)
+        }
+
+        # Export the updated pathway data
+        if (dir.exists(file.path('./output/'))) {
+          save(temp, file=paste0(folder, file))
+        }
+      }
+    }, error=function(e) {
+      # If some error happened, reload the specie dataset
+      temp <- getPathwayEnzymes(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE, chunkSize_=50,
+                                specieRangeMin_=file_idx, specieRangeMax_=file_idx)
+
+      # Export the updated pathway data
+      if (dir.exists(file.path('./output/'))) {
+        save(temp, file=paste0(folder, file))
+      }
+    })
+  })
+
+  # Function finished with success
+  return(TRUE)
+}
+
 #' Function to generate correlation matrix
 #'
 #' @param index_ Index from pathwayList representing a single pathway, e.g: 1 = 00010.
@@ -668,7 +749,7 @@ printInteractiveNetwork <- function(index_, removeNoise_=TRUE) {
 #**********************************#
 
 # [TEST ONLY]
-lapply(66:66, getPathwayEnzymes, replaceEmptyGraph_=FALSE)
+lapply(1:1, getPathwayEnzymes, replaceEmptyGraph_=FALSE)
 
 # Call the function for all pathways
 lapply(start_of:nrow(pathwayList), getPathwayEnzymes, replaceEmptyGraph_=FALSE)
@@ -698,6 +779,17 @@ lapply(362:362, reapplyGraphProperties)
 
 # Call the function for all pathways
 lapply(start_of:nrow(pathwayList), reapplyGraphProperties)
+
+#********************************#
+# [OPTIONAL]                     #
+# Fill missing enzymes presence  #
+#********************************#
+
+# [TEST ONLY]
+lapply(1:1, fillMissingEnzymesPresence)
+
+# Call the function for all pathways
+lapply(start_of:nrow(pathwayList), fillMissingEnzymesPresence)
 
 #*******************************************************************************************#
 
