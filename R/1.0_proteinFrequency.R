@@ -552,6 +552,9 @@ fillMissingEnzymesPresence <- function(index_) {
       file_idx <- as.numeric(gsub("([0-9]+).*$", "\\1", file))
       print(file)
 
+      # Set the processing status
+      status <- FALSE
+
       # Load the dataframe
       temp <- get(load(file=paste0(folder, file)))
 
@@ -565,23 +568,27 @@ fillMissingEnzymesPresence <- function(index_) {
         # Verify if the specie doesn't have any presence
         if (presence_count == 0) {
           # Try to get the enzymes presence info
-          temp <- getPathwayEnzymes(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE, chunkSize_=50,
+          status <- getPathwayEnzymes(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE, chunkSize_=50,
                                     specieRangeMin_=file_idx, specieRangeMax_=file_idx)
-        }
 
-        # Export the updated pathway data
-        if (dir.exists(file.path('./output/'))) {
-          save(temp, file=paste0(folder, file))
+          # Check the processing status
+          if (status == TRUE) {
+            printMessage(paste0("THE ", file, " PATHWAY WAS FILLED WITH SUCCESS!"))
+          } else {
+            printMessage(paste0("AN ERROR HAPPEND DURING THE ", file, " PATHWAY FILLING..."))
+          }
         }
       }
     }, error=function(e) {
       # If some error happened, reload the specie dataset
-      temp <- getPathwayEnzymes(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE, chunkSize_=50,
+      status <- getPathwayEnzymes(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE, chunkSize_=50,
                                 specieRangeMin_=file_idx, specieRangeMax_=file_idx)
 
-      # Export the updated pathway data
-      if (dir.exists(file.path('./output/'))) {
-        save(temp, file=paste0(folder, file))
+      # Check the processing status
+      if (status == TRUE) {
+        printMessage(paste0("THE ", file, " PATHWAY WAS FILLED WITH SUCCESS!"))
+      } else {
+        printMessage(paste0("AN ERROR HAPPEND DURING THE ", file, " PATHWAY FILLING..."))
       }
     })
   })
