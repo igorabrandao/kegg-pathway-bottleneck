@@ -456,7 +456,7 @@ convertEntrezToECWithoutDict <- function(entrez_list_, chunk_size_=50, verbose_=
       ec_list <- unlist(str_extract_all(toString(scraping), "\\[EC:(.*?)\\]"))
 
       # Get the raw Entrez list
-      entrez_list <- unlist(str_extract_all(toString(scraping), "<code><nobr>.+([0-9])+&nbsp;&nbsp"))
+      entrez_list <- unlist(str_extract_all(toString(scraping), "<code><nobr>.+([0-9])+&nbsp;"))
       #entrez_list <- str_extract(unlist(entrez_list), "\\-*\\d+\\.*\\d*")
 
       # Clear the entrez info

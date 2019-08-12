@@ -26,8 +26,8 @@ library(foreach)
 # Import the graphLoader functions
 files.sources = NULL
 files.sources[1] = paste0("./R/functions", "/", "graphFunctions.R")
-#files.sources[2] = paste0("./R/functions", "/", "graphPrintFunctions.R")
-files.sources[2] = paste0("./R/functions", "/", "helperFunctions.R")
+files.sources[2] = paste0("./R/functions", "/", "graphPrintFunctions.R")
+files.sources[3] = paste0("./R/functions", "/", "helperFunctions.R")
 sapply(files.sources, source)
 
 # Load the pathways by organisms data
@@ -57,6 +57,7 @@ start_of <- 1
 #' the size of list sent to http request.
 #' @param specieRangeMin_ Represent the start index to look up the species
 #' @param specieRangeMax_ Represent the end index point to look up the species
+#' @param pathwayData_ Preloaded pathwayData
 #'
 #' @return This function does not return nothing, just export files.
 #'
@@ -69,7 +70,8 @@ start_of <- 1
 #' Igor Brandão
 
 getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE, chunkSize_=50,
-                              specieRangeMin_=1, specieRangeMax_=length(organism2pathway)) {
+                              specieRangeMin_=1, specieRangeMax_=length(organism2pathway),
+                              pathwayData_=NULL) {
 
   #******************************#
   # Get the pathway general info #
@@ -84,15 +86,21 @@ getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE
   # Count the total of species
   totalSpecies <- length(organism2pathway)
 
-  # Status message
-  printMessage(paste0("COUNTING ", pathway, " ENZYMES FREQUENCIES [", index_, " OF ", nrow(pathwayList), "]"))
-
   #***********************************#
   # Load all enzymes from its pathway #
   #***********************************#
 
   # Get the enzyme list from pathway
-  pathwayData <- pathwayToDataframe(pathway_code, FALSE)
+  if (is.null(pathwayData_)) {
+    # Status message
+    printMessage(paste0("COUNTING ", pathway, " ENZYMES FREQUENCIES [", index_, " OF ", nrow(pathwayList), "]"))
+
+    # Perform the web request to retrieve the data
+    pathwayData <- pathwayToDataframe(pathway_code, FALSE)
+  } else {
+    # Use the data from the parameter
+    pathwayData <- pathwayData_
+  }
 
   # Handle empty graph
   if (is.null(pathwayData) | length(pathwayData) == 0) {
@@ -532,6 +540,9 @@ fillMissingEnzymesPresence <- function(index_) {
   # Get the current pathway
   pathway <- pathwayList[index_,]
 
+  # Format the pathway code
+  pathway_code <- paste0('ec', pathway)
+
   # Status message
   printMessage(paste0("FILLING MISSING ENZYME PRESENCE IN PATHWAY ", pathway))
 
@@ -541,6 +552,25 @@ fillMissingEnzymesPresence <- function(index_) {
 
   # Check if the folder contains files
   if (is.null(file_list) | length(file_list) == 0) {
+    return(FALSE)
+  }
+
+  #***********************************#
+  # Load all enzymes from its pathway #
+  #***********************************#
+
+  # Try to load the pathway data 10 times
+  for (i in 1:30) {
+    # Get the enzyme list from pathway
+    pathwayData <- pathwayToDataframe(pathway_code, FALSE)
+
+    if (!is.null(pathwayData)) {
+      break
+    }
+  }
+
+  # Check if the pathwayData contains data
+  if (is.null(pathwayData) | length(pathwayData) == 0) {
     return(FALSE)
   }
 
@@ -566,13 +596,15 @@ fillMissingEnzymesPresence <- function(index_) {
         if (presence_count == 0) {
           # Try to get the enzymes presence info
           getPathwayEnzymes(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE, chunkSize_=50,
-                                    specieRangeMin_=file_idx, specieRangeMax_=file_idx)
+                                    specieRangeMin_=file_idx, specieRangeMax_=file_idx,
+                                    pathwayData_=pathwayData)
         }
       }
     }, error=function(e) {
       # If some error happened, reload the specie dataset
       getPathwayEnzymes(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE, chunkSize_=50,
-                                specieRangeMin_=file_idx, specieRangeMax_=file_idx)
+                        specieRangeMin_=file_idx, specieRangeMax_=file_idx,
+                        pathwayData_=pathwayData)
     })
   })
 
