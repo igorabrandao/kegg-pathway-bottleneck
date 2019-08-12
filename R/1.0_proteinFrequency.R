@@ -552,9 +552,6 @@ fillMissingEnzymesPresence <- function(index_) {
       file_idx <- as.numeric(gsub("([0-9]+).*$", "\\1", file))
       print(file)
 
-      # Set the processing status
-      status <- FALSE
-
       # Load the dataframe
       temp <- get(load(file=paste0(folder, file)))
 
@@ -568,28 +565,14 @@ fillMissingEnzymesPresence <- function(index_) {
         # Verify if the specie doesn't have any presence
         if (presence_count == 0) {
           # Try to get the enzymes presence info
-          status <- getPathwayEnzymes(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE, chunkSize_=50,
+          getPathwayEnzymes(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE, chunkSize_=50,
                                     specieRangeMin_=file_idx, specieRangeMax_=file_idx)
-
-          # Check the processing status
-          if (status == TRUE) {
-            printMessage(paste0("THE ", file, " PATHWAY WAS FILLED WITH SUCCESS!"))
-          } else {
-            printMessage(paste0("AN ERROR HAPPEND DURING THE ", file, " PATHWAY FILLING..."))
-          }
         }
       }
     }, error=function(e) {
       # If some error happened, reload the specie dataset
-      status <- getPathwayEnzymes(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE, chunkSize_=50,
+      getPathwayEnzymes(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE, chunkSize_=50,
                                 specieRangeMin_=file_idx, specieRangeMax_=file_idx)
-
-      # Check the processing status
-      if (status == TRUE) {
-        printMessage(paste0("THE ", file, " PATHWAY WAS FILLED WITH SUCCESS!"))
-      } else {
-        printMessage(paste0("AN ERROR HAPPEND DURING THE ", file, " PATHWAY FILLING..."))
-      }
     })
   })
 
@@ -756,10 +739,10 @@ printInteractiveNetwork <- function(index_, removeNoise_=TRUE) {
 #**********************************#
 
 # [TEST ONLY]
-lapply(1:1, getPathwayEnzymes, replaceEmptyGraph_=FALSE)
+#lapply(1:1, getPathwayEnzymes, replaceEmptyGraph_=FALSE)
 
 # Call the function for all pathways
-lapply(start_of:nrow(pathwayList), getPathwayEnzymes, replaceEmptyGraph_=FALSE)
+#lapply(start_of:nrow(pathwayList), getPathwayEnzymes, replaceEmptyGraph_=FALSE)
 
 #*******************************************************************************************#
 
@@ -769,10 +752,10 @@ lapply(start_of:nrow(pathwayList), getPathwayEnzymes, replaceEmptyGraph_=FALSE)
 #********************************************#
 
 # [TEST ONLY]
-lapply(1:1, getTotalFrequency)
+#lapply(1:1, getTotalFrequency)
 
 # Call the function for all pathways
-lapply(start_of:nrow(pathwayList), getTotalFrequency)
+#lapply(start_of:nrow(pathwayList), getTotalFrequency)
 
 #*******************************************************************************************#
 
@@ -782,10 +765,10 @@ lapply(start_of:nrow(pathwayList), getTotalFrequency)
 #********************************#
 
 # [TEST ONLY]
-lapply(362:362, reapplyGraphProperties)
+#lapply(362:362, reapplyGraphProperties)
 
 # Call the function for all pathways
-lapply(start_of:nrow(pathwayList), reapplyGraphProperties)
+#lapply(start_of:nrow(pathwayList), reapplyGraphProperties)
 
 #********************************#
 # [OPTIONAL]                     #
@@ -793,10 +776,10 @@ lapply(start_of:nrow(pathwayList), reapplyGraphProperties)
 #********************************#
 
 # [TEST ONLY]
-lapply(1:1, fillMissingEnzymesPresence)
+lapply(81:start_of:nrow(pathwayList), fillMissingEnzymesPresence)
 
 # Call the function for all pathways
-lapply(start_of:nrow(pathwayList), fillMissingEnzymesPresence)
+#lapply(start_of:nrow(pathwayList), fillMissingEnzymesPresence)
 
 #*******************************************************************************************#
 
@@ -805,10 +788,10 @@ lapply(start_of:nrow(pathwayList), fillMissingEnzymesPresence)
 #****************************************#
 
 # [TEST ONLY]
-lapply(1:100, generateCorrelationStudy)
+#lapply(1:100, generateCorrelationStudy)
 
 # Call the function for all pathways
-lapply(start_of:nrow(pathwayList), generateCorrelationStudy)
+#lapply(start_of:nrow(pathwayList), generateCorrelationStudy)
 
 #*******************************************************************************************#
 
@@ -817,7 +800,7 @@ lapply(start_of:nrow(pathwayList), generateCorrelationStudy)
 #******************************#
 
 # [TEST ONLY]
-lapply(1:1, printInteractiveNetwork)
+#lapply(1:1, printInteractiveNetwork)
 
 # Call the function for all pathways
-lapply(start_of:nrow(pathwayList), printInteractiveNetwork)
+#lapply(start_of:nrow(pathwayList), printInteractiveNetwork)
