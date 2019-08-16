@@ -808,7 +808,7 @@ printInteractiveNetwork <- function(index_, removeNoise_=TRUE) {
 #********************************#
 
 # [TEST ONLY]
-lapply(1:5, fillMissingEnzymesPresence)
+lapply(1:445, fillMissingEnzymesPresence)
 
 # Call the function for all pathways
 #lapply(start_of:nrow(pathwayList), fillMissingEnzymesPresence)
