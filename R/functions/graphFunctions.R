@@ -496,6 +496,12 @@ convertEntrezToECWithoutDict <- function(entrez_list_, chunk_size_=50, verbose_=
       }
     }
 
+    # Before returning the EC list, it`s necessary break the multiples ECs lines
+    split_list <- strsplit(ec_list_df$ec, split = "/")
+
+    # Unlist and trim the splitted list
+    ec_list_df <- data.frame(ec = gsub("^\\s+|\\s+$", "", unlist(split_list)), stringsAsFactors = FALSE)
+
     if (verbose_) {
       # Write the log into file
       write(log, file = paste0("./log/entrez_ec_conversion_log_", pathway_name_, ".txt"))

@@ -69,3 +69,25 @@ makeAttr <- function(graph_, default_, valNodeList_) {
   }
   return(x)
 }
+
+#*******************************************************************************************#
+
+# ---- STRING HANDLER ----
+
+#' Function to perform trim operation
+#'
+#' @param str_ The string to be trimmed.
+#'
+#' @return Returns string w/o leading or trailing whitespace
+#'
+#' @examples
+#' \dontrun{
+#'  myDummy$country <- trim(myDummy$country)
+#' }
+#'
+#' @author
+#' Igor Brandão
+
+trim <- function (str_) {
+  gsub("^\\s+|\\s+$", "", str_)
+}
