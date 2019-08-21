@@ -26,8 +26,8 @@ library(foreach)
 # Import the graphLoader functions
 files.sources = NULL
 files.sources[1] = paste0("./R/functions", "/", "graphFunctions.R")
-#files.sources[2] = paste0("./R/functions", "/", "graphPrintFunctions.R")
-files.sources[2] = paste0("./R/functions", "/", "helperFunctions.R")
+files.sources[2] = paste0("./R/functions", "/", "graphPrintFunctions.R")
+files.sources[3] = paste0("./R/functions", "/", "helperFunctions.R")
 sapply(files.sources, source)
 
 # Load the pathways by organisms data
@@ -217,7 +217,7 @@ getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE
         }
       }
 
-      # Save the intermediary data
+      # Save the pathway intermediary data
       names(temp)[names(temp) == "node1"] <- "ec"
 
       if (!dir.exists(file.path(paste0('./output/', pathway)))) {
@@ -230,6 +230,20 @@ getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE
       }
 
       save(temp, file=paste0('./output/', pathway, '/', idx, '_',  specie, '.RData'))
+
+      # Export the highlighted enzymes
+      if (!dir.exists(file.path('./output/highlightedEnzymes/'))) {
+        dir.create(file.path(paste0('./output/highlightedEnzymes/')), showWarnings = FALSE, mode = "0775")
+      }
+
+      if (!dir.exists(file.path(paste0('./output/highlightedEnzymes/', pathway)))) {
+        dir.create(file.path(paste0('./output/highlightedEnzymes/', pathway)), showWarnings = FALSE, mode = "0775")
+      }
+
+      tempHighlight <- data.frame(highlighted_enzymes = highlighted_enzymes, specie = specie,
+                                  pathway = pathway, timestamp = format(Sys.time(), "%Y-%m-%d %H:%M:%S"))
+
+      save(tempHighlight, file=paste0('./output/highlightedEnzymes/', pathway, '/', idx, '_',  specie, '.RData'))
 
       # Return the specie [FOREACH]
       return(temp)
@@ -784,7 +798,7 @@ lapply(1:5, getPathwayEnzymes, replaceEmptyGraph_=FALSE)
 #********************************************#
 
 # [TEST ONLY]
-#lapply(1:5, getTotalFrequency)
+#lapply(1:1, getTotalFrequency)
 
 # Call the function for all pathways
 #lapply(start_of:nrow(pathwayList), getTotalFrequency)
@@ -797,7 +811,7 @@ lapply(1:5, getPathwayEnzymes, replaceEmptyGraph_=FALSE)
 #********************************#
 
 # [TEST ONLY]
-#lapply(362:362, reapplyGraphProperties)
+#lapply(1:5, reapplyGraphProperties)
 
 # Call the function for all pathways
 #lapply(start_of:nrow(pathwayList), reapplyGraphProperties)

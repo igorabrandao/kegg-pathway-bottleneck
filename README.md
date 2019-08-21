@@ -19,9 +19,8 @@ This project folders are organized in the following way:
 
 ## Team:
 
-* Diego ( arthur.vinx@gmail.com )
+* Diego Arthur ( arthur.vinx@gmail.com )
 * Igor Brandão ( igorabrandao@gmail.com )
-* João Vitor Ferreira ( jvfecav@gmail.com )
 * Leonardo Campos ( leofields@gmail.com )
 * Rodrigo Dalmolin ( dalmolin_r@yahoo.com.br )
 
