@@ -240,10 +240,12 @@ getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE
         dir.create(file.path(paste0('./output/highlightedEnzymes/', pathway)), showWarnings = FALSE, mode = "0775")
       }
 
-      tempHighlight <- data.frame(highlighted_enzymes = highlighted_enzymes, specie = specie,
-                                  pathway = pathway, timestamp = format(Sys.time(), "%Y-%m-%d %H:%M:%S"))
+      if (!is.null(highlighted_enzymes) && length(highlighted_enzymes) != 0) {
+        tempHighlight <- data.frame(highlighted_enzymes = highlighted_enzymes, specie = specie,
+                                    pathway = pathway, timestamp = format(Sys.time(), "%Y-%m-%d %H:%M:%S"))
 
-      save(tempHighlight, file=paste0('./output/highlightedEnzymes/', pathway, '/', idx, '_',  specie, '.RData'))
+        save(tempHighlight, file=paste0('./output/highlightedEnzymes/', pathway, '/', idx, '_',  specie, '.RData'))
+      }
 
       # Return the specie [FOREACH]
       return(temp)
