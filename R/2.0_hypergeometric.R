@@ -38,6 +38,7 @@ sapply(files.sources, source)
 #' @examples
 #' \dontrun{
 #' hypergeometricAnalysis(dataSet)
+#' hypergeometricAnalysis(dataSet, FALSE)
 #' }
 #'
 #' @author
@@ -135,9 +136,7 @@ hypergeometricAnalysis <- function(dataSet_, verbose_ = TRUE) {
         ) +
         labs(title = paste0("Probability mass function [PMF] of X = x Bottlenecks Proteins [", orderType, " ", abs(testSet[idx]), "% frequencies]"),
              subtitle = paste0("Hypergeometric(B = ", m, ", NB = ", n, ", Draws = ", k,
-                               ", Obs. = ", x, ", Expected = ", expectedBottlenecks, ")\n\n",
-                               "Prabability: ", hProbability, "\n\n",
-                               "Var: ", format(round(var, 3), nsmall = 3)),
+                               ", Obs. = ", x, ", Expected = ", expectedBottlenecks, ")\n\n"),
              x = "Number of bottlenecks proteins (x)",
              y = "Density")
 
@@ -152,6 +151,92 @@ hypergeometricAnalysis <- function(dataSet_, verbose_ = TRUE) {
       }
     }
   }
+}
+
+#' Function to generate hypergeometric distribution
+#'
+#' @param dataSet_ Dataframe containing the data to be analysed.
+#' @param p_value_ The probability to observe a statistic value higher than found.
+#' @param verbose_ Print every status message.
+#'
+#' @return This functions returns the hypergeometric distribution.
+#'
+#' @examples
+#' \dontrun{
+#' hypergeometricDistribution(dataSet)
+#' hypergeometricDistribution(dataSet, 0.01)
+#' hypergeometricDistribution(dataSet, 0.05, FALSE)
+#' }
+#'
+#' @author
+#' Clóvis F. Reis / Igor Brandão
+
+hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, verbose_ = TRUE) {
+
+  # Basic metrics
+  mean <- mean(dataSet_$freq[dataSet_$freq>1])
+  sd <- sd(dataSet_$freq[dataSet_$freq>1])
+
+  # Order the dataSet
+  dataSet_ <- dataSet_[order(dataSet_$percentage,decreasing = T),]
+
+  # Get the unique frequency percentages
+  percRange<- unique(round(dataSet_$percentage,1))
+
+  # Count the bottlenecks and non-bottlenecks
+  countsBase<-c(bottleneck=nrow(dataSet_[dataSet_$is_bottleneck ==1,]),
+                non_bottleneck=nrow(dataSet_[dataSet_$is_bottleneck !=1,]))
+  countsBase[1]+countsBase[2]
+
+  # Create a dataFrame for the result
+  result<-data.frame(perc=numeric(),
+                     white=numeric(),
+                     black=numeric(),
+                     drawn=numeric(),
+                     freq=numeric(),
+                     hyp=numeric())
+
+  # Loop over the unique percentages
+  for (perc in percRange) {
+    # Temporaly dataFrame for indexed results
+    countsTop <- data.frame(perc=numeric(),
+                            bottleneck=numeric(),
+                            non_bottleneck=numeric(),
+                            drawn=numeric(),
+                            freq=numeric(),
+                            hyp=numeric())
+
+    # Get the enzymes with the highests frequencies
+    top <- dataSet_[dataSet_$percentage>=perc,]
+
+    # Number of draws
+    drawn <- nrow(top)
+
+    # The frequency itself
+    freq <- nrow(top[top$is_bottleneck == 1,])
+
+    countsTop[1,] <- t(c(perc,c(countsBase),drawn,freq,NA))
+
+    countsTop[1,"hyp"] <- phyper(countsTop[1,"freq"],
+                                 countsTop[1,"bottleneck"],
+                                 countsTop[1,"non_bottleneck"],
+                                 countsTop[1,"drawn"],
+                                 lower.tail = F)
+
+    # Bind each result
+    result <- rbind(result,countsTop)
+  }
+
+  # Filter the result according to the p_value
+  result <- result[result$hyp<=p_value_&round(result$hyp,5)!=0,]
+
+  # Status message
+  if (verbose_) {
+    printMessage(paste0("RESULT WITH ", nrow(result), " PERCENTAGES"))
+  }
+
+  # Return the result
+  return(result)
 }
 
 #*******************************************************************************************#
@@ -174,3 +259,9 @@ dataSet <- generateDataSet()
 #*********************************************#
 
 hypergeometricAnalysis(dataSet)
+
+#***************************************************#
+# Step 2.1: Perform the hypergeometric distribution #
+#***************************************************#
+
+distribution <- hypergeometricDistribution(dataSet, 0.01)
