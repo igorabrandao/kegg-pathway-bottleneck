@@ -15,7 +15,7 @@
 # Import the necessary libraries
 library(ggplot2)
 library(dplyr)
-options(scipen = 999, digits = 2) # sig digits
+#options(scipen = 999, digits = 2) # sig digits
 
 # Import the graphLoader functions
 files.sources = NULL
@@ -181,10 +181,10 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, verbose_ = TRU
   dataSet_ <- dataSet_[order(dataSet_$percentage,decreasing = T),]
 
   # Get the unique frequency percentages
-  percRange<- unique(round(dataSet_$percentage,1))
+  percRange <- unique(round(dataSet_$percentage,1))
 
   # Count the bottlenecks and non-bottlenecks
-  countsBase<-c(bottleneck=nrow(dataSet_[dataSet_$is_bottleneck ==1,]),
+  countsBase <- c(bottleneck=nrow(dataSet_[dataSet_$is_bottleneck ==1,]),
                 non_bottleneck=nrow(dataSet_[dataSet_$is_bottleneck !=1,]))
   countsBase[1]+countsBase[2]
 
@@ -228,11 +228,37 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, verbose_ = TRU
   }
 
   # Filter the result according to the p_value
-  result <- result[result$hyp<=p_value_&round(result$hyp,5)!=0,]
+  # result <- result[result$hyp<=p_value_&round(result$hyp,5)!=0,]
 
   # Status message
   if (verbose_) {
     printMessage(paste0("RESULT WITH ", nrow(result), " PERCENTAGES"))
+  }
+
+  #**********************************************************************************#
+
+  # Status message
+  if (verbose_) {
+    printMessage("PLOTTING THE DISTRIBUTION")
+  }
+
+  # Plot the hyper distribution
+  g <- ggplot() + theme_bw() +
+    xlab("Presence in species (%)") +
+    ylab("Bottleneck (%)") +
+    geom_line(data = result[result$drawn <= 1000 & result$hyp <= 0.01, ],
+              aes(x = perc, y = freq / drawn * 100), col = "#000099") +
+    geom_line(data = result[result$drawn <= 1000 & result$hyp > 0.01, ],
+              aes(x = perc, y = freq / drawn * 100), col = "#b20000")
+
+  # Export the hypergeometric analysis
+  if (!dir.exists(file.path('./output/statistics/'))) {
+    dir.create(file.path(paste0('./output/statistics/')), showWarnings = FALSE, mode = "0775")
+    dir.create(file.path(paste0('./output/statistics/hypergeometric/')), showWarnings = FALSE, mode = "0775")
+  }
+
+  if (dir.exists(file.path('./output/statistics/hypergeometric/'))) {
+    ggsave(paste0("./output/statistics/hypergeometric/distribution.png"), width = 20, height = 15, units = "cm")
   }
 
   # Return the result

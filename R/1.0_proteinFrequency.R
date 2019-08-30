@@ -480,8 +480,15 @@ reapplyGraphProperties <- function(index_, removeNoise_=TRUE) {
   # Format the pathway code
   pathway_code <- paste0('ec', pathway)
 
-  # Get the enzyme list from pathway
-  pathwayData <- pathwayToDataframe(pathway_code, FALSE)
+  # Try to load the pathway data 30 times
+  for (i in 1:30) {
+    # Get the enzyme list from pathway
+    pathwayData <- pathwayToDataframe(pathway_code, FALSE)
+
+    if (!is.null(pathwayData)) {
+      break
+    }
+  }
 
   # Handle empty graph
   if (is.null(pathwayData) | length(pathwayData) == 0) {
@@ -575,7 +582,7 @@ fillMissingEnzymesPresence <- function(index_) {
   # Load all enzymes from its pathway #
   #***********************************#
 
-  # Try to load the pathway data 10 times
+  # Try to load the pathway data 30 times
   for (i in 1:30) {
     # Get the enzyme list from pathway
     pathwayData <- pathwayToDataframe(pathway_code, FALSE)
@@ -706,8 +713,15 @@ printInteractiveNetwork <- function(index_, removeNoise_=TRUE) {
   # Format the pathway code
   pathway_code <- paste0('ec', pathway)
 
-  # Get the enzyme list from pathway
-  pathwayData <- pathwayToDataframe(pathway_code, FALSE)
+  # Try to load the pathway data 30 times
+  for (i in 1:30) {
+    # Get the enzyme list from pathway
+    pathwayData <- pathwayToDataframe(pathway_code, FALSE)
+
+    if (!is.null(pathwayData)) {
+      break
+    }
+  }
 
   # Handle empty graph
   if (is.null(pathwayData) | length(pathwayData) == 0) {
