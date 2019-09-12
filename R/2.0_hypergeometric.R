@@ -15,6 +15,7 @@
 # Import the necessary libraries
 library(ggplot2)
 library(dplyr)
+library(pracma)
 #options(scipen = 999, digits = 2) # sig digits
 
 # Import the graphLoader functions
@@ -189,7 +190,7 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, verbose_ = TRU
   countsBase[1]+countsBase[2]
 
   # Create a dataFrame for the result
-  result<-data.frame(perc=numeric(),
+  distribution<-data.frame(perc=numeric(),
                      white=numeric(),
                      black=numeric(),
                      drawn=numeric(),
@@ -224,7 +225,7 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, verbose_ = TRU
                                  lower.tail = F)
 
     # Bind each result
-    result <- rbind(result,countsTop)
+    distribution <- rbind(distribution,countsTop)
   }
 
   # Filter the result according to the p_value
@@ -232,7 +233,7 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, verbose_ = TRU
 
   # Status message
   if (verbose_) {
-    printMessage(paste0("RESULT WITH ", nrow(result), " PERCENTAGES"))
+    printMessage(paste0("RESULT WITH ", nrow(distribution), " PERCENTAGES"))
   }
 
   #**********************************************************************************#
@@ -246,9 +247,9 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, verbose_ = TRU
   g <- ggplot() + theme_bw() +
     xlab("Presence in species (%)") +
     ylab("Bottleneck (%)") +
-    geom_line(data = result[result$drawn <= 1000 & result$hyp <= 0.01, ],
+    geom_line(data = distribution[distribution$drawn <= 1000 & distribution$hyp <= 0.01, ],
               aes(x = perc, y = freq / drawn * 100), col = "#000099") +
-    geom_line(data = result[result$drawn <= 1000 & result$hyp > 0.01, ],
+    geom_line(data = distribution[distribution$drawn <= 1000 & distribution$hyp > 0.01, ],
               aes(x = perc, y = freq / drawn * 100), col = "#b20000")
 
   # Export the hypergeometric analysis
@@ -259,10 +260,11 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, verbose_ = TRU
 
   if (dir.exists(file.path('./output/statistics/hypergeometric/'))) {
     ggsave(paste0("./output/statistics/hypergeometric/distribution.png"), width = 20, height = 15, units = "cm")
+    save(distribution, file=paste0("./output/statistics/hypergeometric/distribution.RData"))
   }
 
   # Return the result
-  return(result)
+  return(distribution)
 }
 
 #*******************************************************************************************#
@@ -290,4 +292,4 @@ hypergeometricAnalysis(dataSet)
 # Step 2.1: Perform the hypergeometric distribution #
 #***************************************************#
 
-distribution <- hypergeometricDistribution(dataSet, 0.01)
+hypergeometricDistribution(dataSet, 0.01)

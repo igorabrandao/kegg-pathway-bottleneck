@@ -85,7 +85,7 @@ generateDataSet <- function(verbose_ = TRUE) {
     return(NULL)
   } else {
     # Remove unnecessary columns
-    enzymeList <- enzymeList[, c('pathway','freq','percentage','is_bottleneck','bottleneck_classification')]
+    enzymeList <- enzymeList[, c('pathway','freq','total_species','percentage','is_bottleneck','bottleneck_classification')]
 
     # Status message
     if (verbose_) {
