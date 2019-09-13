@@ -158,6 +158,8 @@ hypergeometricAnalysis <- function(dataSet_, verbose_ = TRUE) {
 #'
 #' @param dataSet_ Dataframe containing the data to be analysed.
 #' @param p_value_ The probability to observe a statistic value higher than found.
+#' @param removeZeroBottlenecks_ Flag to determine whether or not the bottlenecks without frequency will
+#' be included into the analysis.
 #' @param verbose_ Print every status message.
 #'
 #' @return This functions returns the hypergeometric distribution.
@@ -165,14 +167,97 @@ hypergeometricAnalysis <- function(dataSet_, verbose_ = TRUE) {
 #' @examples
 #' \dontrun{
 #' hypergeometricDistribution(dataSet)
-#' hypergeometricDistribution(dataSet, 0.01)
-#' hypergeometricDistribution(dataSet, 0.05, FALSE)
+#' hypergeometricDistribution(dataSet, p_value_ = 0.01)
+#' hypergeometricDistribution(dataSet, p_value_ = 0.05, verbose_ = FALSE)
+#' hypergeometricDistribution(dataSet, p_value_ = 0.05, removeZeroBottlenecks_ = TRUE, verbose_ = TRUE)
+#' hypergeometricDistribution(dataSet, p_value_ = 0.01, removeZeroBottlenecks_ = FALSE, verbose_ = FALSE)
 #' }
 #'
 #' @author
 #' Clóvis F. Reis / Igor Brandão
 
-hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, verbose_ = TRUE) {
+hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, removeZeroBottlenecks_ = FALSE, verbose_ = TRUE) {
+
+  # In order to avoid bias into the analysis, the bottlenecks with ZERO frequency should be removed
+  #' @param dataSet_ Entrez number withou specie
+  #' @examples
+  #' \dontrun{
+  #' dataSet_ <- removeZeroBottlenecks(dataSet_, verbose_ = FALSE)
+  #' }
+  #
+  removeZeroBottlenecks <- function (dataSet_, verbose_ = TRUE) {
+    # Status message
+    if (verbose_) {
+      printMessage(paste0("REMOVING BOTTLENECKS WITHOUT FREQUENCY..."))
+    }
+
+    # First of all, get the list of pathways that contains protein bottlenecks with ZERO frequency
+    pathwaysWithZeroBottleneck <- unique(dataSet_[dataSet_$freq == 0 & dataSet_$is_bottleneck == 1, ]$pathway)
+
+    # Dataframe to receive the zero bottleneck data
+    zeroBottleneckDf <- data.frame(pathway = numeric(), zeroBottleneckPerc = numeric(), zeroBottleneck = numeric(),
+                                   bottleneckNonZero = numeric(), nonBottleneckZero = numeric(), nonBottleneckNonZero = numeric(),
+                                   allProteins = numeric())
+
+    for (pathway in pathwaysWithZeroBottleneck) {
+      # Get the data related to bottlenecks with ZERO frequency
+      zeroBottleneck <- nrow(dataSet_[dataSet_$freq == 0 & dataSet_$is_bottleneck == 1 & dataSet_$pathway == pathway,])
+
+      # Get the data related to bottlenecks with non ZERO frequency
+      bottleneckNonZero <- nrow(dataSet_[dataSet_$freq != 0 & dataSet_$is_bottleneck == 1 & dataSet_$pathway == pathway,])
+
+      # Get the data related to non bottlenecks with ZERO frequency
+      nonBottleneckZero <- nrow(dataSet_[dataSet_$freq == 0 & dataSet_$is_bottleneck == 0 & dataSet_$pathway == pathway,])
+
+      # Get the data related to non bottlenecks with non ZERO frequency
+      nonBottleneckNonZero <- nrow(dataSet_[dataSet_$freq != 0 & dataSet_$is_bottleneck == 0 & dataSet_$pathway == pathway,])
+
+      # Get the data related to all proteins
+      allProteins <- nrow(dataSet_[dataSet_$pathway == pathway,])
+
+      # Apply the values into zeroBottleneckDf
+      zeroBottleneckDf[nrow(zeroBottleneckDf) + 1, "pathway"] <- pathway
+      zeroBottleneckDf[nrow(zeroBottleneckDf), "zeroBottleneckPerc"] <- (zeroBottleneck / allProteins)
+      zeroBottleneckDf[nrow(zeroBottleneckDf), "zeroBottleneck"] <- zeroBottleneck
+      zeroBottleneckDf[nrow(zeroBottleneckDf), "bottleneckNonZero"] <- bottleneckNonZero
+      zeroBottleneckDf[nrow(zeroBottleneckDf), "nonBottleneckZero"] <- nonBottleneckZero
+      zeroBottleneckDf[nrow(zeroBottleneckDf), "nonBottleneckNonZero"] <- nonBottleneckNonZero
+      zeroBottleneckDf[nrow(zeroBottleneckDf), "allProteins"] <- allProteins
+    }
+
+    # Export the zeroBottleneck data
+    if (!dir.exists(file.path('./output/statistics/'))) {
+      dir.create(file.path(paste0('./output/statistics/')), showWarnings = FALSE, mode = "0775")
+      dir.create(file.path(paste0('./output/statistics/hypergeometric/')), showWarnings = FALSE, mode = "0775")
+    }
+
+    if (dir.exists(file.path('./output/statistics/hypergeometric/'))) {
+      save(zeroBottleneckDf, file=paste0("./output/statistics/hypergeometric/zeroBottleneckPathways.RData"))
+    }
+
+    # Remove the ZERO bottlenecks from the dataSet
+    dataSet_ <- dataSet_[!(dataSet_$freq == 0 & dataSet_$is_bottleneck == 1),]
+
+    # Return the result
+    return(dataSet_)
+  }
+
+  #**********************************************************************************#
+  #@@@@@@@@@@@@@@@@@@@@@@@@@@@ HYPERGEOMETRIC STARTS HERE! @@@@@@@@@@@@@@@@@@@@@@@@@@@
+  #**********************************************************************************#
+
+  # Status message
+  if (verbose_) {
+    printMessage(paste0("RUNNING THE HYPERGEOMETRIC DISTRIBUTION ANALYSIS..."))
+  }
+
+  # First of all, check whether or not remove the ZERO bottlenecks
+  if (removeZeroBottlenecks_) {
+    dataSet_ <- removeZeroBottlenecks(dataSet_)
+    exportFile <- "distributionWithoutZeroBottleneck"
+  } else {
+    exportFile <- "distributionWithZeroBottleneck"
+  }
 
   # Basic metrics
   mean <- mean(dataSet_$freq[dataSet_$freq>1])
@@ -240,16 +325,16 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, verbose_ = TRU
 
   # Status message
   if (verbose_) {
-    printMessage("PLOTTING THE DISTRIBUTION")
+    printMessage("PLOTTING THE DISTRIBUTION...")
   }
 
   # Plot the hyper distribution
   g <- ggplot() + theme_bw() +
     xlab("Presence in species (%)") +
     ylab("Bottleneck (%)") +
-    geom_line(data = distribution[distribution$drawn <= 1000 & distribution$hyp <= 0.01, ],
+    geom_line(data = distribution[distribution$perc > 0 & distribution$hyp <= 0.01, ],
               aes(x = perc, y = freq / drawn * 100), col = "#000099") +
-    geom_line(data = distribution[distribution$drawn <= 1000 & distribution$hyp > 0.01, ],
+    geom_line(data = distribution[distribution$perc > 0 & distribution$hyp > 0.01, ],
               aes(x = perc, y = freq / drawn * 100), col = "#b20000")
 
   # Export the hypergeometric analysis
@@ -259,8 +344,8 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, verbose_ = TRU
   }
 
   if (dir.exists(file.path('./output/statistics/hypergeometric/'))) {
-    ggsave(paste0("./output/statistics/hypergeometric/distribution.png"), width = 20, height = 15, units = "cm")
-    save(distribution, file=paste0("./output/statistics/hypergeometric/distribution.RData"))
+    ggsave(paste0("./output/statistics/hypergeometric/", exportFile, ".png"), width = 20, height = 15, units = "cm")
+    save(distribution, file=paste0("./output/statistics/hypergeometric/", exportFile, ".RData"))
   }
 
   # Return the result
@@ -292,4 +377,4 @@ hypergeometricAnalysis(dataSet)
 # Step 2.1: Perform the hypergeometric distribution #
 #***************************************************#
 
-hypergeometricDistribution(dataSet, 0.01)
+hypergeometricDistribution(dataSet, p_value_ = 0.01, removeZeroBottlenecks_ = FALSE)

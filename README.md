@@ -1,5 +1,5 @@
 # KEGG PATHWAY BOTTLENECK DETECTION
-This project aims to find bottlenecks into KEGG metabolic pathways.
+Pipeline for detection of weaknesses in KEGG (Kyoto Encyclopedia of Genes and Genomes) metabolic pathways.
 
 ## What's new about this?
 
