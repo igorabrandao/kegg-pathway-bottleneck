@@ -235,8 +235,8 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, removeZeroBott
       save(zeroBottleneckDf, file=paste0("./output/statistics/hypergeometric/zeroBottleneckPathways.RData"))
     }
 
-    # Remove the ZERO bottlenecks from the dataSet
-    dataSet_ <- dataSet_[!(dataSet_$freq == 0 & dataSet_$is_bottleneck == 1),]
+    # Remove the pathways containing ZERO bottlenecks from the dataSet
+    dataSet_ <- dataSet_[!(dataSet_$pathway%in%pathwaysWithZeroBottleneck),]
 
     # Return the result
     return(dataSet_)
