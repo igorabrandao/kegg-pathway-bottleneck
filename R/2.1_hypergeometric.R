@@ -18,7 +18,7 @@ library(dplyr)
 library(pracma)
 #options(scipen = 999, digits = 2) # sig digits
 
-# Import the graphLoader functions
+# Import the basic functions
 files.sources = NULL
 files.sources[1] = paste0("./R/functions", "/", "statisticsHelper.R")
 files.sources[2] = paste0("./R/functions", "/", "helperFunctions.R")
@@ -288,8 +288,6 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, removeZeroBott
 #'
 #' @param dataSet_ Dataframe containing the data to be analysed.
 #' @param p_value_ The probability to observe a statistic value higher than found.
-#' @param removeZeroBottlenecks_ Flag to determine whether or not the bottlenecks without frequency will
-#' be included into the analysis.
 #' @param rangeInterval_ The quantity of range values
 #' @param cumulative_ Flag to determine if the ranges will accumulate the significance values
 #' @param verbose_ Print every status message.
@@ -469,71 +467,6 @@ hypergeometricDistributionDiscrete <- function(dataSet_, p_value_ = 0.05, rangeI
   return(distribution)
 }
 
-# In order to avoid bias into the analysis, the bottlenecks with ZERO frequency should be removed
-#'
-#' @param dataSet_ Entrez number withou specie
-#' @examples
-#' \dontrun{
-#' dataSet_ <- removeZeroBottlenecks(dataSet_, verbose_ = FALSE)
-#' }
-#
-removeZeroBottlenecks <- function (dataSet_, verbose_ = TRUE) {
-  # Status message
-  if (verbose_) {
-    printMessage(paste0("REMOVING BOTTLENECKS WITHOUT FREQUENCY..."))
-  }
-
-  # First of all, get the list of pathways that contains protein bottlenecks with ZERO frequency
-  pathwaysWithZeroBottleneck <- unique(dataSet_[dataSet_$freq == 0 & dataSet_$is_bottleneck == 1, ]$pathway)
-
-  # Dataframe to receive the zero bottleneck data
-  zeroBottleneckDf <- data.frame(pathway = numeric(), zeroBottleneckPerc = numeric(), zeroBottleneck = numeric(),
-                                 bottleneckNonZero = numeric(), nonBottleneckZero = numeric(), nonBottleneckNonZero = numeric(),
-                                 allProteins = numeric())
-
-  for (pathway in pathwaysWithZeroBottleneck) {
-    # Get the data related to bottlenecks with ZERO frequency
-    zeroBottleneck <- nrow(dataSet_[dataSet_$freq == 0 & dataSet_$is_bottleneck == 1 & dataSet_$pathway == pathway,])
-
-    # Get the data related to bottlenecks with non ZERO frequency
-    bottleneckNonZero <- nrow(dataSet_[dataSet_$freq != 0 & dataSet_$is_bottleneck == 1 & dataSet_$pathway == pathway,])
-
-    # Get the data related to non bottlenecks with ZERO frequency
-    nonBottleneckZero <- nrow(dataSet_[dataSet_$freq == 0 & dataSet_$is_bottleneck == 0 & dataSet_$pathway == pathway,])
-
-    # Get the data related to non bottlenecks with non ZERO frequency
-    nonBottleneckNonZero <- nrow(dataSet_[dataSet_$freq != 0 & dataSet_$is_bottleneck == 0 & dataSet_$pathway == pathway,])
-
-    # Get the data related to all proteins
-    allProteins <- nrow(dataSet_[dataSet_$pathway == pathway,])
-
-    # Apply the values into zeroBottleneckDf
-    zeroBottleneckDf[nrow(zeroBottleneckDf) + 1, "pathway"] <- pathway
-    zeroBottleneckDf[nrow(zeroBottleneckDf), "zeroBottleneckPerc"] <- (zeroBottleneck / allProteins)
-    zeroBottleneckDf[nrow(zeroBottleneckDf), "zeroBottleneck"] <- zeroBottleneck
-    zeroBottleneckDf[nrow(zeroBottleneckDf), "bottleneckNonZero"] <- bottleneckNonZero
-    zeroBottleneckDf[nrow(zeroBottleneckDf), "nonBottleneckZero"] <- nonBottleneckZero
-    zeroBottleneckDf[nrow(zeroBottleneckDf), "nonBottleneckNonZero"] <- nonBottleneckNonZero
-    zeroBottleneckDf[nrow(zeroBottleneckDf), "allProteins"] <- allProteins
-  }
-
-  # Export the zeroBottleneck data
-  if (!dir.exists(file.path('./output/statistics/'))) {
-    dir.create(file.path(paste0('./output/statistics/')), showWarnings = FALSE, mode = "0775")
-    dir.create(file.path(paste0('./output/statistics/hypergeometric/')), showWarnings = FALSE, mode = "0775")
-  }
-
-  if (dir.exists(file.path('./output/statistics/hypergeometric/'))) {
-    save(zeroBottleneckDf, file=paste0("./output/statistics/hypergeometric/zeroBottleneckPathways.RData"))
-  }
-
-  # Remove the pathways containing ZERO bottlenecks from the dataSet
-  dataSet_ <- dataSet_[!(dataSet_$pathway%in%pathwaysWithZeroBottleneck),]
-
-  # Return the result
-  return(dataSet_)
-}
-
 #*******************************************************************************************#
 
 # ---- PIPELINE SECTION ----
@@ -548,7 +481,6 @@ removeZeroBottlenecks <- function (dataSet_, verbose_ = TRUE) {
 
 # Load the dataSet
 dataSet <- get(load("./output/statistics/hypergeometric/hypergeometric.RData"))
-rm(enzymeList)
 
 # OR
 
