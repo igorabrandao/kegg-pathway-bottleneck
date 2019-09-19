@@ -137,7 +137,7 @@ descriptiveAnalysis <- function(dataSet_, removeZeroBottlenecks_ = FALSE, verbos
 #******************************#
 
 # Generate the dataSet
-dataSet <- generateDataSet(test_name_ = 'descriptive')
+dataSet <- generateDataSet(test_name_ = 'descriptive', filter_columns_ = FALSE)
 
 # OR
 

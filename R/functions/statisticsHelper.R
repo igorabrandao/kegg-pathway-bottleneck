@@ -22,6 +22,7 @@
 #'
 #' @param test_name_ The name of the test that is calling this function
 #' @param folder_name_ The folder name that contains the necessary data
+#' @param filter_columns_ Flag to determine whether or not the dataSet should be filtered into default columns
 #' @param verbose_ Print every status message.
 #'
 #' @return This function returns a data frame containing the data from all dataSets inside a folder
@@ -34,7 +35,7 @@
 #' @author
 #' Igor Brandão
 
-generateDataSet <- function(test_name_ = '', folder_name_ = 'totalFrequency', verbose_ = TRUE) {
+generateDataSet <- function(test_name_ = '', folder_name_ = 'totalFrequency', filter_columns_ = TRUE, verbose_ = TRUE) {
   # Status message
   if (verbose_) {
     printMessage("GENERATING THE DATASET BASE")
@@ -70,7 +71,9 @@ generateDataSet <- function(test_name_ = '', folder_name_ = 'totalFrequency', ve
     return(NULL)
   } else {
     # Remove unnecessary columns
-    dataSet <- dataSet[, c('pathway','freq','total_species','percentage','is_bottleneck','bottleneck_classification')]
+    if (filter_columns_) {
+      dataSet <- dataSet[, c('pathway','freq','total_species','percentage','is_bottleneck','bottleneck_classification')]
+    }
 
     # Status message
     if (verbose_) {
