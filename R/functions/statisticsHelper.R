@@ -20,9 +20,9 @@
 
 #' Get all data from a folder and bind it together
 #'
-#' @param test_name_ The name of the test that is calling this function
-#' @param folder_name_ The folder name that contains the necessary data
-#' @param filter_columns_ Flag to determine whether or not the dataSet should be filtered into default columns
+#' @param testName_ The name of the test that is calling this function
+#' @param folderName_ The folder name that contains the necessary data
+#' @param filterColumns_ Flag to determine whether or not the dataSet should be filtered into default columns
 #' @param verbose_ Print every status message.
 #'
 #' @return This function returns a data frame containing the data from all dataSets inside a folder
@@ -35,14 +35,14 @@
 #' @author
 #' Igor Brandão
 
-generateDataSet <- function(test_name_ = '', folder_name_ = 'totalFrequency', filter_columns_ = TRUE, verbose_ = TRUE) {
+generateDataSet <- function(testName_ = '', folderName_ = 'totalFrequency', filterColumns_ = TRUE, verbose_ = TRUE) {
   # Status message
   if (verbose_) {
     printMessage("GENERATING THE DATASET BASE")
   }
 
   # Get the list of files
-  folder = paste0("./output/", folder_name_, "/")
+  folder = paste0("./output/", folderName_, "/")
   file_list <- list.files(path = folder, pattern = '*.RData')
 
   # Check if the folder contains files
@@ -71,13 +71,13 @@ generateDataSet <- function(test_name_ = '', folder_name_ = 'totalFrequency', fi
     return(NULL)
   } else {
     # Remove unnecessary columns
-    if (filter_columns_) {
+    if (filterColumns_) {
       dataSet <- dataSet[, c('pathway','freq','total_species','percentage','is_bottleneck','bottleneck_classification')]
     }
 
     # Status message
     if (verbose_) {
-      printMessage(paste0(toupper(test_name_), " DATASET GENERATED WITH SUCCESS!"))
+      printMessage(paste0(toupper(testName_), " DATASET GENERATED WITH SUCCESS!"))
       printMessage("SAVING THE GENERATED DATASET...")
     }
 
@@ -86,17 +86,17 @@ generateDataSet <- function(test_name_ = '', folder_name_ = 'totalFrequency', fi
       dir.create(file.path(paste0('./output/statistics/')), showWarnings = FALSE, mode = "0775")
     }
 
-    if (!dir.exists(file.path(paste0('./output/statistics/', test_name_, '/')))) {
-      dir.create(file.path(paste0('./output/statistics/', test_name_, '/')), showWarnings = FALSE, mode = "0775")
+    if (!dir.exists(file.path(paste0('./output/statistics/', testName_, '/')))) {
+      dir.create(file.path(paste0('./output/statistics/', testName_, '/')), showWarnings = FALSE, mode = "0775")
     }
 
-    if (dir.exists(file.path('./output/statistics/', test_name_, '/'))) {
-      save(dataSet, file = paste0('./output/statistics/', test_name_, '/', test_name_, '.RData'))
+    if (dir.exists(file.path('./output/statistics/', testName_, '/'))) {
+      save(dataSet, file = paste0('./output/statistics/', testName_, '/', testName_, '.RData'))
     }
 
     if (dir.exists(file.path('~/data3/'))) {
-      save(dataSet, file = paste0('~/data3/kegg-pathway-bottleneck/output/statistics/', test_name_, '/',
-                                     test_name_, '.RData'))
+      save(dataSet, file = paste0('~/data3/kegg-pathway-bottleneck/output/statistics/', testName_, '/',
+                                     testName_, '.RData'))
     }
 
     # Return the generated dataSet

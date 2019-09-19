@@ -485,7 +485,7 @@ dataSet <- get(load("./output/statistics/hypergeometric/hypergeometric.RData"))
 # OR
 
 # Generate the dataSet
-dataSet <- generateDataSet(test_name_ = 'hypergeometric')
+dataSet <- generateDataSet(testName_ = 'hypergeometric')
 
 #*********************************************#
 # Step 2: Perform the hypergeometric analysis #

@@ -31,6 +31,10 @@ sapply(files.sources, source)
 #'
 #' @param dataSet_ Dataframe containing the data to be analysed.
 #' @param removeZeroBottlenecks_ Flag to determine whether or not the bottlenecks without frequency will be included into the analysis.
+#' @param columns_ A vector of strings containing the dataSet columns name to be plotted.
+#' @param columnLabels_ The label associated with the plotted columns.
+#' @param title_ The plot title.
+#' @param exportFile_ The exported plot filename.
 #' @param verbose_ Print every status message.
 #'
 #' @return This functions returns nothing.
@@ -44,7 +48,8 @@ sapply(files.sources, source)
 #' @author
 #' Igor Brandão
 
-descriptiveAnalysis <- function(dataSet_, removeZeroBottlenecks_ = FALSE, verbose_ = TRUE) {
+descriptiveAnalysis <- function(dataSet_, removeZeroBottlenecks_ = FALSE, columns_ = NULL,
+                                columnLabels_ = NULL, title_ = NULL, exportFile_ = NULL, verbose_ = TRUE) {
   # Status message
   if (verbose_) {
     printMessage(paste0("RUNNING THE DESCRIPTIVE ANALYSIS..."))
@@ -90,15 +95,30 @@ descriptiveAnalysis <- function(dataSet_, removeZeroBottlenecks_ = FALSE, verbos
     printMessage("PLOTTING THE DISTRIBUTION...")
   }
 
+  # Define which dataSet column will be displayed into the plot
+  if (is.null(columns_) | length(columns_) == 0) {
+    columns = c("freq", "total_species", "percentage", "is_bottleneck", "bottleneck_classification")
+  } else {
+    columns = columns_
+  }
+
+  if (is.null(columnLabels_) | length(columnLabels_) == 0) {
+    columnLabels = c("Frequency", "Processed Species", "Frequency (%)", "Is Bottleneck?", "Bottleneck Classification")
+  } else {
+    columnLabels = columnLabels_
+  }
+
+  if (!is.null(title_)) {
+    plotTitle <- title_
+  }
+
   # Drawing a scatterplot matrix of freq, total_species, percentage, and is_bottleneck using the pairs function
-  plot1 <- ggpairs(dataSet_, columns = c("freq", "total_species", "percentage", "is_bottleneck", "bottleneck_classification"),
-                   columnLabels = c("Frequency", "Processed Species", "Frequency (%)", "Is Bottleneck?", "Bottleneck Classification"),
-                   title = plotTitle,
+  plot1 <- ggpairs(dataSet_, columns = columns, columnLabels = columnLabels, title = plotTitle,
                    mapping = aes(color = bottleneck_classification),
                    lower = list(
                      continuous = "smooth",
                      combo = "facetdensity"
-                   )) + theme_bw()
+                   ), cardinality_threshold = 1000) + theme_bw()
 
   # Recolor the matrix
   for(i in 1:plot1$nrow) {
@@ -120,7 +140,11 @@ descriptiveAnalysis <- function(dataSet_, removeZeroBottlenecks_ = FALSE, verbos
 
   if (dir.exists(file.path('./output/statistics/descriptive/'))) {
     print(plot1)
-    ggsave(paste0("./output/statistics/descriptive/", exportFile, ".png"), width = 20, height = 15, units = "cm")
+    if (!is.null(exportFile_)) {
+      exportFile <- exportFile_
+    }
+
+    ggsave(paste0("./output/statistics/descriptive/", exportFile, ".png"), width = 25, height = 20, units = "cm")
   }
 }
 
@@ -137,7 +161,7 @@ descriptiveAnalysis <- function(dataSet_, removeZeroBottlenecks_ = FALSE, verbos
 #******************************#
 
 # Generate the dataSet
-dataSet <- generateDataSet(test_name_ = 'descriptive', filter_columns_ = FALSE)
+dataSet <- generateDataSet(testName_ = 'descriptive', filterColumns_ = FALSE)
 
 # OR
 
@@ -148,5 +172,35 @@ dataSet <- get(load("./output/statistics/descriptive/descriptive.RData"))
 # Step 2: Perform the descriptive analysis #
 #******************************************#
 
-descriptiveAnalysis(dataSet, removeZeroBottlenecks_ = TRUE, verbose_ = TRUE)
-descriptiveAnalysis(dataSet, removeZeroBottlenecks_ = FALSE, verbose_ = TRUE)
+# Default descriptive analysis
+descriptiveAnalysis(dataSet, removeZeroBottlenecks_ = TRUE, verbose_ = TRUE,
+                    columns_ = c("freq", "total_species", "percentage", "is_bottleneck", "bottleneck_classification"),
+                    columnLabels_ = c("Frequency", "Processed Species", "Frequency (%)", "Is Bottleneck", "Protein Classification"))
+
+# Protein classification
+descriptiveAnalysis(dataSet, removeZeroBottlenecks_ = TRUE, verbose_ = TRUE,
+                    columns_ = c("bottleneck_classification"), columnLabels_ = c("Protein Classification"),
+                    title_ = 'Proteins Classification',
+                    exportFile_ = 'proteinClassification')
+
+# Proteins by pathway
+descriptiveAnalysis(dataSet, removeZeroBottlenecks_ = TRUE, verbose_ = TRUE,
+                    columns_ = c("pathway"), columnLabels_ = c("Proteins by pathway"),
+                    title_ = 'Proteins by pathway',
+                    exportFile_ = 'pathwayClassification')
+
+# Bottleneck x Betweenness X Degree
+descriptiveAnalysis(dataSet, removeZeroBottlenecks_ = TRUE, verbose_ = TRUE,
+                    columns_ = c("is_bottleneck", "betweenness", "degree"),
+                    columnLabels_ = c("Is Bottleneck", "Betweenness", "Degree"),
+                    title_ = 'Bottleneck x Betweenness X Degree',
+                    exportFile_ = 'bottleneckBetweennessDegree')
+
+# Graph metrics
+descriptiveAnalysis(dataSet, removeZeroBottlenecks_ = TRUE, verbose_ = TRUE,
+                    columns_ = c("authorityScore", "betweenness", "closenessCoef", "clusteringCoef", "community", "connectivity", "degree", "diameter", "eccentricity"
+                                 ,"radius", "triangles"),
+                    columnLabels_ = c("authorityScore", "betweenness", "closenessCoef", "clusteringCoef", "community", "connectivity", "degree", "diameter", "eccentricity"
+                                      ,"radius", "triangles"),
+                    title_ = 'Graph Metrics',
+                    exportFile_ = 'graphMetrics')
