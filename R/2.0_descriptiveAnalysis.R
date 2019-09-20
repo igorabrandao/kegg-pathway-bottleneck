@@ -15,6 +15,7 @@
 # Import the necessary libraries
 library(ggplot2)
 library(GGally)
+library(corrplot)
 library(dplyr)
 
 # Import the basic functions
@@ -33,6 +34,7 @@ sapply(files.sources, source)
 #' @param removeZeroBottlenecks_ Flag to determine whether or not the bottlenecks without frequency will be included into the analysis.
 #' @param columns_ A vector of strings containing the dataSet columns name to be plotted.
 #' @param columnLabels_ The label associated with the plotted columns.
+#' @param labelAngle_ Define the angle of bottom labels.
 #' @param title_ The plot title.
 #' @param exportFile_ The exported plot filename.
 #' @param verbose_ Print every status message.
@@ -49,7 +51,8 @@ sapply(files.sources, source)
 #' Igor Brandão
 
 descriptiveAnalysis <- function(dataSet_, removeZeroBottlenecks_ = FALSE, columns_ = NULL,
-                                columnLabels_ = NULL, title_ = NULL, exportFile_ = NULL, verbose_ = TRUE) {
+                                columnLabels_ = NULL, labelAngle_ = 45, title_ = NULL,
+                                exportFile_ = NULL, verbose_ = TRUE) {
   # Status message
   if (verbose_) {
     printMessage(paste0("RUNNING THE DESCRIPTIVE ANALYSIS..."))
@@ -118,7 +121,8 @@ descriptiveAnalysis <- function(dataSet_, removeZeroBottlenecks_ = FALSE, column
                    lower = list(
                      continuous = "smooth",
                      combo = "facetdensity"
-                   ), cardinality_threshold = 1000) + theme_bw()
+                   ), cardinality_threshold = 1000) +
+    theme(axis.text.x = element_text(angle = labelAngle_, hjust = 1)) + theme_bw()
 
   # Recolor the matrix
   for(i in 1:plot1$nrow) {
@@ -145,6 +149,90 @@ descriptiveAnalysis <- function(dataSet_, removeZeroBottlenecks_ = FALSE, column
     }
 
     ggsave(paste0("./output/statistics/descriptive/", exportFile, ".png"), width = 25, height = 20, units = "cm")
+  }
+}
+
+#' Function to generate the correlation study
+#'
+#' @param dataSet_ Dataframe containing the data to be analysed.
+#' @param verbose_ Print every status message.
+#'
+#' @return This functions returns nothing.
+#'
+#' @examples
+#' \dontrun{
+#' descriptiveAnalysis(dataSet)
+#' descriptiveAnalysis(dataSet, verbose_ = FALSE)
+#' }
+#'
+#' @author
+#' Igor Brandão
+
+generateCorrelationStudy <- function(dataSet_, verbose_ = TRUE) {
+  # Status message
+  if (verbose_) {
+    printMessage(paste0("GENERATING CORRELATION STUDY..."))
+  }
+
+  # Backup the complete dataSet
+  dataSetBkp_ <- dataSet_
+
+  # Remove non numeric data
+  dataSet_ <- dataSet_[ , -which(names(dataSet_) %in% c("bottleneck_classification","pathway"))]
+
+  #*********************#
+  # General correlation #
+  #*********************#
+
+  # Generate the correlation matrix
+  correlationMatrix <- cor(dataSet_, method = c("spearman"), use = "complete.obs")
+
+  # Define the color scale
+  col <- colorRampPalette(c("#BB4444", "#EE9988", "#FFFFFF", "#77AADD", "#4477AA"))
+
+  # Save the correlogram (plot1)
+  png(file="./output/statistics/descriptive/correlationAll.png", res=300, width=3500, height=3500)
+  corrplot(correlationMatrix, method="color",
+           addCoef.col = "black", # Add coefficient of correlation
+           tl.col = "black", tl.srt = 45, #Text label color and rotation
+           # hide correlation coefficient on the principal diagonal
+           diag=TRUE)
+  dev.off()
+
+  #**********************#
+  # Correlation by group #
+  #**********************#
+
+  # Generate the correlation by protein classificaion
+  correlationByGroup <- by(dataSetBkp_, dataSetBkp_$bottleneck_classification,
+                           FUN = function(X) X[ , -which(names(X) %in% c("bottleneck_classification","pathway"))])
+
+  generateCorrelationByGroup <- function(idx_) {
+    # Define the filename
+    filename <- names(correlationByGroup[idx_])
+
+    # Generate the correlation matrix
+    correlationMatrixGroup <- cor(as.data.frame(correlationByGroup[idx_]), method = c("spearman"), use = "complete.obs")
+
+    # Define the color scale
+    col <- colorRampPalette(c("#BB4444", "#EE9988", "#FFFFFF", "#77AADD", "#4477AA"))
+
+    # Save the correlogram (plot1)
+    png(file=paste0("./output/statistics/descriptive/correlationGroup", filename, ".png"), res=300, width=3500, height=3500)
+    corrplot(correlationMatrixGroup, method="color",
+             addCoef.col = "black", # Add coefficient of correlation
+             tl.col = "black", tl.srt = 45, #Text label color and rotation
+             # hide correlation coefficient on the principal diagonal
+             diag=TRUE)
+    dev.off()
+  }
+
+  # Run the group correlation
+  lapply(1:nrow(correlationByGroup), generateCorrelationByGroup)
+
+  # Status message
+  if (verbose_) {
+    printMessage(paste0("CORRELATION STUDY GENERATED WITH SUCCESS!"))
   }
 }
 
@@ -186,7 +274,7 @@ descriptiveAnalysis(dataSet, removeZeroBottlenecks_ = TRUE, verbose_ = TRUE,
 # Proteins by pathway
 descriptiveAnalysis(dataSet, removeZeroBottlenecks_ = TRUE, verbose_ = TRUE,
                     columns_ = c("pathway"), columnLabels_ = c("Proteins by pathway"),
-                    title_ = 'Proteins by pathway',
+                    labelAngle_ = 90, title_ = 'Proteins by pathway',
                     exportFile_ = 'pathwayClassification')
 
 # Bottleneck x Betweenness X Degree
@@ -202,5 +290,12 @@ descriptiveAnalysis(dataSet, removeZeroBottlenecks_ = TRUE, verbose_ = TRUE,
                                  ,"radius", "triangles"),
                     columnLabels_ = c("authorityScore", "betweenness", "closenessCoef", "clusteringCoef", "community", "connectivity", "degree", "diameter", "eccentricity"
                                       ,"radius", "triangles"),
-                    title_ = 'Graph Metrics',
+                    labelAngle_ = 90, title_ = 'Graph Metrics',
                     exportFile_ = 'graphMetrics')
+
+#***************************#
+# Step 3: Correlation study #
+#***************************#
+
+# Generate the correlation study
+generateCorrelationStudy(dataSet, verbose_ = TRUE)
