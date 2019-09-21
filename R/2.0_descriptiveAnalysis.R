@@ -155,6 +155,7 @@ descriptiveAnalysis <- function(dataSet_, removeZeroBottlenecks_ = FALSE, column
 #' Function to generate the correlation study
 #'
 #' @param dataSet_ Dataframe containing the data to be analysed.
+#' @param removeZeroBottlenecks_ Flag to determine whether or not the bottlenecks without frequency will be included into the analysis.
 #' @param verbose_ Print every status message.
 #'
 #' @return This functions returns nothing.
@@ -168,10 +169,18 @@ descriptiveAnalysis <- function(dataSet_, removeZeroBottlenecks_ = FALSE, column
 #' @author
 #' Igor Brandão
 
-generateCorrelationStudy <- function(dataSet_, verbose_ = TRUE) {
+generateCorrelationStudy <- function(dataSet_, removeZeroBottlenecks_ = FALSE, verbose_ = TRUE) {
   # Status message
   if (verbose_) {
     printMessage(paste0("GENERATING CORRELATION STUDY..."))
+  }
+
+  # First of all, check whether or not remove the ZERO bottlenecks
+  if (removeZeroBottlenecks_) {
+    dataSet_ <- removeZeroBottlenecks(dataSet_)
+
+    # Filter dataSet from proteins with ZERO frequency
+    dataSet_ <- dataSet_[!dataSet_$freq ==0,]
   }
 
   # Backup the complete dataSet
@@ -210,6 +219,10 @@ generateCorrelationStudy <- function(dataSet_, verbose_ = TRUE) {
   generateCorrelationByGroup <- function(idx_) {
     # Define the filename
     filename <- names(correlationByGroup[idx_])
+
+    # Save the group dataSet
+    dataSetByGroup <- as.data.frame(correlationByGroup[idx_])
+    save(dataSetByGroup, file = paste0('./output/statistics/descriptive/descriptive', filename, '.RData'))
 
     # Generate the correlation matrix
     correlationMatrixGroup <- cor(as.data.frame(correlationByGroup[idx_]), method = c("spearman"), use = "complete.obs")
@@ -298,4 +311,4 @@ descriptiveAnalysis(dataSet, removeZeroBottlenecks_ = TRUE, verbose_ = TRUE,
 #***************************#
 
 # Generate the correlation study
-generateCorrelationStudy(dataSet, verbose_ = TRUE)
+generateCorrelationStudy(dataSet, removeZeroBottlenecks_ = TRUE, verbose_ = TRUE)
