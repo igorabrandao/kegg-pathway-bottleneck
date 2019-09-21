@@ -14,6 +14,8 @@
 
 # Import the necessary libraries
 library(ggplot2)
+library(GGally)
+library(corrplot)
 library(dplyr)
 library(pracma)
 #options(scipen = 999, digits = 2) # sig digits
@@ -467,6 +469,91 @@ hypergeometricDistributionDiscrete <- function(dataSet_, p_value_ = 0.05, rangeI
   return(distribution)
 }
 
+#' Function to generate additional plots of hypergeomtric
+#'
+#' @param dataSet_ Dataframe containing the data to be analysed.
+#' @param removeZeroBottlenecks_ Flag to determine whether or not the bottlenecks without frequency will be included into the analysis.
+#' @param columns_ A vector of strings containing the dataSet columns name to be plotted.
+#' @param columnLabels_ The label associated with the plotted columns.
+#' @param labelAngle_ Define the angle of bottom labels.
+#' @param title_ The plot title.
+#' @param exportFile_ The exported plot filename.
+#' @param verbose_ Print every status message.
+#'
+#' @return This functions returns nothing.
+#'
+#' @examples
+#' \dontrun{
+#' generateAdditionalPlots(dataSet)
+#' generateAdditionalPlots(dataSet, removeZeroBottlenecks_ = TRUE, verbose_ = TRUE)
+#' }
+#'
+#' @author
+#' Igor Brandão
+
+generateAdditionalPlots <- function(dataSet_, columns_ = NULL,
+                                columnLabels_ = NULL, labelAngle_ = 45, title_ = NULL,
+                                exportFile_ = NULL, verbose_ = TRUE) {
+  # Status message
+  if (verbose_) {
+    printMessage("GENERATING ADDITIONAL PLOTS...")
+  }
+
+  # Define which dataSet column will be displayed into the plot
+  if (is.null(columns_) | length(columns_) == 0) {
+    columns = c("range", "bottleneck", "non_bottleneck", "drawn", "freq", "hyp", "pCor")
+  } else {
+    columns = columns_
+  }
+
+  if (is.null(columnLabels_) | length(columnLabels_) == 0) {
+    columnLabels = c("Range", "Qtd. of bottlenecks", "Qtd. of non bottlenecks",
+                     "Drawns", "Bottleneck frequency", "Hypergeomtric", "Adjusted p-value")
+  } else {
+    columnLabels = columnLabels_
+  }
+
+  if (!is.null(title_)) {
+    plotTitle <- title_
+  }
+
+  # Drawing a scatterplot matrix of freq, total_species, percentage, and is_bottleneck using the pairs function
+  plot1 <- ggpairs(dataSet_, columns = columns, columnLabels = columnLabels, title = plotTitle,
+                   mapping = aes(color = cor),
+                   lower = list(
+                     continuous = "smooth",
+                     combo = "facetdensity"
+                   ), cardinality_threshold = 1000) +
+    theme(axis.text.x = element_text(angle = labelAngle_, hjust = 1)) + theme_bw()
+
+  # Recolor the matrix
+  for(i in 1:plot1$nrow) {
+    for (j in 1:plot1$ncol) {
+      plot1[i, j] <- plot1[i, j] +
+        scale_fill_manual(values = c("#173F5F", "#4D4E4F", "#ED553B")) +
+        scale_color_manual(values = c("#173F5F", "#4D4E4F", "#ED553B"))
+    }
+  }
+
+  # Export the hypergeometric hypergeometric analysis
+  if (!dir.exists(file.path('./output/statistics/'))) {
+    dir.create(file.path(paste0('./output/statistics/')), showWarnings = FALSE, mode = "0775")
+  }
+
+  if (!dir.exists(file.path('./output/statistics/hypergeometric/'))) {
+    dir.create(file.path(paste0('./output/statistics/hypergeometric/')), showWarnings = FALSE, mode = "0775")
+  }
+
+  if (dir.exists(file.path('./output/statistics/hypergeometric/'))) {
+    print(plot1)
+    if (!is.null(exportFile_)) {
+      exportFile <- exportFile_
+    }
+
+    ggsave(paste0("./output/statistics/hypergeometric/", exportFile, ".png"), width = 25, height = 20, units = "cm")
+  }
+}
+
 #*******************************************************************************************#
 
 # ---- PIPELINE SECTION ----
@@ -505,3 +592,16 @@ hypergeometricDistribution(dataSet, p_value_ = 0.01, removeZeroBottlenecks_ = TR
 
 hypergeometricDistributionDiscrete(dataSet, p_value_ = 0.01, rangeInterval_ = 20,
                                    cumulative_ = TRUE, verbose_ = TRUE)
+
+
+#***********************************#
+# Step 3: Generate additional plots #
+#***********************************#
+
+# Default hypergeometric analysis
+generateAdditionalPlots(distribution, verbose_ = TRUE,
+                    columns_ = c("range", "bottleneck", "non_bottleneck", "drawn", "freq", "hyp", "pCor"),
+                    columnLabels_ = c("Range", "Qtd. of bottlenecks", "Qtd. of non bottlenecks",
+                                      "Drawns", "Bottleneck frequency", "Hypergeomtric", "Adjusted p-value"),
+                    title_ = 'Hypergeometric Overview',
+                    exportFile_ = 'hyperOverview')
