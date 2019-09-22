@@ -116,14 +116,7 @@ getPathwayEnzymes <- function(index_, removeNoise_=TRUE, replaceEmptyGraph_=TRUE
 
     # Remove unnecessary data before bottleneck calculation
     if (removeNoise_) {
-      pathwayData <- pathwayData[!grepl("^path:", pathwayData$node1),]
-      pathwayData <- pathwayData[!grepl("^path:", pathwayData$node2),]
-      pathwayData <- pathwayData[!grepl("^map:", pathwayData$node1),]
-      pathwayData <- pathwayData[!grepl("^map:", pathwayData$node2),]
-      pathwayData <- pathwayData[!grepl("^cpd:", pathwayData$node1),]
-      pathwayData <- pathwayData[!grepl("^cpd:", pathwayData$node2),]
-      pathwayData <- pathwayData[!grepl("^gl:", pathwayData$node1),]
-      pathwayData <- pathwayData[!grepl("^gl:", pathwayData$node2),]
+      pathwayData <- removeNoise(pathwayData)
     }
 
     # Get the graph properties
@@ -496,14 +489,7 @@ reapplyGraphProperties <- function(index_, removeNoise_=TRUE) {
   } else {
     # Remove unnecessary data before properties calculation
     if (removeNoise_) {
-      pathwayData <- pathwayData[!grepl("^path:", pathwayData$node1),]
-      pathwayData <- pathwayData[!grepl("^path:", pathwayData$node2),]
-      pathwayData <- pathwayData[!grepl("^map:", pathwayData$node1),]
-      pathwayData <- pathwayData[!grepl("^map:", pathwayData$node2),]
-      pathwayData <- pathwayData[!grepl("^cpd:", pathwayData$node1),]
-      pathwayData <- pathwayData[!grepl("^cpd:", pathwayData$node2),]
-      pathwayData <- pathwayData[!grepl("^gl:", pathwayData$node1),]
-      pathwayData <- pathwayData[!grepl("^gl:", pathwayData$node2),]
+      pathwayData <- removeNoise(pathwayData)
     }
 
     # Get the graph properties
@@ -687,6 +673,69 @@ generateCorrelationStudy <- function(index_) {
   return(TRUE)
 }
 
+#' Function to generate pathways bridges (essential chemical reaction)
+#'
+#' @param index_ Index from pathwayList representing a single pathway, e.g: 1 = 00010.
+#' @param removeNoise_ Remove undesirable enzyme such as: map, path, cpd or gl.
+#'
+#' @return This function does not return nothing, just export files.
+#'
+#' @examples
+#' \dontrun{
+#' getPathwayBridges(1)
+#' }
+#'
+#' @author
+#' Igor Brandão
+
+getPathwayBridges <- function(index_, removeNoise_=TRUE) {
+
+  # Get the current pathway
+  pathway <- pathwayList[index_,]
+
+  # Status message
+  printMessage(paste0("GENERATING ", pathway, " BRIDGES"))
+
+  # Format the pathway code
+  pathway_code <- paste0('ec', pathway)
+
+  # Try to load the pathway data 30 times
+  for (i in 1:5) {
+    # Get the enzyme list from pathway
+    pathwayData <- pathwayToDataframe(pathway_code, FALSE)
+
+    if (!is.null(pathwayData)) {
+      break
+    }
+  }
+
+  # Handle empty graph
+  if (is.null(pathwayData) | length(pathwayData) == 0) {
+    return(FALSE)
+  } else {
+    # Remove unnecessary data before properties calculation
+    if (removeNoise_) {
+      pathwayData <- removeNoise(pathwayData)
+    }
+
+    # Get the network properties
+    bridges <- getGraphBridges(pathwayData)
+
+    # Export the network
+    if (!dir.exists(file.path(paste0('./output/bridges/')))) {
+      dir.create(file.path(paste0('./output/bridges/')), showWarnings = FALSE, mode = "0775")
+    }
+
+    if (dir.exists(file.path('./output/bridges/'))) {
+      filename <- paste0(index_, '_', pathway, '.RData')
+      save(bridges, file=paste0("./output/bridges/", filename))
+    }
+  }
+
+  # Function finished with success
+  return(TRUE)
+}
+
 #' Function to generate interactive networks
 #'
 #' @param index_ Index from pathwayList representing a single pathway, e.g: 1 = 00010.
@@ -729,14 +778,7 @@ printInteractiveNetwork <- function(index_, removeNoise_=TRUE) {
   } else {
     # Remove unnecessary data before properties calculation
     if (removeNoise_) {
-      pathwayData <- pathwayData[!grepl("^path:", pathwayData$node1),]
-      pathwayData <- pathwayData[!grepl("^path:", pathwayData$node2),]
-      pathwayData <- pathwayData[!grepl("^map:", pathwayData$node1),]
-      pathwayData <- pathwayData[!grepl("^map:", pathwayData$node2),]
-      pathwayData <- pathwayData[!grepl("^cpd:", pathwayData$node1),]
-      pathwayData <- pathwayData[!grepl("^cpd:", pathwayData$node2),]
-      pathwayData <- pathwayData[!grepl("^gl:", pathwayData$node1),]
-      pathwayData <- pathwayData[!grepl("^gl:", pathwayData$node2),]
+      pathwayData <- removeNoise(pathwayData)
     }
 
     # Get the network properties
@@ -857,8 +899,18 @@ lapply(1:5, getPathwayEnzymes, replaceEmptyGraph_=FALSE)
 
 #*******************************************************************************************#
 
+#***************************************#
+# Step 5: Generate the pathways bridges #
+#***************************************#
+
+# [TEST ONLY]
+#lapply(1:1, getPathwayBridges)
+
+# Call the function for all pathways
+#lapply(start_of:nrow(pathwayList), getPathwayBridges)
+
 #******************************#
-# Step 5: Generate the network #
+# Step 6: Generate the network #
 #******************************#
 
 # [TEST ONLY]

@@ -736,12 +736,59 @@ getTopBetweenness <- function(iGraph_, betweenness_percentual_rate_=0.2, verbose
   return(topBetweennessWithRate)
 }
 
-#' Function to calculates the pathway bottlenecks
+#*******************************************************************************************#
+
+# ---- BOTTLENECK DETECTION ----
+
+#' Function to calculate the pathway bridges based on brute force
+#' Complexity: O(V*(V+E))
 #'
 #' @param iGraph_ Pathway iGraph object.
 #' @param verbose_ Whether or not print the status message
 #'
-#' @return This function does not return nothing, just export files.
+#' @return This function returns a list of bridges (nodes id).
+#'
+#' @examples
+#' \dontrun{
+#' getGraphBridges(iGraph, verbose_=TRUE)
+#' }
+#'
+#' @author
+#' Igor Brandão
+
+getGraphBridges <- function(iGraph_, verbose_=FALSE) {
+  # Define the result vector
+  result <- data.frame(bridges = NA)
+
+  # Convert the igraph object into graph
+  G <- igraph::graph_from_data_frame(iGraph_, directed = FALSE)
+
+  # Count the number of decomposed graphs
+  num_comp <- length(decompose.graph(G))
+
+  for (i in 1:length(E(G))) {
+    G_sub <- delete.edges(G, i)
+    if ( length( decompose.graph(G_sub) ) > num_comp ) {
+      result <- rbind(result, as_ids(E(G)[i]))
+    }
+  }
+
+  # print the articulation points
+  if (verbose_) {
+    print(result)
+    print("Graph bridges calculated successfully!")
+  }
+
+  return(result[complete.cases(result),])
+}
+
+#' Function to calculate the pathway bottlenecks
+#' Complexity: O(V+E)
+#'
+#' @param iGraph_ Pathway iGraph object.
+#' @param verbose_ Whether or not print the status message
+#'
+#' @return This function returns a list of articulation points (nodes id).
 #'
 #' @examples
 #' \dontrun{
@@ -761,6 +808,25 @@ getGraphBottleneck <- function(iGraph_, verbose_=FALSE) {
   }
 
   return(articulation_points)
+}
+
+#' Function to detect groups of bottlenecks
+#'
+#' @param iGraph_ Pathway iGraph object.
+#' @param verbose_ Whether or not print the status message
+#'
+#' @return This function does not return nothing, just export files.
+#'
+#' @examples
+#' \dontrun{
+#' getGraphBottleneck(iGraph)
+#' }
+#'
+#' @author
+#' Igor Brandão
+
+multipleBottleneckDetection <- function(iGraph_, verbose_=FALSE) {
+
 }
 
 #' Function to classify the bottlenecks into the following groups:
@@ -825,3 +891,41 @@ classifyBottleneck <- function(networkProperties_, pathway_="") {
   return(networkProperties_)
 }
 
+#*******************************************************************************************#
+
+# ---- AUXILIARY FUNCTIONS ----
+
+#' Function to remove unnecessary from igraph object
+#'
+#' @param iGraph_ Pathway iGraph object.
+#' @param verbose_ Whether or not print the status message
+#'
+#' @return This function returns the igraph object cleared.
+#'
+#' @examples
+#' \dontrun{
+#' removeNoise(iGraph)
+#' }
+#'
+#' @author
+#' Igor Brandão
+
+removeNoise <- function(iGraph_, verbose_=FALSE) {
+  # Status message
+  if (verbose_) {
+    printMessage("REMOVING THE GRAPH NOISE...")
+  }
+
+  # Remove unnecessary data from igraph object
+  iGraph_ <- iGraph_[!grepl("^path:", iGraph_$node1),]
+  iGraph_ <- iGraph_[!grepl("^path:", iGraph_$node2),]
+  iGraph_ <- iGraph_[!grepl("^map:", iGraph_$node1),]
+  iGraph_ <- iGraph_[!grepl("^map:", iGraph_$node2),]
+  iGraph_ <- iGraph_[!grepl("^cpd:", iGraph_$node1),]
+  iGraph_ <- iGraph_[!grepl("^cpd:", iGraph_$node2),]
+  iGraph_ <- iGraph_[!grepl("^gl:", iGraph_$node1),]
+  iGraph_ <- iGraph_[!grepl("^gl:", iGraph_$node2),]
+
+  # Return the updated igraph object
+  return(iGraph_)
+}

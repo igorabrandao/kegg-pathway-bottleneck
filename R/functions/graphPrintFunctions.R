@@ -212,6 +212,15 @@ generateInteractiveNetwork <- function(network_, networkProperties_, pathway_=""
   vis.links$smooth <- FALSE    # should the edges be curved?
   vis.links$shadow <- FALSE    # edge shadow
 
+  # Paint the edges bridges in red
+  G <- igraph::graph_from_data_frame(vis.links[,1:2], directed = FALSE)
+  num_comp <- length(decompose.graph(G))
+
+  for (i in 1:length(E(G))) {
+    G_sub <- delete.edges(G, i)
+    if ( length( decompose.graph(G_sub) ) > num_comp ) vis.links$color[i] <- "red"
+  }
+
   # Generate the visNetwor object
   visNetworkObj <- visNetwork(nodes = vis.nodes, edges = vis.links,
              background="#eeefff", width = '1200px', height = '800px',

@@ -278,17 +278,53 @@ descriptiveAnalysis(dataSet, removeZeroBottlenecks_ = TRUE, verbose_ = TRUE,
                     columns_ = c("freq", "total_species", "percentage", "is_bottleneck", "bottleneck_classification"),
                     columnLabels_ = c("Frequency", "Processed Species", "Frequency (%)", "Is Bottleneck", "Protein Classification"))
 
+#******************************************#
+
 # Protein classification
-descriptiveAnalysis(dataSet, removeZeroBottlenecks_ = TRUE, verbose_ = TRUE,
-                    columns_ = c("bottleneck_classification"), columnLabels_ = c("Protein Classification"),
-                    title_ = 'Proteins Classification',
-                    exportFile_ = 'proteinClassification')
+data <- removeZeroBottlenecks(dataSet)
+data <- data[!data$freq ==0,]
+
+ggplot(data, aes(fill=bottleneck_classification, x=bottleneck_classification)) +
+  geom_bar(position="stack", stat="count") +
+  xlab("Proteins Group") +
+  ylab("Proteins Count") +
+  ggtitle("Proteins Classification") + theme_bw() +
+  guides(fill=guide_legend(title="Proteins Group")) +
+  scale_fill_manual(values = c("#ED553B", "#3CAEA3", "#20639B", "#173F5F")) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+ggsave(paste0("./output/statistics/descriptive/proteinClassification.png"), width = 30, height = 20, units = "cm")
+
+#******************************************#
+
+# Proteins by pathway without zero bottlenecks
+data <- removeZeroBottlenecks(dataSet)
+data <- data[!data$freq ==0,]
+
+ggplot(data, aes(fill=bottleneck_classification, x=pathway)) +
+    geom_bar(position="stack", stat="count") +
+    xlab("Pathways") +
+    ylab("Proteins Count") +
+    ggtitle("Proteins by pathway") + theme_bw() +
+    guides(fill=guide_legend(title="Proteins Classification")) +
+    scale_fill_manual(values = c("#ED553B", "#3CAEA3", "#20639B", "#173F5F")) +
+    theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+ggsave(paste0("./output/statistics/descriptive/pathwayClassification.png"), width = 40, height = 20, units = "cm")
 
 # Proteins by pathway
-descriptiveAnalysis(dataSet, removeZeroBottlenecks_ = TRUE, verbose_ = TRUE,
-                    columns_ = c("pathway"), columnLabels_ = c("Proteins by pathway"),
-                    labelAngle_ = 90, title_ = 'Proteins by pathway',
-                    exportFile_ = 'pathwayClassification')
+ggplot(dataSet, aes(fill=bottleneck_classification, x=pathway)) +
+  geom_bar(position="stack", stat="count") +
+  xlab("Pathways") +
+  ylab("Proteins Count") +
+  ggtitle("Proteins by pathway") + theme_bw() +
+  guides(fill=guide_legend(title="Proteins Classification")) +
+  scale_fill_manual(values = c("#ED553B", "#3CAEA3", "#20639B", "#173F5F")) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+ggsave(paste0("./output/statistics/descriptive/pathwayClassificationAll.png"), width = 40, height = 20, units = "cm")
+
+#******************************************#
 
 # Bottleneck x Betweenness X Degree
 descriptiveAnalysis(dataSet, removeZeroBottlenecks_ = TRUE, verbose_ = TRUE,
@@ -296,6 +332,8 @@ descriptiveAnalysis(dataSet, removeZeroBottlenecks_ = TRUE, verbose_ = TRUE,
                     columnLabels_ = c("Is Bottleneck", "Betweenness", "Degree"),
                     title_ = 'Bottleneck x Betweenness X Degree',
                     exportFile_ = 'bottleneckBetweennessDegree')
+
+#******************************************#
 
 # Graph metrics
 descriptiveAnalysis(dataSet, removeZeroBottlenecks_ = TRUE, verbose_ = TRUE,
