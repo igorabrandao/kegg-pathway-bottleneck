@@ -768,7 +768,7 @@ getGraphBridges <- function(iGraph_, verbose_=FALSE) {
 
   for (i in 1:length(E(G))) {
     G_sub <- delete.edges(G, i)
-    if ( length( decompose.graph(G_sub) ) > num_comp ) {
+    if (length(decompose.graph(G_sub)) > num_comp) {
       result <- rbind(result, as_ids(E(G)[i]))
     }
   }
@@ -830,10 +830,12 @@ multipleBottleneckDetection <- function(iGraph_, verbose_=FALSE) {
   combineNode <- function(graph_, u, v) {
     for (idx in seq(1:length(V(graph_)))) {
       if (u %in% graph_) {
-        igraph::delete_vertices(graph_, u)
+        graph_ <- igraph::delete_vertices(graph_, V(graph_)[u])
 
         if (!(v %in% graph_)) {
-          igraph::add_vertices(graph_, v)
+          #print(v)
+          #print(V(graph_)[v])
+          #graph_ <- igraph::add_vertices(graph_, V(graph_)[v])
         }
       }
     }
@@ -842,36 +844,46 @@ multipleBottleneckDetection <- function(iGraph_, verbose_=FALSE) {
   }
 
   worker <- function(g, prefix, arr, u) {
-    container = g.graph[u]
+    AP <- getGraphBottleneck(g)
+    container <- g
 
-    if u in g.AP():
-      print(prefix)
-    arr.append([prefix])
-    del g
-    else:
-      for i in container:
-      if str(i) not in prefix.split(' '):
-      new_prefix = prefix + ' ' + str(i)
-    new_g = copy.deepcopy(g)
-    new_g.combineNode(u, i)
-    if len(new_g.graph) > 1:
-      worker(new_g, new_prefix, arr, i)
+    if (V(g)[u]$name %in% AP$name) {
+      if (is(prefix, "igraph.vs")) {
+        arr <- rbind(arr, as_ids(prefix))
+      } else {
+        arr <- rbind(arr, prefix)
+      }
+    } else {
+      for (i in container) {
+        if (is(prefix, "igraph.vs")) {
+          prefix <- as_ids(prefix)
+        }
+
+        if (!(V(g)[i]$name %in% prefix)) {
+          new_prefix <- paste0(prefix, ' ', V(g)[i]$name)
+          new_g <- g
+          new_g <- combineNode(new_g, u, i)
+
+          if (length(V(new_g)) > 1) {
+            arr <- worker(new_g, new_prefix, arr, i)
+          }
+        }
+      }
+    }
+
+    return(arr)
   }
 
-
-  #iGraph_ <-removeNoise(pathwayToDataframe('ec00010', FALSE))
-  #iGraph_ <- graph_from_data_frame(iGraph_)
-
-  igraph::articulation.points(iGraph_)
-
-  igraph::biconnected.components(iGraph_)
+  iGraph_ <-removeNoise(pathwayToDataframe('ec00010', FALSE))
+  G <- graph_from_data_frame(iGraph_)
 
   # Define the result vector
   result <- data.frame(articulation_points = NA)
 
-  for (idx in seq(1:length(V(iGraph_)))) {
-    print(paste0('Remove node ', V(iGraph_)[idx]))
-    worker(iGraph_, V(iGraph_)[idx], result, idx)
+  for (idx in seq(1:length(V(G)))) {
+    print(paste0('Remove node ', V(G)[idx], ' - ', V(G)[idx]$name))
+    G_sub <- igraph::delete.edges(G, idx)
+    result <- worker(G_sub, V(G)[idx], result, idx)
   }
 
   print(result)
