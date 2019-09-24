@@ -827,6 +827,54 @@ getGraphBottleneck <- function(iGraph_, verbose_=FALSE) {
 
 multipleBottleneckDetection <- function(iGraph_, verbose_=FALSE) {
 
+  combineNode <- function(graph_, u, v) {
+    for (idx in seq(1:length(V(graph_)))) {
+      if (u %in% graph_) {
+        igraph::delete_vertices(graph_, u)
+
+        if (!(v %in% graph_)) {
+          igraph::add_vertices(graph_, v)
+        }
+      }
+    }
+
+    return(graph_)
+  }
+
+  worker <- function(g, prefix, arr, u) {
+    container = g.graph[u]
+
+    if u in g.AP():
+      print(prefix)
+    arr.append([prefix])
+    del g
+    else:
+      for i in container:
+      if str(i) not in prefix.split(' '):
+      new_prefix = prefix + ' ' + str(i)
+    new_g = copy.deepcopy(g)
+    new_g.combineNode(u, i)
+    if len(new_g.graph) > 1:
+      worker(new_g, new_prefix, arr, i)
+  }
+
+
+  #iGraph_ <-removeNoise(pathwayToDataframe('ec00010', FALSE))
+  #iGraph_ <- graph_from_data_frame(iGraph_)
+
+  igraph::articulation.points(iGraph_)
+
+  igraph::biconnected.components(iGraph_)
+
+  # Define the result vector
+  result <- data.frame(articulation_points = NA)
+
+  for (idx in seq(1:length(V(iGraph_)))) {
+    print(paste0('Remove node ', V(iGraph_)[idx]))
+    worker(iGraph_, V(iGraph_)[idx], result, idx)
+  }
+
+  print(result)
 }
 
 #' Function to classify the bottlenecks into the following groups:
