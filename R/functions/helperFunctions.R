@@ -7,7 +7,10 @@
 # helperFunctions.R #
 
 # Import the necessary libraries
-
+library(RCurl) # http connections
+library(rvest) # web scraping
+library(stringr) # regex manipulation
+library(pracma) # string manipulation
 
 #*******************************************************************************************#
 
@@ -90,4 +93,34 @@ makeAttr <- function(graph_, default_, valNodeList_) {
 
 trim <- function (str_) {
   gsub("^\\s+|\\s+$", "", str_)
+}
+
+#*******************************************************************************************#
+
+# ---- WEB SCRAPPING HANDLER ----
+
+#' Function to perform trim operation
+#'
+#' @param url_ The URL to be scrapped.
+#'
+#' @return Returns a string containing the entire web page content
+#'
+#' @examples
+#' \dontrun{
+#'  myDummy <- performScraping('https://www.kegg.jp/dbget-bin/www_bget?pathway+hsa00010')
+#' }
+#'
+#' @author
+#' Igor Brandão
+
+performScraping <- function (url_) {
+
+  if (is.null(url_) | length(url_) == 0) {
+    printMessage(paste0("The URL cannot be empty..."))
+    return(NULL)
+  } else {
+    # Perform the web scraping in the selected webpage
+    scraping <- getURL(url_)
+    return(scraping)
+  }
 }

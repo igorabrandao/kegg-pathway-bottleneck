@@ -22,6 +22,12 @@ library(pracma) # string manipulation
 
 #*******************************************************************************************#
 
+# ---- PATHWAY DATA SECTION ----
+
+
+
+#*******************************************************************************************#
+
 # ---- GRAPH LOADING SECTION ----
 
 #' Get the edges from a given KEGG pathway

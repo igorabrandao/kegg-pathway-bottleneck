@@ -1,12 +1,12 @@
-#*****************************************#
-# Functions to load all organism pathways #
-#*****************************************#
+#*******************************************************************#
+# Functions to load metabolic pathways and organisms data from KEGG #
+#*******************************************************************#
 
 # ---- PATHWAYS RETRIEVING SECTION ----
 
 # 0.0_organism2Pathway.R #
 
-#' This is an automation script to insert KEGG data into mysql DB
+#' This is an automation script to retrieve metabolic pathways and organism from KEGG
 #'
 #' @author
 #' Diego Morais & Igor Brandão
@@ -14,25 +14,69 @@
 # Import the necessary libraries
 library(KEGGREST)
 
+# ---- SETTINGS SECTION ----
+
+#*************************#
+# Pipeline basic settings #
+#*************************#
+
+# Import the graphLoader functions
+files.sources = NULL
+files.sources[1] = paste0("./R/functions", "/", "helperFunctions.R")
+sapply(files.sources, source)
+
+#*******************************************************************************************#
+
 #********************#
 # Metabolic pathways #
 #********************#
 
 # Get all the metabolic pathways code
-allPathways <- names(keggList("pathway"))
-allPathways <- gsub("path:", "", allPathways)
+pathwayList <- names(keggList("pathway"))
+pathwayList <- gsub("path:", "", pathwayList)
 
-# save(allPathways, file = "allPathways.RData", compress = "xz")
+# Get just the numeric part
+pathwayList <- gsub("[^0-9.]", "", pathwayList)
+
+# Convert into dataFrame object
+pathwayList <- data.frame(pathway = pathwayList, stringsAsFactors = FALSE)
+
+# Save the pathwayList
+save(pathwayList, file = "./dictionaries/pathwayList.RData", compress = "xz")
 
 #***********#
 # Organisms #
 #***********#
 
 # Get all organisms code
-org <- as.data.frame(keggList("organism"), stringsAsFactors = FALSE)
-org <- unique(org$organism)
+organismList <- as.data.frame(keggList("organism"), stringsAsFactors = FALSE)
+save(organismList, file = "./dictionaries/organismList.RData", compress = "xz")
 
-# save(org, file = "allOrganisms.RData", compress = "xz")
+# Get just the organism identification
+org <- unique(organismList$organism)
+
+#****************************#
+# Metabolic pathways details #
+#****************************#
+
+# Load all pathway detail at once
+pathwayDetail <- lapply(unlist(pathwayList), function(pathwayCode) {
+  # Status message
+  printMessage(paste0("GETTING PATHWAY ", pathwayCode, " DETAILS"))
+
+  tryCatch({
+    # Retrieve the pathway detail from KEEG API
+    keggGet(paste0('ec', pathwayCode))
+  }, error=function(e) {
+    printMessage(paste0("Pathway ", pathwayCode, " could no be found. Skipping it..."))
+  })
+})
+
+# Count the number of pathways that have information (valid pathways)
+length(which(lengths(pathwayDetail, use.names = TRUE)==1))
+
+# Save the pathwayDetail (list)
+save(pathwayDetail, file = "./dictionaries/pathwayDetail.RData", compress = "xz")
 
 #********************************#
 # Metabolic pathways x Organisms #
