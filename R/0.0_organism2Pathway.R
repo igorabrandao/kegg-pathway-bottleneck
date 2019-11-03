@@ -66,7 +66,7 @@ pathwayDetail <- lapply(unlist(pathwayList), function(pathwayCode) {
 
   tryCatch({
     # Retrieve the pathway detail from KEEG API
-    keggGet(paste0('ec', pathwayCode))
+    keggGet(paste0('map', pathwayCode))
   }, error=function(e) {
     printMessage(paste0("Pathway ", pathwayCode, " could no be found. Skipping it..."))
   })
@@ -74,6 +74,11 @@ pathwayDetail <- lapply(unlist(pathwayList), function(pathwayCode) {
 
 # Count the number of pathways that have information (valid pathways)
 length(which(lengths(pathwayDetail, use.names = TRUE)==1))
+
+# Remove one dimension from the list
+pathwayDetail <- lapply(pathwayDetail, function(item) {
+  item[[1]]
+})
 
 # Save the pathwayDetail (list)
 save(pathwayDetail, file = "./dictionaries/pathwayDetail.RData", compress = "xz")
@@ -104,10 +109,16 @@ organism2pathway <- lapply(org, function(i) {
   return(res)
 })
 
-organism2pathway <- lapply(organism2pathway, function(i) {
-  i[[1]]
+# Remove one dimension from the list
+organism2pathway <- lapply(organism2pathway, function(item) {
+  item[[1]]
 })
 
+# Rename the listitems
 names(organism2pathway) <- org
+
+# Remove the NULL cases
 organism2pathway[sapply(organism2pathway, is.null)] <- NULL
+
+# Save the organism2pathway (list)
 save(organism2pathway, file = "./dictionaries/organism2pathway.RData", compress = "xz")
