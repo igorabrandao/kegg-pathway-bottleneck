@@ -22,12 +22,6 @@ library(pracma) # string manipulation
 
 #*******************************************************************************************#
 
-# ---- PATHWAY DATA SECTION ----
-
-
-
-#*******************************************************************************************#
-
 # ---- GRAPH LOADING SECTION ----
 
 #' Get the edges from a given KEGG pathway
@@ -36,6 +30,8 @@ library(pracma) # string manipulation
 #' an igraph object.
 #'
 #' @param pathway A KEGG pathway ID.
+#' @param replaceOrg Flag to determine with wheter or not the organism name will be changed.
+#' @param orgToReplace The organism identification.
 #'
 #' @return This function returns a data.frame containing the edges from a
 #' KEGG pathway.
@@ -43,8 +39,6 @@ library(pracma) # string manipulation
 #' @examples
 #' \dontrun{
 #' df <- pathwayToDataframe("hsa00010")
-#' df2 <- pathwayToDataframe("ko00010")
-#' df3 <- pathwayToDataframe("mmu00010")
 #' }
 #'
 #' @importFrom KEGGREST keggGet
@@ -57,7 +51,7 @@ library(pracma) # string manipulation
 pathwayToDataframe <- function(pathway_, replaceOrg=FALSE, orgToReplace='') {
   tryCatch({
     # Determine the genesOnly parameter (Default true)
-    genesOnly <- !grepl("^ko|^ec", pathway_)
+    genesOnly <- !grepl("^ko|^ec|^map", pathway_)
 
     # Request the graph data from KEGG
     kgml <- suppressMessages(KEGGREST::keggGet(pathway_, "kgml"))
@@ -293,6 +287,74 @@ getPathwayHighlightedGenes <- function(pathway_, genesOnly_=TRUE) {
 #*******************************************************************************************#
 
 # ---- CONVERSIONS SECTION ----
+
+#' Get the KEGG kgml file and convert it into dataFrame
+#'
+#' Given a KEGG pathway kgml, this function returns a data.frame ready to create
+#' an igraph object.
+#'
+#' @param kgml_ Name of KGML file.
+#' @param pathway_ The pathway identification.
+#' @param replaceOrg Flag to determine with wheter or not the organism name will be changed.
+#' @param orgToReplace The organism identification.
+#'
+#' @return This function returns a data.frame containing the edges from a KEGG pathway.
+#'
+#' @examples
+#' \dontrun{
+#' df <- kgmlToDataframe(kgml_file, "hsa00010")
+#' }
+#'
+#' @importFrom KEGGgraph parseKGML
+#' @importFrom KEGGgraph KEGGpathway2Graph
+#'
+#' @author
+#' Igor Brandão
+
+kgmlToDataframe <- function(kgml_, pathway_, replaceOrg=FALSE, orgToReplace='') {
+  tryCatch({
+    # Convert it into graph object
+    #kgml_ <- './output/kgml/ko/ko00010.xml'
+    #pathway_<-'hsa00010'
+
+    mapkpathway <- KEGGgraph::parseKGML(kgml_)
+    mapkG <- KEGGgraph::KEGGpathway2Graph(mapkpathway, FALSE)
+
+    # Get the node data
+    aux <- names(mapkG@edgeData@data)
+
+    # If node data is empty, use the edge data
+    if (is.null(aux) | length(aux) == 0) {
+      return(NULL)
+    }
+
+    # Adjust the columns
+    aux <- as.data.frame(aux, stringsAsFactors = FALSE)
+    aux$node2 <- gsub("^.*\\|(.*)$", "\\1", aux$aux)
+    colnames(aux)[1] <- "node1"
+    aux$node1 <- gsub("^(.*)\\|.*$", "\\1", aux$node1)
+
+    if (length(unlist(aux)) > 0) {
+      # It means the organism has the pathway
+      if (!replaceOrg) {
+        aux$org <- gsub("^([[:alpha:]]*).*$", "\\1", pathway_)
+      } else {
+        aux$org <-orgToReplace
+      }
+
+      aux$pathway <- gsub("^[[:alpha:]]*(.*$)", "\\1", pathway_)
+      rm(pathway_, mapkpathway)
+      return(aux)
+    } else {
+      # It means the organism doesn't have the pathway
+      rm(pathway_, mapkpathway)
+      return(NULL)
+    }
+  }, error=function(e) {
+    print(paste0('The pathway ', pathway_, ' kgml could no be found. Skipping it...'))
+    return(NULL)
+  })
+}
 
 #' Converts the entrez identifiers to EC number based on KO dictionary
 #'

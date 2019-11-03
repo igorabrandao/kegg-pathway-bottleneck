@@ -109,16 +109,16 @@ organism2pathway <- lapply(org, function(i) {
   return(res)
 })
 
+# Rename the listitems
+names(organism2pathway) <- org
+
 # Remove one dimension from the list
 organism2pathway <- lapply(organism2pathway, function(item) {
   item[[1]]
 })
 
-# Rename the listitems
-names(organism2pathway) <- org
-
 # Remove the NULL cases
-organism2pathway[sapply(organism2pathway, is.null)] <- NULL
+#organism2pathway[sapply(organism2pathway, is.null)] <- NULL
 
 # Save the organism2pathway (list)
 save(organism2pathway, file = "./dictionaries/organism2pathway.RData", compress = "xz")
