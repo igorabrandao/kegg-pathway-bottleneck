@@ -1,0 +1,643 @@
+<?xml version="1.0"?>
+<!DOCTYPE pathway SYSTEM "http://www.kegg.jp/kegg/xml/KGML_v0.7.2_.dtd">
+<!-- Creation date: May 14, 2014 13:36:11 +0900 (GMT+09:00) -->
+<pathway name="path:spar04141" org="spar" number="04141"
+         title="Protein processing in endoplasmic reticulum"
+         image="http://www.kegg.jp/kegg/pathway/spar/spar04141.png"
+         link="http://www.kegg.jp/kegg-bin/show_pathway?spar04141">
+    <entry id="13" name="path:spar04141" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar04141">
+        <graphics name="TITLE:Protein processing in endoplasmic reticulum" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="250" y="58" width="420" height="25"/>
+    </entry>
+    <entry id="14" name="path:spar03060" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar03060">
+        <graphics name="Protein export" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="55" y="158" width="92" height="25"/>
+    </entry>
+    <entry id="15" name="path:map04210" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map04210">
+        <graphics name="Apoptosis" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="641" y="639" width="80" height="25"/>
+    </entry>
+    <entry id="16" name="path:spar03050" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar03050">
+        <graphics name="Proteasome" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="1144" y="357" width="92" height="25"/>
+    </entry>
+    <entry id="28" name="ko:K04374" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04374">
+        <graphics name="K04374" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="296" y="638" width="46" height="17"/>
+    </entry>
+    <entry id="29" name="ko:K04452" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04452">
+        <graphics name="K04452" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="361" y="720" width="46" height="17"/>
+    </entry>
+    <entry id="30" name="ko:K04440" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04440">
+        <graphics name="K04440" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="550" y="638" width="46" height="17"/>
+    </entry>
+    <entry id="31" name="ko:K03173" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K03173">
+        <graphics name="K03173" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="548" y="522" width="46" height="17"/>
+    </entry>
+    <entry id="32" name="ko:K04426" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04426">
+        <graphics name="K04426" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="550" y="561" width="46" height="17"/>
+    </entry>
+    <entry id="33" name="ko:K04431" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04431">
+        <graphics name="K04431" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="550" y="599" width="46" height="17"/>
+    </entry>
+    <entry id="34" name="spar:SPRG_01613" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_01613">
+        <graphics name="SPRG_01613" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="298" y="522" width="46" height="17"/>
+    </entry>
+    <entry id="35" name="spar:SPRG_00782" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_00782">
+        <graphics name="SPRG_00782" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="440" y="126" width="46" height="17"/>
+    </entry>
+    <entry id="36" name="spar:SPRG_13196" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_13196">
+        <graphics name="SPRG_13196" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="441" y="182" width="46" height="17"/>
+    </entry>
+    <entry id="37" name="ko:K14019" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14019">
+        <graphics name="K14019" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="272" y="561" width="46" height="17"/>
+    </entry>
+    <entry id="39" name="gl:G00010" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G00010">
+        <graphics name="G00010" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="408" y="183" width="8" height="8"/>
+    </entry>
+    <entry id="40" name="cpd:C00076" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00076">
+        <graphics name="C00076" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="640" y="437" width="8" height="8"/>
+    </entry>
+    <entry id="56" name="ko:K08056" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K08056">
+        <graphics name="K08056" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="441" y="152" width="46" height="17"/>
+    </entry>
+    <entry id="57" name="ko:K04741" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04741">
+        <graphics name="K04741" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="641" y="561" width="46" height="17"/>
+    </entry>
+    <entry id="58" name="ko:K01367 ko:K03853" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K01367+K03853">
+        <graphics name="K01367..." fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="641" y="522" width="46" height="17"/>
+    </entry>
+    <entry id="59" name="spar:SPRG_03931 spar:SPRG_10689 spar:SPRG_17070 spar:SPRG_18759 spar:SPRG_21424 spar:SPRG_21882" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_03931+spar:SPRG_10689+spar:SPRG_17070+spar:SPRG_18759+spar:SPRG_21424+spar:SPRG_21882">
+        <graphics name="SPRG_03931..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="58" y="201" width="46" height="17"/>
+    </entry>
+    <entry id="63" name="spar:SPRG_00678" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_00678">
+        <graphics name="SPRG_00678" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="943" y="380" width="46" height="17"/>
+    </entry>
+    <entry id="64" name="spar:SPRG_03931 spar:SPRG_10689 spar:SPRG_17070 spar:SPRG_18759 spar:SPRG_21424 spar:SPRG_21882" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_03931+spar:SPRG_10689+spar:SPRG_17070+spar:SPRG_18759+spar:SPRG_21424+spar:SPRG_21882">
+        <graphics name="SPRG_03931..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="767" y="417" width="46" height="17"/>
+    </entry>
+    <entry id="65" name="spar:SPRG_00281 spar:SPRG_03498 spar:SPRG_03499 spar:SPRG_06356 spar:SPRG_09497 spar:SPRG_09683 spar:SPRG_09690 spar:SPRG_19225" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_00281+spar:SPRG_03498+spar:SPRG_03499+spar:SPRG_06356+spar:SPRG_09497+spar:SPRG_09683+spar:SPRG_09690+spar:SPRG_19225">
+        <graphics name="SPRG_00281..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="137" y="230" width="46" height="17"/>
+    </entry>
+    <entry id="66" name="spar:SPRG_01028 spar:SPRG_02104" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_01028+spar:SPRG_02104">
+        <graphics name="SPRG_01028..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="593" y="367" width="46" height="17"/>
+    </entry>
+    <entry id="80" name="spar:SPRG_05270 spar:SPRG_05286 spar:SPRG_06834 spar:SPRG_10669" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_05270+spar:SPRG_05286+spar:SPRG_06834+spar:SPRG_10669">
+        <graphics name="SPRG_05270..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="794" y="160" width="46" height="17"/>
+    </entry>
+    <entry id="83" name="spar:SPRG_12012 spar:SPRG_12013 spar:SPRG_12995" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_12012+spar:SPRG_12013+spar:SPRG_12995">
+        <graphics name="SPRG_12012..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="665" y="178" width="46" height="17"/>
+    </entry>
+    <entry id="84" name="ko:K10080" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K10080">
+        <graphics name="K10080" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="665" y="198" width="46" height="17"/>
+    </entry>
+    <entry id="89" name="spar:SPRG_02756 spar:SPRG_08361 spar:SPRG_19093" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_02756+spar:SPRG_08361+spar:SPRG_19093">
+        <graphics name="SPRG_02756..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="947" y="444" width="46" height="17"/>
+    </entry>
+    <entry id="90" name="spar:SPRG_10869" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_10869">
+        <graphics name="SPRG_10869" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="947" y="427" width="46" height="17"/>
+    </entry>
+    <entry id="91" name="spar:SPRG_00433" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_00433">
+        <graphics name="SPRG_00433" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="722" y="333" width="46" height="17"/>
+    </entry>
+    <entry id="92" name="spar:SPRG_01621 spar:SPRG_08812" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_01621+spar:SPRG_08812">
+        <graphics name="SPRG_01621..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="566" y="178" width="46" height="17"/>
+    </entry>
+    <entry id="93" name="spar:SPRG_05054 spar:SPRG_09385 spar:SPRG_14313 spar:SPRG_15327" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_05054+spar:SPRG_09385+spar:SPRG_14313+spar:SPRG_15327">
+        <graphics name="SPRG_05054..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="367" y="178" width="46" height="17"/>
+    </entry>
+    <entry id="94" name="spar:SPRG_05054 spar:SPRG_09385 spar:SPRG_14313 spar:SPRG_15327" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_05054+spar:SPRG_09385+spar:SPRG_14313+spar:SPRG_15327">
+        <graphics name="SPRG_05054..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="502" y="276" width="46" height="17"/>
+    </entry>
+    <entry id="95" name="spar:SPRG_06895 spar:SPRG_15828" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_06895+spar:SPRG_15828">
+        <graphics name="SPRG_06895..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="367" y="144" width="46" height="17"/>
+    </entry>
+    <entry id="99" name="spar:SPRG_06920" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_06920">
+        <graphics name="SPRG_06920" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="418" y="252" width="46" height="17"/>
+    </entry>
+    <entry id="101" name="gl:G00010" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G00010">
+        <graphics name="G00010" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="378" y="329" width="8" height="8"/>
+    </entry>
+    <entry id="105" name="spar:SPRG_01621 spar:SPRG_08812" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_01621+spar:SPRG_08812">
+        <graphics name="SPRG_01621..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="594" y="400" width="46" height="17"/>
+    </entry>
+    <entry id="116" name="spar:SPRG_04760" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_04760">
+        <graphics name="SPRG_04760" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="759" y="604" width="46" height="17"/>
+    </entry>
+    <entry id="117" name="spar:SPRG_06240" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_06240">
+        <graphics name="SPRG_06240" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="760" y="693" width="46" height="17"/>
+    </entry>
+    <entry id="118" name="ko:K14022" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14022">
+        <graphics name="K14022" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="806" y="709" width="46" height="17"/>
+    </entry>
+    <entry id="119" name="ko:K14023" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14023">
+        <graphics name="K14023" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="760" y="676" width="46" height="17"/>
+    </entry>
+    <entry id="120" name="spar:SPRG_04632 spar:SPRG_17850" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_04632+spar:SPRG_17850">
+        <graphics name="SPRG_04632..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="760" y="709" width="46" height="17"/>
+    </entry>
+    <entry id="123" name="spar:SPRG_00333" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_00333">
+        <graphics name="SPRG_00333" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="222" y="304" width="46" height="19"/>
+    </entry>
+    <entry id="128" name="path:spar00510" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar00510">
+        <graphics name="N-Glycan biosynthesis" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="323" y="250" width="92" height="34"/>
+    </entry>
+    <entry id="129" name="spar:SPRG_04820 spar:SPRG_07907 spar:SPRG_07908 spar:SPRG_08247" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_04820+spar:SPRG_07907+spar:SPRG_07908+spar:SPRG_08247">
+        <graphics name="SPRG_04820..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="58" y="218" width="46" height="17"/>
+    </entry>
+    <entry id="130" name="ko:K02159 ko:K14021" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02159+K14021">
+        <graphics name="K02159..." fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="640" y="457" width="46" height="17"/>
+    </entry>
+    <entry id="134" name="ko:K09054 ko:K09049" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K09054+K09049">
+        <graphics name="K09054..." fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="423" y="478" width="46" height="17"/>
+    </entry>
+    <entry id="135" name="ko:K08852" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K08852">
+        <graphics name="K08852" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="548" y="478" width="46" height="17"/>
+    </entry>
+    <entry id="136" name="spar:SPRG_10353 spar:SPRG_11113 spar:SPRG_11909" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_10353+spar:SPRG_11113+spar:SPRG_11909">
+        <graphics name="SPRG_10353..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="298" y="478" width="46" height="17"/>
+    </entry>
+    <entry id="137" name="spar:SPRG_09285 spar:SPRG_15469" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_09285+spar:SPRG_15469">
+        <graphics name="SPRG_09285..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="451" y="535" width="46" height="17"/>
+    </entry>
+    <entry id="138" name="spar:SPRG_01794" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_01794">
+        <graphics name="SPRG_01794" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="451" y="556" width="46" height="17"/>
+    </entry>
+    <entry id="148" name="ko:K09027" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K09027">
+        <graphics name="K09027" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="489" y="630" width="46" height="17"/>
+    </entry>
+    <entry id="159" name="ko:K14020" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14020">
+        <graphics name="K14020" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="395" y="556" width="46" height="17"/>
+    </entry>
+    <entry id="163" name="spar:SPRG_00615" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_00615">
+        <graphics name="SPRG_00615" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1010" y="393" width="46" height="17"/>
+    </entry>
+    <entry id="164" name="spar:SPRG_07906 spar:SPRG_11531" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_07906+spar:SPRG_11531">
+        <graphics name="SPRG_07906..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1009" y="371" width="46" height="17"/>
+    </entry>
+    <entry id="165" name="spar:SPRG_19255" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_19255">
+        <graphics name="SPRG_19255" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1010" y="410" width="46" height="17"/>
+    </entry>
+    <entry id="166" name="spar:SPRG_02351 spar:SPRG_03680 spar:SPRG_04632 spar:SPRG_07036 spar:SPRG_17850" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_02351+spar:SPRG_03680+spar:SPRG_04632+spar:SPRG_07036+spar:SPRG_17850">
+        <graphics name="SPRG_02351..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="759" y="621" width="46" height="17"/>
+    </entry>
+    <entry id="167" name="spar:SPRG_02553 spar:SPRG_02670" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_02553+spar:SPRG_02670">
+        <graphics name="SPRG_02553..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1062" y="371" width="46" height="17"/>
+    </entry>
+    <entry id="168" name="spar:SPRG_03700" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_03700">
+        <graphics name="SPRG_03700" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1037" y="324" width="46" height="17"/>
+    </entry>
+    <entry id="169" name="ko:K11863" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K11863">
+        <graphics name="K11863" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1062" y="393" width="46" height="17"/>
+    </entry>
+    <entry id="170" name="spar:SPRG_11540 spar:SPRG_14681" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_11540+spar:SPRG_14681">
+        <graphics name="SPRG_11540..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1037" y="341" width="46" height="17"/>
+    </entry>
+    <entry id="171" name="spar:SPRG_00068 spar:SPRG_00182 spar:SPRG_00183 spar:SPRG_01255 spar:SPRG_04533 spar:SPRG_10476 spar:SPRG_10477 spar:SPRG_10519 spar:SPRG_11007 spar:SPRG_11133 spar:SPRG_15695" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_00068+spar:SPRG_00182+spar:SPRG_00183+spar:SPRG_01255+spar:SPRG_04533+spar:SPRG_10476+spar:SPRG_10477+spar:SPRG_10519+spar:SPRG_11007+spar:SPRG_11133+spar:SPRG_15695">
+        <graphics name="SPRG_00068..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="917" y="268" width="46" height="17"/>
+    </entry>
+    <entry id="172" name="spar:SPRG_00958 spar:SPRG_03063 spar:SPRG_13663 spar:SPRG_16038 spar:SPRG_17460 spar:SPRG_21650" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_00958+spar:SPRG_03063+spar:SPRG_13663+spar:SPRG_16038+spar:SPRG_17460+spar:SPRG_21650">
+        <graphics name="SPRG_00958..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="870" y="675" width="46" height="17"/>
+    </entry>
+    <entry id="173" name="spar:SPRG_06240" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_06240">
+        <graphics name="SPRG_06240" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="905" y="692" width="46" height="17"/>
+    </entry>
+    <entry id="174" name="spar:SPRG_03010 spar:SPRG_19921" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_03010+spar:SPRG_19921">
+        <graphics name="SPRG_03010..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="866" y="315" width="46" height="17"/>
+    </entry>
+    <entry id="175" name="ko:K10088" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K10088">
+        <graphics name="K10088" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="776" y="347" width="46" height="17"/>
+    </entry>
+    <entry id="176" name="ko:K14027" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14027">
+        <graphics name="K14027" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="859" y="692" width="46" height="17"/>
+    </entry>
+    <entry id="177" name="ko:K14008" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14008">
+        <graphics name="K14008" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="776" y="369" width="46" height="17"/>
+    </entry>
+    <entry id="178" name="spar:SPRG_02351 spar:SPRG_03680 spar:SPRG_04632 spar:SPRG_07036 spar:SPRG_17850" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_02351+spar:SPRG_03680+spar:SPRG_04632+spar:SPRG_07036+spar:SPRG_17850">
+        <graphics name="SPRG_02351..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="905" y="709" width="46" height="17"/>
+    </entry>
+    <entry id="179" name="ko:K14025" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14025">
+        <graphics name="K14025" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="916" y="658" width="46" height="17"/>
+    </entry>
+    <entry id="180" name="spar:SPRG_11654" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_11654">
+        <graphics name="SPRG_11654" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1061" y="675" width="46" height="17"/>
+    </entry>
+    <entry id="181" name="ko:K10099 ko:K10100" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K10099+K10100">
+        <graphics name="K10099..." fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1015" y="709" width="46" height="17"/>
+    </entry>
+    <entry id="182" name="spar:SPRG_05163" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_05163">
+        <graphics name="SPRG_05163" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="972" y="630" width="46" height="17"/>
+    </entry>
+    <entry id="183" name="spar:SPRG_07853 spar:SPRG_07857 spar:SPRG_15718 spar:SPRG_17375 spar:SPRG_19323" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_07853+spar:SPRG_07857+spar:SPRG_15718+spar:SPRG_17375+spar:SPRG_19323">
+        <graphics name="SPRG_07853..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1018" y="604" width="46" height="17"/>
+    </entry>
+    <entry id="184" name="spar:SPRG_00068 spar:SPRG_00182 spar:SPRG_00183 spar:SPRG_01255 spar:SPRG_04533 spar:SPRG_10476 spar:SPRG_10477 spar:SPRG_10519 spar:SPRG_11007 spar:SPRG_11133 spar:SPRG_15695" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_00068+spar:SPRG_00182+spar:SPRG_00183+spar:SPRG_01255+spar:SPRG_04533+spar:SPRG_10476+spar:SPRG_10477+spar:SPRG_10519+spar:SPRG_11007+spar:SPRG_11133+spar:SPRG_15695">
+        <graphics name="SPRG_00068..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1018" y="621" width="46" height="17"/>
+    </entry>
+    <entry id="185" name="spar:SPRG_04386" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_04386">
+        <graphics name="SPRG_04386" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1018" y="638" width="46" height="17"/>
+    </entry>
+    <entry id="187" name="spar:SPRG_02145 spar:SPRG_02637 spar:SPRG_04464 spar:SPRG_06029 spar:SPRG_06772 spar:SPRG_09907 spar:SPRG_11026 spar:SPRG_11118 spar:SPRG_12188 spar:SPRG_16163 spar:SPRG_16443 spar:SPRG_19278" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_02145+spar:SPRG_02637+spar:SPRG_04464+spar:SPRG_06029+spar:SPRG_06772+spar:SPRG_09907+spar:SPRG_11026+spar:SPRG_11118+spar:SPRG_12188+spar:SPRG_16163+spar:SPRG_16443+spar:SPRG_19278">
+        <graphics name="SPRG_02145..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="723" y="369" width="46" height="17"/>
+    </entry>
+    <entry id="188" name="spar:SPRG_06103" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_06103">
+        <graphics name="SPRG_06103" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="222" y="320" width="46" height="17"/>
+    </entry>
+    <entry id="189" name="spar:SPRG_04493" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_04493">
+        <graphics name="SPRG_04493" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="866" y="378" width="46" height="17"/>
+    </entry>
+    <entry id="190" name="ko:K14022" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14022">
+        <graphics name="K14022" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="805" y="621" width="46" height="17"/>
+    </entry>
+    <entry id="191" name="spar:SPRG_07853 spar:SPRG_07857 spar:SPRG_15718 spar:SPRG_17375 spar:SPRG_19323" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_07853+spar:SPRG_07857+spar:SPRG_15718+spar:SPRG_17375+spar:SPRG_19323">
+        <graphics name="SPRG_07853..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="917" y="285" width="46" height="17"/>
+    </entry>
+    <entry id="192" name="ko:K04555" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04555">
+        <graphics name="K04555" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="871" y="621" width="46" height="17"/>
+    </entry>
+    <entry id="195" name="ko:K14014" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14014">
+        <graphics name="K14014" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="892" y="410" width="46" height="17"/>
+    </entry>
+    <entry id="201" name="spar:SPRG_05163" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_05163">
+        <graphics name="SPRG_05163" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1015" y="684" width="46" height="17"/>
+    </entry>
+    <entry id="202" name="spar:SPRG_05099 spar:SPRG_05334 spar:SPRG_05824 spar:SPRG_17573" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_05099+spar:SPRG_05334+spar:SPRG_05824+spar:SPRG_17573">
+        <graphics name="SPRG_05099..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1061" y="709" width="46" height="17"/>
+    </entry>
+    <entry id="203" name="spar:SPRG_01077 spar:SPRG_10002" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_01077+spar:SPRG_10002">
+        <graphics name="SPRG_01077..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1061" y="692" width="46" height="17"/>
+    </entry>
+    <entry id="204" name="spar:SPRG_03010 spar:SPRG_19921" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_03010+spar:SPRG_19921">
+        <graphics name="SPRG_03010..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="916" y="621" width="46" height="17"/>
+    </entry>
+    <entry id="205" name="spar:SPRG_01982" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_01982">
+        <graphics name="SPRG_01982" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="916" y="604" width="46" height="17"/>
+    </entry>
+    <entry id="206" name="ko:K11519" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K11519">
+        <graphics name="K11519" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="916" y="675" width="46" height="17"/>
+    </entry>
+    <entry id="207" name="spar:SPRG_07100" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_07100">
+        <graphics name="SPRG_07100" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="970" y="268" width="46" height="17"/>
+    </entry>
+    <entry id="208" name="ko:K05638" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K05638">
+        <graphics name="K05638" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="350" y="535" width="46" height="17"/>
+    </entry>
+    <entry id="211" name="spar:SPRG_03160 spar:SPRG_11633 spar:SPRG_11946 spar:SPRG_19095" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_03160+spar:SPRG_11633+spar:SPRG_11946+spar:SPRG_19095">
+        <graphics name="SPRG_03160..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="794" y="143" width="46" height="17"/>
+    </entry>
+    <entry id="212" name="spar:SPRG_10026 spar:SPRG_12439 spar:SPRG_14975" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_10026+spar:SPRG_12439+spar:SPRG_14975">
+        <graphics name="SPRG_10026..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="748" y="160" width="46" height="17"/>
+    </entry>
+    <entry id="213" name="spar:SPRG_10371 spar:SPRG_10719" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_10371+spar:SPRG_10719">
+        <graphics name="SPRG_10371..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="748" y="198" width="46" height="17"/>
+    </entry>
+    <entry id="215" name="spar:SPRG_13941" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_13941">
+        <graphics name="SPRG_13941" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="277" y="303" width="46" height="17"/>
+    </entry>
+    <entry id="218" name="ko:K02161" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02161">
+        <graphics name="K02161" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="363" y="757" width="46" height="17"/>
+    </entry>
+    <entry id="219" name="path:map04210" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map04210">
+        <graphics name="Apoptosis" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="365" y="795" width="80" height="25"/>
+    </entry>
+    <entry id="221" name="ko:K02161" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02161">
+        <graphics name="K02161" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="669" y="494" width="46" height="17"/>
+    </entry>
+    <entry id="224" name="ko:K10081" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K10081">
+        <graphics name="K10081" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="665" y="219" width="46" height="17"/>
+    </entry>
+    <entry id="225" name="ko:K14010" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14010">
+        <graphics name="K14010" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="866" y="298" width="46" height="17"/>
+    </entry>
+    <entry id="226" name="spar:SPRG_04386" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_04386">
+        <graphics name="SPRG_04386" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1074" y="604" width="46" height="17"/>
+    </entry>
+    <entry id="227" name="ko:K04556" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04556">
+        <graphics name="K04556" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1074" y="621" width="46" height="17"/>
+    </entry>
+    <entry id="228" name="spar:SPRG_19957" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_19957">
+        <graphics name="SPRG_19957" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="917" y="308" width="46" height="17"/>
+    </entry>
+    <entry id="229" name="ko:K09541 ko:K09542 ko:K13993" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K09541+K09542+K13993">
+        <graphics name="K09541..." fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="970" y="308" width="46" height="17"/>
+    </entry>
+    <entry id="230" name="path:map05010" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map05010">
+        <graphics name="Alzheimer disease" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="64" y="502" width="92" height="34"/>
+    </entry>
+    <entry id="231" name="path:map05012" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map05012">
+        <graphics name="Parkinson disease" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="64" y="547" width="92" height="34"/>
+    </entry>
+    <entry id="232" name="path:map05020" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map05020">
+        <graphics name="Prion diseases" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="63" y="463" width="92" height="25"/>
+    </entry>
+    <entry id="233" name="spar:SPRG_06288 spar:SPRG_07521" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_06288+spar:SPRG_07521">
+        <graphics name="SPRG_06288..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="176" y="303" width="46" height="17"/>
+    </entry>
+    <entry id="234" name="ko:K14024" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14024">
+        <graphics name="K14024" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="806" y="693" width="46" height="17"/>
+    </entry>
+    <entry id="237" name="path:map04930" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map04930">
+        <graphics name="Type II diabetes mellitus" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="64" y="591" width="92" height="34"/>
+    </entry>
+    <entry id="238" name="spar:SPRG_06895 spar:SPRG_15828" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_06895+spar:SPRG_15828">
+        <graphics name="SPRG_06895..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="137" y="246" width="46" height="17"/>
+    </entry>
+    <entry id="239" name="ko:K13999" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K13999">
+        <graphics name="K13999" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="183" y="246" width="46" height="17"/>
+    </entry>
+    <entry id="240" name="ko:K14000" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14000">
+        <graphics name="K14000" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="235" y="212" width="46" height="17"/>
+    </entry>
+    <entry id="241" name="spar:SPRG_12994" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_12994">
+        <graphics name="SPRG_12994" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="767" y="400" width="46" height="17"/>
+    </entry>
+    <entry id="242" name="ko:K13249 ko:K13250 ko:K13251 ko:K04571" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K13249+K13250+K13251+K04571">
+        <graphics name="K13249..." fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="721" y="417" width="46" height="17"/>
+    </entry>
+    <entry id="245" name="ko:K14013" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14013">
+        <graphics name="K14013" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="806" y="676" width="46" height="17"/>
+    </entry>
+    <entry id="246" name="spar:SPRG_10141" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spar:SPRG_10141">
+        <graphics name="SPRG_10141" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="916" y="587" width="46" height="17"/>
+    </entry>
+    <entry id="248" name="gl:G00009" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G00009">
+        <graphics name="G00009" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="333" y="194" width="8" height="8"/>
+    </entry>
+    <entry id="249" name="gl:G00011" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G00011">
+        <graphics name="G00011" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="501" y="391" width="8" height="8"/>
+    </entry>
+    <entry id="250" name="gl:G00011" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G00011">
+        <graphics name="G00011" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="528" y="167" width="8" height="8"/>
+    </entry>
+    <entry id="251" name="gl:G10694" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G10694">
+        <graphics name="G10694" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="616" y="166" width="8" height="8"/>
+    </entry>
+    <entry id="252" name="gl:G00012" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G00012">
+        <graphics name="G00012" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="634" y="396" width="8" height="8"/>
+    </entry>
+    <relation entry1="211" entry2="80" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="211" entry2="212" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="136" entry2="34" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="91" entry2="187" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="90" entry2="63" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="213" entry2="212" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="90" entry2="89" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="189" entry2="63" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+</pathway>
