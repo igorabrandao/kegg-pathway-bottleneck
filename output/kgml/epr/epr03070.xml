@@ -1,44 +1,413 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<title>Access forbidden!</title>
-<link rev="made" href="mailto:http://www.genome.jp/feedback/" />
-<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
-    body { color: #000000; background-color: #FFFFFF; }
-    a:link { color: #0000CC; }
-    p, address {margin-left: 3em;}
-    span {font-size: smaller;}
-/*]]>*/--></style>
-</head>
-
-<body>
-<h1>Access forbidden!</h1>
-<p>
-
-
-  
-
-    You don't have permission to access the requested object.
-    It is either read-protected or not readable by the server.
-
-  
-
-</p>
-<p>
-If you think this is a server error, please contact
-the <a href="http://www.genome.jp/feedback/">webmaster</a>.
-
-</p>
-
-<h2>Error 403</h2>
-<address>
-  <a href="/">rest.kegg.jp</a><br />
-  
-  <span>Wed Nov  6 22:47:30 2019<br />
-  Apache</span>
-</address>
-</body>
-</html>
-
+<?xml version="1.0"?>
+<!DOCTYPE pathway SYSTEM "http://www.kegg.jp/kegg/xml/KGML_v0.7.2_.dtd">
+<!-- Creation date: Apr 12, 2010 11:33:30 +0900 (JST) -->
+<pathway name="path:epr03070" org="epr" number="03070"
+         title="Bacterial secretion system"
+         image="http://www.kegg.jp/kegg/pathway/epr/epr03070.png"
+         link="http://www.kegg.jp/kegg-bin/show_pathway?epr03070">
+    <entry id="1" name="cpd:C00002" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00002">
+        <graphics name="C00002" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="1057" y="568" width="8" height="8"/>
+    </entry>
+    <entry id="2" name="ko:K11004" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K11004">
+        <graphics name="K11004" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="172" y="798" width="46" height="17"/>
+    </entry>
+    <entry id="3" name="ko:K11003" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K11003">
+        <graphics name="K11003" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="172" y="781" width="46" height="17"/>
+    </entry>
+    <entry id="4" name="epr:EPYR_00456" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr:EPYR_00456">
+        <graphics name="tolC" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="172" y="764" width="46" height="17"/>
+    </entry>
+    <entry id="5" name="ko:K11028" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K11028">
+        <graphics name="K11028" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="811" y="764" width="46" height="17"/>
+    </entry>
+    <entry id="6" name="ko:K11017" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K11017">
+        <graphics name="K11017" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="863" y="764" width="46" height="17"/>
+    </entry>
+    <entry id="7" name="ko:K11016" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K11016">
+        <graphics name="K11016" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="863" y="781" width="46" height="17"/>
+    </entry>
+    <entry id="8" name="ko:K12341" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K12341">
+        <graphics name="K12341" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="915" y="764" width="46" height="17"/>
+    </entry>
+    <entry id="9" name="ko:K12342" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K12342">
+        <graphics name="K12342" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="915" y="786" width="46" height="17"/>
+    </entry>
+    <entry id="10" name="epr:EPYR_00671 epr:EPYR_00674" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr:EPYR_00671+epr:EPYR_00674">
+        <graphics name="vgrG..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1352" y="764" width="46" height="17"/>
+    </entry>
+    <entry id="11" name="epr:EPYR_00655 epr:EPYR_04027 epr:EPYR_04036" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr:EPYR_00655+epr:EPYR_04027+epr:EPYR_04036">
+        <graphics name="EPYR_00655..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1352" y="781" width="46" height="17"/>
+    </entry>
+    <entry id="12" name="epr:EPYR_00646" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr:EPYR_00646">
+        <graphics name="EPYR_00646" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1352" y="798" width="46" height="17"/>
+    </entry>
+    <entry id="13" name="ko:K11915" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K11915">
+        <graphics name="K11915" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1444" y="849" width="46" height="17"/>
+    </entry>
+    <entry id="14" name="epr:EPYR_00649 epr:EPYR_02110 epr:EPYR_02111" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr:EPYR_00649+epr:EPYR_02110+epr:EPYR_02111">
+        <graphics name="EPYR_00649..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1352" y="815" width="46" height="17"/>
+    </entry>
+    <entry id="15" name="epr:EPYR_00648 epr:EPYR_02109" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr:EPYR_00648+epr:EPYR_02109">
+        <graphics name="EPYR_00648..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1398" y="815" width="46" height="17"/>
+    </entry>
+    <entry id="16" name="ko:K11912" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K11912">
+        <graphics name="K11912" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1352" y="849" width="46" height="17"/>
+    </entry>
+    <entry id="17" name="ko:K11913" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K11913">
+        <graphics name="K11913" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1398" y="849" width="46" height="17"/>
+    </entry>
+    <entry id="18" name="epr:EPYR_00669" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr:EPYR_00669">
+        <graphics name="clpV" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1352" y="832" width="46" height="17"/>
+    </entry>
+    <entry id="19" name="epr:EPYR_02157" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr:EPYR_02157">
+        <graphics name="prgI" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="302" y="764" width="46" height="17"/>
+    </entry>
+    <entry id="20" name="ko:K04059" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04059">
+        <graphics name="K04059" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="394" y="781" width="46" height="17"/>
+    </entry>
+    <entry id="21" name="ko:K04057" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04057">
+        <graphics name="K04057" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="348" y="781" width="46" height="17"/>
+    </entry>
+    <entry id="22" name="ko:K04056" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04056">
+        <graphics name="K04056" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="302" y="781" width="46" height="17"/>
+    </entry>
+    <entry id="23" name="epr:EPYR_03321" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr:EPYR_03321">
+        <graphics name="hrcC" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="302" y="798" width="46" height="17"/>
+    </entry>
+    <entry id="24" name="epr:EPYR_03333" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr:EPYR_03333">
+        <graphics name="hrpJ" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="302" y="815" width="46" height="17"/>
+    </entry>
+    <entry id="25" name="epr:EPYR_03326" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr:EPYR_03326">
+        <graphics name="hrcJ" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="302" y="832" width="46" height="17"/>
+    </entry>
+    <entry id="26" name="epr:EPYR_03340" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr:EPYR_03340">
+        <graphics name="hcrR" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="348" y="832" width="46" height="17"/>
+    </entry>
+    <entry id="27" name="epr:EPYR_03341" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr:EPYR_03341">
+        <graphics name="hrcS" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="394" y="832" width="46" height="17"/>
+    </entry>
+    <entry id="28" name="epr:EPYR_03342" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr:EPYR_03342">
+        <graphics name="hrcT" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="302" y="849" width="46" height="17"/>
+    </entry>
+    <entry id="29" name="epr:EPYR_03343" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr:EPYR_03343">
+        <graphics name="hrcU" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="348" y="849" width="46" height="17"/>
+    </entry>
+    <entry id="30" name="epr:EPYR_02152 epr:EPYR_03334" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr:EPYR_02152+epr:EPYR_03334">
+        <graphics name="invA..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="394" y="849" width="46" height="17"/>
+    </entry>
+    <entry id="31" name="epr:EPYR_03336" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr:EPYR_03336">
+        <graphics name="hrcN" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="302" y="866" width="46" height="17"/>
+    </entry>
+    <entry id="32" name="epr:EPYR_02147 epr:EPYR_03339" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr:EPYR_02147+epr:EPYR_03339">
+        <graphics name="spaO..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="302" y="883" width="46" height="17"/>
+    </entry>
+    <entry id="33" name="epr:EPYR_03324" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr:EPYR_03324">
+        <graphics name="hrpE" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="348" y="883" width="46" height="17"/>
+    </entry>
+    <entry id="34" name="epr:EPYR_00811" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr:EPYR_00811">
+        <graphics name="outD" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="556" y="764" width="46" height="17"/>
+    </entry>
+    <entry id="35" name="epr:EPYR_00800" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr:EPYR_00800">
+        <graphics name="EPYR_00800" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="556" y="781" width="46" height="17"/>
+    </entry>
+    <entry id="36" name="epr:EPYR_00809" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr:EPYR_00809">
+        <graphics name="outF" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="602" y="798" width="46" height="17"/>
+    </entry>
+    <entry id="37" name="epr:EPYR_00808" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr:EPYR_00808">
+        <graphics name="outG" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="648" y="798" width="46" height="17"/>
+    </entry>
+    <entry id="38" name="epr:EPYR_00812" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr:EPYR_00812">
+        <graphics name="outC" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="556" y="798" width="46" height="17"/>
+    </entry>
+    <entry id="39" name="epr:EPYR_00807" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr:EPYR_00807">
+        <graphics name="outH" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="556" y="815" width="46" height="17"/>
+    </entry>
+    <entry id="40" name="epr:EPYR_00806" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr:EPYR_00806">
+        <graphics name="outI" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="602" y="815" width="46" height="17"/>
+    </entry>
+    <entry id="41" name="epr:EPYR_00805" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr:EPYR_00805">
+        <graphics name="outJ" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="648" y="815" width="46" height="17"/>
+    </entry>
+    <entry id="42" name="epr:EPYR_00804" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr:EPYR_00804">
+        <graphics name="outK" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="556" y="832" width="46" height="17"/>
+    </entry>
+    <entry id="43" name="epr:EPYR_00803" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr:EPYR_00803">
+        <graphics name="outL" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="602" y="832" width="46" height="17"/>
+    </entry>
+    <entry id="44" name="ko:K02462" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02462">
+        <graphics name="K02462" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="648" y="832" width="46" height="17"/>
+    </entry>
+    <entry id="45" name="epr:EPYR_00810" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr:EPYR_00810">
+        <graphics name="outE" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="556" y="849" width="46" height="17"/>
+    </entry>
+    <entry id="46" name="epr:EPYR_00801" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr:EPYR_00801">
+        <graphics name="outO" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="556" y="868" width="46" height="17"/>
+    </entry>
+    <entry id="47" name="epr:EPYR_00795" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr:EPYR_00795">
+        <graphics name="secA" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="556" y="969" width="46" height="17"/>
+    </entry>
+    <entry id="48" name="epr:EPYR_03024" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr:EPYR_03024">
+        <graphics name="ffh" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="604" y="1022" width="46" height="17"/>
+    </entry>
+    <entry id="49" name="epr:EPYR_03746" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr:EPYR_03746">
+        <graphics name="ftsY" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="556" y="1003" width="46" height="17"/>
+    </entry>
+    <entry id="50" name="epr:EPYR_00104" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr:EPYR_00104">
+        <graphics name="secB" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="556" y="1022" width="46" height="17"/>
+    </entry>
+    <entry id="51" name="epr:EPYR_02876 epr:EPYR_02877" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr:EPYR_02876+epr:EPYR_02877">
+        <graphics name="secF..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="556" y="935" width="46" height="17"/>
+    </entry>
+    <entry id="52" name="epr:EPYR_00371" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr:EPYR_00371">
+        <graphics name="secG" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="648" y="935" width="46" height="17"/>
+    </entry>
+    <entry id="53" name="epr:EPYR_03613" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr:EPYR_03613">
+        <graphics name="secY" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="556" y="952" width="46" height="17"/>
+    </entry>
+    <entry id="54" name="epr:EPYR_02878" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr:EPYR_02878">
+        <graphics name="yajC" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="602" y="952" width="46" height="17"/>
+    </entry>
+    <entry id="55" name="epr:EPYR_03958" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr:EPYR_03958">
+        <graphics name="yidC" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="648" y="952" width="46" height="17"/>
+    </entry>
+    <entry id="56" name="epr:EPYR_00252" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr:EPYR_00252">
+        <graphics name="secE" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="602" y="935" width="46" height="17"/>
+    </entry>
+    <entry id="57" name="epr:EPYR_00235" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr:EPYR_00235">
+        <graphics name="tatA" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="790" y="935" width="46" height="17"/>
+    </entry>
+    <entry id="58" name="epr:EPYR_00237" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr:EPYR_00237">
+        <graphics name="tatC" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="882" y="935" width="46" height="17"/>
+    </entry>
+    <entry id="59" name="epr:EPYR_02699" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr:EPYR_02699">
+        <graphics name="ybeC" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="928" y="935" width="46" height="17"/>
+    </entry>
+    <entry id="60" name="epr:EPYR_00236" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr:EPYR_00236">
+        <graphics name="tatB" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="836" y="935" width="46" height="17"/>
+    </entry>
+    <entry id="61" name="ko:K03197" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K03197">
+        <graphics name="K03197" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1087" y="781" width="46" height="17"/>
+    </entry>
+    <entry id="62" name="ko:K03200" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K03200">
+        <graphics name="K03200" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1179" y="781" width="46" height="17"/>
+    </entry>
+    <entry id="63" name="ko:K03198" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K03198">
+        <graphics name="K03198" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1133" y="781" width="46" height="17"/>
+    </entry>
+    <entry id="64" name="ko:K03202" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K03202">
+        <graphics name="K03202" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1087" y="798" width="46" height="17"/>
+    </entry>
+    <entry id="65" name="ko:K03204" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K03204">
+        <graphics name="K03204" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1133" y="798" width="46" height="17"/>
+    </entry>
+    <entry id="66" name="ko:K03201" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K03201">
+        <graphics name="K03201" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1087" y="815" width="46" height="17"/>
+    </entry>
+    <entry id="67" name="ko:K03203" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K03203">
+        <graphics name="K03203" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1133" y="815" width="46" height="17"/>
+    </entry>
+    <entry id="68" name="ko:K03195" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K03195">
+        <graphics name="K03195" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1179" y="815" width="46" height="17"/>
+    </entry>
+    <entry id="69" name="ko:K03199" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K03199">
+        <graphics name="K03199" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1087" y="832" width="46" height="17"/>
+    </entry>
+    <entry id="70" name="ko:K03196" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K03196">
+        <graphics name="K03196" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1133" y="832" width="46" height="17"/>
+    </entry>
+    <entry id="71" name="ko:K03205" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K03205">
+        <graphics name="K03205" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1179" y="832" width="46" height="17"/>
+    </entry>
+    <entry id="72" name="ko:K03194" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K03194">
+        <graphics name="K03194" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1087" y="764" width="46" height="17"/>
+    </entry>
+    <entry id="73" name="cpd:C00002" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00002">
+        <graphics name="C00002" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="1117" y="568" width="8" height="8"/>
+    </entry>
+    <entry id="74" name="cpd:C00002" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00002">
+        <graphics name="C00002" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="1172" y="568" width="8" height="8"/>
+    </entry>
+    <entry id="75" name="cpd:C00002" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00002">
+        <graphics name="C00002" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="1289" y="568" width="8" height="8"/>
+    </entry>
+    <entry id="76" name="cpd:C00002" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00002">
+        <graphics name="C00002" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="820" y="568" width="8" height="8"/>
+    </entry>
+    <entry id="77" name="cpd:C00002" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00002">
+        <graphics name="C00002" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="423" y="568" width="8" height="8"/>
+    </entry>
+    <entry id="78" name="cpd:C00002" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00002">
+        <graphics name="C00002" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="127" y="568" width="8" height="8"/>
+    </entry>
+    <entry id="79" name="cpd:C00002" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00002">
+        <graphics name="C00002" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="519" y="568" width="8" height="8"/>
+    </entry>
+    <entry id="80" name="path:epr03070" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr03070">
+        <graphics name="TITLE:Bacterial secretion system" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="167" y="58" width="254" height="25"/>
+    </entry>
+    <entry id="81" name="epr:EPYR_00794" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?epr:EPYR_00794">
+        <graphics name="secM" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="556" y="986" width="46" height="17"/>
+    </entry>
+</pathway>

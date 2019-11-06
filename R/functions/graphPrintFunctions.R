@@ -143,6 +143,7 @@ printBottleneckPathwayImage <- function(pathway_, bottleneck_, verbose_=FALSE) {
 #' @param network_ Network data frame with all properties.
 #' @param networkProperties_ Contains main information about the network nodes.
 #' @param pathway_ Network name.
+#' @param pathway_detail_ The details related to the pathway.
 #'
 #' @return This function does not return nothing, just export files.
 #'
@@ -154,7 +155,7 @@ printBottleneckPathwayImage <- function(pathway_, bottleneck_, verbose_=FALSE) {
 #' @author
 #' Igor Brandão
 
-generateInteractiveNetwork <- function(network_, networkProperties_, pathway_="") {
+generateInteractiveNetwork <- function(network_, networkProperties_, pathway_="", pathway_detail_=NULL) {
 
   # Color pallet
   pal <- brewer.pal(9, "YlOrRd")
@@ -222,11 +223,23 @@ generateInteractiveNetwork <- function(network_, networkProperties_, pathway_=""
   }
 
   # Generate the visNetwor object
-  visNetworkObj <- visNetwork(nodes = vis.nodes, edges = vis.links,
-             background="#eeefff", width = '1200px', height = '800px',
-             main=paste0("Pathway ", pathway_),
-             submain=paste0("Nodes: ", length(V(iGraph)), " Edges: ", length(E(iGraph))),
-             footer= "Note: nodes sizes are related to its frequencies")
+  if (is.null(pathway_detail_) | length(pathway_detail_) == 0) {
+    visNetworkObj <- visNetwork(nodes = vis.nodes, edges = vis.links,
+                                background="#eeefff", width = '100%', height = '800px',
+                                main=paste0("Pathway ", pathway_),
+                                submain=paste0("<b>Nodes:</b> ", length(V(iGraph)), " <b>Edges:</b> ", length(E(iGraph))),
+                                footer= "Note: nodes sizes are related to its frequencies")
+  } else {
+    visNetworkObj <- visNetwork(nodes = vis.nodes, edges = vis.links,
+                                background="#eeefff", width = '100%', height = '800px',
+                                main=paste0("Pathway ", pathway_, " - ", pathway_detail_$NAME),
+                                submain=paste0(
+                                  "<br> <b>Description:</b> ", pathway_detail_$DESCRIPTION,
+                                  "<br><br> <b>Class:</b> ", pathway_detail_$CLASS,
+                                  "<br><br> <b>Nodes:</b> ", length(V(iGraph)), " <b>Edges:</b> ", length(E(iGraph))
+                                ),
+                                footer= "Note: nodes sizes are related to its frequencies")
+  }
 
   # Define the legend groups
   visNetworkObj <- visGroups(visNetworkObj, groupname = "Bottleneck", shape = "star",

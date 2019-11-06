@@ -1,0 +1,655 @@
+<?xml version="1.0"?>
+<!DOCTYPE pathway SYSTEM "http://www.kegg.jp/kegg/xml/KGML_v0.7.2_.dtd">
+<!-- Creation date: May 14, 2014 13:36:11 +0900 (GMT+09:00) -->
+<pathway name="path:dpx04141" org="dpx" number="04141"
+         title="Protein processing in endoplasmic reticulum"
+         image="http://www.kegg.jp/kegg/pathway/dpx/dpx04141.png"
+         link="http://www.kegg.jp/kegg-bin/show_pathway?dpx04141">
+    <entry id="13" name="path:dpx04141" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx04141">
+        <graphics name="TITLE:Protein processing in endoplasmic reticulum" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="250" y="58" width="420" height="25"/>
+    </entry>
+    <entry id="14" name="path:dpx03060" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx03060">
+        <graphics name="Protein export" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="55" y="158" width="92" height="25"/>
+    </entry>
+    <entry id="15" name="path:map04210" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map04210">
+        <graphics name="Apoptosis" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="641" y="639" width="80" height="25"/>
+    </entry>
+    <entry id="16" name="path:dpx03050" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx03050">
+        <graphics name="Proteasome" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="1144" y="357" width="92" height="25"/>
+    </entry>
+    <entry id="28" name="dpx:DAPPUDRAFT_221979" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_221979">
+        <graphics name="DAPPUDRAFT_221979" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="296" y="638" width="46" height="17"/>
+    </entry>
+    <entry id="29" name="ko:K04452" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04452">
+        <graphics name="K04452" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="361" y="720" width="46" height="17"/>
+    </entry>
+    <entry id="30" name="dpx:DAPPUDRAFT_127867 dpx:DAPPUDRAFT_187828" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_127867+dpx:DAPPUDRAFT_187828">
+        <graphics name="DAPPUDRAFT_127867..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="550" y="638" width="46" height="17"/>
+    </entry>
+    <entry id="31" name="ko:K03173" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K03173">
+        <graphics name="K03173" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="548" y="522" width="46" height="17"/>
+    </entry>
+    <entry id="32" name="ko:K04426" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04426">
+        <graphics name="K04426" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="550" y="561" width="46" height="17"/>
+    </entry>
+    <entry id="33" name="dpx:DAPPUDRAFT_32176" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_32176">
+        <graphics name="DAPPUDRAFT_32176" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="550" y="599" width="46" height="17"/>
+    </entry>
+    <entry id="34" name="dpx:DAPPUDRAFT_306457" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_306457">
+        <graphics name="DAPPUDRAFT_306457" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="298" y="522" width="46" height="17"/>
+    </entry>
+    <entry id="35" name="dpx:DAPPUDRAFT_304937" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_304937">
+        <graphics name="DAPPUDRAFT_304937" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="440" y="126" width="46" height="17"/>
+    </entry>
+    <entry id="36" name="dpx:DAPPUDRAFT_210624" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_210624">
+        <graphics name="DAPPUDRAFT_210624" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="441" y="182" width="46" height="17"/>
+    </entry>
+    <entry id="37" name="ko:K14019" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14019">
+        <graphics name="K14019" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="272" y="561" width="46" height="17"/>
+    </entry>
+    <entry id="39" name="gl:G00010" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G00010">
+        <graphics name="G00010" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="408" y="183" width="8" height="8"/>
+    </entry>
+    <entry id="40" name="cpd:C00076" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00076">
+        <graphics name="C00076" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="640" y="437" width="8" height="8"/>
+    </entry>
+    <entry id="56" name="dpx:DAPPUDRAFT_202253" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_202253">
+        <graphics name="DAPPUDRAFT_202253" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="441" y="152" width="46" height="17"/>
+    </entry>
+    <entry id="57" name="ko:K04741" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04741">
+        <graphics name="K04741" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="641" y="561" width="46" height="17"/>
+    </entry>
+    <entry id="58" name="ko:K01367 ko:K03853" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K01367+K03853">
+        <graphics name="K01367..." fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="641" y="522" width="46" height="17"/>
+    </entry>
+    <entry id="59" name="dpx:DAPPUDRAFT_224750 dpx:DAPPUDRAFT_230689 dpx:DAPPUDRAFT_308832 dpx:DAPPUDRAFT_315783" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_224750+dpx:DAPPUDRAFT_230689+dpx:DAPPUDRAFT_308832+dpx:DAPPUDRAFT_315783">
+        <graphics name="DAPPUDRAFT_224750..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="58" y="201" width="46" height="17"/>
+    </entry>
+    <entry id="63" name="dpx:DAPPUDRAFT_308570 dpx:DAPPUDRAFT_321819" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_308570+dpx:DAPPUDRAFT_321819">
+        <graphics name="DAPPUDRAFT_308570..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="943" y="380" width="46" height="17"/>
+    </entry>
+    <entry id="64" name="dpx:DAPPUDRAFT_224750 dpx:DAPPUDRAFT_230689 dpx:DAPPUDRAFT_308832 dpx:DAPPUDRAFT_315783" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_224750+dpx:DAPPUDRAFT_230689+dpx:DAPPUDRAFT_308832+dpx:DAPPUDRAFT_315783">
+        <graphics name="DAPPUDRAFT_224750..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="767" y="417" width="46" height="17"/>
+    </entry>
+    <entry id="65" name="dpx:DAPPUDRAFT_14029 dpx:DAPPUDRAFT_213631 dpx:DAPPUDRAFT_226428 dpx:DAPPUDRAFT_248000 dpx:DAPPUDRAFT_300829 dpx:DAPPUDRAFT_300830 dpx:DAPPUDRAFT_303417 dpx:DAPPUDRAFT_307851 dpx:DAPPUDRAFT_319543" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_14029+dpx:DAPPUDRAFT_213631+dpx:DAPPUDRAFT_226428+dpx:DAPPUDRAFT_248000+dpx:DAPPUDRAFT_300829+dpx:DAPPUDRAFT_300830+dpx:DAPPUDRAFT_303417+dpx:DAPPUDRAFT_307851+dpx:DAPPUDRAFT_319543">
+        <graphics name="DAPPUDRAFT_14029..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="137" y="230" width="46" height="17"/>
+    </entry>
+    <entry id="66" name="dpx:DAPPUDRAFT_190238 dpx:DAPPUDRAFT_272847 dpx:DAPPUDRAFT_305234" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_190238+dpx:DAPPUDRAFT_272847+dpx:DAPPUDRAFT_305234">
+        <graphics name="DAPPUDRAFT_190238..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="593" y="367" width="46" height="17"/>
+    </entry>
+    <entry id="80" name="dpx:DAPPUDRAFT_190968 dpx:DAPPUDRAFT_209148 dpx:DAPPUDRAFT_304899" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_190968+dpx:DAPPUDRAFT_209148+dpx:DAPPUDRAFT_304899">
+        <graphics name="DAPPUDRAFT_190968..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="794" y="160" width="46" height="17"/>
+    </entry>
+    <entry id="83" name="dpx:DAPPUDRAFT_209797" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_209797">
+        <graphics name="DAPPUDRAFT_209797" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="665" y="178" width="46" height="17"/>
+    </entry>
+    <entry id="84" name="dpx:DAPPUDRAFT_191157" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_191157">
+        <graphics name="DAPPUDRAFT_191157" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="665" y="198" width="46" height="17"/>
+    </entry>
+    <entry id="89" name="dpx:DAPPUDRAFT_231070" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_231070">
+        <graphics name="DAPPUDRAFT_231070" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="947" y="444" width="46" height="17"/>
+    </entry>
+    <entry id="90" name="dpx:DAPPUDRAFT_306878" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_306878">
+        <graphics name="DAPPUDRAFT_306878" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="947" y="427" width="46" height="17"/>
+    </entry>
+    <entry id="91" name="dpx:DAPPUDRAFT_308173" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_308173">
+        <graphics name="DAPPUDRAFT_308173" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="722" y="333" width="46" height="17"/>
+    </entry>
+    <entry id="92" name="dpx:DAPPUDRAFT_194674 dpx:DAPPUDRAFT_254370 dpx:DAPPUDRAFT_305670 dpx:DAPPUDRAFT_57431" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_194674+dpx:DAPPUDRAFT_254370+dpx:DAPPUDRAFT_305670+dpx:DAPPUDRAFT_57431">
+        <graphics name="DAPPUDRAFT_194674..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="566" y="178" width="46" height="17"/>
+    </entry>
+    <entry id="93" name="dpx:DAPPUDRAFT_194601 dpx:DAPPUDRAFT_300811" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_194601+dpx:DAPPUDRAFT_300811">
+        <graphics name="DAPPUDRAFT_194601..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="367" y="178" width="46" height="17"/>
+    </entry>
+    <entry id="94" name="dpx:DAPPUDRAFT_194601 dpx:DAPPUDRAFT_300811" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_194601+dpx:DAPPUDRAFT_300811">
+        <graphics name="DAPPUDRAFT_194601..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="502" y="276" width="46" height="17"/>
+    </entry>
+    <entry id="95" name="dpx:DAPPUDRAFT_314562" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_314562">
+        <graphics name="DAPPUDRAFT_314562" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="367" y="144" width="46" height="17"/>
+    </entry>
+    <entry id="99" name="dpx:DAPPUDRAFT_198312" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_198312">
+        <graphics name="DAPPUDRAFT_198312" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="418" y="252" width="46" height="17"/>
+    </entry>
+    <entry id="101" name="gl:G00010" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G00010">
+        <graphics name="G00010" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="378" y="329" width="8" height="8"/>
+    </entry>
+    <entry id="105" name="dpx:DAPPUDRAFT_194674 dpx:DAPPUDRAFT_254370 dpx:DAPPUDRAFT_305670 dpx:DAPPUDRAFT_57431" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_194674+dpx:DAPPUDRAFT_254370+dpx:DAPPUDRAFT_305670+dpx:DAPPUDRAFT_57431">
+        <graphics name="DAPPUDRAFT_194674..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="594" y="400" width="46" height="17"/>
+    </entry>
+    <entry id="116" name="dpx:DAPPUDRAFT_54719" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_54719">
+        <graphics name="DAPPUDRAFT_54719" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="759" y="604" width="46" height="17"/>
+    </entry>
+    <entry id="117" name="dpx:DAPPUDRAFT_306803" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_306803">
+        <graphics name="DAPPUDRAFT_306803" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="760" y="693" width="46" height="17"/>
+    </entry>
+    <entry id="118" name="ko:K14022" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14022">
+        <graphics name="K14022" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="806" y="709" width="46" height="17"/>
+    </entry>
+    <entry id="119" name="ko:K14023" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14023">
+        <graphics name="K14023" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="760" y="676" width="46" height="17"/>
+    </entry>
+    <entry id="120" name="dpx:DAPPUDRAFT_187657 dpx:DAPPUDRAFT_196074" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_187657+dpx:DAPPUDRAFT_196074">
+        <graphics name="DAPPUDRAFT_187657..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="760" y="709" width="46" height="17"/>
+    </entry>
+    <entry id="123" name="dpx:DAPPUDRAFT_304735" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_304735">
+        <graphics name="DAPPUDRAFT_304735" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="222" y="304" width="46" height="19"/>
+    </entry>
+    <entry id="128" name="path:dpx00510" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx00510">
+        <graphics name="N-Glycan biosynthesis" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="323" y="250" width="92" height="34"/>
+    </entry>
+    <entry id="129" name="dpx:DAPPUDRAFT_307064 dpx:DAPPUDRAFT_321704 dpx:DAPPUDRAFT_71021" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_307064+dpx:DAPPUDRAFT_321704+dpx:DAPPUDRAFT_71021">
+        <graphics name="DAPPUDRAFT_307064..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="58" y="218" width="46" height="17"/>
+    </entry>
+    <entry id="130" name="dpx:DAPPUDRAFT_313331" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_313331">
+        <graphics name="DAPPUDRAFT_313331" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="640" y="457" width="46" height="17"/>
+    </entry>
+    <entry id="134" name="dpx:DAPPUDRAFT_255380" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_255380">
+        <graphics name="DAPPUDRAFT_255380" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="423" y="478" width="46" height="17"/>
+    </entry>
+    <entry id="135" name="dpx:DAPPUDRAFT_100620 dpx:DAPPUDRAFT_101008 dpx:DAPPUDRAFT_103158 dpx:DAPPUDRAFT_103172 dpx:DAPPUDRAFT_109586 dpx:DAPPUDRAFT_229351 dpx:DAPPUDRAFT_229616 dpx:DAPPUDRAFT_240619 dpx:DAPPUDRAFT_240627 dpx:DAPPUDRAFT_243363 dpx:DAPPUDRAFT_246495 dpx:DAPPUDRAFT_246498 dpx:DAPPUDRAFT_256839 dpx:DAPPUDRAFT_264519 dpx:DAPPUDRAFT_303863 dpx:DAPPUDRAFT_303871 dpx:DAPPUDRAFT_303873 dpx:DAPPUDRAFT_303931 dpx:DAPPUDRAFT_303938 dpx:DAPPUDRAFT_305906 dpx:DAPPUDRAFT_312503 dpx:DAPPUDRAFT_313875 dpx:DAPPUDRAFT_320624 dpx:DAPPUDRAFT_325080 dpx:DAPPUDRAFT_327929 dpx:DAPPUDRAFT_331153 dpx:DAPPUDRAFT_336103" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_100620+dpx:DAPPUDRAFT_101008+dpx:DAPPUDRAFT_103158+dpx:DAPPUDRAFT_103172+dpx:DAPPUDRAFT_109586+dpx:DAPPUDRAFT_229351+dpx:DAPPUDRAFT_229616+dpx:DAPPUDRAFT_240619+dpx:DAPPUDRAFT_240627+dpx:DAPPUDRAFT_243363+dpx:DAPPUDRAFT_246495+dpx:DAPPUDRAFT_246498+dpx:DAPPUDRAFT_256839+dpx:DAPPUDRAFT_264519+dpx:DAPPUDRAFT_303863+dpx:DAPPUDRAFT_303871+dpx:DAPPUDRAFT_303873+dpx:DAPPUDRAFT_303931+dpx:DAPPUDRAFT_303938+dpx:DAPPUDRAFT_305906+dpx:DAPPUDRAFT_312503+dpx:DAPPUDRAFT_313875+dpx:DAPPUDRAFT_320624+dpx:DAPPUDRAFT_325080+dpx:DAPPUDRAFT_327929+dpx:DAPPUDRAFT_331153+dpx:DAPPUDRAFT_336103">
+        <graphics name="DAPPUDRAFT_100620..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="548" y="478" width="46" height="17"/>
+    </entry>
+    <entry id="136" name="dpx:DAPPUDRAFT_101201 dpx:DAPPUDRAFT_200507 dpx:DAPPUDRAFT_311117 dpx:DAPPUDRAFT_313217 dpx:DAPPUDRAFT_331792" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_101201+dpx:DAPPUDRAFT_200507+dpx:DAPPUDRAFT_311117+dpx:DAPPUDRAFT_313217+dpx:DAPPUDRAFT_331792">
+        <graphics name="DAPPUDRAFT_101201..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="298" y="478" width="46" height="17"/>
+    </entry>
+    <entry id="137" name="dpx:DAPPUDRAFT_310948" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_310948">
+        <graphics name="DAPPUDRAFT_310948" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="451" y="535" width="46" height="17"/>
+    </entry>
+    <entry id="138" name="dpx:DAPPUDRAFT_326128" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_326128">
+        <graphics name="DAPPUDRAFT_326128" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="451" y="556" width="46" height="17"/>
+    </entry>
+    <entry id="148" name="dpx:DAPPUDRAFT_314438" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_314438">
+        <graphics name="DAPPUDRAFT_314438" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="489" y="630" width="46" height="17"/>
+    </entry>
+    <entry id="159" name="dpx:DAPPUDRAFT_300109" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_300109">
+        <graphics name="DAPPUDRAFT_300109" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="395" y="556" width="46" height="17"/>
+    </entry>
+    <entry id="163" name="dpx:DAPPUDRAFT_299929" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_299929">
+        <graphics name="DAPPUDRAFT_299929" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1010" y="393" width="46" height="17"/>
+    </entry>
+    <entry id="164" name="dpx:DAPPUDRAFT_224315" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_224315">
+        <graphics name="DAPPUDRAFT_224315" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1009" y="371" width="46" height="17"/>
+    </entry>
+    <entry id="165" name="dpx:DAPPUDRAFT_30734" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_30734">
+        <graphics name="DAPPUDRAFT_30734" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1010" y="410" width="46" height="17"/>
+    </entry>
+    <entry id="166" name="dpx:DAPPUDRAFT_187657 dpx:DAPPUDRAFT_196074 dpx:DAPPUDRAFT_302785" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_187657+dpx:DAPPUDRAFT_196074+dpx:DAPPUDRAFT_302785">
+        <graphics name="DAPPUDRAFT_187657..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="759" y="621" width="46" height="17"/>
+    </entry>
+    <entry id="167" name="dpx:DAPPUDRAFT_228520" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_228520">
+        <graphics name="DAPPUDRAFT_228520" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1062" y="371" width="46" height="17"/>
+    </entry>
+    <entry id="168" name="dpx:DAPPUDRAFT_304008" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_304008">
+        <graphics name="DAPPUDRAFT_304008" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1037" y="324" width="46" height="17"/>
+    </entry>
+    <entry id="169" name="dpx:DAPPUDRAFT_17589 dpx:DAPPUDRAFT_210768" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_17589+dpx:DAPPUDRAFT_210768">
+        <graphics name="DAPPUDRAFT_17589..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1062" y="393" width="46" height="17"/>
+    </entry>
+    <entry id="170" name="dpx:DAPPUDRAFT_308935" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_308935">
+        <graphics name="DAPPUDRAFT_308935" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1037" y="341" width="46" height="17"/>
+    </entry>
+    <entry id="171" name="dpx:DAPPUDRAFT_227800 dpx:DAPPUDRAFT_256736 dpx:DAPPUDRAFT_265325 dpx:DAPPUDRAFT_302856 dpx:DAPPUDRAFT_53476 dpx:DAPPUDRAFT_53625 dpx:DAPPUDRAFT_69734" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_227800+dpx:DAPPUDRAFT_256736+dpx:DAPPUDRAFT_265325+dpx:DAPPUDRAFT_302856+dpx:DAPPUDRAFT_53476+dpx:DAPPUDRAFT_53625+dpx:DAPPUDRAFT_69734">
+        <graphics name="DAPPUDRAFT_227800..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="917" y="268" width="46" height="17"/>
+    </entry>
+    <entry id="172" name="dpx:DAPPUDRAFT_303934" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_303934">
+        <graphics name="DAPPUDRAFT_303934" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="870" y="675" width="46" height="17"/>
+    </entry>
+    <entry id="173" name="dpx:DAPPUDRAFT_306803" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_306803">
+        <graphics name="DAPPUDRAFT_306803" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="905" y="692" width="46" height="17"/>
+    </entry>
+    <entry id="174" name="dpx:DAPPUDRAFT_299872 dpx:DAPPUDRAFT_300294" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_299872+dpx:DAPPUDRAFT_300294">
+        <graphics name="DAPPUDRAFT_299872..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="866" y="315" width="46" height="17"/>
+    </entry>
+    <entry id="175" name="ko:K10088" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K10088">
+        <graphics name="K10088" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="776" y="347" width="46" height="17"/>
+    </entry>
+    <entry id="176" name="ko:K14027" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14027">
+        <graphics name="K14027" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="859" y="692" width="46" height="17"/>
+    </entry>
+    <entry id="177" name="dpx:DAPPUDRAFT_308922" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_308922">
+        <graphics name="DAPPUDRAFT_308922" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="776" y="369" width="46" height="17"/>
+    </entry>
+    <entry id="178" name="dpx:DAPPUDRAFT_187657 dpx:DAPPUDRAFT_196074 dpx:DAPPUDRAFT_302785" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_187657+dpx:DAPPUDRAFT_196074+dpx:DAPPUDRAFT_302785">
+        <graphics name="DAPPUDRAFT_187657..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="905" y="709" width="46" height="17"/>
+    </entry>
+    <entry id="179" name="dpx:DAPPUDRAFT_225607" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_225607">
+        <graphics name="DAPPUDRAFT_225607" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="916" y="658" width="46" height="17"/>
+    </entry>
+    <entry id="180" name="dpx:DAPPUDRAFT_40730 dpx:DAPPUDRAFT_60651 dpx:DAPPUDRAFT_65504 dpx:DAPPUDRAFT_65506 dpx:DAPPUDRAFT_65509" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_40730+dpx:DAPPUDRAFT_60651+dpx:DAPPUDRAFT_65504+dpx:DAPPUDRAFT_65506+dpx:DAPPUDRAFT_65509">
+        <graphics name="DAPPUDRAFT_40730..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1061" y="675" width="46" height="17"/>
+    </entry>
+    <entry id="181" name="ko:K10099 ko:K10100" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K10099+K10100">
+        <graphics name="K10099..." fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1015" y="709" width="46" height="17"/>
+    </entry>
+    <entry id="182" name="dpx:DAPPUDRAFT_120690 dpx:DAPPUDRAFT_69870" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_120690+dpx:DAPPUDRAFT_69870">
+        <graphics name="DAPPUDRAFT_120690..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="972" y="630" width="46" height="17"/>
+    </entry>
+    <entry id="183" name="dpx:DAPPUDRAFT_110882 dpx:DAPPUDRAFT_187536 dpx:DAPPUDRAFT_210592 dpx:DAPPUDRAFT_305330 dpx:DAPPUDRAFT_308045" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_110882+dpx:DAPPUDRAFT_187536+dpx:DAPPUDRAFT_210592+dpx:DAPPUDRAFT_305330+dpx:DAPPUDRAFT_308045">
+        <graphics name="DAPPUDRAFT_110882..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1018" y="604" width="46" height="17"/>
+    </entry>
+    <entry id="184" name="dpx:DAPPUDRAFT_227800 dpx:DAPPUDRAFT_256736 dpx:DAPPUDRAFT_265325 dpx:DAPPUDRAFT_302856 dpx:DAPPUDRAFT_53476 dpx:DAPPUDRAFT_53625 dpx:DAPPUDRAFT_69734" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_227800+dpx:DAPPUDRAFT_256736+dpx:DAPPUDRAFT_265325+dpx:DAPPUDRAFT_302856+dpx:DAPPUDRAFT_53476+dpx:DAPPUDRAFT_53625+dpx:DAPPUDRAFT_69734">
+        <graphics name="DAPPUDRAFT_227800..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1018" y="621" width="46" height="17"/>
+    </entry>
+    <entry id="185" name="dpx:DAPPUDRAFT_230159" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_230159">
+        <graphics name="DAPPUDRAFT_230159" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1018" y="638" width="46" height="17"/>
+    </entry>
+    <entry id="187" name="dpx:DAPPUDRAFT_218095 dpx:DAPPUDRAFT_234212 dpx:DAPPUDRAFT_303471 dpx:DAPPUDRAFT_306380 dpx:DAPPUDRAFT_43137" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_218095+dpx:DAPPUDRAFT_234212+dpx:DAPPUDRAFT_303471+dpx:DAPPUDRAFT_306380+dpx:DAPPUDRAFT_43137">
+        <graphics name="DAPPUDRAFT_218095..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="723" y="369" width="46" height="17"/>
+    </entry>
+    <entry id="188" name="dpx:DAPPUDRAFT_206336 dpx:DAPPUDRAFT_225101 dpx:DAPPUDRAFT_261672 dpx:DAPPUDRAFT_308628 dpx:DAPPUDRAFT_330200 dpx:DAPPUDRAFT_333446 dpx:DAPPUDRAFT_66114" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_206336+dpx:DAPPUDRAFT_225101+dpx:DAPPUDRAFT_261672+dpx:DAPPUDRAFT_308628+dpx:DAPPUDRAFT_330200+dpx:DAPPUDRAFT_333446+dpx:DAPPUDRAFT_66114">
+        <graphics name="DAPPUDRAFT_206336..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="222" y="320" width="46" height="17"/>
+    </entry>
+    <entry id="189" name="dpx:DAPPUDRAFT_308626 dpx:DAPPUDRAFT_42769" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_308626+dpx:DAPPUDRAFT_42769">
+        <graphics name="DAPPUDRAFT_308626..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="866" y="378" width="46" height="17"/>
+    </entry>
+    <entry id="190" name="ko:K14022" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14022">
+        <graphics name="K14022" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="805" y="621" width="46" height="17"/>
+    </entry>
+    <entry id="191" name="dpx:DAPPUDRAFT_110882 dpx:DAPPUDRAFT_187536 dpx:DAPPUDRAFT_210592 dpx:DAPPUDRAFT_305330 dpx:DAPPUDRAFT_308045" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_110882+dpx:DAPPUDRAFT_187536+dpx:DAPPUDRAFT_210592+dpx:DAPPUDRAFT_305330+dpx:DAPPUDRAFT_308045">
+        <graphics name="DAPPUDRAFT_110882..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="917" y="285" width="46" height="17"/>
+    </entry>
+    <entry id="192" name="dpx:DAPPUDRAFT_196074" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_196074">
+        <graphics name="DAPPUDRAFT_196074" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="871" y="621" width="46" height="17"/>
+    </entry>
+    <entry id="195" name="ko:K14014" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14014">
+        <graphics name="K14014" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="892" y="410" width="46" height="17"/>
+    </entry>
+    <entry id="201" name="dpx:DAPPUDRAFT_120690 dpx:DAPPUDRAFT_69870" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_120690+dpx:DAPPUDRAFT_69870">
+        <graphics name="DAPPUDRAFT_120690..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1015" y="684" width="46" height="17"/>
+    </entry>
+    <entry id="202" name="ko:K03094" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K03094">
+        <graphics name="K03094" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1061" y="709" width="46" height="17"/>
+    </entry>
+    <entry id="203" name="dpx:DAPPUDRAFT_303500" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_303500">
+        <graphics name="DAPPUDRAFT_303500" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1061" y="692" width="46" height="17"/>
+    </entry>
+    <entry id="204" name="dpx:DAPPUDRAFT_299872 dpx:DAPPUDRAFT_300294" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_299872+dpx:DAPPUDRAFT_300294">
+        <graphics name="DAPPUDRAFT_299872..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="916" y="621" width="46" height="17"/>
+    </entry>
+    <entry id="205" name="dpx:DAPPUDRAFT_65278" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_65278">
+        <graphics name="DAPPUDRAFT_65278" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="916" y="604" width="46" height="17"/>
+    </entry>
+    <entry id="206" name="dpx:DAPPUDRAFT_299872" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_299872">
+        <graphics name="DAPPUDRAFT_299872" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="916" y="675" width="46" height="17"/>
+    </entry>
+    <entry id="207" name="dpx:DAPPUDRAFT_104194 dpx:DAPPUDRAFT_104362 dpx:DAPPUDRAFT_106074 dpx:DAPPUDRAFT_106457 dpx:DAPPUDRAFT_111828 dpx:DAPPUDRAFT_112181 dpx:DAPPUDRAFT_112862 dpx:DAPPUDRAFT_113088 dpx:DAPPUDRAFT_113325 dpx:DAPPUDRAFT_115516 dpx:DAPPUDRAFT_116313 dpx:DAPPUDRAFT_116816 dpx:DAPPUDRAFT_118578 dpx:DAPPUDRAFT_118813 dpx:DAPPUDRAFT_119333 dpx:DAPPUDRAFT_119434 dpx:DAPPUDRAFT_120460 dpx:DAPPUDRAFT_121514 dpx:DAPPUDRAFT_126544 dpx:DAPPUDRAFT_128627 dpx:DAPPUDRAFT_15246 dpx:DAPPUDRAFT_17668 dpx:DAPPUDRAFT_188316 dpx:DAPPUDRAFT_245881 dpx:DAPPUDRAFT_249349 dpx:DAPPUDRAFT_260140 dpx:DAPPUDRAFT_261767 dpx:DAPPUDRAFT_261770 dpx:DAPPUDRAFT_270069 dpx:DAPPUDRAFT_271915 dpx:DAPPUDRAFT_272229 dpx:DAPPUDRAFT_273432 dpx:DAPPUDRAFT_273773 dpx:DAPPUDRAFT_28664 dpx:DAPPUDRAFT_28667 dpx:DAPPUDRAFT_299993 dpx:DAPPUDRAFT_302439 dpx:DAPPUDRAFT_302452 dpx:DAPPUDRAFT_307965 dpx:DAPPUDRAFT_65101 dpx:DAPPUDRAFT_66666 dpx:DAPPUDRAFT_66705 dpx:DAPPUDRAFT_67813 dpx:DAPPUDRAFT_71790 dpx:DAPPUDRAFT_8016 dpx:DAPPUDRAFT_96705 dpx:DAPPUDRAFT_99491 dpx:DAPPUDRAFT_99736" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_104194+dpx:DAPPUDRAFT_104362+dpx:DAPPUDRAFT_106074+dpx:DAPPUDRAFT_106457+dpx:DAPPUDRAFT_111828+dpx:DAPPUDRAFT_112181+dpx:DAPPUDRAFT_112862+dpx:DAPPUDRAFT_113088+dpx:DAPPUDRAFT_113325+dpx:DAPPUDRAFT_115516+dpx:DAPPUDRAFT_116313+dpx:DAPPUDRAFT_116816+dpx:DAPPUDRAFT_118578+dpx:DAPPUDRAFT_118813+dpx:DAPPUDRAFT_119333+dpx:DAPPUDRAFT_119434+dpx:DAPPUDRAFT_120460+dpx:DAPPUDRAFT_121514+dpx:DAPPUDRAFT_126544+dpx:DAPPUDRAFT_128627+dpx:DAPPUDRAFT_15246+dpx:DAPPUDRAFT_17668+dpx:DAPPUDRAFT_188316+dpx:DAPPUDRAFT_245881+dpx:DAPPUDRAFT_249349+dpx:DAPPUDRAFT_260140+dpx:DAPPUDRAFT_261767+dpx:DAPPUDRAFT_261770+dpx:DAPPUDRAFT_270069+dpx:DAPPUDRAFT_271915+dpx:DAPPUDRAFT_272229+dpx:DAPPUDRAFT_273432+dpx:DAPPUDRAFT_273773+dpx:DAPPUDRAFT_28664+dpx:DAPPUDRAFT_28667+dpx:DAPPUDRAFT_299993+dpx:DAPPUDRAFT_302439+dpx:DAPPUDRAFT_302452+dpx:DAPPUDRAFT_307965+dpx:DAPPUDRAFT_65101+dpx:DAPPUDRAFT_66666+dpx:DAPPUDRAFT_66705+dpx:DAPPUDRAFT_67813+dpx:DAPPUDRAFT_71790+dpx:DAPPUDRAFT_8016+dpx:DAPPUDRAFT_96705+dpx:DAPPUDRAFT_99491+dpx:DAPPUDRAFT_99736">
+        <graphics name="DAPPUDRAFT_104194..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="970" y="268" width="46" height="17"/>
+    </entry>
+    <entry id="208" name="ko:K05638" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K05638">
+        <graphics name="K05638" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="350" y="535" width="46" height="17"/>
+    </entry>
+    <entry id="211" name="dpx:DAPPUDRAFT_221812 dpx:DAPPUDRAFT_61666 dpx:DAPPUDRAFT_96707" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_221812+dpx:DAPPUDRAFT_61666+dpx:DAPPUDRAFT_96707">
+        <graphics name="DAPPUDRAFT_221812..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="794" y="143" width="46" height="17"/>
+    </entry>
+    <entry id="212" name="dpx:DAPPUDRAFT_127286 dpx:DAPPUDRAFT_230523 dpx:DAPPUDRAFT_230846 dpx:DAPPUDRAFT_247913 dpx:DAPPUDRAFT_54309" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_127286+dpx:DAPPUDRAFT_230523+dpx:DAPPUDRAFT_230846+dpx:DAPPUDRAFT_247913+dpx:DAPPUDRAFT_54309">
+        <graphics name="DAPPUDRAFT_127286..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="748" y="160" width="46" height="17"/>
+    </entry>
+    <entry id="213" name="dpx:DAPPUDRAFT_45234" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_45234">
+        <graphics name="DAPPUDRAFT_45234" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="748" y="198" width="46" height="17"/>
+    </entry>
+    <entry id="215" name="dpx:DAPPUDRAFT_309186" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_309186">
+        <graphics name="DAPPUDRAFT_309186" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="277" y="303" width="46" height="17"/>
+    </entry>
+    <entry id="218" name="ko:K02161" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02161">
+        <graphics name="K02161" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="363" y="757" width="46" height="17"/>
+    </entry>
+    <entry id="219" name="path:map04210" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map04210">
+        <graphics name="Apoptosis" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="365" y="795" width="80" height="25"/>
+    </entry>
+    <entry id="221" name="ko:K02161" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02161">
+        <graphics name="K02161" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="669" y="494" width="46" height="17"/>
+    </entry>
+    <entry id="224" name="ko:K10081" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K10081">
+        <graphics name="K10081" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="665" y="219" width="46" height="17"/>
+    </entry>
+    <entry id="225" name="dpx:DAPPUDRAFT_325070" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_325070">
+        <graphics name="DAPPUDRAFT_325070" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="866" y="298" width="46" height="17"/>
+    </entry>
+    <entry id="226" name="dpx:DAPPUDRAFT_230159" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_230159">
+        <graphics name="DAPPUDRAFT_230159" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1074" y="604" width="46" height="17"/>
+    </entry>
+    <entry id="227" name="dpx:DAPPUDRAFT_221739" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_221739">
+        <graphics name="DAPPUDRAFT_221739" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1074" y="621" width="46" height="17"/>
+    </entry>
+    <entry id="228" name="dpx:DAPPUDRAFT_229110 dpx:DAPPUDRAFT_317581 dpx:DAPPUDRAFT_321206 dpx:DAPPUDRAFT_34365 dpx:DAPPUDRAFT_64425 dpx:DAPPUDRAFT_65912" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_229110+dpx:DAPPUDRAFT_317581+dpx:DAPPUDRAFT_321206+dpx:DAPPUDRAFT_34365+dpx:DAPPUDRAFT_64425+dpx:DAPPUDRAFT_65912">
+        <graphics name="DAPPUDRAFT_229110..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="917" y="308" width="46" height="17"/>
+    </entry>
+    <entry id="229" name="dpx:DAPPUDRAFT_103650" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_103650">
+        <graphics name="DAPPUDRAFT_103650" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="970" y="308" width="46" height="17"/>
+    </entry>
+    <entry id="230" name="path:map05010" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map05010">
+        <graphics name="Alzheimer disease" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="64" y="502" width="92" height="34"/>
+    </entry>
+    <entry id="231" name="path:map05012" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map05012">
+        <graphics name="Parkinson disease" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="64" y="547" width="92" height="34"/>
+    </entry>
+    <entry id="232" name="path:map05020" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map05020">
+        <graphics name="Prion diseases" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="63" y="463" width="92" height="25"/>
+    </entry>
+    <entry id="233" name="dpx:DAPPUDRAFT_230313 dpx:DAPPUDRAFT_306788" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_230313+dpx:DAPPUDRAFT_306788">
+        <graphics name="DAPPUDRAFT_230313..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="176" y="303" width="46" height="17"/>
+    </entry>
+    <entry id="234" name="ko:K14024" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14024">
+        <graphics name="K14024" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="806" y="693" width="46" height="17"/>
+    </entry>
+    <entry id="237" name="path:map04930" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map04930">
+        <graphics name="Type II diabetes mellitus" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="64" y="591" width="92" height="34"/>
+    </entry>
+    <entry id="238" name="dpx:DAPPUDRAFT_314562" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_314562">
+        <graphics name="DAPPUDRAFT_314562" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="137" y="246" width="46" height="17"/>
+    </entry>
+    <entry id="239" name="ko:K13999" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K13999">
+        <graphics name="K13999" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="183" y="246" width="46" height="17"/>
+    </entry>
+    <entry id="240" name="dpx:DAPPUDRAFT_333581" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_333581">
+        <graphics name="DAPPUDRAFT_333581" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="235" y="212" width="46" height="17"/>
+    </entry>
+    <entry id="241" name="dpx:DAPPUDRAFT_230883" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_230883">
+        <graphics name="DAPPUDRAFT_230883" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="767" y="400" width="46" height="17"/>
+    </entry>
+    <entry id="242" name="dpx:DAPPUDRAFT_230373 dpx:DAPPUDRAFT_230994 dpx:DAPPUDRAFT_309405 dpx:DAPPUDRAFT_48853" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_230373+dpx:DAPPUDRAFT_230994+dpx:DAPPUDRAFT_309405+dpx:DAPPUDRAFT_48853">
+        <graphics name="DAPPUDRAFT_230373..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="721" y="417" width="46" height="17"/>
+    </entry>
+    <entry id="245" name="ko:K14013" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14013">
+        <graphics name="K14013" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="806" y="676" width="46" height="17"/>
+    </entry>
+    <entry id="246" name="dpx:DAPPUDRAFT_323291" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpx:DAPPUDRAFT_323291">
+        <graphics name="DAPPUDRAFT_323291" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="916" y="587" width="46" height="17"/>
+    </entry>
+    <entry id="248" name="gl:G00009" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G00009">
+        <graphics name="G00009" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="333" y="194" width="8" height="8"/>
+    </entry>
+    <entry id="249" name="gl:G00011" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G00011">
+        <graphics name="G00011" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="501" y="391" width="8" height="8"/>
+    </entry>
+    <entry id="250" name="gl:G00011" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G00011">
+        <graphics name="G00011" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="528" y="167" width="8" height="8"/>
+    </entry>
+    <entry id="251" name="gl:G10694" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G10694">
+        <graphics name="G10694" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="616" y="166" width="8" height="8"/>
+    </entry>
+    <entry id="252" name="gl:G00012" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G00012">
+        <graphics name="G00012" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="634" y="396" width="8" height="8"/>
+    </entry>
+    <relation entry1="211" entry2="80" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="211" entry2="212" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="136" entry2="34" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="34" entry2="28" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="33" entry2="30" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="135" entry2="148" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="91" entry2="187" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="90" entry2="63" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="213" entry2="212" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="159" entry2="134" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="90" entry2="89" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="189" entry2="63" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+</pathway>

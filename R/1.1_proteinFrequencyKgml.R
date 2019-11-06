@@ -33,6 +33,7 @@ sapply(files.sources, source)
 # Load the pathways by organisms data
 organism2pathway <- get(load(paste0("./dictionaries", "/", "organism2pathway.RData")))
 pathwayList <- get(load(paste0("./dictionaries", "/", "pathwayList.RData")))
+pathwayDetail <- get(load(paste0("./dictionaries", "/", "pathwayDetail.RData")))
 
 #*******************************************************************************************#
 
@@ -45,7 +46,7 @@ pathwayList <- get(load(paste0("./dictionaries", "/", "pathwayList.RData")))
 getPathwayEnzymeKGML <- function(removeNoise_=TRUE) {
 
   # Reference pathway
-  reference_pathway <- 'ko'
+  reference_pathway <- 'ec'
 
   # Get the list of files
   folder = paste0("./output/kgml/", reference_pathway, "/")
@@ -64,20 +65,19 @@ getPathwayEnzymeKGML <- function(removeNoise_=TRUE) {
 
   # Loop 01: Run through all available pathways kgml
   lapply(kgml_list, function(file) {
+
     # Load the dataframe
     current_kgml <- KGML2Dataframe(paste0(folder, file))
-    current_kgml <- KGML2Dataframe(paste0(folder, kgml_list[1])) # APAGAR
 
     # Get the pathway code
-    pathway_code <- onlyNumber(kgml_list[1])
+    pathway_code <- onlyNumber(file)
 
     # Status message
     printMessage(paste0("COUNTING ", pathway_code, " ENZYMES FREQUENCIES [", kgml_index, " OF ", available_pathways, "]"))
 
     tryCatch({
       # Convert the pathway data into a graph
-      #pathwayGraph <- KGML2Graph(paste0(folder, file), replaceOrg=TRUE, orgToReplace=reference_pathway)
-      pathwayGraph <- KGML2Graph(paste0(folder, kgml_list[1]), replaceOrg=TRUE, orgToReplace=reference_pathway) # APAGAR
+      pathwayGraph <- KGML2Graph(paste0(folder, file), replaceOrg=TRUE, orgToReplace=reference_pathway)
 
       #*************************##
       # Prepare the pathway data #
@@ -126,6 +126,14 @@ getPathwayEnzymeKGML <- function(removeNoise_=TRUE) {
       iGraph <- igraph::graph_from_data_frame(pathwayGraph, directed = FALSE)
       graphBottleneck <- igraph::as_ids(getGraphBottleneck(iGraph, FALSE))
 
+      # Assign the bottlenecks for enzyme code (ec)
+      if (strcmp(reference_pathway, 'ec')) {
+        pathwayData$is_bottleneck[which(pathwayData$name %in% graphBottleneck)] <- 1
+      }
+
+      # Remove the duplicated nodes
+      pathwayData <- pathwayData[!duplicated(pathwayData$name),]
+
       # Assign the graph properties to each node
       for (idx in 1:nrow(pathwayData)) {
         # Prepare the node name to be compared
@@ -149,9 +157,14 @@ getPathwayEnzymeKGML <- function(removeNoise_=TRUE) {
         pathwayData[idx,]$authorityScore <- graphProperties[rowsToMerge,]$authorityScore
         pathwayData[idx,]$hubScore <- graphProperties[rowsToMerge,]$hubScore
 
-        # Assign the bottlenecks
-        if (grepl(pattern, graphBottleneck)) {
-          pathwayData[idx,]$is_bottleneck <- 1
+        # Assign the bottlenecks for kegg orthology (ko)
+        if (strcmp(reference_pathway, 'ko')) {
+          # Check if at least one bottleneck was found
+          if (length(graphBottleneck) > 0) {
+            if (grepl(pattern, graphBottleneck)) {
+              pathwayData[idx,]$is_bottleneck <- 1
+            }
+          }
         }
       }
 
@@ -178,6 +191,8 @@ getPathwayEnzymeKGML <- function(removeNoise_=TRUE) {
       # Enzyme color identification
       enzyme_present_color <- '#BFFFBF'
       enzyme_missing_color <- '#FFFFFF'
+
+      org_list <- org_list[1:20] # APAGAR
 
       # Loop 02: Run through all organisms that have the current pathway
       lapply(org_list, function(org) {
@@ -245,8 +260,11 @@ getPathwayEnzymeKGML <- function(removeNoise_=TRUE) {
       # Status message
       printMessage(paste0("EXPORTING PATHWAY ", pathway_code))
 
+      # Rename the rows name
+      row.names(pathwayData) <- pathwayData$name
+
       # Rename the nodes column
-      names(pathwayData)[names(pathwayData) == "name"] <- "enzyme"
+      names(pathwayData)[names(pathwayData) == "name"] <- "node"
 
       # Export the pathway data
       if (!dir.exists(file.path('./output/totalFrequency/'))) {
@@ -256,14 +274,125 @@ getPathwayEnzymeKGML <- function(removeNoise_=TRUE) {
       if (dir.exists(file.path('./output/totalFrequency/'))) {
         save(pathwayData, file=paste0('./output/totalFrequency/', kgml_index, "_", pathway_code, '.RData'), compress = "xz")
       }
-
-      # Increment the index
-      kgml_index <<- kgml_index + 1
-
     }, error=function(e) {
       print(paste0('The pathway ', pathway_code, ' could no be processed. Skipping it...'))
       return(FALSE)
     })
+
+    # Increment the index
+    kgml_index <<- kgml_index + 1
+  }) # End of Loop 01
+
+  # Function finished with success
+  return(TRUE)
+}
+
+printInteractiveNetwork <- function(removeNoise_=TRUE) {
+
+  # Reference pathway
+  reference_pathway <- 'ec'
+
+  # Get the list of files
+  folder = paste0("./output/kgml/", reference_pathway, "/")
+  kgml_list <- list.files(path=folder, pattern='*.xml')
+  kgml_index <- 1
+
+  # Define the number of available pathways
+  available_pathways <- length(kgml_list)
+
+  # Check if the folder contains files
+  if (is.null(kgml_list) | length(kgml_list) == 0) {
+    # Status message
+    printMessage("There aren't available pathways...")
+    return(FALSE)
+  }
+
+  # Loop 01: Run through all available pathways kgml
+  lapply(kgml_list, function(file) {
+    # Load the dataframe
+    current_kgml <- KGML2Dataframe(paste0(folder, file))
+
+    # Get the pathway code
+    pathway_code <- onlyNumber(kgml_list[1])
+
+    # Status message
+    printMessage(paste0("GENERATING PATHWAY ", pathway_code, " INTERATIVE NETWORK [", kgml_index, " OF ", available_pathways, "]"))
+
+    tryCatch({
+      # Get the network properties
+      pathwayData <- paste0('./output/totalFrequency/', kgml_index, '_', pathway_code, '.RData')
+
+      if (file.exists(pathwayData)) {
+        pathwayData <- get(load(file=pathwayData))
+      } else {
+        printMessage(paste0("The propertie file from pathway  ", pathway_code, " could no be found. Skipping it..."))
+        return(FALSE)
+      }
+
+      # Convert the pathway data into a graph
+      pathwayGraph <- KGML2Graph(paste0(folder, file), replaceOrg=TRUE, orgToReplace=reference_pathway)
+
+      # Remove unnecessary data from pathway data/graph
+      if (removeNoise_) {
+        pathwayGraph <- removeNoise(pathwayGraph)
+      }
+
+      #-------------------------------#
+      # [GETTING THE PATHWAY DETAILS] #
+      #-------------------------------#
+
+      # Set the pathway index
+      pathway_index <- -1
+
+      # Assign the graph properties to each node
+      for (idx in 1:length(pathwayDetail)) {
+        # Check the position of the current pathway in pathway detail list
+        if (strcmp(pathwayDetail[[idx]]$ENTRY, paste0('map', pathway_code))) {
+          pathway_index <- idx
+          break()
+        }
+      }
+
+      #--------------------------#
+      # [GENERATING THE NETWORK] #
+      #--------------------------#
+
+      # Generate the network
+      generatedNetwork <- generateInteractiveNetwork(pathwayGraph, pathwayData, pathway_code, pathwayDetail[[pathway_index]])
+
+      # Print the network
+      print(generatedNetwork)
+
+      # Export the network
+      if (!dir.exists(file.path(paste0('./output/network/')))) {
+        dir.create(file.path(paste0('./output/network/')), showWarnings = FALSE, mode = "0775")
+      }
+
+      if (dir.exists(file.path('./output/network/'))) {
+        filename <- paste0(kgml_index, '_', pathway_code, '.html')
+
+        # Save the HTML file
+        visSave(generatedNetwork, file = filename, selfcontained = TRUE,
+                background = "#eeefff")
+
+        if (file.exists(filename)) {
+          # Copy the file into correct directory
+          file.copy(filename, paste0('./output/network/', filename), overwrite = TRUE)
+
+          # Remove the generated file
+          file.remove(filename)
+        } else {
+          printMessage(paste0("Network file not found. Skipping it..."))
+          return(FALSE)
+        }
+      }
+    }, error=function(e) {
+      print(paste0('The pathway ', pathway_code, ' could no be processed. Skipping it...'))
+      return(FALSE)
+    })
+
+    # Increment the index
+    kgml_index <<- kgml_index + 1
   }) # End of Loop 01
 
   # Function finished with success
@@ -278,9 +407,12 @@ getPathwayEnzymeKGML <- function(removeNoise_=TRUE) {
 # Pipeline flow #
 #***************#
 
-#**********************************#
-# Step 1: Get all pathways enzymes #
-#**********************************#
+#***************************************************************#
+# Step 1: Generate the pathways frequencies from the kgml files #
+#***************************************************************#
+getPathwayEnzymeKGML()
 
-# [TEST ONLY]
-#lapply(1:5, getPathwayEnzymes, replaceEmptyGraph_=FALSE)
+#******************************#
+# Step 2: Generate the network #
+#******************************#
+printInteractiveNetwork_()

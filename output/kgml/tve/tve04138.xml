@@ -1,44 +1,627 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<title>Access forbidden!</title>
-<link rev="made" href="mailto:http://www.genome.jp/feedback/" />
-<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
-    body { color: #000000; background-color: #FFFFFF; }
-    a:link { color: #0000CC; }
-    p, address {margin-left: 3em;}
-    span {font-size: smaller;}
-/*]]>*/--></style>
-</head>
-
-<body>
-<h1>Access forbidden!</h1>
-<p>
-
-
-  
-
-    You don't have permission to access the requested object.
-    It is either read-protected or not readable by the server.
-
-  
-
-</p>
-<p>
-If you think this is a server error, please contact
-the <a href="http://www.genome.jp/feedback/">webmaster</a>.
-
-</p>
-
-<h2>Error 403</h2>
-<address>
-  <a href="/">rest.kegg.jp</a><br />
-  
-  <span>Wed Nov  6 22:46:56 2019<br />
-  Apache</span>
-</address>
-</body>
-</html>
-
+<?xml version="1.0"?>
+<!DOCTYPE pathway SYSTEM "http://www.kegg.jp/kegg/xml/KGML_v0.7.2_.dtd">
+<!-- Creation date: Jul 11, 2019 16:53:59 +0900 (GMT+9) -->
+<pathway name="path:tve04138" org="tve" number="04138"
+         title="Autophagy - yeast"
+         image="http://www.kegg.jp/kegg/pathway/tve/tve04138.png"
+         link="http://www.kegg.jp/kegg-bin/show_pathway?tve04138">
+    <entry id="9" name="cpd:C04549" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C04549">
+        <graphics name="C04549" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="706" y="651" width="8" height="8"/>
+    </entry>
+    <entry id="10" name="cpd:C01194" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C01194">
+        <graphics name="C01194" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="589" y="651" width="8" height="8"/>
+    </entry>
+    <entry id="11" name="tve:TRV_04411" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_04411">
+        <graphics name="TRV_04411" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="552" y="556" width="46" height="17"/>
+    </entry>
+    <entry id="12" name="tve:TRV_01419" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_01419">
+        <graphics name="TRV_01419" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="552" y="604" width="46" height="17"/>
+    </entry>
+    <entry id="13" name="tve:TRV_03479" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_03479">
+        <graphics name="TRV_03479" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="643" y="289" width="46" height="17"/>
+    </entry>
+    <entry id="14" name="tve:TRV_04201" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_04201">
+        <graphics name="TRV_04201" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="573" y="228" width="46" height="17"/>
+    </entry>
+    <entry id="15" name="tve:TRV_06282" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_06282">
+        <graphics name="TRV_06282" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="747" y="185" width="46" height="17"/>
+    </entry>
+    <entry id="16" name="tve:TRV_02310" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_02310">
+        <graphics name="TRV_02310" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="573" y="289" width="46" height="17"/>
+    </entry>
+    <entry id="17" name="ko:K08335" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K08335">
+        <graphics name="K08335" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="623" y="509" width="46" height="17"/>
+    </entry>
+    <entry id="18" name="tve:TRV_02431" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_02431">
+        <graphics name="TRV_02431" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="623" y="604" width="46" height="17"/>
+    </entry>
+    <entry id="19" name="tve:TRV_05497" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_05497">
+        <graphics name="TRV_05497" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="342" y="228" width="46" height="17"/>
+    </entry>
+    <entry id="20" name="path:tve04138" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve04138">
+        <graphics name="TITLE:Autophagy - yeast" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="128" y="58" width="175" height="25"/>
+    </entry>
+    <entry id="29" name="ko:K21144" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K21144">
+        <graphics name="K21144" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="643" y="306" width="46" height="17"/>
+    </entry>
+    <entry id="30" name="ko:K21143" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K21143">
+        <graphics name="K21143" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="643" y="323" width="46" height="17"/>
+    </entry>
+    <entry id="32" name="tve:TRV_00504" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_00504">
+        <graphics name="TRV_00504" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="747" y="228" width="46" height="17"/>
+    </entry>
+    <entry id="33" name="tve:TRV_05814" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_05814">
+        <graphics name="TRV_05814" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="747" y="258" width="46" height="17"/>
+    </entry>
+    <entry id="35" name="ko:K21145" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K21145">
+        <graphics name="K21145" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="623" y="556" width="46" height="17"/>
+    </entry>
+    <entry id="42" name="tve:TRV_03201 tve:TRV_03675" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_03201+tve:TRV_03675">
+        <graphics name="TRV_03201..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="211" y="307" width="46" height="17"/>
+    </entry>
+    <entry id="47" name="tve:TRV_02144 tve:TRV_02424" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_02144+tve:TRV_02424">
+        <graphics name="TRV_02144..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="342" y="145" width="46" height="17"/>
+    </entry>
+    <entry id="52" name="tve:TRV_07312" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_07312">
+        <graphics name="TRV_07312" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="248" y="228" width="46" height="17"/>
+    </entry>
+    <entry id="53" name="ko:K16314" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K16314">
+        <graphics name="K16314" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="248" y="206" width="46" height="17"/>
+    </entry>
+    <entry id="54" name="ko:K21158" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K21158">
+        <graphics name="K21158" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="248" y="250" width="46" height="17"/>
+    </entry>
+    <entry id="56" name="tve:TRV_07268 tve:TRV_07650" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_07268+tve:TRV_07650">
+        <graphics name="TRV_07268..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="248" y="145" width="46" height="17"/>
+    </entry>
+    <entry id="59" name="tve:TRV_03834" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_03834">
+        <graphics name="TRV_03834" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="461" y="254" width="46" height="17"/>
+    </entry>
+    <entry id="65" name="ko:K04464" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04464">
+        <graphics name="K04464" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="384" y="190" width="46" height="17"/>
+    </entry>
+    <entry id="69" name="ko:K17909" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K17909">
+        <graphics name="K17909" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="716" y="145" width="46" height="17"/>
+    </entry>
+    <entry id="70" name="tve:TRV_06806" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_06806">
+        <graphics name="TRV_06806" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="778" y="145" width="46" height="17"/>
+    </entry>
+    <entry id="74" name="tve:TRV_07616" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_07616">
+        <graphics name="TRV_07616" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="832" y="163" width="46" height="17"/>
+    </entry>
+    <entry id="76" name="tve:TRV_03224 tve:TRV_06079" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_03224+tve:TRV_06079">
+        <graphics name="TRV_03224..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="832" y="202" width="46" height="17"/>
+    </entry>
+    <entry id="79" name="cpd:C00350" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00350">
+        <graphics name="C00350" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="636" y="936" width="8" height="8"/>
+    </entry>
+    <entry id="80" name="tve:TRV_06847" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_06847">
+        <graphics name="TRV_06847" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="583" y="859" width="46" height="17"/>
+    </entry>
+    <entry id="81" name="tve:TRV_01085" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_01085">
+        <graphics name="TRV_01085" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="807" y="913" width="46" height="17"/>
+    </entry>
+    <entry id="82" name="tve:TRV_05524" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_05524">
+        <graphics name="TRV_05524" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="394" y="962" width="46" height="17"/>
+    </entry>
+    <entry id="83" name="ko:K08340 ko:K17890" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K08340+K17890">
+        <graphics name="K08340..." fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="913" y="769" width="46" height="17"/>
+    </entry>
+    <entry id="84" name="ko:K08336" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K08336">
+        <graphics name="K08336" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="353" y="769" width="49" height="17"/>
+    </entry>
+    <entry id="85" name="ko:K08338 ko:K17888" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K08338+K17888">
+        <graphics name="K08338..." fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="526" y="817" width="46" height="17"/>
+    </entry>
+    <entry id="86" name="tve:TRV_03048" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_03048">
+        <graphics name="TRV_03048" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="465" y="839" width="46" height="17"/>
+    </entry>
+    <entry id="87" name="ko:K08336" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K08336">
+        <graphics name="K08336" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="666" y="778" width="46" height="17"/>
+    </entry>
+    <entry id="103" name="tve:TRV_05606" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_05606">
+        <graphics name="TRV_05606" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="542" y="1191" width="46" height="17"/>
+    </entry>
+    <entry id="104" name="tve:TRV_07778" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_07778">
+        <graphics name="TRV_07778" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="542" y="1214" width="46" height="17"/>
+    </entry>
+    <entry id="105" name="tve:TRV_03769" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_03769">
+        <graphics name="TRV_03769" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="542" y="1237" width="46" height="17"/>
+    </entry>
+    <entry id="110" name="ko:K21155" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K21155">
+        <graphics name="K21155" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="864" y="1009" width="46" height="17"/>
+    </entry>
+    <entry id="111" name="tve:TRV_06113" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_06113">
+        <graphics name="TRV_06113" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="915" y="1009" width="46" height="17"/>
+    </entry>
+    <entry id="112" name="tve:TRV_04986" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_04986">
+        <graphics name="TRV_04986" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="966" y="1009" width="46" height="17"/>
+    </entry>
+    <entry id="113" name="tve:TRV_07464" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_07464">
+        <graphics name="TRV_07464" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1017" y="1009" width="46" height="17"/>
+    </entry>
+    <entry id="114" name="tve:TRV_02911" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_02911">
+        <graphics name="TRV_02911" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="864" y="1030" width="46" height="17"/>
+    </entry>
+    <entry id="115" name="tve:TRV_03778" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_03778">
+        <graphics name="TRV_03778" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="915" y="1030" width="46" height="17"/>
+    </entry>
+    <entry id="116" name="tve:TRV_03179" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_03179">
+        <graphics name="TRV_03179" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="864" y="1051" width="46" height="17"/>
+    </entry>
+    <entry id="117" name="tve:TRV_03109" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_03109">
+        <graphics name="TRV_03109" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="915" y="1051" width="46" height="17"/>
+    </entry>
+    <entry id="118" name="ko:K21156" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K21156">
+        <graphics name="K21156" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="966" y="1051" width="46" height="17"/>
+    </entry>
+    <entry id="119" name="tve:TRV_00609" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_00609">
+        <graphics name="TRV_00609" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="864" y="1072" width="46" height="17"/>
+    </entry>
+    <entry id="120" name="tve:TRV_02895" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_02895">
+        <graphics name="TRV_02895" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="915" y="1072" width="46" height="17"/>
+    </entry>
+    <entry id="121" name="tve:TRV_04865" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_04865">
+        <graphics name="TRV_04865" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="966" y="1072" width="46" height="17"/>
+    </entry>
+    <entry id="122" name="tve:TRV_05355" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_05355">
+        <graphics name="TRV_05355" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1017" y="1072" width="46" height="17"/>
+    </entry>
+    <entry id="123" name="tve:TRV_06432" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_06432">
+        <graphics name="TRV_06432" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="864" y="1093" width="46" height="17"/>
+    </entry>
+    <entry id="124" name="tve:TRV_03637" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_03637">
+        <graphics name="TRV_03637" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="915" y="1093" width="46" height="17"/>
+    </entry>
+    <entry id="125" name="tve:TRV_04789" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_04789">
+        <graphics name="TRV_04789" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="966" y="1093" width="46" height="17"/>
+    </entry>
+    <entry id="126" name="tve:TRV_03378" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_03378">
+        <graphics name="TRV_03378" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="864" y="1114" width="46" height="17"/>
+    </entry>
+    <entry id="127" name="tve:TRV_07165" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_07165">
+        <graphics name="TRV_07165" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="915" y="1114" width="46" height="17"/>
+    </entry>
+    <entry id="129" name="tve:TRV_04902" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_04902">
+        <graphics name="TRV_04902" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="402" y="424" width="46" height="17"/>
+    </entry>
+    <entry id="132" name="tve:TRV_03711" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_03711">
+        <graphics name="TRV_03711" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="481" y="424" width="46" height="17"/>
+    </entry>
+    <entry id="133" name="ko:K09464" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K09464">
+        <graphics name="K09464" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="560" y="424" width="46" height="17"/>
+    </entry>
+    <entry id="134" name="tve:TRV_03186" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_03186">
+        <graphics name="TRV_03186" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="431" y="332" width="46" height="17"/>
+    </entry>
+    <entry id="139" name="tve:TRV_06101" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_06101">
+        <graphics name="TRV_06101" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="314" y="272" width="46" height="17"/>
+    </entry>
+    <entry id="140" name="tve:TRV_04550" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_04550">
+        <graphics name="TRV_04550" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="369" y="272" width="46" height="17"/>
+    </entry>
+    <entry id="143" name="tve:TRV_04609" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_04609">
+        <graphics name="TRV_04609" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="342" y="295" width="46" height="17"/>
+    </entry>
+    <entry id="144" name="path:map04150" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map04150">
+        <graphics name="mTOR signaling pathway" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="342" y="351" width="109" height="40"/>
+    </entry>
+    <entry id="145" name="tve:TRV_05539" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_05539">
+        <graphics name="TRV_05539" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="709" y="709" width="46" height="17"/>
+    </entry>
+    <entry id="148" name="tve:TRV_05369" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_05369">
+        <graphics name="TRV_05369" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="542" y="1331" width="46" height="17"/>
+    </entry>
+    <entry id="149" name="tve:TRV_02856" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_02856">
+        <graphics name="TRV_02856" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="542" y="1354" width="46" height="17"/>
+    </entry>
+    <entry id="153" name="tve:TRV_03388" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_03388">
+        <graphics name="TRV_03388" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="498" y="332" width="46" height="17"/>
+    </entry>
+    <entry id="155" name="tve:TRV_01038" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_01038">
+        <graphics name="TRV_01038" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="431" y="374" width="46" height="17"/>
+    </entry>
+    <entry id="159" name="tve:TRV_01962" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_01962">
+        <graphics name="TRV_01962" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="560" y="374" width="46" height="17"/>
+    </entry>
+    <entry id="161" name="ko:K09468" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K09468">
+        <graphics name="K09468" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="654" y="374" width="46" height="17"/>
+    </entry>
+    <entry id="166" name="ko:K06655" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K06655">
+        <graphics name="K06655" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="560" y="463" width="46" height="17"/>
+    </entry>
+    <entry id="167" name="tve:TRV_06155" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_06155">
+        <graphics name="TRV_06155" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="560" y="480" width="46" height="17"/>
+    </entry>
+    <entry id="171" name="ko:K09243" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K09243">
+        <graphics name="K09243" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="671" y="437" width="46" height="17"/>
+    </entry>
+    <entry id="175" name="tve:TRV_01085" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_01085">
+        <graphics name="TRV_01085" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="870" y="437" width="46" height="17"/>
+    </entry>
+    <entry id="177" name="tve:TRV_06092" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_06092">
+        <graphics name="TRV_06092" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="682" y="586" width="46" height="17"/>
+    </entry>
+    <entry id="178" name="tve:TRV_05569" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_05569">
+        <graphics name="TRV_05569" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="723" y="610" width="46" height="17"/>
+    </entry>
+    <entry id="184" name="tve:TRV_05295" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_05295">
+        <graphics name="TRV_05295" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="666" y="761" width="46" height="17"/>
+    </entry>
+    <entry id="185" name="ko:K08336" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K08336">
+        <graphics name="K08336" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="822" y="769" width="46" height="17"/>
+    </entry>
+    <entry id="186" name="tve:TRV_05295" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_05295">
+        <graphics name="TRV_05295" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="868" y="769" width="46" height="17"/>
+    </entry>
+    <entry id="188" name="tve:TRV_05295" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_05295">
+        <graphics name="TRV_05295" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="579" y="806" width="46" height="17"/>
+    </entry>
+    <entry id="190" name="ko:K08340 ko:K17890" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K08340+K17890">
+        <graphics name="K08340..." fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="720" y="806" width="46" height="17"/>
+    </entry>
+    <entry id="192" name="tve:TRV_01085" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tve:TRV_01085">
+        <graphics name="TRV_01085" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="351" y="914" width="46" height="17"/>
+    </entry>
+    <entry id="194" name="cpd:C00350" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00350">
+        <graphics name="C00350" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="848" y="913" width="8" height="8"/>
+    </entry>
+    <entry id="195" name="undefined" type="group">
+        <graphics fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="410" y="228" width="371" height="17"/>
+        <component id="14"/>
+        <component id="19"/>
+        <component id="52"/>
+    </entry>
+    <entry id="196" name="undefined" type="group">
+        <graphics fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="341" y="283" width="101" height="40"/>
+        <component id="139"/>
+        <component id="140"/>
+        <component id="143"/>
+    </entry>
+    <entry id="197" name="undefined" type="group">
+        <graphics fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="406" y="302" width="230" height="77"/>
+        <component id="134"/>
+        <component id="139"/>
+        <component id="140"/>
+        <component id="143"/>
+        <component id="153"/>
+    </entry>
+    <entry id="198" name="undefined" type="group">
+        <graphics fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="397" y="348" width="213" height="169"/>
+        <component id="129"/>
+        <component id="132"/>
+        <component id="139"/>
+        <component id="140"/>
+        <component id="143"/>
+    </entry>
+    <entry id="199" name="undefined" type="group">
+        <graphics fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="818" y="913" width="68" height="17"/>
+        <component id="194"/>
+        <component id="81"/>
+    </entry>
+    <relation entry1="56" entry2="47" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="47" entry2="14" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="phosphorylation" value="+p"/>
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="47" entry2="16" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="phosphorylation" value="+p"/>
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="14" entry2="15" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="16" entry2="15" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="16" entry2="14" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="15" entry2="70" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="15" entry2="74" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="76" entry2="74" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="195" entry2="19" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="19" entry2="14" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="14" entry2="32" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="32" entry2="15" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="15" entry2="33" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="42" entry2="196" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="196" entry2="59" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="196" entry2="16" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="16" entry2="13" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="13" entry2="15" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="32" entry2="33" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="197" entry2="134" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="134" entry2="153" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="153" entry2="14" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="dephosphorylation" value="-p"/>
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="155" entry2="134" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="59" entry2="159" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="198" entry2="129" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="129" entry2="132" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="11" entry2="18" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="12" entry2="18" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="18" entry2="10" type="PCrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="9" entry2="33" type="PCrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="177" entry2="9" type="PCrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="178" entry2="9" type="PCrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="145" entry2="9" type="PCrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="dephosphorylation" value="-p"/>
+    </relation>
+    <relation entry1="186" entry2="192" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="186" entry2="80" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="86" entry2="192" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="80" entry2="192" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="82" entry2="192" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="82" entry2="199" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="139" entry2="140" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="143" entry2="140" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+</pathway>
