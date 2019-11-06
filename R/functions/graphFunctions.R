@@ -897,19 +897,19 @@ multipleBottleneckDetection <- function(iGraph_, verbose_=FALSE) {
 #' NHNB - Non hub non bottlenecks
 #'
 #' @param networkProperties_ Contains main information about the network nodes.
-#' @param pathway_ Network name.
 #'
 #' @return This function returns the same inputted data frame with an additional column
 #'
 #' @examples
 #' \dontrun{
 #' classifyBottleneck(network, properties)
+#' pathwayData$bottleneck_classification <- classifyBottleneck(pathwayData)$bottleneck_classification
 #' }
 #'
 #' @author
 #' Igor Brandão
 
-classifyBottleneck <- function(networkProperties_, pathway_="") {
+classifyBottleneck <- function(networkProperties_) {
 
   applyClassification <- function(idx_) {
     node <- networkProperties_[idx_,]
@@ -973,18 +973,26 @@ classifyBottleneck <- function(networkProperties_, pathway_="") {
 removeNoise <- function(iGraph_, verbose_=FALSE) {
   # Status message
   if (verbose_) {
-    printMessage("REMOVING THE GRAPH NOISE...")
+    printMessage("REMOVING THE PATHWAY NOISE...")
   }
 
-  # Remove unnecessary data from igraph object
-  iGraph_ <- iGraph_[!grepl("^path:", iGraph_$node1),]
-  iGraph_ <- iGraph_[!grepl("^path:", iGraph_$node2),]
-  iGraph_ <- iGraph_[!grepl("^map:", iGraph_$node1),]
-  iGraph_ <- iGraph_[!grepl("^map:", iGraph_$node2),]
-  iGraph_ <- iGraph_[!grepl("^cpd:", iGraph_$node1),]
-  iGraph_ <- iGraph_[!grepl("^cpd:", iGraph_$node2),]
-  iGraph_ <- iGraph_[!grepl("^gl:", iGraph_$node1),]
-  iGraph_ <- iGraph_[!grepl("^gl:", iGraph_$node2),]
+  if (is.null(iGraph_$node1) | length(iGraph_$node1) == 0) {
+    # Remove unnecessary data from igraph object
+    iGraph_ <- iGraph_[!grepl("^path:", iGraph_$name),]
+    iGraph_ <- iGraph_[!grepl("^map:", iGraph_$name),]
+    iGraph_ <- iGraph_[!grepl("^cpd:", iGraph_$name),]
+    iGraph_ <- iGraph_[!grepl("^gl:", iGraph_$name),]
+  } else {
+    # Remove unnecessary data from igraph object
+    iGraph_ <- iGraph_[!grepl("^path:", iGraph_$node1),]
+    iGraph_ <- iGraph_[!grepl("^path:", iGraph_$node2),]
+    iGraph_ <- iGraph_[!grepl("^map:", iGraph_$node1),]
+    iGraph_ <- iGraph_[!grepl("^map:", iGraph_$node2),]
+    iGraph_ <- iGraph_[!grepl("^cpd:", iGraph_$node1),]
+    iGraph_ <- iGraph_[!grepl("^cpd:", iGraph_$node2),]
+    iGraph_ <- iGraph_[!grepl("^gl:", iGraph_$node1),]
+    iGraph_ <- iGraph_[!grepl("^gl:", iGraph_$node2),]
+  }
 
   # Return the updated igraph object
   return(iGraph_)

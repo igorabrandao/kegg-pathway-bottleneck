@@ -293,7 +293,7 @@ parseReaction <- function(reaction)
 #'
 #' @examples
 #' \dontrun{
-#' lst <- kgmlToDataframe('./output/kgml/ko/ko00010.xml')
+#' lst <- kgmlToDataframe('ko00010.xml')
 #' }
 #'
 #' @importFrom 'XML'
@@ -357,4 +357,69 @@ KGML2Dataframe <- function(kgml_) {
 
   # Return the list with pathway dataFrames info
   return(pathway)
+}
+
+#' Get the KEGG kgml file and convert it into graph
+#'
+#' Given a KEGG kgml file, this function parse this file and returns the graph structure
+#'
+#' @param kgml_ Name of KGML file.
+#' @param replaceOrg_ Flag to determine with wheter or not the organism name will be changed.
+#' @param orgToReplace_ The organism identification.
+#'
+#' @return This function returns a list of data.frames containing all relevante information
+#' related to a pathway
+#'
+#' @examples
+#' \dontrun{
+#' graph <- kgmlToDataframe('ko00010.xml')
+#' graph <- kgmlToDataframe('hsa00010.xml', TRUE, 'hsa')
+#' }
+#'
+#' @importFrom KEGGgraph
+#' @importFrom 'XML'
+#'
+#' @author
+#' Igor Brandão
+
+KGML2Graph <- function(kgml_, replaceOrg_=FALSE, orgToReplace_='') {
+  # Get the pathway name
+  pathway_name <- onlyNumber(kgml_)
+
+  tryCatch({
+    # Convert it into graph object
+    mapkG <- KEGGgraph::parseKGML2Graph(kgml_, genesOnly=FALSE)
+
+    # Get the node data
+    aux <- names(mapkG@edgeData@data)
+
+    # If node data is empty, use the edge data
+    if (is.null(aux) | length(aux) == 0) {
+      return(NULL)
+    }
+
+    # Adjust the columns
+    aux <- as.data.frame(aux, stringsAsFactors = FALSE)
+    aux$node2 <- gsub("^.*\\|(.*)$", "\\1", aux$aux)
+    colnames(aux)[1] <- "node1"
+    aux$node1 <- gsub("^(.*)\\|.*$", "\\1", aux$node1)
+
+    if (length(unlist(aux)) > 0) {
+      # It means the organism has the pathway
+      if (!replaceOrg_) {
+        aux$org <- gsub("^([[:alpha:]]*).*$", "\\1", pathway_name)
+      } else {
+        aux$org <- orgToReplace_
+      }
+
+      aux$pathway <- gsub("^[[:alpha:]]*(.*$)", "\\1", pathway_name)
+      return(aux)
+    } else {
+      # It means the organism doesn't have the pathway
+      return(NULL)
+    }
+  }, error=function(e) {
+    print(paste0('The pathway ', pathway_name, ' could no be converted. Skipping it...'))
+    return(NULL)
+  })
 }

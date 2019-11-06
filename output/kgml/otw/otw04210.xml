@@ -1,0 +1,989 @@
+<?xml version="1.0"?>
+<!DOCTYPE pathway SYSTEM "http://www.kegg.jp/kegg/xml/KGML_v0.7.2_.dtd">
+<!-- Creation date: Jun 29, 2018 11:44:28 +0900 (GMT+9) -->
+<pathway name="path:otw04210" org="otw" number="04210"
+         title="Apoptosis"
+         image="http://www.kegg.jp/kegg/pathway/otw/otw04210.png"
+         link="http://www.kegg.jp/kegg-bin/show_pathway?otw04210">
+    <entry id="8" name="path:otw04115" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw04115">
+        <graphics name="p53 signaling pathway" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="1286" y="626" width="124" height="34"/>
+    </entry>
+    <entry id="9" name="path:map04668" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map04668">
+        <graphics name="TNF signaling pathway" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="107" y="390" width="124" height="34"/>
+    </entry>
+    <entry id="10" name="otw:112215997 otw:112219887 otw:112222374 otw:112254374" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112215997+otw:112219887+otw:112222374+otw:112254374">
+        <graphics name="112215997..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1536" y="902" width="46" height="17"/>
+    </entry>
+    <entry id="11" name="otw:112216046 otw:112232614" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112216046+otw:112232614">
+        <graphics name="112216046..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1164" y="313" width="46" height="17"/>
+    </entry>
+    <entry id="12" name="otw:112267156" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112267156">
+        <graphics name="atm" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1283" y="547" width="46" height="17"/>
+    </entry>
+    <entry id="13" name="otw:112214763 otw:112229014 otw:112260048" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112214763+otw:112229014+otw:112260048">
+        <graphics name="112214763..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1283" y="594" width="46" height="17"/>
+    </entry>
+    <entry id="14" name="otw:112249648 otw:112249659" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112249648+otw:112249659">
+        <graphics name="112249648..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1101" y="690" width="46" height="17"/>
+    </entry>
+    <entry id="15" name="otw:112257643" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112257643">
+        <graphics name="aifm1" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1101" y="713" width="46" height="17"/>
+    </entry>
+    <entry id="16" name="otw:112215344 otw:112226859 otw:112227752 otw:112232698 otw:112233575 otw:112260550" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112215344+otw:112226859+otw:112227752+otw:112232698+otw:112233575+otw:112260550">
+        <graphics name="112215344..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="665" y="632" width="46" height="17"/>
+    </entry>
+    <entry id="17" name="otw:112216626 otw:112235685 otw:112236582 otw:112246336 otw:112255900 otw:112259586" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112216626+otw:112235685+otw:112236582+otw:112246336+otw:112255900+otw:112259586">
+        <graphics name="112216626..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1536" y="877" width="46" height="17"/>
+    </entry>
+    <entry id="18" name="otw:112216605 otw:112221993 otw:112232528" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112216605+otw:112221993+otw:112232528">
+        <graphics name="112216605..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1164" y="345" width="46" height="17"/>
+    </entry>
+    <entry id="19" name="otw:112216271 otw:112221816" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112216271+otw:112221816">
+        <graphics name="112216271..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1102" y="386" width="46" height="17"/>
+    </entry>
+    <entry id="20" name="otw:112220253 otw:112220255 otw:112224061 otw:112230827 otw:112232875" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112220253+otw:112220255+otw:112224061+otw:112230827+otw:112232875">
+        <graphics name="112220253..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="987" y="350" width="46" height="17"/>
+    </entry>
+    <entry id="21" name="otw:112231666 otw:112234406 otw:112248666 otw:112248724 otw:112255992 otw:112261439" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112231666+otw:112234406+otw:112248666+otw:112248724+otw:112255992+otw:112261439">
+        <graphics name="112231666..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="987" y="327" width="46" height="17"/>
+    </entry>
+    <entry id="22" name="otw:112228809 otw:112237949" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112228809+otw:112237949">
+        <graphics name="112228809..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="596" y="737" width="46" height="17"/>
+    </entry>
+    <entry id="23" name="otw:112214775 otw:112220841 otw:112260059" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112214775+otw:112220841+otw:112260059">
+        <graphics name="112214775..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="832" y="901" width="46" height="17"/>
+    </entry>
+    <entry id="24" name="otw:112216626 otw:112235685 otw:112236582 otw:112246336 otw:112255900 otw:112259586" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112216626+otw:112235685+otw:112236582+otw:112246336+otw:112255900+otw:112259586">
+        <graphics name="112216626..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="891" y="387" width="46" height="17"/>
+    </entry>
+    <entry id="25" name="otw:112242683 otw:112261268" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112242683+otw:112261268">
+        <graphics name="112242683..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="987" y="294" width="46" height="17"/>
+    </entry>
+    <entry id="26" name="otw:112217446 otw:112244922 otw:112249975 otw:112256803" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112217446+otw:112244922+otw:112249975+otw:112256803">
+        <graphics name="112217446..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="832" y="869" width="46" height="17"/>
+    </entry>
+    <entry id="27" name="otw:112229243 otw:112240151 otw:112267804" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112229243+otw:112240151+otw:112267804">
+        <graphics name="112229243..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="965" y="636" width="46" height="17"/>
+    </entry>
+    <entry id="28" name="otw:112219800 otw:112225664 otw:112232118 otw:112232140 otw:112245952 otw:112255429 otw:112255431 otw:112265869" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112219800+otw:112225664+otw:112232118+otw:112232140+otw:112245952+otw:112255429+otw:112255431+otw:112265869">
+        <graphics name="112219800..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="965" y="603" width="46" height="17"/>
+    </entry>
+    <entry id="29" name="otw:112218769" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112218769">
+        <graphics name="112218769" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="783" y="425" width="46" height="17"/>
+    </entry>
+    <entry id="30" name="otw:112226687 otw:112247430 otw:112260780" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112226687+otw:112247430+otw:112260780">
+        <graphics name="112226687..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="784" y="326" width="46" height="17"/>
+    </entry>
+    <entry id="31" name="otw:112225661 otw:112245958" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112225661+otw:112245958">
+        <graphics name="112225661..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="784" y="351" width="46" height="17"/>
+    </entry>
+    <entry id="32" name="otw:112214584 otw:112223208 otw:112224715 otw:112231173 otw:112236243 otw:112259847 otw:112266430 otw:112266436 otw:112266445" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112214584+otw:112223208+otw:112224715+otw:112231173+otw:112236243+otw:112259847+otw:112266430+otw:112266436+otw:112266445">
+        <graphics name="112214584..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="815" y="172" width="46" height="17"/>
+    </entry>
+    <entry id="33" name="otw:112217662 otw:112224566 otw:112225150 otw:112230362 otw:112250387 otw:112256640 otw:112261841 otw:112265172 otw:112265711" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112217662+otw:112224566+otw:112225150+otw:112230362+otw:112250387+otw:112256640+otw:112261841+otw:112265172+otw:112265711">
+        <graphics name="112217662..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="545" y="924" width="46" height="17"/>
+    </entry>
+    <entry id="34" name="otw:112223536 otw:112226021 otw:112246048" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112223536+otw:112226021+otw:112246048">
+        <graphics name="112223536..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="330" y="735" width="46" height="17"/>
+    </entry>
+    <entry id="35" name="otw:112221359 otw:112223622 otw:112223895 otw:112224128 otw:112239880 otw:112263933" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112221359+otw:112223622+otw:112223895+otw:112224128+otw:112239880+otw:112263933">
+        <graphics name="112221359..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="742" y="869" width="46" height="17"/>
+    </entry>
+    <entry id="36" name="otw:112224883" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112224883">
+        <graphics name="cflar" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="525" y="297" width="46" height="17"/>
+    </entry>
+    <entry id="37" name="otw:112216060 otw:112226747 otw:112227144 otw:112230790 otw:112232603 otw:112244626 otw:112248937 otw:112250738 otw:112250872 otw:112250879 otw:112251044 otw:112252131 otw:112260202 otw:112260309 otw:112260699 otw:112265788 otw:112267269" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112216060+otw:112226747+otw:112227144+otw:112230790+otw:112232603+otw:112244626+otw:112248937+otw:112250738+otw:112250872+otw:112250879+otw:112251044+otw:112252131+otw:112260202+otw:112260309+otw:112260699+otw:112265788+otw:112267269">
+        <graphics name="112216060..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="287" y="924" width="46" height="17"/>
+    </entry>
+    <entry id="38" name="otw:112220313 otw:112230792 otw:112248690 otw:112248747" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112220313+otw:112230792+otw:112248690+otw:112248747">
+        <graphics name="112220313..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="287" y="411" width="46" height="17"/>
+    </entry>
+    <entry id="39" name="otw:112226835 otw:112260583" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112226835+otw:112260583">
+        <graphics name="112226835..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="287" y="394" width="46" height="17"/>
+    </entry>
+    <entry id="40" name="otw:112249221 otw:112263724" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112249221+otw:112263724">
+        <graphics name="112249221..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="287" y="377" width="46" height="17"/>
+    </entry>
+    <entry id="41" name="otw:112232244 otw:112249032 otw:112263517" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112232244+otw:112249032+otw:112263517">
+        <graphics name="112232244..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="287" y="346" width="46" height="17"/>
+    </entry>
+    <entry id="42" name="otw:112249221 otw:112263724" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112249221+otw:112263724">
+        <graphics name="112249221..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="287" y="329" width="46" height="17"/>
+    </entry>
+    <entry id="43" name="otw:112232244 otw:112249032 otw:112263517" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112232244+otw:112249032+otw:112263517">
+        <graphics name="112232244..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="287" y="170" width="46" height="17"/>
+    </entry>
+    <entry id="44" name="otw:112225880 otw:112258473" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112225880+otw:112258473">
+        <graphics name="112225880..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="201" y="969" width="46" height="17"/>
+    </entry>
+    <entry id="45" name="otw:112222988 otw:112223654" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112222988+otw:112223654">
+        <graphics name="112222988..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="201" y="924" width="46" height="17"/>
+    </entry>
+    <entry id="46" name="otw:112221389 otw:112247612 otw:112249065" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112221389+otw:112247612+otw:112249065">
+        <graphics name="112221389..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="201" y="354" width="46" height="17"/>
+    </entry>
+    <entry id="47" name="otw:112220324 otw:112230781 otw:112248682 otw:112248739 otw:112262658 otw:112265338" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112220324+otw:112230781+otw:112248682+otw:112248739+otw:112262658+otw:112265338">
+        <graphics name="112220324..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="201" y="152" width="46" height="17"/>
+    </entry>
+    <entry id="48" name="otw:112253033 otw:112254547" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112253033+otw:112254547">
+        <graphics name="112253033..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="201" y="185" width="46" height="17"/>
+    </entry>
+    <entry id="49" name="ko:K04736" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04736">
+        <graphics name="K04736" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="112" y="969" width="46" height="17"/>
+    </entry>
+    <entry id="50" name="otw:112222421 otw:112237544 otw:112255445" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112222421+otw:112237544+otw:112255445">
+        <graphics name="112222421..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="112" y="924" width="46" height="17"/>
+    </entry>
+    <entry id="51" name="otw:112230200 otw:112238602 otw:112245031" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112230200+otw:112238602+otw:112245031">
+        <graphics name="112230200..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="112" y="354" width="46" height="17"/>
+    </entry>
+    <entry id="52" name="path:otw04210" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw04210">
+        <graphics name="TITLE:Apoptosis" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="90" y="58" width="100" height="25"/>
+    </entry>
+    <entry id="53" name="otw:112215451 otw:112215470 otw:112227478 otw:112236919" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112215451+otw:112215470+otw:112227478+otw:112236919">
+        <graphics name="112215451..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="112" y="152" width="46" height="17"/>
+    </entry>
+    <entry id="54" name="otw:112237814 otw:112248671 otw:112251074 otw:112263074" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112237814+otw:112248671+otw:112251074+otw:112263074">
+        <graphics name="112237814..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="112" y="185" width="46" height="17"/>
+    </entry>
+    <entry id="99" name="path:map04064" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map04064">
+        <graphics name="NF-kappa B signaling pathway" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="793" y="832" width="124" height="34"/>
+    </entry>
+    <entry id="100" name="path:map04151" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map04151">
+        <graphics name="PI3K-Akt signaling pathway" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="373" y="898" width="124" height="34"/>
+    </entry>
+    <entry id="102" name="otw:112220077 otw:112230747" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112220077+otw:112230747">
+        <graphics name="112220077..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1164" y="216" width="46" height="17"/>
+    </entry>
+    <entry id="103" name="otw:112220010 otw:112222965 otw:112229479 otw:112230026 otw:112240011 otw:112251434" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112220010+otw:112222965+otw:112229479+otw:112230026+otw:112240011+otw:112251434">
+        <graphics name="lmnb1..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1164" y="249" width="46" height="17"/>
+    </entry>
+    <entry id="104" name="otw:112225034 otw:112236648 otw:112254645 otw:112260741 otw:112262836" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112225034+otw:112236648+otw:112254645+otw:112260741+otw:112262836">
+        <graphics name="parp4..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1164" y="283" width="46" height="17"/>
+    </entry>
+    <entry id="111" name="otw:112228693 otw:112250213 otw:112265496 otw:112267076" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112228693+otw:112250213+otw:112265496+otw:112267076">
+        <graphics name="112228693..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="982" y="497" width="46" height="17"/>
+    </entry>
+    <entry id="112" name="otw:112216724 otw:112216725 otw:112239969 otw:112246900" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112216724+otw:112216725+otw:112239969+otw:112246900">
+        <graphics name="112216724..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="982" y="518" width="46" height="17"/>
+    </entry>
+    <entry id="113" name="otw:112224672" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112224672">
+        <graphics name="112224672" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="982" y="539" width="46" height="17"/>
+    </entry>
+    <entry id="118" name="otw:112225734 otw:112226023 otw:112232241 otw:112246045 otw:112249035 otw:112251217 otw:112258413 otw:112263519" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112225734+otw:112226023+otw:112232241+otw:112246045+otw:112249035+otw:112251217+otw:112258413+otw:112263519">
+        <graphics name="112225734..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1483" y="555" width="46" height="17"/>
+    </entry>
+    <entry id="119" name="ko:K14021" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14021">
+        <graphics name="K14021" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1431" y="555" width="46" height="17"/>
+    </entry>
+    <entry id="120" name="otw:112218769" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112218769">
+        <graphics name="112218769" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1431" y="580" width="46" height="17"/>
+    </entry>
+    <entry id="121" name="ko:K10131" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K10131">
+        <graphics name="K10131" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1483" y="630" width="46" height="17"/>
+    </entry>
+    <entry id="122" name="ko:K10132" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K10132">
+        <graphics name="K10132" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1431" y="630" width="46" height="17"/>
+    </entry>
+    <entry id="123" name="otw:112229243 otw:112240151 otw:112267804" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112229243+otw:112240151+otw:112267804">
+        <graphics name="112229243..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1483" y="580" width="46" height="17"/>
+    </entry>
+    <entry id="124" name="ko:K13773" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K13773">
+        <graphics name="K13773" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1536" y="580" width="46" height="17"/>
+    </entry>
+    <entry id="125" name="otw:112253033 otw:112254547" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112253033+otw:112254547">
+        <graphics name="112253033..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1431" y="605" width="46" height="17"/>
+    </entry>
+    <entry id="126" name="otw:112220324 otw:112230781 otw:112248682 otw:112248739 otw:112262658 otw:112265338" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112220324+otw:112230781+otw:112248682+otw:112248739+otw:112262658+otw:112265338">
+        <graphics name="112220324..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1483" y="605" width="46" height="17"/>
+    </entry>
+    <entry id="130" name="otw:112220313 otw:112230792 otw:112248690 otw:112248747" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112220313+otw:112230792+otw:112248690+otw:112248747">
+        <graphics name="112220313..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="563" y="172" width="46" height="17"/>
+    </entry>
+    <entry id="131" name="otw:112214707 otw:112239283 otw:112239287 otw:112239288 otw:112239547 otw:112259064 otw:112259951" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112214707+otw:112239283+otw:112239287+otw:112239288+otw:112239547+otw:112259064+otw:112259951">
+        <graphics name="112214707..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="609" y="172" width="46" height="17"/>
+    </entry>
+    <entry id="132" name="ko:K04741" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04741">
+        <graphics name="K04741" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="893" y="172" width="46" height="17"/>
+    </entry>
+    <entry id="134" name="path:otw04141" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw04141">
+        <graphics name="Protein processing in endoplasmic reticulum" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="763" y="112" width="124" height="34"/>
+    </entry>
+    <entry id="135" name="otw:112252776 otw:112257337" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112252776+otw:112257337">
+        <graphics name="112252776..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1431" y="877" width="46" height="17"/>
+    </entry>
+    <entry id="136" name="otw:112224883" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112224883">
+        <graphics name="cflar" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1483" y="877" width="46" height="17"/>
+    </entry>
+    <entry id="137" name="otw:112219828 otw:112219829 otw:112227088 otw:112230512 otw:112230565 otw:112248817 otw:112249878 otw:112250716 otw:112251192 otw:112251264 otw:112252104 otw:112260284 otw:112263967" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112219828+otw:112219829+otw:112227088+otw:112230512+otw:112230565+otw:112248817+otw:112249878+otw:112250716+otw:112251192+otw:112251264+otw:112252104+otw:112260284+otw:112263967">
+        <graphics name="112219828..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1431" y="902" width="46" height="17"/>
+    </entry>
+    <entry id="138" name="ko:K02162" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02162">
+        <graphics name="K02162" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1431" y="927" width="46" height="17"/>
+    </entry>
+    <entry id="139" name="otw:112220313 otw:112230792 otw:112247546 otw:112248218 otw:112248690 otw:112248747" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112220313+otw:112230792+otw:112247546+otw:112248218+otw:112248690+otw:112248747">
+        <graphics name="112220313..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1483" y="902" width="46" height="17"/>
+    </entry>
+    <entry id="141" name="otw:112225734 otw:112226023 otw:112232241 otw:112246045 otw:112249035 otw:112251217 otw:112258413 otw:112263519" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112225734+otw:112226023+otw:112232241+otw:112246045+otw:112249035+otw:112251217+otw:112258413+otw:112263519">
+        <graphics name="112225734..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="723" y="513" width="46" height="17"/>
+    </entry>
+    <entry id="142" name="ko:K14021" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14021">
+        <graphics name="K14021" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="842" y="513" width="46" height="17"/>
+    </entry>
+    <entry id="146" name="otw:112215997 otw:112219887 otw:112222374 otw:112254374" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112215997+otw:112219887+otw:112222374+otw:112254374">
+        <graphics name="112215997..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="665" y="609" width="46" height="17"/>
+    </entry>
+    <entry id="152" name="otw:112229814 otw:112233298 otw:112264793" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112229814+otw:112233298+otw:112264793">
+        <graphics name="112229814..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="287" y="290" width="46" height="17"/>
+    </entry>
+    <entry id="154" name="otw:112217549 otw:112223073 otw:112231604 otw:112233848 otw:112246186 otw:112246634 otw:112250094" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112217549+otw:112223073+otw:112231604+otw:112233848+otw:112246186+otw:112246634+otw:112250094">
+        <graphics name="112217549..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="400" y="573" width="46" height="17"/>
+    </entry>
+    <entry id="155" name="otw:112219617 otw:112220751 otw:112223506 otw:112224208 otw:112231415 otw:112252352 otw:112252764 otw:112257338" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112219617+otw:112220751+otw:112223506+otw:112224208+otw:112231415+otw:112252352+otw:112252764+otw:112257338">
+        <graphics name="112219617..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="400" y="735" width="46" height="17"/>
+    </entry>
+    <entry id="156" name="otw:112220221 otw:112230876 otw:112237660 otw:112247572 otw:112248220 otw:112263310" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112220221+otw:112230876+otw:112237660+otw:112247572+otw:112248220+otw:112263310">
+        <graphics name="112220221..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="375" y="413" width="46" height="17"/>
+    </entry>
+    <entry id="163" name="otw:112219784 otw:112226753 otw:112248681 otw:112251077 otw:112257314 otw:112260691" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112219784+otw:112226753+otw:112248681+otw:112251077+otw:112257314+otw:112260691">
+        <graphics name="112219784..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1277" y="798" width="46" height="17"/>
+    </entry>
+    <entry id="164" name="otw:112233100 otw:112235301 otw:112235302 otw:112236219 otw:112236220 otw:112256701 otw:112262312" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112233100+otw:112235301+otw:112235302+otw:112236219+otw:112236220+otw:112256701+otw:112262312">
+        <graphics name="112233100..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1277" y="822" width="46" height="17"/>
+    </entry>
+    <entry id="167" name="otw:112214763 otw:112229014 otw:112260048" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112214763+otw:112229014+otw:112260048">
+        <graphics name="112214763..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1431" y="797" width="46" height="17"/>
+    </entry>
+    <entry id="168" name="otw:112253033 otw:112254547" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112253033+otw:112254547">
+        <graphics name="112253033..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1483" y="797" width="46" height="17"/>
+    </entry>
+    <entry id="169" name="otw:112237814 otw:112248671 otw:112251074 otw:112263074" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112237814+otw:112248671+otw:112251074+otw:112263074">
+        <graphics name="112237814..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1536" y="797" width="46" height="17"/>
+    </entry>
+    <entry id="170" name="otw:112253141 otw:112255614" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112253141+otw:112255614">
+        <graphics name="bcl2l11..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1431" y="822" width="46" height="17"/>
+    </entry>
+    <entry id="173" name="ko:K10132" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K10132">
+        <graphics name="K10132" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="834" y="721" width="46" height="17"/>
+    </entry>
+    <entry id="174" name="ko:K10131" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K10131">
+        <graphics name="K10131" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="775" y="721" width="46" height="17"/>
+    </entry>
+    <entry id="180" name="otw:112214478 otw:112214944 otw:112216098 otw:112217696 otw:112218593 otw:112221053 otw:112221174 otw:112222204 otw:112222947 otw:112222948 otw:112225886 otw:112229276 otw:112229285 otw:112241541 otw:112244697 otw:112246217 otw:112246235 otw:112247294 otw:112247472 otw:112254734 otw:112255725 otw:112255915 otw:112257425 otw:112258482 otw:112260913 otw:112261490 otw:112262069 otw:112265668 otw:112267292 otw:112267304" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112214478+otw:112214944+otw:112216098+otw:112217696+otw:112218593+otw:112221053+otw:112221174+otw:112222204+otw:112222947+otw:112222948+otw:112225886+otw:112229276+otw:112229285+otw:112241541+otw:112244697+otw:112246217+otw:112246235+otw:112247294+otw:112247472+otw:112254734+otw:112255725+otw:112255915+otw:112257425+otw:112258482+otw:112260913+otw:112261490+otw:112262069+otw:112265668+otw:112267292+otw:112267304">
+        <graphics name="112214478..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="514" y="558" width="46" height="17"/>
+    </entry>
+    <entry id="197" name="cpd:C00076" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00076">
+        <graphics name="C00076" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="756" y="171" width="8" height="8"/>
+    </entry>
+    <entry id="201" name="ko:K04452" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04452">
+        <graphics name="K04452" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="581" y="537" width="46" height="17"/>
+    </entry>
+    <entry id="202" name="otw:112236837" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112236837">
+        <graphics name="eif2ak3" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="658" y="209" width="46" height="17"/>
+    </entry>
+    <entry id="203" name="otw:112250468 otw:112256881 otw:112261564" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112250468+otw:112256881+otw:112261564">
+        <graphics name="112250468..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="581" y="317" width="46" height="17"/>
+    </entry>
+    <entry id="204" name="otw:112225885 otw:112240072 otw:112258481" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112225885+otw:112240072+otw:112258481">
+        <graphics name="112225885..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="581" y="374" width="46" height="17"/>
+    </entry>
+    <entry id="210" name="path:otw04020" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw04020">
+        <graphics name="Calcium signaling pathway" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="785" y="207" width="124" height="34"/>
+    </entry>
+    <entry id="211" name="otw:112218717 otw:112221364 otw:112232084 otw:112232649 otw:112232764 otw:112244593 otw:112254359 otw:112262812" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112218717+otw:112221364+otw:112232084+otw:112232649+otw:112232764+otw:112244593+otw:112254359+otw:112262812">
+        <graphics name="112218717..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="706" y="172" width="46" height="17"/>
+    </entry>
+    <entry id="222" name="otw:112219534 otw:112223683 otw:112224117" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112219534+otw:112223683+otw:112224117">
+        <graphics name="112219534..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="459" y="924" width="46" height="17"/>
+    </entry>
+    <entry id="223" name="cpd:C05981" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C05981">
+        <graphics name="C05981" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="375" y="924" width="8" height="8"/>
+    </entry>
+    <entry id="226" name="otw:112218769" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112218769">
+        <graphics name="112218769" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="581" y="687" width="46" height="17"/>
+    </entry>
+    <entry id="229" name="otw:112225903" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112225903">
+        <graphics name="112225903" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1005" y="424" width="46" height="17"/>
+    </entry>
+    <entry id="230" name="otw:112238872" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112238872">
+        <graphics name="pidd1" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1005" y="441" width="46" height="17"/>
+    </entry>
+    <entry id="232" name="otw:112238872" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112238872">
+        <graphics name="pidd1" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1536" y="555" width="46" height="17"/>
+    </entry>
+    <entry id="234" name="otw:112251797" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112251797">
+        <graphics name="112251797" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="987" y="251" width="46" height="17"/>
+    </entry>
+    <entry id="236" name="otw:112222384 otw:112229732 otw:112235264 otw:112235627 otw:112237711 otw:112248319 otw:112258573 otw:112258981 otw:112259008" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112222384+otw:112229732+otw:112235264+otw:112235627+otw:112237711+otw:112248319+otw:112258573+otw:112258981+otw:112259008">
+        <graphics name="112222384..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="201" y="264" width="46" height="17"/>
+    </entry>
+    <entry id="245" name="otw:112240902 otw:112240903 otw:112255464" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112240902+otw:112240903+otw:112255464">
+        <graphics name="112240902..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1164" y="190" width="46" height="17"/>
+    </entry>
+    <entry id="246" name="otw:112216223 otw:112216274 otw:112216326 otw:112218125 otw:112218736 otw:112221759 otw:112221871 otw:112225673 otw:112225677 otw:112230864 otw:112230867 otw:112239137 otw:112239770 otw:112254709 otw:112257331" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112216223+otw:112216274+otw:112216326+otw:112218125+otw:112218736+otw:112221759+otw:112221871+otw:112225673+otw:112225677+otw:112230864+otw:112230867+otw:112239137+otw:112239770+otw:112254709+otw:112257331">
+        <graphics name="112216223..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1164" y="138" width="46" height="17"/>
+    </entry>
+    <entry id="247" name="otw:112222943 otw:112229253" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112222943+otw:112229253">
+        <graphics name="112222943..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1164" y="164" width="46" height="17"/>
+    </entry>
+    <entry id="262" name="path:map04650" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map04650">
+        <graphics name="Natural killer cell mediated cytotoxicity" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="107" y="303" width="124" height="34"/>
+    </entry>
+    <entry id="263" name="otw:112253141 otw:112255614" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112253141+otw:112255614">
+        <graphics name="bcl2l11..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="581" y="627" width="46" height="17"/>
+    </entry>
+    <entry id="264" name="otw:112222943 otw:112229253" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112222943+otw:112229253">
+        <graphics name="112222943..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="522" y="596" width="46" height="17"/>
+    </entry>
+    <entry id="272" name="cpd:C00319" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00319">
+        <graphics name="C00319" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="449" y="379" width="8" height="8"/>
+    </entry>
+    <entry id="274" name="cpd:C00027" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00027">
+        <graphics name="C00027" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="518" y="419" width="8" height="8"/>
+    </entry>
+    <entry id="275" name="ko:K02512" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02512">
+        <graphics name="K02512" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1483" y="822" width="46" height="17"/>
+    </entry>
+    <entry id="277" name="otw:112218668 otw:112218714 otw:112226270 otw:112245216 otw:112252501 otw:112252543" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112218668+otw:112218714+otw:112226270+otw:112245216+otw:112252501+otw:112252543">
+        <graphics name="112218668..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="287" y="969" width="46" height="17"/>
+    </entry>
+    <entry id="278" name="otw:112215764 otw:112222214" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112215764+otw:112222214">
+        <graphics name="112215764..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="373" y="969" width="46" height="17"/>
+    </entry>
+    <entry id="279" name="otw:112231367 otw:112237794 otw:112250875 otw:112262497" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112231367+otw:112237794+otw:112250875+otw:112262497">
+        <graphics name="112231367..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="459" y="969" width="46" height="17"/>
+    </entry>
+    <entry id="280" name="otw:112215780 otw:112237408 otw:112242516 otw:112251950 otw:112251959 otw:112262493" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112215780+otw:112237408+otw:112242516+otw:112251950+otw:112251959+otw:112262493">
+        <graphics name="112215780..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="545" y="969" width="46" height="17"/>
+    </entry>
+    <entry id="288" name="otw:112215344 otw:112226859 otw:112227752 otw:112232698 otw:112233575 otw:112260550" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw:112215344+otw:112226859+otw:112227752+otw:112232698+otw:112233575+otw:112260550">
+        <graphics name="112215344..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1431" y="969" width="46" height="17"/>
+    </entry>
+    <entry id="291" name="path:otw04010" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?otw04010">
+        <graphics name="MAPK signaling pathway" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="646" y="948" width="124" height="34"/>
+    </entry>
+    <entry id="292" name="undefined" type="group">
+        <graphics fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="287" y="337" width="46" height="34"/>
+        <component id="41"/>
+        <component id="42"/>
+    </entry>
+    <entry id="293" name="undefined" type="group">
+        <graphics fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="287" y="394" width="46" height="51"/>
+        <component id="38"/>
+        <component id="39"/>
+        <component id="40"/>
+    </entry>
+    <entry id="294" name="undefined" type="group">
+        <graphics fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="586" y="172" width="92" height="17"/>
+        <component id="130"/>
+        <component id="131"/>
+    </entry>
+    <entry id="295" name="undefined" type="group">
+        <graphics fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1005" y="432" width="46" height="34"/>
+        <component id="229"/>
+        <component id="230"/>
+    </entry>
+    <relation entry1="53" entry2="47" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="47" entry2="43" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="54" entry2="48" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="48" entry2="43" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="43" entry2="30" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="43" entry2="31" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="48" entry2="152" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="152" entry2="154" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="51" entry2="46" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="46" entry2="292" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="46" entry2="293" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="38" entry2="156" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="156" entry2="154" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="38" entry2="34" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="154" entry2="155" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="202" entry2="203" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="203" entry2="204" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="294" entry2="154" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="197" entry2="32" type="PCrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="36" entry2="30" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="36" entry2="31" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="180" entry2="146" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="180" entry2="16" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="264" entry2="263" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="263" entry2="146" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="263" entry2="16" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="155" entry2="146" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="155" entry2="16" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="155" entry2="226" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="155" entry2="22" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="34" entry2="35" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="35" entry2="26" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="26" entry2="23" type="PPrel">
+        <subtype name="dissociation" value="-+-"/>
+    </relation>
+    <relation entry1="50" entry2="45" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="44" entry2="277" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="277" entry2="278" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="37" entry2="223" type="PCrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="223" entry2="222" type="PCrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="222" entry2="33" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="278" entry2="279" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="279" entry2="280" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="45" entry2="37" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="45" entry2="277" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="44" entry2="37" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="33" entry2="22" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="33" entry2="35" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="23" entry2="135" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="23" entry2="136" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="23" entry2="17" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="23" entry2="137" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="23" entry2="139" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="23" entry2="10" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="280" entry2="288" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="155" entry2="163" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="155" entry2="164" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="163" entry2="167" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="163" entry2="168" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="163" entry2="169" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="163" entry2="170" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="164" entry2="167" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="164" entry2="168" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="164" entry2="169" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="164" entry2="170" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="146" entry2="141" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="16" entry2="141" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="295" entry2="29" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="111" entry2="24" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="112" entry2="24" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="113" entry2="24" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="180" entry2="24" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="24" entry2="19" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="180" entry2="29" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="28" entry2="19" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="27" entry2="19" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="28" entry2="27" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="12" entry2="13" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="13" entry2="118" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="13" entry2="232" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="13" entry2="120" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="13" entry2="123" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="13" entry2="125" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="13" entry2="126" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="22" entry2="16" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="292" entry2="30" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="292" entry2="31" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="234" entry2="246" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="234" entry2="247" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="234" entry2="103" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="234" entry2="104" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="234" entry2="11" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="21" entry2="102" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="25" entry2="103" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="21" entry2="104" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="20" entry2="104" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="19" entry2="104" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="21" entry2="11" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="25" entry2="245" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="21" entry2="245" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="20" entry2="245" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="234" entry2="21" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="234" entry2="20" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="234" entry2="30" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="30" entry2="25" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="30" entry2="21" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="30" entry2="20" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="19" entry2="25" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="19" entry2="21" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="19" entry2="20" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="24" entry2="21" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="24" entry2="20" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="234" entry2="29" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="263" entry2="141" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="30" entry2="29" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="31" entry2="29" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+</pathway>

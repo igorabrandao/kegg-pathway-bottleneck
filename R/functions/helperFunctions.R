@@ -95,6 +95,25 @@ trim <- function (str_) {
   gsub("^\\s+|\\s+$", "", str_)
 }
 
+#' Function to remove all non-numerical characters from a string
+#'
+#' @param str_ The string to be handled.
+#'
+#' @return Returns string without non-numerical characters
+#'
+#' @examples
+#' \dontrun{
+#'  myString <- onlyNumber(myString)
+#' }
+#'
+#' @author
+#' Igor Brandão
+
+onlyNumber <- function (str_) {
+  temp <- gregexpr("[0-9]+", str_)
+  str_ <- unlist(regmatches(str_, temp))
+}
+
 #*******************************************************************************************#
 
 # ---- WEB SCRAPPING HANDLER ----
@@ -114,7 +133,6 @@ trim <- function (str_) {
 #' Igor Brandão
 
 performScraping <- function (url_) {
-
   if (is.null(url_) | length(url_) == 0) {
     printMessage(paste0("The URL cannot be empty..."))
     return(NULL)

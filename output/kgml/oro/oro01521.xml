@@ -1,0 +1,781 @@
+<?xml version="1.0"?>
+<!DOCTYPE pathway SYSTEM "http://www.kegg.jp/kegg/xml/KGML_v0.7.2_.dtd">
+<!-- Creation date: Jun 21, 2016 16:16:11 +0900 (GMT+9) -->
+<pathway name="path:oro01521" org="oro" number="01521"
+         title="EGFR tyrosine kinase inhibitor resistance"
+         image="http://www.kegg.jp/kegg/pathway/oro/oro01521.png"
+         link="http://www.kegg.jp/kegg-bin/show_pathway?oro01521">
+    <entry id="1" name="path:oro05223" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro05223">
+        <graphics name="Non-small cell lung cancer" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="343" y="117" width="102" height="34"/>
+    </entry>
+    <entry id="2" name="oro:101385903" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101385903">
+        <graphics name="ERBB3" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="253" y="415" width="46" height="17"/>
+    </entry>
+    <entry id="3" name="oro:101364161" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101364161">
+        <graphics name="ERBB2" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="253" y="398" width="46" height="17"/>
+    </entry>
+    <entry id="4" name="oro:101386858" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101386858">
+        <graphics name="EGFR" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="253" y="253" width="46" height="17"/>
+    </entry>
+    <entry id="5" name="path:oro05212" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro05212">
+        <graphics name="Pancreatic cancer" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="456" y="117" width="102" height="34"/>
+    </entry>
+    <entry id="6" name="path:oro04150" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro04150">
+        <graphics name="mTOR signaling pathway" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="871" y="263" width="102" height="34"/>
+    </entry>
+    <entry id="7" name="cpd:C00165" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00165">
+        <graphics name="C00165" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="673" y="504" width="8" height="8"/>
+    </entry>
+    <entry id="8" name="oro:101365718" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101365718">
+        <graphics name="GSK3B" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="739" y="398" width="46" height="17"/>
+    </entry>
+    <entry id="9" name="oro:101386736" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101386736">
+        <graphics name="EIF4EBP1" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="830" y="324" width="46" height="17"/>
+    </entry>
+    <entry id="10" name="oro:101365998 oro:101381996" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101365998+oro:101381996">
+        <graphics name="RPS6KB1..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="830" y="296" width="46" height="17"/>
+    </entry>
+    <entry id="11" name="oro:101363844" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101363844">
+        <graphics name="MTOR" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="739" y="311" width="46" height="17"/>
+    </entry>
+    <entry id="12" name="oro:101364161" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101364161">
+        <graphics name="ERBB2" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="253" y="270" width="46" height="17"/>
+    </entry>
+    <entry id="13" name="oro:101375422" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101375422">
+        <graphics name="BAD" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="739" y="362" width="46" height="17"/>
+    </entry>
+    <entry id="14" name="oro:101380995" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101380995">
+        <graphics name="GAB1" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="447" y="411" width="46" height="17"/>
+    </entry>
+    <entry id="15" name="oro:101384783" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101384783">
+        <graphics name="TGFA" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="155" y="271" width="46" height="17"/>
+    </entry>
+    <entry id="16" name="oro:101385903" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101385903">
+        <graphics name="ERBB3" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="253" y="481" width="46" height="17"/>
+    </entry>
+    <entry id="17" name="oro:101369947 oro:101385114" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101369947+oro:101385114">
+        <graphics name="SOS1..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="652" y="598" width="46" height="17"/>
+    </entry>
+    <entry id="18" name="oro:101362094" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101362094">
+        <graphics name="GRB2" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="572" y="598" width="46" height="17"/>
+    </entry>
+    <entry id="19" name="oro:101373821 oro:101375500 oro:101375729 oro:101384118" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101373821+oro:101375500+oro:101375729+oro:101384118">
+        <graphics name="SHC1..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="500" y="598" width="46" height="17"/>
+    </entry>
+    <entry id="20" name="oro:101363254 oro:101380879 oro:101386060" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101363254+oro:101380879+oro:101386060">
+        <graphics name="PRKCG..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="774" y="505" width="46" height="17"/>
+    </entry>
+    <entry id="21" name="oro:101378505 oro:101380728" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101378505+oro:101380728">
+        <graphics name="PLCG2..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="573" y="505" width="46" height="17"/>
+    </entry>
+    <entry id="22" name="cpd:C05981" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C05981">
+        <graphics name="C05981" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="582" y="378" width="8" height="8"/>
+    </entry>
+    <entry id="23" name="oro:101370100 oro:101370689 oro:101371800 oro:101374787 oro:101385241 oro:101385267" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101370100+oro:101370689+oro:101371800+oro:101374787+oro:101385241+oro:101385267">
+        <graphics name="PIK3R1..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="519" y="379" width="46" height="17"/>
+    </entry>
+    <entry id="24" name="oro:101374757 oro:101382320 oro:101383166" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101374757+oro:101382320+oro:101383166">
+        <graphics name="AKT2..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="650" y="379" width="46" height="17"/>
+    </entry>
+    <entry id="25" name="oro:101386858" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101386858">
+        <graphics name="EGFR" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="253" y="212" width="46" height="17"/>
+    </entry>
+    <entry id="26" name="path:oro04010" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro04010">
+        <graphics name="MAPK signaling pathway" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="876" y="565" width="102" height="34"/>
+    </entry>
+    <entry id="27" name="oro:101377629" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101377629">
+        <graphics name="EGF" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="155" y="247" width="46" height="17"/>
+    </entry>
+    <entry id="28" name="path:oro01521" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro01521">
+        <graphics name="TITLE:EGFR tyrosine kinase inhibitor resistance" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="231" y="58" width="382" height="25"/>
+    </entry>
+    <entry id="29" name="oro:101372573 oro:101382213" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101372573+oro:101382213">
+        <graphics name="MAPK1..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="941" y="598" width="46" height="17"/>
+    </entry>
+    <entry id="30" name="oro:101365373 oro:101376586" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101365373+oro:101376586">
+        <graphics name="MAP2K1..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="868" y="598" width="46" height="17"/>
+    </entry>
+    <entry id="31" name="oro:101372149 oro:101372839 oro:101377465" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101372149+oro:101372839+oro:101377465">
+        <graphics name="RAF1..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="796" y="598" width="46" height="17"/>
+    </entry>
+    <entry id="32" name="oro:101363525 oro:101367134 oro:101370458 oro:101372786" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101363525+oro:101367134+oro:101370458+oro:101372786">
+        <graphics name="NRAS..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="725" y="598" width="46" height="17"/>
+    </entry>
+    <entry id="33" name="path:oro04151" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro04151">
+        <graphics name="PI3K-Akt signaling pathway" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="585" y="429" width="102" height="34"/>
+    </entry>
+    <entry id="34" name="path:oro04012" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro04012">
+        <graphics name="ErbB signaling pathway" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="162" y="150" width="102" height="34"/>
+    </entry>
+    <entry id="35" name="oro:101367385" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101367385">
+        <graphics name="PTEN" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="621" y="316" width="46" height="17"/>
+    </entry>
+    <entry id="36" name="oro:101378635" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101378635">
+        <graphics name="NF1" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="630" y="638" width="46" height="17"/>
+    </entry>
+    <entry id="37" name="oro:101365730" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101365730">
+        <graphics name="MET" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="253" y="530" width="46" height="17"/>
+    </entry>
+    <entry id="38" name="oro:101386211" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101386211">
+        <graphics name="IGF1R" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="253" y="574" width="46" height="17"/>
+    </entry>
+    <entry id="39" name="oro:101372359 oro:101374793" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101372359+oro:101374793">
+        <graphics name="PDGFRA..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="253" y="717" width="46" height="17"/>
+    </entry>
+    <entry id="40" name="oro:101371459" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101371459">
+        <graphics name="KDR" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="253" y="660" width="46" height="17"/>
+    </entry>
+    <entry id="41" name="oro:101386858" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101386858">
+        <graphics name="EGFR" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="253" y="613" width="46" height="17"/>
+    </entry>
+    <entry id="42" name="oro:101373766" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101373766">
+        <graphics name="HGF" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="155" y="530" width="46" height="17"/>
+    </entry>
+    <entry id="43" name="oro:101381278 oro:101381434" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101381278+oro:101381434">
+        <graphics name="FGFR2..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="253" y="773" width="46" height="17"/>
+    </entry>
+    <entry id="44" name="oro:101373587" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101373587">
+        <graphics name="STAT3" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="714" y="163" width="46" height="17"/>
+    </entry>
+    <entry id="45" name="oro:101365648 oro:101375007" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101365648+oro:101375007">
+        <graphics name="JAK1..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="564" y="163" width="46" height="17"/>
+    </entry>
+    <entry id="46" name="oro:101372267" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101372267">
+        <graphics name="BCL2" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="756" y="765" width="46" height="17"/>
+    </entry>
+    <entry id="47" name="oro:101371652" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101371652">
+        <graphics name="BAX" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="818" y="685" width="46" height="17"/>
+    </entry>
+    <entry id="48" name="oro:101380440" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101380440">
+        <graphics name="BCL2L1" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="756" y="742" width="46" height="17"/>
+    </entry>
+    <entry id="49" name="oro:101378922" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101378922">
+        <graphics name="BCL2L11" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="652" y="752" width="46" height="17"/>
+    </entry>
+    <entry id="50" name="path:oro04210" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro04210">
+        <graphics name="Apoptosis" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="868" y="738" width="92" height="25"/>
+    </entry>
+    <entry id="51" name="dr:D07907" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?D07907">
+        <graphics name="D07907" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="386" y="249" width="8" height="8"/>
+    </entry>
+    <entry id="52" name="dr:D01977" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?D01977">
+        <graphics name="D01977" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="386" y="230" width="8" height="8"/>
+    </entry>
+    <entry id="53" name="oro:101386334" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101386334">
+        <graphics name="IGF1" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="155" y="574" width="46" height="17"/>
+    </entry>
+    <entry id="54" name="oro:101363442" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101363442">
+        <graphics name="VEGFA" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="155" y="660" width="46" height="17"/>
+    </entry>
+    <entry id="55" name="oro:101363701 oro:101370194 oro:101378889 oro:101386160" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101363701+oro:101370194+oro:101378889+oro:101386160">
+        <graphics name="PDGFD..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="155" y="717" width="46" height="17"/>
+    </entry>
+    <entry id="56" name="oro:101369428" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101369428">
+        <graphics name="FGF2" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="155" y="773" width="46" height="17"/>
+    </entry>
+    <entry id="57" name="oro:101368668" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101368668">
+        <graphics name="SRC" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="564" y="201" width="46" height="17"/>
+    </entry>
+    <entry id="58" name="oro:101373587" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101373587">
+        <graphics name="STAT3" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="714" y="201" width="46" height="17"/>
+    </entry>
+    <entry id="59" name="oro:101370561" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101370561">
+        <graphics name="GAS6" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="155" y="824" width="46" height="17"/>
+    </entry>
+    <entry id="60" name="oro:101366561" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101366561">
+        <graphics name="AXL" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="253" y="824" width="46" height="17"/>
+    </entry>
+    <entry id="61" name="oro:101377851" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101377851">
+        <graphics name="IL6" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="155" y="872" width="46" height="17"/>
+    </entry>
+    <entry id="62" name="oro:101368251" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101368251">
+        <graphics name="IL6R" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="253" y="872" width="46" height="17"/>
+    </entry>
+    <entry id="63" name="oro:101377322" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101377322">
+        <graphics name="RPS6" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="913" y="296" width="46" height="17"/>
+    </entry>
+    <entry id="64" name="oro:101365198 oro:101370155 oro:101375246" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101365198+oro:101370155+oro:101375246">
+        <graphics name="EIF4E1B..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="913" y="324" width="46" height="17"/>
+    </entry>
+    <entry id="65" name="oro:101376741" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101376741">
+        <graphics name="101376741" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="739" y="436" width="46" height="17"/>
+    </entry>
+    <entry id="66" name="oro:101378922" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101378922">
+        <graphics name="BCL2L11" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1150" y="436" width="46" height="17"/>
+    </entry>
+    <entry id="67" name="oro:101384783" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101384783">
+        <graphics name="TGFA" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="155" y="613" width="46" height="17"/>
+    </entry>
+    <entry id="68" name="oro:101386858" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101386858">
+        <graphics name="EGFR" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="253" y="298" width="46" height="17"/>
+    </entry>
+    <entry id="69" name="oro:101385903" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101385903">
+        <graphics name="ERBB3" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="253" y="315" width="46" height="17"/>
+    </entry>
+    <entry id="70" name="oro:101377446 oro:101382220" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101377446+oro:101382220">
+        <graphics name="NRG1..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="155" y="348" width="46" height="17"/>
+    </entry>
+    <entry id="71" name="path:oro05214" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro05214">
+        <graphics name="Glioma" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="570" y="118" width="102" height="25"/>
+    </entry>
+    <entry id="72" name="path:oro04630" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro04630">
+        <graphics name="Jak-STAT signaling pathway" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="644" y="233" width="122" height="34"/>
+    </entry>
+    <entry id="73" name="oro:101365730" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?oro:101365730">
+        <graphics name="MET" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="253" y="464" width="46" height="17"/>
+    </entry>
+    <entry id="74" name="undefined" type="group">
+        <graphics fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="253" y="261" width="46" height="34"/>
+        <component id="12"/>
+        <component id="4"/>
+    </entry>
+    <entry id="75" name="undefined" type="group">
+        <graphics fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="253" y="306" width="46" height="34"/>
+        <component id="68"/>
+        <component id="69"/>
+    </entry>
+    <entry id="76" name="undefined" type="group">
+        <graphics fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="253" y="406" width="46" height="34"/>
+        <component id="2"/>
+        <component id="3"/>
+    </entry>
+    <entry id="77" name="undefined" type="group">
+        <graphics fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="253" y="472" width="46" height="34"/>
+        <component id="16"/>
+        <component id="73"/>
+    </entry>
+    <relation entry1="27" entry2="25" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="27" entry2="74" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="27" entry2="75" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="15" entry2="25" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="15" entry2="74" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="15" entry2="75" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="70" entry2="75" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="70" entry2="76" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="42" entry2="77" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="42" entry2="37" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="37" entry2="69" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="53" entry2="38" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="67" entry2="41" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="54" entry2="40" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="55" entry2="39" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="56" entry2="43" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="59" entry2="60" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="61" entry2="62" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="52" entry2="25" type="PCrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="missing interaction" value="-/-"/>
+    </relation>
+    <relation entry1="52" entry2="4" type="PCrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="missing interaction" value="-/-"/>
+    </relation>
+    <relation entry1="52" entry2="68" type="PCrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="missing interaction" value="-/-"/>
+    </relation>
+    <relation entry1="51" entry2="25" type="PCrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="missing interaction" value="-/-"/>
+    </relation>
+    <relation entry1="51" entry2="4" type="PCrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="missing interaction" value="-/-"/>
+    </relation>
+    <relation entry1="51" entry2="68" type="PCrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="missing interaction" value="-/-"/>
+    </relation>
+    <relation entry1="25" entry2="45" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="25" entry2="57" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="25" entry2="14" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="25" entry2="21" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="25" entry2="19" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="74" entry2="45" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="74" entry2="57" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="74" entry2="14" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="74" entry2="21" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="74" entry2="19" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="75" entry2="45" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="75" entry2="57" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="75" entry2="14" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="75" entry2="21" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="75" entry2="19" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="76" entry2="45" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="76" entry2="57" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="76" entry2="14" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="76" entry2="21" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="76" entry2="19" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="77" entry2="45" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="77" entry2="57" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="77" entry2="14" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="77" entry2="21" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="77" entry2="19" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="37" entry2="45" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="37" entry2="57" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="37" entry2="14" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="37" entry2="21" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="37" entry2="19" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="38" entry2="45" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="38" entry2="57" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="38" entry2="14" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="38" entry2="21" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="38" entry2="19" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="41" entry2="45" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="41" entry2="57" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="41" entry2="14" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="41" entry2="21" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="41" entry2="19" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="40" entry2="45" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="40" entry2="57" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="40" entry2="14" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="40" entry2="21" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="40" entry2="19" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="39" entry2="45" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="39" entry2="57" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="39" entry2="14" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="39" entry2="21" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="39" entry2="19" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="43" entry2="45" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="43" entry2="57" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="43" entry2="14" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="43" entry2="21" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="43" entry2="19" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="60" entry2="45" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="60" entry2="57" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="60" entry2="14" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="60" entry2="21" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="60" entry2="19" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="62" entry2="45" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="62" entry2="57" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="62" entry2="14" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="62" entry2="21" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="62" entry2="19" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="45" entry2="44" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="57" entry2="58" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="14" entry2="23" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="23" entry2="22" type="PCrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="22" entry2="24" type="PCrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="35" entry2="22" type="PCrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="missing interaction" value="-/-"/>
+    </relation>
+    <relation entry1="24" entry2="11" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="11" entry2="10" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="10" entry2="63" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="11" entry2="9" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="9" entry2="64" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="24" entry2="13" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="24" entry2="8" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="24" entry2="65" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="65" entry2="66" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="21" entry2="7" type="PCrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="7" entry2="20" type="PCrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="20" entry2="31" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="19" entry2="18" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="18" entry2="17" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="17" entry2="32" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="32" entry2="31" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="31" entry2="30" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="30" entry2="29" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="36" entry2="32" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="missing interaction" value="-/-"/>
+    </relation>
+    <relation entry1="29" entry2="49" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="49" entry2="47" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="49" entry2="48" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="49" entry2="46" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="48" entry2="47" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="46" entry2="47" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="44" entry2="58" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+</pathway>

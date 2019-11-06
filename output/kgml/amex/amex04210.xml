@@ -1,0 +1,984 @@
+<?xml version="1.0"?>
+<!DOCTYPE pathway SYSTEM "http://www.kegg.jp/kegg/xml/KGML_v0.7.2_.dtd">
+<!-- Creation date: Jun 29, 2018 11:44:28 +0900 (GMT+9) -->
+<pathway name="path:amex04210" org="amex" number="04210"
+         title="Apoptosis"
+         image="http://www.kegg.jp/kegg/pathway/amex/amex04210.png"
+         link="http://www.kegg.jp/kegg-bin/show_pathway?amex04210">
+    <entry id="8" name="path:amex04115" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex04115">
+        <graphics name="p53 signaling pathway" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="1286" y="626" width="124" height="34"/>
+    </entry>
+    <entry id="9" name="path:map04668" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map04668">
+        <graphics name="TNF signaling pathway" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="107" y="390" width="124" height="34"/>
+    </entry>
+    <entry id="10" name="amex:103038148" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103038148">
+        <graphics name="bcl2l1" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1536" y="902" width="46" height="17"/>
+    </entry>
+    <entry id="11" name="amex:103022856" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103022856">
+        <graphics name="dffa" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1164" y="313" width="46" height="17"/>
+    </entry>
+    <entry id="12" name="amex:103045062" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103045062">
+        <graphics name="atm" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1283" y="547" width="46" height="17"/>
+    </entry>
+    <entry id="13" name="amex:103037427 amex:103046742" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103037427+amex:103046742">
+        <graphics name="103037427..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1283" y="594" width="46" height="17"/>
+    </entry>
+    <entry id="14" name="amex:103041659" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103041659">
+        <graphics name="endog" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1101" y="690" width="46" height="17"/>
+    </entry>
+    <entry id="15" name="amex:103022605" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103022605">
+        <graphics name="aifm1" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1101" y="713" width="46" height="17"/>
+    </entry>
+    <entry id="16" name="amex:103039548 amex:103042278" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103039548+amex:103042278">
+        <graphics name="103039548..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="665" y="632" width="46" height="17"/>
+    </entry>
+    <entry id="17" name="amex:103025428 amex:103025481 amex:103031816 amex:103037921 amex:111192978 amex:111194016" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103025428+amex:103025481+amex:103031816+amex:103037921+amex:111192978+amex:111194016">
+        <graphics name="birc5..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1536" y="877" width="46" height="17"/>
+    </entry>
+    <entry id="18" name="amex:103023113" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103023113">
+        <graphics name="dffb" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1164" y="345" width="46" height="17"/>
+    </entry>
+    <entry id="19" name="amex:103034324" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103034324">
+        <graphics name="103034324" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1102" y="386" width="46" height="17"/>
+    </entry>
+    <entry id="20" name="amex:103041716" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103041716">
+        <graphics name="casp7" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="987" y="350" width="46" height="17"/>
+    </entry>
+    <entry id="21" name="amex:103025383 amex:111189829" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103025383+amex:111189829">
+        <graphics name="103025383..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="987" y="327" width="46" height="17"/>
+    </entry>
+    <entry id="22" name="amex:103032659 amex:103047163" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103032659+amex:103047163">
+        <graphics name="103032659..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="596" y="737" width="46" height="17"/>
+    </entry>
+    <entry id="23" name="amex:103032041 amex:103038869" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103032041+amex:103038869">
+        <graphics name="103032041..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="832" y="901" width="46" height="17"/>
+    </entry>
+    <entry id="24" name="amex:103025428 amex:103025481 amex:103031816 amex:103037921 amex:111192978 amex:111194016" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103025428+amex:103025481+amex:103031816+amex:103037921+amex:111192978+amex:111194016">
+        <graphics name="birc5..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="891" y="387" width="46" height="17"/>
+    </entry>
+    <entry id="25" name="amex:103033476 amex:103035747 amex:103036066" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103033476+amex:103035747+amex:103036066">
+        <graphics name="103033476..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="987" y="294" width="46" height="17"/>
+    </entry>
+    <entry id="26" name="amex:103038271 amex:103043190" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103038271+amex:103043190">
+        <graphics name="103038271..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="832" y="869" width="46" height="17"/>
+    </entry>
+    <entry id="27" name="amex:103032437" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103032437">
+        <graphics name="apaf1" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="965" y="636" width="46" height="17"/>
+    </entry>
+    <entry id="28" name="amex:103040542" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103040542">
+        <graphics name="103040542" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="965" y="603" width="46" height="17"/>
+    </entry>
+    <entry id="29" name="amex:107197792" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:107197792">
+        <graphics name="107197792" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="783" y="425" width="46" height="17"/>
+    </entry>
+    <entry id="30" name="amex:103021896 amex:103036076 amex:103036379" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103021896+amex:103036076+amex:103036379">
+        <graphics name="103021896..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="784" y="326" width="46" height="17"/>
+    </entry>
+    <entry id="31" name="amex:103037118" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103037118">
+        <graphics name="103037118" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="784" y="351" width="46" height="17"/>
+    </entry>
+    <entry id="32" name="amex:103021914 amex:103023637 amex:103024279 amex:103024720 amex:103026146 amex:103042634 amex:107197131" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103021914+amex:103023637+amex:103024279+amex:103024720+amex:103026146+amex:103042634+amex:107197131">
+        <graphics name="103021914..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="815" y="172" width="46" height="17"/>
+    </entry>
+    <entry id="33" name="amex:103023390 amex:103024575 amex:103026930 amex:103040186 amex:103040659" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103023390+amex:103024575+amex:103026930+amex:103040186+amex:103040659">
+        <graphics name="akt2..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="545" y="924" width="46" height="17"/>
+    </entry>
+    <entry id="34" name="amex:103043321 amex:103047161" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103043321+amex:103047161">
+        <graphics name="103043321..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="330" y="735" width="46" height="17"/>
+    </entry>
+    <entry id="35" name="amex:103033415 amex:103040024 amex:103043929" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103033415+amex:103040024+amex:103043929">
+        <graphics name="chuk..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="742" y="869" width="46" height="17"/>
+    </entry>
+    <entry id="36" name="amex:103037295 amex:103047016" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103037295+amex:103047016">
+        <graphics name="103037295..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="525" y="297" width="46" height="17"/>
+    </entry>
+    <entry id="37" name="amex:103022173 amex:103029972 amex:103032909 amex:103035767 amex:103041606 amex:103045036 amex:103046618 amex:111190801" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103022173+amex:103029972+amex:103032909+amex:103035767+amex:103041606+amex:103045036+amex:103046618+amex:111190801">
+        <graphics name="pik3cb..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="287" y="924" width="46" height="17"/>
+    </entry>
+    <entry id="38" name="amex:103028261 amex:103036375" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103028261+amex:103036375">
+        <graphics name="traf2..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="287" y="411" width="46" height="17"/>
+    </entry>
+    <entry id="39" name="amex:103045920" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103045920">
+        <graphics name="ripk1" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="287" y="394" width="46" height="17"/>
+    </entry>
+    <entry id="40" name="amex:103022233" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103022233">
+        <graphics name="tradd" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="287" y="377" width="46" height="17"/>
+    </entry>
+    <entry id="41" name="amex:103022073" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103022073">
+        <graphics name="fadd" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="287" y="346" width="46" height="17"/>
+    </entry>
+    <entry id="42" name="amex:103022233" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103022233">
+        <graphics name="tradd" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="287" y="329" width="46" height="17"/>
+    </entry>
+    <entry id="43" name="amex:103022073" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103022073">
+        <graphics name="fadd" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="287" y="170" width="46" height="17"/>
+    </entry>
+    <entry id="44" name="amex:103028631 amex:103037443" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103028631+amex:103037443">
+        <graphics name="103028631..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="201" y="969" width="46" height="17"/>
+    </entry>
+    <entry id="45" name="amex:103025260" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103025260">
+        <graphics name="ntrk1" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="201" y="924" width="46" height="17"/>
+    </entry>
+    <entry id="46" name="ko:K03158" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K03158">
+        <graphics name="K03158" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="201" y="354" width="46" height="17"/>
+    </entry>
+    <entry id="47" name="amex:103025853 amex:103030935" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103025853+amex:103030935">
+        <graphics name="103025853..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="201" y="152" width="46" height="17"/>
+    </entry>
+    <entry id="48" name="amex:103046657" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103046657">
+        <graphics name="103046657" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="201" y="185" width="46" height="17"/>
+    </entry>
+    <entry id="49" name="ko:K04736" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04736">
+        <graphics name="K04736" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="112" y="969" width="46" height="17"/>
+    </entry>
+    <entry id="50" name="amex:103030601 amex:103031633" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103030601+amex:103031633">
+        <graphics name="103030601..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="112" y="924" width="46" height="17"/>
+    </entry>
+    <entry id="51" name="amex:103032568" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103032568">
+        <graphics name="103032568" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="112" y="354" width="46" height="17"/>
+    </entry>
+    <entry id="52" name="path:amex04210" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex04210">
+        <graphics name="TITLE:Apoptosis" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="90" y="58" width="100" height="25"/>
+    </entry>
+    <entry id="53" name="amex:103022098 amex:103023521" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103022098+amex:103023521">
+        <graphics name="103022098..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="112" y="152" width="46" height="17"/>
+    </entry>
+    <entry id="54" name="amex:103027441 amex:103047860" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103027441+amex:103047860">
+        <graphics name="103027441..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="112" y="185" width="46" height="17"/>
+    </entry>
+    <entry id="99" name="path:map04064" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map04064">
+        <graphics name="NF-kappa B signaling pathway" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="793" y="832" width="124" height="34"/>
+    </entry>
+    <entry id="100" name="path:map04151" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map04151">
+        <graphics name="PI3K-Akt signaling pathway" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="373" y="898" width="124" height="34"/>
+    </entry>
+    <entry id="102" name="amex:103022593" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103022593">
+        <graphics name="sptan1" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1164" y="216" width="46" height="17"/>
+    </entry>
+    <entry id="103" name="amex:103025469 amex:103034386 amex:103035739" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103025469+amex:103034386+amex:103035739">
+        <graphics name="lmnb2..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1164" y="249" width="46" height="17"/>
+    </entry>
+    <entry id="104" name="amex:103023001 amex:103030103 amex:103034813 amex:103037618" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103023001+amex:103030103+amex:103034813+amex:103037618">
+        <graphics name="parp1..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1164" y="283" width="46" height="17"/>
+    </entry>
+    <entry id="111" name="amex:103028190 amex:103032753" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103028190+amex:103032753">
+        <graphics name="103028190..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="982" y="497" width="46" height="17"/>
+    </entry>
+    <entry id="112" name="amex:103021587 amex:103026494 amex:103047659" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103021587+amex:103026494+amex:103047659">
+        <graphics name="103021587..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="982" y="518" width="46" height="17"/>
+    </entry>
+    <entry id="113" name="amex:103043568" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103043568">
+        <graphics name="103043568" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="982" y="539" width="46" height="17"/>
+    </entry>
+    <entry id="118" name="amex:103023787 amex:103025681 amex:103042396 amex:103047816" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103023787+amex:103025681+amex:103042396+amex:103047816">
+        <graphics name="bax..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1483" y="555" width="46" height="17"/>
+    </entry>
+    <entry id="119" name="ko:K14021" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14021">
+        <graphics name="K14021" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1431" y="555" width="46" height="17"/>
+    </entry>
+    <entry id="120" name="amex:107197792" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:107197792">
+        <graphics name="107197792" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1431" y="580" width="46" height="17"/>
+    </entry>
+    <entry id="121" name="ko:K10131" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K10131">
+        <graphics name="K10131" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1483" y="630" width="46" height="17"/>
+    </entry>
+    <entry id="122" name="ko:K10132" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K10132">
+        <graphics name="K10132" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1431" y="630" width="46" height="17"/>
+    </entry>
+    <entry id="123" name="amex:103032437" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103032437">
+        <graphics name="apaf1" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1483" y="580" width="46" height="17"/>
+    </entry>
+    <entry id="124" name="ko:K13773" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K13773">
+        <graphics name="K13773" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1536" y="580" width="46" height="17"/>
+    </entry>
+    <entry id="125" name="amex:103046657" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103046657">
+        <graphics name="103046657" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1431" y="605" width="46" height="17"/>
+    </entry>
+    <entry id="126" name="amex:103025853 amex:103030935" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103025853+amex:103030935">
+        <graphics name="103025853..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1483" y="605" width="46" height="17"/>
+    </entry>
+    <entry id="130" name="amex:103028261 amex:103036375" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103028261+amex:103036375">
+        <graphics name="traf2..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="563" y="172" width="46" height="17"/>
+    </entry>
+    <entry id="131" name="amex:103031051 amex:103033457 amex:103042039 amex:103047258" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103031051+amex:103033457+amex:103042039+amex:103047258">
+        <graphics name="103031051..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="609" y="172" width="46" height="17"/>
+    </entry>
+    <entry id="132" name="ko:K04741" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04741">
+        <graphics name="K04741" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="893" y="172" width="46" height="17"/>
+    </entry>
+    <entry id="134" name="path:amex04141" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex04141">
+        <graphics name="Protein processing in endoplasmic reticulum" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="763" y="112" width="124" height="34"/>
+    </entry>
+    <entry id="135" name="amex:103043881" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103043881">
+        <graphics name="103043881" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1431" y="877" width="46" height="17"/>
+    </entry>
+    <entry id="136" name="amex:103037295 amex:103047016" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103037295+amex:103047016">
+        <graphics name="103037295..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1483" y="877" width="46" height="17"/>
+    </entry>
+    <entry id="137" name="amex:103029638 amex:103036194 amex:103036359 amex:103038163 amex:103039224 amex:103042551" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103029638+amex:103036194+amex:103036359+amex:103038163+amex:103039224+amex:103042551">
+        <graphics name="103029638..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1431" y="902" width="46" height="17"/>
+    </entry>
+    <entry id="138" name="ko:K02162" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02162">
+        <graphics name="K02162" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1431" y="927" width="46" height="17"/>
+    </entry>
+    <entry id="139" name="amex:103028261 amex:103036375 amex:103045252" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103028261+amex:103036375+amex:103045252">
+        <graphics name="traf2..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1483" y="902" width="46" height="17"/>
+    </entry>
+    <entry id="141" name="amex:103023787 amex:103025681 amex:103042396 amex:103047816" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103023787+amex:103025681+amex:103042396+amex:103047816">
+        <graphics name="bax..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="723" y="513" width="46" height="17"/>
+    </entry>
+    <entry id="142" name="ko:K14021" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14021">
+        <graphics name="K14021" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="842" y="513" width="46" height="17"/>
+    </entry>
+    <entry id="146" name="amex:103038148" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103038148">
+        <graphics name="bcl2l1" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="665" y="609" width="46" height="17"/>
+    </entry>
+    <entry id="152" name="amex:103026117" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103026117">
+        <graphics name="daxx" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="287" y="290" width="46" height="17"/>
+    </entry>
+    <entry id="154" name="amex:103033000 amex:103038360" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103033000+amex:103038360">
+        <graphics name="map3k5..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="400" y="573" width="46" height="17"/>
+    </entry>
+    <entry id="155" name="amex:103034138 amex:103035319 amex:103040580 amex:103043065" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103034138+amex:103035319+amex:103040580+amex:103043065">
+        <graphics name="103034138..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="400" y="735" width="46" height="17"/>
+    </entry>
+    <entry id="156" name="amex:103023248 amex:103045855" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103023248+amex:103045855">
+        <graphics name="dab2ip..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="375" y="413" width="46" height="17"/>
+    </entry>
+    <entry id="163" name="amex:103021920 amex:103026868" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103021920+amex:103026868">
+        <graphics name="103021920..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1277" y="798" width="46" height="17"/>
+    </entry>
+    <entry id="164" name="amex:103036705 amex:103042954 amex:103043278 amex:107197750" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103036705+amex:103042954+amex:103043278+amex:107197750">
+        <graphics name="103036705..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1277" y="822" width="46" height="17"/>
+    </entry>
+    <entry id="167" name="amex:103037427 amex:103046742" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103037427+amex:103046742">
+        <graphics name="103037427..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1431" y="797" width="46" height="17"/>
+    </entry>
+    <entry id="168" name="amex:103046657" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103046657">
+        <graphics name="103046657" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1483" y="797" width="46" height="17"/>
+    </entry>
+    <entry id="169" name="amex:103027441 amex:103047860" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103027441+amex:103047860">
+        <graphics name="103027441..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1536" y="797" width="46" height="17"/>
+    </entry>
+    <entry id="170" name="amex:103047378" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103047378">
+        <graphics name="bcl2l11" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1431" y="822" width="46" height="17"/>
+    </entry>
+    <entry id="173" name="ko:K10132" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K10132">
+        <graphics name="K10132" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="834" y="721" width="46" height="17"/>
+    </entry>
+    <entry id="174" name="ko:K10131" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K10131">
+        <graphics name="K10131" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="775" y="721" width="46" height="17"/>
+    </entry>
+    <entry id="180" name="amex:103022163 amex:103022469 amex:103022985 amex:103023296 amex:103023607 amex:103023924 amex:103026424 amex:103026974 amex:103027264 amex:103027561 amex:103028700 amex:103032210 amex:103032315 amex:103032926 amex:103033117 amex:103033790 amex:103034761 amex:103034982 amex:103037685 amex:103040417 amex:103040728 amex:103042155 amex:103043056 amex:103043563 amex:103044235 amex:103044819 amex:103044830 amex:103045424 amex:103046262 amex:107196839 amex:107197646" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103022163+amex:103022469+amex:103022985+amex:103023296+amex:103023607+amex:103023924+amex:103026424+amex:103026974+amex:103027264+amex:103027561+amex:103028700+amex:103032210+amex:103032315+amex:103032926+amex:103033117+amex:103033790+amex:103034761+amex:103034982+amex:103037685+amex:103040417+amex:103040728+amex:103042155+amex:103043056+amex:103043563+amex:103044235+amex:103044819+amex:103044830+amex:103045424+amex:103046262+amex:107196839+amex:107197646">
+        <graphics name="103022163..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="514" y="558" width="46" height="17"/>
+    </entry>
+    <entry id="197" name="cpd:C00076" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00076">
+        <graphics name="C00076" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="756" y="171" width="8" height="8"/>
+    </entry>
+    <entry id="201" name="amex:103022996" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103022996">
+        <graphics name="ddit3" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="581" y="537" width="46" height="17"/>
+    </entry>
+    <entry id="202" name="amex:103037696" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103037696">
+        <graphics name="eif2ak3" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="658" y="209" width="46" height="17"/>
+    </entry>
+    <entry id="203" name="amex:103046913" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103046913">
+        <graphics name="eif2s1" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="581" y="317" width="46" height="17"/>
+    </entry>
+    <entry id="204" name="amex:103027942" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103027942">
+        <graphics name="atf4" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="581" y="374" width="46" height="17"/>
+    </entry>
+    <entry id="210" name="path:amex04020" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex04020">
+        <graphics name="Calcium signaling pathway" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="785" y="207" width="124" height="34"/>
+    </entry>
+    <entry id="211" name="amex:103025600 amex:103030168 amex:103040877 amex:111188717" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103025600+amex:103030168+amex:103040877+amex:111188717">
+        <graphics name="103025600..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="706" y="172" width="46" height="17"/>
+    </entry>
+    <entry id="222" name="amex:103022926 amex:103033547" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103022926+amex:103033547">
+        <graphics name="103022926..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="459" y="924" width="46" height="17"/>
+    </entry>
+    <entry id="223" name="cpd:C05981" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C05981">
+        <graphics name="C05981" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="375" y="924" width="8" height="8"/>
+    </entry>
+    <entry id="226" name="amex:107197792" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:107197792">
+        <graphics name="107197792" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="581" y="687" width="46" height="17"/>
+    </entry>
+    <entry id="229" name="amex:103030250" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103030250">
+        <graphics name="casp2" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1005" y="424" width="46" height="17"/>
+    </entry>
+    <entry id="230" name="amex:103029535" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103029535">
+        <graphics name="103029535" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1005" y="441" width="46" height="17"/>
+    </entry>
+    <entry id="232" name="amex:103029535" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103029535">
+        <graphics name="103029535" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1536" y="555" width="46" height="17"/>
+    </entry>
+    <entry id="234" name="amex:103022973 amex:103029423" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103022973+amex:103029423">
+        <graphics name="103022973..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="987" y="251" width="46" height="17"/>
+    </entry>
+    <entry id="236" name="amex:103030274 amex:103034488 amex:103036166 amex:103039204 amex:103041770 amex:103041798 amex:103042077 amex:111194173 amex:111195511 amex:111195512 amex:111195514" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103030274+amex:103034488+amex:103036166+amex:103039204+amex:103041770+amex:103041798+amex:103042077+amex:111194173+amex:111195511+amex:111195512+amex:111195514">
+        <graphics name="103030274..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="201" y="264" width="46" height="17"/>
+    </entry>
+    <entry id="245" name="amex:103030443 amex:103039558" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103030443+amex:103039558">
+        <graphics name="actb..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1164" y="190" width="46" height="17"/>
+    </entry>
+    <entry id="246" name="amex:103031418 amex:103034236 amex:103034569 amex:103037973 amex:103038315 amex:103038622 amex:103038928 amex:103041851 amex:103042625 amex:103046666 amex:111194076 amex:111195381 amex:111195382" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103031418+amex:103034236+amex:103034569+amex:103037973+amex:103038315+amex:103038622+amex:103038928+amex:103041851+amex:103042625+amex:103046666+amex:111194076+amex:111195381+amex:111195382">
+        <graphics name="103031418..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1164" y="138" width="46" height="17"/>
+    </entry>
+    <entry id="247" name="amex:103046057 amex:111197410" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103046057+amex:111197410">
+        <graphics name="103046057..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1164" y="164" width="46" height="17"/>
+    </entry>
+    <entry id="262" name="path:map04650" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map04650">
+        <graphics name="Natural killer cell mediated cytotoxicity" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="107" y="303" width="124" height="34"/>
+    </entry>
+    <entry id="263" name="amex:103047378" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103047378">
+        <graphics name="bcl2l11" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="581" y="627" width="46" height="17"/>
+    </entry>
+    <entry id="264" name="amex:103046057 amex:111197410" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103046057+amex:111197410">
+        <graphics name="103046057..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="522" y="596" width="46" height="17"/>
+    </entry>
+    <entry id="272" name="cpd:C00319" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00319">
+        <graphics name="C00319" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="449" y="379" width="8" height="8"/>
+    </entry>
+    <entry id="274" name="cpd:C00027" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00027">
+        <graphics name="C00027" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="518" y="419" width="8" height="8"/>
+    </entry>
+    <entry id="275" name="ko:K02512" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02512">
+        <graphics name="K02512" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1483" y="822" width="46" height="17"/>
+    </entry>
+    <entry id="277" name="amex:103021516 amex:103023536 amex:103038241 amex:103039914 amex:103040103" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103021516+amex:103023536+amex:103038241+amex:103039914+amex:103040103">
+        <graphics name="hras..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="287" y="969" width="46" height="17"/>
+    </entry>
+    <entry id="278" name="amex:103025658 amex:103027930" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103025658+amex:103027930">
+        <graphics name="103025658..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="373" y="969" width="46" height="17"/>
+    </entry>
+    <entry id="279" name="amex:103028644 amex:103030512" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103028644+amex:103030512">
+        <graphics name="map2k1..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="459" y="969" width="46" height="17"/>
+    </entry>
+    <entry id="280" name="amex:103041389 amex:103047585" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103041389+amex:103047585">
+        <graphics name="103041389..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="545" y="969" width="46" height="17"/>
+    </entry>
+    <entry id="288" name="amex:103039548 amex:103042278" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex:103039548+amex:103042278">
+        <graphics name="103039548..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1431" y="969" width="46" height="17"/>
+    </entry>
+    <entry id="291" name="path:amex04010" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?amex04010">
+        <graphics name="MAPK signaling pathway" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="646" y="948" width="124" height="34"/>
+    </entry>
+    <entry id="292" name="undefined" type="group">
+        <graphics fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="586" y="172" width="92" height="17"/>
+        <component id="130"/>
+        <component id="131"/>
+    </entry>
+    <entry id="293" name="undefined" type="group">
+        <graphics fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1005" y="432" width="46" height="34"/>
+        <component id="229"/>
+        <component id="230"/>
+    </entry>
+    <entry id="294" name="undefined" type="group">
+        <graphics fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="287" y="337" width="46" height="34"/>
+        <component id="41"/>
+        <component id="42"/>
+    </entry>
+    <relation entry1="53" entry2="47" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="47" entry2="43" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="54" entry2="48" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="48" entry2="43" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="43" entry2="30" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="43" entry2="31" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="48" entry2="152" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="152" entry2="154" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="38" entry2="156" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="156" entry2="154" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="38" entry2="34" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="154" entry2="155" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="202" entry2="203" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="203" entry2="204" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="292" entry2="154" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="197" entry2="32" type="PCrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="36" entry2="30" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="36" entry2="31" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="204" entry2="201" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="201" entry2="146" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="201" entry2="16" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="180" entry2="146" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="180" entry2="16" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="264" entry2="263" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="263" entry2="146" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="263" entry2="16" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="155" entry2="146" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="155" entry2="16" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="155" entry2="226" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="155" entry2="22" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="34" entry2="35" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="35" entry2="26" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="26" entry2="23" type="PPrel">
+        <subtype name="dissociation" value="-+-"/>
+    </relation>
+    <relation entry1="50" entry2="45" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="44" entry2="277" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="277" entry2="278" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="37" entry2="223" type="PCrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="223" entry2="222" type="PCrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="222" entry2="33" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="278" entry2="279" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="279" entry2="280" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="45" entry2="37" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="45" entry2="277" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="44" entry2="37" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="33" entry2="22" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="33" entry2="35" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="23" entry2="135" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="23" entry2="136" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="23" entry2="17" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="23" entry2="137" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="23" entry2="139" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="23" entry2="10" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="280" entry2="288" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="155" entry2="163" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="155" entry2="164" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="163" entry2="167" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="163" entry2="168" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="163" entry2="169" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="163" entry2="170" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="164" entry2="167" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="164" entry2="168" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="164" entry2="169" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="164" entry2="170" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="146" entry2="141" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="16" entry2="141" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="293" entry2="29" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="111" entry2="24" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="112" entry2="24" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="113" entry2="24" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="180" entry2="24" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="24" entry2="19" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="180" entry2="29" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="28" entry2="19" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="27" entry2="19" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="28" entry2="27" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="12" entry2="13" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="13" entry2="118" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="13" entry2="232" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="13" entry2="120" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="13" entry2="123" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="13" entry2="125" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="13" entry2="126" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="22" entry2="16" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="294" entry2="30" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="294" entry2="31" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="234" entry2="246" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="234" entry2="247" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="234" entry2="103" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="234" entry2="104" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="234" entry2="11" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="21" entry2="102" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="25" entry2="103" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="21" entry2="104" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="20" entry2="104" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="19" entry2="104" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="21" entry2="11" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="25" entry2="245" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="21" entry2="245" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="20" entry2="245" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="234" entry2="21" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="234" entry2="20" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="234" entry2="30" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="30" entry2="25" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="30" entry2="21" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="30" entry2="20" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="19" entry2="25" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="19" entry2="21" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="19" entry2="20" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="24" entry2="21" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="24" entry2="20" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="234" entry2="29" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="263" entry2="141" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="30" entry2="29" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="31" entry2="29" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+</pathway>

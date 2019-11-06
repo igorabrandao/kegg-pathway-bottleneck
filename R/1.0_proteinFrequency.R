@@ -26,8 +26,9 @@ library(foreach)
 # Import the graphLoader functions
 files.sources = NULL
 files.sources[1] = paste0("./R/functions", "/", "graphFunctions.R")
-files.sources[2] = paste0("./R/functions", "/", "graphPrintFunctions.R")
-files.sources[3] = paste0("./R/functions", "/", "helperFunctions.R")
+files.sources[2] = paste0("./R/functions", "/", "kgmlFunctions.R")
+files.sources[3] = paste0("./R/functions", "/", "graphPrintFunctions.R")
+files.sources[4] = paste0("./R/functions", "/", "helperFunctions.R")
 sapply(files.sources, source)
 
 # Load the pathways by organisms data
