@@ -1,0 +1,667 @@
+<?xml version="1.0"?>
+<!DOCTYPE pathway SYSTEM "http://www.kegg.jp/kegg/xml/KGML_v0.7.2_.dtd">
+<!-- Creation date: May 14, 2014 13:36:11 +0900 (GMT+09:00) -->
+<pathway name="path:dya04141" org="dya" number="04141"
+         title="Protein processing in endoplasmic reticulum"
+         image="http://www.kegg.jp/kegg/pathway/dya/dya04141.png"
+         link="http://www.kegg.jp/kegg-bin/show_pathway?dya04141">
+    <entry id="13" name="path:dya04141" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya04141">
+        <graphics name="TITLE:Protein processing in endoplasmic reticulum" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="250" y="58" width="420" height="25"/>
+    </entry>
+    <entry id="14" name="path:dya03060" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya03060">
+        <graphics name="Protein export" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="55" y="158" width="92" height="25"/>
+    </entry>
+    <entry id="15" name="path:map04210" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map04210">
+        <graphics name="Apoptosis" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="641" y="639" width="80" height="25"/>
+    </entry>
+    <entry id="16" name="path:dya03050" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya03050">
+        <graphics name="Proteasome" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="1144" y="357" width="92" height="25"/>
+    </entry>
+    <entry id="28" name="dya:Dyak_GE12912" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE12912">
+        <graphics name="Dyak_GE12912" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="296" y="638" width="46" height="17"/>
+    </entry>
+    <entry id="29" name="ko:K04452" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04452">
+        <graphics name="K04452" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="361" y="720" width="46" height="17"/>
+    </entry>
+    <entry id="30" name="dya:Dyak_GE26274" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE26274">
+        <graphics name="Dyak_GE26274" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="550" y="638" width="46" height="17"/>
+    </entry>
+    <entry id="31" name="ko:K03173" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K03173">
+        <graphics name="K03173" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="548" y="522" width="46" height="17"/>
+    </entry>
+    <entry id="32" name="dya:Dyak_GE25632" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE25632">
+        <graphics name="Dyak_GE25632" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="550" y="561" width="46" height="17"/>
+    </entry>
+    <entry id="33" name="dya:Dyak_GE16180" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE16180">
+        <graphics name="Dyak_GE16180" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="550" y="599" width="46" height="17"/>
+    </entry>
+    <entry id="34" name="dya:Dyak_GE15968" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE15968">
+        <graphics name="Dyak_GE15968" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="298" y="522" width="46" height="17"/>
+    </entry>
+    <entry id="35" name="dya:Dyak_GE10455" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE10455">
+        <graphics name="Dyak_GE10455" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="440" y="126" width="46" height="17"/>
+    </entry>
+    <entry id="36" name="dya:Dyak_GE24756" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE24756">
+        <graphics name="Dyak_GE24756" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="441" y="182" width="46" height="17"/>
+    </entry>
+    <entry id="37" name="ko:K14019" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14019">
+        <graphics name="K14019" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="272" y="561" width="46" height="17"/>
+    </entry>
+    <entry id="39" name="gl:G00010" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G00010">
+        <graphics name="G00010" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="408" y="183" width="8" height="8"/>
+    </entry>
+    <entry id="40" name="cpd:C00076" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00076">
+        <graphics name="C00076" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="640" y="437" width="8" height="8"/>
+    </entry>
+    <entry id="56" name="dya:Dyak_GE13492 dya:Dyak_GE26133" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE13492+dya:Dyak_GE26133">
+        <graphics name="Dyak_GE13492..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="441" y="152" width="46" height="17"/>
+    </entry>
+    <entry id="57" name="ko:K04741" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04741">
+        <graphics name="K04741" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="641" y="561" width="46" height="17"/>
+    </entry>
+    <entry id="58" name="ko:K01367 ko:K03853" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K01367+K03853">
+        <graphics name="K01367..." fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="641" y="522" width="46" height="17"/>
+    </entry>
+    <entry id="59" name="dya:Dyak_GE13468 dya:Dyak_GE13599 dya:Dyak_GE13801 dya:Dyak_GE15861 dya:Dyak_GE18437" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE13468+dya:Dyak_GE13599+dya:Dyak_GE13801+dya:Dyak_GE15861+dya:Dyak_GE18437">
+        <graphics name="Dyak_GE13468..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="58" y="201" width="46" height="17"/>
+    </entry>
+    <entry id="63" name="dya:Dyak_GE19324" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE19324">
+        <graphics name="Dyak_GE19324" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="943" y="380" width="46" height="17"/>
+    </entry>
+    <entry id="64" name="dya:Dyak_GE13468 dya:Dyak_GE13599 dya:Dyak_GE13801 dya:Dyak_GE15861 dya:Dyak_GE18437" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE13468+dya:Dyak_GE13599+dya:Dyak_GE13801+dya:Dyak_GE15861+dya:Dyak_GE18437">
+        <graphics name="Dyak_GE13468..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="767" y="417" width="46" height="17"/>
+    </entry>
+    <entry id="65" name="dya:Dyak_GE10744 dya:Dyak_GE11027 dya:Dyak_GE11063 dya:Dyak_GE13963 dya:Dyak_GE15319 dya:Dyak_GE17411 dya:Dyak_GE26020" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE10744+dya:Dyak_GE11027+dya:Dyak_GE11063+dya:Dyak_GE13963+dya:Dyak_GE15319+dya:Dyak_GE17411+dya:Dyak_GE26020">
+        <graphics name="Dyak_GE10744..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="137" y="230" width="46" height="17"/>
+    </entry>
+    <entry id="66" name="dya:Dyak_GE16995 dya:Dyak_GE18623" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE16995+dya:Dyak_GE18623">
+        <graphics name="Dyak_GE16995..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="593" y="367" width="46" height="17"/>
+    </entry>
+    <entry id="80" name="dya:Dyak_GE10151 dya:Dyak_GE15184 dya:Dyak_GE21962" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE10151+dya:Dyak_GE15184+dya:Dyak_GE21962">
+        <graphics name="Dyak_GE10151..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="794" y="160" width="46" height="17"/>
+    </entry>
+    <entry id="83" name="dya:Dyak_GE10821" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE10821">
+        <graphics name="Dyak_GE10821" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="665" y="178" width="46" height="17"/>
+    </entry>
+    <entry id="84" name="dya:Dyak_GE20751" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE20751">
+        <graphics name="Dyak_GE20751" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="665" y="198" width="46" height="17"/>
+    </entry>
+    <entry id="89" name="dya:Dyak_GE20233" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE20233">
+        <graphics name="Dyak_GE20233" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="947" y="444" width="46" height="17"/>
+    </entry>
+    <entry id="90" name="dya:Dyak_GE10682" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE10682">
+        <graphics name="Dyak_GE10682" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="947" y="427" width="46" height="17"/>
+    </entry>
+    <entry id="91" name="dya:Dyak_GE21418" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE21418">
+        <graphics name="Dyak_GE21418" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="722" y="333" width="46" height="17"/>
+    </entry>
+    <entry id="92" name="dya:Dyak_GE10478 dya:Dyak_GE15405 dya:Dyak_GE29211" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE10478+dya:Dyak_GE15405+dya:Dyak_GE29211">
+        <graphics name="Dyak_GE10478..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="566" y="178" width="46" height="17"/>
+    </entry>
+    <entry id="93" name="dya:Dyak_GE13129 dya:Dyak_GE15288" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE13129+dya:Dyak_GE15288">
+        <graphics name="Dyak_GE13129..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="367" y="178" width="46" height="17"/>
+    </entry>
+    <entry id="94" name="dya:Dyak_GE13129 dya:Dyak_GE15288" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE13129+dya:Dyak_GE15288">
+        <graphics name="Dyak_GE13129..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="502" y="276" width="46" height="17"/>
+    </entry>
+    <entry id="95" name="dya:Dyak_GE17302" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE17302">
+        <graphics name="Dyak_GE17302" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="367" y="144" width="46" height="17"/>
+    </entry>
+    <entry id="99" name="dya:Dyak_GE19572" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE19572">
+        <graphics name="Dyak_GE19572" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="418" y="252" width="46" height="17"/>
+    </entry>
+    <entry id="101" name="gl:G00010" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G00010">
+        <graphics name="G00010" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="378" y="329" width="8" height="8"/>
+    </entry>
+    <entry id="105" name="dya:Dyak_GE10478 dya:Dyak_GE15405 dya:Dyak_GE29211" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE10478+dya:Dyak_GE15405+dya:Dyak_GE29211">
+        <graphics name="Dyak_GE10478..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="594" y="400" width="46" height="17"/>
+    </entry>
+    <entry id="116" name="dya:Dyak_GE21712" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE21712">
+        <graphics name="Dyak_GE21712" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="759" y="604" width="46" height="17"/>
+    </entry>
+    <entry id="117" name="dya:Dyak_GE10965" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE10965">
+        <graphics name="Dyak_GE10965" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="760" y="693" width="46" height="17"/>
+    </entry>
+    <entry id="118" name="ko:K14022" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14022">
+        <graphics name="K14022" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="806" y="709" width="46" height="17"/>
+    </entry>
+    <entry id="119" name="ko:K14023" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14023">
+        <graphics name="K14023" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="760" y="676" width="46" height="17"/>
+    </entry>
+    <entry id="120" name="dya:Dyak_GE15167 dya:Dyak_GE17278 dya:Dyak_GE24416" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE15167+dya:Dyak_GE17278+dya:Dyak_GE24416">
+        <graphics name="Dyak_GE15167..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="760" y="709" width="46" height="17"/>
+    </entry>
+    <entry id="123" name="dya:Dyak_GE17597" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE17597">
+        <graphics name="Dyak_Hsc70-3" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="222" y="304" width="46" height="19"/>
+    </entry>
+    <entry id="128" name="path:dya00510" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya00510">
+        <graphics name="N-Glycan biosynthesis" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="323" y="250" width="92" height="34"/>
+    </entry>
+    <entry id="129" name="dya:Dyak_GE18890 dya:Dyak_GE21609" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE18890+dya:Dyak_GE21609">
+        <graphics name="Dyak_GE18890..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="58" y="218" width="46" height="17"/>
+    </entry>
+    <entry id="130" name="ko:K02159 ko:K14021" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02159+K14021">
+        <graphics name="K02159..." fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="640" y="457" width="46" height="17"/>
+    </entry>
+    <entry id="134" name="dya:Dyak_GE11351" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE11351">
+        <graphics name="Dyak_GE11351" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="423" y="478" width="46" height="17"/>
+    </entry>
+    <entry id="135" name="dya:Dyak_GE25112 dya:Dyak_GE28285" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE25112+dya:Dyak_GE28285">
+        <graphics name="Dyak_GE25112..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="548" y="478" width="46" height="17"/>
+    </entry>
+    <entry id="136" name="dya:Dyak_GE10941 dya:Dyak_GE25281" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE10941+dya:Dyak_GE25281">
+        <graphics name="Dyak_GE10941..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="298" y="478" width="46" height="17"/>
+    </entry>
+    <entry id="137" name="dya:Dyak_GE22309 dya:Dyak_GE22979" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE22309+dya:Dyak_GE22979">
+        <graphics name="Dyak_GE22309..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="451" y="535" width="46" height="17"/>
+    </entry>
+    <entry id="138" name="dya:Dyak_GE13498" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE13498">
+        <graphics name="Dyak_GE13498" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="451" y="556" width="46" height="17"/>
+    </entry>
+    <entry id="148" name="dya:Dyak_GE12171" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE12171">
+        <graphics name="Dyak_GE12171" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="489" y="630" width="46" height="17"/>
+    </entry>
+    <entry id="159" name="dya:Dyak_GE24017" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE24017">
+        <graphics name="Dyak_GE24017" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="395" y="556" width="46" height="17"/>
+    </entry>
+    <entry id="163" name="dya:Dyak_GE14546 dya:Dyak_GE23445" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE14546+dya:Dyak_GE23445">
+        <graphics name="Dyak_GE14546..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1010" y="393" width="46" height="17"/>
+    </entry>
+    <entry id="164" name="dya:Dyak_GE15866 dya:Dyak_GE25418" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE15866+dya:Dyak_GE25418">
+        <graphics name="Dyak_GE15866..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1009" y="371" width="46" height="17"/>
+    </entry>
+    <entry id="165" name="dya:Dyak_GE20670" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE20670">
+        <graphics name="Dyak_GE20670" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1010" y="410" width="46" height="17"/>
+    </entry>
+    <entry id="166" name="dya:Dyak_GE15167 dya:Dyak_GE17278 dya:Dyak_GE24416 dya:Dyak_GE25265" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE15167+dya:Dyak_GE17278+dya:Dyak_GE24416+dya:Dyak_GE25265">
+        <graphics name="Dyak_GE15167..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="759" y="621" width="46" height="17"/>
+    </entry>
+    <entry id="167" name="dya:Dyak_GE11967" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE11967">
+        <graphics name="Dyak_GE11967" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1062" y="371" width="46" height="17"/>
+    </entry>
+    <entry id="168" name="dya:Dyak_GE21481" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE21481">
+        <graphics name="Dyak_GE21481" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1037" y="324" width="46" height="17"/>
+    </entry>
+    <entry id="169" name="ko:K11863" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K11863">
+        <graphics name="K11863" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1062" y="393" width="46" height="17"/>
+    </entry>
+    <entry id="170" name="dya:Dyak_GE15722" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE15722">
+        <graphics name="Dyak_GE15722" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1037" y="341" width="46" height="17"/>
+    </entry>
+    <entry id="171" name="dya:Dyak_GE10832 dya:Dyak_GE21989 dya:Dyak_GE24282 dya:Dyak_GE26203 dya:Dyak_GE26242 dya:Dyak_GE28717 dya:Dyak_GE29027" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE10832+dya:Dyak_GE21989+dya:Dyak_GE24282+dya:Dyak_GE26203+dya:Dyak_GE26242+dya:Dyak_GE28717+dya:Dyak_GE29027">
+        <graphics name="Dyak_Hsp68..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="917" y="268" width="46" height="17"/>
+    </entry>
+    <entry id="172" name="dya:Dyak_GE23928" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE23928">
+        <graphics name="Dyak_GE23928" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="870" y="675" width="46" height="17"/>
+    </entry>
+    <entry id="173" name="dya:Dyak_GE10965" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE10965">
+        <graphics name="Dyak_GE10965" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="905" y="692" width="46" height="17"/>
+    </entry>
+    <entry id="174" name="dya:Dyak_GE17801 dya:Dyak_GE26308" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE17801+dya:Dyak_GE26308">
+        <graphics name="Dyak_GE17801..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="866" y="315" width="46" height="17"/>
+    </entry>
+    <entry id="175" name="ko:K10088" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K10088">
+        <graphics name="K10088" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="776" y="347" width="46" height="17"/>
+    </entry>
+    <entry id="176" name="ko:K14027" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14027">
+        <graphics name="K14027" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="859" y="692" width="46" height="17"/>
+    </entry>
+    <entry id="177" name="dya:Dyak_GE12511" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE12511">
+        <graphics name="Dyak_GE12511" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="776" y="369" width="46" height="17"/>
+    </entry>
+    <entry id="178" name="dya:Dyak_GE15167 dya:Dyak_GE17278 dya:Dyak_GE24416 dya:Dyak_GE25265" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE15167+dya:Dyak_GE17278+dya:Dyak_GE24416+dya:Dyak_GE25265">
+        <graphics name="Dyak_GE15167..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="905" y="709" width="46" height="17"/>
+    </entry>
+    <entry id="179" name="ko:K14025" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14025">
+        <graphics name="K14025" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="916" y="658" width="46" height="17"/>
+    </entry>
+    <entry id="180" name="dya:Dyak_GE16630 dya:Dyak_GE17622 dya:Dyak_GE21084" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE16630+dya:Dyak_GE17622+dya:Dyak_GE21084">
+        <graphics name="Dyak_GE16630..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1061" y="675" width="46" height="17"/>
+    </entry>
+    <entry id="181" name="ko:K10099 ko:K10100" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K10099+K10100">
+        <graphics name="K10099..." fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1015" y="709" width="46" height="17"/>
+    </entry>
+    <entry id="182" name="dya:Dyak_GE26430" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE26430">
+        <graphics name="Dyak_eff" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="972" y="630" width="46" height="17"/>
+    </entry>
+    <entry id="183" name="dya:Dyak_GE11908 dya:Dyak_GE22607 dya:Dyak_GE24215 dya:Dyak_GE24291 dya:Dyak_GE26270" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE11908+dya:Dyak_GE22607+dya:Dyak_GE24215+dya:Dyak_GE24291+dya:Dyak_GE26270">
+        <graphics name="Dyak_GE11908..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1018" y="604" width="46" height="17"/>
+    </entry>
+    <entry id="184" name="dya:Dyak_GE10832 dya:Dyak_GE21989 dya:Dyak_GE24282 dya:Dyak_GE26203 dya:Dyak_GE26242 dya:Dyak_GE28717 dya:Dyak_GE29027" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE10832+dya:Dyak_GE21989+dya:Dyak_GE24282+dya:Dyak_GE26203+dya:Dyak_GE26242+dya:Dyak_GE28717+dya:Dyak_GE29027">
+        <graphics name="Dyak_Hsp68..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1018" y="621" width="46" height="17"/>
+    </entry>
+    <entry id="185" name="dya:Dyak_GE18461" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE18461">
+        <graphics name="Dyak_CHIP" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1018" y="638" width="46" height="17"/>
+    </entry>
+    <entry id="187" name="dya:Dyak_GE12027 dya:Dyak_GE12817 dya:Dyak_GE15566 dya:Dyak_GE15661 dya:Dyak_GE19977" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE12027+dya:Dyak_GE12817+dya:Dyak_GE15566+dya:Dyak_GE15661+dya:Dyak_GE19977">
+        <graphics name="Dyak_GE12027..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="723" y="369" width="46" height="17"/>
+    </entry>
+    <entry id="188" name="dya:Dyak_GE15471 dya:Dyak_GE16847 dya:Dyak_GE25967" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE15471+dya:Dyak_GE16847+dya:Dyak_GE25967">
+        <graphics name="Dyak_GE15471..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="222" y="320" width="46" height="17"/>
+    </entry>
+    <entry id="189" name="dya:Dyak_GE11462 dya:Dyak_GE13896 dya:Dyak_GE23981" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE11462+dya:Dyak_GE13896+dya:Dyak_GE23981">
+        <graphics name="Dyak_GE11462..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="866" y="378" width="46" height="17"/>
+    </entry>
+    <entry id="190" name="ko:K14022" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14022">
+        <graphics name="K14022" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="805" y="621" width="46" height="17"/>
+    </entry>
+    <entry id="191" name="dya:Dyak_GE11908 dya:Dyak_GE22607 dya:Dyak_GE24215 dya:Dyak_GE24291 dya:Dyak_GE26270" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE11908+dya:Dyak_GE22607+dya:Dyak_GE24215+dya:Dyak_GE24291+dya:Dyak_GE26270">
+        <graphics name="Dyak_GE11908..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="917" y="285" width="46" height="17"/>
+    </entry>
+    <entry id="192" name="dya:Dyak_GE17278" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE17278">
+        <graphics name="Dyak_crl" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="871" y="621" width="46" height="17"/>
+    </entry>
+    <entry id="195" name="dya:Dyak_GE20823" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE20823">
+        <graphics name="Dyak_GE20823" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="892" y="410" width="46" height="17"/>
+    </entry>
+    <entry id="201" name="dya:Dyak_GE26430" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE26430">
+        <graphics name="Dyak_eff" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1015" y="684" width="46" height="17"/>
+    </entry>
+    <entry id="202" name="dya:Dyak_GE11566 dya:Dyak_GE13476 dya:Dyak_GE16631 dya:Dyak_GE28233 dya:Dyak_GE28646" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE11566+dya:Dyak_GE13476+dya:Dyak_GE16631+dya:Dyak_GE28233+dya:Dyak_GE28646">
+        <graphics name="Dyak_GE11566..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1061" y="709" width="46" height="17"/>
+    </entry>
+    <entry id="203" name="dya:Dyak_GE19156 dya:Dyak_GE20083" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE19156+dya:Dyak_GE20083">
+        <graphics name="Dyak_GE19156..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1061" y="692" width="46" height="17"/>
+    </entry>
+    <entry id="204" name="dya:Dyak_GE17801 dya:Dyak_GE26308" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE17801+dya:Dyak_GE26308">
+        <graphics name="Dyak_GE17801..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="916" y="621" width="46" height="17"/>
+    </entry>
+    <entry id="205" name="dya:Dyak_GE16019 dya:Dyak_GE26253 dya:Dyak_GE28868 dya:Dyak_GE29015" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE16019+dya:Dyak_GE26253+dya:Dyak_GE28868+dya:Dyak_GE29015">
+        <graphics name="Dyak_GE16019..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="916" y="604" width="46" height="17"/>
+    </entry>
+    <entry id="206" name="dya:Dyak_GE17801" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE17801">
+        <graphics name="Dyak_GE17801" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="916" y="675" width="46" height="17"/>
+    </entry>
+    <entry id="207" name="dya:Dyak_GE21339" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE21339">
+        <graphics name="Dyak_GE21339" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="970" y="268" width="46" height="17"/>
+    </entry>
+    <entry id="208" name="ko:K05638" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K05638">
+        <graphics name="K05638" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="350" y="535" width="46" height="17"/>
+    </entry>
+    <entry id="211" name="dya:Dyak_GE10367 dya:Dyak_GE19233" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE10367+dya:Dyak_GE19233">
+        <graphics name="Dyak_GE10367..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="794" y="143" width="46" height="17"/>
+    </entry>
+    <entry id="212" name="dya:Dyak_GE10286" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE10286">
+        <graphics name="Dyak_GE10286" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="748" y="160" width="46" height="17"/>
+    </entry>
+    <entry id="213" name="dya:Dyak_GE18460" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE18460">
+        <graphics name="Dyak_GE18460" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="748" y="198" width="46" height="17"/>
+    </entry>
+    <entry id="215" name="dya:Dyak_GE23773" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE23773">
+        <graphics name="Dyak_GE23773" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="277" y="303" width="46" height="17"/>
+    </entry>
+    <entry id="218" name="ko:K02161" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02161">
+        <graphics name="K02161" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="363" y="757" width="46" height="17"/>
+    </entry>
+    <entry id="219" name="path:map04210" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map04210">
+        <graphics name="Apoptosis" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="365" y="795" width="80" height="25"/>
+    </entry>
+    <entry id="221" name="ko:K02161" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02161">
+        <graphics name="K02161" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="669" y="494" width="46" height="17"/>
+    </entry>
+    <entry id="224" name="ko:K10081" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K10081">
+        <graphics name="K10081" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="665" y="219" width="46" height="17"/>
+    </entry>
+    <entry id="225" name="dya:Dyak_GE28950" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE28950">
+        <graphics name="Dyak_GE28950" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="866" y="298" width="46" height="17"/>
+    </entry>
+    <entry id="226" name="dya:Dyak_GE18461" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE18461">
+        <graphics name="Dyak_CHIP" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1074" y="604" width="46" height="17"/>
+    </entry>
+    <entry id="227" name="dya:Dyak_GE22356 dya:Dyak_GE28149" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE22356+dya:Dyak_GE28149">
+        <graphics name="Dyak_GE22356..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1074" y="621" width="46" height="17"/>
+    </entry>
+    <entry id="228" name="dya:Dyak_GE19846 dya:Dyak_GE20100 dya:Dyak_GE21998 dya:Dyak_GE22844" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE19846+dya:Dyak_GE20100+dya:Dyak_GE21998+dya:Dyak_GE22844">
+        <graphics name="Dyak_GE19846..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="917" y="308" width="46" height="17"/>
+    </entry>
+    <entry id="229" name="dya:Dyak_GE11545" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE11545">
+        <graphics name="Dyak_GE11545" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="970" y="308" width="46" height="17"/>
+    </entry>
+    <entry id="230" name="path:map05010" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map05010">
+        <graphics name="Alzheimer disease" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="64" y="502" width="92" height="34"/>
+    </entry>
+    <entry id="231" name="path:map05012" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map05012">
+        <graphics name="Parkinson disease" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="64" y="547" width="92" height="34"/>
+    </entry>
+    <entry id="232" name="path:map05020" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map05020">
+        <graphics name="Prion diseases" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="63" y="463" width="92" height="25"/>
+    </entry>
+    <entry id="233" name="dya:Dyak_GE10724 dya:Dyak_GE16956" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE10724+dya:Dyak_GE16956">
+        <graphics name="Dyak_GE10724..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="176" y="303" width="46" height="17"/>
+    </entry>
+    <entry id="234" name="ko:K14024" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14024">
+        <graphics name="K14024" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="806" y="693" width="46" height="17"/>
+    </entry>
+    <entry id="237" name="path:map04930" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map04930">
+        <graphics name="Type II diabetes mellitus" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="64" y="591" width="92" height="34"/>
+    </entry>
+    <entry id="238" name="dya:Dyak_GE17302" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE17302">
+        <graphics name="Dyak_GE17302" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="137" y="246" width="46" height="17"/>
+    </entry>
+    <entry id="239" name="ko:K13999" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K13999">
+        <graphics name="K13999" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="183" y="246" width="46" height="17"/>
+    </entry>
+    <entry id="240" name="ko:K14000" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14000">
+        <graphics name="K14000" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="235" y="212" width="46" height="17"/>
+    </entry>
+    <entry id="241" name="dya:Dyak_GE21102" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE21102">
+        <graphics name="Dyak_GE21102" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="767" y="400" width="46" height="17"/>
+    </entry>
+    <entry id="242" name="dya:Dyak_GE10193 dya:Dyak_GE13527 dya:Dyak_GE15447 dya:Dyak_GE19524 dya:Dyak_GE23173" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dya:Dyak_GE10193+dya:Dyak_GE13527+dya:Dyak_GE15447+dya:Dyak_GE19524+dya:Dyak_GE23173">
+        <graphics name="Dyak_GE10193..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="721" y="417" width="46" height="17"/>
+    </entry>
+    <entry id="245" name="ko:K14013" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14013">
+        <graphics name="K14013" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="806" y="676" width="46" height="17"/>
+    </entry>
+    <entry id="246" name="ko:K10636" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K10636">
+        <graphics name="K10636" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="916" y="587" width="46" height="17"/>
+    </entry>
+    <entry id="248" name="gl:G00009" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G00009">
+        <graphics name="G00009" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="333" y="194" width="8" height="8"/>
+    </entry>
+    <entry id="249" name="gl:G00011" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G00011">
+        <graphics name="G00011" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="501" y="391" width="8" height="8"/>
+    </entry>
+    <entry id="250" name="gl:G00011" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G00011">
+        <graphics name="G00011" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="528" y="167" width="8" height="8"/>
+    </entry>
+    <entry id="251" name="gl:G10694" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G10694">
+        <graphics name="G10694" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="616" y="166" width="8" height="8"/>
+    </entry>
+    <entry id="252" name="gl:G00012" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G00012">
+        <graphics name="G00012" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="634" y="396" width="8" height="8"/>
+    </entry>
+    <relation entry1="211" entry2="80" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="211" entry2="212" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="136" entry2="34" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="34" entry2="28" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="32" entry2="33" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="33" entry2="30" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="135" entry2="148" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="91" entry2="187" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="90" entry2="63" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="213" entry2="212" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="195" entry2="189" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="195" entry2="63" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="159" entry2="134" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="90" entry2="89" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="195" entry2="90" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="189" entry2="63" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+</pathway>

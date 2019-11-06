@@ -1,0 +1,667 @@
+<?xml version="1.0"?>
+<!DOCTYPE pathway SYSTEM "http://www.kegg.jp/kegg/xml/KGML_v0.7.2_.dtd">
+<!-- Creation date: May 14, 2014 13:36:11 +0900 (GMT+09:00) -->
+<pathway name="path:dmo04141" org="dmo" number="04141"
+         title="Protein processing in endoplasmic reticulum"
+         image="http://www.kegg.jp/kegg/pathway/dmo/dmo04141.png"
+         link="http://www.kegg.jp/kegg-bin/show_pathway?dmo04141">
+    <entry id="13" name="path:dmo04141" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo04141">
+        <graphics name="TITLE:Protein processing in endoplasmic reticulum" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="250" y="58" width="420" height="25"/>
+    </entry>
+    <entry id="14" name="path:dmo03060" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo03060">
+        <graphics name="Protein export" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="55" y="158" width="92" height="25"/>
+    </entry>
+    <entry id="15" name="path:map04210" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map04210">
+        <graphics name="Apoptosis" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="641" y="639" width="80" height="25"/>
+    </entry>
+    <entry id="16" name="path:dmo03050" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo03050">
+        <graphics name="Proteasome" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="1144" y="357" width="92" height="25"/>
+    </entry>
+    <entry id="28" name="dmo:Dmoj_GI12209" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI12209">
+        <graphics name="Dmoj_GI12209" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="296" y="638" width="46" height="17"/>
+    </entry>
+    <entry id="29" name="ko:K04452" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04452">
+        <graphics name="K04452" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="361" y="720" width="46" height="17"/>
+    </entry>
+    <entry id="30" name="dmo:Dmoj_GI10639" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI10639">
+        <graphics name="Dmoj_GI10639" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="550" y="638" width="46" height="17"/>
+    </entry>
+    <entry id="31" name="ko:K03173" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K03173">
+        <graphics name="K03173" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="548" y="522" width="46" height="17"/>
+    </entry>
+    <entry id="32" name="dmo:Dmoj_GI22433" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI22433">
+        <graphics name="Dmoj_GI22433" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="550" y="561" width="46" height="17"/>
+    </entry>
+    <entry id="33" name="dmo:Dmoj_GI16263" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI16263">
+        <graphics name="Dmoj_GI16263" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="550" y="599" width="46" height="17"/>
+    </entry>
+    <entry id="34" name="dmo:Dmoj_GI21763" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI21763">
+        <graphics name="Dmoj_GI21763" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="298" y="522" width="46" height="17"/>
+    </entry>
+    <entry id="35" name="dmo:Dmoj_GI22345" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI22345">
+        <graphics name="Dmoj_GI22345" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="440" y="126" width="46" height="17"/>
+    </entry>
+    <entry id="36" name="dmo:Dmoj_GI23963" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI23963">
+        <graphics name="Dmoj_GI23963" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="441" y="182" width="46" height="17"/>
+    </entry>
+    <entry id="37" name="ko:K14019" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14019">
+        <graphics name="K14019" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="272" y="561" width="46" height="17"/>
+    </entry>
+    <entry id="39" name="gl:G00010" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G00010">
+        <graphics name="G00010" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="408" y="183" width="8" height="8"/>
+    </entry>
+    <entry id="40" name="cpd:C00076" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00076">
+        <graphics name="C00076" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="640" y="437" width="8" height="8"/>
+    </entry>
+    <entry id="56" name="dmo:Dmoj_GI19593" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI19593">
+        <graphics name="Dmoj_GI19593" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="441" y="152" width="46" height="17"/>
+    </entry>
+    <entry id="57" name="ko:K04741" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04741">
+        <graphics name="K04741" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="641" y="561" width="46" height="17"/>
+    </entry>
+    <entry id="58" name="ko:K01367 ko:K03853" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K01367+K03853">
+        <graphics name="K01367..." fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="641" y="522" width="46" height="17"/>
+    </entry>
+    <entry id="59" name="dmo:Dmoj_GI17288 dmo:Dmoj_GI18672 dmo:Dmoj_GI20777 dmo:Dmoj_GI21533" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI17288+dmo:Dmoj_GI18672+dmo:Dmoj_GI20777+dmo:Dmoj_GI21533">
+        <graphics name="Dmoj_GI17288..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="58" y="201" width="46" height="17"/>
+    </entry>
+    <entry id="63" name="dmo:Dmoj_GI19458" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI19458">
+        <graphics name="Dmoj_GI19458" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="943" y="380" width="46" height="17"/>
+    </entry>
+    <entry id="64" name="dmo:Dmoj_GI17288 dmo:Dmoj_GI18672 dmo:Dmoj_GI20777 dmo:Dmoj_GI21533" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI17288+dmo:Dmoj_GI18672+dmo:Dmoj_GI20777+dmo:Dmoj_GI21533">
+        <graphics name="Dmoj_GI17288..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="767" y="417" width="46" height="17"/>
+    </entry>
+    <entry id="65" name="dmo:Dmoj_GI10683 dmo:Dmoj_GI12966 dmo:Dmoj_GI14239 dmo:Dmoj_GI14454 dmo:Dmoj_GI20443 dmo:Dmoj_GI21480 dmo:Dmoj_GI23816" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI10683+dmo:Dmoj_GI12966+dmo:Dmoj_GI14239+dmo:Dmoj_GI14454+dmo:Dmoj_GI20443+dmo:Dmoj_GI21480+dmo:Dmoj_GI23816">
+        <graphics name="Dmoj_GI10683..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="137" y="230" width="46" height="17"/>
+    </entry>
+    <entry id="66" name="dmo:Dmoj_GI17606 dmo:Dmoj_GI21757" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI17606+dmo:Dmoj_GI21757">
+        <graphics name="Dmoj_GI17606..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="593" y="367" width="46" height="17"/>
+    </entry>
+    <entry id="80" name="dmo:Dmoj_GI18047 dmo:Dmoj_GI20406 dmo:Dmoj_GI23366" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI18047+dmo:Dmoj_GI20406+dmo:Dmoj_GI23366">
+        <graphics name="Dmoj_GI18047..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="794" y="160" width="46" height="17"/>
+    </entry>
+    <entry id="83" name="dmo:Dmoj_GI23425" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI23425">
+        <graphics name="Dmoj_GI23425" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="665" y="178" width="46" height="17"/>
+    </entry>
+    <entry id="84" name="dmo:Dmoj_GI12907" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI12907">
+        <graphics name="Dmoj_GI12907" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="665" y="198" width="46" height="17"/>
+    </entry>
+    <entry id="89" name="dmo:Dmoj_GI11622" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI11622">
+        <graphics name="Dmoj_GI11622" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="947" y="444" width="46" height="17"/>
+    </entry>
+    <entry id="90" name="dmo:Dmoj_GI10357" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI10357">
+        <graphics name="Dmoj_GI10357" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="947" y="427" width="46" height="17"/>
+    </entry>
+    <entry id="91" name="dmo:Dmoj_GI16577" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI16577">
+        <graphics name="Dmoj_GI16577" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="722" y="333" width="46" height="17"/>
+    </entry>
+    <entry id="92" name="dmo:Dmoj_GI15126 dmo:Dmoj_GI23409" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI15126+dmo:Dmoj_GI23409">
+        <graphics name="Dmoj_GI15126..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="566" y="178" width="46" height="17"/>
+    </entry>
+    <entry id="93" name="dmo:Dmoj_GI14701 dmo:Dmoj_GI22410" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI14701+dmo:Dmoj_GI22410">
+        <graphics name="Dmoj_GI14701..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="367" y="178" width="46" height="17"/>
+    </entry>
+    <entry id="94" name="dmo:Dmoj_GI14701 dmo:Dmoj_GI22410" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI14701+dmo:Dmoj_GI22410">
+        <graphics name="Dmoj_GI14701..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="502" y="276" width="46" height="17"/>
+    </entry>
+    <entry id="95" name="dmo:Dmoj_GI15075" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI15075">
+        <graphics name="Dmoj_GI15075" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="367" y="144" width="46" height="17"/>
+    </entry>
+    <entry id="99" name="dmo:Dmoj_GI13485" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI13485">
+        <graphics name="Dmoj_GI13485" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="418" y="252" width="46" height="17"/>
+    </entry>
+    <entry id="101" name="gl:G00010" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G00010">
+        <graphics name="G00010" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="378" y="329" width="8" height="8"/>
+    </entry>
+    <entry id="105" name="dmo:Dmoj_GI15126 dmo:Dmoj_GI23409" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI15126+dmo:Dmoj_GI23409">
+        <graphics name="Dmoj_GI15126..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="594" y="400" width="46" height="17"/>
+    </entry>
+    <entry id="116" name="dmo:Dmoj_GI13168" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI13168">
+        <graphics name="Dmoj_GI13168" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="759" y="604" width="46" height="17"/>
+    </entry>
+    <entry id="117" name="dmo:Dmoj_GI22108" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI22108">
+        <graphics name="Dmoj_GI22108" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="760" y="693" width="46" height="17"/>
+    </entry>
+    <entry id="118" name="ko:K14022" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14022">
+        <graphics name="K14022" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="806" y="709" width="46" height="17"/>
+    </entry>
+    <entry id="119" name="ko:K14023" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14023">
+        <graphics name="K14023" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="760" y="676" width="46" height="17"/>
+    </entry>
+    <entry id="120" name="dmo:Dmoj_GI16154 dmo:Dmoj_GI23981 dmo:Dmoj_GI24418" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI16154+dmo:Dmoj_GI23981+dmo:Dmoj_GI24418">
+        <graphics name="Dmoj_GI16154..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="760" y="709" width="46" height="17"/>
+    </entry>
+    <entry id="123" name="dmo:Dmoj_GI14717" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI14717">
+        <graphics name="Dmoj_GI14717" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="222" y="304" width="46" height="19"/>
+    </entry>
+    <entry id="128" name="path:dmo00510" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo00510">
+        <graphics name="N-Glycan biosynthesis" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="323" y="250" width="92" height="34"/>
+    </entry>
+    <entry id="129" name="dmo:Dmoj_GI12848 dmo:Dmoj_GI17586" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI12848+dmo:Dmoj_GI17586">
+        <graphics name="Dmoj_GI12848..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="58" y="218" width="46" height="17"/>
+    </entry>
+    <entry id="130" name="ko:K02159 ko:K14021" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02159+K14021">
+        <graphics name="K02159..." fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="640" y="457" width="46" height="17"/>
+    </entry>
+    <entry id="134" name="dmo:Dmoj_GI20675" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI20675">
+        <graphics name="Dmoj_GI20675" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="423" y="478" width="46" height="17"/>
+    </entry>
+    <entry id="135" name="dmo:Dmoj_GI10330" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI10330">
+        <graphics name="Dmoj_GI10330" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="548" y="478" width="46" height="17"/>
+    </entry>
+    <entry id="136" name="dmo:Dmoj_GI22205 dmo:Dmoj_GI23641" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI22205+dmo:Dmoj_GI23641">
+        <graphics name="Dmoj_GI22205..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="298" y="478" width="46" height="17"/>
+    </entry>
+    <entry id="137" name="dmo:Dmoj_GI11330" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI11330">
+        <graphics name="Dmoj_GI11330" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="451" y="535" width="46" height="17"/>
+    </entry>
+    <entry id="138" name="dmo:Dmoj_GI21268" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI21268">
+        <graphics name="Dmoj_GI21268" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="451" y="556" width="46" height="17"/>
+    </entry>
+    <entry id="148" name="dmo:Dmoj_GI20807" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI20807">
+        <graphics name="Dmoj_GI20807" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="489" y="630" width="46" height="17"/>
+    </entry>
+    <entry id="159" name="dmo:Dmoj_GI12633" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI12633">
+        <graphics name="Dmoj_GI12633" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="395" y="556" width="46" height="17"/>
+    </entry>
+    <entry id="163" name="dmo:Dmoj_GI14087 dmo:Dmoj_GI24165" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI14087+dmo:Dmoj_GI24165">
+        <graphics name="Dmoj_GI14087..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1010" y="393" width="46" height="17"/>
+    </entry>
+    <entry id="164" name="dmo:Dmoj_GI11108 dmo:Dmoj_GI24345" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI11108+dmo:Dmoj_GI24345">
+        <graphics name="Dmoj_GI11108..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1009" y="371" width="46" height="17"/>
+    </entry>
+    <entry id="165" name="dmo:Dmoj_GI19953" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI19953">
+        <graphics name="Dmoj_GI19953" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1010" y="410" width="46" height="17"/>
+    </entry>
+    <entry id="166" name="dmo:Dmoj_GI16154 dmo:Dmoj_GI22818 dmo:Dmoj_GI23981 dmo:Dmoj_GI24418" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI16154+dmo:Dmoj_GI22818+dmo:Dmoj_GI23981+dmo:Dmoj_GI24418">
+        <graphics name="Dmoj_GI16154..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="759" y="621" width="46" height="17"/>
+    </entry>
+    <entry id="167" name="dmo:Dmoj_GI21226" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI21226">
+        <graphics name="Dmoj_GI21226" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1062" y="371" width="46" height="17"/>
+    </entry>
+    <entry id="168" name="dmo:Dmoj_GI13328 dmo:Dmoj_GI14587" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI13328+dmo:Dmoj_GI14587">
+        <graphics name="Dmoj_GI13328..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1037" y="324" width="46" height="17"/>
+    </entry>
+    <entry id="169" name="ko:K11863" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K11863">
+        <graphics name="K11863" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1062" y="393" width="46" height="17"/>
+    </entry>
+    <entry id="170" name="dmo:Dmoj_GI18061" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI18061">
+        <graphics name="Dmoj_GI18061" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1037" y="341" width="46" height="17"/>
+    </entry>
+    <entry id="171" name="dmo:Dmoj_GI10253 dmo:Dmoj_GI10254 dmo:Dmoj_GI10255 dmo:Dmoj_GI10256 dmo:Dmoj_GI11627 dmo:Dmoj_GI22499 dmo:Dmoj_GI22919 dmo:Dmoj_GI23362 dmo:Dmoj_GI24163" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI10253+dmo:Dmoj_GI10254+dmo:Dmoj_GI10255+dmo:Dmoj_GI10256+dmo:Dmoj_GI11627+dmo:Dmoj_GI22499+dmo:Dmoj_GI22919+dmo:Dmoj_GI23362+dmo:Dmoj_GI24163">
+        <graphics name="Dmoj_GI10253..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="917" y="268" width="46" height="17"/>
+    </entry>
+    <entry id="172" name="dmo:Dmoj_GI22400" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI22400">
+        <graphics name="Dmoj_GI22400" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="870" y="675" width="46" height="17"/>
+    </entry>
+    <entry id="173" name="dmo:Dmoj_GI22108" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI22108">
+        <graphics name="Dmoj_GI22108" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="905" y="692" width="46" height="17"/>
+    </entry>
+    <entry id="174" name="dmo:Dmoj_GI17281 dmo:Dmoj_GI23500" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI17281+dmo:Dmoj_GI23500">
+        <graphics name="Dmoj_GI17281..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="866" y="315" width="46" height="17"/>
+    </entry>
+    <entry id="175" name="ko:K10088" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K10088">
+        <graphics name="K10088" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="776" y="347" width="46" height="17"/>
+    </entry>
+    <entry id="176" name="ko:K14027" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14027">
+        <graphics name="K14027" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="859" y="692" width="46" height="17"/>
+    </entry>
+    <entry id="177" name="dmo:Dmoj_GI14907" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI14907">
+        <graphics name="Dmoj_GI14907" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="776" y="369" width="46" height="17"/>
+    </entry>
+    <entry id="178" name="dmo:Dmoj_GI16154 dmo:Dmoj_GI22818 dmo:Dmoj_GI23981 dmo:Dmoj_GI24418" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI16154+dmo:Dmoj_GI22818+dmo:Dmoj_GI23981+dmo:Dmoj_GI24418">
+        <graphics name="Dmoj_GI16154..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="905" y="709" width="46" height="17"/>
+    </entry>
+    <entry id="179" name="ko:K14025" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14025">
+        <graphics name="K14025" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="916" y="658" width="46" height="17"/>
+    </entry>
+    <entry id="180" name="dmo:Dmoj_GI14277 dmo:Dmoj_GI16422 dmo:Dmoj_GI16738 dmo:Dmoj_GI20142 dmo:Dmoj_GI25778" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI14277+dmo:Dmoj_GI16422+dmo:Dmoj_GI16738+dmo:Dmoj_GI20142+dmo:Dmoj_GI25778">
+        <graphics name="Dmoj_GI14277..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1061" y="675" width="46" height="17"/>
+    </entry>
+    <entry id="181" name="ko:K10099 ko:K10100" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K10099+K10100">
+        <graphics name="K10099..." fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1015" y="709" width="46" height="17"/>
+    </entry>
+    <entry id="182" name="dmo:Dmoj_GI10619" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI10619">
+        <graphics name="Dmoj_GI10619" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="972" y="630" width="46" height="17"/>
+    </entry>
+    <entry id="183" name="dmo:Dmoj_GI11373 dmo:Dmoj_GI20061 dmo:Dmoj_GI21193 dmo:Dmoj_GI21983 dmo:Dmoj_GI24337" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI11373+dmo:Dmoj_GI20061+dmo:Dmoj_GI21193+dmo:Dmoj_GI21983+dmo:Dmoj_GI24337">
+        <graphics name="Dmoj_GI11373..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1018" y="604" width="46" height="17"/>
+    </entry>
+    <entry id="184" name="dmo:Dmoj_GI10253 dmo:Dmoj_GI10254 dmo:Dmoj_GI10255 dmo:Dmoj_GI10256 dmo:Dmoj_GI11627 dmo:Dmoj_GI22499 dmo:Dmoj_GI22919 dmo:Dmoj_GI23362 dmo:Dmoj_GI24163" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI10253+dmo:Dmoj_GI10254+dmo:Dmoj_GI10255+dmo:Dmoj_GI10256+dmo:Dmoj_GI11627+dmo:Dmoj_GI22499+dmo:Dmoj_GI22919+dmo:Dmoj_GI23362+dmo:Dmoj_GI24163">
+        <graphics name="Dmoj_GI10253..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1018" y="621" width="46" height="17"/>
+    </entry>
+    <entry id="185" name="dmo:Dmoj_GI18167" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI18167">
+        <graphics name="Dmoj_GI18167" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1018" y="638" width="46" height="17"/>
+    </entry>
+    <entry id="187" name="dmo:Dmoj_GI12238 dmo:Dmoj_GI13846 dmo:Dmoj_GI15325 dmo:Dmoj_GI17079 dmo:Dmoj_GI17626 dmo:Dmoj_GI18919" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI12238+dmo:Dmoj_GI13846+dmo:Dmoj_GI15325+dmo:Dmoj_GI17079+dmo:Dmoj_GI17626+dmo:Dmoj_GI18919">
+        <graphics name="Dmoj_GI12238..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="723" y="369" width="46" height="17"/>
+    </entry>
+    <entry id="188" name="dmo:Dmoj_GI15454 dmo:Dmoj_GI21690 dmo:Dmoj_GI24092" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI15454+dmo:Dmoj_GI21690+dmo:Dmoj_GI24092">
+        <graphics name="Dmoj_GI15454..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="222" y="320" width="46" height="17"/>
+    </entry>
+    <entry id="189" name="dmo:Dmoj_GI18908 dmo:Dmoj_GI19799 dmo:Dmoj_GI20356" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI18908+dmo:Dmoj_GI19799+dmo:Dmoj_GI20356">
+        <graphics name="Dmoj_GI18908..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="866" y="378" width="46" height="17"/>
+    </entry>
+    <entry id="190" name="ko:K14022" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14022">
+        <graphics name="K14022" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="805" y="621" width="46" height="17"/>
+    </entry>
+    <entry id="191" name="dmo:Dmoj_GI11373 dmo:Dmoj_GI20061 dmo:Dmoj_GI21193 dmo:Dmoj_GI21983 dmo:Dmoj_GI24337" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI11373+dmo:Dmoj_GI20061+dmo:Dmoj_GI21193+dmo:Dmoj_GI21983+dmo:Dmoj_GI24337">
+        <graphics name="Dmoj_GI11373..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="917" y="285" width="46" height="17"/>
+    </entry>
+    <entry id="192" name="dmo:Dmoj_GI16154" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI16154">
+        <graphics name="Dmoj_GI16154" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="871" y="621" width="46" height="17"/>
+    </entry>
+    <entry id="195" name="dmo:Dmoj_GI12114" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI12114">
+        <graphics name="Dmoj_GI12114" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="892" y="410" width="46" height="17"/>
+    </entry>
+    <entry id="201" name="dmo:Dmoj_GI10619" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI10619">
+        <graphics name="Dmoj_GI10619" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1015" y="684" width="46" height="17"/>
+    </entry>
+    <entry id="202" name="dmo:Dmoj_GI12503 dmo:Dmoj_GI14776 dmo:Dmoj_GI15084 dmo:Dmoj_GI20969" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI12503+dmo:Dmoj_GI14776+dmo:Dmoj_GI15084+dmo:Dmoj_GI20969">
+        <graphics name="Dmoj_GI12503..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1061" y="709" width="46" height="17"/>
+    </entry>
+    <entry id="203" name="dmo:Dmoj_GI19786" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI19786">
+        <graphics name="Dmoj_GI19786" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1061" y="692" width="46" height="17"/>
+    </entry>
+    <entry id="204" name="dmo:Dmoj_GI17281 dmo:Dmoj_GI23500" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI17281+dmo:Dmoj_GI23500">
+        <graphics name="Dmoj_GI17281..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="916" y="621" width="46" height="17"/>
+    </entry>
+    <entry id="205" name="dmo:Dmoj_GI13710 dmo:Dmoj_GI15740 dmo:Dmoj_GI23374 dmo:Dmoj_GI25856" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI13710+dmo:Dmoj_GI15740+dmo:Dmoj_GI23374+dmo:Dmoj_GI25856">
+        <graphics name="Dmoj_GI13710..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="916" y="604" width="46" height="17"/>
+    </entry>
+    <entry id="206" name="dmo:Dmoj_GI17281" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI17281">
+        <graphics name="Dmoj_GI17281" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="916" y="675" width="46" height="17"/>
+    </entry>
+    <entry id="207" name="dmo:Dmoj_GI13350" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI13350">
+        <graphics name="Dmoj_GI13350" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="970" y="268" width="46" height="17"/>
+    </entry>
+    <entry id="208" name="ko:K05638" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K05638">
+        <graphics name="K05638" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="350" y="535" width="46" height="17"/>
+    </entry>
+    <entry id="211" name="dmo:Dmoj_GI18928 dmo:Dmoj_GI23988" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI18928+dmo:Dmoj_GI23988">
+        <graphics name="Dmoj_GI18928..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="794" y="143" width="46" height="17"/>
+    </entry>
+    <entry id="212" name="dmo:Dmoj_GI10474" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI10474">
+        <graphics name="Dmoj_GI10474" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="748" y="160" width="46" height="17"/>
+    </entry>
+    <entry id="213" name="dmo:Dmoj_GI13455" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI13455">
+        <graphics name="Dmoj_GI13455" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="748" y="198" width="46" height="17"/>
+    </entry>
+    <entry id="215" name="dmo:Dmoj_GI24315" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI24315">
+        <graphics name="Dmoj_GI24315" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="277" y="303" width="46" height="17"/>
+    </entry>
+    <entry id="218" name="ko:K02161" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02161">
+        <graphics name="K02161" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="363" y="757" width="46" height="17"/>
+    </entry>
+    <entry id="219" name="path:map04210" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map04210">
+        <graphics name="Apoptosis" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="365" y="795" width="80" height="25"/>
+    </entry>
+    <entry id="221" name="ko:K02161" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02161">
+        <graphics name="K02161" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="669" y="494" width="46" height="17"/>
+    </entry>
+    <entry id="224" name="ko:K10081" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K10081">
+        <graphics name="K10081" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="665" y="219" width="46" height="17"/>
+    </entry>
+    <entry id="225" name="dmo:Dmoj_GI15606" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI15606">
+        <graphics name="Dmoj_GI15606" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="866" y="298" width="46" height="17"/>
+    </entry>
+    <entry id="226" name="dmo:Dmoj_GI18167" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI18167">
+        <graphics name="Dmoj_GI18167" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1074" y="604" width="46" height="17"/>
+    </entry>
+    <entry id="227" name="dmo:Dmoj_GI12208" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI12208">
+        <graphics name="Dmoj_GI12208" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1074" y="621" width="46" height="17"/>
+    </entry>
+    <entry id="228" name="dmo:Dmoj_GI12223 dmo:Dmoj_GI13055 dmo:Dmoj_GI13757" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI12223+dmo:Dmoj_GI13055+dmo:Dmoj_GI13757">
+        <graphics name="Dmoj_GI12223..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="917" y="308" width="46" height="17"/>
+    </entry>
+    <entry id="229" name="dmo:Dmoj_GI19527" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI19527">
+        <graphics name="Dmoj_GI19527" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="970" y="308" width="46" height="17"/>
+    </entry>
+    <entry id="230" name="path:map05010" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map05010">
+        <graphics name="Alzheimer disease" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="64" y="502" width="92" height="34"/>
+    </entry>
+    <entry id="231" name="path:map05012" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map05012">
+        <graphics name="Parkinson disease" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="64" y="547" width="92" height="34"/>
+    </entry>
+    <entry id="232" name="path:map05020" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map05020">
+        <graphics name="Prion diseases" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="63" y="463" width="92" height="25"/>
+    </entry>
+    <entry id="233" name="dmo:Dmoj_GI21447 dmo:Dmoj_GI23669" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI21447+dmo:Dmoj_GI23669">
+        <graphics name="Dmoj_GI21447..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="176" y="303" width="46" height="17"/>
+    </entry>
+    <entry id="234" name="ko:K14024" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14024">
+        <graphics name="K14024" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="806" y="693" width="46" height="17"/>
+    </entry>
+    <entry id="237" name="path:map04930" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map04930">
+        <graphics name="Type II diabetes mellitus" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="64" y="591" width="92" height="34"/>
+    </entry>
+    <entry id="238" name="dmo:Dmoj_GI15075" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI15075">
+        <graphics name="Dmoj_GI15075" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="137" y="246" width="46" height="17"/>
+    </entry>
+    <entry id="239" name="ko:K13999" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K13999">
+        <graphics name="K13999" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="183" y="246" width="46" height="17"/>
+    </entry>
+    <entry id="240" name="ko:K14000" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14000">
+        <graphics name="K14000" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="235" y="212" width="46" height="17"/>
+    </entry>
+    <entry id="241" name="dmo:Dmoj_GI13024" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI13024">
+        <graphics name="Dmoj_GI13024" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="767" y="400" width="46" height="17"/>
+    </entry>
+    <entry id="242" name="dmo:Dmoj_GI14400 dmo:Dmoj_GI16699 dmo:Dmoj_GI21056 dmo:Dmoj_GI24333" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dmo:Dmoj_GI14400+dmo:Dmoj_GI16699+dmo:Dmoj_GI21056+dmo:Dmoj_GI24333">
+        <graphics name="Dmoj_GI14400..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="721" y="417" width="46" height="17"/>
+    </entry>
+    <entry id="245" name="ko:K14013" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14013">
+        <graphics name="K14013" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="806" y="676" width="46" height="17"/>
+    </entry>
+    <entry id="246" name="ko:K10636" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K10636">
+        <graphics name="K10636" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="916" y="587" width="46" height="17"/>
+    </entry>
+    <entry id="248" name="gl:G00009" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G00009">
+        <graphics name="G00009" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="333" y="194" width="8" height="8"/>
+    </entry>
+    <entry id="249" name="gl:G00011" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G00011">
+        <graphics name="G00011" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="501" y="391" width="8" height="8"/>
+    </entry>
+    <entry id="250" name="gl:G00011" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G00011">
+        <graphics name="G00011" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="528" y="167" width="8" height="8"/>
+    </entry>
+    <entry id="251" name="gl:G10694" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G10694">
+        <graphics name="G10694" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="616" y="166" width="8" height="8"/>
+    </entry>
+    <entry id="252" name="gl:G00012" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G00012">
+        <graphics name="G00012" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="634" y="396" width="8" height="8"/>
+    </entry>
+    <relation entry1="211" entry2="80" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="211" entry2="212" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="136" entry2="34" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="34" entry2="28" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="32" entry2="33" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="33" entry2="30" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="135" entry2="148" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="91" entry2="187" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="90" entry2="63" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="213" entry2="212" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="195" entry2="189" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="195" entry2="63" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="159" entry2="134" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="90" entry2="89" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="195" entry2="90" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="189" entry2="63" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+</pathway>
