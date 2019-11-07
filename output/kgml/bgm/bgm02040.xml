@@ -1,44 +1,218 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<title>Access forbidden!</title>
-<link rev="made" href="mailto:http://www.genome.jp/feedback/" />
-<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
-    body { color: #000000; background-color: #FFFFFF; }
-    a:link { color: #0000CC; }
-    p, address {margin-left: 3em;}
-    span {font-size: smaller;}
-/*]]>*/--></style>
-</head>
-
-<body>
-<h1>Access forbidden!</h1>
-<p>
-
-
-  
-
-    You don't have permission to access the requested object.
-    It is either read-protected or not readable by the server.
-
-  
-
-</p>
-<p>
-If you think this is a server error, please contact
-the <a href="http://www.genome.jp/feedback/">webmaster</a>.
-
-</p>
-
-<h2>Error 403</h2>
-<address>
-  <a href="/">rest.kegg.jp</a><br />
-  
-  <span>Wed Nov  6 19:57:30 2019<br />
-  Apache</span>
-</address>
-</body>
-</html>
-
+<?xml version="1.0"?>
+<!DOCTYPE pathway SYSTEM "http://www.kegg.jp/kegg/xml/KGML_v0.7.2_.dtd">
+<!-- Creation date: Jan 31, 2017 17:20:39 +0900 (GMT+9) -->
+<pathway name="path:bgm02040" org="bgm" number="02040"
+         title="Flagellar assembly"
+         image="http://www.kegg.jp/kegg/pathway/bgm/bgm02040.png"
+         link="http://www.kegg.jp/kegg-bin/show_pathway?bgm02040">
+    <entry id="1" name="path:bgm03070" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bgm03070">
+        <graphics name="Bacterial secretion system" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="400" y="578" width="140" height="26"/>
+    </entry>
+    <entry id="2" name="path:bgm02030" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bgm02030">
+        <graphics name="Bacterial chemotaxis" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="439" y="531" width="122" height="26"/>
+    </entry>
+    <entry id="3" name="bgm:CAL15_08030" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bgm:CAL15_08030">
+        <graphics name="CAL15_08030" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="294" y="654" width="46" height="17"/>
+    </entry>
+    <entry id="4" name="bgm:CAL15_08025" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bgm:CAL15_08025">
+        <graphics name="CAL15_08025" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="294" y="637" width="46" height="17"/>
+    </entry>
+    <entry id="5" name="bgm:CAL15_07945" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bgm:CAL15_07945">
+        <graphics name="CAL15_07945" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="209" y="687" width="46" height="17"/>
+    </entry>
+    <entry id="6" name="bgm:CAL15_07940" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bgm:CAL15_07940">
+        <graphics name="CAL15_07940" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="48" y="589" width="46" height="17"/>
+    </entry>
+    <entry id="7" name="bgm:CAL15_07950" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bgm:CAL15_07950">
+        <graphics name="CAL15_07950" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="48" y="570" width="46" height="17"/>
+    </entry>
+    <entry id="8" name="bgm:CAL15_07775" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bgm:CAL15_07775">
+        <graphics name="CAL15_07775" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="192" y="570" width="46" height="17"/>
+    </entry>
+    <entry id="9" name="bgm:CAL15_07820" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bgm:CAL15_07820">
+        <graphics name="CAL15_07820" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="96" y="570" width="46" height="17"/>
+    </entry>
+    <entry id="10" name="bgm:CAL15_07770" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bgm:CAL15_07770">
+        <graphics name="CAL15_07770" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="144" y="570" width="46" height="17"/>
+    </entry>
+    <entry id="11" name="bgm:CAL15_07860" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bgm:CAL15_07860">
+        <graphics name="CAL15_07860" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="299" y="587" width="46" height="17"/>
+    </entry>
+    <entry id="12" name="bgm:CAL15_07850" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bgm:CAL15_07850">
+        <graphics name="CAL15_07850" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="253" y="587" width="46" height="17"/>
+    </entry>
+    <entry id="13" name="bgm:CAL15_07855" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bgm:CAL15_07855">
+        <graphics name="CAL15_07855" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="299" y="570" width="46" height="17"/>
+    </entry>
+    <entry id="14" name="bgm:CAL15_07845" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bgm:CAL15_07845">
+        <graphics name="CAL15_07845" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="253" y="570" width="46" height="17"/>
+    </entry>
+    <entry id="15" name="bgm:CAL15_07815" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bgm:CAL15_07815">
+        <graphics name="CAL15_07815" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="253" y="553" width="46" height="17"/>
+    </entry>
+    <entry id="16" name="bgm:CAL15_07810" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bgm:CAL15_07810">
+        <graphics name="CAL15_07810" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="253" y="536" width="46" height="17"/>
+    </entry>
+    <entry id="17" name="bgm:CAL15_07840" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bgm:CAL15_07840">
+        <graphics name="CAL15_07840" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="391" y="504" width="46" height="17"/>
+    </entry>
+    <entry id="18" name="bgm:CAL15_07835" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bgm:CAL15_07835">
+        <graphics name="CAL15_07835" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="391" y="487" width="46" height="17"/>
+    </entry>
+    <entry id="19" name="bgm:CAL15_07805" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bgm:CAL15_07805">
+        <graphics name="CAL15_07805" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="391" y="470" width="46" height="17"/>
+    </entry>
+    <entry id="20" name="bgm:CAL15_07800" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bgm:CAL15_07800">
+        <graphics name="CAL15_07800" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="391" y="446" width="46" height="17"/>
+    </entry>
+    <entry id="21" name="bgm:CAL15_07825" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bgm:CAL15_07825">
+        <graphics name="CAL15_07825" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="514" y="263" width="46" height="17"/>
+    </entry>
+    <entry id="22" name="bgm:CAL15_08040" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bgm:CAL15_08040">
+        <graphics name="CAL15_08040" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="441" y="144" width="46" height="17"/>
+    </entry>
+    <entry id="23" name="bgm:CAL15_07925" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bgm:CAL15_07925">
+        <graphics name="flgD" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="514" y="280" width="46" height="17"/>
+    </entry>
+    <entry id="24" name="bgm:CAL15_07915" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bgm:CAL15_07915">
+        <graphics name="flgF" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="186" y="333" width="46" height="17"/>
+    </entry>
+    <entry id="25" name="bgm:CAL15_07920" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bgm:CAL15_07920">
+        <graphics name="CAL15_07920" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="345" y="271" width="46" height="17"/>
+    </entry>
+    <entry id="26" name="bgm:CAL15_07890" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bgm:CAL15_07890">
+        <graphics name="CAL15_07890" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="417" y="221" width="46" height="17"/>
+    </entry>
+    <entry id="27" name="bgm:CAL15_07885" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bgm:CAL15_07885">
+        <graphics name="CAL15_07885" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="417" y="198" width="46" height="17"/>
+    </entry>
+    <entry id="28" name="bgm:CAL15_07765" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bgm:CAL15_07765">
+        <graphics name="CAL15_07765" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="488" y="51" width="46" height="17"/>
+    </entry>
+    <entry id="29" name="path:bgm02040" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bgm02040">
+        <graphics name="TITLE:Flagellar assembly" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="134" y="58" width="188" height="25"/>
+    </entry>
+    <entry id="30" name="bgm:CAL15_07795" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bgm:CAL15_07795">
+        <graphics name="CAL15_07795" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="345" y="411" width="46" height="17"/>
+    </entry>
+    <entry id="31" name="bgm:CAL15_07930" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bgm:CAL15_07930">
+        <graphics name="CAL15_07930" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="437" y="411" width="46" height="17"/>
+    </entry>
+    <entry id="32" name="bgm:CAL15_07935" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bgm:CAL15_07935">
+        <graphics name="CAL15_07935" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="391" y="411" width="46" height="17"/>
+    </entry>
+    <entry id="33" name="bgm:CAL15_07900" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bgm:CAL15_07900">
+        <graphics name="CAL15_07900" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="357" y="383" width="46" height="17"/>
+    </entry>
+    <entry id="34" name="bgm:CAL15_07905" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bgm:CAL15_07905">
+        <graphics name="CAL15_07905" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="357" y="362" width="46" height="17"/>
+    </entry>
+    <entry id="35" name="bgm:CAL15_07910" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bgm:CAL15_07910">
+        <graphics name="CAL15_07910" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="345" y="333" width="46" height="17"/>
+    </entry>
+    <entry id="36" name="bgm:CAL15_08020 bgm:CAL15_08735" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bgm:CAL15_08020+bgm:CAL15_08735">
+        <graphics name="CAL15_08020..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="182" y="444" width="46" height="17"/>
+    </entry>
+    <entry id="37" name="bgm:CAL15_07960" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bgm:CAL15_07960">
+        <graphics name="CAL15_07960" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="235" y="502" width="46" height="17"/>
+    </entry>
+    <entry id="38" name="bgm:CAL15_07965" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bgm:CAL15_07965">
+        <graphics name="CAL15_07965" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="292" y="502" width="46" height="17"/>
+    </entry>
+    <entry id="39" name="bgm:CAL15_08035" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bgm:CAL15_08035">
+        <graphics name="fliA" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="294" y="687" width="46" height="17"/>
+    </entry>
+    <entry id="40" name="ko:K21218" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K21218">
+        <graphics name="K21218" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="126" y="333" width="46" height="17"/>
+    </entry>
+    <entry id="41" name="ko:K21217" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K21217">
+        <graphics name="K21217" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="80" y="333" width="46" height="17"/>
+    </entry>
+    <entry id="42" name="bgm:CAL15_08015 bgm:CAL15_08740" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bgm:CAL15_08015+bgm:CAL15_08740">
+        <graphics name="motB..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="159" y="407" width="46" height="17"/>
+    </entry>
+</pathway>

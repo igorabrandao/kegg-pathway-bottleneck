@@ -323,7 +323,7 @@ printInteractiveNetwork <- function(removeNoise_=TRUE) {
     current_kgml <- KGML2Dataframe(paste0(folder, file))
 
     # Get the pathway code
-    pathway_code <- onlyNumber(kgml_list[1])
+    pathway_code <- onlyNumber(file)
 
     # Status message
     printMessage(paste0("GENERATING PATHWAY ", pathway_code, " INTERATIVE NETWORK [", kgml_index, " OF ", available_pathways, "]"))
@@ -368,7 +368,11 @@ printInteractiveNetwork <- function(removeNoise_=TRUE) {
       #--------------------------#
 
       # Generate the network
-      generatedNetwork <- generateInteractiveNetwork(pathwayGraph, pathwayData, pathway_code, pathwayDetail[[pathway_index]])
+      if (pathway_index == -1) {
+        generatedNetwork <- generateInteractiveNetwork(pathwayGraph, pathwayData, pathway_code, NULL)
+      } else {
+        generatedNetwork <- generateInteractiveNetwork(pathwayGraph, pathwayData, pathway_code, pathwayDetail[[pathway_index]])
+      }
 
       # Print the network
       print(generatedNetwork)
