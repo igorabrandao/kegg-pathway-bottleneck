@@ -1,44 +1,555 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<title>Access forbidden!</title>
-<link rev="made" href="mailto:http://www.genome.jp/feedback/" />
-<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
-    body { color: #000000; background-color: #FFFFFF; }
-    a:link { color: #0000CC; }
-    p, address {margin-left: 3em;}
-    span {font-size: smaller;}
-/*]]>*/--></style>
-</head>
-
-<body>
-<h1>Access forbidden!</h1>
-<p>
-
-
-  
-
-    You don't have permission to access the requested object.
-    It is either read-protected or not readable by the server.
-
-  
-
-</p>
-<p>
-If you think this is a server error, please contact
-the <a href="http://www.genome.jp/feedback/">webmaster</a>.
-
-</p>
-
-<h2>Error 403</h2>
-<address>
-  <a href="/">rest.kegg.jp</a><br />
-  
-  <span>Wed Nov  6 22:52:40 2019<br />
-  Apache</span>
-</address>
-</body>
-</html>
-
+<?xml version="1.0"?>
+<!DOCTYPE pathway SYSTEM "http://www.kegg.jp/kegg/xml/KGML_v0.7.2_.dtd">
+<!-- Creation date: Aug 28, 2017 09:49:49 +0900 (GMT+9) -->
+<pathway name="path:psom04016" org="psom" number="04016"
+         title="MAPK signaling pathway - plant"
+         image="http://www.kegg.jp/kegg/pathway/psom/psom04016.png"
+         link="http://www.kegg.jp/kegg-bin/show_pathway?psom04016">
+    <entry id="2" name="path:psom04016" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom04016">
+        <graphics name="TITLE:MAPK signaling pathway - plant" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="185" y="58" width="290" height="25"/>
+    </entry>
+    <entry id="7" name="psom:113280527 psom:113344351 psom:113355437" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113280527+psom:113344351+psom:113355437">
+        <graphics name="113280527..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="219" y="196" width="46" height="17"/>
+    </entry>
+    <entry id="8" name="ko:K13416" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K13416">
+        <graphics name="K13416" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="219" y="213" width="46" height="17"/>
+    </entry>
+    <entry id="9" name="psom:113283272 psom:113356275 psom:113356278" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113283272+psom:113356275+psom:113356278">
+        <graphics name="113283272..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="523" y="159" width="46" height="17"/>
+    </entry>
+    <entry id="10" name="psom:113300479 psom:113318589 psom:113347716 psom:113350447" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113300479+psom:113318589+psom:113347716+psom:113350447">
+        <graphics name="113300479..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="596" y="159" width="46" height="17"/>
+    </entry>
+    <entry id="11" name="psom:113299234 psom:113358376" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113299234+psom:113358376">
+        <graphics name="113299234..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="670" y="159" width="46" height="17"/>
+    </entry>
+    <entry id="16" name="psom:113289786 psom:113300265 psom:113353335" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113289786+psom:113300265+psom:113353335">
+        <graphics name="113289786..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="759" y="159" width="46" height="17"/>
+    </entry>
+    <entry id="17" name="psom:113283834 psom:113310034 psom:113322005 psom:113329236" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113283834+psom:113310034+psom:113322005+psom:113329236">
+        <graphics name="113283834..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="759" y="194" width="46" height="17"/>
+    </entry>
+    <entry id="18" name="psom:113283272 psom:113356275 psom:113356278" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113283272+psom:113356275+psom:113356278">
+        <graphics name="113283272..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="523" y="239" width="46" height="17"/>
+    </entry>
+    <entry id="19" name="psom:113297736 psom:113301319" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113297736+psom:113301319">
+        <graphics name="113297736..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="596" y="239" width="46" height="17"/>
+    </entry>
+    <entry id="20" name="psom:113289913 psom:113308994 psom:113310225 psom:113313953 psom:113321929 psom:113322796" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113289913+psom:113308994+psom:113310225+psom:113313953+psom:113321929+psom:113322796">
+        <graphics name="113289913..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="670" y="239" width="46" height="17"/>
+    </entry>
+    <entry id="24" name="psom:113283160 psom:113296924" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113283160+psom:113296924">
+        <graphics name="113283160..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="759" y="239" width="46" height="17"/>
+    </entry>
+    <entry id="25" name="psom:113272918 psom:113285918 psom:113285921 psom:113285923 psom:113291144 psom:113293656 psom:113295792 psom:113295793 psom:113295795 psom:113296037 psom:113301716 psom:113310087 psom:113310153 psom:113314347 psom:113328726 psom:113328727 psom:113328988 psom:113340666 psom:113340685 psom:113342677 psom:113342679 psom:113353569 psom:113354018 psom:113354022 psom:113354023 psom:113354024 psom:113360627 psom:113360628 psom:113362097" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113272918+psom:113285918+psom:113285921+psom:113285923+psom:113291144+psom:113293656+psom:113295792+psom:113295793+psom:113295795+psom:113296037+psom:113301716+psom:113310087+psom:113310153+psom:113314347+psom:113328726+psom:113328727+psom:113328988+psom:113340666+psom:113340685+psom:113342677+psom:113342679+psom:113353569+psom:113354018+psom:113354022+psom:113354023+psom:113354024+psom:113360627+psom:113360628+psom:113362097">
+        <graphics name="113272918..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="873" y="239" width="46" height="17"/>
+    </entry>
+    <entry id="30" name="psom:113299227 psom:113358382" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113299227+psom:113358382">
+        <graphics name="113299227..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="670" y="309" width="46" height="17"/>
+    </entry>
+    <entry id="32" name="psom:113274695 psom:113293229 psom:113344176 psom:113362016" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113274695+psom:113293229+psom:113344176+psom:113362016">
+        <graphics name="113274695..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="759" y="274" width="46" height="17"/>
+    </entry>
+    <entry id="33" name="ko:K20559" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K20559">
+        <graphics name="K20559" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="873" y="194" width="46" height="17"/>
+    </entry>
+    <entry id="40" name="ko:K16224" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K16224">
+        <graphics name="K16224" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="873" y="274" width="46" height="17"/>
+    </entry>
+    <entry id="45" name="psom:113319563 psom:113336897 psom:113350116 psom:113359986" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113319563+psom:113336897+psom:113350116+psom:113359986">
+        <graphics name="113319563..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="523" y="409" width="46" height="17"/>
+    </entry>
+    <entry id="46" name="psom:113297736 psom:113301319" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113297736+psom:113301319">
+        <graphics name="113297736..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="596" y="409" width="46" height="17"/>
+    </entry>
+    <entry id="47" name="psom:113289913 psom:113308994 psom:113310225 psom:113313953 psom:113321929 psom:113322796" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113289913+psom:113308994+psom:113310225+psom:113313953+psom:113321929+psom:113322796">
+        <graphics name="113289913..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="670" y="409" width="46" height="17"/>
+    </entry>
+    <entry id="51" name="psom:113299234 psom:113358376" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113299234+psom:113358376">
+        <graphics name="113299234..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="670" y="474" width="46" height="17"/>
+    </entry>
+    <entry id="54" name="psom:113300137 psom:113318946" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113300137+psom:113318946">
+        <graphics name="113300137..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="596" y="524" width="46" height="17"/>
+    </entry>
+    <entry id="55" name="psom:113288577 psom:113288693" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113288577+psom:113288693">
+        <graphics name="113288577..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="670" y="524" width="46" height="17"/>
+    </entry>
+    <entry id="58" name="psom:113283272 psom:113356275 psom:113356278" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113283272+psom:113356275+psom:113356278">
+        <graphics name="113283272..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="523" y="474" width="46" height="17"/>
+    </entry>
+    <entry id="60" name="psom:113284016 psom:113315811" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113284016+psom:113315811">
+        <graphics name="113284016..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="399" y="359" width="46" height="17"/>
+    </entry>
+    <entry id="61" name="psom:113276495 psom:113281551 psom:113296590 psom:113297275 psom:113299212 psom:113302576 psom:113313755 psom:113358472" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113276495+psom:113281551+psom:113296590+psom:113297275+psom:113299212+psom:113302576+psom:113313755+psom:113358472">
+        <graphics name="113276495..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="594" y="359" width="48" height="17"/>
+    </entry>
+    <entry id="70" name="psom:113289913 psom:113308994 psom:113310225 psom:113313953 psom:113321929 psom:113322796" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113289913+psom:113308994+psom:113310225+psom:113313953+psom:113321929+psom:113322796">
+        <graphics name="113289913..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="670" y="614" width="46" height="17"/>
+    </entry>
+    <entry id="73" name="psom:113309750 psom:113321962" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113309750+psom:113321962">
+        <graphics name="113309750..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="523" y="614" width="46" height="17"/>
+    </entry>
+    <entry id="74" name="psom:113297385 psom:113302019 psom:113323145" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113297385+psom:113302019+psom:113323145">
+        <graphics name="113297385..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="873" y="743" width="46" height="16"/>
+    </entry>
+    <entry id="77" name="psom:113283137 psom:113284338 psom:113288290 psom:113296894 psom:113301150 psom:113313620 psom:113333664 psom:113344535 psom:113355504" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113283137+psom:113284338+psom:113288290+psom:113296894+psom:113301150+psom:113313620+psom:113333664+psom:113344535+psom:113355504">
+        <graphics name="113283137..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="423" y="614" width="46" height="17"/>
+    </entry>
+    <entry id="79" name="psom:113300137 psom:113318946" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113300137+psom:113318946">
+        <graphics name="113300137..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="596" y="744" width="46" height="17"/>
+    </entry>
+    <entry id="80" name="psom:113289913 psom:113308994" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113289913+psom:113308994">
+        <graphics name="113289913..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="670" y="744" width="46" height="17"/>
+    </entry>
+    <entry id="82" name="psom:113274105 psom:113280458 psom:113282832 psom:113289985 psom:113290453 psom:113290456 psom:113310119 psom:113312050 psom:113313893 psom:113321961 psom:113325810 psom:113325868 psom:113338523" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113274105+psom:113280458+psom:113282832+psom:113289985+psom:113290453+psom:113290456+psom:113310119+psom:113312050+psom:113313893+psom:113321961+psom:113325810+psom:113325868+psom:113338523">
+        <graphics name="113274105..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="759" y="614" width="46" height="17"/>
+    </entry>
+    <entry id="88" name="psom:113282650 psom:113332948 psom:113335648 psom:113341667 psom:113346982 psom:113355968" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113282650+psom:113332948+psom:113335648+psom:113341667+psom:113346982+psom:113355968">
+        <graphics name="113282650..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="873" y="614" width="46" height="17"/>
+    </entry>
+    <entry id="89" name="ko:K20727" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K20727">
+        <graphics name="K20727" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="987" y="604" width="46" height="17"/>
+    </entry>
+    <entry id="96" name="psom:113272183 psom:113274956 psom:113278431 psom:113282303 psom:113286856 psom:113286989 psom:113287321 psom:113287692 psom:113295306 psom:113304511 psom:113310401 psom:113322545 psom:113332016 psom:113336020 psom:113339255 psom:113347530" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113272183+psom:113274956+psom:113278431+psom:113282303+psom:113286856+psom:113286989+psom:113287321+psom:113287692+psom:113295306+psom:113304511+psom:113310401+psom:113322545+psom:113332016+psom:113336020+psom:113339255+psom:113347530">
+        <graphics name="113272183..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="368" y="653" width="46" height="17"/>
+    </entry>
+    <entry id="98" name="psom:113288725 psom:113288991 psom:113295263 psom:113319710" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113288725+psom:113288991+psom:113295263+psom:113319710">
+        <graphics name="113288725..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="423" y="574" width="46" height="17"/>
+    </entry>
+    <entry id="101" name="psom:113321678 psom:113322448 psom:113339958 psom:113340126 psom:113341084 psom:113355811" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113321678+psom:113322448+psom:113339958+psom:113340126+psom:113341084+psom:113355811">
+        <graphics name="113321678..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="759" y="654" width="46" height="17"/>
+    </entry>
+    <entry id="104" name="psom:113318107 psom:113350087" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113318107+psom:113350087">
+        <graphics name="113318107..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="643" y="654" width="46" height="17"/>
+    </entry>
+    <entry id="107" name="psom:113298630 psom:113309257 psom:113309970 psom:113338774" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113298630+psom:113309257+psom:113309970+psom:113338774">
+        <graphics name="113298630..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="714" y="574" width="46" height="17"/>
+    </entry>
+    <entry id="108" name="psom:113312276 psom:113324277" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113312276+psom:113324277">
+        <graphics name="113312276..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="987" y="627" width="46" height="17"/>
+    </entry>
+    <entry id="109" name="ko:K20728" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K20728">
+        <graphics name="K20728" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="987" y="744" width="46" height="17"/>
+    </entry>
+    <entry id="126" name="psom:113272918 psom:113285918 psom:113285921 psom:113285923 psom:113291144 psom:113293656 psom:113295792 psom:113295793 psom:113295795 psom:113296037 psom:113301716 psom:113310087 psom:113310153 psom:113314347 psom:113328726 psom:113328727 psom:113328988 psom:113340666 psom:113340685 psom:113342677 psom:113342679 psom:113353569 psom:113354018 psom:113354022 psom:113354023 psom:113354024 psom:113360627 psom:113360628 psom:113362097" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113272918+psom:113285918+psom:113285921+psom:113285923+psom:113291144+psom:113293656+psom:113295792+psom:113295793+psom:113295795+psom:113296037+psom:113301716+psom:113310087+psom:113310153+psom:113314347+psom:113328726+psom:113328727+psom:113328988+psom:113340666+psom:113340685+psom:113342677+psom:113342679+psom:113353569+psom:113354018+psom:113354022+psom:113354023+psom:113354024+psom:113360627+psom:113360628+psom:113362097">
+        <graphics name="113272918..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="873" y="524" width="46" height="17"/>
+    </entry>
+    <entry id="130" name="psom:113300479 psom:113318589 psom:113347716 psom:113350447" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113300479+psom:113318589+psom:113347716+psom:113350447">
+        <graphics name="113300479..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="596" y="824" width="46" height="17"/>
+    </entry>
+    <entry id="131" name="psom:113289913 psom:113299234 psom:113308994 psom:113358376" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113289913+psom:113299234+psom:113308994+psom:113358376">
+        <graphics name="113289913..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="670" y="824" width="46" height="17"/>
+    </entry>
+    <entry id="134" name="psom:113283272 psom:113356275 psom:113356278" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113283272+psom:113356275+psom:113356278">
+        <graphics name="113283272..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="523" y="824" width="46" height="17"/>
+    </entry>
+    <entry id="137" name="psom:113300137 psom:113318946" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113300137+psom:113318946">
+        <graphics name="113300137..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="596" y="891" width="46" height="17"/>
+    </entry>
+    <entry id="140" name="psom:113287987 psom:113351754" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113287987+psom:113351754">
+        <graphics name="113287987..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="523" y="891" width="46" height="17"/>
+    </entry>
+    <entry id="144" name="psom:113275186 psom:113284813 psom:113294530 psom:113304884 psom:113322209 psom:113329031 psom:113338978 psom:113340042 psom:113340497 psom:113348010 psom:113349361" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113275186+psom:113284813+psom:113294530+psom:113304884+psom:113322209+psom:113329031+psom:113338978+psom:113340042+psom:113340497+psom:113348010+psom:113349361">
+        <graphics name="113275186..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="263" y="891" width="46" height="17"/>
+    </entry>
+    <entry id="145" name="psom:113294011 psom:113294012 psom:113294013 psom:113294731 psom:113298853 psom:113308389 psom:113310256 psom:113316367 psom:113316867 psom:113318588 psom:113320665 psom:113339769 psom:113340849 psom:113344080 psom:113344729 psom:113347719 psom:113348151 psom:113349210 psom:113350451 psom:113359228" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113294011+psom:113294012+psom:113294013+psom:113294731+psom:113298853+psom:113308389+psom:113310256+psom:113316367+psom:113316867+psom:113318588+psom:113320665+psom:113339769+psom:113340849+psom:113344080+psom:113344729+psom:113347719+psom:113348151+psom:113349210+psom:113350451+psom:113359228">
+        <graphics name="113294011..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="343" y="891" width="46" height="17"/>
+    </entry>
+    <entry id="146" name="psom:113283387 psom:113286754 psom:113289380 psom:113293902 psom:113312032 psom:113321785 psom:113329990 psom:113330144 psom:113330537 psom:113356579 psom:113357152" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113283387+psom:113286754+psom:113289380+psom:113293902+psom:113312032+psom:113321785+psom:113329990+psom:113330144+psom:113330537+psom:113356579+psom:113357152">
+        <graphics name="113283387..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="423" y="891" width="46" height="17"/>
+    </entry>
+    <entry id="153" name="ko:K20605" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K20605">
+        <graphics name="K20605" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="759" y="124" width="46" height="17"/>
+    </entry>
+    <entry id="156" name="ko:K20599" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K20599">
+        <graphics name="K20599" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="873" y="124" width="46" height="17"/>
+    </entry>
+    <entry id="158" name="psom:113289913 psom:113308994 psom:113310225 psom:113313953 psom:113321929 psom:113322796" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113289913+psom:113308994+psom:113310225+psom:113313953+psom:113321929+psom:113322796">
+        <graphics name="113289913..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="670" y="1029" width="46" height="17"/>
+    </entry>
+    <entry id="166" name="ko:K20551" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K20551">
+        <graphics name="K20551" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="670" y="1069" width="46" height="17"/>
+    </entry>
+    <entry id="171" name="ko:K20602" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K20602">
+        <graphics name="K20602" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="596" y="936" width="46" height="17"/>
+    </entry>
+    <entry id="172" name="psom:113289913 psom:113308994" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113289913+psom:113308994">
+        <graphics name="113289913..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="670" y="936" width="46" height="17"/>
+    </entry>
+    <entry id="177" name="psom:113289593 psom:113298523 psom:113333046 psom:113346811" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113289593+psom:113298523+psom:113333046+psom:113346811">
+        <graphics name="113289593..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="961" y="936" width="46" height="17"/>
+    </entry>
+    <entry id="184" name="psom:113300137 psom:113318946" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113300137+psom:113318946">
+        <graphics name="113300137..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="596" y="1159" width="46" height="17"/>
+    </entry>
+    <entry id="185" name="psom:113275491 psom:113282125 psom:113298417 psom:113303101" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113275491+psom:113282125+psom:113298417+psom:113303101">
+        <graphics name="113275491..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="670" y="1159" width="46" height="17"/>
+    </entry>
+    <entry id="191" name="psom:113284016 psom:113315811" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113284016+psom:113315811">
+        <graphics name="113284016..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1017" y="1159" width="46" height="17"/>
+    </entry>
+    <entry id="194" name="psom:113271470 psom:113271723 psom:113277265 psom:113281272 psom:113299216 psom:113335692 psom:113341776 psom:113347666 psom:113350413 psom:113352726 psom:113358391 psom:113362204 psom:113362210" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113271470+psom:113271723+psom:113277265+psom:113281272+psom:113299216+psom:113335692+psom:113341776+psom:113347666+psom:113350413+psom:113352726+psom:113358391+psom:113362204+psom:113362210">
+        <graphics name="113271470..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="873" y="1159" width="46" height="17"/>
+    </entry>
+    <entry id="199" name="psom:113275306 psom:113282555 psom:113287454 psom:113298359 psom:113299787 psom:113303148 psom:113304252 psom:113309297 psom:113319591 psom:113322014 psom:113332772 psom:113334220 psom:113346936 psom:113347768 psom:113350521 psom:113355898 psom:113358705" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113275306+psom:113282555+psom:113287454+psom:113298359+psom:113299787+psom:113303148+psom:113304252+psom:113309297+psom:113319591+psom:113322014+psom:113332772+psom:113334220+psom:113346936+psom:113347768+psom:113350521+psom:113355898+psom:113358705">
+        <graphics name="113275306..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="565" y="1119" width="46" height="17"/>
+    </entry>
+    <entry id="201" name="psom:113289913 psom:113308994 psom:113310225 psom:113313953 psom:113321929 psom:113322796" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113289913+psom:113308994+psom:113310225+psom:113313953+psom:113321929+psom:113322796">
+        <graphics name="113289913..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="670" y="1239" width="46" height="17"/>
+    </entry>
+    <entry id="204" name="psom:113274722 psom:113304284" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113274722+psom:113304284">
+        <graphics name="113274722..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="523" y="1239" width="46" height="17"/>
+    </entry>
+    <entry id="206" name="psom:113285446 psom:113326858 psom:113353148" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113285446+psom:113326858+psom:113353148">
+        <graphics name="113285446..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="133" y="1239" width="46" height="17"/>
+    </entry>
+    <entry id="207" name="psom:113275073 psom:113304164 psom:113304676 psom:113326756 psom:113340242" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113275073+psom:113304164+psom:113304676+psom:113326756+psom:113340242">
+        <graphics name="113275073..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="219" y="1239" width="46" height="17"/>
+    </entry>
+    <entry id="208" name="psom:113325198 psom:113339483" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113325198+psom:113339483">
+        <graphics name="113325198..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="759" y="1239" width="46" height="17"/>
+    </entry>
+    <entry id="213" name="psom:113274695 psom:113293229 psom:113344176 psom:113362016" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113274695+psom:113293229+psom:113344176+psom:113362016">
+        <graphics name="113274695..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="759" y="394" width="46" height="17"/>
+    </entry>
+    <entry id="214" name="ko:K13423" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K13423">
+        <graphics name="K13423" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="759" y="429" width="46" height="17"/>
+    </entry>
+    <entry id="225" name="ko:K20604" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K20604">
+        <graphics name="K20604" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="596" y="614" width="46" height="17"/>
+    </entry>
+    <entry id="226" name="psom:113297736 psom:113301319" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113297736+psom:113301319">
+        <graphics name="113297736..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="596" y="1239" width="46" height="17"/>
+    </entry>
+    <entry id="227" name="psom:113288577 psom:113288693" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113288577+psom:113288693">
+        <graphics name="113288577..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="670" y="891" width="46" height="17"/>
+    </entry>
+    <entry id="228" name="undefined" type="group">
+        <graphics fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="371" y="217" width="350" height="60"/>
+        <component id="18"/>
+        <component id="7"/>
+    </entry>
+    <relation entry1="7" entry2="9" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="9" entry2="10" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="10" entry2="11" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="11" entry2="16" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="16" entry2="17" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="228" entry2="18" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="19" entry2="18" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="19" entry2="20" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="20" entry2="24" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="24" entry2="25" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="20" entry2="32" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="20" entry2="30" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="60" entry2="61" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="61" entry2="47" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="60" entry2="47" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="60" entry2="45" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="45" entry2="46" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="46" entry2="47" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="47" entry2="213" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="54" entry2="55" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="55" entry2="126" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="98" entry2="77" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="77" entry2="73" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="73" entry2="107" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="70" entry2="82" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="82" entry2="88" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="104" entry2="101" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="101" entry2="82" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="ubiquitination" value="+u"/>
+    </relation>
+    <relation entry1="88" entry2="108" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="79" entry2="80" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="80" entry2="74" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="74" entry2="108" type="GErel">
+        <subtype name="repression" value="--|"/>
+    </relation>
+    <relation entry1="134" entry2="130" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="130" entry2="131" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="146" entry2="140" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="140" entry2="137" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="199" entry2="185" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="184" entry2="185" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="185" entry2="194" type="GErel">
+        <subtype name="repression" value="--|"/>
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="194" entry2="191" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="206" entry2="207" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="207" entry2="204" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="204" entry2="226" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="226" entry2="201" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="201" entry2="208" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="144" entry2="145" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="145" entry2="146" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="dephosphorylation" value="-p"/>
+    </relation>
+</pathway>

@@ -1,0 +1,640 @@
+<?xml version="1.0"?>
+<!DOCTYPE pathway SYSTEM "http://www.kegg.jp/kegg/xml/KGML_v0.7.2_.dtd">
+<!-- Creation date: May 14, 2014 13:36:11 +0900 (GMT+09:00) -->
+<pathway name="path:abp04141" org="abp" number="04141"
+         title="Protein processing in endoplasmic reticulum"
+         image="http://www.kegg.jp/kegg/pathway/abp/abp04141.png"
+         link="http://www.kegg.jp/kegg-bin/show_pathway?abp04141">
+    <entry id="13" name="path:abp04141" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp04141">
+        <graphics name="TITLE:Protein processing in endoplasmic reticulum" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="250" y="58" width="420" height="25"/>
+    </entry>
+    <entry id="14" name="path:abp03060" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp03060">
+        <graphics name="Protein export" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="55" y="158" width="92" height="25"/>
+    </entry>
+    <entry id="15" name="path:map04210" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map04210">
+        <graphics name="Apoptosis" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="641" y="639" width="80" height="25"/>
+    </entry>
+    <entry id="16" name="path:abp03050" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp03050">
+        <graphics name="Proteasome" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="1144" y="357" width="92" height="25"/>
+    </entry>
+    <entry id="28" name="ko:K04374" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04374">
+        <graphics name="K04374" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="296" y="638" width="46" height="17"/>
+    </entry>
+    <entry id="29" name="ko:K04452" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04452">
+        <graphics name="K04452" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="361" y="720" width="46" height="17"/>
+    </entry>
+    <entry id="30" name="ko:K04440" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04440">
+        <graphics name="K04440" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="550" y="638" width="46" height="17"/>
+    </entry>
+    <entry id="31" name="ko:K03173" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K03173">
+        <graphics name="K03173" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="548" y="522" width="46" height="17"/>
+    </entry>
+    <entry id="32" name="ko:K04426" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04426">
+        <graphics name="K04426" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="550" y="561" width="46" height="17"/>
+    </entry>
+    <entry id="33" name="ko:K04431" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04431">
+        <graphics name="K04431" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="550" y="599" width="46" height="17"/>
+    </entry>
+    <entry id="34" name="abp:AGABI1DRAFT122431 abp:AGABI1DRAFT130982" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT122431+abp:AGABI1DRAFT130982">
+        <graphics name="AGABI1DRAFT_122431..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="298" y="522" width="46" height="17"/>
+    </entry>
+    <entry id="35" name="ko:K08054" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K08054">
+        <graphics name="K08054" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="440" y="126" width="46" height="17"/>
+    </entry>
+    <entry id="36" name="ko:K08057" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K08057">
+        <graphics name="K08057" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="441" y="182" width="46" height="17"/>
+    </entry>
+    <entry id="37" name="ko:K14019" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14019">
+        <graphics name="K14019" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="272" y="561" width="46" height="17"/>
+    </entry>
+    <entry id="39" name="gl:G00010" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G00010">
+        <graphics name="G00010" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="408" y="183" width="8" height="8"/>
+    </entry>
+    <entry id="40" name="cpd:C00076" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00076">
+        <graphics name="C00076" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="640" y="437" width="8" height="8"/>
+    </entry>
+    <entry id="56" name="ko:K08056" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K08056">
+        <graphics name="K08056" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="441" y="152" width="46" height="17"/>
+    </entry>
+    <entry id="57" name="ko:K04741" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04741">
+        <graphics name="K04741" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="641" y="561" width="46" height="17"/>
+    </entry>
+    <entry id="58" name="ko:K01367 ko:K03853" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K01367+K03853">
+        <graphics name="K01367..." fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="641" y="522" width="46" height="17"/>
+    </entry>
+    <entry id="59" name="abp:AGABI1DRAFT114587 abp:AGABI1DRAFT115034 abp:AGABI1DRAFT124441" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT114587+abp:AGABI1DRAFT115034+abp:AGABI1DRAFT124441">
+        <graphics name="AGABI1DRAFT_114587..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="58" y="201" width="46" height="17"/>
+    </entry>
+    <entry id="63" name="abp:AGABI1DRAFT111846" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT111846">
+        <graphics name="AGABI1DRAFT_111846" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="943" y="380" width="46" height="17"/>
+    </entry>
+    <entry id="64" name="abp:AGABI1DRAFT114587 abp:AGABI1DRAFT115034 abp:AGABI1DRAFT124441" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT114587+abp:AGABI1DRAFT115034+abp:AGABI1DRAFT124441">
+        <graphics name="AGABI1DRAFT_114587..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="767" y="417" width="46" height="17"/>
+    </entry>
+    <entry id="65" name="abp:AGABI1DRAFT111630 abp:AGABI1DRAFT111863 abp:AGABI1DRAFT113490 abp:AGABI1DRAFT57815 abp:AGABI1DRAFT78257" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT111630+abp:AGABI1DRAFT111863+abp:AGABI1DRAFT113490+abp:AGABI1DRAFT57815+abp:AGABI1DRAFT78257">
+        <graphics name="AGABI1DRAFT_111630..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="137" y="230" width="46" height="17"/>
+    </entry>
+    <entry id="66" name="abp:AGABI1DRAFT120380" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT120380">
+        <graphics name="AGABI1DRAFT_120380" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="593" y="367" width="46" height="17"/>
+    </entry>
+    <entry id="80" name="abp:AGABI1DRAFT115330 abp:AGABI1DRAFT122451 abp:AGABI1DRAFT43626" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT115330+abp:AGABI1DRAFT122451+abp:AGABI1DRAFT43626">
+        <graphics name="AGABI1DRAFT_115330..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="794" y="160" width="46" height="17"/>
+    </entry>
+    <entry id="83" name="abp:AGABI1DRAFT72140" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT72140">
+        <graphics name="AGABI1DRAFT_72140" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="665" y="178" width="46" height="17"/>
+    </entry>
+    <entry id="84" name="ko:K10080" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K10080">
+        <graphics name="K10080" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="665" y="198" width="46" height="17"/>
+    </entry>
+    <entry id="89" name="abp:AGABI1DRAFT97566" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT97566">
+        <graphics name="AGABI1DRAFT_97566" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="947" y="444" width="46" height="17"/>
+    </entry>
+    <entry id="90" name="abp:AGABI1DRAFT116991" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT116991">
+        <graphics name="AGABI1DRAFT_116991" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="947" y="427" width="46" height="17"/>
+    </entry>
+    <entry id="91" name="ko:K10950 ko:K10976" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K10950+K10976">
+        <graphics name="K10950..." fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="722" y="333" width="46" height="17"/>
+    </entry>
+    <entry id="92" name="abp:AGABI1DRAFT115219 abp:AGABI1DRAFT117691 abp:AGABI1DRAFT130713 abp:AGABI1DRAFT86588" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT115219+abp:AGABI1DRAFT117691+abp:AGABI1DRAFT130713+abp:AGABI1DRAFT86588">
+        <graphics name="AGABI1DRAFT_115219..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="566" y="178" width="46" height="17"/>
+    </entry>
+    <entry id="93" name="abp:AGABI1DRAFT35773 abp:AGABI1DRAFT72105" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT35773+abp:AGABI1DRAFT72105">
+        <graphics name="AGABI1DRAFT_35773..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="367" y="178" width="46" height="17"/>
+    </entry>
+    <entry id="94" name="abp:AGABI1DRAFT35773 abp:AGABI1DRAFT72105" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT35773+abp:AGABI1DRAFT72105">
+        <graphics name="AGABI1DRAFT_35773..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="502" y="276" width="46" height="17"/>
+    </entry>
+    <entry id="95" name="abp:AGABI1DRAFT53637" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT53637">
+        <graphics name="AGABI1DRAFT_53637" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="367" y="144" width="46" height="17"/>
+    </entry>
+    <entry id="99" name="abp:AGABI1DRAFT46617" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT46617">
+        <graphics name="AGABI1DRAFT_46617" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="418" y="252" width="46" height="17"/>
+    </entry>
+    <entry id="101" name="gl:G00010" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G00010">
+        <graphics name="G00010" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="378" y="329" width="8" height="8"/>
+    </entry>
+    <entry id="105" name="abp:AGABI1DRAFT115219 abp:AGABI1DRAFT117691 abp:AGABI1DRAFT130713 abp:AGABI1DRAFT86588" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT115219+abp:AGABI1DRAFT117691+abp:AGABI1DRAFT130713+abp:AGABI1DRAFT86588">
+        <graphics name="AGABI1DRAFT_115219..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="594" y="400" width="46" height="17"/>
+    </entry>
+    <entry id="116" name="abp:AGABI1DRAFT126355" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT126355">
+        <graphics name="AGABI1DRAFT_126355" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="759" y="604" width="46" height="17"/>
+    </entry>
+    <entry id="117" name="abp:AGABI1DRAFT37502" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT37502">
+        <graphics name="AGABI1DRAFT_37502" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="760" y="693" width="46" height="17"/>
+    </entry>
+    <entry id="118" name="ko:K14022" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14022">
+        <graphics name="K14022" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="806" y="709" width="46" height="17"/>
+    </entry>
+    <entry id="119" name="ko:K14023" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14023">
+        <graphics name="K14023" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="760" y="676" width="46" height="17"/>
+    </entry>
+    <entry id="120" name="abp:AGABI1DRAFT115958 abp:AGABI1DRAFT115960" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT115958+abp:AGABI1DRAFT115960">
+        <graphics name="AGABI1DRAFT_115958..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="760" y="709" width="46" height="17"/>
+    </entry>
+    <entry id="123" name="abp:AGABI1DRAFT115984" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT115984">
+        <graphics name="AGABI1DRAFT_115984" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="222" y="304" width="46" height="19"/>
+    </entry>
+    <entry id="128" name="path:abp00510" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp00510">
+        <graphics name="N-Glycan biosynthesis" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="323" y="250" width="92" height="34"/>
+    </entry>
+    <entry id="129" name="abp:AGABI1DRAFT112260 abp:AGABI1DRAFT115252" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT112260+abp:AGABI1DRAFT115252">
+        <graphics name="AGABI1DRAFT_112260..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="58" y="218" width="46" height="17"/>
+    </entry>
+    <entry id="130" name="ko:K02159 ko:K14021" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02159+K14021">
+        <graphics name="K02159..." fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="640" y="457" width="46" height="17"/>
+    </entry>
+    <entry id="134" name="ko:K09054 ko:K09049" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K09054+K09049">
+        <graphics name="K09054..." fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="423" y="478" width="46" height="17"/>
+    </entry>
+    <entry id="135" name="abp:AGABI1DRAFT60620" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT60620">
+        <graphics name="AGABI1DRAFT_60620" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="548" y="478" width="46" height="17"/>
+    </entry>
+    <entry id="136" name="abp:AGABI1DRAFT109872" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT109872">
+        <graphics name="AGABI1DRAFT_109872" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="298" y="478" width="46" height="17"/>
+    </entry>
+    <entry id="137" name="ko:K08653" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K08653">
+        <graphics name="K08653" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="451" y="535" width="46" height="17"/>
+    </entry>
+    <entry id="138" name="ko:K07765" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K07765">
+        <graphics name="K07765" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="451" y="556" width="46" height="17"/>
+    </entry>
+    <entry id="148" name="ko:K09027" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K09027">
+        <graphics name="K09027" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="489" y="630" width="46" height="17"/>
+    </entry>
+    <entry id="159" name="ko:K14020" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14020">
+        <graphics name="K14020" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="395" y="556" width="46" height="17"/>
+    </entry>
+    <entry id="163" name="abp:AGABI1DRAFT112618" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT112618">
+        <graphics name="AGABI1DRAFT_112618" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1010" y="393" width="46" height="17"/>
+    </entry>
+    <entry id="164" name="abp:AGABI1DRAFT67830" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT67830">
+        <graphics name="AGABI1DRAFT_67830" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1009" y="371" width="46" height="17"/>
+    </entry>
+    <entry id="165" name="ko:K01456" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K01456">
+        <graphics name="K01456" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1010" y="410" width="46" height="17"/>
+    </entry>
+    <entry id="166" name="abp:AGABI1DRAFT111494 abp:AGABI1DRAFT112285 abp:AGABI1DRAFT115958 abp:AGABI1DRAFT115960" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT111494+abp:AGABI1DRAFT112285+abp:AGABI1DRAFT115958+abp:AGABI1DRAFT115960">
+        <graphics name="AGABI1DRAFT_111494..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="759" y="621" width="46" height="17"/>
+    </entry>
+    <entry id="167" name="abp:AGABI1DRAFT74542" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT74542">
+        <graphics name="AGABI1DRAFT_74542" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1062" y="371" width="46" height="17"/>
+    </entry>
+    <entry id="168" name="abp:AGABI1DRAFT125011" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT125011">
+        <graphics name="AGABI1DRAFT_125011" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1037" y="324" width="46" height="17"/>
+    </entry>
+    <entry id="169" name="abp:AGABI1DRAFT119519" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT119519">
+        <graphics name="AGABI1DRAFT_119519" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1062" y="393" width="46" height="17"/>
+    </entry>
+    <entry id="170" name="abp:AGABI1DRAFT34287" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT34287">
+        <graphics name="AGABI1DRAFT_34287" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1037" y="341" width="46" height="17"/>
+    </entry>
+    <entry id="171" name="abp:AGABI1DRAFT111531 abp:AGABI1DRAFT82477" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT111531+abp:AGABI1DRAFT82477">
+        <graphics name="AGABI1DRAFT_111531..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="917" y="268" width="46" height="17"/>
+    </entry>
+    <entry id="172" name="abp:AGABI1DRAFT56450" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT56450">
+        <graphics name="AGABI1DRAFT_56450" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="870" y="675" width="46" height="17"/>
+    </entry>
+    <entry id="173" name="abp:AGABI1DRAFT37502" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT37502">
+        <graphics name="AGABI1DRAFT_37502" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="905" y="692" width="46" height="17"/>
+    </entry>
+    <entry id="174" name="abp:AGABI1DRAFT113792 abp:AGABI1DRAFT63181" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT113792+abp:AGABI1DRAFT63181">
+        <graphics name="AGABI1DRAFT_113792..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="866" y="315" width="46" height="17"/>
+    </entry>
+    <entry id="175" name="abp:AGABI1DRAFT111334" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT111334">
+        <graphics name="AGABI1DRAFT_111334" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="776" y="347" width="46" height="17"/>
+    </entry>
+    <entry id="176" name="ko:K14027" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14027">
+        <graphics name="K14027" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="859" y="692" width="46" height="17"/>
+    </entry>
+    <entry id="177" name="ko:K14008" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14008">
+        <graphics name="K14008" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="776" y="369" width="46" height="17"/>
+    </entry>
+    <entry id="178" name="abp:AGABI1DRAFT111494 abp:AGABI1DRAFT112285 abp:AGABI1DRAFT115958 abp:AGABI1DRAFT115960" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT111494+abp:AGABI1DRAFT112285+abp:AGABI1DRAFT115958+abp:AGABI1DRAFT115960">
+        <graphics name="AGABI1DRAFT_111494..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="905" y="709" width="46" height="17"/>
+    </entry>
+    <entry id="179" name="ko:K14025" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14025">
+        <graphics name="K14025" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="916" y="658" width="46" height="17"/>
+    </entry>
+    <entry id="180" name="abp:AGABI1DRAFT130185" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT130185">
+        <graphics name="AGABI1DRAFT_130185" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1061" y="675" width="46" height="17"/>
+    </entry>
+    <entry id="181" name="ko:K10099 ko:K10100" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K10099+K10100">
+        <graphics name="K10099..." fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1015" y="709" width="46" height="17"/>
+    </entry>
+    <entry id="182" name="abp:AGABI1DRAFT86707" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT86707">
+        <graphics name="AGABI1DRAFT_86707" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="972" y="630" width="46" height="17"/>
+    </entry>
+    <entry id="183" name="abp:AGABI1DRAFT111464 abp:AGABI1DRAFT111972 abp:AGABI1DRAFT75045" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT111464+abp:AGABI1DRAFT111972+abp:AGABI1DRAFT75045">
+        <graphics name="AGABI1DRAFT_111464..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1018" y="604" width="46" height="17"/>
+    </entry>
+    <entry id="184" name="abp:AGABI1DRAFT111531 abp:AGABI1DRAFT82477" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT111531+abp:AGABI1DRAFT82477">
+        <graphics name="AGABI1DRAFT_111531..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1018" y="621" width="46" height="17"/>
+    </entry>
+    <entry id="185" name="ko:K09561" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K09561">
+        <graphics name="K09561" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1018" y="638" width="46" height="17"/>
+    </entry>
+    <entry id="187" name="abp:AGABI1DRAFT111875 abp:AGABI1DRAFT114352 abp:AGABI1DRAFT125961 abp:AGABI1DRAFT55274 abp:AGABI1DRAFT55318 abp:AGABI1DRAFT83069" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT111875+abp:AGABI1DRAFT114352+abp:AGABI1DRAFT125961+abp:AGABI1DRAFT55274+abp:AGABI1DRAFT55318+abp:AGABI1DRAFT83069">
+        <graphics name="AGABI1DRAFT_111875..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="723" y="369" width="46" height="17"/>
+    </entry>
+    <entry id="188" name="abp:AGABI1DRAFT116004 abp:AGABI1DRAFT40758" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT116004+abp:AGABI1DRAFT40758">
+        <graphics name="AGABI1DRAFT_116004..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="222" y="320" width="46" height="17"/>
+    </entry>
+    <entry id="189" name="abp:AGABI1DRAFT43901" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT43901">
+        <graphics name="AGABI1DRAFT_43901" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="866" y="378" width="46" height="17"/>
+    </entry>
+    <entry id="190" name="ko:K14022" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14022">
+        <graphics name="K14022" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="805" y="621" width="46" height="17"/>
+    </entry>
+    <entry id="191" name="abp:AGABI1DRAFT111464 abp:AGABI1DRAFT111972 abp:AGABI1DRAFT75045" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT111464+abp:AGABI1DRAFT111972+abp:AGABI1DRAFT75045">
+        <graphics name="AGABI1DRAFT_111464..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="917" y="285" width="46" height="17"/>
+    </entry>
+    <entry id="192" name="abp:AGABI1DRAFT115960" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT115960">
+        <graphics name="AGABI1DRAFT_115960" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="871" y="621" width="46" height="17"/>
+    </entry>
+    <entry id="195" name="ko:K14014" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14014">
+        <graphics name="K14014" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="892" y="410" width="46" height="17"/>
+    </entry>
+    <entry id="201" name="abp:AGABI1DRAFT86707" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT86707">
+        <graphics name="AGABI1DRAFT_86707" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1015" y="684" width="46" height="17"/>
+    </entry>
+    <entry id="202" name="abp:AGABI1DRAFT111082" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT111082">
+        <graphics name="AGABI1DRAFT_111082" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1061" y="709" width="46" height="17"/>
+    </entry>
+    <entry id="203" name="abp:AGABI1DRAFT113105 abp:AGABI1DRAFT120802" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT113105+abp:AGABI1DRAFT120802">
+        <graphics name="AGABI1DRAFT_113105..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1061" y="692" width="46" height="17"/>
+    </entry>
+    <entry id="204" name="abp:AGABI1DRAFT113792 abp:AGABI1DRAFT63181" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT113792+abp:AGABI1DRAFT63181">
+        <graphics name="AGABI1DRAFT_113792..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="916" y="621" width="46" height="17"/>
+    </entry>
+    <entry id="205" name="ko:K10666" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K10666">
+        <graphics name="K10666" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="916" y="604" width="46" height="17"/>
+    </entry>
+    <entry id="206" name="ko:K11519" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K11519">
+        <graphics name="K11519" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="916" y="675" width="46" height="17"/>
+    </entry>
+    <entry id="207" name="abp:AGABI1DRAFT111579" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT111579">
+        <graphics name="AGABI1DRAFT_111579" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="970" y="268" width="46" height="17"/>
+    </entry>
+    <entry id="208" name="ko:K05638" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K05638">
+        <graphics name="K05638" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="350" y="535" width="46" height="17"/>
+    </entry>
+    <entry id="211" name="abp:AGABI1DRAFT116784 abp:AGABI1DRAFT133085" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT116784+abp:AGABI1DRAFT133085">
+        <graphics name="AGABI1DRAFT_116784..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="794" y="143" width="46" height="17"/>
+    </entry>
+    <entry id="212" name="abp:AGABI1DRAFT113676" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT113676">
+        <graphics name="AGABI1DRAFT_113676" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="748" y="160" width="46" height="17"/>
+    </entry>
+    <entry id="213" name="abp:AGABI1DRAFT57743" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT57743">
+        <graphics name="AGABI1DRAFT_57743" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="748" y="198" width="46" height="17"/>
+    </entry>
+    <entry id="215" name="abp:AGABI1DRAFT99907" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT99907">
+        <graphics name="AGABI1DRAFT_99907" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="277" y="303" width="46" height="17"/>
+    </entry>
+    <entry id="218" name="ko:K02161" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02161">
+        <graphics name="K02161" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="363" y="757" width="46" height="17"/>
+    </entry>
+    <entry id="219" name="path:map04210" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map04210">
+        <graphics name="Apoptosis" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="365" y="795" width="80" height="25"/>
+    </entry>
+    <entry id="221" name="ko:K02161" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02161">
+        <graphics name="K02161" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="669" y="494" width="46" height="17"/>
+    </entry>
+    <entry id="224" name="ko:K10081" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K10081">
+        <graphics name="K10081" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="665" y="219" width="46" height="17"/>
+    </entry>
+    <entry id="225" name="ko:K14010" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14010">
+        <graphics name="K14010" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="866" y="298" width="46" height="17"/>
+    </entry>
+    <entry id="226" name="ko:K09561" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K09561">
+        <graphics name="K09561" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1074" y="604" width="46" height="17"/>
+    </entry>
+    <entry id="227" name="ko:K04556" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04556">
+        <graphics name="K04556" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1074" y="621" width="46" height="17"/>
+    </entry>
+    <entry id="228" name="abp:AGABI1DRAFT111428" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT111428">
+        <graphics name="AGABI1DRAFT_111428" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="917" y="308" width="46" height="17"/>
+    </entry>
+    <entry id="229" name="abp:AGABI1DRAFT108278 abp:AGABI1DRAFT112039" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT108278+abp:AGABI1DRAFT112039">
+        <graphics name="AGABI1DRAFT_108278..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="970" y="308" width="46" height="17"/>
+    </entry>
+    <entry id="230" name="path:map05010" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map05010">
+        <graphics name="Alzheimer disease" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="64" y="502" width="92" height="34"/>
+    </entry>
+    <entry id="231" name="path:map05012" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map05012">
+        <graphics name="Parkinson disease" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="64" y="547" width="92" height="34"/>
+    </entry>
+    <entry id="232" name="path:map05020" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map05020">
+        <graphics name="Prion diseases" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="63" y="463" width="92" height="25"/>
+    </entry>
+    <entry id="233" name="abp:AGABI1DRAFT108653" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT108653">
+        <graphics name="AGABI1DRAFT_108653" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="176" y="303" width="46" height="17"/>
+    </entry>
+    <entry id="234" name="ko:K14024" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14024">
+        <graphics name="K14024" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="806" y="693" width="46" height="17"/>
+    </entry>
+    <entry id="237" name="path:map04930" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map04930">
+        <graphics name="Type II diabetes mellitus" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="64" y="591" width="92" height="34"/>
+    </entry>
+    <entry id="238" name="abp:AGABI1DRAFT53637" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?abp:AGABI1DRAFT53637">
+        <graphics name="AGABI1DRAFT_53637" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="137" y="246" width="46" height="17"/>
+    </entry>
+    <entry id="239" name="ko:K13999" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K13999">
+        <graphics name="K13999" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="183" y="246" width="46" height="17"/>
+    </entry>
+    <entry id="240" name="ko:K14000" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14000">
+        <graphics name="K14000" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="235" y="212" width="46" height="17"/>
+    </entry>
+    <entry id="241" name="ko:K14009" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14009">
+        <graphics name="K14009" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="767" y="400" width="46" height="17"/>
+    </entry>
+    <entry id="242" name="ko:K13249 ko:K13250 ko:K13251 ko:K04571" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K13249+K13250+K13251+K04571">
+        <graphics name="K13249..." fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="721" y="417" width="46" height="17"/>
+    </entry>
+    <entry id="245" name="ko:K14013" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14013">
+        <graphics name="K14013" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="806" y="676" width="46" height="17"/>
+    </entry>
+    <entry id="246" name="ko:K10636" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K10636">
+        <graphics name="K10636" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="916" y="587" width="46" height="17"/>
+    </entry>
+    <entry id="248" name="gl:G00009" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G00009">
+        <graphics name="G00009" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="333" y="194" width="8" height="8"/>
+    </entry>
+    <entry id="249" name="gl:G00011" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G00011">
+        <graphics name="G00011" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="501" y="391" width="8" height="8"/>
+    </entry>
+    <entry id="250" name="gl:G00011" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G00011">
+        <graphics name="G00011" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="528" y="167" width="8" height="8"/>
+    </entry>
+    <entry id="251" name="gl:G10694" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G10694">
+        <graphics name="G10694" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="616" y="166" width="8" height="8"/>
+    </entry>
+    <entry id="252" name="gl:G00012" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G00012">
+        <graphics name="G00012" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="634" y="396" width="8" height="8"/>
+    </entry>
+    <relation entry1="211" entry2="80" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="211" entry2="212" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="136" entry2="34" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="90" entry2="63" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="213" entry2="212" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="90" entry2="89" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="189" entry2="63" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+</pathway>

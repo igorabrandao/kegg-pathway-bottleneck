@@ -1,44 +1,433 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<title>Access forbidden!</title>
-<link rev="made" href="mailto:http://www.genome.jp/feedback/" />
-<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
-    body { color: #000000; background-color: #FFFFFF; }
-    a:link { color: #0000CC; }
-    p, address {margin-left: 3em;}
-    span {font-size: smaller;}
-/*]]>*/--></style>
-</head>
-
-<body>
-<h1>Access forbidden!</h1>
-<p>
-
-
-  
-
-    You don't have permission to access the requested object.
-    It is either read-protected or not readable by the server.
-
-  
-
-</p>
-<p>
-If you think this is a server error, please contact
-the <a href="http://www.genome.jp/feedback/">webmaster</a>.
-
-</p>
-
-<h2>Error 403</h2>
-<address>
-  <a href="/">rest.kegg.jp</a><br />
-  
-  <span>Wed Nov  6 23:02:33 2019<br />
-  Apache</span>
-</address>
-</body>
-</html>
-
+<?xml version="1.0"?>
+<!DOCTYPE pathway SYSTEM "http://www.kegg.jp/kegg/xml/KGML_v0.7.2_.dtd">
+<!-- Creation date: Jan 11, 2017 15:10:10 +0900 (GMT+9) -->
+<pathway name="path:gtr03040" org="gtr" number="03040"
+         title="Spliceosome"
+         image="http://www.kegg.jp/kegg/pathway/gtr/gtr03040.png"
+         link="http://www.kegg.jp/kegg-bin/show_pathway?gtr03040">
+    <entry id="1" name="path:gtr03040" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr03040">
+        <graphics name="TITLE:Spliceosome" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="105" y="58" width="129" height="25"/>
+    </entry>
+    <entry id="2" name="gtr:GLOTRDRAFT_114051" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_114051">
+        <graphics name="GLOTRDRAFT_114051" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="80" y="266" width="46" height="17"/>
+    </entry>
+    <entry id="3" name="gtr:GLOTRDRAFT_109324" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_109324">
+        <graphics name="GLOTRDRAFT_109324" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="80" y="286" width="46" height="17"/>
+    </entry>
+    <entry id="4" name="gtr:GLOTRDRAFT_62827" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_62827">
+        <graphics name="GLOTRDRAFT_62827" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="698" y="159" width="46" height="17"/>
+    </entry>
+    <entry id="5" name="ko:K11091" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K11091">
+        <graphics name="K11091" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="698" y="176" width="46" height="17"/>
+    </entry>
+    <entry id="6" name="gtr:GLOTRDRAFT_113879" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_113879">
+        <graphics name="GLOTRDRAFT_113879" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="698" y="193" width="46" height="17"/>
+    </entry>
+    <entry id="7" name="ko:K12813 ko:K12814" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K12813+K12814">
+        <graphics name="K12813..." fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="433" y="530" width="46" height="17"/>
+    </entry>
+    <entry id="8" name="gtr:GLOTRDRAFT_109343 gtr:GLOTRDRAFT_69469" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_109343+gtr:GLOTRDRAFT_69469">
+        <graphics name="GLOTRDRAFT_109343..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="549" y="387" width="46" height="17"/>
+    </entry>
+    <entry id="9" name="gtr:GLOTRDRAFT_53785" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_53785">
+        <graphics name="GLOTRDRAFT_53785" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="549" y="407" width="46" height="17"/>
+    </entry>
+    <entry id="10" name="gtr:GLOTRDRAFT_105293" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_105293">
+        <graphics name="GLOTRDRAFT_105293" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="698" y="231" width="46" height="17"/>
+    </entry>
+    <entry id="11" name="ko:K12822" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K12822">
+        <graphics name="K12822" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="698" y="251" width="46" height="17"/>
+    </entry>
+    <entry id="12" name="gtr:GLOTRDRAFT_124000" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_124000">
+        <graphics name="GLOTRDRAFT_124000" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="540" y="269" width="46" height="17"/>
+    </entry>
+    <entry id="13" name="gtr:GLOTRDRAFT_107280 gtr:GLOTRDRAFT_111878" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_107280+gtr:GLOTRDRAFT_111878">
+        <graphics name="GLOTRDRAFT_107280..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="469" y="164" width="46" height="17"/>
+    </entry>
+    <entry id="14" name="gtr:GLOTRDRAFT_117569 gtr:GLOTRDRAFT_128356 gtr:GLOTRDRAFT_136251 gtr:GLOTRDRAFT_30477 gtr:GLOTRDRAFT_53411 gtr:GLOTRDRAFT_55656 gtr:GLOTRDRAFT_73894" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_117569+gtr:GLOTRDRAFT_128356+gtr:GLOTRDRAFT_136251+gtr:GLOTRDRAFT_30477+gtr:GLOTRDRAFT_53411+gtr:GLOTRDRAFT_55656+gtr:GLOTRDRAFT_73894">
+        <graphics name="GLOTRDRAFT_117569..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="698" y="142" width="46" height="17"/>
+    </entry>
+    <entry id="15" name="gtr:GLOTRDRAFT_100489" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_100489">
+        <graphics name="GLOTRDRAFT_100489" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="698" y="271" width="46" height="17"/>
+    </entry>
+    <entry id="16" name="ko:K12824" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K12824">
+        <graphics name="K12824" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="698" y="291" width="46" height="17"/>
+    </entry>
+    <entry id="17" name="gtr:GLOTRDRAFT_117569 gtr:GLOTRDRAFT_128356 gtr:GLOTRDRAFT_136251 gtr:GLOTRDRAFT_30477 gtr:GLOTRDRAFT_53411 gtr:GLOTRDRAFT_55656 gtr:GLOTRDRAFT_73894" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_117569+gtr:GLOTRDRAFT_128356+gtr:GLOTRDRAFT_136251+gtr:GLOTRDRAFT_30477+gtr:GLOTRDRAFT_53411+gtr:GLOTRDRAFT_55656+gtr:GLOTRDRAFT_73894">
+        <graphics name="GLOTRDRAFT_117569..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="763" y="142" width="46" height="17"/>
+    </entry>
+    <entry id="18" name="gtr:GLOTRDRAFT_16260" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_16260">
+        <graphics name="GLOTRDRAFT_16260" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="763" y="159" width="46" height="17"/>
+    </entry>
+    <entry id="19" name="ko:K11094" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K11094">
+        <graphics name="K11094" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="763" y="176" width="46" height="17"/>
+    </entry>
+    <entry id="20" name="gtr:GLOTRDRAFT_114877 gtr:GLOTRDRAFT_68132 gtr:GLOTRDRAFT_90798" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_114877+gtr:GLOTRDRAFT_68132+gtr:GLOTRDRAFT_90798">
+        <graphics name="GLOTRDRAFT_114877..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="763" y="192" width="46" height="17"/>
+    </entry>
+    <entry id="21" name="gtr:GLOTRDRAFT_115784 gtr:GLOTRDRAFT_119371 gtr:GLOTRDRAFT_137408 gtr:GLOTRDRAFT_138213 gtr:GLOTRDRAFT_35714 gtr:GLOTRDRAFT_52339 gtr:GLOTRDRAFT_73205" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_115784+gtr:GLOTRDRAFT_119371+gtr:GLOTRDRAFT_137408+gtr:GLOTRDRAFT_138213+gtr:GLOTRDRAFT_35714+gtr:GLOTRDRAFT_52339+gtr:GLOTRDRAFT_73205">
+        <graphics name="GLOTRDRAFT_115784..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="763" y="209" width="46" height="17"/>
+    </entry>
+    <entry id="22" name="gtr:GLOTRDRAFT_110820 gtr:GLOTRDRAFT_73916" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_110820+gtr:GLOTRDRAFT_73916">
+        <graphics name="GLOTRDRAFT_110820..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="763" y="251" width="46" height="17"/>
+    </entry>
+    <entry id="23" name="ko:K12838" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K12838">
+        <graphics name="K12838" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="763" y="271" width="46" height="17"/>
+    </entry>
+    <entry id="24" name="gtr:GLOTRDRAFT_113301" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_113301">
+        <graphics name="GLOTRDRAFT_113301" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="763" y="291" width="46" height="17"/>
+    </entry>
+    <entry id="25" name="gtr:GLOTRDRAFT_114951" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_114951">
+        <graphics name="GLOTRDRAFT_114951" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="763" y="311" width="46" height="17"/>
+    </entry>
+    <entry id="26" name="ko:K12841" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K12841">
+        <graphics name="K12841" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="763" y="331" width="46" height="17"/>
+    </entry>
+    <entry id="27" name="gtr:GLOTRDRAFT_127735" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_127735">
+        <graphics name="GLOTRDRAFT_127735" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="763" y="351" width="46" height="17"/>
+    </entry>
+    <entry id="28" name="gtr:GLOTRDRAFT_107280 gtr:GLOTRDRAFT_111878" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_107280+gtr:GLOTRDRAFT_111878">
+        <graphics name="GLOTRDRAFT_107280..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="763" y="371" width="46" height="17"/>
+    </entry>
+    <entry id="29" name="gtr:GLOTRDRAFT_104101 gtr:GLOTRDRAFT_71322" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_104101+gtr:GLOTRDRAFT_71322">
+        <graphics name="GLOTRDRAFT_104101..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="893" y="482" width="46" height="17"/>
+    </entry>
+    <entry id="30" name="ko:K12741 ko:K12884 ko:K12885 ko:K12886 ko:K12887 ko:K12888 ko:K12889" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K12741+K12884+K12885+K12886+K12887+K12888+K12889">
+        <graphics name="K12741..." fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="893" y="502" width="46" height="17"/>
+    </entry>
+    <entry id="31" name="gtr:GLOTRDRAFT_109943 gtr:GLOTRDRAFT_125994" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_109943+gtr:GLOTRDRAFT_125994">
+        <graphics name="GLOTRDRAFT_109943..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="893" y="522" width="46" height="17"/>
+    </entry>
+    <entry id="32" name="gtr:GLOTRDRAFT_53796" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_53796">
+        <graphics name="GLOTRDRAFT_53796" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="698" y="482" width="46" height="17"/>
+    </entry>
+    <entry id="33" name="gtr:GLOTRDRAFT_57556" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_57556">
+        <graphics name="GLOTRDRAFT_57556" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="698" y="499" width="46" height="17"/>
+    </entry>
+    <entry id="34" name="gtr:GLOTRDRAFT_69025" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_69025">
+        <graphics name="GLOTRDRAFT_69025" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="698" y="516" width="46" height="17"/>
+    </entry>
+    <entry id="35" name="gtr:GLOTRDRAFT_117190" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_117190">
+        <graphics name="GLOTRDRAFT_117190" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="698" y="533" width="46" height="17"/>
+    </entry>
+    <entry id="36" name="gtr:GLOTRDRAFT_61430" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_61430">
+        <graphics name="GLOTRDRAFT_61430" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="698" y="550" width="46" height="17"/>
+    </entry>
+    <entry id="37" name="gtr:GLOTRDRAFT_32999" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_32999">
+        <graphics name="GLOTRDRAFT_32999" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="698" y="567" width="46" height="17"/>
+    </entry>
+    <entry id="38" name="gtr:GLOTRDRAFT_57271 gtr:GLOTRDRAFT_72847" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_57271+gtr:GLOTRDRAFT_72847">
+        <graphics name="GLOTRDRAFT_57271..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="698" y="584" width="46" height="17"/>
+    </entry>
+    <entry id="39" name="ko:K12865" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K12865">
+        <graphics name="K12865" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="698" y="608" width="46" height="17"/>
+    </entry>
+    <entry id="40" name="gtr:GLOTRDRAFT_104017 gtr:GLOTRDRAFT_107931 gtr:GLOTRDRAFT_12627" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_104017+gtr:GLOTRDRAFT_107931+gtr:GLOTRDRAFT_12627">
+        <graphics name="GLOTRDRAFT_104017..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="763" y="502" width="46" height="17"/>
+    </entry>
+    <entry id="41" name="ko:K12866" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K12866">
+        <graphics name="K12866" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="698" y="625" width="46" height="17"/>
+    </entry>
+    <entry id="42" name="gtr:GLOTRDRAFT_114500" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_114500">
+        <graphics name="GLOTRDRAFT_114500" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="763" y="482" width="46" height="17"/>
+    </entry>
+    <entry id="43" name="gtr:GLOTRDRAFT_141304" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_141304">
+        <graphics name="GLOTRDRAFT_141304" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="763" y="522" width="46" height="17"/>
+    </entry>
+    <entry id="44" name="gtr:GLOTRDRAFT_114422" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_114422">
+        <graphics name="GLOTRDRAFT_114422" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="763" y="542" width="46" height="17"/>
+    </entry>
+    <entry id="45" name="gtr:GLOTRDRAFT_35766" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_35766">
+        <graphics name="GLOTRDRAFT_35766" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="763" y="562" width="46" height="17"/>
+    </entry>
+    <entry id="46" name="gtr:GLOTRDRAFT_56485" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_56485">
+        <graphics name="GLOTRDRAFT_56485" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="763" y="582" width="46" height="17"/>
+    </entry>
+    <entry id="47" name="gtr:GLOTRDRAFT_36495" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_36495">
+        <graphics name="GLOTRDRAFT_36495" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="763" y="602" width="46" height="17"/>
+    </entry>
+    <entry id="48" name="ko:K12874" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K12874">
+        <graphics name="K12874" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="763" y="642" width="46" height="17"/>
+    </entry>
+    <entry id="49" name="gtr:GLOTRDRAFT_103146 gtr:GLOTRDRAFT_109035 gtr:GLOTRDRAFT_111016 gtr:GLOTRDRAFT_140559 gtr:GLOTRDRAFT_28537 gtr:GLOTRDRAFT_30030 gtr:GLOTRDRAFT_76543" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_103146+gtr:GLOTRDRAFT_109035+gtr:GLOTRDRAFT_111016+gtr:GLOTRDRAFT_140559+gtr:GLOTRDRAFT_28537+gtr:GLOTRDRAFT_30030+gtr:GLOTRDRAFT_76543">
+        <graphics name="GLOTRDRAFT_103146..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="828" y="159" width="46" height="17"/>
+    </entry>
+    <entry id="50" name="gtr:GLOTRDRAFT_117569 gtr:GLOTRDRAFT_128356 gtr:GLOTRDRAFT_136251 gtr:GLOTRDRAFT_30477 gtr:GLOTRDRAFT_53411 gtr:GLOTRDRAFT_55656 gtr:GLOTRDRAFT_73894" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_117569+gtr:GLOTRDRAFT_128356+gtr:GLOTRDRAFT_136251+gtr:GLOTRDRAFT_30477+gtr:GLOTRDRAFT_53411+gtr:GLOTRDRAFT_55656+gtr:GLOTRDRAFT_73894">
+        <graphics name="GLOTRDRAFT_117569..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="828" y="176" width="46" height="17"/>
+    </entry>
+    <entry id="51" name="gtr:GLOTRDRAFT_33809" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_33809">
+        <graphics name="GLOTRDRAFT_33809" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="828" y="243" width="46" height="17"/>
+    </entry>
+    <entry id="52" name="gtr:GLOTRDRAFT_100792" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_100792">
+        <graphics name="GLOTRDRAFT_100792" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="828" y="227" width="46" height="17"/>
+    </entry>
+    <entry id="53" name="gtr:GLOTRDRAFT_74935" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_74935">
+        <graphics name="GLOTRDRAFT_74935" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="828" y="210" width="46" height="17"/>
+    </entry>
+    <entry id="54" name="gtr:GLOTRDRAFT_78492" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_78492">
+        <graphics name="GLOTRDRAFT_78492" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="828" y="193" width="46" height="17"/>
+    </entry>
+    <entry id="55" name="gtr:GLOTRDRAFT_136808" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_136808">
+        <graphics name="GLOTRDRAFT_136808" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="828" y="260" width="46" height="17"/>
+    </entry>
+    <entry id="56" name="gtr:GLOTRDRAFT_117569 gtr:GLOTRDRAFT_128356 gtr:GLOTRDRAFT_136251 gtr:GLOTRDRAFT_30477 gtr:GLOTRDRAFT_53411 gtr:GLOTRDRAFT_55656 gtr:GLOTRDRAFT_73894" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_117569+gtr:GLOTRDRAFT_128356+gtr:GLOTRDRAFT_136251+gtr:GLOTRDRAFT_30477+gtr:GLOTRDRAFT_53411+gtr:GLOTRDRAFT_55656+gtr:GLOTRDRAFT_73894">
+        <graphics name="GLOTRDRAFT_117569..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="893" y="142" width="46" height="17"/>
+    </entry>
+    <entry id="57" name="gtr:GLOTRDRAFT_112869" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_112869">
+        <graphics name="GLOTRDRAFT_112869" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="893" y="159" width="46" height="17"/>
+    </entry>
+    <entry id="58" name="gtr:GLOTRDRAFT_63420" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_63420">
+        <graphics name="GLOTRDRAFT_63420" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="893" y="176" width="46" height="17"/>
+    </entry>
+    <entry id="59" name="gtr:GLOTRDRAFT_115025" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_115025">
+        <graphics name="GLOTRDRAFT_115025" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="893" y="193" width="46" height="17"/>
+    </entry>
+    <entry id="60" name="gtr:GLOTRDRAFT_66207" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_66207">
+        <graphics name="GLOTRDRAFT_66207" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="893" y="210" width="46" height="17"/>
+    </entry>
+    <entry id="61" name="gtr:GLOTRDRAFT_135917" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_135917">
+        <graphics name="GLOTRDRAFT_135917" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="893" y="227" width="46" height="17"/>
+    </entry>
+    <entry id="62" name="gtr:GLOTRDRAFT_56935" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_56935">
+        <graphics name="GLOTRDRAFT_56935" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="893" y="244" width="46" height="17"/>
+    </entry>
+    <entry id="63" name="gtr:GLOTRDRAFT_45707" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_45707">
+        <graphics name="GLOTRDRAFT_45707" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="893" y="261" width="46" height="17"/>
+    </entry>
+    <entry id="64" name="gtr:GLOTRDRAFT_120022" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_120022">
+        <graphics name="GLOTRDRAFT_120022" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="828" y="319" width="46" height="17"/>
+    </entry>
+    <entry id="65" name="gtr:GLOTRDRAFT_67512" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_67512">
+        <graphics name="GLOTRDRAFT_67512" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="828" y="336" width="46" height="17"/>
+    </entry>
+    <entry id="66" name="gtr:GLOTRDRAFT_106644" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_106644">
+        <graphics name="GLOTRDRAFT_106644" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="828" y="353" width="46" height="17"/>
+    </entry>
+    <entry id="67" name="ko:K12875" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K12875">
+        <graphics name="K12875" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="828" y="482" width="46" height="17"/>
+    </entry>
+    <entry id="68" name="gtr:GLOTRDRAFT_54808" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_54808">
+        <graphics name="GLOTRDRAFT_54808" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="828" y="499" width="46" height="17"/>
+    </entry>
+    <entry id="69" name="gtr:GLOTRDRAFT_60168" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_60168">
+        <graphics name="GLOTRDRAFT_60168" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="828" y="516" width="46" height="17"/>
+    </entry>
+    <entry id="70" name="gtr:GLOTRDRAFT_45548" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_45548">
+        <graphics name="GLOTRDRAFT_45548" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="828" y="533" width="46" height="17"/>
+    </entry>
+    <entry id="71" name="gtr:GLOTRDRAFT_109324" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_109324">
+        <graphics name="GLOTRDRAFT_109324" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="828" y="550" width="46" height="17"/>
+    </entry>
+    <entry id="72" name="gtr:GLOTRDRAFT_107741 gtr:GLOTRDRAFT_109561 gtr:GLOTRDRAFT_111092 gtr:GLOTRDRAFT_112251 gtr:GLOTRDRAFT_117602 gtr:GLOTRDRAFT_118437 gtr:GLOTRDRAFT_136479" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_107741+gtr:GLOTRDRAFT_109561+gtr:GLOTRDRAFT_111092+gtr:GLOTRDRAFT_112251+gtr:GLOTRDRAFT_117602+gtr:GLOTRDRAFT_118437+gtr:GLOTRDRAFT_136479">
+        <graphics name="GLOTRDRAFT_107741..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="828" y="567" width="46" height="17"/>
+    </entry>
+    <entry id="73" name="gtr:GLOTRDRAFT_124000" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_124000">
+        <graphics name="GLOTRDRAFT_124000" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="598" y="387" width="46" height="17"/>
+    </entry>
+    <entry id="74" name="gtr:GLOTRDRAFT_137647" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_137647">
+        <graphics name="GLOTRDRAFT_137647" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="598" y="407" width="46" height="17"/>
+    </entry>
+    <entry id="75" name="gtr:GLOTRDRAFT_38769" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_38769">
+        <graphics name="GLOTRDRAFT_38769" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="828" y="379" width="46" height="17"/>
+    </entry>
+    <entry id="76" name="gtr:GLOTRDRAFT_15980" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_15980">
+        <graphics name="GLOTRDRAFT_15980" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="828" y="399" width="46" height="17"/>
+    </entry>
+    <entry id="77" name="gtr:GLOTRDRAFT_139607" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_139607">
+        <graphics name="GLOTRDRAFT_139607" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="549" y="427" width="46" height="17"/>
+    </entry>
+    <entry id="78" name="gtr:GLOTRDRAFT_33788" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gtr:GLOTRDRAFT_33788">
+        <graphics name="GLOTRDRAFT_33788" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="763" y="622" width="46" height="17"/>
+    </entry>
+    <entry id="79" name="ko:K14276" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14276">
+        <graphics name="K14276" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="698" y="119" width="46" height="17"/>
+    </entry>
+    <entry id="80" name="ko:K14277" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14277">
+        <graphics name="K14277" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="763" y="119" width="46" height="17"/>
+    </entry>
+    <entry id="81" name="ko:K14279" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14279">
+        <graphics name="K14279" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="893" y="119" width="46" height="17"/>
+    </entry>
+    <entry id="82" name="ko:K14278" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14278">
+        <graphics name="K14278" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="828" y="119" width="46" height="17"/>
+    </entry>
+    <entry id="83" name="ko:K14280" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14280">
+        <graphics name="K14280" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="828" y="136" width="46" height="17"/>
+    </entry>
+    <entry id="84" name="ko:K19604" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K19604">
+        <graphics name="K19604" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="763" y="391" width="46" height="17"/>
+    </entry>
+    <entry id="85" name="ko:K19604" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K19604">
+        <graphics name="K19604" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="828" y="419" width="46" height="17"/>
+    </entry>
+</pathway>

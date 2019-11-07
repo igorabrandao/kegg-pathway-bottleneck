@@ -1,44 +1,723 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<title>Access forbidden!</title>
-<link rev="made" href="mailto:http://www.genome.jp/feedback/" />
-<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
-    body { color: #000000; background-color: #FFFFFF; }
-    a:link { color: #0000CC; }
-    p, address {margin-left: 3em;}
-    span {font-size: smaller;}
-/*]]>*/--></style>
-</head>
-
-<body>
-<h1>Access forbidden!</h1>
-<p>
-
-
-  
-
-    You don't have permission to access the requested object.
-    It is either read-protected or not readable by the server.
-
-  
-
-</p>
-<p>
-If you think this is a server error, please contact
-the <a href="http://www.genome.jp/feedback/">webmaster</a>.
-
-</p>
-
-<h2>Error 403</h2>
-<address>
-  <a href="/">rest.kegg.jp</a><br />
-  
-  <span>Wed Nov  6 20:03:44 2019<br />
-  Apache</span>
-</address>
-</body>
-</html>
-
+<?xml version="1.0"?>
+<!DOCTYPE pathway SYSTEM "http://www.kegg.jp/kegg/xml/KGML_v0.7.2_.dtd">
+<!-- Creation date: Apr 6, 2017 09:27:32 +0900 (GMT+9) -->
+<pathway name="path:ppp03010" org="ppp" number="03010"
+         title="Ribosome"
+         image="http://www.kegg.jp/kegg/pathway/ppp/ppp03010.png"
+         link="http://www.kegg.jp/kegg-bin/show_pathway?ppp03010">
+    <entry id="1" name="ko:K07590" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K07590">
+        <graphics name="K07590" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="614" y="445" width="46" height="17"/>
+    </entry>
+    <entry id="2" name="ppp:112285146 ppp:112293984 ppp:112294869 ppp:112295520" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112285146+ppp:112293984+ppp:112294869+ppp:112295520">
+        <graphics name="112285146..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="989" y="713" width="46" height="17"/>
+    </entry>
+    <entry id="3" name="ppp:112276244 ppp:112280389 ppp:112287316 ppp:112290386 ppp:112291722" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112276244+ppp:112280389+ppp:112287316+ppp:112290386+ppp:112291722">
+        <graphics name="112276244..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="469" y="670" width="46" height="17"/>
+    </entry>
+    <entry id="4" name="ppp:112286295 ppp:112290979 ppp:112293640 ppp:112294478" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112286295+ppp:112290979+ppp:112293640+ppp:112294478">
+        <graphics name="112286295..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="625" y="758" width="46" height="17"/>
+    </entry>
+    <entry id="5" name="ppp:112286836 ppp:112292145" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112286836+ppp:112292145">
+        <graphics name="112286836..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="623" y="378" width="46" height="17"/>
+    </entry>
+    <entry id="6" name="ppp:112280995 ppp:112284619 ppp:112288835 ppp:112289346 ppp:112294273" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112280995+ppp:112284619+ppp:112288835+ppp:112289346+ppp:112294273">
+        <graphics name="112280995..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="517" y="462" width="46" height="17"/>
+    </entry>
+    <entry id="7" name="ppp:112277183 ppp:112277210 ppp:112282730 ppp:112284096 ppp:112284097 ppp:112293857" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112277183+ppp:112277210+ppp:112282730+ppp:112284096+ppp:112284097+ppp:112293857">
+        <graphics name="112277183..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="577" y="378" width="46" height="17"/>
+    </entry>
+    <entry id="8" name="ppp:112279087 ppp:112279937 ppp:112287182 ppp:112291003" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112279087+ppp:112279937+ppp:112287182+ppp:112291003">
+        <graphics name="112279087..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="647" y="294" width="46" height="17"/>
+    </entry>
+    <entry id="9" name="ppp:112284262 ppp:112288139 ppp:112289856 ppp:112293553" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112284262+ppp:112288139+ppp:112289856+ppp:112293553">
+        <graphics name="112284262..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="546" y="556" width="46" height="17"/>
+    </entry>
+    <entry id="10" name="ppp:112278056 ppp:112278576 ppp:112289618 ppp:112291034" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112278056+ppp:112278576+ppp:112289618+ppp:112291034">
+        <graphics name="112278056..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="417" y="294" width="46" height="17"/>
+    </entry>
+    <entry id="11" name="ppp:112278381 ppp:112280222 ppp:112280937 ppp:112289623 ppp:112290886" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112278381+ppp:112280222+ppp:112280937+ppp:112289623+ppp:112290886">
+        <graphics name="112278381..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="693" y="219" width="46" height="17"/>
+    </entry>
+    <entry id="12" name="ppp:112284217 ppp:112288620 ppp:112292135 ppp:112292723 ppp:112292900" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112284217+ppp:112288620+ppp:112292135+ppp:112292723+ppp:112292900">
+        <graphics name="112284217..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="469" y="713" width="46" height="17"/>
+    </entry>
+    <entry id="13" name="ppp:112275267 ppp:112281889 ppp:112289217 ppp:112290600 ppp:112296049" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112275267+ppp:112281889+ppp:112289217+ppp:112290600+ppp:112296049">
+        <graphics name="112275267..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="521" y="713" width="46" height="17"/>
+    </entry>
+    <entry id="14" name="ppp:112278972 ppp:112279839 ppp:112285097 ppp:112285098 ppp:112288563 ppp:112289027" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112278972+ppp:112279839+ppp:112285097+ppp:112285098+ppp:112288563+ppp:112289027">
+        <graphics name="112278972..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="573" y="713" width="46" height="17"/>
+    </entry>
+    <entry id="15" name="ppp:112278467 ppp:112278888 ppp:112288469 ppp:112291841 ppp:112294075" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112278467+ppp:112278888+ppp:112288469+ppp:112291841+ppp:112294075">
+        <graphics name="112278467..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="625" y="713" width="46" height="17"/>
+    </entry>
+    <entry id="16" name="ppp:112280220 ppp:112280926 ppp:112289206 ppp:112289851 ppp:112290582" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112280220+ppp:112280926+ppp:112289206+ppp:112289851+ppp:112290582">
+        <graphics name="112280220..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="677" y="713" width="46" height="17"/>
+    </entry>
+    <entry id="17" name="ppp:112274113 ppp:112275043 ppp:112279216 ppp:112283611 ppp:112295665" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112274113+ppp:112275043+ppp:112279216+ppp:112283611+ppp:112295665">
+        <graphics name="112274113..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="833" y="713" width="46" height="17"/>
+    </entry>
+    <entry id="18" name="ppp:112281791 ppp:112286084 ppp:112289837 ppp:112289942" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112281791+ppp:112286084+ppp:112289837+ppp:112289942">
+        <graphics name="112281791..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="885" y="713" width="46" height="17"/>
+    </entry>
+    <entry id="19" name="ppp:112273574 ppp:112276175 ppp:112276998 ppp:112286089" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112273574+ppp:112276175+ppp:112276998+ppp:112286089">
+        <graphics name="112273574..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="417" y="802" width="46" height="17"/>
+    </entry>
+    <entry id="20" name="ppp:112273316 ppp:112276241 ppp:112276686 ppp:112286812 ppp:112287691 ppp:112287949 ppp:112291618" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112273316+ppp:112276241+ppp:112276686+ppp:112286812+ppp:112287691+ppp:112287949+ppp:112291618">
+        <graphics name="112273316..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="469" y="802" width="46" height="17"/>
+    </entry>
+    <entry id="21" name="ppp:112289338 ppp:112293938 ppp:112294061" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112289338+ppp:112293938+ppp:112294061">
+        <graphics name="112289338..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="521" y="802" width="46" height="17"/>
+    </entry>
+    <entry id="22" name="ppp:112275640 ppp:112276402 ppp:112278053 ppp:112281029 ppp:112289352" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112275640+ppp:112276402+ppp:112278053+ppp:112281029+ppp:112289352">
+        <graphics name="112275640..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="573" y="802" width="46" height="17"/>
+    </entry>
+    <entry id="23" name="ppp:112279756 ppp:112291861 ppp:112294059 ppp:112295417" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112279756+ppp:112291861+ppp:112294059+ppp:112295417">
+        <graphics name="112279756..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="729" y="713" width="46" height="17"/>
+    </entry>
+    <entry id="24" name="ppp:112282910 ppp:112283978 ppp:112293001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112282910+ppp:112283978+ppp:112293001">
+        <graphics name="112282910..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="781" y="713" width="46" height="17"/>
+    </entry>
+    <entry id="25" name="ppp:112282265 ppp:112283561 ppp:112288478 ppp:112291300 ppp:112294133" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112282265+ppp:112283561+ppp:112288478+ppp:112291300+ppp:112294133">
+        <graphics name="112282265..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="937" y="713" width="46" height="17"/>
+    </entry>
+    <entry id="26" name="ppp:112277104 ppp:112283111 ppp:112284918 ppp:112285216 ppp:112288550 ppp:112293400" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112277104+ppp:112283111+ppp:112284918+ppp:112285216+ppp:112288550+ppp:112293400">
+        <graphics name="112277104..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="555" y="294" width="46" height="17"/>
+    </entry>
+    <entry id="27" name="ppp:112272738 ppp:112274112 ppp:112275360 ppp:112281301 ppp:112288560 ppp:112288800 ppp:112289262 ppp:112294934" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112272738+ppp:112274112+ppp:112275360+ppp:112281301+ppp:112288560+ppp:112288800+ppp:112289262+ppp:112294934">
+        <graphics name="112272738..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="417" y="713" width="46" height="17"/>
+    </entry>
+    <entry id="28" name="ko:K01985" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K01985">
+        <graphics name="K01985" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="543" y="89" width="46" height="17"/>
+    </entry>
+    <entry id="29" name="ko:K01982" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K01982">
+        <graphics name="K01982" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="497" y="106" width="46" height="17"/>
+    </entry>
+    <entry id="30" name="ko:K01980" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K01980">
+        <graphics name="K01980" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="497" y="89" width="46" height="17"/>
+    </entry>
+    <entry id="31" name="ko:K01981" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K01981">
+        <graphics name="K01981" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="543" y="106" width="46" height="17"/>
+    </entry>
+    <entry id="32" name="ppp:112279061 ppp:112286105 ppp:112288641" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112279061+ppp:112286105+ppp:112288641">
+        <graphics name="112279061..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="797" y="453" width="46" height="17"/>
+    </entry>
+    <entry id="33" name="ppp:112280018 ppp:112282524 ppp:112287205 ppp:112289782" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112280018+ppp:112282524+ppp:112287205+ppp:112289782">
+        <graphics name="112280018..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="889" y="453" width="46" height="17"/>
+    </entry>
+    <entry id="34" name="ppp:112282385 ppp:112284138 ppp:112287758" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112282385+ppp:112284138+ppp:112287758">
+        <graphics name="112282385..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="509" y="219" width="46" height="17"/>
+    </entry>
+    <entry id="35" name="ppp:112278270 ppp:112282958 ppp:112284198 ppp:112285970 ppp:112288235 ppp:112293860" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112278270+ppp:112282958+ppp:112284198+ppp:112285970+ppp:112288235+ppp:112293860">
+        <graphics name="112278270..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="601" y="294" width="46" height="17"/>
+    </entry>
+    <entry id="36" name="ppp:112278501 ppp:112287569 ppp:112291916 ppp:112292998" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112278501+ppp:112287569+ppp:112291916+ppp:112292998">
+        <graphics name="112278501..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="739" y="294" width="46" height="17"/>
+    </entry>
+    <entry id="37" name="ppp:112284913 ppp:112288548" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112284913+ppp:112288548">
+        <graphics name="112284913..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="797" y="470" width="46" height="17"/>
+    </entry>
+    <entry id="38" name="ppp:112278215 ppp:112278276 ppp:112282658 ppp:112283168 ppp:112286769 ppp:112292425 ppp:112293108" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112278215+ppp:112278276+ppp:112282658+ppp:112283168+ppp:112286769+ppp:112292425+ppp:112293108">
+        <graphics name="112278215..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="889" y="470" width="46" height="17"/>
+    </entry>
+    <entry id="39" name="ppp:112272739 ppp:112278858 ppp:112283606 ppp:112284185 ppp:112288191" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112272739+ppp:112278858+ppp:112283606+ppp:112284185+ppp:112288191">
+        <graphics name="112272739..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="838" y="378" width="46" height="17"/>
+    </entry>
+    <entry id="40" name="ppp:112272952 ppp:112276834 ppp:112285542 ppp:112287439" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112272952+ppp:112276834+ppp:112285542+ppp:112287439">
+        <graphics name="112272952..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="838" y="361" width="46" height="17"/>
+    </entry>
+    <entry id="41" name="ko:K01986" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K01986">
+        <graphics name="K01986" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="589" y="106" width="46" height="17"/>
+    </entry>
+    <entry id="42" name="ppp:2546796" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:2546796">
+        <graphics name="rpl2, PhpapaCp070" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="647" y="202" width="46" height="17"/>
+    </entry>
+    <entry id="43" name="ppp:112275519 ppp:112284030 ppp:112293294" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112275519+ppp:112284030+ppp:112293294">
+        <graphics name="112275519..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="509" y="202" width="46" height="17"/>
+    </entry>
+    <entry id="44" name="ppp:112276587 ppp:112284592" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112276587+ppp:112284592">
+        <graphics name="112276587..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="601" y="277" width="46" height="17"/>
+    </entry>
+    <entry id="45" name="ppp:112278583 ppp:112288782 ppp:3989101" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112278583+ppp:112288782+ppp:3989101">
+        <graphics name="112278583..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="739" y="277" width="46" height="17"/>
+    </entry>
+    <entry id="46" name="ppp:112273603 ppp:112276164 ppp:112276991" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112273603+ppp:112276164+ppp:112276991">
+        <graphics name="112273603..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="843" y="470" width="46" height="17"/>
+    </entry>
+    <entry id="47" name="ppp:112281679 ppp:112281687 ppp:112289813 ppp:112289818 ppp:112290132 ppp:112290609" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112281679+ppp:112281687+ppp:112289813+ppp:112289818+ppp:112290132+ppp:112290609">
+        <graphics name="112281679..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="647" y="219" width="46" height="17"/>
+    </entry>
+    <entry id="48" name="ppp:112279481 ppp:2546765" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112279481+ppp:2546765">
+        <graphics name="112279481..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="463" y="277" width="46" height="17"/>
+    </entry>
+    <entry id="49" name="ppp:112276098 ppp:112277033 ppp:112278231 ppp:112285285 ppp:112285320 ppp:112286175 ppp:112293124" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112276098+ppp:112277033+ppp:112278231+ppp:112285285+ppp:112285320+ppp:112286175+ppp:112293124">
+        <graphics name="112276098..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="463" y="294" width="46" height="17"/>
+    </entry>
+    <entry id="50" name="ppp:112273486 ppp:112277418 ppp:112282522 ppp:112283475 ppp:112285368 ppp:112293895" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112273486+ppp:112277418+ppp:112282522+ppp:112283475+ppp:112285368+ppp:112293895">
+        <graphics name="112273486..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1015" y="294" width="46" height="17"/>
+    </entry>
+    <entry id="51" name="ppp:112273191 ppp:112276144 ppp:112276954 ppp:112277190 ppp:112285823" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112273191+ppp:112276144+ppp:112276954+ppp:112277190+ppp:112285823">
+        <graphics name="112273191..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1015" y="277" width="46" height="17"/>
+    </entry>
+    <entry id="52" name="ppp:112283473 ppp:112285151 ppp:112288928 ppp:112295058" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112283473+ppp:112285151+ppp:112288928+ppp:112295058">
+        <graphics name="112283473..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="877" y="294" width="46" height="17"/>
+    </entry>
+    <entry id="53" name="ppp:112279250 ppp:112282710 ppp:112284267 ppp:112288294 ppp:112291454" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112279250+ppp:112282710+ppp:112284267+ppp:112288294+ppp:112291454">
+        <graphics name="112279250..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="877" y="277" width="46" height="17"/>
+    </entry>
+    <entry id="54" name="ppp:112284186 ppp:112284509 ppp:112288138 ppp:112291162 ppp:112293708" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112284186+ppp:112284509+ppp:112288138+ppp:112291162+ppp:112293708">
+        <graphics name="112284186..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="739" y="219" width="46" height="17"/>
+    </entry>
+    <entry id="55" name="ppp:112285439 ppp:2546778" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112285439+ppp:2546778">
+        <graphics name="112285439..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="739" y="202" width="46" height="17"/>
+    </entry>
+    <entry id="56" name="ppp:112280390 ppp:112281403 ppp:112290056 ppp:112290388" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112280390+ppp:112281403+ppp:112290056+ppp:112290388">
+        <graphics name="112280390..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="601" y="219" width="46" height="17"/>
+    </entry>
+    <entry id="57" name="ppp:112287596 ppp:2546777" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112287596+ppp:2546777">
+        <graphics name="112287596..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="601" y="202" width="46" height="17"/>
+    </entry>
+    <entry id="58" name="ppp:112277806 ppp:112278921 ppp:112280989 ppp:112285018 ppp:112287319 ppp:112291008" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112277806+ppp:112278921+ppp:112280989+ppp:112285018+ppp:112287319+ppp:112291008">
+        <graphics name="112277806..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="509" y="294" width="46" height="17"/>
+    </entry>
+    <entry id="59" name="ppp:112275999 ppp:112286613 ppp:112292437" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112275999+ppp:112286613+ppp:112292437">
+        <graphics name="112275999..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="509" y="277" width="46" height="17"/>
+    </entry>
+    <entry id="60" name="ppp:112277921 ppp:112279470 ppp:112280881 ppp:112290237" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112277921+ppp:112279470+ppp:112280881+ppp:112290237">
+        <graphics name="112277921..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="877" y="219" width="46" height="17"/>
+    </entry>
+    <entry id="61" name="ko:K02904" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02904">
+        <graphics name="K02904" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="877" y="202" width="46" height="17"/>
+    </entry>
+    <entry id="62" name="ppp:112277877" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112277877">
+        <graphics name="112277877" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="969" y="277" width="46" height="17"/>
+    </entry>
+    <entry id="63" name="ppp:112278956 ppp:112284306 ppp:112284582 ppp:112289057 ppp:112290451 ppp:112293046" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112278956+ppp:112284306+ppp:112284582+ppp:112289057+ppp:112290451+ppp:112293046">
+        <graphics name="112278956..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="969" y="294" width="46" height="17"/>
+    </entry>
+    <entry id="64" name="ppp:112273270 ppp:112279104 ppp:112285779 ppp:112291467 ppp:112294884 ppp:112295102" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112273270+ppp:112279104+ppp:112285779+ppp:112291467+ppp:112294884+ppp:112295102">
+        <graphics name="112273270..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="521" y="670" width="46" height="17"/>
+    </entry>
+    <entry id="65" name="ppp:112273451 ppp:112278218 ppp:112279155 ppp:112285189 ppp:112286733" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112273451+ppp:112278218+ppp:112279155+ppp:112285189+ppp:112286733">
+        <graphics name="112273451..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="746" y="378" width="46" height="17"/>
+    </entry>
+    <entry id="66" name="ppp:112273832 ppp:112274873 ppp:112277606 ppp:112287161 ppp:112292625 ppp:112293803 ppp:112295642" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112273832+ppp:112274873+ppp:112277606+ppp:112287161+ppp:112292625+ppp:112293803+ppp:112295642">
+        <graphics name="112273832..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="831" y="294" width="46" height="17"/>
+    </entry>
+    <entry id="67" name="ppp:112280595 ppp:112281179 ppp:112289649 ppp:112290858" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112280595+ppp:112281179+ppp:112289649+ppp:112290858">
+        <graphics name="112280595..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="573" y="670" width="46" height="17"/>
+    </entry>
+    <entry id="68" name="ppp:112278794 ppp:112279493 ppp:112280720 ppp:112281874 ppp:112281875 ppp:112290666 ppp:112292397 ppp:112293883" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112278794+ppp:112279493+ppp:112280720+ppp:112281874+ppp:112281875+ppp:112290666+ppp:112292397+ppp:112293883">
+        <graphics name="112278794..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="625" y="670" width="46" height="17"/>
+    </entry>
+    <entry id="69" name="ppp:112277110 ppp:112281903 ppp:112282453 ppp:112289650 ppp:112292981" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112277110+ppp:112281903+ppp:112282453+ppp:112289650+ppp:112292981">
+        <graphics name="112277110..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="563" y="462" width="46" height="17"/>
+    </entry>
+    <entry id="70" name="ppp:112283447" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112283447">
+        <graphics name="112283447" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="885" y="670" width="46" height="17"/>
+    </entry>
+    <entry id="71" name="ppp:112273376 ppp:112276766 ppp:112280483 ppp:112281691 ppp:112287723" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112273376+ppp:112276766+ppp:112280483+ppp:112281691+ppp:112287723">
+        <graphics name="112273376..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="937" y="670" width="46" height="17"/>
+    </entry>
+    <entry id="72" name="ko:K02928" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02928">
+        <graphics name="K02928" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="989" y="670" width="46" height="17"/>
+    </entry>
+    <entry id="73" name="ppp:112277754 ppp:112280171 ppp:112281492 ppp:112284392 ppp:112294058" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112277754+ppp:112280171+ppp:112281492+ppp:112284392+ppp:112294058">
+        <graphics name="112277754..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1041" y="670" width="46" height="17"/>
+    </entry>
+    <entry id="74" name="ppp:112277591 ppp:112286453 ppp:112287579 ppp:112290953 ppp:112293575" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112277591+ppp:112286453+ppp:112287579+ppp:112290953+ppp:112293575">
+        <graphics name="112277591..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="677" y="670" width="46" height="17"/>
+    </entry>
+    <entry id="75" name="ppp:112276300 ppp:112288823 ppp:112291553 ppp:112293398 ppp:112294540" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112276300+ppp:112288823+ppp:112291553+ppp:112293398+ppp:112294540">
+        <graphics name="112276300..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="785" y="294" width="46" height="17"/>
+    </entry>
+    <entry id="76" name="ppp:112274638 ppp:112277209 ppp:112284362 ppp:112284677 ppp:112288306 ppp:112288777" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112274638+ppp:112277209+ppp:112284362+ppp:112284677+ppp:112288306+ppp:112288777">
+        <graphics name="112274638..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="417" y="378" width="46" height="17"/>
+    </entry>
+    <entry id="77" name="ppp:112280209 ppp:112280887 ppp:112285135 ppp:112288513 ppp:112289029 ppp:112290222" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112280209+ppp:112280887+ppp:112285135+ppp:112288513+ppp:112289029+ppp:112290222">
+        <graphics name="112280209..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="729" y="670" width="46" height="17"/>
+    </entry>
+    <entry id="78" name="ppp:112273459 ppp:112274250 ppp:112275580 ppp:112286415 ppp:112292713 ppp:112295024" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112273459+ppp:112274250+ppp:112275580+ppp:112286415+ppp:112292713+ppp:112295024">
+        <graphics name="112273459..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="781" y="670" width="46" height="17"/>
+    </entry>
+    <entry id="79" name="ppp:112277686 ppp:112277875 ppp:112278971 ppp:112279567 ppp:112284322 ppp:112288266" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112277686+ppp:112277875+ppp:112278971+ppp:112279567+ppp:112284322+ppp:112288266">
+        <graphics name="112277686..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="833" y="670" width="46" height="17"/>
+    </entry>
+    <entry id="80" name="ppp:112279213 ppp:112289157 ppp:112291453 ppp:112291690" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112279213+ppp:112289157+ppp:112291453+ppp:112291690">
+        <graphics name="112279213..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="417" y="758" width="46" height="17"/>
+    </entry>
+    <entry id="81" name="ppp:112273691 ppp:112276918 ppp:112280427 ppp:112285316 ppp:112289652 ppp:112290715" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112273691+ppp:112276918+ppp:112280427+ppp:112285316+ppp:112289652+ppp:112290715">
+        <graphics name="112273691..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="469" y="758" width="46" height="17"/>
+    </entry>
+    <entry id="82" name="ppp:112279092 ppp:112279123 ppp:112283676 ppp:112288229 ppp:112288714 ppp:112288911" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112279092+ppp:112279123+ppp:112283676+ppp:112288229+ppp:112288714+ppp:112288911">
+        <graphics name="112279092..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="521" y="758" width="46" height="17"/>
+    </entry>
+    <entry id="83" name="ppp:112275679 ppp:112276697 ppp:112285876 ppp:112292067" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112275679+ppp:112276697+ppp:112285876+ppp:112292067">
+        <graphics name="112275679..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="573" y="758" width="46" height="17"/>
+    </entry>
+    <entry id="84" name="ppp:112286458 ppp:112291059" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112286458+ppp:112291059">
+        <graphics name="112286458..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="677" y="758" width="46" height="17"/>
+    </entry>
+    <entry id="85" name="ppp:112279206 ppp:112291478 ppp:112291862" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112279206+ppp:112291478+ppp:112291862">
+        <graphics name="112279206..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="729" y="758" width="46" height="17"/>
+    </entry>
+    <entry id="86" name="ppp:112279440 ppp:112280893 ppp:112287219 ppp:112289308" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112279440+ppp:112280893+ppp:112287219+ppp:112289308">
+        <graphics name="112279440..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="781" y="758" width="46" height="17"/>
+    </entry>
+    <entry id="87" name="ppp:112273350 ppp:112275957 ppp:112276035 ppp:112276489" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112273350+ppp:112275957+ppp:112276035+ppp:112276489">
+        <graphics name="112273350..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="555" y="219" width="46" height="17"/>
+    </entry>
+    <entry id="88" name="ppp:112278000 ppp:112278001 ppp:112286883 ppp:112290213 ppp:112290772 ppp:112292635" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112278000+ppp:112278001+ppp:112286883+ppp:112290213+ppp:112290772+ppp:112292635">
+        <graphics name="112278000..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="614" y="462" width="46" height="17"/>
+    </entry>
+    <entry id="89" name="ppp:112278836 ppp:112284588 ppp:112289061 ppp:112292063" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112278836+ppp:112284588+ppp:112289061+ppp:112292063">
+        <graphics name="112278836..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="417" y="670" width="46" height="17"/>
+    </entry>
+    <entry id="90" name="ppp:112273672 ppp:112275530 ppp:112277028 ppp:112285371 ppp:112292808" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112273672+ppp:112275530+ppp:112277028+ppp:112285371+ppp:112292808">
+        <graphics name="112273672..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="463" y="378" width="46" height="17"/>
+    </entry>
+    <entry id="91" name="ppp:112275646 ppp:112277019 ppp:112285614 ppp:112290157" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112275646+ppp:112277019+ppp:112285614+ppp:112290157">
+        <graphics name="112275646..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="555" y="202" width="46" height="17"/>
+    </entry>
+    <entry id="92" name="ppp:112276752 ppp:112278708 ppp:112278762 ppp:112286736 ppp:112286943" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112276752+ppp:112278708+ppp:112278762+ppp:112286736+ppp:112286943">
+        <graphics name="112276752..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="964" y="539" width="46" height="17"/>
+    </entry>
+    <entry id="93" name="ppp:112272690 ppp:112277471 ppp:112277694 ppp:112280127 ppp:112281867 ppp:112281993 ppp:112289207 ppp:112292996" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112272690+ppp:112277471+ppp:112277694+ppp:112280127+ppp:112281867+ppp:112281993+ppp:112289207+ppp:112292996">
+        <graphics name="112272690..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="705" y="453" width="46" height="17"/>
+    </entry>
+    <entry id="94" name="ko:K02869" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02869">
+        <graphics name="K02869" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="751" y="453" width="46" height="17"/>
+    </entry>
+    <entry id="95" name="ppp:112272969 ppp:112274373 ppp:112274673 ppp:112275794 ppp:112276378 ppp:112278741 ppp:112279816 ppp:112283788 ppp:112285423 ppp:112287733 ppp:112291133 ppp:112291676 ppp:112294446" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112272969+ppp:112274373+ppp:112274673+ppp:112275794+ppp:112276378+ppp:112278741+ppp:112279816+ppp:112283788+ppp:112285423+ppp:112287733+ppp:112291133+ppp:112291676+ppp:112294446">
+        <graphics name="112272969..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="751" y="470" width="46" height="17"/>
+    </entry>
+    <entry id="96" name="ppp:2546818 ppp:3989066" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:2546818+ppp:3989066">
+        <graphics name="rpl16, PhpapaCp066..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="831" y="202" width="46" height="17"/>
+    </entry>
+    <entry id="97" name="ppp:112279439 ppp:112289434 ppp:112290414 ppp:112293151" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112279439+ppp:112289434+ppp:112290414+ppp:112293151">
+        <graphics name="112279439..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="792" y="361" width="46" height="17"/>
+    </entry>
+    <entry id="98" name="ppp:112273357 ppp:112275988 ppp:112276428" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112273357+ppp:112275988+ppp:112276428">
+        <graphics name="112273357..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="741" y="611" width="46" height="17"/>
+    </entry>
+    <entry id="99" name="ppp:112272940" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112272940">
+        <graphics name="112272940" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="686" y="539" width="46" height="17"/>
+    </entry>
+    <entry id="100" name="ppp:112280151" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112280151">
+        <graphics name="112280151" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="531" y="611" width="46" height="17"/>
+    </entry>
+    <entry id="101" name="ppp:112277034" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112277034">
+        <graphics name="112277034" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="993" y="611" width="46" height="17"/>
+    </entry>
+    <entry id="102" name="ppp:112274372 ppp:112295195 ppp:112295960" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112274372+ppp:112295195+ppp:112295960">
+        <graphics name="112274372..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="577" y="611" width="46" height="17"/>
+    </entry>
+    <entry id="103" name="ppp:112282557 ppp:112283500 ppp:112294212" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112282557+ppp:112283500+ppp:112294212">
+        <graphics name="112282557..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="417" y="611" width="46" height="17"/>
+    </entry>
+    <entry id="104" name="ppp:112279563 ppp:112281585 ppp:112290311" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112279563+ppp:112281585+ppp:112290311">
+        <graphics name="112279563..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="828" y="539" width="46" height="17"/>
+    </entry>
+    <entry id="105" name="ppp:112288442 ppp:2546789" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112288442+ppp:2546789">
+        <graphics name="112288442..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="896" y="539" width="46" height="17"/>
+    </entry>
+    <entry id="106" name="ppp:112277239 ppp:2546714" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112277239+ppp:2546714">
+        <graphics name="112277239..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="463" y="611" width="46" height="17"/>
+    </entry>
+    <entry id="107" name="ppp:112274559 ppp:112281019 ppp:112295063" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112274559+ppp:112281019+ppp:112295063">
+        <graphics name="112274559..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="732" y="539" width="46" height="17"/>
+    </entry>
+    <entry id="108" name="ppp:112274974" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112274974">
+        <graphics name="112274974" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="640" y="539" width="46" height="17"/>
+    </entry>
+    <entry id="109" name="ppp:112292732 ppp:2546788" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112292732+ppp:2546788">
+        <graphics name="112292732..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="531" y="361" width="46" height="17"/>
+    </entry>
+    <entry id="110" name="ko:K01977" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K01977">
+        <graphics name="K01977" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="647" y="89" width="46" height="17"/>
+    </entry>
+    <entry id="111" name="ko:K01979" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K01979">
+        <graphics name="K01979" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="647" y="106" width="46" height="17"/>
+    </entry>
+    <entry id="112" name="ppp:2546815 ppp:3989109" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:2546815+ppp:3989109">
+        <graphics name="rps3, PhpapaCp067..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="785" y="202" width="46" height="17"/>
+    </entry>
+    <entry id="113" name="ppp:2546775 ppp:3989110" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:2546775+ppp:3989110">
+        <graphics name="rps4, PhpapaCp037..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="669" y="361" width="46" height="17"/>
+    </entry>
+    <entry id="114" name="ppp:112284215 ppp:112285369 ppp:112288893 ppp:112290440" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112284215+ppp:112285369+ppp:112288893+ppp:112290440">
+        <graphics name="112284215..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="923" y="277" width="46" height="17"/>
+    </entry>
+    <entry id="115" name="ppp:2546745 ppp:3989111" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:2546745+ppp:3989111">
+        <graphics name="rps7, PhpapaCp002..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="471" y="445" width="46" height="17"/>
+    </entry>
+    <entry id="116" name="ppp:2546779" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:2546779">
+        <graphics name="rps8, PhpapaCp064" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="693" y="277" width="46" height="17"/>
+    </entry>
+    <entry id="117" name="ppp:112280903 ppp:112286209 ppp:112289224" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112280903+ppp:112286209+ppp:112289224">
+        <graphics name="112280903..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="884" y="361" width="46" height="17"/>
+    </entry>
+    <entry id="118" name="ppp:112276368 ppp:112279374 ppp:112286039" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112276368+ppp:112279374+ppp:112286039">
+        <graphics name="112276368..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="463" y="202" width="46" height="17"/>
+    </entry>
+    <entry id="119" name="ppp:112273413 ppp:112275897 ppp:112276636 ppp:112286143" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112273413+ppp:112275897+ppp:112276636+ppp:112286143">
+        <graphics name="112273413..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="923" y="294" width="46" height="17"/>
+    </entry>
+    <entry id="120" name="ppp:112273661 ppp:112275997 ppp:112276410 ppp:112285861 ppp:112286091" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112273661+ppp:112275997+ppp:112276410+ppp:112285861+ppp:112286091">
+        <graphics name="112273661..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="471" y="462" width="46" height="17"/>
+    </entry>
+    <entry id="121" name="ppp:112279359 ppp:112281170 ppp:112282987 ppp:112288319 ppp:112292871 ppp:112294877" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112279359+ppp:112281170+ppp:112282987+ppp:112288319+ppp:112292871+ppp:112294877">
+        <graphics name="112279359..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="693" y="294" width="46" height="17"/>
+    </entry>
+    <entry id="122" name="ppp:112272821 ppp:112274568 ppp:112274641 ppp:112286269 ppp:112295541" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112272821+ppp:112274568+ppp:112274641+ppp:112286269+ppp:112295541">
+        <graphics name="112272821..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="884" y="378" width="46" height="17"/>
+    </entry>
+    <entry id="123" name="ppp:112278743 ppp:112291002 ppp:112292201" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112278743+ppp:112291002+ppp:112292201">
+        <graphics name="112278743..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="463" y="219" width="46" height="17"/>
+    </entry>
+    <entry id="124" name="ppp:112284382 ppp:112290940 ppp:112290941 ppp:112290945 ppp:112291835 ppp:112293998" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112284382+ppp:112290940+ppp:112290941+ppp:112290945+ppp:112291835+ppp:112293998">
+        <graphics name="112284382..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="417" y="556" width="46" height="17"/>
+    </entry>
+    <entry id="125" name="ppp:112282698 ppp:112284237 ppp:112286820 ppp:112288241 ppp:112292807 ppp:112293432" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112282698+ppp:112284237+ppp:112286820+ppp:112288241+ppp:112292807+ppp:112293432">
+        <graphics name="112282698..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="785" y="219" width="46" height="17"/>
+    </entry>
+    <entry id="126" name="ppp:2546746" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:2546746">
+        <graphics name="rps11, PhpapaCp061" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="623" y="361" width="46" height="17"/>
+    </entry>
+    <entry id="127" name="ppp:2546797 ppp:3989104" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:2546797+ppp:3989104">
+        <graphics name="rps12, PhpapaCp001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="517" y="445" width="46" height="17"/>
+    </entry>
+    <entry id="128" name="ppp:112276673 ppp:112292113 ppp:112292694 ppp:3989105" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112276673+ppp:112292113+ppp:112292694+ppp:3989105">
+        <graphics name="112276673..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="577" y="361" width="46" height="17"/>
+    </entry>
+    <entry id="129" name="ppp:2546780 ppp:3989106" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:2546780+ppp:3989106">
+        <graphics name="rps14, PhpapaCp041..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="647" y="277" width="46" height="17"/>
+    </entry>
+    <entry id="130" name="ppp:2546711" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:2546711">
+        <graphics name="rps15, PhpapaCp082" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="546" y="539" width="46" height="17"/>
+    </entry>
+    <entry id="131" name="ppp:112277548 ppp:112285812 ppp:112288797" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112277548+ppp:112285812+ppp:112288797">
+        <graphics name="112277548..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="417" y="277" width="46" height="17"/>
+    </entry>
+    <entry id="132" name="ppp:2546776 ppp:3989107" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:2546776+ppp:3989107">
+        <graphics name="rps19, PhpapaCp069..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="693" y="202" width="46" height="17"/>
+    </entry>
+    <entry id="133" name="ppp:112272688 ppp:112272921 ppp:112287674 ppp:112291752 ppp:112295184" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112272688+ppp:112272921+ppp:112287674+ppp:112291752+ppp:112295184">
+        <graphics name="112272688..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="808" y="611" width="46" height="17"/>
+    </entry>
+    <entry id="134" name="ppp:112279392 ppp:112286907 ppp:112292745" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112279392+ppp:112286907+ppp:112292745">
+        <graphics name="112279392..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1056" y="539" width="46" height="17"/>
+    </entry>
+    <entry id="135" name="ppp:112278998 ppp:112288211 ppp:112291588 ppp:112294625" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112278998+ppp:112288211+ppp:112291588+ppp:112294625">
+        <graphics name="112278998..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="695" y="611" width="46" height="17"/>
+    </entry>
+    <entry id="136" name="ppp:2546813" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:2546813">
+        <graphics name="rps18, PhpapaCp015" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1010" y="539" width="46" height="17"/>
+    </entry>
+    <entry id="137" name="ppp:112273080 ppp:112276867" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112273080+ppp:112276867">
+        <graphics name="112273080..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="870" y="611" width="46" height="17"/>
+    </entry>
+    <entry id="138" name="ko:K02970" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02970">
+        <graphics name="K02970" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="931" y="611" width="46" height="17"/>
+    </entry>
+    <entry id="139" name="ppp:112278369 ppp:112280221 ppp:112281942 ppp:112283134 ppp:112289624 ppp:112290887 ppp:112294717" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112278369+ppp:112280221+ppp:112281942+ppp:112283134+ppp:112289624+ppp:112290887+ppp:112294717">
+        <graphics name="112278369..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="669" y="378" width="46" height="17"/>
+    </entry>
+    <entry id="140" name="ppp:2546695 ppp:3989108" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:2546695+ppp:3989108">
+        <graphics name="rps2, PhpapaCp057..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="417" y="539" width="46" height="17"/>
+    </entry>
+    <entry id="141" name="ko:K02944" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02944">
+        <graphics name="K02944" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1041" y="713" width="46" height="17"/>
+    </entry>
+    <entry id="142" name="ppp:112275565 ppp:112276240 ppp:112276879" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112275565+ppp:112276240+ppp:112276879">
+        <graphics name="112275565..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="843" y="453" width="46" height="17"/>
+    </entry>
+    <entry id="143" name="path:ppp03010" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp03010">
+        <graphics name="TITLE:Ribosome" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="88" y="58" width="95" height="25"/>
+    </entry>
+</pathway>

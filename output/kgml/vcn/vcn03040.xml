@@ -1,44 +1,433 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<title>Access forbidden!</title>
-<link rev="made" href="mailto:http://www.genome.jp/feedback/" />
-<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
-    body { color: #000000; background-color: #FFFFFF; }
-    a:link { color: #0000CC; }
-    p, address {margin-left: 3em;}
-    span {font-size: smaller;}
-/*]]>*/--></style>
-</head>
-
-<body>
-<h1>Access forbidden!</h1>
-<p>
-
-
-  
-
-    You don't have permission to access the requested object.
-    It is either read-protected or not readable by the server.
-
-  
-
-</p>
-<p>
-If you think this is a server error, please contact
-the <a href="http://www.genome.jp/feedback/">webmaster</a>.
-
-</p>
-
-<h2>Error 403</h2>
-<address>
-  <a href="/">rest.kegg.jp</a><br />
-  
-  <span>Wed Nov  6 23:03:41 2019<br />
-  Apache</span>
-</address>
-</body>
-</html>
-
+<?xml version="1.0"?>
+<!DOCTYPE pathway SYSTEM "http://www.kegg.jp/kegg/xml/KGML_v0.7.2_.dtd">
+<!-- Creation date: Jan 11, 2017 15:10:10 +0900 (GMT+9) -->
+<pathway name="path:vcn03040" org="vcn" number="03040"
+         title="Spliceosome"
+         image="http://www.kegg.jp/kegg/pathway/vcn/vcn03040.png"
+         link="http://www.kegg.jp/kegg-bin/show_pathway?vcn03040">
+    <entry id="1" name="path:vcn03040" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn03040">
+        <graphics name="TITLE:Spliceosome" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="105" y="58" width="129" height="25"/>
+    </entry>
+    <entry id="2" name="vcn:VOLCADRAFT_59325" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_59325">
+        <graphics name="VOLCADRAFT_59325" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="80" y="266" width="46" height="17"/>
+    </entry>
+    <entry id="3" name="vcn:VOLCADRAFT_80795" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_80795">
+        <graphics name="VOLCADRAFT_80795" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="80" y="286" width="46" height="17"/>
+    </entry>
+    <entry id="4" name="vcn:VOLCADRAFT_106420" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_106420">
+        <graphics name="VOLCADRAFT_106420" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="698" y="159" width="46" height="17"/>
+    </entry>
+    <entry id="5" name="ko:K11091" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K11091">
+        <graphics name="K11091" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="698" y="176" width="46" height="17"/>
+    </entry>
+    <entry id="6" name="vcn:VOLCADRAFT_116316" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_116316">
+        <graphics name="VOLCADRAFT_116316" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="698" y="193" width="46" height="17"/>
+    </entry>
+    <entry id="7" name="vcn:VOLCADRAFT_92322" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_92322">
+        <graphics name="VOLCADRAFT_92322" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="433" y="530" width="46" height="17"/>
+    </entry>
+    <entry id="8" name="vcn:VOLCADRAFT_100603" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_100603">
+        <graphics name="VOLCADRAFT_100603" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="549" y="387" width="46" height="17"/>
+    </entry>
+    <entry id="9" name="vcn:VOLCADRAFT_78216" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_78216">
+        <graphics name="VOLCADRAFT_78216" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="549" y="407" width="46" height="17"/>
+    </entry>
+    <entry id="10" name="vcn:VOLCADRAFT_104642" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_104642">
+        <graphics name="VOLCADRAFT_104642" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="698" y="231" width="46" height="17"/>
+    </entry>
+    <entry id="11" name="ko:K12822" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K12822">
+        <graphics name="K12822" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="698" y="251" width="46" height="17"/>
+    </entry>
+    <entry id="12" name="vcn:VOLCADRAFT_104170 vcn:VOLCADRAFT_82170 vcn:VOLCADRAFT_84321" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_104170+vcn:VOLCADRAFT_82170+vcn:VOLCADRAFT_84321">
+        <graphics name="VOLCADRAFT_104170..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="540" y="269" width="46" height="17"/>
+    </entry>
+    <entry id="13" name="vcn:VOLCADRAFT_72914" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_72914">
+        <graphics name="splh2" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="469" y="164" width="46" height="17"/>
+    </entry>
+    <entry id="14" name="vcn:VOLCADRAFT_107252 vcn:VOLCADRAFT_109863 vcn:VOLCADRAFT_64746 vcn:VOLCADRAFT_79410 vcn:VOLCADRAFT_81522 vcn:VOLCADRAFT_82766 vcn:VOLCADRAFT_87780" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_107252+vcn:VOLCADRAFT_109863+vcn:VOLCADRAFT_64746+vcn:VOLCADRAFT_79410+vcn:VOLCADRAFT_81522+vcn:VOLCADRAFT_82766+vcn:VOLCADRAFT_87780">
+        <graphics name="VOLCADRAFT_107252..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="698" y="142" width="46" height="17"/>
+    </entry>
+    <entry id="15" name="vcn:VOLCADRAFT_103050 vcn:VOLCADRAFT_121455 vcn:VOLCADRAFT_69703 vcn:VOLCADRAFT_76730 vcn:VOLCADRAFT_81727" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_103050+vcn:VOLCADRAFT_121455+vcn:VOLCADRAFT_69703+vcn:VOLCADRAFT_76730+vcn:VOLCADRAFT_81727">
+        <graphics name="VOLCADRAFT_103050..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="698" y="271" width="46" height="17"/>
+    </entry>
+    <entry id="16" name="ko:K12824" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K12824">
+        <graphics name="K12824" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="698" y="291" width="46" height="17"/>
+    </entry>
+    <entry id="17" name="vcn:VOLCADRAFT_107252 vcn:VOLCADRAFT_109863 vcn:VOLCADRAFT_64746 vcn:VOLCADRAFT_79410 vcn:VOLCADRAFT_81522 vcn:VOLCADRAFT_82766 vcn:VOLCADRAFT_87780" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_107252+vcn:VOLCADRAFT_109863+vcn:VOLCADRAFT_64746+vcn:VOLCADRAFT_79410+vcn:VOLCADRAFT_81522+vcn:VOLCADRAFT_82766+vcn:VOLCADRAFT_87780">
+        <graphics name="VOLCADRAFT_107252..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="763" y="142" width="46" height="17"/>
+    </entry>
+    <entry id="18" name="vcn:VOLCADRAFT_104320" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_104320">
+        <graphics name="VOLCADRAFT_104320" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="763" y="159" width="46" height="17"/>
+    </entry>
+    <entry id="19" name="vcn:VOLCADRAFT_103581" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_103581">
+        <graphics name="VOLCADRAFT_103581" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="763" y="176" width="46" height="17"/>
+    </entry>
+    <entry id="20" name="vcn:VOLCADRAFT_105119 vcn:VOLCADRAFT_79604 vcn:VOLCADRAFT_82810" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_105119+vcn:VOLCADRAFT_79604+vcn:VOLCADRAFT_82810">
+        <graphics name="spl1..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="763" y="192" width="46" height="17"/>
+    </entry>
+    <entry id="21" name="vcn:VOLCADRAFT_30174 vcn:VOLCADRAFT_57823 vcn:VOLCADRAFT_60121 vcn:VOLCADRAFT_73165 vcn:VOLCADRAFT_78588 vcn:VOLCADRAFT_91063" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_30174+vcn:VOLCADRAFT_57823+vcn:VOLCADRAFT_60121+vcn:VOLCADRAFT_73165+vcn:VOLCADRAFT_78588+vcn:VOLCADRAFT_91063">
+        <graphics name="VOLCADRAFT_30174..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="763" y="209" width="46" height="17"/>
+    </entry>
+    <entry id="22" name="vcn:VOLCADRAFT_105202 vcn:VOLCADRAFT_107190 vcn:VOLCADRAFT_121741 vcn:VOLCADRAFT_48801 vcn:VOLCADRAFT_82970 vcn:VOLCADRAFT_83022 vcn:VOLCADRAFT_89331" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_105202+vcn:VOLCADRAFT_107190+vcn:VOLCADRAFT_121741+vcn:VOLCADRAFT_48801+vcn:VOLCADRAFT_82970+vcn:VOLCADRAFT_83022+vcn:VOLCADRAFT_89331">
+        <graphics name="VOLCADRAFT_105202..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="763" y="251" width="46" height="17"/>
+    </entry>
+    <entry id="23" name="ko:K12838" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K12838">
+        <graphics name="K12838" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="763" y="271" width="46" height="17"/>
+    </entry>
+    <entry id="24" name="vcn:VOLCADRAFT_103530" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_103530">
+        <graphics name="VOLCADRAFT_103530" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="763" y="291" width="46" height="17"/>
+    </entry>
+    <entry id="25" name="vcn:VOLCADRAFT_87981" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_87981">
+        <graphics name="VOLCADRAFT_87981" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="763" y="311" width="46" height="17"/>
+    </entry>
+    <entry id="26" name="ko:K12841" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K12841">
+        <graphics name="K12841" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="763" y="331" width="46" height="17"/>
+    </entry>
+    <entry id="27" name="vcn:VOLCADRAFT_104604" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_104604">
+        <graphics name="VOLCADRAFT_104604" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="763" y="351" width="46" height="17"/>
+    </entry>
+    <entry id="28" name="vcn:VOLCADRAFT_72914" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_72914">
+        <graphics name="splh2" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="763" y="371" width="46" height="17"/>
+    </entry>
+    <entry id="29" name="vcn:VOLCADRAFT_79141 vcn:VOLCADRAFT_88418" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_79141+vcn:VOLCADRAFT_88418">
+        <graphics name="VOLCADRAFT_79141..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="893" y="482" width="46" height="17"/>
+    </entry>
+    <entry id="30" name="vcn:VOLCADRAFT_104291 vcn:VOLCADRAFT_121254" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_104291+vcn:VOLCADRAFT_121254">
+        <graphics name="VOLCADRAFT_104291..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="893" y="502" width="46" height="17"/>
+    </entry>
+    <entry id="31" name="vcn:VOLCADRAFT_120666 vcn:VOLCADRAFT_121229 vcn:VOLCADRAFT_121301 vcn:VOLCADRAFT_45192 vcn:VOLCADRAFT_72532 vcn:VOLCADRAFT_73973" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_120666+vcn:VOLCADRAFT_121229+vcn:VOLCADRAFT_121301+vcn:VOLCADRAFT_45192+vcn:VOLCADRAFT_72532+vcn:VOLCADRAFT_73973">
+        <graphics name="VOLCADRAFT_120666..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="893" y="522" width="46" height="17"/>
+    </entry>
+    <entry id="32" name="vcn:VOLCADRAFT_80185" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_80185">
+        <graphics name="VOLCADRAFT_80185" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="698" y="482" width="46" height="17"/>
+    </entry>
+    <entry id="33" name="vcn:VOLCADRAFT_107065" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_107065">
+        <graphics name="VOLCADRAFT_107065" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="698" y="499" width="46" height="17"/>
+    </entry>
+    <entry id="34" name="vcn:VOLCADRAFT_104101" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_104101">
+        <graphics name="VOLCADRAFT_104101" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="698" y="516" width="46" height="17"/>
+    </entry>
+    <entry id="35" name="vcn:VOLCADRAFT_66651" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_66651">
+        <graphics name="VOLCADRAFT_66651" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="698" y="533" width="46" height="17"/>
+    </entry>
+    <entry id="36" name="vcn:VOLCADRAFT_88042" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_88042">
+        <graphics name="VOLCADRAFT_88042" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="698" y="550" width="46" height="17"/>
+    </entry>
+    <entry id="37" name="vcn:VOLCADRAFT_69464" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_69464">
+        <graphics name="VOLCADRAFT_69464" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="698" y="567" width="46" height="17"/>
+    </entry>
+    <entry id="38" name="vcn:VOLCADRAFT_117683 vcn:VOLCADRAFT_77877 vcn:VOLCADRAFT_78933 vcn:VOLCADRAFT_79550 vcn:VOLCADRAFT_97782" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_117683+vcn:VOLCADRAFT_77877+vcn:VOLCADRAFT_78933+vcn:VOLCADRAFT_79550+vcn:VOLCADRAFT_97782">
+        <graphics name="hsp70D..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="698" y="584" width="46" height="17"/>
+    </entry>
+    <entry id="39" name="vcn:VOLCADRAFT_63718" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_63718">
+        <graphics name="VOLCADRAFT_63718" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="698" y="608" width="46" height="17"/>
+    </entry>
+    <entry id="40" name="vcn:VOLCADRAFT_103670 vcn:VOLCADRAFT_59517 vcn:VOLCADRAFT_64247" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_103670+vcn:VOLCADRAFT_59517+vcn:VOLCADRAFT_64247">
+        <graphics name="VOLCADRAFT_103670..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="763" y="502" width="46" height="17"/>
+    </entry>
+    <entry id="41" name="ko:K12866" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K12866">
+        <graphics name="K12866" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="698" y="625" width="46" height="17"/>
+    </entry>
+    <entry id="42" name="vcn:VOLCADRAFT_69109" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_69109">
+        <graphics name="VOLCADRAFT_69109" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="763" y="482" width="46" height="17"/>
+    </entry>
+    <entry id="43" name="vcn:VOLCADRAFT_64346" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_64346">
+        <graphics name="VOLCADRAFT_64346" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="763" y="522" width="46" height="17"/>
+    </entry>
+    <entry id="44" name="vcn:VOLCADRAFT_79909" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_79909">
+        <graphics name="VOLCADRAFT_79909" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="763" y="542" width="46" height="17"/>
+    </entry>
+    <entry id="45" name="vcn:VOLCADRAFT_79186" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_79186">
+        <graphics name="VOLCADRAFT_79186" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="763" y="562" width="46" height="17"/>
+    </entry>
+    <entry id="46" name="vcn:VOLCADRAFT_116633" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_116633">
+        <graphics name="VOLCADRAFT_116633" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="763" y="582" width="46" height="17"/>
+    </entry>
+    <entry id="47" name="vcn:VOLCADRAFT_61843" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_61843">
+        <graphics name="VOLCADRAFT_61843" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="763" y="602" width="46" height="17"/>
+    </entry>
+    <entry id="48" name="vcn:VOLCADRAFT_104194" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_104194">
+        <graphics name="VOLCADRAFT_104194" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="763" y="642" width="46" height="17"/>
+    </entry>
+    <entry id="49" name="vcn:VOLCADRAFT_108433 vcn:VOLCADRAFT_109070 vcn:VOLCADRAFT_109137 vcn:VOLCADRAFT_60073 vcn:VOLCADRAFT_79613 vcn:VOLCADRAFT_90948" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_108433+vcn:VOLCADRAFT_109070+vcn:VOLCADRAFT_109137+vcn:VOLCADRAFT_60073+vcn:VOLCADRAFT_79613+vcn:VOLCADRAFT_90948">
+        <graphics name="VOLCADRAFT_108433..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="828" y="159" width="46" height="17"/>
+    </entry>
+    <entry id="50" name="vcn:VOLCADRAFT_107252 vcn:VOLCADRAFT_109863 vcn:VOLCADRAFT_64746 vcn:VOLCADRAFT_79410 vcn:VOLCADRAFT_81522 vcn:VOLCADRAFT_82766 vcn:VOLCADRAFT_87780" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_107252+vcn:VOLCADRAFT_109863+vcn:VOLCADRAFT_64746+vcn:VOLCADRAFT_79410+vcn:VOLCADRAFT_81522+vcn:VOLCADRAFT_82766+vcn:VOLCADRAFT_87780">
+        <graphics name="VOLCADRAFT_107252..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="828" y="176" width="46" height="17"/>
+    </entry>
+    <entry id="51" name="vcn:VOLCADRAFT_106273" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_106273">
+        <graphics name="spl5" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="828" y="243" width="46" height="17"/>
+    </entry>
+    <entry id="52" name="vcn:VOLCADRAFT_81250" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_81250">
+        <graphics name="VOLCADRAFT_81250" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="828" y="227" width="46" height="17"/>
+    </entry>
+    <entry id="53" name="vcn:VOLCADRAFT_84238" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_84238">
+        <graphics name="VOLCADRAFT_84238" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="828" y="210" width="46" height="17"/>
+    </entry>
+    <entry id="54" name="vcn:VOLCADRAFT_104716" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_104716">
+        <graphics name="VOLCADRAFT_104716" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="828" y="193" width="46" height="17"/>
+    </entry>
+    <entry id="55" name="ko:K12845" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K12845">
+        <graphics name="K12845" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="828" y="260" width="46" height="17"/>
+    </entry>
+    <entry id="56" name="vcn:VOLCADRAFT_107252 vcn:VOLCADRAFT_109863 vcn:VOLCADRAFT_64746 vcn:VOLCADRAFT_79410 vcn:VOLCADRAFT_81522 vcn:VOLCADRAFT_82766 vcn:VOLCADRAFT_87780" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_107252+vcn:VOLCADRAFT_109863+vcn:VOLCADRAFT_64746+vcn:VOLCADRAFT_79410+vcn:VOLCADRAFT_81522+vcn:VOLCADRAFT_82766+vcn:VOLCADRAFT_87780">
+        <graphics name="VOLCADRAFT_107252..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="893" y="142" width="46" height="17"/>
+    </entry>
+    <entry id="57" name="vcn:VOLCADRAFT_79812" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_79812">
+        <graphics name="efg5" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="893" y="159" width="46" height="17"/>
+    </entry>
+    <entry id="58" name="vcn:VOLCADRAFT_107845" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_107845">
+        <graphics name="VOLCADRAFT_107845" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="893" y="176" width="46" height="17"/>
+    </entry>
+    <entry id="59" name="vcn:VOLCADRAFT_62457" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_62457">
+        <graphics name="VOLCADRAFT_62457" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="893" y="193" width="46" height="17"/>
+    </entry>
+    <entry id="60" name="vcn:VOLCADRAFT_107338" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_107338">
+        <graphics name="VOLCADRAFT_107338" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="893" y="210" width="46" height="17"/>
+    </entry>
+    <entry id="61" name="vcn:VOLCADRAFT_84253" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_84253">
+        <graphics name="VOLCADRAFT_84253" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="893" y="227" width="46" height="17"/>
+    </entry>
+    <entry id="62" name="vcn:VOLCADRAFT_77867" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_77867">
+        <graphics name="VOLCADRAFT_77867" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="893" y="244" width="46" height="17"/>
+    </entry>
+    <entry id="63" name="vcn:VOLCADRAFT_80220" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_80220">
+        <graphics name="VOLCADRAFT_80220" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="893" y="261" width="46" height="17"/>
+    </entry>
+    <entry id="64" name="ko:K12846" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K12846">
+        <graphics name="K12846" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="828" y="319" width="46" height="17"/>
+    </entry>
+    <entry id="65" name="vcn:VOLCADRAFT_41344" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_41344">
+        <graphics name="VOLCADRAFT_41344" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="828" y="336" width="46" height="17"/>
+    </entry>
+    <entry id="66" name="vcn:VOLCADRAFT_90613" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_90613">
+        <graphics name="VOLCADRAFT_90613" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="828" y="353" width="46" height="17"/>
+    </entry>
+    <entry id="67" name="ko:K12875" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K12875">
+        <graphics name="K12875" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="828" y="482" width="46" height="17"/>
+    </entry>
+    <entry id="68" name="vcn:VOLCADRAFT_78152" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_78152">
+        <graphics name="VOLCADRAFT_78152" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="828" y="499" width="46" height="17"/>
+    </entry>
+    <entry id="69" name="vcn:VOLCADRAFT_48595 vcn:VOLCADRAFT_75761" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_48595+vcn:VOLCADRAFT_75761">
+        <graphics name="VOLCADRAFT_48595..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="828" y="516" width="46" height="17"/>
+    </entry>
+    <entry id="70" name="vcn:VOLCADRAFT_76455" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_76455">
+        <graphics name="mgo" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="828" y="533" width="46" height="17"/>
+    </entry>
+    <entry id="71" name="vcn:VOLCADRAFT_80795" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_80795">
+        <graphics name="VOLCADRAFT_80795" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="828" y="550" width="46" height="17"/>
+    </entry>
+    <entry id="72" name="vcn:VOLCADRAFT_103265 vcn:VOLCADRAFT_104130 vcn:VOLCADRAFT_74197 vcn:VOLCADRAFT_90392" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_103265+vcn:VOLCADRAFT_104130+vcn:VOLCADRAFT_74197+vcn:VOLCADRAFT_90392">
+        <graphics name="VOLCADRAFT_103265..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="828" y="567" width="46" height="17"/>
+    </entry>
+    <entry id="73" name="vcn:VOLCADRAFT_104170 vcn:VOLCADRAFT_82170 vcn:VOLCADRAFT_84321" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_104170+vcn:VOLCADRAFT_82170+vcn:VOLCADRAFT_84321">
+        <graphics name="VOLCADRAFT_104170..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="598" y="387" width="46" height="17"/>
+    </entry>
+    <entry id="74" name="vcn:VOLCADRAFT_41650" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_41650">
+        <graphics name="VOLCADRAFT_41650" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="598" y="407" width="46" height="17"/>
+    </entry>
+    <entry id="75" name="vcn:VOLCADRAFT_92381" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_92381">
+        <graphics name="VOLCADRAFT_92381" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="828" y="379" width="46" height="17"/>
+    </entry>
+    <entry id="76" name="vcn:VOLCADRAFT_57539 vcn:VOLCADRAFT_72850" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_57539+vcn:VOLCADRAFT_72850">
+        <graphics name="VOLCADRAFT_57539..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="828" y="399" width="46" height="17"/>
+    </entry>
+    <entry id="77" name="vcn:VOLCADRAFT_107118" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_107118">
+        <graphics name="VOLCADRAFT_107118" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="549" y="427" width="46" height="17"/>
+    </entry>
+    <entry id="78" name="vcn:VOLCADRAFT_56034" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_56034">
+        <graphics name="VOLCADRAFT_56034" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="763" y="622" width="46" height="17"/>
+    </entry>
+    <entry id="79" name="ko:K14276" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14276">
+        <graphics name="K14276" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="698" y="119" width="46" height="17"/>
+    </entry>
+    <entry id="80" name="ko:K14277" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14277">
+        <graphics name="K14277" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="763" y="119" width="46" height="17"/>
+    </entry>
+    <entry id="81" name="ko:K14279" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14279">
+        <graphics name="K14279" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="893" y="119" width="46" height="17"/>
+    </entry>
+    <entry id="82" name="ko:K14278" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14278">
+        <graphics name="K14278" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="828" y="119" width="46" height="17"/>
+    </entry>
+    <entry id="83" name="ko:K14280" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14280">
+        <graphics name="K14280" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="828" y="136" width="46" height="17"/>
+    </entry>
+    <entry id="84" name="ko:K19604" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K19604">
+        <graphics name="K19604" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="763" y="391" width="46" height="17"/>
+    </entry>
+    <entry id="85" name="ko:K19604" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K19604">
+        <graphics name="K19604" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="828" y="419" width="46" height="17"/>
+    </entry>
+</pathway>

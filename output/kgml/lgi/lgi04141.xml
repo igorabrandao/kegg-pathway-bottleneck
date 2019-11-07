@@ -1,0 +1,664 @@
+<?xml version="1.0"?>
+<!DOCTYPE pathway SYSTEM "http://www.kegg.jp/kegg/xml/KGML_v0.7.2_.dtd">
+<!-- Creation date: May 14, 2014 13:36:11 +0900 (GMT+09:00) -->
+<pathway name="path:lgi04141" org="lgi" number="04141"
+         title="Protein processing in endoplasmic reticulum"
+         image="http://www.kegg.jp/kegg/pathway/lgi/lgi04141.png"
+         link="http://www.kegg.jp/kegg-bin/show_pathway?lgi04141">
+    <entry id="13" name="path:lgi04141" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi04141">
+        <graphics name="TITLE:Protein processing in endoplasmic reticulum" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="250" y="58" width="420" height="25"/>
+    </entry>
+    <entry id="14" name="path:lgi03060" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi03060">
+        <graphics name="Protein export" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="55" y="158" width="92" height="25"/>
+    </entry>
+    <entry id="15" name="path:map04210" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map04210">
+        <graphics name="Apoptosis" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="641" y="639" width="80" height="25"/>
+    </entry>
+    <entry id="16" name="path:lgi03050" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi03050">
+        <graphics name="Proteasome" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="1144" y="357" width="92" height="25"/>
+    </entry>
+    <entry id="28" name="lgi:LOTGIDRAFT_228997" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_228997">
+        <graphics name="LOTGIDRAFT_228997" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="296" y="638" width="46" height="17"/>
+    </entry>
+    <entry id="29" name="ko:K04452" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04452">
+        <graphics name="K04452" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="361" y="720" width="46" height="17"/>
+    </entry>
+    <entry id="30" name="lgi:LOTGIDRAFT_130390" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_130390">
+        <graphics name="LOTGIDRAFT_130390" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="550" y="638" width="46" height="17"/>
+    </entry>
+    <entry id="31" name="ko:K03173" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K03173">
+        <graphics name="K03173" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="548" y="522" width="46" height="17"/>
+    </entry>
+    <entry id="32" name="lgi:LOTGIDRAFT_189920" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_189920">
+        <graphics name="LOTGIDRAFT_189920" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="550" y="561" width="46" height="17"/>
+    </entry>
+    <entry id="33" name="lgi:LOTGIDRAFT_220713" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_220713">
+        <graphics name="LOTGIDRAFT_220713" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="550" y="599" width="46" height="17"/>
+    </entry>
+    <entry id="34" name="lgi:LOTGIDRAFT_205563" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_205563">
+        <graphics name="LOTGIDRAFT_205563" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="298" y="522" width="46" height="17"/>
+    </entry>
+    <entry id="35" name="lgi:LOTGIDRAFT_219285" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_219285">
+        <graphics name="LOTGIDRAFT_219285" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="440" y="126" width="46" height="17"/>
+    </entry>
+    <entry id="36" name="lgi:LOTGIDRAFT_206609" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_206609">
+        <graphics name="LOTGIDRAFT_206609" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="441" y="182" width="46" height="17"/>
+    </entry>
+    <entry id="37" name="ko:K14019" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14019">
+        <graphics name="K14019" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="272" y="561" width="46" height="17"/>
+    </entry>
+    <entry id="39" name="gl:G00010" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G00010">
+        <graphics name="G00010" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="408" y="183" width="8" height="8"/>
+    </entry>
+    <entry id="40" name="cpd:C00076" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00076">
+        <graphics name="C00076" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="640" y="437" width="8" height="8"/>
+    </entry>
+    <entry id="56" name="lgi:LOTGIDRAFT_190816" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_190816">
+        <graphics name="LOTGIDRAFT_190816" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="441" y="152" width="46" height="17"/>
+    </entry>
+    <entry id="57" name="ko:K04741" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04741">
+        <graphics name="K04741" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="641" y="561" width="46" height="17"/>
+    </entry>
+    <entry id="58" name="ko:K01367 ko:K03853" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K01367+K03853">
+        <graphics name="K01367..." fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="641" y="522" width="46" height="17"/>
+    </entry>
+    <entry id="59" name="lgi:LOTGIDRAFT_140618 lgi:LOTGIDRAFT_150531 lgi:LOTGIDRAFT_194715" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_140618+lgi:LOTGIDRAFT_150531+lgi:LOTGIDRAFT_194715">
+        <graphics name="LOTGIDRAFT_140618..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="58" y="201" width="46" height="17"/>
+    </entry>
+    <entry id="63" name="lgi:LOTGIDRAFT_216777" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_216777">
+        <graphics name="LOTGIDRAFT_216777" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="943" y="380" width="46" height="17"/>
+    </entry>
+    <entry id="64" name="lgi:LOTGIDRAFT_140618 lgi:LOTGIDRAFT_150531 lgi:LOTGIDRAFT_194715" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_140618+lgi:LOTGIDRAFT_150531+lgi:LOTGIDRAFT_194715">
+        <graphics name="LOTGIDRAFT_140618..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="767" y="417" width="46" height="17"/>
+    </entry>
+    <entry id="65" name="lgi:LOTGIDRAFT_110908 lgi:LOTGIDRAFT_164315 lgi:LOTGIDRAFT_193969 lgi:LOTGIDRAFT_196756 lgi:LOTGIDRAFT_197848 lgi:LOTGIDRAFT_220939 lgi:LOTGIDRAFT_239089" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_110908+lgi:LOTGIDRAFT_164315+lgi:LOTGIDRAFT_193969+lgi:LOTGIDRAFT_196756+lgi:LOTGIDRAFT_197848+lgi:LOTGIDRAFT_220939+lgi:LOTGIDRAFT_239089">
+        <graphics name="LOTGIDRAFT_110908..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="137" y="230" width="46" height="17"/>
+    </entry>
+    <entry id="66" name="lgi:LOTGIDRAFT_105585 lgi:LOTGIDRAFT_139192 lgi:LOTGIDRAFT_223717 lgi:LOTGIDRAFT_54688" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_105585+lgi:LOTGIDRAFT_139192+lgi:LOTGIDRAFT_223717+lgi:LOTGIDRAFT_54688">
+        <graphics name="LOTGIDRAFT_105585..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="593" y="367" width="46" height="17"/>
+    </entry>
+    <entry id="80" name="lgi:LOTGIDRAFT_185711 lgi:LOTGIDRAFT_210457 lgi:LOTGIDRAFT_221280" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_185711+lgi:LOTGIDRAFT_210457+lgi:LOTGIDRAFT_221280">
+        <graphics name="LOTGIDRAFT_185711..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="794" y="160" width="46" height="17"/>
+    </entry>
+    <entry id="83" name="lgi:LOTGIDRAFT_203299" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_203299">
+        <graphics name="LOTGIDRAFT_203299" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="665" y="178" width="46" height="17"/>
+    </entry>
+    <entry id="84" name="lgi:LOTGIDRAFT_168115" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_168115">
+        <graphics name="LOTGIDRAFT_168115" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="665" y="198" width="46" height="17"/>
+    </entry>
+    <entry id="89" name="lgi:LOTGIDRAFT_233453" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_233453">
+        <graphics name="LOTGIDRAFT_233453" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="947" y="444" width="46" height="17"/>
+    </entry>
+    <entry id="90" name="lgi:LOTGIDRAFT_214584" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_214584">
+        <graphics name="LOTGIDRAFT_214584" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="947" y="427" width="46" height="17"/>
+    </entry>
+    <entry id="91" name="ko:K10950 ko:K10976" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K10950+K10976">
+        <graphics name="K10950..." fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="722" y="333" width="46" height="17"/>
+    </entry>
+    <entry id="92" name="lgi:LOTGIDRAFT_120396 lgi:LOTGIDRAFT_222667" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_120396+lgi:LOTGIDRAFT_222667">
+        <graphics name="LOTGIDRAFT_120396..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="566" y="178" width="46" height="17"/>
+    </entry>
+    <entry id="93" name="lgi:LOTGIDRAFT_217135 lgi:LOTGIDRAFT_226808 lgi:LOTGIDRAFT_238820" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_217135+lgi:LOTGIDRAFT_226808+lgi:LOTGIDRAFT_238820">
+        <graphics name="LOTGIDRAFT_217135..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="367" y="178" width="46" height="17"/>
+    </entry>
+    <entry id="94" name="lgi:LOTGIDRAFT_217135 lgi:LOTGIDRAFT_226808 lgi:LOTGIDRAFT_238820" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_217135+lgi:LOTGIDRAFT_226808+lgi:LOTGIDRAFT_238820">
+        <graphics name="LOTGIDRAFT_217135..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="502" y="276" width="46" height="17"/>
+    </entry>
+    <entry id="95" name="lgi:LOTGIDRAFT_214385" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_214385">
+        <graphics name="LOTGIDRAFT_214385" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="367" y="144" width="46" height="17"/>
+    </entry>
+    <entry id="99" name="lgi:LOTGIDRAFT_137613" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_137613">
+        <graphics name="LOTGIDRAFT_137613" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="418" y="252" width="46" height="17"/>
+    </entry>
+    <entry id="101" name="gl:G00010" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G00010">
+        <graphics name="G00010" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="378" y="329" width="8" height="8"/>
+    </entry>
+    <entry id="105" name="lgi:LOTGIDRAFT_120396 lgi:LOTGIDRAFT_222667" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_120396+lgi:LOTGIDRAFT_222667">
+        <graphics name="LOTGIDRAFT_120396..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="594" y="400" width="46" height="17"/>
+    </entry>
+    <entry id="116" name="lgi:LOTGIDRAFT_213986" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_213986">
+        <graphics name="LOTGIDRAFT_213986" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="759" y="604" width="46" height="17"/>
+    </entry>
+    <entry id="117" name="lgi:LOTGIDRAFT_119031 lgi:LOTGIDRAFT_147275" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_119031+lgi:LOTGIDRAFT_147275">
+        <graphics name="LOTGIDRAFT_119031..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="760" y="693" width="46" height="17"/>
+    </entry>
+    <entry id="118" name="ko:K14022" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14022">
+        <graphics name="K14022" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="806" y="709" width="46" height="17"/>
+    </entry>
+    <entry id="119" name="ko:K14023" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14023">
+        <graphics name="K14023" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="760" y="676" width="46" height="17"/>
+    </entry>
+    <entry id="120" name="lgi:LOTGIDRAFT_145576 lgi:LOTGIDRAFT_176030 lgi:LOTGIDRAFT_225382 lgi:LOTGIDRAFT_237097" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_145576+lgi:LOTGIDRAFT_176030+lgi:LOTGIDRAFT_225382+lgi:LOTGIDRAFT_237097">
+        <graphics name="LOTGIDRAFT_145576..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="760" y="709" width="46" height="17"/>
+    </entry>
+    <entry id="123" name="lgi:LOTGIDRAFT_216416 lgi:LOTGIDRAFT_232892" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_216416+lgi:LOTGIDRAFT_232892">
+        <graphics name="LOTGIDRAFT_216416..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="222" y="304" width="46" height="19"/>
+    </entry>
+    <entry id="128" name="path:lgi00510" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi00510">
+        <graphics name="N-Glycan biosynthesis" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="323" y="250" width="92" height="34"/>
+    </entry>
+    <entry id="129" name="lgi:LOTGIDRAFT_176351 lgi:LOTGIDRAFT_182505 lgi:LOTGIDRAFT_212166" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_176351+lgi:LOTGIDRAFT_182505+lgi:LOTGIDRAFT_212166">
+        <graphics name="LOTGIDRAFT_176351..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="58" y="218" width="46" height="17"/>
+    </entry>
+    <entry id="130" name="lgi:LOTGIDRAFT_235302 lgi:LOTGIDRAFT_57281 lgi:LOTGIDRAFT_68260" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_235302+lgi:LOTGIDRAFT_57281+lgi:LOTGIDRAFT_68260">
+        <graphics name="LOTGIDRAFT_235302..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="640" y="457" width="46" height="17"/>
+    </entry>
+    <entry id="134" name="lgi:LOTGIDRAFT_236404" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_236404">
+        <graphics name="LOTGIDRAFT_236404" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="423" y="478" width="46" height="17"/>
+    </entry>
+    <entry id="135" name="lgi:LOTGIDRAFT_108604 lgi:LOTGIDRAFT_235319" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_108604+lgi:LOTGIDRAFT_235319">
+        <graphics name="LOTGIDRAFT_108604..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="548" y="478" width="46" height="17"/>
+    </entry>
+    <entry id="136" name="lgi:LOTGIDRAFT_115590 lgi:LOTGIDRAFT_119057 lgi:LOTGIDRAFT_159606 lgi:LOTGIDRAFT_232118" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_115590+lgi:LOTGIDRAFT_119057+lgi:LOTGIDRAFT_159606+lgi:LOTGIDRAFT_232118">
+        <graphics name="LOTGIDRAFT_115590..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="298" y="478" width="46" height="17"/>
+    </entry>
+    <entry id="137" name="lgi:LOTGIDRAFT_123675" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_123675">
+        <graphics name="LOTGIDRAFT_123675" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="451" y="535" width="46" height="17"/>
+    </entry>
+    <entry id="138" name="lgi:LOTGIDRAFT_221778" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_221778">
+        <graphics name="LOTGIDRAFT_221778" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="451" y="556" width="46" height="17"/>
+    </entry>
+    <entry id="148" name="lgi:LOTGIDRAFT_232105" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_232105">
+        <graphics name="LOTGIDRAFT_232105" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="489" y="630" width="46" height="17"/>
+    </entry>
+    <entry id="159" name="lgi:LOTGIDRAFT_171654" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_171654">
+        <graphics name="LOTGIDRAFT_171654" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="395" y="556" width="46" height="17"/>
+    </entry>
+    <entry id="163" name="lgi:LOTGIDRAFT_54396" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_54396">
+        <graphics name="LOTGIDRAFT_54396" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1010" y="393" width="46" height="17"/>
+    </entry>
+    <entry id="164" name="lgi:LOTGIDRAFT_128630" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_128630">
+        <graphics name="LOTGIDRAFT_128630" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1009" y="371" width="46" height="17"/>
+    </entry>
+    <entry id="165" name="lgi:LOTGIDRAFT_237618" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_237618">
+        <graphics name="LOTGIDRAFT_237618" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1010" y="410" width="46" height="17"/>
+    </entry>
+    <entry id="166" name="lgi:LOTGIDRAFT_125503 lgi:LOTGIDRAFT_145576 lgi:LOTGIDRAFT_176030 lgi:LOTGIDRAFT_196190 lgi:LOTGIDRAFT_225382 lgi:LOTGIDRAFT_237097" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_125503+lgi:LOTGIDRAFT_145576+lgi:LOTGIDRAFT_176030+lgi:LOTGIDRAFT_196190+lgi:LOTGIDRAFT_225382+lgi:LOTGIDRAFT_237097">
+        <graphics name="LOTGIDRAFT_125503..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="759" y="621" width="46" height="17"/>
+    </entry>
+    <entry id="167" name="lgi:LOTGIDRAFT_174217 lgi:LOTGIDRAFT_239550" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_174217+lgi:LOTGIDRAFT_239550">
+        <graphics name="LOTGIDRAFT_174217..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1062" y="371" width="46" height="17"/>
+    </entry>
+    <entry id="168" name="lgi:LOTGIDRAFT_186849" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_186849">
+        <graphics name="LOTGIDRAFT_186849" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1037" y="324" width="46" height="17"/>
+    </entry>
+    <entry id="169" name="lgi:LOTGIDRAFT_118875" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_118875">
+        <graphics name="LOTGIDRAFT_118875" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1062" y="393" width="46" height="17"/>
+    </entry>
+    <entry id="170" name="lgi:LOTGIDRAFT_227892" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_227892">
+        <graphics name="LOTGIDRAFT_227892" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1037" y="341" width="46" height="17"/>
+    </entry>
+    <entry id="171" name="lgi:LOTGIDRAFT_177837 lgi:LOTGIDRAFT_181897 lgi:LOTGIDRAFT_190284 lgi:LOTGIDRAFT_198956 lgi:LOTGIDRAFT_205614 lgi:LOTGIDRAFT_209056" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_177837+lgi:LOTGIDRAFT_181897+lgi:LOTGIDRAFT_190284+lgi:LOTGIDRAFT_198956+lgi:LOTGIDRAFT_205614+lgi:LOTGIDRAFT_209056">
+        <graphics name="LOTGIDRAFT_177837..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="917" y="268" width="46" height="17"/>
+    </entry>
+    <entry id="172" name="lgi:LOTGIDRAFT_110816" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_110816">
+        <graphics name="LOTGIDRAFT_110816" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="870" y="675" width="46" height="17"/>
+    </entry>
+    <entry id="173" name="lgi:LOTGIDRAFT_119031 lgi:LOTGIDRAFT_147275" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_119031+lgi:LOTGIDRAFT_147275">
+        <graphics name="LOTGIDRAFT_119031..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="905" y="692" width="46" height="17"/>
+    </entry>
+    <entry id="174" name="lgi:LOTGIDRAFT_205920 lgi:LOTGIDRAFT_224116" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_205920+lgi:LOTGIDRAFT_224116">
+        <graphics name="LOTGIDRAFT_205920..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="866" y="315" width="46" height="17"/>
+    </entry>
+    <entry id="175" name="lgi:LOTGIDRAFT_73032" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_73032">
+        <graphics name="LOTGIDRAFT_73032" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="776" y="347" width="46" height="17"/>
+    </entry>
+    <entry id="176" name="ko:K14027" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14027">
+        <graphics name="K14027" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="859" y="692" width="46" height="17"/>
+    </entry>
+    <entry id="177" name="lgi:LOTGIDRAFT_118545" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_118545">
+        <graphics name="LOTGIDRAFT_118545" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="776" y="369" width="46" height="17"/>
+    </entry>
+    <entry id="178" name="lgi:LOTGIDRAFT_125503 lgi:LOTGIDRAFT_145576 lgi:LOTGIDRAFT_176030 lgi:LOTGIDRAFT_196190 lgi:LOTGIDRAFT_225382 lgi:LOTGIDRAFT_237097" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_125503+lgi:LOTGIDRAFT_145576+lgi:LOTGIDRAFT_176030+lgi:LOTGIDRAFT_196190+lgi:LOTGIDRAFT_225382+lgi:LOTGIDRAFT_237097">
+        <graphics name="LOTGIDRAFT_125503..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="905" y="709" width="46" height="17"/>
+    </entry>
+    <entry id="179" name="ko:K14025" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14025">
+        <graphics name="K14025" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="916" y="658" width="46" height="17"/>
+    </entry>
+    <entry id="180" name="lgi:LOTGIDRAFT_206883" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_206883">
+        <graphics name="LOTGIDRAFT_206883" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1061" y="675" width="46" height="17"/>
+    </entry>
+    <entry id="181" name="ko:K10099 ko:K10100" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K10099+K10100">
+        <graphics name="K10099..." fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1015" y="709" width="46" height="17"/>
+    </entry>
+    <entry id="182" name="lgi:LOTGIDRAFT_205254 lgi:LOTGIDRAFT_205258" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_205254+lgi:LOTGIDRAFT_205258">
+        <graphics name="LOTGIDRAFT_205254..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="972" y="630" width="46" height="17"/>
+    </entry>
+    <entry id="183" name="lgi:LOTGIDRAFT_122424 lgi:LOTGIDRAFT_185246 lgi:LOTGIDRAFT_222951 lgi:LOTGIDRAFT_226229" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_122424+lgi:LOTGIDRAFT_185246+lgi:LOTGIDRAFT_222951+lgi:LOTGIDRAFT_226229">
+        <graphics name="LOTGIDRAFT_122424..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1018" y="604" width="46" height="17"/>
+    </entry>
+    <entry id="184" name="lgi:LOTGIDRAFT_177837 lgi:LOTGIDRAFT_181897 lgi:LOTGIDRAFT_190284 lgi:LOTGIDRAFT_198956 lgi:LOTGIDRAFT_205614 lgi:LOTGIDRAFT_209056" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_177837+lgi:LOTGIDRAFT_181897+lgi:LOTGIDRAFT_190284+lgi:LOTGIDRAFT_198956+lgi:LOTGIDRAFT_205614+lgi:LOTGIDRAFT_209056">
+        <graphics name="LOTGIDRAFT_177837..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1018" y="621" width="46" height="17"/>
+    </entry>
+    <entry id="185" name="lgi:LOTGIDRAFT_127906" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_127906">
+        <graphics name="LOTGIDRAFT_127906" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1018" y="638" width="46" height="17"/>
+    </entry>
+    <entry id="187" name="lgi:LOTGIDRAFT_139785 lgi:LOTGIDRAFT_145171 lgi:LOTGIDRAFT_151365 lgi:LOTGIDRAFT_184255 lgi:LOTGIDRAFT_203703 lgi:LOTGIDRAFT_214161" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_139785+lgi:LOTGIDRAFT_145171+lgi:LOTGIDRAFT_151365+lgi:LOTGIDRAFT_184255+lgi:LOTGIDRAFT_203703+lgi:LOTGIDRAFT_214161">
+        <graphics name="LOTGIDRAFT_139785..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="723" y="369" width="46" height="17"/>
+    </entry>
+    <entry id="188" name="lgi:LOTGIDRAFT_126787 lgi:LOTGIDRAFT_138864 lgi:LOTGIDRAFT_151060 lgi:LOTGIDRAFT_171701" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_126787+lgi:LOTGIDRAFT_138864+lgi:LOTGIDRAFT_151060+lgi:LOTGIDRAFT_171701">
+        <graphics name="LOTGIDRAFT_126787..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="222" y="320" width="46" height="17"/>
+    </entry>
+    <entry id="189" name="lgi:LOTGIDRAFT_158366 lgi:LOTGIDRAFT_219898" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_158366+lgi:LOTGIDRAFT_219898">
+        <graphics name="LOTGIDRAFT_158366..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="866" y="378" width="46" height="17"/>
+    </entry>
+    <entry id="190" name="ko:K14022" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14022">
+        <graphics name="K14022" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="805" y="621" width="46" height="17"/>
+    </entry>
+    <entry id="191" name="lgi:LOTGIDRAFT_122424 lgi:LOTGIDRAFT_185246 lgi:LOTGIDRAFT_222951 lgi:LOTGIDRAFT_226229" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_122424+lgi:LOTGIDRAFT_185246+lgi:LOTGIDRAFT_222951+lgi:LOTGIDRAFT_226229">
+        <graphics name="LOTGIDRAFT_122424..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="917" y="285" width="46" height="17"/>
+    </entry>
+    <entry id="192" name="lgi:LOTGIDRAFT_145576 lgi:LOTGIDRAFT_237097" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_145576+lgi:LOTGIDRAFT_237097">
+        <graphics name="LOTGIDRAFT_145576..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="871" y="621" width="46" height="17"/>
+    </entry>
+    <entry id="195" name="lgi:LOTGIDRAFT_239012" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_239012">
+        <graphics name="LOTGIDRAFT_239012" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="892" y="410" width="46" height="17"/>
+    </entry>
+    <entry id="201" name="lgi:LOTGIDRAFT_205254 lgi:LOTGIDRAFT_205258" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_205254+lgi:LOTGIDRAFT_205258">
+        <graphics name="LOTGIDRAFT_205254..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1015" y="684" width="46" height="17"/>
+    </entry>
+    <entry id="202" name="lgi:LOTGIDRAFT_187854" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_187854">
+        <graphics name="LOTGIDRAFT_187854" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1061" y="709" width="46" height="17"/>
+    </entry>
+    <entry id="203" name="lgi:LOTGIDRAFT_215748" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_215748">
+        <graphics name="LOTGIDRAFT_215748" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1061" y="692" width="46" height="17"/>
+    </entry>
+    <entry id="204" name="lgi:LOTGIDRAFT_205920 lgi:LOTGIDRAFT_224116" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_205920+lgi:LOTGIDRAFT_224116">
+        <graphics name="LOTGIDRAFT_205920..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="916" y="621" width="46" height="17"/>
+    </entry>
+    <entry id="205" name="lgi:LOTGIDRAFT_204992" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_204992">
+        <graphics name="LOTGIDRAFT_204992" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="916" y="604" width="46" height="17"/>
+    </entry>
+    <entry id="206" name="lgi:LOTGIDRAFT_205920" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_205920">
+        <graphics name="LOTGIDRAFT_205920" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="916" y="675" width="46" height="17"/>
+    </entry>
+    <entry id="207" name="lgi:LOTGIDRAFT_161608" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_161608">
+        <graphics name="LOTGIDRAFT_161608" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="970" y="268" width="46" height="17"/>
+    </entry>
+    <entry id="208" name="ko:K05638" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K05638">
+        <graphics name="K05638" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="350" y="535" width="46" height="17"/>
+    </entry>
+    <entry id="211" name="lgi:LOTGIDRAFT_106381 lgi:LOTGIDRAFT_207505" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_106381+lgi:LOTGIDRAFT_207505">
+        <graphics name="LOTGIDRAFT_106381..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="794" y="143" width="46" height="17"/>
+    </entry>
+    <entry id="212" name="lgi:LOTGIDRAFT_210455" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_210455">
+        <graphics name="LOTGIDRAFT_210455" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="748" y="160" width="46" height="17"/>
+    </entry>
+    <entry id="213" name="lgi:LOTGIDRAFT_232981" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_232981">
+        <graphics name="LOTGIDRAFT_232981" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="748" y="198" width="46" height="17"/>
+    </entry>
+    <entry id="215" name="lgi:LOTGIDRAFT_197084" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_197084">
+        <graphics name="LOTGIDRAFT_197084" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="277" y="303" width="46" height="17"/>
+    </entry>
+    <entry id="218" name="ko:K02161" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02161">
+        <graphics name="K02161" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="363" y="757" width="46" height="17"/>
+    </entry>
+    <entry id="219" name="path:map04210" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map04210">
+        <graphics name="Apoptosis" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="365" y="795" width="80" height="25"/>
+    </entry>
+    <entry id="221" name="ko:K02161" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02161">
+        <graphics name="K02161" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="669" y="494" width="46" height="17"/>
+    </entry>
+    <entry id="224" name="ko:K10081" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K10081">
+        <graphics name="K10081" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="665" y="219" width="46" height="17"/>
+    </entry>
+    <entry id="225" name="lgi:LOTGIDRAFT_133925" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_133925">
+        <graphics name="LOTGIDRAFT_133925" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="866" y="298" width="46" height="17"/>
+    </entry>
+    <entry id="226" name="lgi:LOTGIDRAFT_127906" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_127906">
+        <graphics name="LOTGIDRAFT_127906" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1074" y="604" width="46" height="17"/>
+    </entry>
+    <entry id="227" name="lgi:LOTGIDRAFT_107352" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_107352">
+        <graphics name="LOTGIDRAFT_107352" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1074" y="621" width="46" height="17"/>
+    </entry>
+    <entry id="228" name="lgi:LOTGIDRAFT_181506 lgi:LOTGIDRAFT_202646" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_181506+lgi:LOTGIDRAFT_202646">
+        <graphics name="LOTGIDRAFT_181506..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="917" y="308" width="46" height="17"/>
+    </entry>
+    <entry id="229" name="lgi:LOTGIDRAFT_104895" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_104895">
+        <graphics name="LOTGIDRAFT_104895" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="970" y="308" width="46" height="17"/>
+    </entry>
+    <entry id="230" name="path:map05010" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map05010">
+        <graphics name="Alzheimer disease" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="64" y="502" width="92" height="34"/>
+    </entry>
+    <entry id="231" name="path:map05012" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map05012">
+        <graphics name="Parkinson disease" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="64" y="547" width="92" height="34"/>
+    </entry>
+    <entry id="232" name="path:map05020" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map05020">
+        <graphics name="Prion diseases" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="63" y="463" width="92" height="25"/>
+    </entry>
+    <entry id="233" name="lgi:LOTGIDRAFT_222757 lgi:LOTGIDRAFT_237555" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_222757+lgi:LOTGIDRAFT_237555">
+        <graphics name="LOTGIDRAFT_222757..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="176" y="303" width="46" height="17"/>
+    </entry>
+    <entry id="234" name="ko:K14024" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14024">
+        <graphics name="K14024" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="806" y="693" width="46" height="17"/>
+    </entry>
+    <entry id="237" name="path:map04930" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map04930">
+        <graphics name="Type II diabetes mellitus" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="64" y="591" width="92" height="34"/>
+    </entry>
+    <entry id="238" name="lgi:LOTGIDRAFT_214385" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_214385">
+        <graphics name="LOTGIDRAFT_214385" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="137" y="246" width="46" height="17"/>
+    </entry>
+    <entry id="239" name="ko:K13999" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K13999">
+        <graphics name="K13999" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="183" y="246" width="46" height="17"/>
+    </entry>
+    <entry id="240" name="ko:K14000" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14000">
+        <graphics name="K14000" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="235" y="212" width="46" height="17"/>
+    </entry>
+    <entry id="241" name="lgi:LOTGIDRAFT_204243" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_204243">
+        <graphics name="LOTGIDRAFT_204243" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="767" y="400" width="46" height="17"/>
+    </entry>
+    <entry id="242" name="lgi:LOTGIDRAFT_118304 lgi:LOTGIDRAFT_138147 lgi:LOTGIDRAFT_204770 lgi:LOTGIDRAFT_219006" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_118304+lgi:LOTGIDRAFT_138147+lgi:LOTGIDRAFT_204770+lgi:LOTGIDRAFT_219006">
+        <graphics name="LOTGIDRAFT_118304..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="721" y="417" width="46" height="17"/>
+    </entry>
+    <entry id="245" name="ko:K14013" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14013">
+        <graphics name="K14013" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="806" y="676" width="46" height="17"/>
+    </entry>
+    <entry id="246" name="lgi:LOTGIDRAFT_166144 lgi:LOTGIDRAFT_92759" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lgi:LOTGIDRAFT_166144+lgi:LOTGIDRAFT_92759">
+        <graphics name="LOTGIDRAFT_166144..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="916" y="587" width="46" height="17"/>
+    </entry>
+    <entry id="248" name="gl:G00009" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G00009">
+        <graphics name="G00009" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="333" y="194" width="8" height="8"/>
+    </entry>
+    <entry id="249" name="gl:G00011" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G00011">
+        <graphics name="G00011" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="501" y="391" width="8" height="8"/>
+    </entry>
+    <entry id="250" name="gl:G00011" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G00011">
+        <graphics name="G00011" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="528" y="167" width="8" height="8"/>
+    </entry>
+    <entry id="251" name="gl:G10694" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G10694">
+        <graphics name="G10694" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="616" y="166" width="8" height="8"/>
+    </entry>
+    <entry id="252" name="gl:G00012" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G00012">
+        <graphics name="G00012" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="634" y="396" width="8" height="8"/>
+    </entry>
+    <relation entry1="211" entry2="80" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="211" entry2="212" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="136" entry2="34" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="34" entry2="28" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="32" entry2="33" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="33" entry2="30" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="135" entry2="148" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="90" entry2="63" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="213" entry2="212" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="195" entry2="189" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="195" entry2="63" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="159" entry2="134" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="90" entry2="89" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="195" entry2="90" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="189" entry2="63" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+</pathway>

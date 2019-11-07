@@ -1,44 +1,723 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<title>Access forbidden!</title>
-<link rev="made" href="mailto:http://www.genome.jp/feedback/" />
-<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
-    body { color: #000000; background-color: #FFFFFF; }
-    a:link { color: #0000CC; }
-    p, address {margin-left: 3em;}
-    span {font-size: smaller;}
-/*]]>*/--></style>
-</head>
-
-<body>
-<h1>Access forbidden!</h1>
-<p>
-
-
-  
-
-    You don't have permission to access the requested object.
-    It is either read-protected or not readable by the server.
-
-  
-
-</p>
-<p>
-If you think this is a server error, please contact
-the <a href="http://www.genome.jp/feedback/">webmaster</a>.
-
-</p>
-
-<h2>Error 403</h2>
-<address>
-  <a href="/">rest.kegg.jp</a><br />
-  
-  <span>Wed Nov  6 23:14:36 2019<br />
-  Apache</span>
-</address>
-</body>
-</html>
-
+<?xml version="1.0"?>
+<!DOCTYPE pathway SYSTEM "http://www.kegg.jp/kegg/xml/KGML_v0.7.2_.dtd">
+<!-- Creation date: Apr 6, 2017 09:27:32 +0900 (GMT+9) -->
+<pathway name="path:zro03010" org="zro" number="03010"
+         title="Ribosome"
+         image="http://www.kegg.jp/kegg/pathway/zro/zro03010.png"
+         link="http://www.kegg.jp/kegg-bin/show_pathway?zro03010">
+    <entry id="1" name="ko:K07590" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K07590">
+        <graphics name="K07590" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="614" y="445" width="46" height="17"/>
+    </entry>
+    <entry id="2" name="zro:ZYRO0D14630g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0D14630g">
+        <graphics name="ZYRO0D14630g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="989" y="713" width="46" height="17"/>
+    </entry>
+    <entry id="3" name="zro:ZYRO0A08338g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0A08338g">
+        <graphics name="ZYRO0A08338g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="469" y="670" width="46" height="17"/>
+    </entry>
+    <entry id="4" name="ko:K02903" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02903">
+        <graphics name="K02903" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="625" y="758" width="46" height="17"/>
+    </entry>
+    <entry id="5" name="zro:ZYRO0C12144g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0C12144g">
+        <graphics name="ZYRO0C12144g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="623" y="378" width="46" height="17"/>
+    </entry>
+    <entry id="6" name="zro:ZYRO0B04598g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0B04598g">
+        <graphics name="ZYRO0B04598g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="517" y="462" width="46" height="17"/>
+    </entry>
+    <entry id="7" name="zro:ZYRO0D13574g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0D13574g">
+        <graphics name="ZYRO0D13574g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="577" y="378" width="46" height="17"/>
+    </entry>
+    <entry id="8" name="zro:ZYRO0B12298g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0B12298g">
+        <graphics name="ZYRO0B12298g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="647" y="294" width="46" height="17"/>
+    </entry>
+    <entry id="9" name="zro:ZYRO0G09196g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0G09196g">
+        <graphics name="ZYRO0G09196g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="546" y="556" width="46" height="17"/>
+    </entry>
+    <entry id="10" name="zro:ZYRO0A03322g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0A03322g">
+        <graphics name="ZYRO0A03322g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="417" y="294" width="46" height="17"/>
+    </entry>
+    <entry id="11" name="zro:ZYRO0D05698g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0D05698g">
+        <graphics name="ZYRO0D05698g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="693" y="219" width="46" height="17"/>
+    </entry>
+    <entry id="12" name="zro:ZYRO0F14586g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0F14586g">
+        <graphics name="ZYRO0F14586g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="469" y="713" width="46" height="17"/>
+    </entry>
+    <entry id="13" name="zro:ZYRO0B03410g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0B03410g">
+        <graphics name="ZYRO0B03410g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="521" y="713" width="46" height="17"/>
+    </entry>
+    <entry id="14" name="zro:ZYRO0D13486g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0D13486g">
+        <graphics name="ZYRO0D13486g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="573" y="713" width="46" height="17"/>
+    </entry>
+    <entry id="15" name="zro:ZYRO0C02530g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0C02530g">
+        <graphics name="ZYRO0C02530g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="625" y="713" width="46" height="17"/>
+    </entry>
+    <entry id="16" name="zro:ZYRO0C08668g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0C08668g">
+        <graphics name="ZYRO0C08668g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="677" y="713" width="46" height="17"/>
+    </entry>
+    <entry id="17" name="zro:ZYRO0C11044g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0C11044g">
+        <graphics name="ZYRO0C11044g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="833" y="713" width="46" height="17"/>
+    </entry>
+    <entry id="18" name="zro:ZYRO0C04026g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0C04026g">
+        <graphics name="ZYRO0C04026g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="885" y="713" width="46" height="17"/>
+    </entry>
+    <entry id="19" name="zro:ZYRO0E02046g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0E02046g">
+        <graphics name="ZYRO0E02046g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="417" y="802" width="46" height="17"/>
+    </entry>
+    <entry id="20" name="zro:ZYRO0G15664g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0G15664g">
+        <graphics name="ZYRO0G15664g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="469" y="802" width="46" height="17"/>
+    </entry>
+    <entry id="21" name="zro:ZYRO0C00594g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0C00594g">
+        <graphics name="ZYRO0C00594g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="521" y="802" width="46" height="17"/>
+    </entry>
+    <entry id="22" name="zro:ZYRO0D03102g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0D03102g">
+        <graphics name="ZYRO0D03102g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="573" y="802" width="46" height="17"/>
+    </entry>
+    <entry id="23" name="zro:ZYRO0A12254g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0A12254g">
+        <graphics name="ZYRO0A12254g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="729" y="713" width="46" height="17"/>
+    </entry>
+    <entry id="24" name="zro:ZYRO0G19228g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0G19228g">
+        <graphics name="ZYRO0G19228g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="781" y="713" width="46" height="17"/>
+    </entry>
+    <entry id="25" name="ko:K02979" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02979">
+        <graphics name="K02979" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="937" y="713" width="46" height="17"/>
+    </entry>
+    <entry id="26" name="zro:ZYRO0G00550g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0G00550g">
+        <graphics name="ZYRO0G00550g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="555" y="294" width="46" height="17"/>
+    </entry>
+    <entry id="27" name="zro:ZYRO0B14234g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0B14234g">
+        <graphics name="ZYRO0B14234g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="417" y="713" width="46" height="17"/>
+    </entry>
+    <entry id="28" name="ko:K01985" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K01985">
+        <graphics name="K01985" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="543" y="89" width="46" height="17"/>
+    </entry>
+    <entry id="29" name="zro:ZYRO0E10100r zro:ZYRO0E10108r zro:ZYRO0E10118r" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0E10100r+zro:ZYRO0E10108r+zro:ZYRO0E10118r">
+        <graphics name="ZYRO0E10100r..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="497" y="106" width="46" height="17"/>
+    </entry>
+    <entry id="30" name="ko:K01980" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K01980">
+        <graphics name="K01980" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="497" y="89" width="46" height="17"/>
+    </entry>
+    <entry id="31" name="zro:ZYRO0E10106r" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0E10106r">
+        <graphics name="ZYRO0E10106r" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="543" y="106" width="46" height="17"/>
+    </entry>
+    <entry id="32" name="zro:ZYRO0A09944g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0A09944g">
+        <graphics name="ZYRO0A09944g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="797" y="453" width="46" height="17"/>
+    </entry>
+    <entry id="33" name="zro:ZYRO0C09790g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0C09790g">
+        <graphics name="ZYRO0C09790g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="889" y="453" width="46" height="17"/>
+    </entry>
+    <entry id="34" name="zro:ZYRO0B16082g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0B16082g">
+        <graphics name="ZYRO0B16082g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="509" y="219" width="46" height="17"/>
+    </entry>
+    <entry id="35" name="zro:ZYRO0C17666g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0C17666g">
+        <graphics name="ZYRO0C17666g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="601" y="294" width="46" height="17"/>
+    </entry>
+    <entry id="36" name="zro:ZYRO0A01364g zro:ZYRO0F08030g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0A01364g+zro:ZYRO0F08030g">
+        <graphics name="ZYRO0A01364g..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="739" y="294" width="46" height="17"/>
+    </entry>
+    <entry id="37" name="zro:ZYRO0A12452g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0A12452g">
+        <graphics name="ZYRO0A12452g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="797" y="470" width="46" height="17"/>
+    </entry>
+    <entry id="38" name="zro:ZYRO0D12430g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0D12430g">
+        <graphics name="ZYRO0D12430g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="889" y="470" width="46" height="17"/>
+    </entry>
+    <entry id="39" name="zro:ZYRO0A01210g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0A01210g">
+        <graphics name="ZYRO0A01210g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="838" y="378" width="46" height="17"/>
+    </entry>
+    <entry id="40" name="zro:ZYRO0D11748g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0D11748g">
+        <graphics name="ZYRO0D11748g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="838" y="361" width="46" height="17"/>
+    </entry>
+    <entry id="41" name="zro:ZYRO0E10112r zro:ZYRO0E10127r" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0E10112r+zro:ZYRO0E10127r">
+        <graphics name="ZYRO0E10112r..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="589" y="106" width="46" height="17"/>
+    </entry>
+    <entry id="42" name="ko:K02886" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02886">
+        <graphics name="K02886" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="647" y="202" width="46" height="17"/>
+    </entry>
+    <entry id="43" name="zro:ZYRO0B15444g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0B15444g">
+        <graphics name="ZYRO0B15444g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="509" y="202" width="46" height="17"/>
+    </entry>
+    <entry id="44" name="zro:ZYRO0A10208g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0A10208g">
+        <graphics name="ZYRO0A10208g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="601" y="277" width="46" height="17"/>
+    </entry>
+    <entry id="45" name="zro:ZYRO0B15422g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0B15422g">
+        <graphics name="ZYRO0B15422g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="739" y="277" width="46" height="17"/>
+    </entry>
+    <entry id="46" name="zro:ZYRO0E07348g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0E07348g">
+        <graphics name="ZYRO0E07348g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="843" y="470" width="46" height="17"/>
+    </entry>
+    <entry id="47" name="zro:ZYRO0D15664g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0D15664g">
+        <graphics name="ZYRO0D15664g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="647" y="219" width="46" height="17"/>
+    </entry>
+    <entry id="48" name="ko:K02874" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02874">
+        <graphics name="K02874" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="463" y="277" width="46" height="17"/>
+    </entry>
+    <entry id="49" name="zro:ZYRO0B03960g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0B03960g">
+        <graphics name="ZYRO0B03960g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="463" y="294" width="46" height="17"/>
+    </entry>
+    <entry id="50" name="zro:ZYRO0G21670g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0G21670g">
+        <graphics name="ZYRO0G21670g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1015" y="294" width="46" height="17"/>
+    </entry>
+    <entry id="51" name="zro:ZYRO0B06864g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0B06864g">
+        <graphics name="ZYRO0B06864g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1015" y="277" width="46" height="17"/>
+    </entry>
+    <entry id="52" name="zro:ZYRO0F06490g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0F06490g">
+        <graphics name="ZYRO0F06490g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="877" y="294" width="46" height="17"/>
+    </entry>
+    <entry id="53" name="ko:K02881" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02881">
+        <graphics name="K02881" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="877" y="277" width="46" height="17"/>
+    </entry>
+    <entry id="54" name="zro:ZYRO0C08052g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0C08052g">
+        <graphics name="ZYRO0C08052g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="739" y="219" width="46" height="17"/>
+    </entry>
+    <entry id="55" name="ko:K02890" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02890">
+        <graphics name="K02890" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="739" y="202" width="46" height="17"/>
+    </entry>
+    <entry id="56" name="zro:ZYRO0C02728g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0C02728g">
+        <graphics name="ZYRO0C02728g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="601" y="219" width="46" height="17"/>
+    </entry>
+    <entry id="57" name="zro:ZYRO0D11792g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0D11792g">
+        <graphics name="ZYRO0D11792g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="601" y="202" width="46" height="17"/>
+    </entry>
+    <entry id="58" name="zro:ZYRO0A12606g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0A12606g">
+        <graphics name="ZYRO0A12606g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="509" y="294" width="46" height="17"/>
+    </entry>
+    <entry id="59" name="zro:ZYRO0F11902g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0F11902g">
+        <graphics name="ZYRO0F11902g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="509" y="277" width="46" height="17"/>
+    </entry>
+    <entry id="60" name="zro:ZYRO0F05720g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0F05720g">
+        <graphics name="ZYRO0F05720g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="877" y="219" width="46" height="17"/>
+    </entry>
+    <entry id="61" name="ko:K02904" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02904">
+        <graphics name="K02904" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="877" y="202" width="46" height="17"/>
+    </entry>
+    <entry id="62" name="ko:K02907" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02907">
+        <graphics name="K02907" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="969" y="277" width="46" height="17"/>
+    </entry>
+    <entry id="63" name="zro:ZYRO0E04686g zro:ZYRO0G08624g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0E04686g+zro:ZYRO0G08624g">
+        <graphics name="ZYRO0E04686g..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="969" y="294" width="46" height="17"/>
+    </entry>
+    <entry id="64" name="zro:ZYRO0A09108g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0A09108g">
+        <graphics name="ZYRO0A09108g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="521" y="670" width="46" height="17"/>
+    </entry>
+    <entry id="65" name="zro:ZYRO0C02508g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0C02508g">
+        <graphics name="ZYRO0C02508g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="746" y="378" width="46" height="17"/>
+    </entry>
+    <entry id="66" name="zro:ZYRO0G12958g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0G12958g">
+        <graphics name="ZYRO0G12958g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="831" y="294" width="46" height="17"/>
+    </entry>
+    <entry id="67" name="zro:ZYRO0A13178g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0A13178g">
+        <graphics name="ZYRO0A13178g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="573" y="670" width="46" height="17"/>
+    </entry>
+    <entry id="68" name="zro:ZYRO0A11066g zro:ZYRO0G09526g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0A11066g+zro:ZYRO0G09526g">
+        <graphics name="ZYRO0A11066g..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="625" y="670" width="46" height="17"/>
+    </entry>
+    <entry id="69" name="zro:ZYRO0G09548g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0G09548g">
+        <graphics name="ZYRO0G09548g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="563" y="462" width="46" height="17"/>
+    </entry>
+    <entry id="70" name="ko:K02924" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02924">
+        <graphics name="K02924" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="885" y="670" width="46" height="17"/>
+    </entry>
+    <entry id="71" name="zro:ZYRO0G06622g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0G06622g">
+        <graphics name="ZYRO0G06622g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="937" y="670" width="46" height="17"/>
+    </entry>
+    <entry id="72" name="ko:K02928" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02928">
+        <graphics name="K02928" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="989" y="670" width="46" height="17"/>
+    </entry>
+    <entry id="73" name="zro:ZYRO0G05192g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0G05192g">
+        <graphics name="ZYRO0G05192g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1041" y="670" width="46" height="17"/>
+    </entry>
+    <entry id="74" name="zro:ZYRO0B12870g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0B12870g">
+        <graphics name="ZYRO0B12870g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="677" y="670" width="46" height="17"/>
+    </entry>
+    <entry id="75" name="zro:ZYRO0B04114g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0B04114g">
+        <graphics name="ZYRO0B04114g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="785" y="294" width="46" height="17"/>
+    </entry>
+    <entry id="76" name="zro:ZYRO0D16896g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0D16896g">
+        <graphics name="ZYRO0D16896g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="417" y="378" width="46" height="17"/>
+    </entry>
+    <entry id="77" name="zro:ZYRO0F06864g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0F06864g">
+        <graphics name="ZYRO0F06864g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="729" y="670" width="46" height="17"/>
+    </entry>
+    <entry id="78" name="zro:ZYRO0F17160g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0F17160g">
+        <graphics name="ZYRO0F17160g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="781" y="670" width="46" height="17"/>
+    </entry>
+    <entry id="79" name="zro:ZYRO0G17556g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0G17556g">
+        <graphics name="ZYRO0G17556g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="833" y="670" width="46" height="17"/>
+    </entry>
+    <entry id="80" name="zro:ZYRO0B14652g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0B14652g">
+        <graphics name="ZYRO0B14652g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="417" y="758" width="46" height="17"/>
+    </entry>
+    <entry id="81" name="zro:ZYRO0F12562g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0F12562g">
+        <graphics name="ZYRO0F12562g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="469" y="758" width="46" height="17"/>
+    </entry>
+    <entry id="82" name="zro:ZYRO0F02948g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0F02948g">
+        <graphics name="ZYRO0F02948g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="521" y="758" width="46" height="17"/>
+    </entry>
+    <entry id="83" name="zro:ZYRO0C06644g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0C06644g">
+        <graphics name="ZYRO0C06644g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="573" y="758" width="46" height="17"/>
+    </entry>
+    <entry id="84" name="ko:K02905" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02905">
+        <graphics name="K02905" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="677" y="758" width="46" height="17"/>
+    </entry>
+    <entry id="85" name="zro:ZYRO0C05918g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0C05918g">
+        <graphics name="ZYRO0C05918g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="729" y="758" width="46" height="17"/>
+    </entry>
+    <entry id="86" name="zro:ZYRO0G11000g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0G11000g">
+        <graphics name="ZYRO0G11000g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="781" y="758" width="46" height="17"/>
+    </entry>
+    <entry id="87" name="zro:ZYRO0A03828g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0A03828g">
+        <graphics name="ZYRO0A03828g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="555" y="219" width="46" height="17"/>
+    </entry>
+    <entry id="88" name="zro:ZYRO0G07656g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0G07656g">
+        <graphics name="ZYRO0G07656g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="614" y="462" width="46" height="17"/>
+    </entry>
+    <entry id="89" name="zro:ZYRO0F02442g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0F02442g">
+        <graphics name="ZYRO0F02442g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="417" y="670" width="46" height="17"/>
+    </entry>
+    <entry id="90" name="zro:ZYRO0B01364g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0B01364g">
+        <graphics name="ZYRO0B01364g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="463" y="378" width="46" height="17"/>
+    </entry>
+    <entry id="91" name="zro:ZYRO0D13552g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0D13552g">
+        <graphics name="ZYRO0D13552g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="555" y="202" width="46" height="17"/>
+    </entry>
+    <entry id="92" name="ko:K02939" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02939">
+        <graphics name="K02939" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="964" y="539" width="46" height="17"/>
+    </entry>
+    <entry id="93" name="zro:ZYRO0G08822g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0G08822g">
+        <graphics name="ZYRO0G08822g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="705" y="453" width="46" height="17"/>
+    </entry>
+    <entry id="94" name="ko:K02869" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02869">
+        <graphics name="K02869" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="751" y="453" width="46" height="17"/>
+    </entry>
+    <entry id="95" name="zro:ZYRO0A08360g zro:ZYRO0B02398g zro:ZYRO0C09372g zro:ZYRO0D05720g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0A08360g+zro:ZYRO0B02398g+zro:ZYRO0C09372g+zro:ZYRO0D05720g">
+        <graphics name="ZYRO0A08360g..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="751" y="470" width="46" height="17"/>
+    </entry>
+    <entry id="96" name="ko:K02878" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02878">
+        <graphics name="K02878" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="831" y="202" width="46" height="17"/>
+    </entry>
+    <entry id="97" name="ko:K02879" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02879">
+        <graphics name="K02879" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="792" y="361" width="46" height="17"/>
+    </entry>
+    <entry id="98" name="ko:K02884" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02884">
+        <graphics name="K02884" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="741" y="611" width="46" height="17"/>
+    </entry>
+    <entry id="99" name="ko:K02887" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02887">
+        <graphics name="K02887" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="686" y="539" width="46" height="17"/>
+    </entry>
+    <entry id="100" name="ko:K02888" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02888">
+        <graphics name="K02888" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="531" y="611" width="46" height="17"/>
+    </entry>
+    <entry id="101" name="ko:K02897" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02897">
+        <graphics name="K02897" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="993" y="611" width="46" height="17"/>
+    </entry>
+    <entry id="102" name="ko:K02899" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02899">
+        <graphics name="K02899" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="577" y="611" width="46" height="17"/>
+    </entry>
+    <entry id="103" name="zro:ZYRO0C05940g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0C05940g">
+        <graphics name="ZYRO0C05940g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="417" y="611" width="46" height="17"/>
+    </entry>
+    <entry id="104" name="ko:K02909" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02909">
+        <graphics name="K02909" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="828" y="539" width="46" height="17"/>
+    </entry>
+    <entry id="105" name="zro:ZYRO0E04356g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0E04356g">
+        <graphics name="ZYRO0E04356g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="896" y="539" width="46" height="17"/>
+    </entry>
+    <entry id="106" name="ko:K02913" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02913">
+        <graphics name="K02913" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="463" y="611" width="46" height="17"/>
+    </entry>
+    <entry id="107" name="zro:ZYRO0C01540g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0C01540g">
+        <graphics name="ZYRO0C01540g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="732" y="539" width="46" height="17"/>
+    </entry>
+    <entry id="108" name="ko:K02916" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02916">
+        <graphics name="K02916" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="640" y="539" width="46" height="17"/>
+    </entry>
+    <entry id="109" name="ko:K02919" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02919">
+        <graphics name="K02919" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="531" y="361" width="46" height="17"/>
+    </entry>
+    <entry id="110" name="ko:K01977" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K01977">
+        <graphics name="K01977" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="647" y="89" width="46" height="17"/>
+    </entry>
+    <entry id="111" name="zro:ZYRO0E10104r zro:ZYRO0E10114r zro:ZYRO0E10134r" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0E10104r+zro:ZYRO0E10114r+zro:ZYRO0E10134r">
+        <graphics name="ZYRO0E10104r..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="647" y="106" width="46" height="17"/>
+    </entry>
+    <entry id="112" name="ko:K02982" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02982">
+        <graphics name="K02982" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="785" y="202" width="46" height="17"/>
+    </entry>
+    <entry id="113" name="ko:K02986" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02986">
+        <graphics name="K02986" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="669" y="361" width="46" height="17"/>
+    </entry>
+    <entry id="114" name="zro:ZYRO0D15334g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0D15334g">
+        <graphics name="ZYRO0D15334g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="923" y="277" width="46" height="17"/>
+    </entry>
+    <entry id="115" name="zro:ZYRO0G17974g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0G17974g">
+        <graphics name="ZYRO0G17974g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="471" y="445" width="46" height="17"/>
+    </entry>
+    <entry id="116" name="ko:K02994" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02994">
+        <graphics name="K02994" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="693" y="277" width="46" height="17"/>
+    </entry>
+    <entry id="117" name="zro:ZYRO0B05962g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0B05962g">
+        <graphics name="ZYRO0B05962g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="884" y="361" width="46" height="17"/>
+    </entry>
+    <entry id="118" name="zro:ZYRO0E06974g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0E06974g">
+        <graphics name="ZYRO0E06974g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="463" y="202" width="46" height="17"/>
+    </entry>
+    <entry id="119" name="zro:ZYRO0E01672g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0E01672g">
+        <graphics name="ZYRO0E01672g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="923" y="294" width="46" height="17"/>
+    </entry>
+    <entry id="120" name="zro:ZYRO0D01716g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0D01716g">
+        <graphics name="ZYRO0D01716g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="471" y="462" width="46" height="17"/>
+    </entry>
+    <entry id="121" name="zro:ZYRO0B07590g zro:ZYRO0C12122g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0B07590g+zro:ZYRO0C12122g">
+        <graphics name="ZYRO0B07590g..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="693" y="294" width="46" height="17"/>
+    </entry>
+    <entry id="122" name="zro:ZYRO0A08316g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0A08316g">
+        <graphics name="ZYRO0A08316g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="884" y="378" width="46" height="17"/>
+    </entry>
+    <entry id="123" name="zro:ZYRO0E05764g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0E05764g">
+        <graphics name="ZYRO0E05764g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="463" y="219" width="46" height="17"/>
+    </entry>
+    <entry id="124" name="zro:ZYRO0F01496g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0F01496g">
+        <graphics name="ZYRO0F01496g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="417" y="556" width="46" height="17"/>
+    </entry>
+    <entry id="125" name="zro:ZYRO0C09636g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0C09636g">
+        <graphics name="ZYRO0C09636g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="785" y="219" width="46" height="17"/>
+    </entry>
+    <entry id="126" name="zro:ZYRO0C02750g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0C02750g">
+        <graphics name="ZYRO0C02750g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="623" y="361" width="46" height="17"/>
+    </entry>
+    <entry id="127" name="zro:ZYRO0C11946g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0C11946g">
+        <graphics name="ZYRO0C11946g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="517" y="445" width="46" height="17"/>
+    </entry>
+    <entry id="128" name="zro:ZYRO0C15158g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0C15158g">
+        <graphics name="ZYRO0C15158g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="577" y="361" width="46" height="17"/>
+    </entry>
+    <entry id="129" name="zro:ZYRO0D01430g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0D01430g">
+        <graphics name="ZYRO0D01430g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="647" y="277" width="46" height="17"/>
+    </entry>
+    <entry id="130" name="zro:ZYRO0A06842g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0A06842g">
+        <graphics name="ZYRO0A06842g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="546" y="539" width="46" height="17"/>
+    </entry>
+    <entry id="131" name="zro:ZYRO0E08162g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0E08162g">
+        <graphics name="ZYRO0E08162g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="417" y="277" width="46" height="17"/>
+    </entry>
+    <entry id="132" name="ko:K02965" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02965">
+        <graphics name="K02965" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="693" y="202" width="46" height="17"/>
+    </entry>
+    <entry id="133" name="ko:K02945" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02945">
+        <graphics name="K02945" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="808" y="611" width="46" height="17"/>
+    </entry>
+    <entry id="134" name="zro:ZYRO0B01430g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0B01430g">
+        <graphics name="ZYRO0B01430g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1056" y="539" width="46" height="17"/>
+    </entry>
+    <entry id="135" name="zro:ZYRO0F04092g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0F04092g">
+        <graphics name="ZYRO0F04092g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="695" y="611" width="46" height="17"/>
+    </entry>
+    <entry id="136" name="zro:ZYRO0D16566g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0D16566g">
+        <graphics name="ZYRO0D16566g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1010" y="539" width="46" height="17"/>
+    </entry>
+    <entry id="137" name="ko:K02968" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02968">
+        <graphics name="K02968" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="870" y="611" width="46" height="17"/>
+    </entry>
+    <entry id="138" name="ko:K02970" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02970">
+        <graphics name="K02970" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="931" y="611" width="46" height="17"/>
+    </entry>
+    <entry id="139" name="zro:ZYRO0A13200g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0A13200g">
+        <graphics name="ZYRO0A13200g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="669" y="378" width="46" height="17"/>
+    </entry>
+    <entry id="140" name="zro:ZYRO0B01254g" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro:ZYRO0B01254g">
+        <graphics name="ZYRO0B01254g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="417" y="539" width="46" height="17"/>
+    </entry>
+    <entry id="141" name="ko:K02944" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02944">
+        <graphics name="K02944" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1041" y="713" width="46" height="17"/>
+    </entry>
+    <entry id="142" name="ko:K02863" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02863">
+        <graphics name="K02863" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="843" y="453" width="46" height="17"/>
+    </entry>
+    <entry id="143" name="path:zro03010" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zro03010">
+        <graphics name="TITLE:Ribosome" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="88" y="58" width="95" height="25"/>
+    </entry>
+</pathway>

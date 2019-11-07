@@ -1,0 +1,643 @@
+<?xml version="1.0"?>
+<!DOCTYPE pathway SYSTEM "http://www.kegg.jp/kegg/xml/KGML_v0.7.2_.dtd">
+<!-- Creation date: May 14, 2014 13:36:11 +0900 (GMT+09:00) -->
+<pathway name="path:ptm04141" org="ptm" number="04141"
+         title="Protein processing in endoplasmic reticulum"
+         image="http://www.kegg.jp/kegg/pathway/ptm/ptm04141.png"
+         link="http://www.kegg.jp/kegg-bin/show_pathway?ptm04141">
+    <entry id="13" name="path:ptm04141" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm04141">
+        <graphics name="TITLE:Protein processing in endoplasmic reticulum" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="250" y="58" width="420" height="25"/>
+    </entry>
+    <entry id="14" name="path:ptm03060" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm03060">
+        <graphics name="Protein export" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="55" y="158" width="92" height="25"/>
+    </entry>
+    <entry id="15" name="path:map04210" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map04210">
+        <graphics name="Apoptosis" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="641" y="639" width="80" height="25"/>
+    </entry>
+    <entry id="16" name="path:ptm03050" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm03050">
+        <graphics name="Proteasome" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="1144" y="357" width="92" height="25"/>
+    </entry>
+    <entry id="28" name="ko:K04374" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04374">
+        <graphics name="K04374" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="296" y="638" width="46" height="17"/>
+    </entry>
+    <entry id="29" name="ko:K04452" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04452">
+        <graphics name="K04452" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="361" y="720" width="46" height="17"/>
+    </entry>
+    <entry id="30" name="ko:K04440" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04440">
+        <graphics name="K04440" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="550" y="638" width="46" height="17"/>
+    </entry>
+    <entry id="31" name="ko:K03173" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K03173">
+        <graphics name="K03173" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="548" y="522" width="46" height="17"/>
+    </entry>
+    <entry id="32" name="ko:K04426" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04426">
+        <graphics name="K04426" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="550" y="561" width="46" height="17"/>
+    </entry>
+    <entry id="33" name="ko:K04431" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04431">
+        <graphics name="K04431" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="550" y="599" width="46" height="17"/>
+    </entry>
+    <entry id="34" name="ptm:GSPATT00023253001 ptm:GSPATT00025703001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00023253001+ptm:GSPATT00025703001">
+        <graphics name="GSPATT00023253001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="298" y="522" width="46" height="17"/>
+    </entry>
+    <entry id="35" name="ko:K08054" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K08054">
+        <graphics name="K08054" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="440" y="126" width="46" height="17"/>
+    </entry>
+    <entry id="36" name="ko:K08057" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K08057">
+        <graphics name="K08057" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="441" y="182" width="46" height="17"/>
+    </entry>
+    <entry id="37" name="ko:K14019" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14019">
+        <graphics name="K14019" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="272" y="561" width="46" height="17"/>
+    </entry>
+    <entry id="39" name="gl:G00010" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G00010">
+        <graphics name="G00010" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="408" y="183" width="8" height="8"/>
+    </entry>
+    <entry id="40" name="cpd:C00076" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00076">
+        <graphics name="C00076" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="640" y="437" width="8" height="8"/>
+    </entry>
+    <entry id="56" name="ko:K08056" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K08056">
+        <graphics name="K08056" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="441" y="152" width="46" height="17"/>
+    </entry>
+    <entry id="57" name="ko:K04741" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04741">
+        <graphics name="K04741" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="641" y="561" width="46" height="17"/>
+    </entry>
+    <entry id="58" name="ko:K01367 ko:K03853" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K01367+K03853">
+        <graphics name="K01367..." fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="641" y="522" width="46" height="17"/>
+    </entry>
+    <entry id="59" name="ptm:GSPATT00010102001 ptm:GSPATT00010553001 ptm:GSPATT00012368001 ptm:GSPATT00014830001 ptm:GSPATT00016401001 ptm:GSPATT00018332001 ptm:GSPATT00018785001 ptm:GSPATT00019659001 ptm:GSPATT00023762001 ptm:GSPATT00024622001 ptm:GSPATT00028252001 ptm:GSPATT00030502001 ptm:GSPATT00033368001 ptm:GSPATT00035039001 ptm:GSPATT00036447001 ptm:GSPATT00036723001 ptm:GSPATT00037690001 ptm:GSPATT00038141001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00010102001+ptm:GSPATT00010553001+ptm:GSPATT00012368001+ptm:GSPATT00014830001+ptm:GSPATT00016401001+ptm:GSPATT00018332001+ptm:GSPATT00018785001+ptm:GSPATT00019659001+ptm:GSPATT00023762001+ptm:GSPATT00024622001+ptm:GSPATT00028252001+ptm:GSPATT00030502001+ptm:GSPATT00033368001+ptm:GSPATT00035039001+ptm:GSPATT00036447001+ptm:GSPATT00036723001+ptm:GSPATT00037690001+ptm:GSPATT00038141001">
+        <graphics name="GSPATT00010102001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="58" y="201" width="46" height="17"/>
+    </entry>
+    <entry id="63" name="ptm:GSPATT00020752001 ptm:GSPATT00021903001 ptm:GSPATT00026010001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00020752001+ptm:GSPATT00021903001+ptm:GSPATT00026010001">
+        <graphics name="GSPATT00020752001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="943" y="380" width="46" height="17"/>
+    </entry>
+    <entry id="64" name="ptm:GSPATT00010102001 ptm:GSPATT00010553001 ptm:GSPATT00012368001 ptm:GSPATT00014830001 ptm:GSPATT00016401001 ptm:GSPATT00018332001 ptm:GSPATT00018785001 ptm:GSPATT00019659001 ptm:GSPATT00023762001 ptm:GSPATT00024622001 ptm:GSPATT00028252001 ptm:GSPATT00030502001 ptm:GSPATT00033368001 ptm:GSPATT00035039001 ptm:GSPATT00036447001 ptm:GSPATT00036723001 ptm:GSPATT00037690001 ptm:GSPATT00038141001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00010102001+ptm:GSPATT00010553001+ptm:GSPATT00012368001+ptm:GSPATT00014830001+ptm:GSPATT00016401001+ptm:GSPATT00018332001+ptm:GSPATT00018785001+ptm:GSPATT00019659001+ptm:GSPATT00023762001+ptm:GSPATT00024622001+ptm:GSPATT00028252001+ptm:GSPATT00030502001+ptm:GSPATT00033368001+ptm:GSPATT00035039001+ptm:GSPATT00036447001+ptm:GSPATT00036723001+ptm:GSPATT00037690001+ptm:GSPATT00038141001">
+        <graphics name="GSPATT00010102001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="767" y="417" width="46" height="17"/>
+    </entry>
+    <entry id="65" name="ptm:GSPATT00000811001 ptm:GSPATT00002937001 ptm:GSPATT00004592001 ptm:GSPATT00004648001 ptm:GSPATT00008559001 ptm:GSPATT00008634001 ptm:GSPATT00020786001 ptm:GSPATT00021929001 ptm:GSPATT00024025001 ptm:GSPATT00026546001 ptm:GSPATT00037799001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00000811001+ptm:GSPATT00002937001+ptm:GSPATT00004592001+ptm:GSPATT00004648001+ptm:GSPATT00008559001+ptm:GSPATT00008634001+ptm:GSPATT00020786001+ptm:GSPATT00021929001+ptm:GSPATT00024025001+ptm:GSPATT00026546001+ptm:GSPATT00037799001">
+        <graphics name="GSPATT00000811001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="137" y="230" width="46" height="17"/>
+    </entry>
+    <entry id="66" name="ko:K10084 ko:K10085 ko:K10086" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K10084+K10085+K10086">
+        <graphics name="K10084..." fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="593" y="367" width="46" height="17"/>
+    </entry>
+    <entry id="80" name="ptm:GSPATT00001472001 ptm:GSPATT00002584001 ptm:GSPATT00004530001 ptm:GSPATT00011769001 ptm:GSPATT00019234001 ptm:GSPATT00021392001 ptm:GSPATT00022645001 ptm:GSPATT00038504001 ptm:GSPATT00038912001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00001472001+ptm:GSPATT00002584001+ptm:GSPATT00004530001+ptm:GSPATT00011769001+ptm:GSPATT00019234001+ptm:GSPATT00021392001+ptm:GSPATT00022645001+ptm:GSPATT00038504001+ptm:GSPATT00038912001">
+        <graphics name="GSPATT00001472001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="794" y="160" width="46" height="17"/>
+    </entry>
+    <entry id="83" name="ko:K10082" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K10082">
+        <graphics name="K10082" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="665" y="178" width="46" height="17"/>
+    </entry>
+    <entry id="84" name="ko:K10080" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K10080">
+        <graphics name="K10080" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="665" y="198" width="46" height="17"/>
+    </entry>
+    <entry id="89" name="ptm:GSPATT00009488001 ptm:GSPATT00019954001 ptm:GSPATT00038332001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00009488001+ptm:GSPATT00019954001+ptm:GSPATT00038332001">
+        <graphics name="GSPATT00009488001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="947" y="444" width="46" height="17"/>
+    </entry>
+    <entry id="90" name="ptm:GSPATT00033124001 ptm:GSPATT00036058001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00033124001+ptm:GSPATT00036058001">
+        <graphics name="GSPATT00033124001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="947" y="427" width="46" height="17"/>
+    </entry>
+    <entry id="91" name="ptm:GSPATT00004274001 ptm:GSPATT00006253001 ptm:GSPATT00011062001 ptm:GSPATT00011620001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00004274001+ptm:GSPATT00006253001+ptm:GSPATT00011062001+ptm:GSPATT00011620001">
+        <graphics name="GSPATT00004274001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="722" y="333" width="46" height="17"/>
+    </entry>
+    <entry id="92" name="ko:K01230 ko:K23741" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K01230+K23741">
+        <graphics name="K01230..." fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="566" y="178" width="46" height="17"/>
+    </entry>
+    <entry id="93" name="ko:K05546 ko:K08288" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K05546+K08288">
+        <graphics name="K05546..." fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="367" y="178" width="46" height="17"/>
+    </entry>
+    <entry id="94" name="ko:K05546 ko:K08288" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K05546+K08288">
+        <graphics name="K05546..." fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="502" y="276" width="46" height="17"/>
+    </entry>
+    <entry id="95" name="ptm:GSPATT00008864001 ptm:GSPATT00018064001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00008864001+ptm:GSPATT00018064001">
+        <graphics name="GSPATT00008864001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="367" y="144" width="46" height="17"/>
+    </entry>
+    <entry id="99" name="ko:K11718" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K11718">
+        <graphics name="K11718" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="418" y="252" width="46" height="17"/>
+    </entry>
+    <entry id="101" name="gl:G00010" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G00010">
+        <graphics name="G00010" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="378" y="329" width="8" height="8"/>
+    </entry>
+    <entry id="105" name="ko:K01230 ko:K23741" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K01230+K23741">
+        <graphics name="K01230..." fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="594" y="400" width="46" height="17"/>
+    </entry>
+    <entry id="116" name="ko:K10661" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K10661">
+        <graphics name="K10661" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="759" y="604" width="46" height="17"/>
+    </entry>
+    <entry id="117" name="ptm:GSPATT00010782001 ptm:GSPATT00014275001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00010782001+ptm:GSPATT00014275001">
+        <graphics name="GSPATT00010782001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="760" y="693" width="46" height="17"/>
+    </entry>
+    <entry id="118" name="ko:K14022" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14022">
+        <graphics name="K14022" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="806" y="709" width="46" height="17"/>
+    </entry>
+    <entry id="119" name="ko:K14023" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14023">
+        <graphics name="K14023" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="760" y="676" width="46" height="17"/>
+    </entry>
+    <entry id="120" name="ptm:GSPATT00026002001 ptm:GSPATT00026186001 ptm:GSPATT00036115001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00026002001+ptm:GSPATT00026186001+ptm:GSPATT00036115001">
+        <graphics name="GSPATT00026002001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="760" y="709" width="46" height="17"/>
+    </entry>
+    <entry id="123" name="ptm:GSPATT00014025001 ptm:GSPATT00016948001 ptm:GSPATT00024718001 ptm:GSPATT00024719001 ptm:GSPATT00025374001 ptm:GSPATT00027959001 ptm:GSPATT00029321001 ptm:GSPATT00029322001 ptm:GSPATT00037370001 ptm:GSPATT00037375001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00014025001+ptm:GSPATT00016948001+ptm:GSPATT00024718001+ptm:GSPATT00024719001+ptm:GSPATT00025374001+ptm:GSPATT00027959001+ptm:GSPATT00029321001+ptm:GSPATT00029322001+ptm:GSPATT00037370001+ptm:GSPATT00037375001">
+        <graphics name="GSPATT00014025001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="222" y="304" width="46" height="19"/>
+    </entry>
+    <entry id="128" name="path:ptm00510" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm00510">
+        <graphics name="N-Glycan biosynthesis" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="323" y="250" width="92" height="34"/>
+    </entry>
+    <entry id="129" name="ptm:GSPATT00006079001 ptm:GSPATT00010974001 ptm:GSPATT00026007001 ptm:GSPATT00028549001 ptm:GSPATT00031196001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00006079001+ptm:GSPATT00010974001+ptm:GSPATT00026007001+ptm:GSPATT00028549001+ptm:GSPATT00031196001">
+        <graphics name="GSPATT00006079001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="58" y="218" width="46" height="17"/>
+    </entry>
+    <entry id="130" name="ko:K02159 ko:K14021" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02159+K14021">
+        <graphics name="K02159..." fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="640" y="457" width="46" height="17"/>
+    </entry>
+    <entry id="134" name="ko:K09054 ko:K09049" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K09054+K09049">
+        <graphics name="K09054..." fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="423" y="478" width="46" height="17"/>
+    </entry>
+    <entry id="135" name="ptm:GSPATT00012822001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00012822001">
+        <graphics name="GSPATT00012822001" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="548" y="478" width="46" height="17"/>
+    </entry>
+    <entry id="136" name="ptm:GSPATT00001794001 ptm:GSPATT00005295001 ptm:GSPATT00025128001 ptm:GSPATT00025893001 ptm:GSPATT00030527001 ptm:GSPATT00036445001 ptm:GSPATT00037688001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00001794001+ptm:GSPATT00005295001+ptm:GSPATT00025128001+ptm:GSPATT00025893001+ptm:GSPATT00030527001+ptm:GSPATT00036445001+ptm:GSPATT00037688001">
+        <graphics name="GSPATT00001794001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="298" y="478" width="46" height="17"/>
+    </entry>
+    <entry id="137" name="ko:K08653" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K08653">
+        <graphics name="K08653" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="451" y="535" width="46" height="17"/>
+    </entry>
+    <entry id="138" name="ko:K07765" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K07765">
+        <graphics name="K07765" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="451" y="556" width="46" height="17"/>
+    </entry>
+    <entry id="148" name="ko:K09027" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K09027">
+        <graphics name="K09027" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="489" y="630" width="46" height="17"/>
+    </entry>
+    <entry id="159" name="ko:K14020" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14020">
+        <graphics name="K14020" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="395" y="556" width="46" height="17"/>
+    </entry>
+    <entry id="163" name="ptm:GSPATT00021161001 ptm:GSPATT00037099001 ptm:GSPATT00038527001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00021161001+ptm:GSPATT00037099001+ptm:GSPATT00038527001">
+        <graphics name="GSPATT00021161001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1010" y="393" width="46" height="17"/>
+    </entry>
+    <entry id="164" name="ptm:GSPATT00005861001 ptm:GSPATT00014822001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00005861001+ptm:GSPATT00014822001">
+        <graphics name="GSPATT00005861001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1009" y="371" width="46" height="17"/>
+    </entry>
+    <entry id="165" name="ko:K01456" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K01456">
+        <graphics name="K01456" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1010" y="410" width="46" height="17"/>
+    </entry>
+    <entry id="166" name="ptm:GSPATT00005174001 ptm:GSPATT00010030001 ptm:GSPATT00026002001 ptm:GSPATT00026186001 ptm:GSPATT00032588001 ptm:GSPATT00033849001 ptm:GSPATT00036115001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00005174001+ptm:GSPATT00010030001+ptm:GSPATT00026002001+ptm:GSPATT00026186001+ptm:GSPATT00032588001+ptm:GSPATT00033849001+ptm:GSPATT00036115001">
+        <graphics name="GSPATT00005174001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="759" y="621" width="46" height="17"/>
+    </entry>
+    <entry id="167" name="ptm:GSPATT00016901001 ptm:GSPATT00018248001 ptm:GSPATT00028431001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00016901001+ptm:GSPATT00018248001+ptm:GSPATT00028431001">
+        <graphics name="GSPATT00016901001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1062" y="371" width="46" height="17"/>
+    </entry>
+    <entry id="168" name="ko:K13719" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K13719">
+        <graphics name="K13719" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1037" y="324" width="46" height="17"/>
+    </entry>
+    <entry id="169" name="ptm:GSPATT00013678001 ptm:GSPATT00016962001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00013678001+ptm:GSPATT00016962001">
+        <graphics name="GSPATT00013678001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1062" y="393" width="46" height="17"/>
+    </entry>
+    <entry id="170" name="ptm:GSPATT00022458001 ptm:GSPATT00036315001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00022458001+ptm:GSPATT00036315001">
+        <graphics name="GSPATT00022458001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1037" y="341" width="46" height="17"/>
+    </entry>
+    <entry id="171" name="ptm:GSPATT00011752001 ptm:GSPATT00012155001 ptm:GSPATT00015570001 ptm:GSPATT00024522001 ptm:GSPATT00024569001 ptm:GSPATT00026008001 ptm:GSPATT00026192001 ptm:GSPATT00035704001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00011752001+ptm:GSPATT00012155001+ptm:GSPATT00015570001+ptm:GSPATT00024522001+ptm:GSPATT00024569001+ptm:GSPATT00026008001+ptm:GSPATT00026192001+ptm:GSPATT00035704001">
+        <graphics name="GSPATT00011752001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="917" y="268" width="46" height="17"/>
+    </entry>
+    <entry id="172" name="ptm:GSPATT00033196001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00033196001">
+        <graphics name="GSPATT00033196001" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="870" y="675" width="46" height="17"/>
+    </entry>
+    <entry id="173" name="ptm:GSPATT00010782001 ptm:GSPATT00014275001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00010782001+ptm:GSPATT00014275001">
+        <graphics name="GSPATT00010782001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="905" y="692" width="46" height="17"/>
+    </entry>
+    <entry id="174" name="ptm:GSPATT00007259001 ptm:GSPATT00018593001 ptm:GSPATT00034905001 ptm:GSPATT00038048001 ptm:GSPATT00038261001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00007259001+ptm:GSPATT00018593001+ptm:GSPATT00034905001+ptm:GSPATT00038048001+ptm:GSPATT00038261001">
+        <graphics name="GSPATT00007259001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="866" y="315" width="46" height="17"/>
+    </entry>
+    <entry id="175" name="ko:K10088" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K10088">
+        <graphics name="K10088" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="776" y="347" width="46" height="17"/>
+    </entry>
+    <entry id="176" name="ko:K14027" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14027">
+        <graphics name="K14027" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="859" y="692" width="46" height="17"/>
+    </entry>
+    <entry id="177" name="ko:K14008" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14008">
+        <graphics name="K14008" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="776" y="369" width="46" height="17"/>
+    </entry>
+    <entry id="178" name="ptm:GSPATT00005174001 ptm:GSPATT00010030001 ptm:GSPATT00026002001 ptm:GSPATT00026186001 ptm:GSPATT00032588001 ptm:GSPATT00033849001 ptm:GSPATT00036115001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00005174001+ptm:GSPATT00010030001+ptm:GSPATT00026002001+ptm:GSPATT00026186001+ptm:GSPATT00032588001+ptm:GSPATT00033849001+ptm:GSPATT00036115001">
+        <graphics name="GSPATT00005174001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="905" y="709" width="46" height="17"/>
+    </entry>
+    <entry id="179" name="ko:K14025" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14025">
+        <graphics name="K14025" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="916" y="658" width="46" height="17"/>
+    </entry>
+    <entry id="180" name="ptm:GSPATT00005494001 ptm:GSPATT00011131001 ptm:GSPATT00021114001 ptm:GSPATT00023020001 ptm:GSPATT00024170001 ptm:GSPATT00030724001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00005494001+ptm:GSPATT00011131001+ptm:GSPATT00021114001+ptm:GSPATT00023020001+ptm:GSPATT00024170001+ptm:GSPATT00030724001">
+        <graphics name="GSPATT00005494001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1061" y="675" width="46" height="17"/>
+    </entry>
+    <entry id="181" name="ko:K10099 ko:K10100" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K10099+K10100">
+        <graphics name="K10099..." fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1015" y="709" width="46" height="17"/>
+    </entry>
+    <entry id="182" name="ptm:GSPATT00013765001 ptm:GSPATT00019410001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00013765001+ptm:GSPATT00019410001">
+        <graphics name="GSPATT00013765001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="972" y="630" width="46" height="17"/>
+    </entry>
+    <entry id="183" name="ptm:GSPATT00003384001 ptm:GSPATT00006354001 ptm:GSPATT00010372001 ptm:GSPATT00020606001 ptm:GSPATT00025599001 ptm:GSPATT00027260001 ptm:GSPATT00037647001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00003384001+ptm:GSPATT00006354001+ptm:GSPATT00010372001+ptm:GSPATT00020606001+ptm:GSPATT00025599001+ptm:GSPATT00027260001+ptm:GSPATT00037647001">
+        <graphics name="GSPATT00003384001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1018" y="604" width="46" height="17"/>
+    </entry>
+    <entry id="184" name="ptm:GSPATT00011752001 ptm:GSPATT00012155001 ptm:GSPATT00015570001 ptm:GSPATT00024522001 ptm:GSPATT00024569001 ptm:GSPATT00026008001 ptm:GSPATT00026192001 ptm:GSPATT00035704001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00011752001+ptm:GSPATT00012155001+ptm:GSPATT00015570001+ptm:GSPATT00024522001+ptm:GSPATT00024569001+ptm:GSPATT00026008001+ptm:GSPATT00026192001+ptm:GSPATT00035704001">
+        <graphics name="GSPATT00011752001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1018" y="621" width="46" height="17"/>
+    </entry>
+    <entry id="185" name="ptm:GSPATT00022373001 ptm:GSPATT00027324001 ptm:GSPATT00028388001 ptm:GSPATT00031471001 ptm:GSPATT00032006001 ptm:GSPATT00033811001 ptm:GSPATT00035186001 ptm:GSPATT00037938001 ptm:GSPATT00039440001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00022373001+ptm:GSPATT00027324001+ptm:GSPATT00028388001+ptm:GSPATT00031471001+ptm:GSPATT00032006001+ptm:GSPATT00033811001+ptm:GSPATT00035186001+ptm:GSPATT00037938001+ptm:GSPATT00039440001">
+        <graphics name="GSPATT00022373001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1018" y="638" width="46" height="17"/>
+    </entry>
+    <entry id="187" name="ptm:GSPATT00000728001 ptm:GSPATT00001003001 ptm:GSPATT00002338001 ptm:GSPATT00004345001 ptm:GSPATT00005147001 ptm:GSPATT00006311001 ptm:GSPATT00006796001 ptm:GSPATT00008244001 ptm:GSPATT00008820001 ptm:GSPATT00009642001 ptm:GSPATT00011918001 ptm:GSPATT00014957001 ptm:GSPATT00015711001 ptm:GSPATT00017039001 ptm:GSPATT00018365001 ptm:GSPATT00019037001 ptm:GSPATT00020578001 ptm:GSPATT00020890001 ptm:GSPATT00021302001 ptm:GSPATT00027282001 ptm:GSPATT00027750001 ptm:GSPATT00031200001 ptm:GSPATT00031696001 ptm:GSPATT00032313001 ptm:GSPATT00035281001 ptm:GSPATT00036774001 ptm:GSPATT00037052001 ptm:GSPATT00037367001 ptm:GSPATT00038399001 ptm:GSPATT00038403001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00000728001+ptm:GSPATT00001003001+ptm:GSPATT00002338001+ptm:GSPATT00004345001+ptm:GSPATT00005147001+ptm:GSPATT00006311001+ptm:GSPATT00006796001+ptm:GSPATT00008244001+ptm:GSPATT00008820001+ptm:GSPATT00009642001+ptm:GSPATT00011918001+ptm:GSPATT00014957001+ptm:GSPATT00015711001+ptm:GSPATT00017039001+ptm:GSPATT00018365001+ptm:GSPATT00019037001+ptm:GSPATT00020578001+ptm:GSPATT00020890001+ptm:GSPATT00021302001+ptm:GSPATT00027282001+ptm:GSPATT00027750001+ptm:GSPATT00031200001+ptm:GSPATT00031696001+ptm:GSPATT00032313001+ptm:GSPATT00035281001+ptm:GSPATT00036774001+ptm:GSPATT00037052001+ptm:GSPATT00037367001+ptm:GSPATT00038399001+ptm:GSPATT00038403001">
+        <graphics name="GSPATT00000728001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="723" y="369" width="46" height="17"/>
+    </entry>
+    <entry id="188" name="ptm:GSPATT00025034001 ptm:GSPATT00036247001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00025034001+ptm:GSPATT00036247001">
+        <graphics name="GSPATT00025034001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="222" y="320" width="46" height="17"/>
+    </entry>
+    <entry id="189" name="ptm:GSPATT00008428001 ptm:GSPATT00012986001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00008428001+ptm:GSPATT00012986001">
+        <graphics name="GSPATT00008428001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="866" y="378" width="46" height="17"/>
+    </entry>
+    <entry id="190" name="ko:K14022" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14022">
+        <graphics name="K14022" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="805" y="621" width="46" height="17"/>
+    </entry>
+    <entry id="191" name="ptm:GSPATT00003384001 ptm:GSPATT00006354001 ptm:GSPATT00010372001 ptm:GSPATT00020606001 ptm:GSPATT00025599001 ptm:GSPATT00027260001 ptm:GSPATT00037647001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00003384001+ptm:GSPATT00006354001+ptm:GSPATT00010372001+ptm:GSPATT00020606001+ptm:GSPATT00025599001+ptm:GSPATT00027260001+ptm:GSPATT00037647001">
+        <graphics name="GSPATT00003384001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="917" y="285" width="46" height="17"/>
+    </entry>
+    <entry id="192" name="ko:K04555" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04555">
+        <graphics name="K04555" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="871" y="621" width="46" height="17"/>
+    </entry>
+    <entry id="195" name="ko:K14014" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14014">
+        <graphics name="K14014" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="892" y="410" width="46" height="17"/>
+    </entry>
+    <entry id="201" name="ptm:GSPATT00013765001 ptm:GSPATT00019410001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00013765001+ptm:GSPATT00019410001">
+        <graphics name="GSPATT00013765001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1015" y="684" width="46" height="17"/>
+    </entry>
+    <entry id="202" name="ptm:GSPATT00005066001 ptm:GSPATT00017523001 ptm:GSPATT00021269001 ptm:GSPATT00027151001 ptm:GSPATT00030863001 ptm:GSPATT00038211001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00005066001+ptm:GSPATT00017523001+ptm:GSPATT00021269001+ptm:GSPATT00027151001+ptm:GSPATT00030863001+ptm:GSPATT00038211001">
+        <graphics name="GSPATT00005066001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1061" y="709" width="46" height="17"/>
+    </entry>
+    <entry id="203" name="ptm:GSPATT00037059001 ptm:GSPATT00037954001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00037059001+ptm:GSPATT00037954001">
+        <graphics name="GSPATT00037059001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1061" y="692" width="46" height="17"/>
+    </entry>
+    <entry id="204" name="ptm:GSPATT00007259001 ptm:GSPATT00018593001 ptm:GSPATT00034905001 ptm:GSPATT00038048001 ptm:GSPATT00038261001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00007259001+ptm:GSPATT00018593001+ptm:GSPATT00034905001+ptm:GSPATT00038048001+ptm:GSPATT00038261001">
+        <graphics name="GSPATT00007259001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="916" y="621" width="46" height="17"/>
+    </entry>
+    <entry id="205" name="ptm:GSPATT00007944001 ptm:GSPATT00034176001 ptm:GSPATT00036040001 ptm:GSPATT00036920001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00007944001+ptm:GSPATT00034176001+ptm:GSPATT00036040001+ptm:GSPATT00036920001">
+        <graphics name="GSPATT00007944001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="916" y="604" width="46" height="17"/>
+    </entry>
+    <entry id="206" name="ko:K11519" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K11519">
+        <graphics name="K11519" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="916" y="675" width="46" height="17"/>
+    </entry>
+    <entry id="207" name="ptm:GSPATT00007403001 ptm:GSPATT00008456001 ptm:GSPATT00012965001 ptm:GSPATT00015293001 ptm:GSPATT00015770001 ptm:GSPATT00015771001 ptm:GSPATT00027802001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00007403001+ptm:GSPATT00008456001+ptm:GSPATT00012965001+ptm:GSPATT00015293001+ptm:GSPATT00015770001+ptm:GSPATT00015771001+ptm:GSPATT00027802001">
+        <graphics name="GSPATT00007403001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="970" y="268" width="46" height="17"/>
+    </entry>
+    <entry id="208" name="ko:K05638" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K05638">
+        <graphics name="K05638" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="350" y="535" width="46" height="17"/>
+    </entry>
+    <entry id="211" name="ptm:GSPATT00001821001 ptm:GSPATT00017704001 ptm:GSPATT00038907001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00001821001+ptm:GSPATT00017704001+ptm:GSPATT00038907001">
+        <graphics name="GSPATT00001821001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="794" y="143" width="46" height="17"/>
+    </entry>
+    <entry id="212" name="ptm:GSPATT00012011001 ptm:GSPATT00015437001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00012011001+ptm:GSPATT00015437001">
+        <graphics name="GSPATT00012011001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="748" y="160" width="46" height="17"/>
+    </entry>
+    <entry id="213" name="ptm:GSPATT00004567001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00004567001">
+        <graphics name="GSPATT00004567001" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="748" y="198" width="46" height="17"/>
+    </entry>
+    <entry id="215" name="ptm:GSPATT00023840001 ptm:GSPATT00034581001 ptm:GSPATT00035540001 ptm:GSPATT00038732001 ptm:GSPATT00038779001 ptm:GSPATT00038997001 ptm:GSPATT00039232001 ptm:GSPATT00039233001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00023840001+ptm:GSPATT00034581001+ptm:GSPATT00035540001+ptm:GSPATT00038732001+ptm:GSPATT00038779001+ptm:GSPATT00038997001+ptm:GSPATT00039232001+ptm:GSPATT00039233001">
+        <graphics name="GSPATT00023840001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="277" y="303" width="46" height="17"/>
+    </entry>
+    <entry id="218" name="ko:K02161" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02161">
+        <graphics name="K02161" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="363" y="757" width="46" height="17"/>
+    </entry>
+    <entry id="219" name="path:map04210" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map04210">
+        <graphics name="Apoptosis" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="365" y="795" width="80" height="25"/>
+    </entry>
+    <entry id="221" name="ko:K02161" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02161">
+        <graphics name="K02161" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="669" y="494" width="46" height="17"/>
+    </entry>
+    <entry id="224" name="ko:K10081" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K10081">
+        <graphics name="K10081" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="665" y="219" width="46" height="17"/>
+    </entry>
+    <entry id="225" name="ko:K14010" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14010">
+        <graphics name="K14010" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="866" y="298" width="46" height="17"/>
+    </entry>
+    <entry id="226" name="ptm:GSPATT00022373001 ptm:GSPATT00027324001 ptm:GSPATT00028388001 ptm:GSPATT00031471001 ptm:GSPATT00032006001 ptm:GSPATT00033811001 ptm:GSPATT00035186001 ptm:GSPATT00037938001 ptm:GSPATT00039440001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00022373001+ptm:GSPATT00027324001+ptm:GSPATT00028388001+ptm:GSPATT00031471001+ptm:GSPATT00032006001+ptm:GSPATT00033811001+ptm:GSPATT00035186001+ptm:GSPATT00037938001+ptm:GSPATT00039440001">
+        <graphics name="GSPATT00022373001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1074" y="604" width="46" height="17"/>
+    </entry>
+    <entry id="227" name="ko:K04556" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04556">
+        <graphics name="K04556" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1074" y="621" width="46" height="17"/>
+    </entry>
+    <entry id="228" name="ptm:GSPATT00038036001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00038036001">
+        <graphics name="GSPATT00038036001" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="917" y="308" width="46" height="17"/>
+    </entry>
+    <entry id="229" name="ko:K09541 ko:K09542 ko:K13993" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K09541+K09542+K13993">
+        <graphics name="K09541..." fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="970" y="308" width="46" height="17"/>
+    </entry>
+    <entry id="230" name="path:map05010" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map05010">
+        <graphics name="Alzheimer disease" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="64" y="502" width="92" height="34"/>
+    </entry>
+    <entry id="231" name="path:map05012" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map05012">
+        <graphics name="Parkinson disease" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="64" y="547" width="92" height="34"/>
+    </entry>
+    <entry id="232" name="path:map05020" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map05020">
+        <graphics name="Prion diseases" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="63" y="463" width="92" height="25"/>
+    </entry>
+    <entry id="233" name="ptm:GSPATT00006419001 ptm:GSPATT00009725001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00006419001+ptm:GSPATT00009725001">
+        <graphics name="GSPATT00006419001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="176" y="303" width="46" height="17"/>
+    </entry>
+    <entry id="234" name="ko:K14024" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14024">
+        <graphics name="K14024" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="806" y="693" width="46" height="17"/>
+    </entry>
+    <entry id="237" name="path:map04930" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map04930">
+        <graphics name="Type II diabetes mellitus" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="64" y="591" width="92" height="34"/>
+    </entry>
+    <entry id="238" name="ptm:GSPATT00008864001 ptm:GSPATT00018064001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptm:GSPATT00008864001+ptm:GSPATT00018064001">
+        <graphics name="GSPATT00008864001..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="137" y="246" width="46" height="17"/>
+    </entry>
+    <entry id="239" name="ko:K13999" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K13999">
+        <graphics name="K13999" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="183" y="246" width="46" height="17"/>
+    </entry>
+    <entry id="240" name="ko:K14000" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14000">
+        <graphics name="K14000" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="235" y="212" width="46" height="17"/>
+    </entry>
+    <entry id="241" name="ko:K14009" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14009">
+        <graphics name="K14009" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="767" y="400" width="46" height="17"/>
+    </entry>
+    <entry id="242" name="ko:K13249 ko:K13250 ko:K13251 ko:K04571" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K13249+K13250+K13251+K04571">
+        <graphics name="K13249..." fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="721" y="417" width="46" height="17"/>
+    </entry>
+    <entry id="245" name="ko:K14013" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14013">
+        <graphics name="K14013" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="806" y="676" width="46" height="17"/>
+    </entry>
+    <entry id="246" name="ko:K10636" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K10636">
+        <graphics name="K10636" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="916" y="587" width="46" height="17"/>
+    </entry>
+    <entry id="248" name="gl:G00009" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G00009">
+        <graphics name="G00009" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="333" y="194" width="8" height="8"/>
+    </entry>
+    <entry id="249" name="gl:G00011" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G00011">
+        <graphics name="G00011" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="501" y="391" width="8" height="8"/>
+    </entry>
+    <entry id="250" name="gl:G00011" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G00011">
+        <graphics name="G00011" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="528" y="167" width="8" height="8"/>
+    </entry>
+    <entry id="251" name="gl:G10694" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G10694">
+        <graphics name="G10694" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="616" y="166" width="8" height="8"/>
+    </entry>
+    <entry id="252" name="gl:G00012" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?G00012">
+        <graphics name="G00012" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="634" y="396" width="8" height="8"/>
+    </entry>
+    <relation entry1="211" entry2="80" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="211" entry2="212" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="136" entry2="34" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="91" entry2="187" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="90" entry2="63" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="213" entry2="212" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="90" entry2="89" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="189" entry2="63" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+</pathway>

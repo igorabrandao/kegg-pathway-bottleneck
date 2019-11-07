@@ -1,44 +1,433 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<title>Access forbidden!</title>
-<link rev="made" href="mailto:http://www.genome.jp/feedback/" />
-<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
-    body { color: #000000; background-color: #FFFFFF; }
-    a:link { color: #0000CC; }
-    p, address {margin-left: 3em;}
-    span {font-size: smaller;}
-/*]]>*/--></style>
-</head>
-
-<body>
-<h1>Access forbidden!</h1>
-<p>
-
-
-  
-
-    You don't have permission to access the requested object.
-    It is either read-protected or not readable by the server.
-
-  
-
-</p>
-<p>
-If you think this is a server error, please contact
-the <a href="http://www.genome.jp/feedback/">webmaster</a>.
-
-</p>
-
-<h2>Error 403</h2>
-<address>
-  <a href="/">rest.kegg.jp</a><br />
-  
-  <span>Wed Nov  6 20:02:36 2019<br />
-  Apache</span>
-</address>
-</body>
-</html>
-
+<?xml version="1.0"?>
+<!DOCTYPE pathway SYSTEM "http://www.kegg.jp/kegg/xml/KGML_v0.7.2_.dtd">
+<!-- Creation date: May 30, 2019 09:17:29 +0900 (GMT+9) -->
+<pathway name="path:ppp00195" org="ppp" number="00195"
+         title="Photosynthesis"
+         image="http://www.kegg.jp/kegg/pathway/ppp/ppp00195.png"
+         link="http://www.kegg.jp/kegg-bin/show_pathway?ppp00195">
+    <entry id="1" name="ppp:112286609 ppp:112292240" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112286609+ppp:112292240">
+        <graphics name="112286609..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="426" y="633" width="46" height="17"/>
+    </entry>
+    <entry id="2" name="path:ppp00196" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp00196">
+        <graphics name="Photosynthesis - antenna proteins" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="322" y="159" width="105" height="25"/>
+    </entry>
+    <entry id="3" name="ppp:112282925 ppp:112283476 ppp:112293016 ppp:2546752 ppp:3989096" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112282925+ppp:112283476+ppp:112293016+ppp:2546752+ppp:3989096">
+        <graphics name="112282925..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="862" y="633" width="46" height="17"/>
+    </entry>
+    <entry id="4" name="ppp:2546806" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:2546806">
+        <graphics name="atpI, PhpapaCp056" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="816" y="633" width="46" height="17"/>
+    </entry>
+    <entry id="5" name="ppp:112290430" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112290430">
+        <graphics name="112290430" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="696" y="577" width="46" height="17"/>
+    </entry>
+    <entry id="6" name="ko:K08904" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K08904">
+        <graphics name="K08904" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="288" y="579" width="46" height="17"/>
+    </entry>
+    <entry id="7" name="ppp:112284665 ppp:112289131" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112284665+ppp:112289131">
+        <graphics name="112284665..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="242" y="579" width="46" height="17"/>
+    </entry>
+    <entry id="8" name="ppp:112286755" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112286755">
+        <graphics name="112286755" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="196" y="579" width="46" height="17"/>
+    </entry>
+    <entry id="9" name="ppp:112273588" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112273588">
+        <graphics name="112273588" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="196" y="562" width="46" height="17"/>
+    </entry>
+    <entry id="10" name="ppp:112278450 ppp:112278451 ppp:112282976 ppp:112293479" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112278450+ppp:112278451+ppp:112282976+ppp:112293479">
+        <graphics name="112278450..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="150" y="562" width="46" height="17"/>
+    </entry>
+    <entry id="11" name="ko:K02702" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02702">
+        <graphics name="K02702" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="426" y="650" width="46" height="17"/>
+    </entry>
+    <entry id="12" name="ppp:112274966 ppp:112278047 ppp:112278725 ppp:112284805 ppp:112288622 ppp:112289081" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112274966+ppp:112278047+ppp:112278725+ppp:112284805+ppp:112288622+ppp:112289081">
+        <graphics name="112274966..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="426" y="545" width="46" height="17"/>
+    </entry>
+    <entry id="13" name="cpd:C00005" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00005">
+        <graphics name="C00005" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="487" y="123" width="8" height="8"/>
+    </entry>
+    <entry id="14" name="cpd:C00006" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00006">
+        <graphics name="C00006" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="550" y="124" width="8" height="8"/>
+    </entry>
+    <entry id="15" name="ppp:112272760 ppp:112286645 ppp:112286667" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112272760+ppp:112286645+ppp:112286667">
+        <graphics name="112272760..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="525" y="214" width="46" height="17"/>
+    </entry>
+    <entry id="16" name="cpd:C00080" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00080">
+        <graphics name="C00080" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="413" y="402" width="8" height="8"/>
+    </entry>
+    <entry id="17" name="ppp:2546804" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:2546804">
+        <graphics name="atpH, PhpapaCp055" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="770" y="633" width="46" height="17"/>
+    </entry>
+    <entry id="18" name="ppp:2546801" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:2546801">
+        <graphics name="atpE, PhpapaCp033" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="724" y="633" width="46" height="17"/>
+    </entry>
+    <entry id="19" name="ppp:112275487 ppp:112275884 ppp:112276635" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112275487+ppp:112275884+ppp:112276635">
+        <graphics name="112275487..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="678" y="633" width="46" height="17"/>
+    </entry>
+    <entry id="20" name="ppp:112281398 ppp:112286006 ppp:112289867" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112281398+ppp:112286006+ppp:112289867">
+        <graphics name="112281398..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="632" y="633" width="46" height="17"/>
+    </entry>
+    <entry id="21" name="ppp:2546698" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:2546698">
+        <graphics name="atpA, PhpapaCp053" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="586" y="633" width="46" height="17"/>
+    </entry>
+    <entry id="22" name="ppp:2546734" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:2546734">
+        <graphics name="atpB, PhpapaCp032" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="540" y="633" width="46" height="17"/>
+    </entry>
+    <entry id="23" name="ko:K02636" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02636">
+        <graphics name="K02636" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="412" y="340" width="46" height="17"/>
+    </entry>
+    <entry id="24" name="cpd:C02185" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C02185">
+        <graphics name="C02185" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="331" y="293" width="8" height="8"/>
+    </entry>
+    <entry id="25" name="cpd:C02061" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C02061">
+        <graphics name="C02061" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="300" y="261" width="8" height="8"/>
+    </entry>
+    <entry id="26" name="cpd:C00034" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00034">
+        <graphics name="C00034" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="210" y="361" width="8" height="8"/>
+    </entry>
+    <entry id="27" name="cpd:C00001" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00001">
+        <graphics name="C00001" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="186" y="401" width="8" height="8"/>
+    </entry>
+    <entry id="28" name="cpd:C00007" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00007">
+        <graphics name="C00007" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="237" y="402" width="8" height="8"/>
+    </entry>
+    <entry id="29" name="path:ppp00195" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp00195">
+        <graphics name="TITLE:Photosynthesis" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="113" y="58" width="145" height="25"/>
+    </entry>
+    <entry id="30" name="cpd:C00080" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00080">
+        <graphics name="C00080" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="210" y="402" width="8" height="8"/>
+    </entry>
+    <entry id="31" name="cpd:C00080" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00080">
+        <graphics name="C00080" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="533" y="124" width="8" height="8"/>
+    </entry>
+    <entry id="32" name="cpd:C00080" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00080">
+        <graphics name="C00080" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="804" y="401" width="8" height="8"/>
+    </entry>
+    <entry id="33" name="cpd:C00080" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00080">
+        <graphics name="C00080" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="413" y="197" width="8" height="8"/>
+    </entry>
+    <entry id="34" name="cpd:C00008" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00008">
+        <graphics name="C00008" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="743" y="66" width="8" height="8"/>
+    </entry>
+    <entry id="35" name="cpd:C00080" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00080">
+        <graphics name="C00080" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="803" y="62" width="8" height="8"/>
+    </entry>
+    <entry id="36" name="cpd:C00002" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00002">
+        <graphics name="C00002" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="854" y="62" width="8" height="8"/>
+    </entry>
+    <entry id="37" name="path:ppp00710" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp00710">
+        <graphics name="Carbon fixation in photosynthetic organisms" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="593" y="53" width="144" height="34"/>
+    </entry>
+    <entry id="38" name="ppp:2546708" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:2546708">
+        <graphics name="petB, PhpapaCp008" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="540" y="510" width="46" height="17"/>
+    </entry>
+    <entry id="39" name="ppp:2546703" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:2546703">
+        <graphics name="petD, PhpapaCp007" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="586" y="510" width="46" height="17"/>
+    </entry>
+    <entry id="40" name="ppp:2546820" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:2546820">
+        <graphics name="petA, PhpapaCp026" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="632" y="510" width="46" height="17"/>
+    </entry>
+    <entry id="41" name="ko:K02636" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02636">
+        <graphics name="K02636" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="678" y="510" width="46" height="17"/>
+    </entry>
+    <entry id="42" name="ko:K02642" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02642">
+        <graphics name="K02642" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="724" y="510" width="46" height="17"/>
+    </entry>
+    <entry id="43" name="ko:K02643" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02643">
+        <graphics name="K02643" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="770" y="510" width="46" height="17"/>
+    </entry>
+    <entry id="44" name="ppp:2546791" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:2546791">
+        <graphics name="petN, PhpapaCp006" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="816" y="510" width="46" height="17"/>
+    </entry>
+    <entry id="45" name="ppp:2546707" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:2546707">
+        <graphics name="petG, PhpapaCp018" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="862" y="510" width="46" height="17"/>
+    </entry>
+    <entry id="46" name="ppp:112272722 ppp:112274486 ppp:112295042" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112272722+ppp:112274486+ppp:112295042">
+        <graphics name="112272722..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="540" y="577" width="46" height="17"/>
+    </entry>
+    <entry id="47" name="ppp:112279978 ppp:112279979 ppp:112281692 ppp:112281755 ppp:112281860 ppp:112288064 ppp:112293045 ppp:112294492 ppp:112294802" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112279978+ppp:112279979+ppp:112281692+ppp:112281755+ppp:112281860+ppp:112288064+ppp:112293045+ppp:112294492+ppp:112294802">
+        <graphics name="112279978..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="592" y="577" width="46" height="17"/>
+    </entry>
+    <entry id="48" name="ppp:112272760 ppp:112286645 ppp:112286667" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112272760+ppp:112286645+ppp:112286667">
+        <graphics name="112272760..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="644" y="577" width="46" height="17"/>
+    </entry>
+    <entry id="49" name="ppp:2546723" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:2546723">
+        <graphics name="psaB, PhpapaCp040" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="150" y="633" width="46" height="17"/>
+    </entry>
+    <entry id="50" name="ppp:2546790" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:2546790">
+        <graphics name="psaC, PhpapaCp076" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="196" y="633" width="46" height="17"/>
+    </entry>
+    <entry id="51" name="ppp:112280092 ppp:112284129 ppp:112290159 ppp:112293225" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112280092+ppp:112284129+ppp:112290159+ppp:112293225">
+        <graphics name="112280092..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="242" y="633" width="46" height="17"/>
+    </entry>
+    <entry id="52" name="ppp:112273668 ppp:112275967 ppp:112277048" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112273668+ppp:112275967+ppp:112277048">
+        <graphics name="112273668..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="288" y="633" width="46" height="17"/>
+    </entry>
+    <entry id="53" name="ppp:112274119 ppp:112275231 ppp:112288221 ppp:112295343" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112274119+ppp:112275231+ppp:112288221+ppp:112295343">
+        <graphics name="112274119..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="334" y="633" width="46" height="17"/>
+    </entry>
+    <entry id="54" name="ppp:112286277 ppp:112292701" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112286277+ppp:112292701">
+        <graphics name="112286277..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="380" y="633" width="46" height="17"/>
+    </entry>
+    <entry id="55" name="ppp:2546754" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:2546754">
+        <graphics name="psaI, PhpapaCp029" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="104" y="650" width="46" height="17"/>
+    </entry>
+    <entry id="56" name="ppp:2546769" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:2546769">
+        <graphics name="psaJ, PhpapaCp017" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="150" y="650" width="46" height="17"/>
+    </entry>
+    <entry id="57" name="ppp:112280125 ppp:112290531" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112280125+ppp:112290531">
+        <graphics name="112280125..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="196" y="650" width="46" height="17"/>
+    </entry>
+    <entry id="58" name="ppp:112278485 ppp:112282532 ppp:112293477" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112278485+ppp:112282532+ppp:112293477">
+        <graphics name="112278485..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="242" y="650" width="46" height="17"/>
+    </entry>
+    <entry id="59" name="ppp:2546793" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:2546793">
+        <graphics name="psaM, PhpapaCp051" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="288" y="650" width="46" height="17"/>
+    </entry>
+    <entry id="60" name="ko:K02701" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02701">
+        <graphics name="K02701" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="334" y="650" width="46" height="17"/>
+    </entry>
+    <entry id="61" name="ppp:2546733" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:2546733">
+        <graphics name="psaA, PhpapaCp039" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="104" y="633" width="46" height="17"/>
+    </entry>
+    <entry id="62" name="ppp:2546811" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:2546811">
+        <graphics name="psbZ, PhpapaCp042" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="150" y="579" width="46" height="17"/>
+    </entry>
+    <entry id="63" name="ppp:2546795" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:2546795">
+        <graphics name="psbT, PhpapaCp011" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="242" y="562" width="46" height="17"/>
+    </entry>
+    <entry id="64" name="ppp:2546798" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:2546798">
+        <graphics name="psbI, PhpapaCp050" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="334" y="545" width="46" height="17"/>
+    </entry>
+    <entry id="65" name="ppp:112277985 ppp:112280608 ppp:112281516 ppp:112290635" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112277985+ppp:112280608+ppp:112281516+ppp:112290635">
+        <graphics name="112277985..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="380" y="545" width="46" height="17"/>
+    </entry>
+    <entry id="66" name="ko:K02719" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02719">
+        <graphics name="K02719" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="288" y="562" width="46" height="17"/>
+    </entry>
+    <entry id="67" name="ko:K02720" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02720">
+        <graphics name="K02720" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="334" y="562" width="46" height="17"/>
+    </entry>
+    <entry id="68" name="ppp:112275174 ppp:112275190 ppp:112295382 ppp:112295383" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112275174+ppp:112275190+ppp:112295382+ppp:112295383">
+        <graphics name="112275174..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="380" y="562" width="46" height="17"/>
+    </entry>
+    <entry id="69" name="ko:K02722" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02722">
+        <graphics name="K02722" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="426" y="562" width="46" height="17"/>
+    </entry>
+    <entry id="70" name="ppp:112276039 ppp:112276417 ppp:112285917" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112276039+ppp:112276417+ppp:112285917">
+        <graphics name="112276039..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="104" y="579" width="46" height="17"/>
+    </entry>
+    <entry id="71" name="ppp:2546702" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:2546702">
+        <graphics name="psbH, PhpapaCp009" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="288" y="545" width="46" height="17"/>
+    </entry>
+    <entry id="72" name="ppp:112280626 ppp:112282949 ppp:112290888" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112280626+ppp:112282949+ppp:112290888">
+        <graphics name="112280626..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="104" y="562" width="46" height="17"/>
+    </entry>
+    <entry id="73" name="ppp:2546781" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:2546781">
+        <graphics name="psbM, PhpapaCp004" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="242" y="545" width="46" height="17"/>
+    </entry>
+    <entry id="74" name="ppp:2546783" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:2546783">
+        <graphics name="psbK, PhpapaCp049" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="196" y="545" width="46" height="17"/>
+    </entry>
+    <entry id="75" name="ppp:2546770" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:2546770">
+        <graphics name="psbJ, PhpapaCp023" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="150" y="545" width="46" height="17"/>
+    </entry>
+    <entry id="76" name="ppp:2546816" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:2546816">
+        <graphics name="psbL, PhpapaCp022" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="104" y="545" width="46" height="17"/>
+    </entry>
+    <entry id="77" name="ppp:2546773" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:2546773">
+        <graphics name="psbF, PhpapaCp021" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="334" y="510" width="46" height="17"/>
+    </entry>
+    <entry id="78" name="ppp:2546812" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:2546812">
+        <graphics name="psbE, PhpapaCp020" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="288" y="510" width="46" height="17"/>
+    </entry>
+    <entry id="79" name="ppp:2546696" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:2546696">
+        <graphics name="psbB, PhpapaCp012" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="242" y="510" width="46" height="17"/>
+    </entry>
+    <entry id="80" name="ppp:2546821" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:2546821">
+        <graphics name="psbC, PhpapaCp043" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="196" y="510" width="46" height="17"/>
+    </entry>
+    <entry id="81" name="ppp:2546710" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:2546710">
+        <graphics name="psbD, PhpapaCp044" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="150" y="510" width="46" height="17"/>
+    </entry>
+    <entry id="82" name="ppp:2546772" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:2546772">
+        <graphics name="psbA, PhpapaCp046" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="104" y="510" width="46" height="17"/>
+    </entry>
+    <entry id="83" name="ppp:112275487 ppp:112275884 ppp:112276635 ppp:112281398 ppp:112282925 ppp:112283476 ppp:112286006 ppp:112289867 ppp:112293016 ppp:2546698 ppp:2546734 ppp:2546752 ppp:2546801 ppp:2546804 ppp:2546806 ppp:3989096" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112275487+ppp:112275884+ppp:112276635+ppp:112281398+ppp:112282925+ppp:112283476+ppp:112286006+ppp:112289867+ppp:112293016+ppp:2546698+ppp:2546734+ppp:2546752+ppp:2546801+ppp:2546804+ppp:2546806+ppp:3989096">
+        <graphics name="112275487..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="804" y="106" width="46" height="17"/>
+    </entry>
+    <entry id="84" name="ppp:112292580" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppp:112292580">
+        <graphics name="112292580" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="380" y="650" width="46" height="17"/>
+    </entry>
+    <entry id="85" name="cpd:C00009" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00009">
+        <graphics name="C00009" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="759" y="66" width="8" height="8"/>
+    </entry>
+</pathway>

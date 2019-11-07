@@ -1,44 +1,768 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<title>Access forbidden!</title>
-<link rev="made" href="mailto:http://www.genome.jp/feedback/" />
-<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
-    body { color: #000000; background-color: #FFFFFF; }
-    a:link { color: #0000CC; }
-    p, address {margin-left: 3em;}
-    span {font-size: smaller;}
-/*]]>*/--></style>
-</head>
-
-<body>
-<h1>Access forbidden!</h1>
-<p>
-
-
-  
-
-    You don't have permission to access the requested object.
-    It is either read-protected or not readable by the server.
-
-  
-
-</p>
-<p>
-If you think this is a server error, please contact
-the <a href="http://www.genome.jp/feedback/">webmaster</a>.
-
-</p>
-
-<h2>Error 403</h2>
-<address>
-  <a href="/">rest.kegg.jp</a><br />
-  
-  <span>Wed Nov  6 23:25:52 2019<br />
-  Apache</span>
-</address>
-</body>
-</html>
-
+<?xml version="1.0"?>
+<!DOCTYPE pathway SYSTEM "http://www.kegg.jp/kegg/xml/KGML_v0.7.2_.dtd">
+<!-- Creation date: Feb 4, 2016 16:04:38 +0900 (GMT+9) -->
+<pathway name="path:yli00970" org="yli" number="00970"
+         title="Aminoacyl-tRNA biosynthesis"
+         image="http://www.kegg.jp/kegg/pathway/yli/yli00970.png"
+         link="http://www.kegg.jp/kegg-bin/show_pathway?yli00970">
+    <entry id="2" name="cpd:C06113" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C06113">
+        <graphics name="C06113" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="337" y="518" width="8" height="8"/>
+    </entry>
+    <entry id="24" name="yli:YALI0A00264g yli:YALI0C10780g" type="gene" reaction="rn:R03656"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli:YALI0A00264g+yli:YALI0C10780g">
+        <graphics name="YALI0A00264g..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="875" y="335" width="46" height="17"/>
+    </entry>
+    <entry id="57" name="path:yli00970" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli00970">
+        <graphics name="TITLE:Aminoacyl-tRNA biosynthesis" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="168" y="58" width="256" height="25"/>
+    </entry>
+    <entry id="58" name="yli:YALI0E04939g yli:YALI0E05005g" type="gene" reaction="rn:R03648"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli:YALI0E04939g+yli:YALI0E05005g">
+        <graphics name="YALI0E04939g..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="271" y="583" width="46" height="17"/>
+    </entry>
+    <entry id="59" name="yli:YALI0E13123g" type="gene" reaction="rn:R03655"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli:YALI0E13123g">
+        <graphics name="YALI0E13123g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="875" y="790" width="46" height="17"/>
+    </entry>
+    <entry id="60" name="yli:YALI0C18535g yli:YALI0D16643g yli:YALI0E22979g" type="gene" reaction="rn:R03660"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli:YALI0C18535g+yli:YALI0D16643g+yli:YALI0E22979g">
+        <graphics name="YALI0C18535g..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="875" y="879" width="46" height="17"/>
+    </entry>
+    <entry id="61" name="yli:YALI0E17985g" type="gene" reaction="rn:R03646"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli:YALI0E17985g">
+        <graphics name="YALI0E17985g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="875" y="611" width="46" height="17"/>
+    </entry>
+    <entry id="62" name="yli:YALI0C03674g" type="gene" reaction="rn:R03652"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli:YALI0C03674g">
+        <graphics name="YALI0C03674g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="271" y="281" width="46" height="17"/>
+    </entry>
+    <entry id="63" name="yli:YALI0D15268g" type="gene" reaction="rn:R03650"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli:YALI0D15268g">
+        <graphics name="YALI0D15268g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="271" y="1076" width="46" height="17"/>
+    </entry>
+    <entry id="64" name="yli:YALI0E14597g" type="gene" reaction="rn:R03654"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli:YALI0E14597g">
+        <graphics name="YALI0E14597g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="271" y="672" width="46" height="17"/>
+    </entry>
+    <entry id="65" name="yli:YALI0D22264g yli:YALI0F26433g" type="gene" reaction="rn:R05577"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli:YALI0D22264g+yli:YALI0F26433g">
+        <graphics name="YALI0D22264g..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="271" y="448" width="46" height="17"/>
+    </entry>
+    <entry id="66" name="yli:YALI0B05918g yli:YALI0F02629g" type="gene" reaction="rn:R03662"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli:YALI0B05918g+yli:YALI0F02629g">
+        <graphics name="YALI0B05918g..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="271" y="850" width="46" height="17"/>
+    </entry>
+    <entry id="67" name="yli:YALI0D03619g yli:YALI0F29843g" type="gene" reaction="rn:R03659"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli:YALI0D03619g+yli:YALI0F29843g">
+        <graphics name="YALI0D03619g..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="271" y="1165" width="46" height="17"/>
+    </entry>
+    <entry id="68" name="yli:YALI0F20218g" type="gene" reaction="rn:R03665"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli:YALI0F20218g">
+        <graphics name="YALI0F20218g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="875" y="157" width="46" height="17"/>
+    </entry>
+    <entry id="69" name="yli:YALI0B04180g" type="gene" reaction="rn:R03038"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli:YALI0B04180g">
+        <graphics name="YALI0B04180g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="271" y="371" width="46" height="17"/>
+    </entry>
+    <entry id="70" name="yli:YALI0D23639g yli:YALI0F16291g" type="gene" reaction="rn:R03658"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli:YALI0D23639g+yli:YALI0F16291g">
+        <graphics name="YALI0D23639g..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="875" y="424" width="46" height="17"/>
+    </entry>
+    <entry id="71" name="yli:YALI0E24607g yli:YALI0F02299g" type="gene" reaction="rn:R03657"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli:YALI0E24607g+yli:YALI0F02299g">
+        <graphics name="YALI0E24607g..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="875" y="246" width="46" height="17"/>
+    </entry>
+    <entry id="72" name="yli:YALI0A09427g yli:YALI0F11231g" type="gene" reaction="rn:R03663"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli:YALI0A09427g+yli:YALI0F11231g">
+        <graphics name="YALI0A09427g..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="271" y="761" width="46" height="17"/>
+    </entry>
+    <entry id="73" name="yli:YALI0B08943g yli:YALI0C18425g" type="gene" reaction="rn:R03664"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli:YALI0B08943g+yli:YALI0C18425g">
+        <graphics name="YALI0B08943g..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="875" y="1057" width="46" height="17"/>
+    </entry>
+    <entry id="74" name="yli:YALI0F06820g" type="gene" reaction="rn:R03940"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli:YALI0F06820g">
+        <graphics name="YALI0F06820g" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="409" y="1165" width="46" height="17"/>
+    </entry>
+    <entry id="75" name="yli:YALI0C15224g yli:YALI0E29139g" type="gene" reaction="rn:R02918"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli:YALI0C15224g+yli:YALI0E29139g">
+        <graphics name="YALI0C15224g..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="875" y="968" width="46" height="17"/>
+    </entry>
+    <entry id="76" name="yli:YALI0D15620g yli:YALI0E05027g" type="gene" reaction="rn:R03661"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli:YALI0D15620g+yli:YALI0E05027g">
+        <graphics name="YALI0D15620g..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="875" y="701" width="46" height="17"/>
+    </entry>
+    <entry id="77" name="yli:YALI0E17919g yli:YALI0E28468g" type="gene" reaction="rn:R05578"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli:YALI0E17919g+yli:YALI0E28468g">
+        <graphics name="YALI0E17919g..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="271" y="146" width="46" height="17"/>
+    </entry>
+    <entry id="78" name="path:yli00290" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli00290">
+        <graphics name="Valine, leucine and isoleucine biosynthesis" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="690" y="246" width="128" height="34"/>
+    </entry>
+    <entry id="79" name="path:yli00270" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli00270">
+        <graphics name="Cysteine and methionine metabolism" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="110" y="1120" width="133" height="34"/>
+    </entry>
+    <entry id="80" name="path:yli00330" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli00330">
+        <graphics name="Arginine and proline metabolism" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="690" y="654" width="116" height="34"/>
+    </entry>
+    <entry id="81" name="path:yli00380" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli00380">
+        <graphics name="Tryptophan metabolism" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="684" y="1056" width="74" height="34"/>
+    </entry>
+    <entry id="82" name="path:yli00250" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli00250">
+        <graphics name="Alanine, aspartate and glutamate metabolism" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="107" y="323" width="127" height="34"/>
+    </entry>
+    <entry id="83" name="path:yli00340" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli00340">
+        <graphics name="Histidine metabolism" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="686" y="789" width="77" height="34"/>
+    </entry>
+    <entry id="84" name="path:yli00400" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli00400">
+        <graphics name="Phenylalanine, tyrosine and tryptophan biosynthesis" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="691" y="925" width="154" height="34"/>
+    </entry>
+    <entry id="85" name="cpd:C02992" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C02992">
+        <graphics name="C02992" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="337" y="760" width="8" height="8"/>
+    </entry>
+    <entry id="86" name="cpd:C02839" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C02839">
+        <graphics name="C02839" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="940" y="967" width="8" height="8"/>
+    </entry>
+    <entry id="87" name="cpd:C00078" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00078">
+        <graphics name="C00078" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="796" y="1056" width="8" height="8"/>
+    </entry>
+    <entry id="88" name="cpd:C03512" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C03512">
+        <graphics name="C03512" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="940" y="1056" width="8" height="8"/>
+    </entry>
+    <entry id="89" name="cpd:C00082" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00082">
+        <graphics name="C00082" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="796" y="967" width="8" height="8"/>
+    </entry>
+    <entry id="90" name="cpd:C00188" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00188">
+        <graphics name="C00188" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="194" y="760" width="8" height="8"/>
+    </entry>
+    <entry id="91" name="cpd:C00123" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00123">
+        <graphics name="C00123" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="796" y="245" width="8" height="8"/>
+    </entry>
+    <entry id="92" name="cpd:C02047" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C02047">
+        <graphics name="C02047" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="940" y="245" width="8" height="8"/>
+    </entry>
+    <entry id="93" name="cpd:C00407" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00407">
+        <graphics name="C00407" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="796" y="334" width="8" height="8"/>
+    </entry>
+    <entry id="94" name="cpd:C03127" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C03127">
+        <graphics name="C03127" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="940" y="334" width="8" height="8"/>
+    </entry>
+    <entry id="95" name="cpd:C00047" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00047">
+        <graphics name="C00047" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="796" y="423" width="8" height="8"/>
+    </entry>
+    <entry id="96" name="cpd:C01931" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C01931">
+        <graphics name="C01931" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="940" y="423" width="8" height="8"/>
+    </entry>
+    <entry id="97" name="cpd:C00041" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00041">
+        <graphics name="C00041" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="194" y="369" width="8" height="8"/>
+    </entry>
+    <entry id="98" name="cpd:C00886" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00886">
+        <graphics name="C00886" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="337" y="369" width="8" height="8"/>
+    </entry>
+    <entry id="99" name="cpd:C00183" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00183">
+        <graphics name="C00183" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="796" y="156" width="8" height="8"/>
+    </entry>
+    <entry id="100" name="cpd:C02554" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C02554">
+        <graphics name="C02554" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="940" y="156" width="8" height="8"/>
+    </entry>
+    <entry id="101" name="cpd:C00073" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00073">
+        <graphics name="C00073" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="194" y="1164" width="8" height="8"/>
+    </entry>
+    <entry id="102" name="cpd:C02430" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C02430">
+        <graphics name="C02430" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="337" y="1164" width="8" height="8"/>
+    </entry>
+    <entry id="103" name="cpd:C00234" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00234">
+        <graphics name="C00234" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="366" y="1132" width="8" height="8"/>
+    </entry>
+    <entry id="104" name="cpd:C00101" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00101">
+        <graphics name="C00101" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="456" y="1198" width="8" height="8"/>
+    </entry>
+    <entry id="105" name="cpd:C03294" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C03294">
+        <graphics name="C03294" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="481" y="1164" width="8" height="8"/>
+    </entry>
+    <entry id="106" name="cpd:C00065" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00065">
+        <graphics name="C00065" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="194" y="928" width="8" height="8"/>
+    </entry>
+    <entry id="107" name="cpd:C02553" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C02553">
+        <graphics name="C02553" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="337" y="849" width="8" height="8"/>
+    </entry>
+    <entry id="108" name="cpd:C00049" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00049">
+        <graphics name="C00049" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="194" y="458" width="8" height="8"/>
+    </entry>
+    <entry id="109" name="cpd:C02984" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C02984">
+        <graphics name="C02984" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="337" y="458" width="8" height="8"/>
+    </entry>
+    <entry id="110" name="cpd:C00037" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00037">
+        <graphics name="C00037" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="194" y="671" width="8" height="8"/>
+    </entry>
+    <entry id="111" name="cpd:C02412" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C02412">
+        <graphics name="C02412" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="337" y="671" width="8" height="8"/>
+    </entry>
+    <entry id="112" name="cpd:C00148" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00148">
+        <graphics name="C00148" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="796" y="700" width="8" height="8"/>
+    </entry>
+    <entry id="113" name="cpd:C02702" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C02702">
+        <graphics name="C02702" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="940" y="700" width="8" height="8"/>
+    </entry>
+    <entry id="114" name="cpd:C00097" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00097">
+        <graphics name="C00097" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="194" y="1075" width="8" height="8"/>
+    </entry>
+    <entry id="115" name="cpd:C03125" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C03125">
+        <graphics name="C03125" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="337" y="1075" width="8" height="8"/>
+    </entry>
+    <entry id="116" name="cpd:C00025" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00025">
+        <graphics name="C00025" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="194" y="156" width="8" height="8"/>
+    </entry>
+    <entry id="117" name="cpd:C02987" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C02987">
+        <graphics name="C02987" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="337" y="156" width="8" height="8"/>
+    </entry>
+    <entry id="118" name="cpd:C00064" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00064">
+        <graphics name="C00064" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="194" y="280" width="8" height="8"/>
+    </entry>
+    <entry id="119" name="cpd:C02282" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C02282">
+        <graphics name="C02282" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="337" y="280" width="8" height="8"/>
+    </entry>
+    <entry id="120" name="cpd:C00062" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00062">
+        <graphics name="C00062" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="796" y="611" width="8" height="8"/>
+    </entry>
+    <entry id="121" name="cpd:C02163" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C02163">
+        <graphics name="C02163" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="940" y="611" width="8" height="8"/>
+    </entry>
+    <entry id="122" name="cpd:C00079" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00079">
+        <graphics name="C00079" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="796" y="878" width="8" height="8"/>
+    </entry>
+    <entry id="123" name="cpd:C03511" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C03511">
+        <graphics name="C03511" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="940" y="878" width="8" height="8"/>
+    </entry>
+    <entry id="124" name="cpd:C00135" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00135">
+        <graphics name="C00135" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="796" y="789" width="8" height="8"/>
+    </entry>
+    <entry id="125" name="cpd:C02988" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C02988">
+        <graphics name="C02988" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="940" y="789" width="8" height="8"/>
+    </entry>
+    <entry id="126" name="cpd:C00152" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00152">
+        <graphics name="C00152" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="194" y="582" width="8" height="8"/>
+    </entry>
+    <entry id="127" name="cpd:C03402" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C03402">
+        <graphics name="C03402" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="337" y="582" width="8" height="8"/>
+    </entry>
+    <entry id="128" name="yli:YALI0B23386g yli:YALI0E09240g yli:YALI0F23441g" type="gene" reaction="rn:R03905"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli:YALI0B23386g+yli:YALI0E09240g+yli:YALI0F23441g">
+        <graphics name="YALI0B23386g..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="338" y="245" width="46" height="17"/>
+    </entry>
+    <entry id="129" name="ko:K09698" type="ortholog" reaction="rn:R03651"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K09698">
+        <graphics name="K09698" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="271" y="217" width="46" height="17"/>
+    </entry>
+    <entry id="130" name="cpd:C06112" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C06112">
+        <graphics name="C06112" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="337" y="216" width="8" height="8"/>
+    </entry>
+    <entry id="131" name="yli:YALI0E09240g yli:YALI0F23441g" type="gene" reaction="rn:R04212"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli:YALI0E09240g+yli:YALI0F23441g">
+        <graphics name="YALI0E09240g..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="337" y="548" width="46" height="17"/>
+    </entry>
+    <entry id="132" name="ko:K09759" type="ortholog" reaction="rn:R03647"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K09759">
+        <graphics name="K09759" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="271" y="518" width="46" height="17"/>
+    </entry>
+    <entry id="133" name="ko:K06868" type="ortholog" reaction="rn:R08577"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K06868">
+        <graphics name="K06868" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="337" y="1037" width="46" height="17"/>
+    </entry>
+    <entry id="134" name="ko:K07587" type="ortholog" reaction="rn:R08576"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K07587">
+        <graphics name="K07587" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="271" y="1011" width="46" height="17"/>
+    </entry>
+    <entry id="135" name="cpd:C17022" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C17022">
+        <graphics name="C17022" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="337" y="1010" width="8" height="8"/>
+    </entry>
+    <entry id="136" name="path:yli00260" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli00260">
+        <graphics name="Glycine, serine and threonine metabolism" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="106" y="826" width="126" height="34"/>
+    </entry>
+    <entry id="137" name="yli:YALI0B05918g yli:YALI0F02629g" type="gene" reaction="rn:R08218"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli:YALI0B05918g+yli:YALI0F02629g">
+        <graphics name="YALI0B05918g..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="271" y="930" width="46" height="17"/>
+    </entry>
+    <entry id="138" name="cpd:C06481" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C06481">
+        <graphics name="C06481" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="337" y="929" width="8" height="8"/>
+    </entry>
+    <entry id="139" name="cpd:C16638" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C16638">
+        <graphics name="C16638" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="437" y="929" width="8" height="8"/>
+    </entry>
+    <entry id="141" name="ko:K10837" type="ortholog" reaction="rn:R08223"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K10837">
+        <graphics name="K10837" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="383" y="929" width="46" height="17"/>
+    </entry>
+    <entry id="142" name="cpd:C06482" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C06482">
+        <graphics name="C06482" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="534" y="929" width="8" height="8"/>
+    </entry>
+    <entry id="144" name="ko:K03341" type="ortholog" reaction="rn:R08224"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K03341">
+        <graphics name="K03341" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="480" y="930" width="46" height="17"/>
+    </entry>
+    <entry id="145" name="ko:K01042" type="ortholog" reaction="rn:R08219"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K01042">
+        <graphics name="K01042" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="435" y="893" width="46" height="17"/>
+    </entry>
+    <entry id="146" name="ko:K11627" type="ortholog" reaction="rn:R08578"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K11627">
+        <graphics name="K11627" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="875" y="523" width="46" height="17"/>
+    </entry>
+    <entry id="147" name="cpd:C16138" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C16138">
+        <graphics name="C16138" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="796" y="522" width="8" height="8"/>
+    </entry>
+    <entry id="148" name="cpd:C17027" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C17027">
+        <graphics name="C17027" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="940" y="522" width="8" height="8"/>
+    </entry>
+    <entry id="149" name="ko:K09698" type="ortholog" reaction="rn:R05578"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K09698">
+        <graphics name="K09698" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="271" y="167" width="46" height="17"/>
+    </entry>
+    <entry id="151" name="ko:K09759" type="ortholog" reaction="rn:R05577"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K09759">
+        <graphics name="K09759" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="271" y="469" width="46" height="17"/>
+    </entry>
+    <entry id="154" name="path:yli00300" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli00300">
+        <graphics name="Lysine biosynthesis" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="691" y="471" width="77" height="34"/>
+    </entry>
+    <entry id="155" name="cpd:C01005" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C01005">
+        <graphics name="C01005" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="192" y="1010" width="8" height="8"/>
+    </entry>
+    <entry id="156" name="yli:YALI0A04081r yli:YALI0A04433r yli:YALI0A05731r yli:YALI0A11957r yli:YALI0A12463r yli:YALI0A17402r yli:YALI0A18084r yli:YALI0B00330r yli:YALI0B08646r yli:YALI0B09405r yli:YALI0B21736r yli:YALI0C01529r yli:YALI0C02079r yli:YALI0C18843r yli:YALI0C20537r yli:YALI0C20845r yli:YALI0C21714r yli:YALI0D03850r yli:YALI0D05423r yli:YALI0D06105r yli:YALI0D26037r yli:YALI0E00352r yli:YALI0E02926r yli:YALI0E12793r yli:YALI0E14861r yli:YALI0E17501r yli:YALI0E18370r yli:YALI0E23881r yli:YALI0E25311r yli:YALI0E26675r yli:YALI0E29799r yli:YALI0F08173r yli:YALI0F21571r yli:YalifMt33" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli:YALI0A04081r+yli:YALI0A04433r+yli:YALI0A05731r+yli:YALI0A11957r+yli:YALI0A12463r+yli:YALI0A17402r+yli:YALI0A18084r+yli:YALI0B00330r+yli:YALI0B08646r+yli:YALI0B09405r+yli:YALI0B21736r+yli:YALI0C01529r+yli:YALI0C02079r+yli:YALI0C18843r+yli:YALI0C20537r+yli:YALI0C20845r+yli:YALI0C21714r+yli:YALI0D03850r+yli:YALI0D05423r+yli:YALI0D06105r+yli:YALI0D26037r+yli:YALI0E00352r+yli:YALI0E02926r+yli:YALI0E12793r+yli:YALI0E14861r+yli:YALI0E17501r+yli:YALI0E18370r+yli:YALI0E23881r+yli:YALI0E25311r+yli:YALI0E26675r+yli:YALI0E29799r+yli:YALI0F08173r+yli:YALI0F21571r+yli:YalifMt33">
+        <graphics name="YALI0A04081r..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="228" y="120" width="46" height="17"/>
+    </entry>
+    <entry id="157" name="yli:YALI0A04015r yli:YALI0A06391r yli:YALI0A11693r yli:YALI0A12947r yli:YALI0A14025r yli:YALI0B07315r yli:YALI0B19272r yli:YALI0C02673r yli:YALI0C04642r yli:YALI0C13640r yli:YALI0C20009r yli:YALI0D03025r yli:YALI0E07007r yli:YALI0E07227r yli:YALI0E28028r yli:YALI0F01276r yli:YALI0F09900r yli:YALI0F29447r yli:YalifMt38" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli:YALI0A04015r+yli:YALI0A06391r+yli:YALI0A11693r+yli:YALI0A12947r+yli:YALI0A14025r+yli:YALI0B07315r+yli:YALI0B19272r+yli:YALI0C02673r+yli:YALI0C04642r+yli:YALI0C13640r+yli:YALI0C20009r+yli:YALI0D03025r+yli:YALI0E07007r+yli:YALI0E07227r+yli:YALI0E28028r+yli:YALI0F01276r+yli:YALI0F09900r+yli:YALI0F29447r+yli:YalifMt38">
+        <graphics name="YALI0A04015r..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="228" y="246" width="46" height="17"/>
+    </entry>
+    <entry id="158" name="yli:YALI0A04763r yli:YALI0A08602r yli:YALI0A11495r yli:YALI0A13123r yli:YALI0A15323r yli:YALI0A17754r yli:YALI0B00176r yli:YALI0C01672r yli:YALI0C01881r yli:YALI0C03157r yli:YALI0C06468r yli:YALI0C12320r yli:YALI0C13376r yli:YALI0C13772r yli:YALI0C17259r yli:YALI0C17721r yli:YALI0D01826r yli:YALI0D13310r yli:YALI0D13420r yli:YALI0D17908r yli:YALI0D24255r yli:YALI0E07403r yli:YALI0E12265r yli:YALI0E22110r yli:YALI0E22528r yli:YALI0E28765r yli:YALI0F04246r yli:YALI0F10263r yli:YALI0F10879r yli:YALI0F12485r yli:YALI0F15301r yli:YALI0F15455r yli:YALI0F19294r yli:YALI0F20064r yli:YALI0F23155r yli:YALI0F23771r yli:YalifMt42" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli:YALI0A04763r+yli:YALI0A08602r+yli:YALI0A11495r+yli:YALI0A13123r+yli:YALI0A15323r+yli:YALI0A17754r+yli:YALI0B00176r+yli:YALI0C01672r+yli:YALI0C01881r+yli:YALI0C03157r+yli:YALI0C06468r+yli:YALI0C12320r+yli:YALI0C13376r+yli:YALI0C13772r+yli:YALI0C17259r+yli:YALI0C17721r+yli:YALI0D01826r+yli:YALI0D13310r+yli:YALI0D13420r+yli:YALI0D17908r+yli:YALI0D24255r+yli:YALI0E07403r+yli:YALI0E12265r+yli:YALI0E22110r+yli:YALI0E22528r+yli:YALI0E28765r+yli:YALI0F04246r+yli:YALI0F10263r+yli:YALI0F10879r+yli:YALI0F12485r+yli:YALI0F15301r+yli:YALI0F15455r+yli:YALI0F19294r+yli:YALI0F20064r+yli:YALI0F23155r+yli:YALI0F23771r+yli:YalifMt42">
+        <graphics name="YALI0A04763r..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="228" y="333" width="46" height="17"/>
+    </entry>
+    <entry id="159" name="yli:YALI0A08283r yli:YALI0A11242r yli:YALI0A13453r yli:YALI0A13717r yli:YALI0A14410r yli:YALI0A16335r yli:YALI0B09185r yli:YALI0B09801r yli:YALI0B11990r yli:YALI0B17578r yli:YALI0C06666r yli:YALI0C08503r yli:YALI0C20163r yli:YALI0D08074r yli:YALI0D10197r yli:YALI0D10351r yli:YALI0D14256r yli:YALI0E08118r yli:YALI0E08712r yli:YALI0E17237r yli:YALI0E19855r yli:YALI0E30041r yli:YALI0E30437r yli:YALI0F16775r yli:YALI0F19932r yli:YALI0F24211r yli:YALI0F25949r yli:YALI0F29403r yli:YalifMt49" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli:YALI0A08283r+yli:YALI0A11242r+yli:YALI0A13453r+yli:YALI0A13717r+yli:YALI0A14410r+yli:YALI0A16335r+yli:YALI0B09185r+yli:YALI0B09801r+yli:YALI0B11990r+yli:YALI0B17578r+yli:YALI0C06666r+yli:YALI0C08503r+yli:YALI0C20163r+yli:YALI0D08074r+yli:YALI0D10197r+yli:YALI0D10351r+yli:YALI0D14256r+yli:YALI0E08118r+yli:YALI0E08712r+yli:YALI0E17237r+yli:YALI0E19855r+yli:YALI0E30041r+yli:YALI0E30437r+yli:YALI0F16775r+yli:YALI0F19932r+yli:YALI0F24211r+yli:YALI0F25949r+yli:YALI0F29403r+yli:YalifMt49">
+        <graphics name="YALI0A08283r..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="228" y="422" width="46" height="17"/>
+    </entry>
+    <entry id="160" name="yli:YALI0A03157r yli:YALI0A04389r yli:YALI0A08822r yli:YALI0A14168r yli:YALI0A15191r yli:YALI0A15664r yli:YALI0B08580r yli:YALI0B19140r yli:YALI0C12078r yli:YALI0C14982r yli:YALI0C17127r yli:YALI0C17699r yli:YALI0C18887r yli:YALI0C19173r yli:YALI0D05115r yli:YALI0D10395r yli:YALI0D13926r yli:YALI0D14806r yli:YALI0D14938r yli:YALI0D15884r yli:YALI0D16533r yli:YALI0D24013r yli:YALI0E11759r yli:YALI0E14278r yli:YALI0E25157r yli:YALI0E25355r yli:YALI0E25564r yli:YALI0E26411r yli:YALI0F15565r yli:YALI0F17094r yli:YALI0F22253r yli:YALI0F24849r yli:YALI0F29733r yli:YalifMt41 yli:YalifMt55" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli:YALI0A03157r+yli:YALI0A04389r+yli:YALI0A08822r+yli:YALI0A14168r+yli:YALI0A15191r+yli:YALI0A15664r+yli:YALI0B08580r+yli:YALI0B19140r+yli:YALI0C12078r+yli:YALI0C14982r+yli:YALI0C17127r+yli:YALI0C17699r+yli:YALI0C18887r+yli:YALI0C19173r+yli:YALI0D05115r+yli:YALI0D10395r+yli:YALI0D13926r+yli:YALI0D14806r+yli:YALI0D14938r+yli:YALI0D15884r+yli:YALI0D16533r+yli:YALI0D24013r+yli:YALI0E11759r+yli:YALI0E14278r+yli:YALI0E25157r+yli:YALI0E25355r+yli:YALI0E25564r+yli:YALI0E26411r+yli:YALI0F15565r+yli:YALI0F17094r+yli:YALI0F22253r+yli:YALI0F24849r+yli:YALI0F29733r+yli:YalifMt41+yli:YalifMt55">
+        <graphics name="YALI0A03157r..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="228" y="814" width="46" height="17"/>
+    </entry>
+    <entry id="161" name="yli:YALI0A03311r yli:YALI0A05093r yli:YALI0A05599r yli:YALI0A06193r yli:YALI0A07293r yli:YALI0A09130r yli:YALI0A15730r yli:YALI0A18854r yli:YALI0B02486r yli:YALI0B05984r yli:YALI0B07139r yli:YALI0B09097r yli:YALI0B18106r yli:YALI0C03740r yli:YALI0C17677r yli:YALI0D09405r yli:YALI0D10439r yli:YALI0D11154r yli:YALI0D12034r yli:YALI0D17358r yli:YALI0E03652r yli:YALI0E22308r yli:YALI0E24871r yli:YALI0E30195r yli:YALI0F03091r yli:YALI0F04994r yli:YALI0F25355r yli:YalifMt32" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli:YALI0A03311r+yli:YALI0A05093r+yli:YALI0A05599r+yli:YALI0A06193r+yli:YALI0A07293r+yli:YALI0A09130r+yli:YALI0A15730r+yli:YALI0A18854r+yli:YALI0B02486r+yli:YALI0B05984r+yli:YALI0B07139r+yli:YALI0B09097r+yli:YALI0B18106r+yli:YALI0C03740r+yli:YALI0C17677r+yli:YALI0D09405r+yli:YALI0D10439r+yli:YALI0D11154r+yli:YALI0D12034r+yli:YALI0D17358r+yli:YALI0E03652r+yli:YALI0E22308r+yli:YALI0E24871r+yli:YALI0E30195r+yli:YALI0F03091r+yli:YALI0F04994r+yli:YALI0F25355r+yli:YalifMt32">
+        <graphics name="YALI0A03311r..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="228" y="725" width="46" height="17"/>
+    </entry>
+    <entry id="162" name="yli:YALI0A01672r yli:YALI0A03267r yli:YALI0A04829r yli:YALI0A05819r yli:YALI0B01936r yli:YALI0B13244r yli:YALI0B17952r yli:YALI0C15961r yli:YALI0E02464r yli:YALI0E08668r yli:YALI0E21263r yli:YALI0F07150r yli:YALI0F16533r yli:YALI0F18986r yli:YALI0F22891r yli:YALI0F24607r yli:YalifMt45" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli:YALI0A01672r+yli:YALI0A03267r+yli:YALI0A04829r+yli:YALI0A05819r+yli:YALI0B01936r+yli:YALI0B13244r+yli:YALI0B17952r+yli:YALI0C15961r+yli:YALI0E02464r+yli:YALI0E08668r+yli:YALI0E21263r+yli:YALI0F07150r+yli:YALI0F16533r+yli:YALI0F18986r+yli:YALI0F22891r+yli:YALI0F24607r+yli:YalifMt45">
+        <graphics name="YALI0A01672r..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="228" y="549" width="46" height="17"/>
+    </entry>
+    <entry id="163" name="yli:YALI0A01914r yli:YALI0A02805r yli:YALI0A04213r yli:YALI0A04565r yli:YALI0A06237r yli:YALI0A07271r yli:YALI0A08976r yli:YALI0A12375r yli:YALI0A12639r yli:YALI0A12771r yli:YALI0A12991r yli:YALI0A17083r yli:YALI0B04664r yli:YALI0B10648r yli:YALI0B13024r yli:YALI0B18832r yli:YALI0C01804r yli:YALI0C03113r yli:YALI0C04752r yli:YALI0C07216r yli:YALI0C09053r yli:YALI0C09416r yli:YALI0C10406r yli:YALI0C11187r yli:YALI0C12298r yli:YALI0C14366r yli:YALI0C17611r yli:YALI0C18931r yli:YALI0C22814r yli:YALI0D13376r yli:YALI0D14014r yli:YALI0E07359r yli:YALI0E08404r yli:YALI0E19833r yli:YALI0E27324r yli:YALI0E30239r yli:YALI0F05368r yli:YALI0F18062r yli:YALI0F26741r yli:YALI0F26939r yli:YALI0F28985r yli:YalifMt47" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli:YALI0A01914r+yli:YALI0A02805r+yli:YALI0A04213r+yli:YALI0A04565r+yli:YALI0A06237r+yli:YALI0A07271r+yli:YALI0A08976r+yli:YALI0A12375r+yli:YALI0A12639r+yli:YALI0A12771r+yli:YALI0A12991r+yli:YALI0A17083r+yli:YALI0B04664r+yli:YALI0B10648r+yli:YALI0B13024r+yli:YALI0B18832r+yli:YALI0C01804r+yli:YALI0C03113r+yli:YALI0C04752r+yli:YALI0C07216r+yli:YALI0C09053r+yli:YALI0C09416r+yli:YALI0C10406r+yli:YALI0C11187r+yli:YALI0C12298r+yli:YALI0C14366r+yli:YALI0C17611r+yli:YALI0C18931r+yli:YALI0C22814r+yli:YALI0D13376r+yli:YALI0D14014r+yli:YALI0E07359r+yli:YALI0E08404r+yli:YALI0E19833r+yli:YALI0E27324r+yli:YALI0E30239r+yli:YALI0F05368r+yli:YALI0F18062r+yli:YALI0F26741r+yli:YALI0F26939r+yli:YALI0F28985r+yli:YalifMt47">
+        <graphics name="YALI0A01914r..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="228" y="635" width="46" height="17"/>
+    </entry>
+    <entry id="164" name="yli:YALI0A12793r yli:YALI0A15862r yli:YALI0A17688r yli:YALI0B04730r yli:YALI0C02013r yli:YALI0C02035r yli:YALI0C02189r yli:YALI0D05225r yli:YalifMt46" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli:YALI0A12793r+yli:YALI0A15862r+yli:YALI0A17688r+yli:YALI0B04730r+yli:YALI0C02013r+yli:YALI0C02035r+yli:YALI0C02189r+yli:YALI0D05225r+yli:YalifMt46">
+        <graphics name="YALI0A12793r..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="228" y="1041" width="46" height="17"/>
+    </entry>
+    <entry id="165" name="yli:YalifMt51" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli:YalifMt51">
+        <graphics name="YalifMt51" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="228" y="892" width="46" height="17"/>
+    </entry>
+    <entry id="166" name="yli:YALI0A04477r yli:YALI0A04543r yli:YALI0A05907r yli:YALI0A07040r yli:YALI0A14091r yli:YALI0A14344r yli:YALI0A15928r yli:YALI0A16676r yli:YALI0B02354r yli:YALI0B03740r yli:YALI0B22022r yli:YALI0B22044r yli:YALI0C00517r yli:YALI0C02739r yli:YALI0D04675r yli:YALI0E01342r yli:YALI0E14421r yli:YALI0E23837r yli:YalifMt34 yli:YalifMt35" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli:YALI0A04477r+yli:YALI0A04543r+yli:YALI0A05907r+yli:YALI0A07040r+yli:YALI0A14091r+yli:YALI0A14344r+yli:YALI0A15928r+yli:YALI0A16676r+yli:YALI0B02354r+yli:YALI0B03740r+yli:YALI0B22022r+yli:YALI0B22044r+yli:YALI0C00517r+yli:YALI0C02739r+yli:YALI0D04675r+yli:YALI0E01342r+yli:YALI0E14421r+yli:YALI0E23837r+yli:YalifMt34+yli:YalifMt35">
+        <graphics name="YALI0A04477r..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="228" y="1128" width="46" height="17"/>
+    </entry>
+    <entry id="167" name="yli:YALI0A01804r yli:YALI0A05863r yli:YALI0A14003r yli:YALI0A14652r yli:YALI0A15994r yli:YALI0A16951r yli:YALI0B04818r yli:YALI0B05016r yli:YALI0B10868r yli:YALI0B15928r yli:YALI0B21802r yli:YALI0B22352r yli:YALI0C02277r yli:YALI0C11990r yli:YALI0C13684r yli:YALI0C14212r yli:YALI0C15631r yli:YALI0C23012r yli:YALI0D04532r yli:YALI0D08008r yli:YALI0D10637r yli:YALI0D16511r yli:YALI0D20746r yli:YALI0D22374r yli:YALI0D23089r yli:YALI0D25300r yli:YALI0E00440r yli:YALI0E19316r yli:YALI0E25289r yli:YALI0E26103r yli:YALI0F06996r yli:YALI0F11451r yli:YALI0F28853r yli:YALI0F29117r" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli:YALI0A01804r+yli:YALI0A05863r+yli:YALI0A14003r+yli:YALI0A14652r+yli:YALI0A15994r+yli:YALI0A16951r+yli:YALI0B04818r+yli:YALI0B05016r+yli:YALI0B10868r+yli:YALI0B15928r+yli:YALI0B21802r+yli:YALI0B22352r+yli:YALI0C02277r+yli:YALI0C11990r+yli:YALI0C13684r+yli:YALI0C14212r+yli:YALI0C15631r+yli:YALI0C23012r+yli:YALI0D04532r+yli:YALI0D08008r+yli:YALI0D10637r+yli:YALI0D16511r+yli:YALI0D20746r+yli:YALI0D22374r+yli:YALI0D23089r+yli:YALI0D25300r+yli:YALI0E00440r+yli:YALI0E19316r+yli:YALI0E25289r+yli:YALI0E26103r+yli:YALI0F06996r+yli:YALI0F11451r+yli:YALI0F28853r+yli:YALI0F29117r">
+        <graphics name="YALI0A01804r..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="833" y="120" width="46" height="17"/>
+    </entry>
+    <entry id="168" name="yli:YALI0A01177r yli:YALI0A01221r yli:YALI0A01287r yli:YALI0A03355r yli:YALI0A06127r yli:YALI0A07150r yli:YALI0A08492r yli:YALI0A12309r yli:YALI0A15510r yli:YALI0A16973r yli:YALI0B00484r yli:YALI0B12650r yli:YALI0C03289r yli:YALI0C03938r yli:YALI0C05423r yli:YALI0C07084r yli:YALI0C07370r yli:YALI0C13266r yli:YALI0C14080r yli:YALI0C14278r yli:YALI0C17743r yli:YALI0C17985r yli:YALI0D03421r yli:YALI0D19690r yli:YALI0E07854r yli:YALI0E08778r yli:YALI0E16082r yli:YALI0E26213r yli:YALI0F01342r yli:YALI0F07403r yli:YALI0F10571r yli:YALI0F16247r yli:YALI0F23331r yli:YALI0F23617r yli:YALI0F24805r yli:YALI0F27115r yli:YALI0F28721r yli:YALI0F29535r yli:YALI0F29579r yli:YALI0F31779r yli:YalifMt36 yli:YalifMt52" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli:YALI0A01177r+yli:YALI0A01221r+yli:YALI0A01287r+yli:YALI0A03355r+yli:YALI0A06127r+yli:YALI0A07150r+yli:YALI0A08492r+yli:YALI0A12309r+yli:YALI0A15510r+yli:YALI0A16973r+yli:YALI0B00484r+yli:YALI0B12650r+yli:YALI0C03289r+yli:YALI0C03938r+yli:YALI0C05423r+yli:YALI0C07084r+yli:YALI0C07370r+yli:YALI0C13266r+yli:YALI0C14080r+yli:YALI0C14278r+yli:YALI0C17743r+yli:YALI0C17985r+yli:YALI0D03421r+yli:YALI0D19690r+yli:YALI0E07854r+yli:YALI0E08778r+yli:YALI0E16082r+yli:YALI0E26213r+yli:YALI0F01342r+yli:YALI0F07403r+yli:YALI0F10571r+yli:YALI0F16247r+yli:YALI0F23331r+yli:YALI0F23617r+yli:YALI0F24805r+yli:YALI0F27115r+yli:YALI0F28721r+yli:YALI0F29535r+yli:YALI0F29579r+yli:YALI0F31779r+yli:YalifMt36+yli:YalifMt52">
+        <graphics name="YALI0A01177r..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="833" y="210" width="46" height="17"/>
+    </entry>
+    <entry id="169" name="yli:YALI0A02739r yli:YALI0A05489r yli:YALI0A05687r yli:YALI0A09218r yli:YALI0A10835r yli:YALI0A13343r yli:YALI0A13409r yli:YALI0A15818r yli:YALI0A17622r yli:YALI0A20229r yli:YALI0B03872r yli:YALI0B19404r yli:YALI0B19932r yli:YALI0C04950r yli:YALI0C11737r yli:YALI0C13046r yli:YALI0C17787r yli:YALI0C19470r yli:YALI0C20581r yli:YALI0E06963r yli:YALI0E12903r yli:YALI0E25245r yli:YALI0E28072r yli:YALI0F10395r yli:YALI0F15499r yli:YALI0F29271r yli:YALI0F32087r yli:YalifMt40" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli:YALI0A02739r+yli:YALI0A05489r+yli:YALI0A05687r+yli:YALI0A09218r+yli:YALI0A10835r+yli:YALI0A13343r+yli:YALI0A13409r+yli:YALI0A15818r+yli:YALI0A17622r+yli:YALI0A20229r+yli:YALI0B03872r+yli:YALI0B19404r+yli:YALI0B19932r+yli:YALI0C04950r+yli:YALI0C11737r+yli:YALI0C13046r+yli:YALI0C17787r+yli:YALI0C19470r+yli:YALI0C20581r+yli:YALI0E06963r+yli:YALI0E12903r+yli:YALI0E25245r+yli:YALI0E28072r+yli:YALI0F10395r+yli:YALI0F15499r+yli:YALI0F29271r+yli:YALI0F32087r+yli:YalifMt40">
+        <graphics name="YALI0A02739r..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="833" y="298" width="46" height="17"/>
+    </entry>
+    <entry id="170" name="yli:YALI0A00715r yli:YALI0A03465r yli:YALI0A05049r yli:YALI0A05621r yli:YALI0A06545r yli:YALI0A07315r yli:YALI0A07469r yli:YALI0A07953r yli:YALI0A12727r yli:YALI0A13761r yli:YALI0A16104r yli:YALI0A16632r yli:YALI0A17710r yli:YALI0B03432r yli:YALI0B03586r yli:YALI0B03806r yli:YALI0B06050r yli:YALI0C04840r yli:YALI0C12683r yli:YALI0C12815r yli:YALI0C15675r yli:YALI0C17149r yli:YALI0C17457r yli:YALI0D01650r yli:YALI0D03201r yli:YALI0D03806r yli:YALI0D14168r yli:YALI0D16555r yli:YALI0E02970r yli:YALI0E08272r yli:YALI0E12749r yli:YALI0E20317r yli:YALI0F04840r yli:YALI0F12419r yli:YALI0F13893r yli:YALI0F22979r yli:YALI0F28237r yli:YALI0F28875r yli:YalifMt39 yli:YalifMt50" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli:YALI0A00715r+yli:YALI0A03465r+yli:YALI0A05049r+yli:YALI0A05621r+yli:YALI0A06545r+yli:YALI0A07315r+yli:YALI0A07469r+yli:YALI0A07953r+yli:YALI0A12727r+yli:YALI0A13761r+yli:YALI0A16104r+yli:YALI0A16632r+yli:YALI0A17710r+yli:YALI0B03432r+yli:YALI0B03586r+yli:YALI0B03806r+yli:YALI0B06050r+yli:YALI0C04840r+yli:YALI0C12683r+yli:YALI0C12815r+yli:YALI0C15675r+yli:YALI0C17149r+yli:YALI0C17457r+yli:YALI0D01650r+yli:YALI0D03201r+yli:YALI0D03806r+yli:YALI0D14168r+yli:YALI0D16555r+yli:YALI0E02970r+yli:YALI0E08272r+yli:YALI0E12749r+yli:YALI0E20317r+yli:YALI0F04840r+yli:YALI0F12419r+yli:YALI0F13893r+yli:YALI0F22979r+yli:YALI0F28237r+yli:YALI0F28875r+yli:YalifMt39+yli:YalifMt50">
+        <graphics name="YALI0A00715r..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="833" y="388" width="46" height="17"/>
+    </entry>
+    <entry id="171" name="ko:K14239" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14239">
+        <graphics name="K14239" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="833" y="489" width="46" height="17"/>
+    </entry>
+    <entry id="172" name="yli:YALI0A00220r yli:YALI0A06303r yli:YALI0A07194r yli:YALI0A07513r yli:YALI0A09152r yli:YALI0A13189r yli:YALI0A16907r yli:YALI0B01496r yli:YALI0B06182r yli:YALI0B06622r yli:YALI0B11110r yli:YALI0B17094r yli:YALI0C09075r yli:YALI0C14850r yli:YALI0D00517r yli:YALI0D04631r yli:YALI0D14696r yli:YALI0D23507r yli:YALI0E04895r yli:YALI0E19096r yli:YALI0E21714r yli:YALI0E22693r yli:YALI0E25509r yli:YALI0E27610r yli:YALI0E28116r yli:YALI0E32923r yli:YALI0F08239r yli:YALI0F25311r yli:YALI0F28787r yli:YALI0F29029r yli:YALI0F29777r yli:YalifMt56" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli:YALI0A00220r+yli:YALI0A06303r+yli:YALI0A07194r+yli:YALI0A07513r+yli:YALI0A09152r+yli:YALI0A13189r+yli:YALI0A16907r+yli:YALI0B01496r+yli:YALI0B06182r+yli:YALI0B06622r+yli:YALI0B11110r+yli:YALI0B17094r+yli:YALI0C09075r+yli:YALI0C14850r+yli:YALI0D00517r+yli:YALI0D04631r+yli:YALI0D14696r+yli:YALI0D23507r+yli:YALI0E04895r+yli:YALI0E19096r+yli:YALI0E21714r+yli:YALI0E22693r+yli:YALI0E25509r+yli:YALI0E27610r+yli:YALI0E28116r+yli:YALI0E32923r+yli:YALI0F08239r+yli:YALI0F25311r+yli:YALI0F28787r+yli:YALI0F29029r+yli:YALI0F29777r+yli:YalifMt56">
+        <graphics name="YALI0A00220r..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="833" y="577" width="46" height="17"/>
+    </entry>
+    <entry id="173" name="yli:YALI0A00462r yli:YALI0A03047r yli:YALI0A07359r yli:YALI0A08690r yli:YALI0A10340r yli:YALI0A12529r yli:YALI0A13805r yli:YALI0A14278r yli:YALI0B03674r yli:YALI0B09911r yli:YALI0B19514r yli:YALI0B21648r yli:YALI0C10164r yli:YALI0C10362r yli:YALI0C13134r yli:YALI0D09559r yli:YALI0D22704r yli:YALI0E06259r yli:YALI0E11231r yli:YALI0E15950r yli:YALI0E17039r yli:YALI0E25377r yli:YALI0E25465r yli:YALI0F10967r yli:YALI0F17930r yli:YALI0F26235r yli:YalifMt53" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli:YALI0A00462r+yli:YALI0A03047r+yli:YALI0A07359r+yli:YALI0A08690r+yli:YALI0A10340r+yli:YALI0A12529r+yli:YALI0A13805r+yli:YALI0A14278r+yli:YALI0B03674r+yli:YALI0B09911r+yli:YALI0B19514r+yli:YALI0B21648r+yli:YALI0C10164r+yli:YALI0C10362r+yli:YALI0C13134r+yli:YALI0D09559r+yli:YALI0D22704r+yli:YALI0E06259r+yli:YALI0E11231r+yli:YALI0E15950r+yli:YALI0E17039r+yli:YALI0E25377r+yli:YALI0E25465r+yli:YALI0F10967r+yli:YALI0F17930r+yli:YALI0F26235r+yli:YalifMt53">
+        <graphics name="YALI0A00462r..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="833" y="664" width="46" height="17"/>
+    </entry>
+    <entry id="174" name="yli:YALI0A04147r yli:YALI0B07469r yli:YALI0B16346r yli:YALI0D14212r yli:YALI0D16621r yli:YALI0D20284r yli:YALI0D22176r yli:YALI0E01716r yli:YALI0E10945r yli:YALI0E10967r yli:YALI0E20075r yli:YALI0F13563r yli:YalifMt48" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli:YALI0A04147r+yli:YALI0B07469r+yli:YALI0B16346r+yli:YALI0D14212r+yli:YALI0D16621r+yli:YALI0D20284r+yli:YALI0D22176r+yli:YALI0E01716r+yli:YALI0E10945r+yli:YALI0E10967r+yli:YALI0E20075r+yli:YALI0F13563r+yli:YalifMt48">
+        <graphics name="YALI0A04147r..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="833" y="753" width="46" height="17"/>
+    </entry>
+    <entry id="175" name="yli:YALI0A04235r yli:YALI0A05445r yli:YALI0A06259r yli:YALI0A11033r yli:YALI0A11363r yli:YALI0A11429r yli:YALI0A13871r yli:YALI0A14113r yli:YALI0B02618r yli:YALI0B13574r yli:YALI0C19514r yli:YALI0D05885r yli:YALI0D14124r yli:YALI0E13816r yli:YALI0E14883r yli:YALI0F04488r yli:YALI0F10329r" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli:YALI0A04235r+yli:YALI0A05445r+yli:YALI0A06259r+yli:YALI0A11033r+yli:YALI0A11363r+yli:YALI0A11429r+yli:YALI0A13871r+yli:YALI0A14113r+yli:YALI0B02618r+yli:YALI0B13574r+yli:YALI0C19514r+yli:YALI0D05885r+yli:YALI0D14124r+yli:YALI0E13816r+yli:YALI0E14883r+yli:YALI0F04488r+yli:YALI0F10329r">
+        <graphics name="YALI0A04235r..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="833" y="843" width="46" height="17"/>
+    </entry>
+    <entry id="176" name="yli:YALI0A03707r yli:YALI0A07909r yli:YALI0A12859r yli:YALI0A15279r yli:YALI0C04994r yli:YALI0C11902r yli:YALI0C13200r yli:YALI0C20493r yli:YALI0D09515r yli:YALI0D13332r yli:YALI0E06303r yli:YALI0E11275r yli:YALI0E22154r yli:YALI0F28941r yli:YalifMt44" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli:YALI0A03707r+yli:YALI0A07909r+yli:YALI0A12859r+yli:YALI0A15279r+yli:YALI0C04994r+yli:YALI0C11902r+yli:YALI0C13200r+yli:YALI0C20493r+yli:YALI0D09515r+yli:YALI0D13332r+yli:YALI0E06303r+yli:YALI0E11275r+yli:YALI0E22154r+yli:YALI0F28941r+yli:YalifMt44">
+        <graphics name="YALI0A03707r..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="833" y="932" width="46" height="17"/>
+    </entry>
+    <entry id="177" name="yli:YALI0A08756r yli:YALI0A13629r yli:YALI0A13959r yli:YALI0A15213r yli:YALI0B20130r yli:YALI0C02123r yli:YALI0C05192r yli:YALI0C18579r yli:YALI0D01848r yli:YALI0E14531r yli:YALI0E21461r yli:YALI0F06930r yli:YALI0F26829r" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?yli:YALI0A08756r+yli:YALI0A13629r+yli:YALI0A13959r+yli:YALI0A15213r+yli:YALI0B20130r+yli:YALI0C02123r+yli:YALI0C05192r+yli:YALI0C18579r+yli:YALI0D01848r+yli:YALI0E14531r+yli:YALI0E21461r+yli:YALI0F06930r+yli:YALI0F26829r">
+        <graphics name="YALI0A08756r..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="833" y="1021" width="46" height="17"/>
+    </entry>
+    <relation entry1="67" entry2="74" type="ECrel">
+        <subtype name="compound" value="102"/>
+    </relation>
+    <relation entry1="24" entry2="78" type="maplink">
+        <subtype name="compound" value="93"/>
+    </relation>
+    <relation entry1="68" entry2="78" type="maplink">
+        <subtype name="compound" value="99"/>
+    </relation>
+    <relation entry1="71" entry2="78" type="maplink">
+        <subtype name="compound" value="91"/>
+    </relation>
+    <relation entry1="63" entry2="79" type="maplink">
+        <subtype name="compound" value="114"/>
+    </relation>
+    <relation entry1="61" entry2="80" type="maplink">
+        <subtype name="compound" value="120"/>
+    </relation>
+    <relation entry1="73" entry2="81" type="maplink">
+        <subtype name="compound" value="87"/>
+    </relation>
+    <relation entry1="59" entry2="83" type="maplink">
+        <subtype name="compound" value="124"/>
+    </relation>
+    <relation entry1="60" entry2="84" type="maplink">
+        <subtype name="compound" value="122"/>
+    </relation>
+    <relation entry1="128" entry2="62" type="ECrel">
+        <subtype name="compound" value="119"/>
+    </relation>
+    <relation entry1="131" entry2="58" type="ECrel">
+        <subtype name="compound" value="127"/>
+    </relation>
+    <relation entry1="136" entry2="72" type="maplink">
+        <subtype name="compound" value="90"/>
+    </relation>
+    <relation entry1="136" entry2="64" type="maplink">
+        <subtype name="compound" value="110"/>
+    </relation>
+    <relation entry1="136" entry2="137" type="maplink">
+        <subtype name="compound" value="106"/>
+    </relation>
+    <relation entry1="136" entry2="66" type="maplink">
+        <subtype name="compound" value="106"/>
+    </relation>
+    <relation entry1="80" entry2="76" type="maplink">
+        <subtype name="compound" value="112"/>
+    </relation>
+    <relation entry1="84" entry2="75" type="maplink">
+        <subtype name="compound" value="89"/>
+    </relation>
+    <relation entry1="154" entry2="70" type="maplink">
+        <subtype name="compound" value="95"/>
+    </relation>
+    <relation entry1="77" entry2="82" type="maplink">
+        <subtype name="compound" value="116"/>
+    </relation>
+    <relation entry1="62" entry2="82" type="maplink">
+        <subtype name="compound" value="118"/>
+    </relation>
+    <relation entry1="69" entry2="82" type="maplink">
+        <subtype name="compound" value="97"/>
+    </relation>
+    <relation entry1="65" entry2="82" type="maplink">
+        <subtype name="compound" value="108"/>
+    </relation>
+    <relation entry1="58" entry2="82" type="maplink">
+        <subtype name="compound" value="126"/>
+    </relation>
+    <relation entry1="79" entry2="67" type="maplink">
+        <subtype name="compound" value="101"/>
+    </relation>
+    <reaction id="58" name="rn:R03648" type="irreversible">
+        <substrate id="126" name="cpd:C00152"/>
+        <product id="127" name="cpd:C03402"/>
+    </reaction>
+    <reaction id="59" name="rn:R03655" type="irreversible">
+        <substrate id="124" name="cpd:C00135"/>
+        <product id="125" name="cpd:C02988"/>
+    </reaction>
+    <reaction id="60" name="rn:R03660" type="irreversible">
+        <substrate id="122" name="cpd:C00079"/>
+        <product id="123" name="cpd:C03511"/>
+    </reaction>
+    <reaction id="61" name="rn:R03646" type="irreversible">
+        <substrate id="120" name="cpd:C00062"/>
+        <product id="121" name="cpd:C02163"/>
+    </reaction>
+    <reaction id="62" name="rn:R03652" type="irreversible">
+        <substrate id="118" name="cpd:C00064"/>
+        <product id="119" name="cpd:C02282"/>
+    </reaction>
+    <reaction id="63" name="rn:R03650" type="irreversible">
+        <substrate id="114" name="cpd:C00097"/>
+        <product id="115" name="cpd:C03125"/>
+    </reaction>
+    <reaction id="64" name="rn:R03654" type="irreversible">
+        <substrate id="110" name="cpd:C00037"/>
+        <product id="111" name="cpd:C02412"/>
+    </reaction>
+    <reaction id="65" name="rn:R05577" type="irreversible">
+        <substrate id="108" name="cpd:C00049"/>
+        <product id="109" name="cpd:C02984"/>
+    </reaction>
+    <reaction id="66" name="rn:R03662" type="irreversible">
+        <substrate id="106" name="cpd:C00065"/>
+        <product id="107" name="cpd:C02553"/>
+    </reaction>
+    <reaction id="67" name="rn:R03659" type="irreversible">
+        <substrate id="101" name="cpd:C00073"/>
+        <product id="102" name="cpd:C02430"/>
+    </reaction>
+    <reaction id="68" name="rn:R03665" type="irreversible">
+        <substrate id="99" name="cpd:C00183"/>
+        <product id="100" name="cpd:C02554"/>
+    </reaction>
+    <reaction id="69" name="rn:R03038" type="irreversible">
+        <substrate id="97" name="cpd:C00041"/>
+        <product id="98" name="cpd:C00886"/>
+    </reaction>
+    <reaction id="70" name="rn:R03658" type="irreversible">
+        <substrate id="95" name="cpd:C00047"/>
+        <product id="96" name="cpd:C01931"/>
+    </reaction>
+    <reaction id="24" name="rn:R03656" type="irreversible">
+        <substrate id="93" name="cpd:C00407"/>
+        <product id="94" name="cpd:C03127"/>
+    </reaction>
+    <reaction id="71" name="rn:R03657" type="irreversible">
+        <substrate id="91" name="cpd:C00123"/>
+        <product id="92" name="cpd:C02047"/>
+    </reaction>
+    <reaction id="72" name="rn:R03663" type="irreversible">
+        <substrate id="90" name="cpd:C00188"/>
+        <product id="85" name="cpd:C02992"/>
+    </reaction>
+    <reaction id="73" name="rn:R03664" type="irreversible">
+        <substrate id="87" name="cpd:C00078"/>
+        <product id="88" name="cpd:C03512"/>
+    </reaction>
+    <reaction id="74" name="rn:R03940" type="irreversible">
+        <substrate id="102" name="cpd:C02430"/>
+        <substrate id="103" name="cpd:C00234"/>
+        <product id="104" name="cpd:C00101"/>
+        <product id="105" name="cpd:C03294"/>
+    </reaction>
+    <reaction id="75" name="rn:R02918" type="irreversible">
+        <substrate id="89" name="cpd:C00082"/>
+        <product id="86" name="cpd:C02839"/>
+    </reaction>
+    <reaction id="76" name="rn:R03661" type="irreversible">
+        <substrate id="112" name="cpd:C00148"/>
+        <product id="113" name="cpd:C02702"/>
+    </reaction>
+    <reaction id="77" name="rn:R05578" type="irreversible">
+        <substrate id="116" name="cpd:C00025"/>
+        <product id="117" name="cpd:C02987"/>
+    </reaction>
+    <reaction id="128" name="rn:R03905" type="irreversible">
+        <substrate id="119" name="cpd:C02282"/>
+        <product id="130" name="cpd:C06112"/>
+    </reaction>
+    <reaction id="131" name="rn:R04212" type="irreversible">
+        <substrate id="127" name="cpd:C03402"/>
+        <product id="2" name="cpd:C06113"/>
+    </reaction>
+    <reaction id="137" name="rn:R08218" type="irreversible">
+        <substrate id="106" name="cpd:C00065"/>
+        <product id="138" name="cpd:C06481"/>
+    </reaction>
+</pathway>
