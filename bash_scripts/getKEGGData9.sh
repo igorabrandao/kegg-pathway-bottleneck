@@ -27,7 +27,7 @@ PATHPWD=$(pwd)
 
 # Organisms list
 declare -a ORG_LIST=(
-  "psu" "psuw" "psd" "lab" "laq" "lcp" "lgu" "lez" "lem" "lmb" "lyt" "lyj" "lum" "lue" "lus" "lug" "thes" "xbc" "fau" "rhd" "rgl" "dji" "dja" "dtx" "dye" "dko" "lrz" "lpy" "xba" "rbd" "vch" "vcf" "vcs" "vce" "vcq" "vcj" "vci" "vco" "vcr" "vcm" "vcl" "vcx" "vcz" "vvu" "vvy" "vvm" "vvl" "vpa" "vpb" "vpk" "vpf" "vph" "vha" "vca" "vag" "vex" "vdb" "vhr" "vna" "vow" "vro" "vsp" "vej" "vfu" "vni" "van" "lag" "vau" "vcy" "vct" "vtu" "vfl" "vmi" "vbr" "vsc" "vga" "vsh" "vqi" "vta" "vaf" "vnl" "vfi" "vfm" "vsa" "awd" "ppr" "pgb" "pds" "gho" "pmai" "saly" "sks" "pae" "paev" "paei" "pau" "pap" "pag" "paf" "pnc"
+  "lcp" "lgu" "lez" "lem" "lmb" "lyt" "lyj" "lum" "lue" "lus" "lug" "thes" "xbc" "fau" "rhd" "rgl" "dji" "dja" "dtx" "dye" "dko" "lrz" "lpy" "xba" "rbd" "vch" "vcf" "vcs" "vce" "vcq" "vcj" "vci" "vco" "vcr" "vcm" "vcl" "vcx" "vcz" "vvu" "vvy" "vvm" "vvl" "vpa" "vpb" "vpk" "vpf" "vph" "vha" "vca" "vag" "vex" "vdb" "vhr" "vna" "vow" "vro" "vsp" "vej" "vfu" "vni" "van" "lag" "vau" "vcy" "vct" "vtu" "vfl" "vmi" "vbr" "vsc" "vga" "vsh" "vqi" "vta" "vaf" "vnl" "vfi" "vfm" "vsa" "awd" "ppr" "pgb" "pds" "gho" "pmai" "saly" "sks" "pae" "paev" "paei" "pau" "pap" "pag" "paf" "pnc"
 )
 
 #==============================================================

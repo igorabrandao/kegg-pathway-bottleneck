@@ -27,7 +27,7 @@ PATHPWD=$(pwd)
 
 # Organisms list
 declare -a ORG_LIST=(
-  "bmv" "bml" "bmn" "bmal" "bmae" "bmaq" "bmai" "bmaf" "bmaz" "bmab" "bps" "bpm" "bpl" "bpd" "bpr" "bpse" "bpsm" "bpsu" "bpsd" "bpz" "bpq" "bpk" "bpsh" "bpsa" "bpso" "but" "bte" "btq" "btj" "btz" "btd" "btv" "bthe" "bthm" "btha" "bthl" "bok" "boc" "buu" "bvi" "bve" "bur" "bcn" "bch" "bcm" "bcj" "bcen" "bcew" "bceo" "bam" "bac" "bmu" "bmj" "bmk" "bmul" "bct" "bced" "bcep" "bdl" "bpyr" "bcon" "bub" "bdf" "blat" "btei" "bsem" "bpsl" "bmec" "bstg" "bstl" "bgl" "bgu" "bug" "bgf" "bgd" "bgo" "byi" "buk" "buo" "bue" "bul" "buq" "bgp" "bpla" "bud" "buz" "bum" "bui" "bxe" "bxb" "bph" "bge" "bpx" "bpy" "bfn" "bcai" "pspw" "para"
+  "bml" "bmn" "bmal" "bmae" "bmaq" "bmai" "bmaf" "bmaz" "bmab" "bps" "bpm" "bpl" "bpd" "bpr" "bpse" "bpsm" "bpsu" "bpsd" "bpz" "bpq" "bpk" "bpsh" "bpsa" "bpso" "but" "bte" "btq" "btj" "btz" "btd" "btv" "bthe" "bthm" "btha" "bthl" "bok" "boc" "buu" "bvi" "bve" "bur" "bcn" "bch" "bcm" "bcj" "bcen" "bcew" "bceo" "bam" "bac" "bmu" "bmj" "bmk" "bmul" "bct" "bced" "bcep" "bdl" "bpyr" "bcon" "bub" "bdf" "blat" "btei" "bsem" "bpsl" "bmec" "bstg" "bstl" "bgl" "bgu" "bug" "bgf" "bgd" "bgo" "byi" "buk" "buo" "bue" "bul" "buq" "bgp" "bpla" "bud" "buz" "bum" "bui" "bxe" "bxb" "bph" "bge" "bpx" "bpy" "bfn" "bcai" "pspw" "para"
 )
 
 #==============================================================

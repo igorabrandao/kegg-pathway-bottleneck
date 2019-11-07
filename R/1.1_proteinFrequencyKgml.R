@@ -87,6 +87,7 @@ getPathwayEnzymeKGML <- function(removeNoise_=TRUE) {
       pathwayData <- current_kgml$nodes[,c('entryID', 'name', 'type', 'reaction')]
 
       # Add the default columns
+      pathwayData$reaction_type <- NA
       pathwayData$org <- reference_pathway
       pathwayData$pathway <- pathway_code
       pathwayData$is_bottleneck <- 0
@@ -117,6 +118,17 @@ getPathwayEnzymeKGML <- function(removeNoise_=TRUE) {
       if (removeNoise_) {
         pathwayData <- removeNoise(pathwayData)
         pathwayGraph <- removeNoise(pathwayGraph)
+      }
+
+      # Assign the reaction type to each node
+      for (idx in 1:nrow(pathwayData)) {
+        for (idx2 in 1:length(current_kgml$reactions$name)) {
+          # Check the position of the current reaction in reactions list
+          if (current_kgml$reactions$name[idx2] %in% pathwayData[idx,]$reaction) {
+            pathwayData[idx,]$reaction_type <- current_kgml$reactions$type[idx2]
+            break()
+          }
+        }
       }
 
       # Get the graph properties
@@ -192,12 +204,10 @@ getPathwayEnzymeKGML <- function(removeNoise_=TRUE) {
       enzyme_present_color <- '#BFFFBF'
       enzyme_missing_color <- '#FFFFFF'
 
-      org_list <- org_list[1:20] # APAGAR
-
       # Loop 02: Run through all organisms that have the current pathway
       lapply(org_list, function(org) {
         # Status message
-        printMessage(paste0("PROCESSING ", org, " SPECIE [", org_index, " OF ", available_orgs, "]"))
+        printMessage(paste0("PROCESSING ", org, " SPECIE FOR PATHWAY", pathway_code," [", org_index, " OF ", available_orgs, "]"))
 
         tryCatch({
           # Get the organism kgml file

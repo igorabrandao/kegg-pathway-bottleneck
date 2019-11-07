@@ -27,7 +27,7 @@ PATHPWD=$(pwd)
 
 # Organisms list
 declare -a ORG_LIST=(
-  "pnr" "pand" "plg" "hyf" "lmir" "mcys" "bpe" "bpc" "bper" "bpet" "bpeu" "bpa" "bpar" "bbr" "bbm" "bbh" "bbx" "bpt" "bav" "bho" "bhm" "bhz" "btrm" "bbro" "bfz" "bpdz" "boh" "bgm" "boz" "boj" "axy" "axo" "axn" "axx" "adt" "ais" "asw" "achr" "achb" "teq" "tea" "teg" "tas" "tat" "put" "pus" "aka" "amim" "cdn" "bpsi" "afa" "afq" "aaqu" "phn" "odi" "our" "pig" "pacr" "kgy" "rfr" "rsb" "rac" "rhy" "rhf" "rhg" "pol" "pna" "pos" "aav" "ajs" "dia" "aaa" "ack" "acra" "acid" "acip" "acin" "acis" "acio" "vei" "dac" "del" "dts" "dhk" "vap" "vpe" "vpd" "vaa" "vbo" "vam" "ctt" "ctes" "cke" "cser" "cof" "adn" "adk" "rta"
+  "pand" "plg" "hyf" "lmir" "mcys" "bpe" "bpc" "bper" "bpet" "bpeu" "bpa" "bpar" "bbr" "bbm" "bbh" "bbx" "bpt" "bav" "bho" "bhm" "bhz" "btrm" "bbro" "bfz" "bpdz" "boh" "bgm" "boz" "boj" "axy" "axo" "axn" "axx" "adt" "ais" "asw" "achr" "achb" "teq" "tea" "teg" "tas" "tat" "put" "pus" "aka" "amim" "cdn" "bpsi" "afa" "afq" "aaqu" "phn" "odi" "our" "pig" "pacr" "kgy" "rfr" "rsb" "rac" "rhy" "rhf" "rhg" "pol" "pna" "pos" "aav" "ajs" "dia" "aaa" "ack" "acra" "acid" "acip" "acin" "acis" "acio" "vei" "dac" "del" "dts" "dhk" "vap" "vpe" "vpd" "vaa" "vbo" "vam" "ctt" "ctes" "cke" "cser" "cof" "adn" "adk" "rta"
 )
 
 #==============================================================

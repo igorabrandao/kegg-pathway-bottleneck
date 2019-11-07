@@ -27,7 +27,7 @@ PATHPWD=$(pwd)
 
 # Organisms list
 declare -a ORG_LIST=(
-  "sur" "age" "mbd" "cfus" "vin" "scl" "scu" "ccro" "samy" "llu" "mrm" "hoh" "sat" "dao" "dti" "sfu" "dax" "dbr" "hmr" "dav" "bsed" "bba" "bbat" "bbw" "bbac" "bex" "bdq" "bmx" "hax" "bsto" "sbf" "rpr" "rpo" "rpw" "rpz" "rpg" "rps" "rpv" "rpq" "rpl" "rpn" "rty" "rtt" "rtb" "rcm" "rcc" "rbe" "rbo" "rco" "rfe" "rak" "rri" "rrj" "rra" "rrc" "rrh" "rrb" "rrn" "rrp" "rrm" "rrr" "rms" "rmi" "rpk" "raf" "rhe" "rja" "rsv" "rsw" "rph" "rau" "rmo" "rpp" "rre" "ram" "rab" "rmc" "ric" "ots" "ott" "ptc" "wol" "wri" "wen" "wed" "wpi" "wbm" "woo" "wcl" "weo" "wpp" "ama" "amf" "amw" "amp" "acn" "aph" "apy" "apd" "apha" "aoh" "eru" "erw" "erg" "ecn" "ech" "echa" "echj" "echl" "echs" "echv" "echw" "echp" "emr" "ehh" "nse" "nri" "nhm" "mmn" "fso" "rbt" "ren" "paca" "caq" "naf" "eaa" "mlo" 
+  "bsto" "sbf" "rpr" "rpo" "rpw" "rpz" "rpg" "rps" "rpv" "rpq" "rpl" "rpn" "rty" "rtt" "rtb" "rcm" "rcc" "rbe" "rbo" "rco" "rfe" "rak" "rri" "rrj" "rra" "rrc" "rrh" "rrb" "rrn" "rrp" "rrm" "rrr" "rms" "rmi" "rpk" "raf" "rhe" "rja" "rsv" "rsw" "rph" "rau" "rmo" "rpp" "rre" "ram" "rab" "rmc" "ric" "ots" "ott" "ptc" "wol" "wri" "wen" "wed" "wpi" "wbm" "woo" "wcl" "weo" "wpp" "ama" "amf" "amw" "amp" "acn" "aph" "apy" "apd" "apha" "aoh" "eru" "erw" "erg" "ecn" "ech" "echa" "echj" "echl" "echs" "echv" "echw" "echp" "emr" "ehh" "nse" "nri" "nhm" "mmn" "fso" "rbt" "ren" "paca" "caq" "naf" "eaa" "mlo" 
 )
 
 #==============================================================

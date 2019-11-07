@@ -27,7 +27,7 @@ PATHPWD=$(pwd)
 
 # Organisms list
 declare -a ORG_LIST=(
-  "ppt" "ppb" "ppi" "ppx" "ppuh" "pput" "ppun" "ppud" "pfv" "pmon" "pmot" "pmos" "ppj" "por" "pst" "psb" "psyr" "psp" "pamg" "pci" "pavl" "pfl" "pprc" "ppro" "pfo" "pfs" "pfe" "pfc" "pfn" "ppz" "pfb" "pman" "ptv" "pcg" "pvr" "pazo" "poi" "pfw" "pff" "pfx" "pen" "psa" "psz" "psr" "psc" "psj" "psh" "pstu" "pstt" "pbm" "pba" "pbc" "ppuu" "pdr" "psv" "psk" "pkc" "pch" "pcz" "pcp" "pfz" "plq" "palk" "prh" "psw" "ppv" "pses" "psem" "psec" "ppsy" "psos" "pkr" "pfk" "panr" "ppsl" "pset" "psil" "pym" "pade" "psed" "avn" "avl" "avd" "acx" "pbb" "par" "pcr" "prw" "pso" "pur" "pali" "pspg" "psyg" "psyc"
+  "ppuh" "pput" "ppun" "ppud" "pfv" "pmon" "pmot" "pmos" "ppj" "por" "pst" "psb" "psyr" "psp" "pamg" "pci" "pavl" "pfl" "pprc" "ppro" "pfo" "pfs" "pfe" "pfc" "pfn" "ppz" "pfb" "pman" "ptv" "pcg" "pvr" "pazo" "poi" "pfw" "pff" "pfx" "pen" "psa" "psz" "psr" "psc" "psj" "psh" "pstu" "pstt" "pbm" "pba" "pbc" "ppuu" "pdr" "psv" "psk" "pkc" "pch" "pcz" "pcp" "pfz" "plq" "palk" "prh" "psw" "ppv" "pses" "psem" "psec" "ppsy" "psos" "pkr" "pfk" "panr" "ppsl" "pset" "psil" "pym" "pade" "psed" "avn" "avl" "avd" "acx" "pbb" "par" "pcr" "prw" "pso" "pur" "pali" "pspg" "psyg" "psyc"
 )
 
 #==============================================================

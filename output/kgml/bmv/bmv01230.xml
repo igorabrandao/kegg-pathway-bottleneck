@@ -1,44 +1,143 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<title>Access forbidden!</title>
-<link rev="made" href="mailto:http://www.genome.jp/feedback/" />
-<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
-    body { color: #000000; background-color: #FFFFFF; }
-    a:link { color: #0000CC; }
-    p, address {margin-left: 3em;}
-    span {font-size: smaller;}
-/*]]>*/--></style>
-</head>
-
-<body>
-<h1>Access forbidden!</h1>
-<p>
-
-
-  
-
-    You don't have permission to access the requested object.
-    It is either read-protected or not readable by the server.
-
-  
-
-</p>
-<p>
-If you think this is a server error, please contact
-the <a href="http://www.genome.jp/feedback/">webmaster</a>.
-
-</p>
-
-<h2>Error 403</h2>
-<address>
-  <a href="/">rest.kegg.jp</a><br />
-  
-  <span>Wed Nov  6 22:39:00 2019<br />
-  Apache</span>
-</address>
-</body>
-</html>
-
+<?xml version="1.0"?>
+<!DOCTYPE pathway SYSTEM "http://www.kegg.jp/kegg/xml/KGML_v0.7.2_.dtd">
+<!-- Creation date: Feb 1, 2019 13:50:20 +0900 (GMT+9) -->
+<pathway name="path:bmv01230" org="bmv" number="01230"
+         title="Biosynthesis of amino acids"
+         image="http://www.kegg.jp/kegg/pathway/bmv/bmv01230.png"
+         link="http://www.kegg.jp/kegg-bin/show_pathway?bmv01230">
+    <entry id="2" name="cpd:C04390" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C04390">
+        <graphics name="C04390" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="946" y="817" width="8" height="8"/>
+    </entry>
+    <entry id="3" name="cpd:C04002" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C04002">
+        <graphics name="C04002" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="380" y="1064" width="8" height="8"/>
+    </entry>
+    <entry id="4" name="path:bmv01230" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bmv01230">
+        <graphics name="TITLE:Biosynthesis of amino acids" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="165" y="58" width="249" height="25"/>
+    </entry>
+    <entry id="5" name="cpd:C00118" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00118">
+        <graphics name="C00118" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="347" y="251" width="8" height="8"/>
+    </entry>
+    <entry id="6" name="cpd:C00111" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00111">
+        <graphics name="C00111" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="284" y="251" width="8" height="8"/>
+    </entry>
+    <entry id="7" name="cpd:C00236" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00236">
+        <graphics name="C00236" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="347" y="309" width="8" height="8"/>
+    </entry>
+    <entry id="8" name="bmv:BMASAVP1_A1127" type="gene" reaction="rn:R01015"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bmv:BMASAVP1_A1127">
+        <graphics name="tpiA" fgcolor="#66CC66" bgcolor="#FFFFFF"
+             type="line" coords="290,251,340,251"/>
+    </entry>
+    <entry id="9" name="cpd:C00197" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00197">
+        <graphics name="C00197" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="347" y="367" width="8" height="8"/>
+    </entry>
+    <entry id="10" name="cpd:C00631" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00631">
+        <graphics name="C00631" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="347" y="425" width="8" height="8"/>
+    </entry>
+    <entry id="11" name="cpd:C00074" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00074">
+        <graphics name="C00074" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="347" y="483" width="8" height="8"/>
+    </entry>
+    <entry id="12" name="cpd:C00022" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00022">
+        <graphics name="C00022" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="347" y="540" width="8" height="8"/>
+    </entry>
+    <entry id="13" name="bmv:BMASAVP1_A0388" type="gene" reaction="rn:R01061 rn:R01063"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bmv:BMASAVP1_A0388">
+        <graphics name="gap" fgcolor="#66CC66" bgcolor="#FFFFFF"
+             type="line" coords="347,258,347,303"/>
+    </entry>
+    <entry id="14" name="bmv:BMASAVP1_A0591" type="gene" reaction="rn:R01512"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bmv:BMASAVP1_A0591">
+        <graphics name="pgk" fgcolor="#66CC66" bgcolor="#FFFFFF"
+             type="line" coords="347,316,347,361"/>
+    </entry>
+    <entry id="15" name="bmv:BMASAVP1_A0181 bmv:BMASAVP1_A0263" type="gene" reaction="rn:R01518"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bmv:BMASAVP1_A0181+bmv:BMASAVP1_A0263">
+        <graphics name="gpmA..." fgcolor="#66CC66" bgcolor="#FFFFFF"
+             type="line" coords="347,374,347,419"/>
+    </entry>
+    <entry id="16" name="bmv:BMASAVP1_A2193" type="gene" reaction="rn:R00658"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bmv:BMASAVP1_A2193">
+        <graphics name="eno" fgcolor="#66CC66" bgcolor="#FFFFFF"
+             type="line" coords="347,432,347,477"/>
+    </entry>
+    <entry id="17" name="bmv:BMASAVP1_A0593" type="gene" reaction="rn:R00200"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bmv:BMASAVP1_A0593">
+        <graphics name="pyk" fgcolor="#66CC66" bgcolor="#FFFFFF"
+             type="line" coords="347,489,347,534"/>
+    </entry>
+    <entry id="18" name="cpd:C05378" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C05378">
+        <graphics name="C05378" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="347" y="193" width="8" height="8"/>
+    </entry>
+    <entry id="19" name="cpd:C05345" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C05345">
+        <graphics name="C05345" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="347" y="135" width="8" height="8"/>
+    </entry>
+    <entry id="20" name="bmv:BMASAVP1_A0594" type="gene" reaction="rn:R01070"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bmv:BMASAVP1_A0594">
+        <graphics name="cbbA" fgcolor="#66CC66" bgcolor="#FFFFFF"
+             type="line" coords="347,210,347,213,347,213,347,215,346,216,346,218,345,219,343,220,342,221,341,221,339,222,338,222,338,222,293,222,293,222,291,222,290,223,288,223,287,224,286,225,285,226,285,228,284,229,284,231,284,231,284,245"/>
+        <graphics name="cbbA" fgcolor="#66CC66" bgcolor="#FFFFFF"
+             type="line" coords="347,200,347,245"/>
+    </entry>
+    <entry id="22" name="bmv:BMASAVP1_1282" type="gene" reaction="rn:R04779"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bmv:BMASAVP1_1282">
+        <graphics name="pfk" fgcolor="#66CC66" bgcolor="#FFFFFF"
+             type="line" coords="347,142,347,187"/>
+    </entry>
+    <entry id="23" name="bmv:BMASAVP1_A0389 bmv:BMASAVP1_A2130 bmv:BMASAVP1_A2131" type="gene" reaction="rn:R01830"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bmv:BMASAVP1_A0389+bmv:BMASAVP1_A2130+bmv:BMASAVP1_A2131">
+        <graphics name="tkt..." fgcolor="#66CC66" bgcolor="#FFFFFF"
+             type="line" coords="353,135,403,135"/>
+        <graphics name="tkt..." fgcolor="#66CC66" bgcolor="#FFFFFF"
+             type="line" coords="379,134,381,134,381,134,383,134,384,135,386,135,387,136,388,137,389,138,389,140,390,141,390,143,390,143,390,187"/>
+    </entry>
+    <entry id="25" name="cpd:C00231" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00231">
+        <graphics name="C00231" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="410" y="135" width="8" height="8"/>
+    </entry>
+    <entry id="26" name="cpd:C00199" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00199">
+        <graphics name="C00199" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="473" y="135" width="8" height="8"/>
+    </entry>
+    <entry id="27" name="cpd:C00117" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00117">
+        <graphics name="C00117" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="536" y="135" width="8" height="8"/>
+    </entry>
+    <entry id="28" name="cpd:C00119" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00119">
+        <graphics name="C00119" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="599" y="135" width="8" height="8"/>
+    </entry>
+    <entry id="29" name="bmv:BMASAVP1_0642" type="gene" reaction="rn:R01529"
+        link="http://www.kegg.jp/dbget-bin/www_bget?bmv:BMASAVP1_0642">
+        <graphics name="rpe" fgcolor="#66CC66" bgcolor="#FFFFFF"
+             type="line" coords="416,135,466,135"/>
+    </entry>
+    <entry id="30" name="bmv:BMASAVP1_0813 bmv:BMASAVP1_A1743" type="gene" reaction="rn:R01056"
+        link="http://www.kegg.jp/dbget
