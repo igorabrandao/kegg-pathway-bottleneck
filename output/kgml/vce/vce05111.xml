@@ -1,44 +1,614 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<title>Access forbidden!</title>
-<link rev="made" href="mailto:http://www.genome.jp/feedback/" />
-<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
-    body { color: #000000; background-color: #FFFFFF; }
-    a:link { color: #0000CC; }
-    p, address {margin-left: 3em;}
-    span {font-size: smaller;}
-/*]]>*/--></style>
-</head>
-
-<body>
-<h1>Access forbidden!</h1>
-<p>
-
-
-  
-
-    You don't have permission to access the requested object.
-    It is either read-protected or not readable by the server.
-
-  
-
-</p>
-<p>
-If you think this is a server error, please contact
-the <a href="http://www.genome.jp/feedback/">webmaster</a>.
-
-</p>
-
-<h2>Error 403</h2>
-<address>
-  <a href="/">rest.kegg.jp</a><br />
-  
-  <span>Wed Nov  6 20:02:49 2019<br />
-  Apache</span>
-</address>
-</body>
-</html>
-
+<?xml version="1.0"?>
+<!DOCTYPE pathway SYSTEM "http://www.kegg.jp/kegg/xml/KGML_v0.7.2_.dtd">
+<!-- Creation date: Nov 11, 2016 10:44:29 +0900 (GMT+9) -->
+<pathway name="path:vce05111" org="vce" number="05111"
+         title="Biofilm formation - Vibrio cholerae"
+         image="http://www.kegg.jp/kegg/pathway/vce/vce05111.png"
+         link="http://www.kegg.jp/kegg-bin/show_pathway?vce05111">
+    <entry id="1" name="vce:Vch1786_I2287" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I2287">
+        <graphics name="cyaA" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="268" y="688" width="46" height="17"/>
+    </entry>
+    <entry id="2" name="cpd:C00575" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00575">
+        <graphics name="C00575" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="353" y="687" width="8" height="8"/>
+    </entry>
+    <entry id="3" name="vce:Vch1786_I2109" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I2109">
+        <graphics name="Vch1786_I2109" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="438" y="688" width="46" height="17"/>
+    </entry>
+    <entry id="4" name="path:vce05111" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce05111">
+        <graphics name="TITLE:Biofilm formation - Vibrio cholerae" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="206" y="58" width="332" height="25"/>
+    </entry>
+    <entry id="5" name="vce:Vch1786_I1945" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I1945">
+        <graphics name="Vch1786_I1945" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="268" y="326" width="46" height="17"/>
+    </entry>
+    <entry id="6" name="vce:Vch1786_I0717" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I0717">
+        <graphics name="Vch1786_I0717" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="339" y="326" width="46" height="17"/>
+    </entry>
+    <entry id="7" name="ko:K18515" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K18515">
+        <graphics name="K18515" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="414" y="326" width="46" height="17"/>
+    </entry>
+    <entry id="8" name="vce:Vch1786_I2853" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I2853">
+        <graphics name="csrA" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="415" y="382" width="46" height="17"/>
+    </entry>
+    <entry id="9" name="vce:Vch1786_I1777" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I1777">
+        <graphics name="Vch1786_I1777" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="421" y="845" width="46" height="17"/>
+    </entry>
+    <entry id="10" name="vce:Vch1786_I0877" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I0877">
+        <graphics name="Vch1786_I0877" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="470" y="845" width="46" height="17"/>
+    </entry>
+    <entry id="11" name="vce:Vch1786_II0624" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_II0624">
+        <graphics name="Vch1786_II0624" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="421" y="864" width="46" height="17"/>
+    </entry>
+    <entry id="12" name="vce:Vch1786_I0608" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I0608">
+        <graphics name="Vch1786_I0608" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="470" y="807" width="46" height="17"/>
+    </entry>
+    <entry id="13" name="vce:Vch1786_I0570" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I0570">
+        <graphics name="Vch1786_I0570" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="470" y="826" width="46" height="17"/>
+    </entry>
+    <entry id="14" name="vce:Vch1786_II0476" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_II0476">
+        <graphics name="Vch1786_II0476" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="446" y="919" width="46" height="17"/>
+    </entry>
+    <entry id="15" name="vce:Vch1786_I1090" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I1090">
+        <graphics name="Vch1786_I1090" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="421" y="807" width="46" height="17"/>
+    </entry>
+    <entry id="16" name="vce:Vch1786_II0868" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_II0868">
+        <graphics name="Vch1786_II0868" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="421" y="826" width="46" height="17"/>
+    </entry>
+    <entry id="17" name="cpd:C16463" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C16463">
+        <graphics name="C16463" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="495" y="896" width="8" height="8"/>
+    </entry>
+    <entry id="18" name="cpd:C00044" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00044">
+        <graphics name="C00044" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="495" y="785" width="8" height="8"/>
+    </entry>
+    <entry id="19" name="cpd:C18076" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C18076">
+        <graphics name="C18076" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="495" y="1007" width="8" height="8"/>
+    </entry>
+    <entry id="20" name="vce:Vch1786_I2025" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I2025">
+        <graphics name="rpoN" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="447" y="179" width="46" height="17"/>
+    </entry>
+    <entry id="21" name="vce:Vch1786_I1628" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I1628">
+        <graphics name="flrA" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="447" y="148" width="46" height="17"/>
+    </entry>
+    <entry id="22" name="vce:Vch1786_I0525" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I0525">
+        <graphics name="Vch1786_I0525" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="414" y="554" width="46" height="17"/>
+    </entry>
+    <entry id="23" name="vce:Vch1786_II0422" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_II0422">
+        <graphics name="luxP" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="242" y="551" width="46" height="17"/>
+    </entry>
+    <entry id="24" name="vce:Vch1786_II0213" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_II0213">
+        <graphics name="Vch1786_II0213" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="329" y="609" width="46" height="17"/>
+    </entry>
+    <entry id="25" name="vce:Vch1786_II0421" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_II0421">
+        <graphics name="luxQ" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="268" y="534" width="46" height="17"/>
+    </entry>
+    <entry id="26" name="cpd:C16640" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C16640">
+        <graphics name="C16640" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="199" y="595" width="8" height="8"/>
+    </entry>
+    <entry id="27" name="path:vce02040" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce02040">
+        <graphics name="Flagellar assembly" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="859" y="105" width="126" height="25"/>
+    </entry>
+    <entry id="28" name="vce:Vch1786_I1627" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I1627">
+        <graphics name="flrB" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="545" y="130" width="46" height="17"/>
+    </entry>
+    <entry id="29" name="vce:Vch1786_II0554" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_II0554">
+        <graphics name="hap" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1085" y="744" width="46" height="17"/>
+    </entry>
+    <entry id="30" name="vce:Vch1786_I1559" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I1559">
+        <graphics name="fliA" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="591" y="225" width="46" height="17"/>
+    </entry>
+    <entry id="31" name="vce:Vch1786_I2840" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I2840">
+        <graphics name="rpoS" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="496" y="260" width="46" height="17"/>
+    </entry>
+    <entry id="32" name="vce:Vch1786_I0526" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I0526">
+        <graphics name="luxU" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="342" y="554" width="46" height="17"/>
+    </entry>
+    <entry id="33" name="vce:Vch1786_I1626" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I1626">
+        <graphics name="flrC" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="591" y="164" width="46" height="17"/>
+    </entry>
+    <entry id="34" name="vce:Vch1786_II0212" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_II0212">
+        <graphics name="luxN" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="268" y="574" width="46" height="17"/>
+    </entry>
+    <entry id="35" name="cpd:C16421" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C16421">
+        <graphics name="C16421" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="199" y="507" width="8" height="8"/>
+    </entry>
+    <entry id="36" name="vce:Vch1786_I2870" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I2870">
+        <graphics name="luxS" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="329" y="507" width="46" height="17"/>
+    </entry>
+    <entry id="37" name="ko:K15851" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K15851">
+        <graphics name="K15851" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="514" y="554" width="46" height="17"/>
+    </entry>
+    <entry id="38" name="vce:Vch1786_I1946" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I1946">
+        <graphics name="vpvC" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="470" y="864" width="46" height="17"/>
+    </entry>
+    <entry id="39" name="vce:Vch1786_I0063" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I0063">
+        <graphics name="Vch1786_I0063" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="421" y="976" width="46" height="17"/>
+    </entry>
+    <entry id="40" name="vce:Vch1786_I0206" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I0206">
+        <graphics name="mbaA" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="470" y="976" width="46" height="17"/>
+    </entry>
+    <entry id="41" name="vce:Vch1786_I1150" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I1150">
+        <graphics name="vieA" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="470" y="938" width="46" height="17"/>
+    </entry>
+    <entry id="42" name="vce:Vch1786_I2279" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I2279">
+        <graphics name="Vch1786_I2279" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="470" y="957" width="46" height="17"/>
+    </entry>
+    <entry id="43" name="vce:Vch1786_I1089" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I1089">
+        <graphics name="Vch1786_I1089" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="421" y="938" width="46" height="17"/>
+    </entry>
+    <entry id="44" name="vce:Vch1786_I2272" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I2272">
+        <graphics name="Vch1786_I2272" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="421" y="957" width="46" height="17"/>
+    </entry>
+    <entry id="45" name="vce:Vch1786_I2575" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I2575">
+        <graphics name="fis" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="459" y="583" width="46" height="17"/>
+    </entry>
+    <entry id="46" name="path:vce02024" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce02024">
+        <graphics name="Quorum sensing" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="295" y="462" width="102" height="23"/>
+    </entry>
+    <entry id="47" name="vce:Vch1786_I2895" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I2895">
+        <graphics name="Vch1786_I2895" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="707" y="745" width="46" height="17"/>
+    </entry>
+    <entry id="48" name="vce:Vch1786_I2649" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I2649">
+        <graphics name="hfq" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="533" y="506" width="46" height="17"/>
+    </entry>
+    <entry id="49" name="vce:Vch1786_I2143" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I2143">
+        <graphics name="Vch1786_I2143" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="707" y="555" width="46" height="17"/>
+    </entry>
+    <entry id="50" name="vce:Vch1786_I0167" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I0167">
+        <graphics name="Vch1786_I0167" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="869" y="555" width="46" height="17"/>
+    </entry>
+    <entry id="51" name="vce:Vch1786_II0639" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_II0639">
+        <graphics name="Vch1786_II0639" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="869" y="678" width="46" height="17"/>
+    </entry>
+    <entry id="52" name="vce:Vch1786_I1379" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I1379">
+        <graphics name="Vch1786_I1379" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1085" y="638" width="46" height="17"/>
+    </entry>
+    <entry id="53" name="vce:Vch1786_I0436" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I0436">
+        <graphics name="Vch1786_I0436" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1085" y="657" width="46" height="17"/>
+    </entry>
+    <entry id="54" name="vce:Vch1786_I0434" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I0434">
+        <graphics name="Vch1786_I0434" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1085" y="678" width="46" height="17"/>
+    </entry>
+    <entry id="55" name="path:map05110" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?map05110">
+        <graphics name="Vibrio cholerae infection" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="1133" y="501" width="150" height="25"/>
+    </entry>
+    <entry id="56" name="path:vce03070" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce03070">
+        <graphics name="Bacterial secretion system" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="1227" y="588" width="115" height="34"/>
+    </entry>
+    <entry id="57" name="vce:Vch1786_I0953" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I0953">
+        <graphics name="ctxA" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1085" y="456" width="46" height="17"/>
+    </entry>
+    <entry id="58" name="vce:Vch1786_I0952" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I0952">
+        <graphics name="ctxB" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1085" y="473" width="46" height="17"/>
+    </entry>
+    <entry id="59" name="vce:Vch1786_I0331 vce:Vch1786_I0334 vce:Vch1786_I0335 vce:Vch1786_I0336 vce:Vch1786_I0337 vce:Vch1786_I0338 vce:Vch1786_I0339 vce:Vch1786_I0340 vce:Vch1786_I0341 vce:Vch1786_I0342 vce:Vch1786_I0343" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I0331+vce:Vch1786_I0334+vce:Vch1786_I0335+vce:Vch1786_I0336+vce:Vch1786_I0337+vce:Vch1786_I0338+vce:Vch1786_I0339+vce:Vch1786_I0340+vce:Vch1786_I0341+vce:Vch1786_I0342+vce:Vch1786_I0343">
+        <graphics name="tcpI..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1085" y="358" width="46" height="17"/>
+    </entry>
+    <entry id="60" name="vce:Vch1786_I2718" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I2718">
+        <graphics name="mshA" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1085" y="880" width="46" height="17"/>
+    </entry>
+    <entry id="61" name="vce:Vch1786_I2719" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I2719">
+        <graphics name="mshC" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1085" y="899" width="46" height="17"/>
+    </entry>
+    <entry id="62" name="vce:Vch1786_I0346" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I0346">
+        <graphics name="Vch1786_I0346" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1134" y="397" width="46" height="17"/>
+    </entry>
+    <entry id="63" name="vce:Vch1786_I2720" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I2720">
+        <graphics name="mshD" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1134" y="899" width="46" height="17"/>
+    </entry>
+    <entry id="64" name="vce:Vch1786_I0349" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I0349">
+        <graphics name="acfA" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1085" y="397" width="46" height="17"/>
+    </entry>
+    <entry id="65" name="vce:Vch1786_I0350" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I0350">
+        <graphics name="Vch1786_I0350" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1134" y="416" width="46" height="17"/>
+    </entry>
+    <entry id="66" name="vce:Vch1786_I2717" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I2717">
+        <graphics name="mshB" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1134" y="880" width="46" height="17"/>
+    </entry>
+    <entry id="67" name="ko:K10938" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K10938">
+        <graphics name="K10938" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1085" y="416" width="46" height="17"/>
+    </entry>
+    <entry id="68" name="vce:Vch1786_I0333" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I0333">
+        <graphics name="tcpH" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="869" y="384" width="46" height="17"/>
+    </entry>
+    <entry id="69" name="vce:Vch1786_I0332" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I0332">
+        <graphics name="tcpP" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="869" y="367" width="46" height="17"/>
+    </entry>
+    <entry id="70" name="vce:Vch1786_I0487" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I0487">
+        <graphics name="toxR" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="869" y="344" width="46" height="17"/>
+    </entry>
+    <entry id="71" name="vce:Vch1786_I0486" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I0486">
+        <graphics name="toxS" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="869" y="327" width="46" height="17"/>
+    </entry>
+    <entry id="72" name="vce:Vch1786_I2715" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I2715">
+        <graphics name="mshE" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="872" y="897" width="46" height="17"/>
+    </entry>
+    <entry id="73" name="vce:Vch1786_I0344" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I0344">
+        <graphics name="Vch1786_I0344" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="947" y="358" width="46" height="17"/>
+    </entry>
+    <entry id="74" name="vce:Vch1786_I0552" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I0552">
+        <graphics name="Vch1786_I0552" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="793" y="401" width="46" height="17"/>
+    </entry>
+    <entry id="75" name="vce:Vch1786_I1346" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I1346">
+        <graphics name="ompT" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1085" y="296" width="46" height="17"/>
+    </entry>
+    <entry id="76" name="vce:Vch1786_I0041" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I0041">
+        <graphics name="ompU" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1085" y="315" width="46" height="17"/>
+    </entry>
+    <entry id="77" name="vce:Vch1786_I2217 vce:Vch1786_I2218 vce:Vch1786_I2219 vce:Vch1786_I2220 vce:Vch1786_I2221 vce:Vch1786_I2222 vce:Vch1786_I2223 vce:Vch1786_I2224 vce:Vch1786_I2225 vce:Vch1786_I2226 vce:Vch1786_I2227 vce:Vch1786_I2228" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I2217+vce:Vch1786_I2218+vce:Vch1786_I2219+vce:Vch1786_I2220+vce:Vch1786_I2221+vce:Vch1786_I2222+vce:Vch1786_I2223+vce:Vch1786_I2224+vce:Vch1786_I2225+vce:Vch1786_I2226+vce:Vch1786_I2227+vce:Vch1786_I2228">
+        <graphics name="epsN..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1085" y="595" width="46" height="17"/>
+    </entry>
+    <entry id="78" name="vce:Vch1786_I0422 vce:Vch1786_I0423 vce:Vch1786_I0424 vce:Vch1786_I0425 vce:Vch1786_I0426 vce:Vch1786_I0427 vce:Vch1786_I0428 vce:Vch1786_I0429 vce:Vch1786_I0430 vce:Vch1786_I0431 vce:Vch1786_I0432 vce:Vch1786_I0433 vce:Vch1786_I0439 vce:Vch1786_I0440 vce:Vch1786_I0441 vce:Vch1786_I0442 vce:Vch1786_I0443 vce:Vch1786_I0444 vce:Vch1786_I2144" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I0422+vce:Vch1786_I0423+vce:Vch1786_I0424+vce:Vch1786_I0425+vce:Vch1786_I0426+vce:Vch1786_I0427+vce:Vch1786_I0428+vce:Vch1786_I0429+vce:Vch1786_I0430+vce:Vch1786_I0431+vce:Vch1786_I0432+vce:Vch1786_I0433+vce:Vch1786_I0439+vce:Vch1786_I0440+vce:Vch1786_I0441+vce:Vch1786_I0442+vce:Vch1786_I0443+vce:Vch1786_I0444+vce:Vch1786_I2144">
+        <graphics name="Vch1786_I0422..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1085" y="555" width="46" height="17"/>
+    </entry>
+    <entry id="79" name="cpd:C00031" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00031">
+        <graphics name="C00031" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="218" y="751" width="8" height="8"/>
+    </entry>
+    <entry id="80" name="vce:Vch1786_I0468 vce:Vch1786_I1505" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vce:Vch1786_I0468+vce:Vch1786_I1505">
+        <graphics name="Vch1786_I0468..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="268" y="752" width="46" height="17"/>
+    </entry>
+    <entry id="81" name="cpd:C00092" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00092">
+        <graphics name="C00092" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="333" y="751" width="8" height="8"/>
+    </entry>
+    <entry id="82" name="undefined" type="group">
+        <graphics fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="255" y="542" width="72" height="34"/>
+        <component id="23"/>
+        <component id="25"/>
+    </entry>
+    <entry id="83" name="undefined" type="group">
+        <graphics fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="869" y="375" width="46" height="34"/>
+        <component id="68"/>
+        <component id="69"/>
+    </entry>
+    <entry id="84" name="undefined" type="group">
+        <graphics fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="869" y="335" width="46" height="34"/>
+        <component id="70"/>
+        <component id="71"/>
+    </entry>
+    <relation entry1="21" entry2="28" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="21" entry2="33" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="28" entry2="33" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="21" entry2="30" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="20" entry2="31" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="5" entry2="6" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="8" entry2="22" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="36" entry2="25" type="PPrel">
+        <subtype name="compound" value="35"/>
+    </relation>
+    <relation entry1="24" entry2="34" type="PPrel">
+        <subtype name="compound" value="26"/>
+    </relation>
+    <relation entry1="82" entry2="32" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="34" entry2="32" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="32" entry2="22" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="49" entry2="69" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="49" entry2="68" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="83" entry2="73" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="84" entry2="73" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="74" entry2="69" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="74" entry2="68" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="50" entry2="49" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="50" entry2="78" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="50" entry2="77" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="50" entry2="51" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="50" entry2="53" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="50" entry2="54" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="51" entry2="78" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="51" entry2="54" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="49" entry2="51" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="73" entry2="59" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="73" entry2="64" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="73" entry2="62" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="73" entry2="65" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="73" entry2="57" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="73" entry2="58" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="84" entry2="76" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="84" entry2="75" type="GErel">
+        <subtype name="repression" value="--|"/>
+    </relation>
+    <relation entry1="47" entry2="49" type="GErel">
+        <subtype name="repression" value="--|"/>
+    </relation>
+    <relation entry1="47" entry2="51" type="GErel">
+        <subtype name="repression" value="--|"/>
+    </relation>
+    <relation entry1="47" entry2="29" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="1" entry2="3" type="PPrel">
+        <subtype name="compound" value="2"/>
+    </relation>
+    <relation entry1="3" entry2="24" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="3" entry2="45" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="3" entry2="50" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="3" entry2="69" type="GErel">
+        <subtype name="repression" value="--|"/>
+    </relation>
+    <relation entry1="3" entry2="68" type="GErel">
+        <subtype name="repression" value="--|"/>
+    </relation>
+    <relation entry1="80" entry2="1" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="72" entry2="60" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="72" entry2="66" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="72" entry2="61" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="72" entry2="63" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="73" entry2="60" type="GErel">
+        <subtype name="repression" value="--|"/>
+    </relation>
+    <relation entry1="73" entry2="66" type="GErel">
+        <subtype name="repression" value="--|"/>
+    </relation>
+    <relation entry1="73" entry2="61" type="GErel">
+        <subtype name="repression" value="--|"/>
+    </relation>
+    <relation entry1="73" entry2="63" type="GErel">
+        <subtype name="repression" value="--|"/>
+    </relation>
+    <relation entry1="31" entry2="22" type="GErel">
+        <subtype name="repression" value="--|"/>
+    </relation>
+    <relation entry1="31" entry2="47" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="50" entry2="52" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="17" entry2="51" type="PCrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="17" entry2="72" type="PCrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+</pathway>

@@ -395,7 +395,16 @@ KGML2Graph <- function(kgml_, replaceOrg_=FALSE, orgToReplace_='') {
 
     # If node data is empty, use the edge data
     if (is.null(aux) | length(aux) == 0) {
-      return(NULL)
+      tryCatch({
+        # Try another way to get the node data
+        aux <- mapkG@nodes
+      }, error=function(e) {
+        return(NULL)
+      })
+
+      if (is.null(aux) | length(aux) == 0) {
+        return(NULL)
+      }
     }
 
     # Adjust the columns

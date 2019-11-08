@@ -1,44 +1,413 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<title>Access forbidden!</title>
-<link rev="made" href="mailto:http://www.genome.jp/feedback/" />
-<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
-    body { color: #000000; background-color: #FFFFFF; }
-    a:link { color: #0000CC; }
-    p, address {margin-left: 3em;}
-    span {font-size: smaller;}
-/*]]>*/--></style>
-</head>
-
-<body>
-<h1>Access forbidden!</h1>
-<p>
-
-
-  
-
-    You don't have permission to access the requested object.
-    It is either read-protected or not readable by the server.
-
-  
-
-</p>
-<p>
-If you think this is a server error, please contact
-the <a href="http://www.genome.jp/feedback/">webmaster</a>.
-
-</p>
-
-<h2>Error 403</h2>
-<address>
-  <a href="/">rest.kegg.jp</a><br />
-  
-  <span>Wed Nov  6 19:48:24 2019<br />
-  Apache</span>
-</address>
-</body>
-</html>
-
+<?xml version="1.0"?>
+<!DOCTYPE pathway SYSTEM "http://www.kegg.jp/kegg/xml/KGML_v0.7.2_.dtd">
+<!-- Creation date: Apr 12, 2010 11:33:30 +0900 (JST) -->
+<pathway name="path:care03070" org="care" number="03070"
+         title="Bacterial secretion system"
+         image="http://www.kegg.jp/kegg/pathway/care/care03070.png"
+         link="http://www.kegg.jp/kegg-bin/show_pathway?care03070">
+    <entry id="1" name="cpd:C00002" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00002">
+        <graphics name="C00002" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="1057" y="568" width="8" height="8"/>
+    </entry>
+    <entry id="2" name="ko:K11004" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K11004">
+        <graphics name="K11004" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="172" y="798" width="46" height="17"/>
+    </entry>
+    <entry id="3" name="ko:K11003" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K11003">
+        <graphics name="K11003" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="172" y="781" width="46" height="17"/>
+    </entry>
+    <entry id="4" name="care:LT85_0926 care:LT85_3991" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_0926+care:LT85_3991">
+        <graphics name="LT85_0926..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="172" y="764" width="46" height="17"/>
+    </entry>
+    <entry id="5" name="ko:K11028" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K11028">
+        <graphics name="K11028" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="811" y="764" width="46" height="17"/>
+    </entry>
+    <entry id="6" name="ko:K11017" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K11017">
+        <graphics name="K11017" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="863" y="764" width="46" height="17"/>
+    </entry>
+    <entry id="7" name="ko:K11016" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K11016">
+        <graphics name="K11016" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="863" y="781" width="46" height="17"/>
+    </entry>
+    <entry id="8" name="ko:K12341" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K12341">
+        <graphics name="K12341" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="915" y="764" width="46" height="17"/>
+    </entry>
+    <entry id="9" name="ko:K12342" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K12342">
+        <graphics name="K12342" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="915" y="786" width="46" height="17"/>
+    </entry>
+    <entry id="10" name="care:LT85_0736 care:LT85_1392 care:LT85_1894 care:LT85_2315 care:LT85_2323 care:LT85_2920 care:LT85_3560 care:LT85_3874 care:LT85_3931 care:LT85_4099" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_0736+care:LT85_1392+care:LT85_1894+care:LT85_2315+care:LT85_2323+care:LT85_2920+care:LT85_3560+care:LT85_3874+care:LT85_3931+care:LT85_4099">
+        <graphics name="vgrG..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1352" y="764" width="46" height="17"/>
+    </entry>
+    <entry id="11" name="care:LT85_1744 care:LT85_2317 care:LT85_2921 care:LT85_3551" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_1744+care:LT85_2317+care:LT85_2921+care:LT85_3551">
+        <graphics name="LT85_1744..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1352" y="781" width="46" height="17"/>
+    </entry>
+    <entry id="12" name="care:LT85_2336 care:LT85_3547" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_2336+care:LT85_3547">
+        <graphics name="LT85_2336..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1352" y="798" width="46" height="17"/>
+    </entry>
+    <entry id="13" name="ko:K11915" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K11915">
+        <graphics name="K11915" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1444" y="849" width="46" height="17"/>
+    </entry>
+    <entry id="14" name="care:LT85_2332 care:LT85_3565" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_2332+care:LT85_3565">
+        <graphics name="LT85_2332..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1352" y="815" width="46" height="17"/>
+    </entry>
+    <entry id="15" name="care:LT85_2319 care:LT85_3545" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_2319+care:LT85_3545">
+        <graphics name="LT85_2319..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1398" y="815" width="46" height="17"/>
+    </entry>
+    <entry id="16" name="ko:K11912" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K11912">
+        <graphics name="K11912" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1352" y="849" width="46" height="17"/>
+    </entry>
+    <entry id="17" name="ko:K11913" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K11913">
+        <graphics name="K11913" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1398" y="849" width="46" height="17"/>
+    </entry>
+    <entry id="18" name="care:LT85_2311 care:LT85_3555" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_2311+care:LT85_3555">
+        <graphics name="clpB..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1352" y="832" width="46" height="17"/>
+    </entry>
+    <entry id="19" name="ko:K03221" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K03221">
+        <graphics name="K03221" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="302" y="764" width="46" height="17"/>
+    </entry>
+    <entry id="20" name="ko:K04059" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04059">
+        <graphics name="K04059" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="394" y="781" width="46" height="17"/>
+    </entry>
+    <entry id="21" name="ko:K04057" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04057">
+        <graphics name="K04057" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="348" y="781" width="46" height="17"/>
+    </entry>
+    <entry id="22" name="ko:K04056" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04056">
+        <graphics name="K04056" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="302" y="781" width="46" height="17"/>
+    </entry>
+    <entry id="23" name="care:LT85_0497" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_0497">
+        <graphics name="LT85_0497" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="302" y="798" width="46" height="17"/>
+    </entry>
+    <entry id="24" name="ko:K04058" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04058">
+        <graphics name="K04058" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="302" y="815" width="46" height="17"/>
+    </entry>
+    <entry id="25" name="care:LT85_0492" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_0492">
+        <graphics name="LT85_0492" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="302" y="832" width="46" height="17"/>
+    </entry>
+    <entry id="26" name="care:LT85_0513" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_0513">
+        <graphics name="LT85_0513" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="348" y="832" width="46" height="17"/>
+    </entry>
+    <entry id="27" name="care:LT85_0514" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_0514">
+        <graphics name="LT85_0514" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="394" y="832" width="46" height="17"/>
+    </entry>
+    <entry id="28" name="care:LT85_0515" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_0515">
+        <graphics name="LT85_0515" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="302" y="849" width="46" height="17"/>
+    </entry>
+    <entry id="29" name="care:LT85_0516" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_0516">
+        <graphics name="flhB" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="348" y="849" width="46" height="17"/>
+    </entry>
+    <entry id="30" name="care:LT85_0507" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_0507">
+        <graphics name="flhA" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="394" y="849" width="46" height="17"/>
+    </entry>
+    <entry id="31" name="care:LT85_0509" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_0509">
+        <graphics name="fliI" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="302" y="866" width="46" height="17"/>
+    </entry>
+    <entry id="32" name="care:LT85_0512" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_0512">
+        <graphics name="LT85_0512" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="302" y="883" width="46" height="17"/>
+    </entry>
+    <entry id="33" name="ko:K03223" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K03223">
+        <graphics name="K03223" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="348" y="883" width="46" height="17"/>
+    </entry>
+    <entry id="34" name="care:LT85_2242 care:LT85_3113 care:LT85_4604" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_2242+care:LT85_3113+care:LT85_4604">
+        <graphics name="LT85_2242..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="556" y="764" width="46" height="17"/>
+    </entry>
+    <entry id="35" name="ko:K02465" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02465">
+        <graphics name="K02465" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="556" y="781" width="46" height="17"/>
+    </entry>
+    <entry id="36" name="care:LT85_2237 care:LT85_4602" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_2237+care:LT85_4602">
+        <graphics name="LT85_2237..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="602" y="798" width="46" height="17"/>
+    </entry>
+    <entry id="37" name="care:LT85_2236 care:LT85_2243 care:LT85_2244 care:LT85_4612" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_2236+care:LT85_2243+care:LT85_2244+care:LT85_4612">
+        <graphics name="LT85_2236..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="648" y="798" width="46" height="17"/>
+    </entry>
+    <entry id="38" name="care:LT85_4601" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_4601">
+        <graphics name="LT85_4601" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="556" y="798" width="46" height="17"/>
+    </entry>
+    <entry id="39" name="care:LT85_4611" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_4611">
+        <graphics name="LT85_4611" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="556" y="815" width="46" height="17"/>
+    </entry>
+    <entry id="40" name="care:LT85_4610" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_4610">
+        <graphics name="LT85_4610" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="602" y="815" width="46" height="17"/>
+    </entry>
+    <entry id="41" name="care:LT85_4609" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_4609">
+        <graphics name="LT85_4609" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="648" y="815" width="46" height="17"/>
+    </entry>
+    <entry id="42" name="care:LT85_4608" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_4608">
+        <graphics name="LT85_4608" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="556" y="832" width="46" height="17"/>
+    </entry>
+    <entry id="43" name="care:LT85_4607" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_4607">
+        <graphics name="LT85_4607" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="602" y="832" width="46" height="17"/>
+    </entry>
+    <entry id="44" name="care:LT85_4606" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_4606">
+        <graphics name="LT85_4606" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="648" y="832" width="46" height="17"/>
+    </entry>
+    <entry id="45" name="care:LT85_2040 care:LT85_2238 care:LT85_4603" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_2040+care:LT85_2238+care:LT85_4603">
+        <graphics name="pilB..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="556" y="849" width="46" height="17"/>
+    </entry>
+    <entry id="46" name="ko:K02464" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02464">
+        <graphics name="K02464" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="556" y="868" width="46" height="17"/>
+    </entry>
+    <entry id="47" name="care:LT85_4479" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_4479">
+        <graphics name="LT85_4479" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="556" y="969" width="46" height="17"/>
+    </entry>
+    <entry id="48" name="care:LT85_4435" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_4435">
+        <graphics name="LT85_4435" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="604" y="1022" width="46" height="17"/>
+    </entry>
+    <entry id="49" name="care:LT85_0632" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_0632">
+        <graphics name="ftsY" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="556" y="1003" width="46" height="17"/>
+    </entry>
+    <entry id="50" name="care:LT85_4615" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_4615">
+        <graphics name="LT85_4615" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="556" y="1022" width="46" height="17"/>
+    </entry>
+    <entry id="51" name="care:LT85_0844 care:LT85_0845" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_0844+care:LT85_0845">
+        <graphics name="secD..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="556" y="935" width="46" height="17"/>
+    </entry>
+    <entry id="52" name="care:LT85_3149" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_3149">
+        <graphics name="LT85_3149" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="648" y="935" width="46" height="17"/>
+    </entry>
+    <entry id="53" name="care:LT85_0416" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_0416">
+        <graphics name="LT85_0416" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="556" y="952" width="46" height="17"/>
+    </entry>
+    <entry id="54" name="care:LT85_0843" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_0843">
+        <graphics name="LT85_0843" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="602" y="952" width="46" height="17"/>
+    </entry>
+    <entry id="55" name="care:LT85_5018" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_5018">
+        <graphics name="yidC" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="648" y="952" width="46" height="17"/>
+    </entry>
+    <entry id="56" name="care:LT85_0379" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_0379">
+        <graphics name="secE" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="602" y="935" width="46" height="17"/>
+    </entry>
+    <entry id="57" name="care:LT85_0581" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_0581">
+        <graphics name="tatA" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="790" y="935" width="46" height="17"/>
+    </entry>
+    <entry id="58" name="care:LT85_0583" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_0583">
+        <graphics name="tatC" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="882" y="935" width="46" height="17"/>
+    </entry>
+    <entry id="59" name="ko:K03425" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K03425">
+        <graphics name="K03425" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="928" y="935" width="46" height="17"/>
+    </entry>
+    <entry id="60" name="care:LT85_0582" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_0582">
+        <graphics name="tatB" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="836" y="935" width="46" height="17"/>
+    </entry>
+    <entry id="61" name="care:LT85_p022" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_p022">
+        <graphics name="LT85_p022" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1087" y="781" width="46" height="17"/>
+    </entry>
+    <entry id="62" name="care:LT85_p018" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_p018">
+        <graphics name="LT85_p018" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1179" y="781" width="46" height="17"/>
+    </entry>
+    <entry id="63" name="ko:K03198" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K03198">
+        <graphics name="K03198" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1133" y="781" width="46" height="17"/>
+    </entry>
+    <entry id="64" name="ko:K03202" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K03202">
+        <graphics name="K03202" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1087" y="798" width="46" height="17"/>
+    </entry>
+    <entry id="65" name="care:LT85_p013" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_p013">
+        <graphics name="virB9" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1133" y="798" width="46" height="17"/>
+    </entry>
+    <entry id="66" name="care:LT85_p015" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_p015">
+        <graphics name="virB6" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1087" y="815" width="46" height="17"/>
+    </entry>
+    <entry id="67" name="care:LT85_p014" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_p014">
+        <graphics name="LT85_p014" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1133" y="815" width="46" height="17"/>
+    </entry>
+    <entry id="68" name="care:LT85_p012" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_p012">
+        <graphics name="virB10" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1179" y="815" width="46" height="17"/>
+    </entry>
+    <entry id="69" name="care:LT85_p020" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_p020">
+        <graphics name="virB4" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1087" y="832" width="46" height="17"/>
+    </entry>
+    <entry id="70" name="care:LT85_p011" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_p011">
+        <graphics name="virB11" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1133" y="832" width="46" height="17"/>
+    </entry>
+    <entry id="71" name="ko:K03205" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K03205">
+        <graphics name="K03205" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1179" y="832" width="46" height="17"/>
+    </entry>
+    <entry id="72" name="care:LT85_p010" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care:LT85_p010">
+        <graphics name="LT85_p010" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1087" y="764" width="46" height="17"/>
+    </entry>
+    <entry id="73" name="cpd:C00002" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00002">
+        <graphics name="C00002" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="1117" y="568" width="8" height="8"/>
+    </entry>
+    <entry id="74" name="cpd:C00002" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00002">
+        <graphics name="C00002" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="1172" y="568" width="8" height="8"/>
+    </entry>
+    <entry id="75" name="cpd:C00002" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00002">
+        <graphics name="C00002" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="1289" y="568" width="8" height="8"/>
+    </entry>
+    <entry id="76" name="cpd:C00002" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00002">
+        <graphics name="C00002" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="820" y="568" width="8" height="8"/>
+    </entry>
+    <entry id="77" name="cpd:C00002" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00002">
+        <graphics name="C00002" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="423" y="568" width="8" height="8"/>
+    </entry>
+    <entry id="78" name="cpd:C00002" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00002">
+        <graphics name="C00002" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="127" y="568" width="8" height="8"/>
+    </entry>
+    <entry id="79" name="cpd:C00002" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00002">
+        <graphics name="C00002" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="519" y="568" width="8" height="8"/>
+    </entry>
+    <entry id="80" name="path:care03070" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?care03070">
+        <graphics name="TITLE:Bacterial secretion system" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="167" y="58" width="254" height="25"/>
+    </entry>
+    <entry id="81" name="ko:K13301" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K13301">
+        <graphics name="K13301" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="556" y="986" width="46" height="17"/>
+    </entry>
+</pathway>
