@@ -1,0 +1,583 @@
+<?xml version="1.0"?>
+<!DOCTYPE pathway SYSTEM "http://www.kegg.jp/kegg/xml/KGML_v0.7.2_.dtd">
+<!-- Creation date: Jan 24, 2019 10:35:13 +0900 (GMT+9) -->
+<pathway name="path:paf02025" org="paf" number="02025"
+         title="Biofilm formation - Pseudomonas aeruginosa"
+         image="http://www.kegg.jp/kegg/pathway/paf/paf02025.png"
+         link="http://www.kegg.jp/kegg-bin/show_pathway?paf02025">
+    <entry id="1" name="paf:PAM18_0410" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_0410">
+        <graphics name="pilI" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="254" y="158" width="46" height="17"/>
+    </entry>
+    <entry id="2" name="paf:PAM18_0409" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_0409">
+        <graphics name="pilH" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="344" y="164" width="46" height="17"/>
+    </entry>
+    <entry id="3" name="paf:PAM18_0408" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_0408">
+        <graphics name="pilG" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="344" y="187" width="46" height="17"/>
+    </entry>
+    <entry id="4" name="paf:PAM18_0411" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_0411">
+        <graphics name="pilJ" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="212" y="175" width="46" height="17"/>
+    </entry>
+    <entry id="5" name="paf:PAM18_0413" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_0413">
+        <graphics name="chpA" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="257" y="175" width="46" height="17"/>
+    </entry>
+    <entry id="6" name="paf:PAM18_1754" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_1754">
+        <graphics name="cyaB" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="431" y="174" width="46" height="17"/>
+    </entry>
+    <entry id="7" name="cpd:C00575" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00575">
+        <graphics name="C00575" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="494" y="174" width="8" height="8"/>
+    </entry>
+    <entry id="8" name="paf:PAM18_5080" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_5080">
+        <graphics name="PAM18_5080" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="431" y="210" width="46" height="17"/>
+    </entry>
+    <entry id="9" name="paf:PAM18_0270 paf:PAM18_0633" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_0270+paf:PAM18_0633">
+        <graphics name="PAM18_0270..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="557" y="175" width="46" height="17"/>
+    </entry>
+    <entry id="10" name="paf:PAM18_3699" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_3699">
+        <graphics name="lasI" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="407" y="478" width="46" height="17"/>
+    </entry>
+    <entry id="11" name="paf:PAM18_3701" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_3701">
+        <graphics name="lasR" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="407" y="498" width="46" height="17"/>
+    </entry>
+    <entry id="12" name="paf:PAM18_1489" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_1489">
+        <graphics name="rhlI" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="506" y="406" width="46" height="17"/>
+    </entry>
+    <entry id="13" name="paf:PAM18_4052" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_4052">
+        <graphics name="pqsA" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="358" y="320" width="46" height="17"/>
+    </entry>
+    <entry id="14" name="paf:PAM18_4051" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_4051">
+        <graphics name="pqsB" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="406" y="320" width="46" height="17"/>
+    </entry>
+    <entry id="15" name="paf:PAM18_4050" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_4050">
+        <graphics name="pqsC" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="454" y="320" width="46" height="17"/>
+    </entry>
+    <entry id="16" name="paf:PAM18_4049" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_4049">
+        <graphics name="pqsD" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="358" y="339" width="46" height="17"/>
+    </entry>
+    <entry id="17" name="paf:PAM18_2406" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_2406">
+        <graphics name="pqsH" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="454" y="339" width="46" height="17"/>
+    </entry>
+    <entry id="18" name="paf:PAM18_4045" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_4045">
+        <graphics name="mvfR" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="407" y="362" width="46" height="17"/>
+    </entry>
+    <entry id="19" name="path:paf02025" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf02025">
+        <graphics name="TITLE:Biofilm formation - Pseudomonas aeruginosa" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="240" y="58" width="400" height="25"/>
+    </entry>
+    <entry id="20" name="paf:PAM18_4111" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_4111">
+        <graphics name="gacS" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="212" y="744" width="46" height="17"/>
+    </entry>
+    <entry id="21" name="paf:PAM18_0965" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_0965">
+        <graphics name="ladS" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="212" y="701" width="46" height="17"/>
+    </entry>
+    <entry id="22" name="paf:PAM18_4967" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_4967">
+        <graphics name="retS" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="212" y="783" width="46" height="17"/>
+    </entry>
+    <entry id="23" name="paf:PAM18_2407" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_2407">
+        <graphics name="gacA" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="299" y="744" width="46" height="17"/>
+    </entry>
+    <entry id="24" name="paf:PAM18_R002" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_R002">
+        <graphics name="rsmY" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="386" y="735" width="46" height="17"/>
+    </entry>
+    <entry id="25" name="paf:PAM18_R014" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_R014">
+        <graphics name="rsmZ" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="386" y="755" width="46" height="17"/>
+    </entry>
+    <entry id="26" name="paf:PAM18_2435 paf:PAM18_4134" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_2435+paf:PAM18_4134">
+        <graphics name="PAM18_2435..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="506" y="743" width="46" height="17"/>
+    </entry>
+    <entry id="27" name="paf:PAM18_3436" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_3436">
+        <graphics name="PAM18_3436" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="212" y="585" width="46" height="17"/>
+    </entry>
+    <entry id="28" name="paf:PAM18_2139" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_2139">
+        <graphics name="PAM18_2139" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="212" y="565" width="46" height="17"/>
+    </entry>
+    <entry id="29" name="paf:PAM18_3069" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_3069">
+        <graphics name="PAM18_3069" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="212" y="605" width="46" height="17"/>
+    </entry>
+    <entry id="30" name="paf:PAM18_1620" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_1620">
+        <graphics name="PAM18_1620" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="299" y="585" width="46" height="17"/>
+    </entry>
+    <entry id="31" name="paf:PAM18_1619" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_1619">
+        <graphics name="PAM18_1619" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="301" y="620" width="46" height="17"/>
+    </entry>
+    <entry id="32" name="paf:PAM18_3676" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_3676">
+        <graphics name="fliA" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="386" y="694" width="46" height="17"/>
+    </entry>
+    <entry id="33" name="path:paf02024" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf02024">
+        <graphics name="Quorum sensing" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="399" y="257" width="102" height="23"/>
+    </entry>
+    <entry id="34" name="paf:PAM18_1618" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_1618">
+        <graphics name="PAM18_1618" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="386" y="620" width="46" height="17"/>
+    </entry>
+    <entry id="35" name="paf:PAM18_1614" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_1614">
+        <graphics name="flgM" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="386" y="657" width="46" height="17"/>
+    </entry>
+    <entry id="36" name="cpd:C11837" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C11837">
+        <graphics name="C11837" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="148" y="422" width="8" height="8"/>
+    </entry>
+    <entry id="37" name="cpd:C20643 cpd:C11848" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C20643+C11848">
+        <graphics name="C20643..." fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="148" y="353" width="8" height="8"/>
+    </entry>
+    <entry id="38" name="cpd:C21201" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C21201">
+        <graphics name="C21201" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="148" y="499" width="8" height="8"/>
+    </entry>
+    <entry id="39" name="paf:PAM18_1244" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_1244">
+        <graphics name="wspR" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="386" y="870" width="46" height="17"/>
+    </entry>
+    <entry id="40" name="paf:PAM18_3937" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_3937">
+        <graphics name="fleQ" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="562" y="914" width="46" height="17"/>
+    </entry>
+    <entry id="41" name="paf:PAM18_1238" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_1238">
+        <graphics name="wspA" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="175" y="870" width="46" height="17"/>
+    </entry>
+    <entry id="42" name="paf:PAM18_1239 paf:PAM18_1241" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_1239+paf:PAM18_1241">
+        <graphics name="wspB..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="216" y="852" width="43" height="19"/>
+    </entry>
+    <entry id="43" name="paf:PAM18_1242" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_1242">
+        <graphics name="PAM18_1242" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="220" y="870" width="46" height="17"/>
+    </entry>
+    <entry id="44" name="paf:PAM18_3319" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_3319">
+        <graphics name="PAM18_3319" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="434" y="908" width="46" height="17"/>
+    </entry>
+    <entry id="45" name="paf:PAM18_1444" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_1444">
+        <graphics name="alg44" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="684" y="982" width="46" height="17"/>
+    </entry>
+    <entry id="46" name="paf:PAM18_3927" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_3927">
+        <graphics name="PAM18_3927" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="386" y="908" width="46" height="17"/>
+    </entry>
+    <entry id="47" name="paf:PAM18_4422" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_4422">
+        <graphics name="PAM18_4422" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="434" y="870" width="46" height="17"/>
+    </entry>
+    <entry id="48" name="paf:PAM18_1899" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_1899">
+        <graphics name="pelD" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="684" y="941" width="46" height="17"/>
+    </entry>
+    <entry id="49" name="paf:PAM18_3912" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_3912">
+        <graphics name="PAM18_3912" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="434" y="889" width="46" height="17"/>
+    </entry>
+    <entry id="50" name="paf:PAM18_4458" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_4458">
+        <graphics name="PAM18_4458" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="435" y="993" width="46" height="17"/>
+    </entry>
+    <entry id="51" name="paf:PAM18_0169" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_0169">
+        <graphics name="PAM18_0169" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="386" y="889" width="46" height="17"/>
+    </entry>
+    <entry id="52" name="paf:PAM18_5070" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_5070">
+        <graphics name="fimX" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="684" y="1011" width="46" height="17"/>
+    </entry>
+    <entry id="53" name="cpd:C16463" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C16463">
+        <graphics name="C16463" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="466" y="940" width="8" height="8"/>
+    </entry>
+    <entry id="54" name="cpd:C00044" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00044">
+        <graphics name="C00044" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="466" y="829" width="8" height="8"/>
+    </entry>
+    <entry id="55" name="cpd:C18076" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C18076">
+        <graphics name="C18076" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="466" y="1051" width="8" height="8"/>
+    </entry>
+    <entry id="56" name="path:paf03070" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf03070">
+        <graphics name="Bacterial secretion system" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="793" y="236" width="149" height="23"/>
+    </entry>
+    <entry id="57" name="paf:PAM18_1488" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_1488">
+        <graphics name="rhlR" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="506" y="426" width="46" height="17"/>
+    </entry>
+    <entry id="58" name="paf:PAM18_1243" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_1243">
+        <graphics name="wspF" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="273" y="911" width="46" height="17"/>
+    </entry>
+    <entry id="59" name="path:paf02040" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf02040">
+        <graphics name="Flagellar assembly" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="776" y="121" width="118" height="23"/>
+    </entry>
+    <entry id="60" name="paf:PAM18_0415" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_0415">
+        <graphics name="chpC" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="254" y="192" width="46" height="17"/>
+    </entry>
+    <entry id="61" name="paf:PAM18_3333" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_3333">
+        <graphics name="exsA" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="684" y="170" width="46" height="17"/>
+    </entry>
+    <entry id="62" name="paf:PAM18_3937" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_3937">
+        <graphics name="fleQ" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="684" y="146" width="46" height="17"/>
+    </entry>
+    <entry id="63" name="paf:PAM18_0077 paf:PAM18_0078 paf:PAM18_0079 paf:PAM18_0081 paf:PAM18_0083 paf:PAM18_0084 paf:PAM18_0085 paf:PAM18_0086 paf:PAM18_0087 paf:PAM18_0091 paf:PAM18_0092 paf:PAM18_0258 paf:PAM18_2670 paf:PAM18_2671 paf:PAM18_2674 paf:PAM18_2675 paf:PAM18_2676 paf:PAM18_2678 paf:PAM18_2680 paf:PAM18_2681 paf:PAM18_3377 paf:PAM18_3378 paf:PAM18_3380 paf:PAM18_3384 paf:PAM18_3385 paf:PAM18_3388 paf:PAM18_3389 paf:PAM18_3619 paf:PAM18_5387" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_0077+paf:PAM18_0078+paf:PAM18_0079+paf:PAM18_0081+paf:PAM18_0083+paf:PAM18_0084+paf:PAM18_0085+paf:PAM18_0086+paf:PAM18_0087+paf:PAM18_0091+paf:PAM18_0092+paf:PAM18_0258+paf:PAM18_2670+paf:PAM18_2671+paf:PAM18_2674+paf:PAM18_2675+paf:PAM18_2676+paf:PAM18_2678+paf:PAM18_2680+paf:PAM18_2681+paf:PAM18_3377+paf:PAM18_3378+paf:PAM18_3380+paf:PAM18_3384+paf:PAM18_3385+paf:PAM18_3388+paf:PAM18_3389+paf:PAM18_3619+paf:PAM18_5387">
+        <graphics name="pppA..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="684" y="743" width="46" height="17"/>
+    </entry>
+    <entry id="64" name="paf:PAM18_1435 paf:PAM18_2798 paf:PAM18_2799 paf:PAM18_2800 paf:PAM18_2801 paf:PAM18_2802 paf:PAM18_2803 paf:PAM18_2804 paf:PAM18_2805 paf:PAM18_2806 paf:PAM18_2807 paf:PAM18_2808 paf:PAM18_2809 paf:PAM18_5574" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_1435+paf:PAM18_2798+paf:PAM18_2799+paf:PAM18_2800+paf:PAM18_2801+paf:PAM18_2802+paf:PAM18_2803+paf:PAM18_2804+paf:PAM18_2805+paf:PAM18_2806+paf:PAM18_2807+paf:PAM18_2808+paf:PAM18_2809+paf:PAM18_5574">
+        <graphics name="algA..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="684" y="891" width="46" height="17"/>
+    </entry>
+    <entry id="65" name="paf:PAM18_1486" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_1486">
+        <graphics name="rhlA" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="684" y="416" width="46" height="17"/>
+    </entry>
+    <entry id="66" name="paf:PAM18_1487" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_1487">
+        <graphics name="rhlB" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="732" y="416" width="46" height="17"/>
+    </entry>
+    <entry id="67" name="paf:PAM18_3902" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_3902">
+        <graphics name="rhlC" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="780" y="416" width="46" height="17"/>
+    </entry>
+    <entry id="68" name="paf:PAM18_1896" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_1896">
+        <graphics name="pelA" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="684" y="922" width="46" height="17"/>
+    </entry>
+    <entry id="69" name="paf:PAM18_2466" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_2466">
+        <graphics name="lecA" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="684" y="441" width="46" height="17"/>
+    </entry>
+    <entry id="70" name="paf:PAM18_2467" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_2467">
+        <graphics name="PAM18_2467" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="732" y="441" width="46" height="17"/>
+    </entry>
+    <entry id="71" name="paf:PAM18_1897" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_1897">
+        <graphics name="pelB" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="732" y="922" width="46" height="17"/>
+    </entry>
+    <entry id="72" name="paf:PAM18_1898" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_1898">
+        <graphics name="pelC" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="780" y="922" width="46" height="17"/>
+    </entry>
+    <entry id="73" name="paf:PAM18_1900" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_1900">
+        <graphics name="pelE" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="732" y="941" width="46" height="17"/>
+    </entry>
+    <entry id="74" name="paf:PAM18_1901" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_1901">
+        <graphics name="pelF" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="780" y="941" width="46" height="17"/>
+    </entry>
+    <entry id="75" name="paf:PAM18_1902" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_1902">
+        <graphics name="pelG" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="828" y="932" width="46" height="17"/>
+    </entry>
+    <entry id="76" name="path:paf03070" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf03070">
+        <graphics name="Bacterial secretion system" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="794" y="769" width="149" height="23"/>
+    </entry>
+    <entry id="77" name="paf:PAM18_0610 paf:PAM18_4047" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_0610+paf:PAM18_4047">
+        <graphics name="trpE..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="382" y="300" width="46" height="17"/>
+    </entry>
+    <entry id="78" name="paf:PAM18_0630 paf:PAM18_4046" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_0630+paf:PAM18_4046">
+        <graphics name="trpG..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="430" y="300" width="46" height="17"/>
+    </entry>
+    <entry id="79" name="paf:PAM18_4048" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_4048">
+        <graphics name="pqsE" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="406" y="339" width="46" height="17"/>
+    </entry>
+    <entry id="80" name="paf:PAM18_5069" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?paf:PAM18_5069">
+        <graphics name="PAM18_5069" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="684" y="1031" width="46" height="17"/>
+    </entry>
+    <entry id="81" name="undefined" type="group">
+        <graphics fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="234" y="175" width="91" height="51"/>
+        <component id="1"/>
+        <component id="4"/>
+        <component id="5"/>
+        <component id="60"/>
+    </entry>
+    <entry id="82" name="undefined" type="group">
+        <graphics fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="197" y="860" width="91" height="36"/>
+        <component id="41"/>
+        <component id="42"/>
+        <component id="43"/>
+    </entry>
+    <relation entry1="81" entry2="2" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="81" entry2="3" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="3" entry2="6" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="2" entry2="6" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="6" entry2="9" type="PPrel">
+        <subtype name="compound" value="7"/>
+    </relation>
+    <relation entry1="9" entry2="61" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="9" entry2="62" type="GErel">
+        <subtype name="repression" value="--|"/>
+    </relation>
+    <relation entry1="57" entry2="65" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="57" entry2="66" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="57" entry2="67" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="57" entry2="69" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="57" entry2="70" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="9" entry2="11" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="28" entry2="30" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="27" entry2="30" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="29" entry2="30" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="30" entry2="31" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="31" entry2="34" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="34" entry2="35" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="35" entry2="32" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="32" entry2="24" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="21" entry2="20" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="22" entry2="20" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="20" entry2="23" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="23" entry2="24" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="23" entry2="25" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="24" entry2="26" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="25" entry2="26" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="26" entry2="63" type="GErel">
+        <subtype name="repression" value="--|"/>
+    </relation>
+    <relation entry1="26" entry2="47" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="26" entry2="64" type="GErel">
+        <subtype name="repression" value="--|"/>
+    </relation>
+    <relation entry1="26" entry2="57" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="26" entry2="11" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="82" entry2="39" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="82" entry2="58" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="58" entry2="41" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="40" entry2="64" type="GErel">
+        <subtype name="repression" value="--|"/>
+    </relation>
+    <relation entry1="40" entry2="68" type="GErel">
+        <subtype name="repression" value="--|"/>
+    </relation>
+    <relation entry1="40" entry2="71" type="GErel">
+        <subtype name="repression" value="--|"/>
+    </relation>
+    <relation entry1="40" entry2="72" type="GErel">
+        <subtype name="repression" value="--|"/>
+    </relation>
+    <relation entry1="40" entry2="48" type="GErel">
+        <subtype name="repression" value="--|"/>
+    </relation>
+    <relation entry1="40" entry2="73" type="GErel">
+        <subtype name="repression" value="--|"/>
+    </relation>
+    <relation entry1="40" entry2="74" type="GErel">
+        <subtype name="repression" value="--|"/>
+    </relation>
+    <relation entry1="40" entry2="75" type="GErel">
+        <subtype name="repression" value="--|"/>
+    </relation>
+    <relation entry1="53" entry2="48" type="PCrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="53" entry2="45" type="PCrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="53" entry2="52" type="PCrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="53" entry2="40" type="PCrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="53" entry2="80" type="PCrel">
+    </relation>
+</pathway>

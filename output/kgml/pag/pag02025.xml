@@ -1,0 +1,575 @@
+<?xml version="1.0"?>
+<!DOCTYPE pathway SYSTEM "http://www.kegg.jp/kegg/xml/KGML_v0.7.2_.dtd">
+<!-- Creation date: Jan 24, 2019 10:35:13 +0900 (GMT+9) -->
+<pathway name="path:pag02025" org="pag" number="02025"
+         title="Biofilm formation - Pseudomonas aeruginosa"
+         image="http://www.kegg.jp/kegg/pathway/pag/pag02025.png"
+         link="http://www.kegg.jp/kegg-bin/show_pathway?pag02025">
+    <entry id="1" name="pag:PLES_04081" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_04081">
+        <graphics name="pilI" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="254" y="158" width="46" height="17"/>
+    </entry>
+    <entry id="2" name="pag:PLES_04071" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_04071">
+        <graphics name="pilH" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="344" y="164" width="46" height="17"/>
+    </entry>
+    <entry id="3" name="pag:PLES_04061" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_04061">
+        <graphics name="pilG" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="344" y="187" width="46" height="17"/>
+    </entry>
+    <entry id="4" name="pag:PLES_04091" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_04091">
+        <graphics name="pilJ" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="212" y="175" width="46" height="17"/>
+    </entry>
+    <entry id="5" name="pag:PLES_04111" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_04111">
+        <graphics name="chpA" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="257" y="175" width="46" height="17"/>
+    </entry>
+    <entry id="6" name="pag:PLES_18501" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_18501">
+        <graphics name="cyaB" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="431" y="174" width="46" height="17"/>
+    </entry>
+    <entry id="7" name="cpd:C00575" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00575">
+        <graphics name="C00575" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="494" y="174" width="8" height="8"/>
+    </entry>
+    <entry id="8" name="pag:PLES_53551" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_53551">
+        <graphics name="PLES_53551" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="431" y="210" width="46" height="17"/>
+    </entry>
+    <entry id="9" name="pag:PLES_02711 pag:PLES_06311" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_02711+pag:PLES_06311">
+        <graphics name="PLES_02711..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="557" y="175" width="46" height="17"/>
+    </entry>
+    <entry id="10" name="pag:PLES_39821" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_39821">
+        <graphics name="lasI" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="407" y="478" width="46" height="17"/>
+    </entry>
+    <entry id="11" name="pag:PLES_39841" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_39841">
+        <graphics name="lasR" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="407" y="498" width="46" height="17"/>
+    </entry>
+    <entry id="12" name="pag:PLES_15361" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_15361">
+        <graphics name="rhlI" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="506" y="406" width="46" height="17"/>
+    </entry>
+    <entry id="13" name="pag:PLES_43291" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_43291">
+        <graphics name="pqsA" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="358" y="320" width="46" height="17"/>
+    </entry>
+    <entry id="14" name="pag:PLES_43281" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_43281">
+        <graphics name="pqsB" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="406" y="320" width="46" height="17"/>
+    </entry>
+    <entry id="15" name="pag:PLES_43271" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_43271">
+        <graphics name="pqsC" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="454" y="320" width="46" height="17"/>
+    </entry>
+    <entry id="16" name="pag:PLES_43261" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_43261">
+        <graphics name="pqsD" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="358" y="339" width="46" height="17"/>
+    </entry>
+    <entry id="17" name="pag:PLES_26011" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_26011">
+        <graphics name="pqsH" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="454" y="339" width="46" height="17"/>
+    </entry>
+    <entry id="18" name="pag:PLES_43221" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_43221">
+        <graphics name="mvfR" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="407" y="362" width="46" height="17"/>
+    </entry>
+    <entry id="19" name="path:pag02025" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag02025">
+        <graphics name="TITLE:Biofilm formation - Pseudomonas aeruginosa" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="240" y="58" width="400" height="25"/>
+    </entry>
+    <entry id="20" name="pag:PLES_43881" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_43881">
+        <graphics name="gacS" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="212" y="744" width="46" height="17"/>
+    </entry>
+    <entry id="21" name="pag:PLES_10011" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_10011">
+        <graphics name="ladS" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="212" y="701" width="46" height="17"/>
+    </entry>
+    <entry id="22" name="pag:PLES_52411" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_52411">
+        <graphics name="retS" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="212" y="783" width="46" height="17"/>
+    </entry>
+    <entry id="23" name="pag:PLES_26021" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_26021">
+        <graphics name="gacA" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="299" y="744" width="46" height="17"/>
+    </entry>
+    <entry id="24" name="pag:PLES_05242" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_05242">
+        <graphics name="rsmY" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="386" y="735" width="46" height="17"/>
+    </entry>
+    <entry id="25" name="pag:PLES_14132" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_14132">
+        <graphics name="rsmZ" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="386" y="755" width="46" height="17"/>
+    </entry>
+    <entry id="26" name="pag:PLES_44111" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_44111">
+        <graphics name="rsmA" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="506" y="743" width="46" height="17"/>
+    </entry>
+    <entry id="27" name="pag:PLES_37161" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_37161">
+        <graphics name="PLES_37161" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="212" y="585" width="46" height="17"/>
+    </entry>
+    <entry id="28" name="pag:PLES_22411" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_22411">
+        <graphics name="PLES_22411" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="212" y="565" width="46" height="17"/>
+    </entry>
+    <entry id="29" name="pag:PLES_33471" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_33471">
+        <graphics name="PLES_33471" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="212" y="605" width="46" height="17"/>
+    </entry>
+    <entry id="30" name="pag:PLES_17191" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_17191">
+        <graphics name="PLES_17191" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="299" y="585" width="46" height="17"/>
+    </entry>
+    <entry id="31" name="pag:PLES_17181" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_17181">
+        <graphics name="PLES_17181" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="301" y="620" width="46" height="17"/>
+    </entry>
+    <entry id="32" name="pag:PLES_39581" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_39581">
+        <graphics name="fliA" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="386" y="694" width="46" height="17"/>
+    </entry>
+    <entry id="33" name="path:pag02024" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag02024">
+        <graphics name="Quorum sensing" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="399" y="257" width="102" height="23"/>
+    </entry>
+    <entry id="34" name="pag:PLES_17171" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_17171">
+        <graphics name="PLES_17171" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="386" y="620" width="46" height="17"/>
+    </entry>
+    <entry id="35" name="pag:PLES_17131" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_17131">
+        <graphics name="flgM" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="386" y="657" width="46" height="17"/>
+    </entry>
+    <entry id="36" name="cpd:C11837" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C11837">
+        <graphics name="C11837" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="148" y="422" width="8" height="8"/>
+    </entry>
+    <entry id="37" name="cpd:C20643 cpd:C11848" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C20643+C11848">
+        <graphics name="C20643..." fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="148" y="353" width="8" height="8"/>
+    </entry>
+    <entry id="38" name="cpd:C21201" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C21201">
+        <graphics name="C21201" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="148" y="499" width="8" height="8"/>
+    </entry>
+    <entry id="39" name="pag:PLES_12811" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_12811">
+        <graphics name="wspR" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="386" y="870" width="46" height="17"/>
+    </entry>
+    <entry id="40" name="pag:PLES_42241" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_42241">
+        <graphics name="fleQ" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="562" y="914" width="46" height="17"/>
+    </entry>
+    <entry id="41" name="pag:PLES_12741" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_12741">
+        <graphics name="wspA" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="175" y="870" width="46" height="17"/>
+    </entry>
+    <entry id="42" name="pag:PLES_12751 pag:PLES_12771" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_12751+pag:PLES_12771">
+        <graphics name="wspB..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="216" y="852" width="43" height="19"/>
+    </entry>
+    <entry id="43" name="ko:K13490" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K13490">
+        <graphics name="K13490" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="220" y="870" width="46" height="17"/>
+    </entry>
+    <entry id="44" name="pag:PLES_36021" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_36021">
+        <graphics name="PLES_36021" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="434" y="908" width="46" height="17"/>
+    </entry>
+    <entry id="45" name="pag:PLES_14911" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_14911">
+        <graphics name="alg44" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="684" y="982" width="46" height="17"/>
+    </entry>
+    <entry id="46" name="pag:PLES_42141" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_42141">
+        <graphics name="PLES_42141" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="386" y="908" width="46" height="17"/>
+    </entry>
+    <entry id="47" name="pag:PLES_47101" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_47101">
+        <graphics name="PLES_47101" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="434" y="870" width="46" height="17"/>
+    </entry>
+    <entry id="48" name="pag:PLES_19991" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_19991">
+        <graphics name="pelD" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="684" y="941" width="46" height="17"/>
+    </entry>
+    <entry id="49" name="pag:PLES_41991" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_41991">
+        <graphics name="PLES_41991" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="434" y="889" width="46" height="17"/>
+    </entry>
+    <entry id="50" name="pag:PLES_47461" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_47461">
+        <graphics name="PLES_47461" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="435" y="993" width="46" height="17"/>
+    </entry>
+    <entry id="51" name="pag:PLES_01701" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_01701">
+        <graphics name="PLES_01701" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="386" y="889" width="46" height="17"/>
+    </entry>
+    <entry id="52" name="pag:PLES_53451" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_53451">
+        <graphics name="fimX" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="684" y="1011" width="46" height="17"/>
+    </entry>
+    <entry id="53" name="cpd:C16463" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C16463">
+        <graphics name="C16463" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="466" y="940" width="8" height="8"/>
+    </entry>
+    <entry id="54" name="cpd:C00044" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00044">
+        <graphics name="C00044" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="466" y="829" width="8" height="8"/>
+    </entry>
+    <entry id="55" name="cpd:C18076" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C18076">
+        <graphics name="C18076" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="466" y="1051" width="8" height="8"/>
+    </entry>
+    <entry id="56" name="path:pag03070" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag03070">
+        <graphics name="Bacterial secretion system" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="793" y="236" width="149" height="23"/>
+    </entry>
+    <entry id="57" name="pag:PLES_15351" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_15351">
+        <graphics name="rhlR" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="506" y="426" width="46" height="17"/>
+    </entry>
+    <entry id="58" name="ko:K13491" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K13491">
+        <graphics name="K13491" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="273" y="911" width="46" height="17"/>
+    </entry>
+    <entry id="59" name="path:pag02040" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag02040">
+        <graphics name="Flagellar assembly" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="776" y="121" width="118" height="23"/>
+    </entry>
+    <entry id="60" name="pag:PLES_04131" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_04131">
+        <graphics name="chpC" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="254" y="192" width="46" height="17"/>
+    </entry>
+    <entry id="61" name="pag:PLES_36161" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_36161">
+        <graphics name="exsA" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="684" y="170" width="46" height="17"/>
+    </entry>
+    <entry id="62" name="pag:PLES_42241" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_42241">
+        <graphics name="fleQ" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="684" y="146" width="46" height="17"/>
+    </entry>
+    <entry id="63" name="pag:PLES_00751 pag:PLES_00761 pag:PLES_00771 pag:PLES_00781 pag:PLES_00801 pag:PLES_00821 pag:PLES_00831 pag:PLES_00841 pag:PLES_00851 pag:PLES_00861 pag:PLES_00901 pag:PLES_00911 pag:PLES_02591 pag:PLES_29321 pag:PLES_29331 pag:PLES_29361 pag:PLES_29371 pag:PLES_29381 pag:PLES_29401 pag:PLES_29421 pag:PLES_29431 pag:PLES_36571 pag:PLES_36581 pag:PLES_36601 pag:PLES_36651 pag:PLES_36661 pag:PLES_36691 pag:PLES_36701 pag:PLES_38981 pag:PLES_56611" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_00751+pag:PLES_00761+pag:PLES_00771+pag:PLES_00781+pag:PLES_00801+pag:PLES_00821+pag:PLES_00831+pag:PLES_00841+pag:PLES_00851+pag:PLES_00861+pag:PLES_00901+pag:PLES_00911+pag:PLES_02591+pag:PLES_29321+pag:PLES_29331+pag:PLES_29361+pag:PLES_29371+pag:PLES_29381+pag:PLES_29401+pag:PLES_29421+pag:PLES_29431+pag:PLES_36571+pag:PLES_36581+pag:PLES_36601+pag:PLES_36651+pag:PLES_36661+pag:PLES_36691+pag:PLES_36701+pag:PLES_38981+pag:PLES_56611">
+        <graphics name="ppkA..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="684" y="743" width="46" height="17"/>
+    </entry>
+    <entry id="64" name="pag:PLES_14821 pag:PLES_30621 pag:PLES_30631 pag:PLES_30641 pag:PLES_30651 pag:PLES_30661 pag:PLES_30671 pag:PLES_30681 pag:PLES_30691 pag:PLES_30701 pag:PLES_30711 pag:PLES_30721 pag:PLES_30731 pag:PLES_58471" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_14821+pag:PLES_30621+pag:PLES_30631+pag:PLES_30641+pag:PLES_30651+pag:PLES_30661+pag:PLES_30671+pag:PLES_30681+pag:PLES_30691+pag:PLES_30701+pag:PLES_30711+pag:PLES_30721+pag:PLES_30731+pag:PLES_58471">
+        <graphics name="algA..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="684" y="891" width="46" height="17"/>
+    </entry>
+    <entry id="65" name="pag:PLES_15331" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_15331">
+        <graphics name="rhlA" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="684" y="416" width="46" height="17"/>
+    </entry>
+    <entry id="66" name="pag:PLES_15341" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_15341">
+        <graphics name="rhlB" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="732" y="416" width="46" height="17"/>
+    </entry>
+    <entry id="67" name="pag:PLES_41891" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_41891">
+        <graphics name="rhlC" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="780" y="416" width="46" height="17"/>
+    </entry>
+    <entry id="68" name="pag:PLES_19961" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_19961">
+        <graphics name="pelA" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="684" y="922" width="46" height="17"/>
+    </entry>
+    <entry id="69" name="pag:PLES_27241" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_27241">
+        <graphics name="lecA" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="684" y="441" width="46" height="17"/>
+    </entry>
+    <entry id="70" name="pag:PLES_27251" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_27251">
+        <graphics name="PLES_27251" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="732" y="441" width="46" height="17"/>
+    </entry>
+    <entry id="71" name="pag:PLES_19971" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_19971">
+        <graphics name="pelB" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="732" y="922" width="46" height="17"/>
+    </entry>
+    <entry id="72" name="pag:PLES_19981" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_19981">
+        <graphics name="pelC" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="780" y="922" width="46" height="17"/>
+    </entry>
+    <entry id="73" name="pag:PLES_20001" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_20001">
+        <graphics name="pelE" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="732" y="941" width="46" height="17"/>
+    </entry>
+    <entry id="74" name="pag:PLES_20011" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_20011">
+        <graphics name="pelF" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="780" y="941" width="46" height="17"/>
+    </entry>
+    <entry id="75" name="pag:PLES_20021" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_20021">
+        <graphics name="pelG" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="828" y="932" width="46" height="17"/>
+    </entry>
+    <entry id="76" name="path:pag03070" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag03070">
+        <graphics name="Bacterial secretion system" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="794" y="769" width="149" height="23"/>
+    </entry>
+    <entry id="77" name="pag:PLES_06061 pag:PLES_43241" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_06061+pag:PLES_43241">
+        <graphics name="trpE..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="382" y="300" width="46" height="17"/>
+    </entry>
+    <entry id="78" name="pag:PLES_06281 pag:PLES_43231" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_06281+pag:PLES_43231">
+        <graphics name="trpG..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="430" y="300" width="46" height="17"/>
+    </entry>
+    <entry id="79" name="pag:PLES_43251" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_43251">
+        <graphics name="pqsE" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="406" y="339" width="46" height="17"/>
+    </entry>
+    <entry id="80" name="pag:PLES_53441" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pag:PLES_53441">
+        <graphics name="PLES_53441" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="684" y="1031" width="46" height="17"/>
+    </entry>
+    <entry id="81" name="undefined" type="group">
+        <graphics fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="234" y="175" width="91" height="51"/>
+        <component id="1"/>
+        <component id="4"/>
+        <component id="5"/>
+        <component id="60"/>
+    </entry>
+    <entry id="82" name="undefined" type="group">
+        <graphics fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="194" y="860" width="85" height="36"/>
+        <component id="41"/>
+        <component id="42"/>
+    </entry>
+    <relation entry1="81" entry2="2" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="81" entry2="3" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="3" entry2="6" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="2" entry2="6" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="6" entry2="9" type="PPrel">
+        <subtype name="compound" value="7"/>
+    </relation>
+    <relation entry1="9" entry2="61" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="9" entry2="62" type="GErel">
+        <subtype name="repression" value="--|"/>
+    </relation>
+    <relation entry1="57" entry2="65" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="57" entry2="66" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="57" entry2="67" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="57" entry2="69" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="57" entry2="70" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="9" entry2="11" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="28" entry2="30" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="27" entry2="30" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="29" entry2="30" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="30" entry2="31" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="31" entry2="34" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="34" entry2="35" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="35" entry2="32" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="32" entry2="24" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="21" entry2="20" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="22" entry2="20" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="20" entry2="23" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="23" entry2="24" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="23" entry2="25" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="24" entry2="26" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="25" entry2="26" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="26" entry2="63" type="GErel">
+        <subtype name="repression" value="--|"/>
+    </relation>
+    <relation entry1="26" entry2="47" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="26" entry2="64" type="GErel">
+        <subtype name="repression" value="--|"/>
+    </relation>
+    <relation entry1="26" entry2="57" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="26" entry2="11" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="82" entry2="39" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="40" entry2="64" type="GErel">
+        <subtype name="repression" value="--|"/>
+    </relation>
+    <relation entry1="40" entry2="68" type="GErel">
+        <subtype name="repression" value="--|"/>
+    </relation>
+    <relation entry1="40" entry2="71" type="GErel">
+        <subtype name="repression" value="--|"/>
+    </relation>
+    <relation entry1="40" entry2="72" type="GErel">
+        <subtype name="repression" value="--|"/>
+    </relation>
+    <relation entry1="40" entry2="48" type="GErel">
+        <subtype name="repression" value="--|"/>
+    </relation>
+    <relation entry1="40" entry2="73" type="GErel">
+        <subtype name="repression" value="--|"/>
+    </relation>
+    <relation entry1="40" entry2="74" type="GErel">
+        <subtype name="repression" value="--|"/>
+    </relation>
+    <relation entry1="40" entry2="75" type="GErel">
+        <subtype name="repression" value="--|"/>
+    </relation>
+    <relation entry1="53" entry2="48" type="PCrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="53" entry2="45" type="PCrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="53" entry2="52" type="PCrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="53" entry2="40" type="PCrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="53" entry2="80" type="PCrel">
+    </relation>
+</pathway>
