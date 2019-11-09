@@ -429,4 +429,4 @@ getPathwayEnzymeKGML()
 #******************************#
 # Step 2: Generate the network #
 #******************************#
-printInteractiveNetwork_()
+#printInteractiveNetwork()
