@@ -63,6 +63,8 @@ getPathwayEnzymeKGML <- function(removeNoise_=TRUE) {
     return(FALSE)
   }
 
+  kgml_list <- kgml_list[3:length(kgml_list)] #APAGAR
+
   # Loop 01: Run through all available pathways kgml
   lapply(kgml_list, function(file) {
 
