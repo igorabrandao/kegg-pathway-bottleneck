@@ -11,14 +11,17 @@
 #' Igor Brandão
 
 # BiocManager
-if (!requireNamespace("BiocManager", quietly = TRUE))
-  install.packages("BiocManager")
+#if (!requireNamespace("BiocManager", quietly = TRUE))
+#  install.packages("BiocManager")
 
 # KEGGREST
-BiocManager::install("KEGGREST")
+#BiocManager::install("KEGGREST")
 
 # KEGGREST
-BiocManager::install("KEGGgraph")
+#BiocManager::install("KEGGgraph")
+
+# XML
+install.packages('XML')
 
 # igraph
 install.packages("igraph", repos = "http://cran.us.r-project.org")

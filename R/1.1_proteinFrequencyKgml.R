@@ -26,8 +26,8 @@
 files.sources = NULL
 files.sources[1] = paste0("./R/functions", "/", "graphFunctions.R")
 files.sources[2] = paste0("./R/functions", "/", "kgmlFunctions.R")
-files.sources[3] = paste0("./R/functions", "/", "graphPrintFunctions.R")
-files.sources[4] = paste0("./R/functions", "/", "helperFunctions.R")
+#files.sources[3] = paste0("./R/functions", "/", "graphPrintFunctions.R")
+files.sources[3] = paste0("./R/functions", "/", "helperFunctions.R")
 sapply(files.sources, source)
 
 # Load the pathways by organisms data
@@ -63,7 +63,8 @@ getPathwayEnzymeKGML <- function(removeNoise_=TRUE) {
     return(FALSE)
   }
 
-  kgml_list <- kgml_list[3:length(kgml_list)] #APAGAR
+  kgml_list <- kgml_list[66:available_pathways]
+  kgml_index <- 66
 
   # Loop 01: Run through all available pathways kgml
   lapply(kgml_list, function(file) {
