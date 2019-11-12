@@ -142,6 +142,7 @@ parseEntry <- function(entry)
     }
 
     component <- unname(unlist(component))
+    component <- paste(component, collapse = " / ")
 
     # Set the node attributes
     newNode$entryID <- entryID
