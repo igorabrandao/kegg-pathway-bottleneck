@@ -249,6 +249,48 @@ generateCorrelationStudy <- function(dataSet_, removeZeroBottlenecks_ = FALSE, v
   }
 }
 
+
+organismByPathway <- function(dataSet_) {
+  # Define the plot filename
+  exportFile <- "organismsByPathway"
+
+  # Status message
+  if (verbose_) {
+    printMessage(paste0("RUNNING THE ORGANISMS BY PATHWAY ANALYSIS..."))
+  }
+
+  # Keep just the unique pathways
+  dataSet_ <- dataSet_[!duplicated(dataSet_$pathway),]
+
+  # Adjust the columns
+  dataSet_ <- dataSet_[,c("pathway", "total_species")]
+
+  # Rename the row names
+  rownames(dataSet_) <- 1:nrow(dataSet_)
+
+  # Plot the histogram
+  plot1 <- ggplot(dataSet_, aes(x=total_species), binwi) +
+    geom_histogram(position="identity", color="#0c273e", fill="#20639B", binwidth=100) +
+    geom_vline(data=dataSet_, aes(xintercept=mean(dataSet_$total_species), color="#173F5F"),
+                                                     linetype="dashed") + theme_bw() +
+    labs(title="Organism by Pathway", x="Organisms count distribution", y = "Pathways") +
+    theme_bw() + theme(legend.position="none")
+
+  # Export the hypergeometric Descriptive analysis
+  if (!dir.exists(file.path('./output/statistics/'))) {
+    dir.create(file.path(paste0('./output/statistics/')), showWarnings = FALSE, mode = "0775")
+  }
+
+  if (!dir.exists(file.path('./output/statistics/descriptive/'))) {
+    dir.create(file.path(paste0('./output/statistics/descriptive/')), showWarnings = FALSE, mode = "0775")
+  }
+
+  if (dir.exists(file.path('./output/statistics/descriptive/'))) {
+    print(plot1)
+    ggsave(paste0("./output/statistics/descriptive/", exportFile, ".png"), width = 25, height = 20, units = "cm")
+  }
+}
+
 #*******************************************************************************************#
 
 # ---- PIPELINE SECTION ----
@@ -310,7 +352,7 @@ ggplot(data, aes(fill=bottleneck_classification, x=pathway)) +
     scale_fill_manual(values = c("#ED553B", "#3CAEA3", "#20639B", "#173F5F")) +
     theme(axis.text.x = element_text(angle = 90, hjust = 1))
 
-ggsave(paste0("./output/statistics/descriptive/pathwayClassification.png"), width = 40, height = 20, units = "cm")
+ggsave(paste0("./output/statistics/descriptive/proteinByPathway.png"), width = 40, height = 20, units = "cm")
 
 # Proteins by pathway
 ggplot(dataSet, aes(fill=bottleneck_classification, x=pathway)) +
@@ -322,7 +364,7 @@ ggplot(dataSet, aes(fill=bottleneck_classification, x=pathway)) +
   scale_fill_manual(values = c("#ED553B", "#3CAEA3", "#20639B", "#173F5F")) +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
 
-ggsave(paste0("./output/statistics/descriptive/pathwayClassificationAll.png"), width = 40, height = 20, units = "cm")
+ggsave(paste0("./output/statistics/descriptive/proteinByPathwayAll.png"), width = 40, height = 20, units = "cm")
 
 #******************************************#
 
