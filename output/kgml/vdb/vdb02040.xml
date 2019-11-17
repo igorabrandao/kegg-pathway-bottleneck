@@ -1,44 +1,218 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<title>Access forbidden!</title>
-<link rev="made" href="mailto:http://www.genome.jp/feedback/" />
-<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
-    body { color: #000000; background-color: #FFFFFF; }
-    a:link { color: #0000CC; }
-    p, address {margin-left: 3em;}
-    span {font-size: smaller;}
-/*]]>*/--></style>
-</head>
-
-<body>
-<h1>Access forbidden!</h1>
-<p>
-
-
-  
-
-    You don't have permission to access the requested object.
-    It is either read-protected or not readable by the server.
-
-  
-
-</p>
-<p>
-If you think this is a server error, please contact
-the <a href="http://www.genome.jp/feedback/">webmaster</a>.
-
-</p>
-
-<h2>Error 403</h2>
-<address>
-  <a href="/">rest.kegg.jp</a><br />
-  
-  <span>Wed Nov  6 23:07:44 2019<br />
-  Apache</span>
-</address>
-</body>
-</html>
-
+<?xml version="1.0"?>
+<!DOCTYPE pathway SYSTEM "http://www.kegg.jp/kegg/xml/KGML_v0.7.2_.dtd">
+<!-- Creation date: Jan 31, 2017 17:20:39 +0900 (GMT+9) -->
+<pathway name="path:vdb02040" org="vdb" number="02040"
+         title="Flagellar assembly"
+         image="http://www.kegg.jp/kegg/pathway/vdb/vdb02040.png"
+         link="http://www.kegg.jp/kegg-bin/show_pathway?vdb02040">
+    <entry id="1" name="path:vdb03070" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vdb03070">
+        <graphics name="Bacterial secretion system" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="400" y="578" width="140" height="26"/>
+    </entry>
+    <entry id="2" name="path:vdb02030" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vdb02030">
+        <graphics name="Bacterial chemotaxis" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="439" y="531" width="122" height="26"/>
+    </entry>
+    <entry id="3" name="ko:K02403" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02403">
+        <graphics name="K02403" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="294" y="654" width="46" height="17"/>
+    </entry>
+    <entry id="4" name="ko:K02402" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02402">
+        <graphics name="K02402" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="294" y="637" width="46" height="17"/>
+    </entry>
+    <entry id="5" name="vdb:AL552_01970 vdb:AL552_12260" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vdb:AL552_01970+vdb:AL552_12260">
+        <graphics name="flgM..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="209" y="687" width="46" height="17"/>
+    </entry>
+    <entry id="6" name="vdb:AL552_01965 vdb:AL552_12265" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vdb:AL552_01965+vdb:AL552_12265">
+        <graphics name="AL552_01965..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="48" y="589" width="46" height="17"/>
+    </entry>
+    <entry id="7" name="vdb:AL552_01975 vdb:AL552_12255" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vdb:AL552_01975+vdb:AL552_12255">
+        <graphics name="AL552_01975..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="48" y="570" width="46" height="17"/>
+    </entry>
+    <entry id="8" name="ko:K02423" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02423">
+        <graphics name="K02423" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="192" y="570" width="46" height="17"/>
+    </entry>
+    <entry id="9" name="vdb:AL552_19805" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vdb:AL552_19805">
+        <graphics name="AL552_19805" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="96" y="570" width="46" height="17"/>
+    </entry>
+    <entry id="10" name="vdb:AL552_04145 vdb:AL552_19850" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vdb:AL552_04145+vdb:AL552_19850">
+        <graphics name="fliS..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="144" y="570" width="46" height="17"/>
+    </entry>
+    <entry id="11" name="vdb:AL552_04180 vdb:AL552_19765" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vdb:AL552_04180+vdb:AL552_19765">
+        <graphics name="fliR..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="299" y="587" width="46" height="17"/>
+    </entry>
+    <entry id="12" name="vdb:AL552_04190 vdb:AL552_19775" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vdb:AL552_04190+vdb:AL552_19775">
+        <graphics name="fliP..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="253" y="587" width="46" height="17"/>
+    </entry>
+    <entry id="13" name="vdb:AL552_04185 vdb:AL552_19770" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vdb:AL552_04185+vdb:AL552_19770">
+        <graphics name="fliQ..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="299" y="570" width="46" height="17"/>
+    </entry>
+    <entry id="14" name="vdb:AL552_19780" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vdb:AL552_19780">
+        <graphics name="fliO" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="253" y="570" width="46" height="17"/>
+    </entry>
+    <entry id="15" name="vdb:AL552_19810" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vdb:AL552_19810">
+        <graphics name="fliI" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="253" y="553" width="46" height="17"/>
+    </entry>
+    <entry id="16" name="vdb:AL552_04230 vdb:AL552_19815" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vdb:AL552_04230+vdb:AL552_19815">
+        <graphics name="AL552_04230..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="253" y="536" width="46" height="17"/>
+    </entry>
+    <entry id="17" name="vdb:AL552_04195 vdb:AL552_19785" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vdb:AL552_04195+vdb:AL552_19785">
+        <graphics name="fliN..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="391" y="504" width="46" height="17"/>
+    </entry>
+    <entry id="18" name="vdb:AL552_19790" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vdb:AL552_19790">
+        <graphics name="AL552_19790" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="391" y="487" width="46" height="17"/>
+    </entry>
+    <entry id="19" name="vdb:AL552_04225 vdb:AL552_19820" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vdb:AL552_04225+vdb:AL552_19820">
+        <graphics name="fliG..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="391" y="470" width="46" height="17"/>
+    </entry>
+    <entry id="20" name="vdb:AL552_04220 vdb:AL552_19825" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vdb:AL552_04220+vdb:AL552_19825">
+        <graphics name="AL552_04220..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="391" y="446" width="46" height="17"/>
+    </entry>
+    <entry id="21" name="vdb:AL552_04135 vdb:AL552_19800" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vdb:AL552_04135+vdb:AL552_19800">
+        <graphics name="AL552_04135..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="514" y="263" width="46" height="17"/>
+    </entry>
+    <entry id="22" name="vdb:AL552_04160 vdb:AL552_12335 vdb:AL552_12350 vdb:AL552_12355 vdb:AL552_19870 vdb:AL552_19875 vdb:AL552_19885" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vdb:AL552_04160+vdb:AL552_12335+vdb:AL552_12350+vdb:AL552_12355+vdb:AL552_19870+vdb:AL552_19875+vdb:AL552_19885">
+        <graphics name="AL552_04160..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="441" y="144" width="46" height="17"/>
+    </entry>
+    <entry id="23" name="vdb:AL552_01950 vdb:AL552_12290" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vdb:AL552_01950+vdb:AL552_12290">
+        <graphics name="flgD..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="514" y="280" width="46" height="17"/>
+    </entry>
+    <entry id="24" name="vdb:AL552_01940 vdb:AL552_12300" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vdb:AL552_01940+vdb:AL552_12300">
+        <graphics name="flgF..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="186" y="333" width="46" height="17"/>
+    </entry>
+    <entry id="25" name="vdb:AL552_01945 vdb:AL552_12295" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vdb:AL552_01945+vdb:AL552_12295">
+        <graphics name="flgE..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="345" y="271" width="46" height="17"/>
+    </entry>
+    <entry id="26" name="ko:K02396" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K02396">
+        <graphics name="K02396" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="417" y="221" width="46" height="17"/>
+    </entry>
+    <entry id="27" name="vdb:AL552_01910 vdb:AL552_12330" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vdb:AL552_01910+vdb:AL552_12330">
+        <graphics name="flgL..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="417" y="198" width="46" height="17"/>
+    </entry>
+    <entry id="28" name="vdb:AL552_04150 vdb:AL552_19860" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vdb:AL552_04150+vdb:AL552_19860">
+        <graphics name="AL552_04150..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="488" y="51" width="46" height="17"/>
+    </entry>
+    <entry id="29" name="path:vdb02040" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vdb02040">
+        <graphics name="TITLE:Flagellar assembly" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="134" y="58" width="188" height="25"/>
+    </entry>
+    <entry id="30" name="vdb:AL552_04215 vdb:AL552_19830" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vdb:AL552_04215+vdb:AL552_19830">
+        <graphics name="fliE..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="345" y="411" width="46" height="17"/>
+    </entry>
+    <entry id="31" name="vdb:AL552_01955 vdb:AL552_12285" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vdb:AL552_01955+vdb:AL552_12285">
+        <graphics name="AL552_01955..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="437" y="411" width="46" height="17"/>
+    </entry>
+    <entry id="32" name="vdb:AL552_01960 vdb:AL552_12280" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vdb:AL552_01960+vdb:AL552_12280">
+        <graphics name="flgB..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="391" y="411" width="46" height="17"/>
+    </entry>
+    <entry id="33" name="vdb:AL552_01925 vdb:AL552_12315" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vdb:AL552_01925+vdb:AL552_12315">
+        <graphics name="AL552_01925..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="357" y="383" width="46" height="17"/>
+    </entry>
+    <entry id="34" name="vdb:AL552_01930 vdb:AL552_12310" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vdb:AL552_01930+vdb:AL552_12310">
+        <graphics name="AL552_01930..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="357" y="362" width="46" height="17"/>
+    </entry>
+    <entry id="35" name="vdb:AL552_01935 vdb:AL552_12305" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vdb:AL552_01935+vdb:AL552_12305">
+        <graphics name="flgG..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="345" y="333" width="46" height="17"/>
+    </entry>
+    <entry id="36" name="vdb:AL552_04120 vdb:AL552_11750" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vdb:AL552_04120+vdb:AL552_11750">
+        <graphics name="motA..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="182" y="444" width="46" height="17"/>
+    </entry>
+    <entry id="37" name="vdb:AL552_04170 vdb:AL552_19755" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vdb:AL552_04170+vdb:AL552_19755">
+        <graphics name="flhA..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="235" y="502" width="46" height="17"/>
+    </entry>
+    <entry id="38" name="vdb:AL552_04175 vdb:AL552_19760" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vdb:AL552_04175+vdb:AL552_19760">
+        <graphics name="AL552_04175..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="292" y="502" width="46" height="17"/>
+    </entry>
+    <entry id="39" name="vdb:AL552_04125 vdb:AL552_19740" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vdb:AL552_04125+vdb:AL552_19740">
+        <graphics name="AL552_04125..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="294" y="687" width="46" height="17"/>
+    </entry>
+    <entry id="40" name="vdb:AL552_04205 vdb:AL552_19200" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vdb:AL552_04205+vdb:AL552_19200">
+        <graphics name="AL552_04205..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="126" y="333" width="46" height="17"/>
+    </entry>
+    <entry id="41" name="vdb:AL552_22880" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vdb:AL552_22880">
+        <graphics name="AL552_22880" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="80" y="333" width="46" height="17"/>
+    </entry>
+    <entry id="42" name="vdb:AL552_04115 vdb:AL552_11755" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vdb:AL552_04115+vdb:AL552_11755">
+        <graphics name="AL552_04115..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="159" y="407" width="46" height="17"/>
+    </entry>
+</pathway>
