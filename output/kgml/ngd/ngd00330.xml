@@ -385,9 +385,9 @@
         <graphics name="K00318..." fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="926" y="297" width="46" height="17"/>
     </entry>
-    <entry id="175" name="ko:K00294 ko:K13821" type="ortholog" reaction="rn:R00245"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K00294+K13821">
-        <graphics name="K00294..." fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="175" name="ngd:NGA_0318100" type="gene" reaction="rn:R00245"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ngd:NGA_0318100">
+        <graphics name="NGA_0318100" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="799" y="201" width="46" height="17"/>
     </entry>
     <entry id="176" name="ko:K00931 ko:K12657" type="ortholog" reaction="rn:R00239"
@@ -405,9 +405,9 @@
         <graphics name="K01750" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="795" y="405" width="46" height="17"/>
     </entry>
-    <entry id="181" name="ko:K00294 ko:K13821" type="ortholog" reaction="rn:R00707 rn:R00708"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K00294+K13821">
-        <graphics name="K00294..." fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="181" name="ngd:NGA_0318100" type="gene" reaction="rn:R00707 rn:R00708"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ngd:NGA_0318100">
+        <graphics name="NGA_0318100" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="858" y="201" width="46" height="17"/>
     </entry>
     <entry id="184" name="ko:K12658" type="ortholog" reaction="rn:R03296"
@@ -450,14 +450,14 @@
         <graphics name="K00286" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="1171" y="298" width="46" height="17"/>
     </entry>
-    <entry id="207" name="ko:K00294 ko:K13821" type="ortholog" reaction="rn:R04444 rn:R04445"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K00294+K13821">
-        <graphics name="K00294..." fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="207" name="ngd:NGA_0318100" type="gene" reaction="rn:R04444 rn:R04445"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ngd:NGA_0318100">
+        <graphics name="NGA_0318100" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="1278" y="326" width="46" height="17"/>
     </entry>
-    <entry id="208" name="ko:K00294 ko:K13821" type="ortholog" reaction="rn:R05051"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K00294+K13821">
-        <graphics name="K00294..." fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="208" name="ngd:NGA_0318100" type="gene" reaction="rn:R05051"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ngd:NGA_0318100">
+        <graphics name="NGA_0318100" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="1278" y="392" width="46" height="17"/>
     </entry>
     <entry id="209" name="ko:K14454 ko:K14455 ko:K00811 ko:K00812 ko:K00813 ko:K11358" type="ortholog" reaction="rn:R05052"
@@ -976,6 +976,12 @@
     <relation entry1="67" entry2="110" type="maplink">
         <subtype name="compound" value="253"/>
     </relation>
+    <relation entry1="175" entry2="159" type="maplink">
+        <subtype name="compound" value="301"/>
+    </relation>
+    <relation entry1="181" entry2="159" type="maplink">
+        <subtype name="compound" value="301"/>
+    </relation>
     <relation entry1="215" entry2="157" type="maplink">
         <subtype name="compound" value="313"/>
     </relation>
@@ -994,8 +1000,24 @@
         <substrate id="253" name="cpd:C00134"/>
         <product id="259" name="cpd:C00315"/>
     </reaction>
+    <reaction id="208" name="rn:R05051" type="irreversible">
+        <substrate id="314" name="cpd:C05938"/>
+        <product id="311" name="cpd:C05947"/>
+    </reaction>
+    <reaction id="207" name="rn:R04444 rn:R04445" type="irreversible">
+        <substrate id="310" name="cpd:C04281"/>
+        <product id="311" name="cpd:C05947"/>
+    </reaction>
     <reaction id="204" name="rn:R01252" type="irreversible">
         <substrate id="316" name="cpd:C00148"/>
         <product id="309" name="cpd:C01157"/>
+    </reaction>
+    <reaction id="181" name="rn:R00707 rn:R00708" type="irreversible">
+        <substrate id="307" name="cpd:C03912"/>
+        <product id="301" name="cpd:C00025"/>
+    </reaction>
+    <reaction id="175" name="rn:R00245" type="reversible">
+        <substrate id="328" name="cpd:C01165"/>
+        <product id="301" name="cpd:C00025"/>
     </reaction>
 </pathway>

@@ -195,9 +195,9 @@
         <graphics name="TITLE:Galactose metabolism" fgcolor="#000000" bgcolor="#FFFFFF"
              type="roundrectangle" x="139" y="58" width="197" height="25"/>
     </entry>
-    <entry id="95" name="bpg:Bathy04g03520" type="gene" reaction="rn:R01192"
-        link="http://www.kegg.jp/dbget-bin/www_bget?bpg:Bathy04g03520">
-        <graphics name="Bathy04g03520" fgcolor="#000000" bgcolor="#BFFFBF"
+    <entry id="95" name="ko:K18819" type="ortholog" reaction="rn:R01192"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K18819">
+        <graphics name="K18819" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="469" y="353" width="46" height="17"/>
     </entry>
     <entry id="96" name="bpg:Bathy14g01370" type="gene" reaction="rn:R01105"
@@ -570,12 +570,6 @@
         <graphics name="K21622" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="1040" y="742" width="46" height="17"/>
     </entry>
-    <relation entry1="89" entry2="95" type="ECrel">
-        <subtype name="compound" value="132"/>
-    </relation>
-    <relation entry1="81" entry2="95" type="ECrel">
-        <subtype name="compound" value="126"/>
-    </relation>
     <relation entry1="81" entry2="92" type="maplink">
         <subtype name="compound" value="128"/>
     </relation>
@@ -597,16 +591,10 @@
     <relation entry1="180" entry2="78" type="ECrel">
         <subtype name="compound" value="125"/>
     </relation>
-    <relation entry1="183" entry2="95" type="ECrel">
-        <subtype name="compound" value="126"/>
-    </relation>
     <relation entry1="183" entry2="81" type="ECrel">
         <subtype name="compound" value="126"/>
     </relation>
     <relation entry1="184" entry2="183" type="ECrel">
-        <subtype name="compound" value="126"/>
-    </relation>
-    <relation entry1="184" entry2="95" type="ECrel">
         <subtype name="compound" value="126"/>
     </relation>
     <relation entry1="184" entry2="81" type="ECrel">
@@ -633,10 +621,6 @@
         <substrate id="133" name="cpd:C00089"/>
         <substrate id="132" name="cpd:C01235"/>
         <product id="134" name="cpd:C00492"/>
-    </reaction>
-    <reaction id="95" name="rn:R01192" type="irreversible">
-        <substrate id="126" name="cpd:C00052"/>
-        <product id="132" name="cpd:C01235"/>
     </reaction>
     <reaction id="96" name="rn:R01105" type="irreversible">
         <substrate id="153" name="cpd:C05796"/>

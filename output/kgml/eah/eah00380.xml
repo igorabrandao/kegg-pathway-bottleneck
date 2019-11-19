@@ -125,9 +125,9 @@
         <graphics name="K10217..." fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="674" y="922" width="46" height="17"/>
     </entry>
-    <entry id="106" name="ko:K03392" type="ortholog" reaction="rn:R04323"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K03392">
-        <graphics name="K03392" fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="106" name="eah:FA04_29485" type="gene" reaction="rn:R04323"
+        link="http://www.kegg.jp/dbget-bin/www_bget?eah:FA04_29485">
+        <graphics name="FA04_29485" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="674" y="866" width="46" height="17"/>
     </entry>
     <entry id="107" name="eah:FA04_32115" type="gene" reaction="rn:R02665"
@@ -740,9 +740,9 @@
         <graphics name="FA04_20865" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="771" y="736" width="46" height="17"/>
     </entry>
-    <entry id="273" name="ko:K11816" type="ortholog" reaction="rn:R10181"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K11816">
-        <graphics name="K11816" fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="273" name="eah:FA04_28260" type="gene" reaction="rn:R10181"
+        link="http://www.kegg.jp/dbget-bin/www_bget?eah:FA04_28260">
+        <graphics name="FA04_28260" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="1098" y="378" width="46" height="17"/>
     </entry>
     <entry id="274" name="ko:K16903" type="ortholog" reaction="rn:R10180"
@@ -809,6 +809,9 @@
     <relation entry1="107" entry2="19" type="ECrel">
         <subtype name="compound" value="194"/>
     </relation>
+    <relation entry1="106" entry2="107" type="ECrel">
+        <subtype name="compound" value="193"/>
+    </relation>
     <relation entry1="103" entry2="104" type="ECrel">
         <subtype name="compound" value="188"/>
     </relation>
@@ -851,6 +854,12 @@
     <relation entry1="272" entry2="107" type="ECrel">
         <subtype name="compound" value="194"/>
     </relation>
+    <relation entry1="131" entry2="273" type="ECrel">
+        <subtype name="compound" value="214"/>
+    </relation>
+    <relation entry1="147" entry2="273" type="ECrel">
+        <subtype name="compound" value="214"/>
+    </relation>
     <relation entry1="282" entry2="134" type="maplink">
         <subtype name="compound" value="184"/>
     </relation>
@@ -884,6 +893,10 @@
     <reaction id="104" name="rn:R01933" type="irreversible">
         <substrate id="189" name="cpd:C00322"/>
         <product id="188" name="cpd:C00527"/>
+    </reaction>
+    <reaction id="106" name="rn:R04323" type="irreversible">
+        <substrate id="193" name="cpd:C04409"/>
+        <product id="191" name="cpd:C03824"/>
     </reaction>
     <reaction id="107" name="rn:R02665" type="irreversible">
         <substrate id="194" name="cpd:C00632"/>
@@ -932,6 +945,10 @@
     <reaction id="272" name="rn:R02670" type="irreversible">
         <substrate id="194" name="cpd:C00632"/>
         <product id="202" name="cpd:C05640"/>
+    </reaction>
+    <reaction id="273" name="rn:R10181" type="irreversible">
+        <substrate id="276" name="cpd:C00331"/>
+        <product id="214" name="cpd:C00954"/>
     </reaction>
     <reaction id="282" name="rn:R00685" type="irreversible">
         <substrate id="184" name="cpd:C00078"/>

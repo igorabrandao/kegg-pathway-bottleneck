@@ -150,9 +150,9 @@
         <graphics name="DICPUDRAFT_46137" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="916" y="715" width="46" height="17"/>
     </entry>
-    <entry id="112" name="ko:K12199" type="ortholog"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K12199">
-        <graphics name="K12199" fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="112" name="dpp:DICPUDRAFT_148752" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dpp:DICPUDRAFT_148752">
+        <graphics name="DICPUDRAFT_148752" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="916" y="731" width="46" height="17"/>
     </entry>
     <entry id="115" name="dpp:DICPUDRAFT_56726" type="gene"
@@ -695,10 +695,19 @@
         <graphics name="K04551" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="265" y="407" width="46" height="17"/>
     </entry>
+    <entry id="366" name="undefined" type="group">
+        <graphics fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="916" y="723" width="46" height="33"/>
+        <component id="111"/>
+        <component id="112"/>
+    </entry>
     <relation entry1="106" entry2="109" type="PPrel">
         <subtype name="binding/association" value="---"/>
     </relation>
-    <relation entry1="107" entry2="111" type="PPrel">
+    <relation entry1="111" entry2="112" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="107" entry2="366" type="PPrel">
         <subtype name="binding/association" value="---"/>
     </relation>
     <relation entry1="115" entry2="111" type="PPrel">

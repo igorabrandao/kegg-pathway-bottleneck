@@ -270,9 +270,9 @@
         <graphics name="AU40_13500" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="580" y="225" width="46" height="17"/>
     </entry>
-    <entry id="96" name="ko:K07801" type="ortholog"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K07801">
-        <graphics name="K07801" fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="96" name="senq:AU40_26185" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?senq:AU40_26185">
+        <graphics name="AU40_26185" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="532" y="225" width="46" height="17"/>
     </entry>
     <entry id="97" name="senq:AU40_10440" type="gene"
@@ -3034,6 +3034,9 @@
         <subtype name="expression" value="--&gt;"/>
     </relation>
     <relation entry1="93" entry2="97" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="93" entry2="96" type="GErel">
         <subtype name="expression" value="--&gt;"/>
     </relation>
     <relation entry1="93" entry2="95" type="GErel">

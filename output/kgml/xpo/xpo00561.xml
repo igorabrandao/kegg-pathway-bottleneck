@@ -30,9 +30,9 @@
         <graphics name="Glycerophospholipid metabolism" fgcolor="#000000" bgcolor="#FFFFFF"
              type="roundrectangle" x="94" y="461" width="117" height="34"/>
     </entry>
-    <entry id="41" name="ko:K01046 ko:K12298 ko:K16816 ko:K13534 ko:K14073 ko:K14074 ko:K14075 ko:K14076 ko:K22283 ko:K14452 ko:K22284 ko:K14674 ko:K14675 ko:K17900" type="ortholog" reaction="rn:R02250"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K01046+K12298+K16816+K13534+K14073+K14074+K14075+K14076+K22283+K14452+K22284+K14674+K14675+K17900">
-        <graphics name="K01046..." fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="41" name="xpo:XPG1_0658" type="gene" reaction="rn:R02250"
+        link="http://www.kegg.jp/dbget-bin/www_bget?xpo:XPG1_0658">
+        <graphics name="XPG1_0658" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="636" y="522" width="46" height="17"/>
     </entry>
     <entry id="42" name="ko:K11155 ko:K11160 ko:K14456 ko:K22848 ko:K22849 ko:K00635 ko:K18851" type="ortholog" reaction="rn:R02251"
@@ -60,9 +60,9 @@
         <graphics name="K14458..." fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="489" y="523" width="46" height="17"/>
     </entry>
-    <entry id="47" name="ko:K01046 ko:K12298 ko:K16816 ko:K13534 ko:K14073 ko:K14074 ko:K14075 ko:K14076 ko:K22283 ko:K14452 ko:K22284 ko:K14674 ko:K14675 ko:K17900" type="ortholog" reaction="rn:R02687"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K01046+K12298+K16816+K13534+K14073+K14074+K14075+K14076+K22283+K14452+K22284+K14674+K14675+K17900">
-        <graphics name="K01046..." fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="47" name="xpo:XPG1_0658" type="gene" reaction="rn:R02687"
+        link="http://www.kegg.jp/dbget-bin/www_bget?xpo:XPG1_0658">
+        <graphics name="XPG1_0658" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="557" y="512" width="46" height="17"/>
     </entry>
     <entry id="48" name="xpo:XPG1_2994" type="gene" reaction="rn:R02241"
@@ -462,8 +462,26 @@
     <relation entry1="48" entry2="73" type="ECrel">
         <subtype name="compound" value="88"/>
     </relation>
+    <relation entry1="41" entry2="47" type="ECrel">
+        <subtype name="compound" value="75"/>
+    </relation>
+    <relation entry1="41" entry2="47" type="ECrel">
+        <subtype name="compound" value="85"/>
+    </relation>
+    <relation entry1="47" entry2="73" type="ECrel">
+        <subtype name="compound" value="75"/>
+    </relation>
+    <relation entry1="41" entry2="73" type="ECrel">
+        <subtype name="compound" value="75"/>
+    </relation>
     <relation entry1="40" entry2="49" type="maplink">
         <subtype name="compound" value="76"/>
+    </relation>
+    <relation entry1="47" entry2="62" type="maplink">
+        <subtype name="compound" value="85"/>
+    </relation>
+    <relation entry1="41" entry2="62" type="maplink">
+        <subtype name="compound" value="85"/>
     </relation>
     <relation entry1="40" entry2="48" type="maplink">
         <subtype name="compound" value="88"/>
@@ -483,6 +501,16 @@
     <relation entry1="48" entry2="152" type="ECrel">
         <subtype name="compound" value="87"/>
     </relation>
+    <reaction id="41" name="rn:R02250" type="irreversible">
+        <substrate id="74" name="cpd:C00422"/>
+        <product id="85" name="cpd:C00162"/>
+        <product id="75" name="cpd:C00641"/>
+    </reaction>
+    <reaction id="47" name="rn:R02687" type="irreversible">
+        <substrate id="75" name="cpd:C00641"/>
+        <product id="85" name="cpd:C00162"/>
+        <product id="101" name="cpd:C01885"/>
+    </reaction>
     <reaction id="48" name="rn:R02241" type="irreversible">
         <substrate id="87" name="cpd:C00681"/>
         <substrate id="90" name="cpd:C00040"/>

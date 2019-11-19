@@ -1,44 +1,413 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<title>Access forbidden!</title>
-<link rev="made" href="mailto:http://www.genome.jp/feedback/" />
-<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
-    body { color: #000000; background-color: #FFFFFF; }
-    a:link { color: #0000CC; }
-    p, address {margin-left: 3em;}
-    span {font-size: smaller;}
-/*]]>*/--></style>
-</head>
-
-<body>
-<h1>Access forbidden!</h1>
-<p>
-
-
-  
-
-    You don't have permission to access the requested object.
-    It is either read-protected or not readable by the server.
-
-  
-
-</p>
-<p>
-If you think this is a server error, please contact
-the <a href="http://www.genome.jp/feedback/">webmaster</a>.
-
-</p>
-
-<h2>Error 403</h2>
-<address>
-  <a href="/">rest.kegg.jp</a><br />
-  
-  <span>Wed Nov  6 19:44:22 2019<br />
-  Apache</span>
-</address>
-</body>
-</html>
-
+<?xml version="1.0"?>
+<!DOCTYPE pathway SYSTEM "http://www.kegg.jp/kegg/xml/KGML_v0.7.2_.dtd">
+<!-- Creation date: Apr 12, 2010 11:33:30 +0900 (JST) -->
+<pathway name="path:dze03070" org="dze" number="03070"
+         title="Bacterial secretion system"
+         image="http://www.kegg.jp/kegg/pathway/dze/dze03070.png"
+         link="http://www.kegg.jp/kegg-bin/show_pathway?dze03070">
+    <entry id="1" name="cpd:C00002" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00002">
+        <graphics name="C00002" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="1057" y="568" width="8" height="8"/>
+    </entry>
+    <entry id="2" name="ko:K11004" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K11004">
+        <graphics name="K11004" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="172" y="798" width="46" height="17"/>
+    </entry>
+    <entry id="3" name="ko:K11003" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K11003">
+        <graphics name="K11003" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="172" y="781" width="46" height="17"/>
+    </entry>
+    <entry id="4" name="dze:Dd1591_3777" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_3777">
+        <graphics name="Dd1591_3777" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="172" y="764" width="46" height="17"/>
+    </entry>
+    <entry id="5" name="ko:K11028" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K11028">
+        <graphics name="K11028" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="811" y="764" width="46" height="17"/>
+    </entry>
+    <entry id="6" name="ko:K11017" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K11017">
+        <graphics name="K11017" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="863" y="764" width="46" height="17"/>
+    </entry>
+    <entry id="7" name="ko:K11016" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K11016">
+        <graphics name="K11016" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="863" y="781" width="46" height="17"/>
+    </entry>
+    <entry id="8" name="ko:K12341" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K12341">
+        <graphics name="K12341" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="915" y="764" width="46" height="17"/>
+    </entry>
+    <entry id="9" name="ko:K12342" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K12342">
+        <graphics name="K12342" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="915" y="786" width="46" height="17"/>
+    </entry>
+    <entry id="10" name="dze:Dd1591_0418 dze:Dd1591_1162 dze:Dd1591_1502 dze:Dd1591_2559 dze:Dd1591_2825" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_0418+dze:Dd1591_1162+dze:Dd1591_1502+dze:Dd1591_2559+dze:Dd1591_2825">
+        <graphics name="Dd1591_0418..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1352" y="764" width="46" height="17"/>
+    </entry>
+    <entry id="11" name="dze:Dd1591_0417 dze:Dd1591_1163 dze:Dd1591_1501 dze:Dd1591_2558 dze:Dd1591_2826" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_0417+dze:Dd1591_1163+dze:Dd1591_1501+dze:Dd1591_2558+dze:Dd1591_2826">
+        <graphics name="Dd1591_0417..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1352" y="781" width="46" height="17"/>
+    </entry>
+    <entry id="12" name="dze:Dd1591_2801" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_2801">
+        <graphics name="Dd1591_2801" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1352" y="798" width="46" height="17"/>
+    </entry>
+    <entry id="13" name="ko:K11915" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K11915">
+        <graphics name="K11915" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1444" y="849" width="46" height="17"/>
+    </entry>
+    <entry id="14" name="dze:Dd1591_2794" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_2794">
+        <graphics name="Dd1591_2794" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1352" y="815" width="46" height="17"/>
+    </entry>
+    <entry id="15" name="dze:Dd1591_2799" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_2799">
+        <graphics name="Dd1591_2799" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1398" y="815" width="46" height="17"/>
+    </entry>
+    <entry id="16" name="ko:K11912" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K11912">
+        <graphics name="K11912" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1352" y="849" width="46" height="17"/>
+    </entry>
+    <entry id="17" name="ko:K11913" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K11913">
+        <graphics name="K11913" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1398" y="849" width="46" height="17"/>
+    </entry>
+    <entry id="18" name="dze:Dd1591_2798" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_2798">
+        <graphics name="Dd1591_2798" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1352" y="832" width="46" height="17"/>
+    </entry>
+    <entry id="19" name="ko:K03221" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K03221">
+        <graphics name="K03221" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="302" y="764" width="46" height="17"/>
+    </entry>
+    <entry id="20" name="ko:K04059" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04059">
+        <graphics name="K04059" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="394" y="781" width="46" height="17"/>
+    </entry>
+    <entry id="21" name="ko:K04057" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04057">
+        <graphics name="K04057" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="348" y="781" width="46" height="17"/>
+    </entry>
+    <entry id="22" name="ko:K04056" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04056">
+        <graphics name="K04056" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="302" y="781" width="46" height="17"/>
+    </entry>
+    <entry id="23" name="dze:Dd1591_1907" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_1907">
+        <graphics name="Dd1591_1907" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="302" y="798" width="46" height="17"/>
+    </entry>
+    <entry id="24" name="dze:Dd1591_1892" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_1892">
+        <graphics name="Dd1591_1892" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="302" y="815" width="46" height="17"/>
+    </entry>
+    <entry id="25" name="dze:Dd1591_1899" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_1899">
+        <graphics name="Dd1591_1899" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="302" y="832" width="46" height="17"/>
+    </entry>
+    <entry id="26" name="dze:Dd1591_1885" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_1885">
+        <graphics name="Dd1591_1885" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="348" y="832" width="46" height="17"/>
+    </entry>
+    <entry id="27" name="dze:Dd1591_1884" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_1884">
+        <graphics name="Dd1591_1884" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="394" y="832" width="46" height="17"/>
+    </entry>
+    <entry id="28" name="dze:Dd1591_1883" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_1883">
+        <graphics name="Dd1591_1883" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="302" y="849" width="46" height="17"/>
+    </entry>
+    <entry id="29" name="dze:Dd1591_1882" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_1882">
+        <graphics name="Dd1591_1882" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="348" y="849" width="46" height="17"/>
+    </entry>
+    <entry id="30" name="dze:Dd1591_1891" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_1891">
+        <graphics name="Dd1591_1891" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="394" y="849" width="46" height="17"/>
+    </entry>
+    <entry id="31" name="dze:Dd1591_1889" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_1889">
+        <graphics name="Dd1591_1889" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="302" y="866" width="46" height="17"/>
+    </entry>
+    <entry id="32" name="dze:Dd1591_1886" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_1886">
+        <graphics name="Dd1591_1886" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="302" y="883" width="46" height="17"/>
+    </entry>
+    <entry id="33" name="dze:Dd1591_1901" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_1901">
+        <graphics name="Dd1591_1901" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="348" y="883" width="46" height="17"/>
+    </entry>
+    <entry id="34" name="dze:Dd1591_1299" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_1299">
+        <graphics name="Dd1591_1299" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="556" y="764" width="46" height="17"/>
+    </entry>
+    <entry id="35" name="dze:Dd1591_1296" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_1296">
+        <graphics name="Dd1591_1296" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="556" y="781" width="46" height="17"/>
+    </entry>
+    <entry id="36" name="dze:Dd1591_1301" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_1301">
+        <graphics name="Dd1591_1301" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="602" y="798" width="46" height="17"/>
+    </entry>
+    <entry id="37" name="dze:Dd1591_1302" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_1302">
+        <graphics name="Dd1591_1302" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="648" y="798" width="46" height="17"/>
+    </entry>
+    <entry id="38" name="dze:Dd1591_1298" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_1298">
+        <graphics name="Dd1591_1298" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="556" y="798" width="46" height="17"/>
+    </entry>
+    <entry id="39" name="dze:Dd1591_1303" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_1303">
+        <graphics name="Dd1591_1303" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="556" y="815" width="46" height="17"/>
+    </entry>
+    <entry id="40" name="dze:Dd1591_1304 dze:Dd1591_3311" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_1304+dze:Dd1591_3311">
+        <graphics name="Dd1591_1304..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="602" y="815" width="46" height="17"/>
+    </entry>
+    <entry id="41" name="dze:Dd1591_1305" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_1305">
+        <graphics name="Dd1591_1305" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="648" y="815" width="46" height="17"/>
+    </entry>
+    <entry id="42" name="dze:Dd1591_1306" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_1306">
+        <graphics name="Dd1591_1306" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="556" y="832" width="46" height="17"/>
+    </entry>
+    <entry id="43" name="dze:Dd1591_1307" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_1307">
+        <graphics name="Dd1591_1307" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="602" y="832" width="46" height="17"/>
+    </entry>
+    <entry id="44" name="dze:Dd1591_1308" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_1308">
+        <graphics name="Dd1591_1308" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="648" y="832" width="46" height="17"/>
+    </entry>
+    <entry id="45" name="dze:Dd1591_1300" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_1300">
+        <graphics name="Dd1591_1300" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="556" y="849" width="46" height="17"/>
+    </entry>
+    <entry id="46" name="dze:Dd1591_1309" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_1309">
+        <graphics name="Dd1591_1309" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="556" y="868" width="46" height="17"/>
+    </entry>
+    <entry id="47" name="dze:Dd1591_0619" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_0619">
+        <graphics name="Dd1591_0619" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="556" y="969" width="46" height="17"/>
+    </entry>
+    <entry id="48" name="dze:Dd1591_0990" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_0990">
+        <graphics name="Dd1591_0990" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="604" y="1022" width="46" height="17"/>
+    </entry>
+    <entry id="49" name="dze:Dd1591_4065" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_4065">
+        <graphics name="Dd1591_4065" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="556" y="1003" width="46" height="17"/>
+    </entry>
+    <entry id="50" name="dze:Dd1591_3940" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_3940">
+        <graphics name="Dd1591_3940" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="556" y="1022" width="46" height="17"/>
+    </entry>
+    <entry id="51" name="dze:Dd1591_3094 dze:Dd1591_3095" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_3094+dze:Dd1591_3095">
+        <graphics name="Dd1591_3094..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="556" y="935" width="46" height="17"/>
+    </entry>
+    <entry id="52" name="dze:Dd1591_3468" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_3468">
+        <graphics name="Dd1591_3468" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="648" y="935" width="46" height="17"/>
+    </entry>
+    <entry id="53" name="dze:Dd1591_0343" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_0343">
+        <graphics name="Dd1591_0343" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="556" y="952" width="46" height="17"/>
+    </entry>
+    <entry id="54" name="dze:Dd1591_3096" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_3096">
+        <graphics name="Dd1591_3096" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="602" y="952" width="46" height="17"/>
+    </entry>
+    <entry id="55" name="dze:Dd1591_4264" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_4264">
+        <graphics name="Dd1591_4264" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="648" y="952" width="46" height="17"/>
+    </entry>
+    <entry id="56" name="dze:Dd1591_3891" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_3891">
+        <graphics name="Dd1591_3891" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="602" y="935" width="46" height="17"/>
+    </entry>
+    <entry id="57" name="dze:Dd1591_3912" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_3912">
+        <graphics name="Dd1591_3912" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="790" y="935" width="46" height="17"/>
+    </entry>
+    <entry id="58" name="dze:Dd1591_3910" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_3910">
+        <graphics name="Dd1591_3910" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="882" y="935" width="46" height="17"/>
+    </entry>
+    <entry id="59" name="dze:Dd1591_2971" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_2971">
+        <graphics name="Dd1591_2971" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="928" y="935" width="46" height="17"/>
+    </entry>
+    <entry id="60" name="dze:Dd1591_3911" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_3911">
+        <graphics name="Dd1591_3911" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="836" y="935" width="46" height="17"/>
+    </entry>
+    <entry id="61" name="dze:Dd1591_1488" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_1488">
+        <graphics name="Dd1591_1488" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1087" y="781" width="46" height="17"/>
+    </entry>
+    <entry id="62" name="dze:Dd1591_1486" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_1486">
+        <graphics name="Dd1591_1486" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1179" y="781" width="46" height="17"/>
+    </entry>
+    <entry id="63" name="ko:K03198" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K03198">
+        <graphics name="K03198" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1133" y="781" width="46" height="17"/>
+    </entry>
+    <entry id="64" name="ko:K03202" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K03202">
+        <graphics name="K03202" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1087" y="798" width="46" height="17"/>
+    </entry>
+    <entry id="65" name="dze:Dd1591_1481" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_1481">
+        <graphics name="Dd1591_1481" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1133" y="798" width="46" height="17"/>
+    </entry>
+    <entry id="66" name="dze:Dd1591_1484" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_1484">
+        <graphics name="Dd1591_1484" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1087" y="815" width="46" height="17"/>
+    </entry>
+    <entry id="67" name="dze:Dd1591_1482" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_1482">
+        <graphics name="Dd1591_1482" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1133" y="815" width="46" height="17"/>
+    </entry>
+    <entry id="68" name="dze:Dd1591_1480" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_1480">
+        <graphics name="Dd1591_1480" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1179" y="815" width="46" height="17"/>
+    </entry>
+    <entry id="69" name="dze:Dd1591_1487" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_1487">
+        <graphics name="Dd1591_1487" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1087" y="832" width="46" height="17"/>
+    </entry>
+    <entry id="70" name="dze:Dd1591_1479" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_1479">
+        <graphics name="Dd1591_1479" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1133" y="832" width="46" height="17"/>
+    </entry>
+    <entry id="71" name="ko:K03205" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K03205">
+        <graphics name="K03205" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="1179" y="832" width="46" height="17"/>
+    </entry>
+    <entry id="72" name="dze:Dd1591_1489" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_1489">
+        <graphics name="Dd1591_1489" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="1087" y="764" width="46" height="17"/>
+    </entry>
+    <entry id="73" name="cpd:C00002" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00002">
+        <graphics name="C00002" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="1117" y="568" width="8" height="8"/>
+    </entry>
+    <entry id="74" name="cpd:C00002" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00002">
+        <graphics name="C00002" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="1172" y="568" width="8" height="8"/>
+    </entry>
+    <entry id="75" name="cpd:C00002" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00002">
+        <graphics name="C00002" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="1289" y="568" width="8" height="8"/>
+    </entry>
+    <entry id="76" name="cpd:C00002" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00002">
+        <graphics name="C00002" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="820" y="568" width="8" height="8"/>
+    </entry>
+    <entry id="77" name="cpd:C00002" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00002">
+        <graphics name="C00002" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="423" y="568" width="8" height="8"/>
+    </entry>
+    <entry id="78" name="cpd:C00002" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00002">
+        <graphics name="C00002" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="127" y="568" width="8" height="8"/>
+    </entry>
+    <entry id="79" name="cpd:C00002" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00002">
+        <graphics name="C00002" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="519" y="568" width="8" height="8"/>
+    </entry>
+    <entry id="80" name="path:dze03070" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze03070">
+        <graphics name="TITLE:Bacterial secretion system" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="167" y="58" width="254" height="25"/>
+    </entry>
+    <entry id="81" name="dze:Dd1591_0618" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dze:Dd1591_0618">
+        <graphics name="Dd1591_0618" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="556" y="986" width="46" height="17"/>
+    </entry>
+</pathway>

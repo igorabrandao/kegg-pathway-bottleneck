@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!DOCTYPE pathway SYSTEM "http://www.kegg.jp/kegg/xml/KGML_v0.7.2_.dtd">
-<!-- Creation date: Sep 11, 2019 16:31:13 +0900 (GMT+9) -->
+<!-- Creation date: Nov 13, 2019 14:35:35 +0900 (GMT+9) -->
 <pathway name="path:dsq00310" org="dsq" number="00310"
          title="Lysine degradation"
          image="http://www.kegg.jp/kegg/pathway/dsq/dsq00310.png"
@@ -140,9 +140,9 @@
         <graphics name="TITLE:Lysine degradation" fgcolor="#000000" bgcolor="#FFFFFF"
              type="roundrectangle" x="127" y="58" width="173" height="25"/>
     </entry>
-    <entry id="106" name="ko:K00306" type="ortholog" reaction="rn:R02204"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K00306">
-        <graphics name="K00306" fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="106" name="dsq:DICSQDRAFT_93653" type="gene" reaction="rn:R02204"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dsq:DICSQDRAFT_93653">
+        <graphics name="DICSQDRAFT_93653" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="703" y="206" width="46" height="17"/>
     </entry>
     <entry id="108" name="cpd:C00877" type="compound"
@@ -676,5 +676,9 @@
     <reaction id="151" name="rn:R03283" type="irreversible">
         <substrate id="162" name="cpd:C01149"/>
         <product id="160" name="cpd:C01181"/>
+    </reaction>
+    <reaction id="106" name="rn:R02204" type="irreversible">
+        <substrate id="116" name="cpd:C00408"/>
+        <product id="117" name="cpd:C00450"/>
     </reaction>
 </pathway>
