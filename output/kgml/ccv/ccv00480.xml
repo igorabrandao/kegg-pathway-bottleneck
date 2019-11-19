@@ -85,9 +85,9 @@
         <graphics name="K00032" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="217" y="490" width="46" height="17"/>
     </entry>
-    <entry id="51" name="ko:K00031" type="ortholog" reaction="rn:R00267"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K00031">
-        <graphics name="K00031" fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="51" name="ccv:CCV52592_1884" type="gene" reaction="rn:R00267"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ccv:CCV52592_1884">
+        <graphics name="icd" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="169" y="490" width="46" height="17"/>
     </entry>
     <entry id="52" name="ko:K21456 ko:K01920" type="ortholog" reaction="rn:R00497"
@@ -556,6 +556,10 @@
     <relation entry1="34" entry2="175" type="maplink">
         <subtype name="compound" value="68"/>
     </relation>
+    <reaction id="51" name="rn:R00267" type="irreversible">
+        <substrate id="76" name="cpd:C00006"/>
+        <product id="75" name="cpd:C00005"/>
+    </reaction>
     <reaction id="171" name="rn:R00899" type="irreversible">
         <substrate id="69" name="cpd:C01419"/>
         <product id="68" name="cpd:C00037"/>

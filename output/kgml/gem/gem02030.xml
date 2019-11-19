@@ -1,245 +1,44 @@
-<?xml version="1.0"?>
-<!DOCTYPE pathway SYSTEM "http://www.kegg.jp/kegg/xml/KGML_v0.7.2_.dtd">
-<!-- Creation date: Oct 17, 2017 15:18:47 +0900 (GMT+9) -->
-<pathway name="path:gem02030" org="gem" number="02030"
-         title="Bacterial chemotaxis"
-         image="http://www.kegg.jp/kegg/pathway/gem/gem02030.png"
-         link="http://www.kegg.jp/kegg-bin/show_pathway?gem02030">
-    <entry id="1" name="path:gem02030" type="map"
-        link="http://www.kegg.jp/dbget-bin/www_bget?gem02030">
-        <graphics name="TITLE:Bacterial chemotaxis" fgcolor="#000000" bgcolor="#FFFFFF"
-             type="roundrectangle" x="142" y="58" width="204" height="25"/>
-    </entry>
-    <entry id="2" name="path:gem02040" type="map"
-        link="http://www.kegg.jp/dbget-bin/www_bget?gem02040">
-        <graphics name="Flagellar assembly" fgcolor="#000000" bgcolor="#FFFFFF"
-             type="roundrectangle" x="551" y="339" width="118" height="25"/>
-    </entry>
-    <entry id="3" name="gem:GM21_3835" type="gene"
-        link="http://www.kegg.jp/dbget-bin/www_bget?gem:GM21_3835">
-        <graphics name="GM21_3835" fgcolor="#000000" bgcolor="#BFFFBF"
-             type="rectangle" x="615" y="286" width="46" height="17"/>
-    </entry>
-    <entry id="4" name="gem:GM21_3836" type="gene"
-        link="http://www.kegg.jp/dbget-bin/www_bget?gem:GM21_3836">
-        <graphics name="GM21_3836" fgcolor="#000000" bgcolor="#BFFFBF"
-             type="rectangle" x="615" y="269" width="46" height="17"/>
-    </entry>
-    <entry id="5" name="gem:GM21_3910" type="gene"
-        link="http://www.kegg.jp/dbget-bin/www_bget?gem:GM21_3910">
-        <graphics name="GM21_3910" fgcolor="#000000" bgcolor="#BFFFBF"
-             type="rectangle" x="506" y="294" width="46" height="17"/>
-    </entry>
-    <entry id="6" name="gem:GM21_3911" type="gene"
-        link="http://www.kegg.jp/dbget-bin/www_bget?gem:GM21_3911">
-        <graphics name="GM21_3911" fgcolor="#000000" bgcolor="#BFFFBF"
-             type="rectangle" x="506" y="277" width="46" height="17"/>
-    </entry>
-    <entry id="7" name="gem:GM21_3921" type="gene"
-        link="http://www.kegg.jp/dbget-bin/www_bget?gem:GM21_3921">
-        <graphics name="GM21_3921" fgcolor="#000000" bgcolor="#BFFFBF"
-             type="rectangle" x="506" y="260" width="46" height="17"/>
-    </entry>
-    <entry id="8" name="ko:K03414" type="ortholog"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K03414">
-        <graphics name="K03414" fgcolor="#000000" bgcolor="#FFFFFF"
-             type="rectangle" x="447" y="181" width="46" height="17"/>
-    </entry>
-    <entry id="9" name="gem:GM21_0355 gem:GM21_0637 gem:GM21_0754 gem:GM21_0765 gem:GM21_1975 gem:GM21_2620 gem:GM21_3929" type="gene"
-        link="http://www.kegg.jp/dbget-bin/www_bget?gem:GM21_0355+gem:GM21_0637+gem:GM21_0754+gem:GM21_0765+gem:GM21_1975+gem:GM21_2620+gem:GM21_3929">
-        <graphics name="GM21_0355..." fgcolor="#000000" bgcolor="#BFFFBF"
-             type="rectangle" x="398" y="277" width="46" height="17"/>
-    </entry>
-    <entry id="10" name="gem:GM21_0640 gem:GM21_0762 gem:GM21_1720 gem:GM21_1839 gem:GM21_2189 gem:GM21_2362 gem:GM21_2618 gem:GM21_3218 gem:GM21_4027" type="gene"
-        link="http://www.kegg.jp/dbget-bin/www_bget?gem:GM21_0640+gem:GM21_0762+gem:GM21_1720+gem:GM21_1839+gem:GM21_2189+gem:GM21_2362+gem:GM21_2618+gem:GM21_3218+gem:GM21_4027">
-        <graphics name="GM21_0640..." fgcolor="#000000" bgcolor="#BFFFBF"
-             type="rectangle" x="291" y="181" width="46" height="17"/>
-    </entry>
-    <entry id="11" name="gem:GM21_0757 gem:GM21_0759 gem:GM21_1106 gem:GM21_1838 gem:GM21_1993 gem:GM21_2188 gem:GM21_2190 gem:GM21_2361 gem:GM21_3216 gem:GM21_4025" type="gene"
-        link="http://www.kegg.jp/dbget-bin/www_bget?gem:GM21_0757+gem:GM21_0759+gem:GM21_1106+gem:GM21_1838+gem:GM21_1993+gem:GM21_2188+gem:GM21_2190+gem:GM21_2361+gem:GM21_3216+gem:GM21_4025">
-        <graphics name="GM21_0757..." fgcolor="#000000" bgcolor="#BFFFBF"
-             type="rectangle" x="290" y="294" width="46" height="17"/>
-    </entry>
-    <entry id="12" name="gem:GM21_0636 gem:GM21_0755 gem:GM21_1836 gem:GM21_2192 gem:GM21_2359 gem:GM21_2619 gem:GM21_3215 gem:GM21_4026" type="gene"
-        link="http://www.kegg.jp/dbget-bin/www_bget?gem:GM21_0636+gem:GM21_0755+gem:GM21_1836+gem:GM21_2192+gem:GM21_2359+gem:GM21_2619+gem:GM21_3215+gem:GM21_4026">
-        <graphics name="GM21_0636..." fgcolor="#000000" bgcolor="#BFFFBF"
-             type="rectangle" x="290" y="277" width="46" height="17"/>
-    </entry>
-    <entry id="13" name="gem:GM21_0763 gem:GM21_1835 gem:GM21_2193 gem:GM21_2358 gem:GM21_2616 gem:GM21_3220 gem:GM21_4029" type="gene"
-        link="http://www.kegg.jp/dbget-bin/www_bget?gem:GM21_0763+gem:GM21_1835+gem:GM21_2193+gem:GM21_2358+gem:GM21_2616+gem:GM21_3220+gem:GM21_4029">
-        <graphics name="GM21_0763..." fgcolor="#000000" bgcolor="#BFFFBF"
-             type="rectangle" x="291" y="213" width="46" height="17"/>
-    </entry>
-    <entry id="14" name="ko:K05877" type="ortholog"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K05877">
-        <graphics name="K05877" fgcolor="#000000" bgcolor="#FFFFFF"
-             type="rectangle" x="875" y="299" width="46" height="17"/>
-    </entry>
-    <entry id="15" name="ko:K05876" type="ortholog"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K05876">
-        <graphics name="K05876" fgcolor="#000000" bgcolor="#FFFFFF"
-             type="rectangle" x="875" y="262" width="46" height="17"/>
-    </entry>
-    <entry id="16" name="ko:K05875" type="ortholog"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K05875">
-        <graphics name="K05875" fgcolor="#000000" bgcolor="#FFFFFF"
-             type="rectangle" x="874" y="188" width="46" height="17"/>
-    </entry>
-    <entry id="17" name="ko:K05874" type="ortholog"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K05874">
-        <graphics name="K05874" fgcolor="#000000" bgcolor="#FFFFFF"
-             type="rectangle" x="875" y="153" width="46" height="17"/>
-    </entry>
-    <entry id="18" name="ko:K12368" type="ortholog"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K12368">
-        <graphics name="K12368" fgcolor="#000000" bgcolor="#FFFFFF"
-             type="rectangle" x="793" y="300" width="46" height="17"/>
-    </entry>
-    <entry id="19" name="ko:K10540" type="ortholog"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K10540">
-        <graphics name="K10540" fgcolor="#000000" bgcolor="#FFFFFF"
-             type="rectangle" x="793" y="272" width="46" height="17"/>
-    </entry>
-    <entry id="20" name="ko:K10439" type="ortholog"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K10439">
-        <graphics name="K10439" fgcolor="#000000" bgcolor="#FFFFFF"
-             type="rectangle" x="793" y="244" width="46" height="17"/>
-    </entry>
-    <entry id="21" name="ko:K10108" type="ortholog"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K10108">
-        <graphics name="K10108" fgcolor="#000000" bgcolor="#FFFFFF"
-             type="rectangle" x="793" y="214" width="46" height="17"/>
-    </entry>
-    <entry id="22" name="ko:K03776" type="ortholog"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K03776">
-        <graphics name="K03776" fgcolor="#000000" bgcolor="#FFFFFF"
-             type="rectangle" x="875" y="336" width="46" height="17"/>
-    </entry>
-    <entry id="23" name="cpd:C00716" type="compound"
-        link="http://www.kegg.jp/dbget-bin/www_bget?C00716">
-        <graphics name="C00716" fgcolor="#000000" bgcolor="#FFFFFF"
-             type="circle" x="809" y="153" width="8" height="8"/>
-    </entry>
-    <entry id="24" name="cpd:C00049" type="compound"
-        link="http://www.kegg.jp/dbget-bin/www_bget?C00049">
-        <graphics name="C00049" fgcolor="#000000" bgcolor="#FFFFFF"
-             type="circle" x="809" y="187" width="8" height="8"/>
-    </entry>
-    <entry id="25" name="cpd:C00208" type="compound"
-        link="http://www.kegg.jp/dbget-bin/www_bget?C00208">
-        <graphics name="C00208" fgcolor="#000000" bgcolor="#FFFFFF"
-             type="circle" x="730" y="213" width="8" height="8"/>
-    </entry>
-    <entry id="26" name="cpd:C00121" type="compound"
-        link="http://www.kegg.jp/dbget-bin/www_bget?C00121">
-        <graphics name="C00121" fgcolor="#000000" bgcolor="#FFFFFF"
-             type="circle" x="730" y="243" width="8" height="8"/>
-    </entry>
-    <entry id="27" name="cpd:C00124" type="compound"
-        link="http://www.kegg.jp/dbget-bin/www_bget?C00124">
-        <graphics name="C00124" fgcolor="#000000" bgcolor="#FFFFFF"
-             type="circle" x="730" y="271" width="8" height="8"/>
-    </entry>
-    <entry id="28" name="cpd:C00107" type="compound"
-        link="http://www.kegg.jp/dbget-bin/www_bget?C00107">
-        <graphics name="C00107" fgcolor="#000000" bgcolor="#FFFFFF"
-             type="circle" x="730" y="299" width="8" height="8"/>
-    </entry>
-    <entry id="29" name="gem:GM21_0724" type="gene"
-        link="http://www.kegg.jp/dbget-bin/www_bget?gem:GM21_0724">
-        <graphics name="GM21_0724" fgcolor="#000000" bgcolor="#BFFFBF"
-             type="rectangle" x="291" y="344" width="46" height="17"/>
-    </entry>
-    <entry id="30" name="gem:GM21_0635" type="gene"
-        link="http://www.kegg.jp/dbget-bin/www_bget?gem:GM21_0635">
-        <graphics name="GM21_0635" fgcolor="#000000" bgcolor="#BFFFBF"
-             type="rectangle" x="396" y="181" width="46" height="17"/>
-    </entry>
-    <entry id="31" name="gem:GM21_0966 gem:GM21_3928" type="gene"
-        link="http://www.kegg.jp/dbget-bin/www_bget?gem:GM21_0966+gem:GM21_3928">
-        <graphics name="GM21_0966..." fgcolor="#000000" bgcolor="#BFFFBF"
-             type="rectangle" x="499" y="181" width="46" height="17"/>
-    </entry>
-    <entry id="32" name="gem:GM21_2617 gem:GM21_2899 gem:GM21_3219" type="gene"
-        link="http://www.kegg.jp/dbget-bin/www_bget?gem:GM21_2617+gem:GM21_2899+gem:GM21_3219">
-        <graphics name="GM21_2617..." fgcolor="#000000" bgcolor="#BFFFBF"
-             type="rectangle" x="291" y="150" width="46" height="17"/>
-    </entry>
-    <entry id="33" name="gem:GM21_0039 gem:GM21_0213 gem:GM21_0365 gem:GM21_0484 gem:GM21_0525 gem:GM21_0639 gem:GM21_0949 gem:GM21_0950 gem:GM21_1105 gem:GM21_1108 gem:GM21_1280 gem:GM21_1294 gem:GM21_1359 gem:GM21_1366 gem:GM21_2326 gem:GM21_2421 gem:GM21_2772 gem:GM21_3217 gem:GM21_3345 gem:GM21_3453 gem:GM21_3709 gem:GM21_3719" type="gene"
-        link="http://www.kegg.jp/dbget-bin/www_bget?gem:GM21_0039+gem:GM21_0213+gem:GM21_0365+gem:GM21_0484+gem:GM21_0525+gem:GM21_0639+gem:GM21_0949+gem:GM21_0950+gem:GM21_1105+gem:GM21_1108+gem:GM21_1280+gem:GM21_1294+gem:GM21_1359+gem:GM21_1366+gem:GM21_2326+gem:GM21_2421+gem:GM21_2772+gem:GM21_3217+gem:GM21_3345+gem:GM21_3453+gem:GM21_3709+gem:GM21_3719">
-        <graphics name="GM21_0039..." fgcolor="#000000" bgcolor="#BFFFBF"
-             type="rectangle" x="181" y="266" width="46" height="17"/>
-    </entry>
-    <entry id="34" name="ko:K03776" type="ortholog"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K03776">
-        <graphics name="K03776" fgcolor="#000000" bgcolor="#FFFFFF"
-             type="rectangle" x="181" y="289" width="46" height="17"/>
-    </entry>
-    <entry id="35" name="undefined" type="group">
-        <graphics fgcolor="#000000" bgcolor="#FFFFFF"
-             type="rectangle" x="506" y="277" width="46" height="51"/>
-        <component id="5"/>
-        <component id="6"/>
-        <component id="7"/>
-    </entry>
-    <entry id="36" name="undefined" type="group">
-        <graphics fgcolor="#000000" bgcolor="#FFFFFF"
-             type="rectangle" x="290" y="285" width="46" height="34"/>
-        <component id="11"/>
-        <component id="12"/>
-    </entry>
-    <entry id="37" name="undefined" type="group">
-        <graphics fgcolor="#000000" bgcolor="#FFFFFF"
-             type="rectangle" x="615" y="277" width="46" height="34"/>
-        <component id="3"/>
-        <component id="4"/>
-    </entry>
-    <relation entry1="12" entry2="9" type="PPrel">
-        <subtype name="activation" value="--&gt;"/>
-        <subtype name="phosphorylation" value="+p"/>
-    </relation>
-    <relation entry1="12" entry2="13" type="PPrel">
-        <subtype name="activation" value="--&gt;"/>
-        <subtype name="phosphorylation" value="+p"/>
-    </relation>
-    <relation entry1="9" entry2="35" type="PPrel">
-        <subtype name="indirect effect" value="..&gt;"/>
-    </relation>
-    <relation entry1="33" entry2="36" type="PPrel">
-        <subtype name="activation" value="--&gt;"/>
-    </relation>
-    <relation entry1="9" entry2="30" type="PPrel">
-        <subtype name="dissociation" value="-+-"/>
-    </relation>
-    <relation entry1="30" entry2="32" type="PPrel">
-        <subtype name="binding/association" value="---"/>
-    </relation>
-    <relation entry1="32" entry2="33" type="PPrel">
-        <subtype name="activation" value="--&gt;"/>
-    </relation>
-    <relation entry1="10" entry2="33" type="PPrel">
-        <subtype name="activation" value="--&gt;"/>
-        <subtype name="inhibition" value="--|"/>
-        <subtype name="methylation" value="+m"/>
-    </relation>
-    <relation entry1="13" entry2="33" type="PPrel">
-        <subtype name="activation" value="--&gt;"/>
-        <subtype name="inhibition" value="--|"/>
-        <subtype name="demethylation" value=""/>
-    </relation>
-    <relation entry1="35" entry2="37" type="PPrel">
-        <subtype name="indirect effect" value="..&gt;"/>
-    </relation>
-    <relation entry1="31" entry2="9" type="PPrel">
-        <subtype name="inhibition" value="--|"/>
-        <subtype name="dephosphorylation" value="-p"/>
-    </relation>
-    <relation entry1="5" entry2="9" type="PPrel">
-        <subtype name="inhibition" value="--|"/>
-        <subtype name="dephosphorylation" value="-p"/>
-    </relation>
-    <relation entry1="12" entry2="29" type="PPrel">
-        <subtype name="activation" value="--&gt;"/>
-        <subtype name="phosphorylation" value="+p"/>
-    </relation>
-</pathway>
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Access forbidden!</title>
+<link rev="made" href="mailto:http://www.genome.jp/feedback/" />
+<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
+    body { color: #000000; background-color: #FFFFFF; }
+    a:link { color: #0000CC; }
+    p, address {margin-left: 3em;}
+    span {font-size: smaller;}
+/*]]>*/--></style>
+</head>
+
+<body>
+<h1>Access forbidden!</h1>
+<p>
+
+
+  
+
+    You don't have permission to access the requested object.
+    It is either read-protected or not readable by the server.
+
+  
+
+</p>
+<p>
+If you think this is a server error, please contact
+the <a href="http://www.genome.jp/feedback/">webmaster</a>.
+
+</p>
+
+<h2>Error 403</h2>
+<address>
+  <a href="/">rest.kegg.jp</a><br />
+  
+  <span>Wed Nov 20 01:22:24 2019<br />
+  Apache</span>
+</address>
+</body>
+</html>
+

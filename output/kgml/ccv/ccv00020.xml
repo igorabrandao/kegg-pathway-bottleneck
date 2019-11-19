@@ -35,9 +35,9 @@
         <graphics name="K01899..." fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="260" y="560" width="46" height="17"/>
     </entry>
-    <entry id="39" name="ko:K00031" type="ortholog" reaction="rn:R00268"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K00031">
-        <graphics name="K00031" fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="39" name="ccv:CCV52592_1884" type="gene" reaction="rn:R00268"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ccv:CCV52592_1884">
+        <graphics name="icd" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="718" y="510" width="46" height="17"/>
     </entry>
     <entry id="40" name="ko:K00030" type="ortholog" reaction="rn:R00709"
@@ -45,9 +45,9 @@
         <graphics name="K00030" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="766" y="463" width="46" height="17"/>
     </entry>
-    <entry id="41" name="ko:K00031" type="ortholog" reaction="rn:R01899"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K00031">
-        <graphics name="K00031" fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="41" name="ccv:CCV52592_1884" type="gene" reaction="rn:R01899"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ccv:CCV52592_1884">
+        <graphics name="icd" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="718" y="405" width="46" height="17"/>
     </entry>
     <entry id="42" name="ko:K01648 ko:K15230 ko:K15231" type="ortholog" reaction="rn:R00352"
@@ -125,8 +125,8 @@
         <graphics name="TITLE:Citrate cycle (TCA cycle)" fgcolor="#000000" bgcolor="#FFFFFF"
              type="roundrectangle" x="155" y="58" width="229" height="25"/>
     </entry>
-    <entry id="57" name="path:map00350" type="map"
-        link="http://www.kegg.jp/dbget-bin/www_bget?map00350">
+    <entry id="57" name="path:ccv00350" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ccv00350">
         <graphics name="Tyrosine metabolism" fgcolor="#000000" bgcolor="#FFFFFF"
              type="roundrectangle" x="102" y="448" width="76" height="34"/>
     </entry>
@@ -496,14 +496,29 @@
     <relation entry1="119" entry2="54" type="maplink">
         <subtype name="compound" value="76"/>
     </relation>
+    <relation entry1="119" entry2="39" type="ECrel">
+        <subtype name="compound" value="76"/>
+    </relation>
     <relation entry1="60" entry2="55" type="maplink">
         <subtype name="compound" value="76"/>
     </relation>
     <relation entry1="60" entry2="54" type="maplink">
         <subtype name="compound" value="76"/>
     </relation>
+    <relation entry1="60" entry2="39" type="maplink">
+        <subtype name="compound" value="76"/>
+    </relation>
     <relation entry1="55" entry2="54" type="maplink">
         <subtype name="compound" value="76"/>
+    </relation>
+    <relation entry1="55" entry2="39" type="maplink">
+        <subtype name="compound" value="76"/>
+    </relation>
+    <relation entry1="54" entry2="39" type="maplink">
+        <subtype name="compound" value="76"/>
+    </relation>
+    <relation entry1="44" entry2="41" type="ECrel">
+        <subtype name="compound" value="67"/>
     </relation>
     <relation entry1="46" entry2="45" type="ECrel">
         <subtype name="compound" value="70"/>
@@ -553,6 +568,9 @@
     <relation entry1="54" entry2="113" type="maplink">
         <subtype name="compound" value="76"/>
     </relation>
+    <relation entry1="113" entry2="39" type="maplink">
+        <subtype name="compound" value="76"/>
+    </relation>
     <relation entry1="118" entry2="46" type="ECrel">
         <subtype name="compound" value="65"/>
     </relation>
@@ -573,6 +591,9 @@
     </relation>
     <relation entry1="118" entry2="48" type="ECrel">
         <subtype name="compound" value="61"/>
+    </relation>
+    <relation entry1="39" entry2="115" type="ECrel">
+        <subtype name="compound" value="76"/>
     </relation>
     <relation entry1="115" entry2="60" type="maplink">
         <subtype name="compound" value="76"/>
@@ -599,6 +620,14 @@
     <reaction id="37" name="rn:R00405" type="reversible">
         <substrate id="69" name="cpd:C00042"/>
         <product id="75" name="cpd:C00091"/>
+    </reaction>
+    <reaction id="39" name="rn:R00268" type="reversible">
+        <substrate id="64" name="cpd:C05379"/>
+        <product id="76" name="cpd:C00026"/>
+    </reaction>
+    <reaction id="41" name="rn:R01899" type="reversible">
+        <substrate id="67" name="cpd:C00311"/>
+        <product id="64" name="cpd:C05379"/>
     </reaction>
     <reaction id="107" name="rn:R02164" type="reversible">
         <substrate id="69" name="cpd:C00042"/>

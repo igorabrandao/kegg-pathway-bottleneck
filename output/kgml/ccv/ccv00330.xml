@@ -235,9 +235,9 @@
         <graphics name="Glycine, serine and threonine metabolism" fgcolor="#000000" bgcolor="#FFFFFF"
              type="roundrectangle" x="657" y="666" width="70" height="34"/>
     </entry>
-    <entry id="126" name="ko:K01583 ko:K01584 ko:K01585 ko:K02626" type="ortholog" reaction="rn:R00566"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K01583+K01584+K01585+K02626">
-        <graphics name="K01583..." fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="126" name="ccv:CCV52592_1100" type="gene" reaction="rn:R00566"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ccv:CCV52592_1100">
+        <graphics name="speA" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="294" y="367" width="46" height="17"/>
     </entry>
     <entry id="127" name="ko:K01480" type="ortholog" reaction="rn:R01157"
@@ -460,9 +460,9 @@
         <graphics name="K00294..." fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="1278" y="392" width="46" height="17"/>
     </entry>
-    <entry id="209" name="ko:K14454 ko:K14455 ko:K00811 ko:K00812 ko:K00813 ko:K11358" type="ortholog" reaction="rn:R05052"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K14454+K14455+K00811+K00812+K00813+K11358">
-        <graphics name="K14454..." fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="209" name="ccv:CCV52592_1864" type="gene" reaction="rn:R05052"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ccv:CCV52592_1864">
+        <graphics name="aspB" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="1336" y="427" width="46" height="17"/>
     </entry>
     <entry id="210" name="ccv:CCV52592_1852" type="gene" reaction="rn:R05053"
@@ -976,6 +976,9 @@
     <relation entry1="129" entry2="110" type="maplink">
         <subtype name="compound" value="253"/>
     </relation>
+    <relation entry1="235" entry2="126" type="maplink">
+        <subtype name="compound" value="251"/>
+    </relation>
     <relation entry1="177" entry2="159" type="maplink">
         <subtype name="compound" value="301"/>
     </relation>
@@ -991,6 +994,10 @@
     <relation entry1="75" entry2="240" type="maplink">
         <subtype name="compound" value="255"/>
     </relation>
+    <reaction id="126" name="rn:R00566" type="irreversible">
+        <substrate id="251" name="cpd:C00062"/>
+        <product id="325" name="cpd:C00179"/>
+    </reaction>
     <reaction id="129" name="rn:R01152" type="irreversible">
         <substrate id="285" name="cpd:C00436"/>
         <product id="253" name="cpd:C00134"/>
@@ -1004,6 +1011,10 @@
         <product id="283" name="cpd:C03375"/>
     </reaction>
     <reaction id="210" name="rn:R05053" type="irreversible">
+        <substrate id="311" name="cpd:C05947"/>
+        <product id="312" name="cpd:C05946"/>
+    </reaction>
+    <reaction id="209" name="rn:R05052" type="irreversible">
         <substrate id="311" name="cpd:C05947"/>
         <product id="312" name="cpd:C05946"/>
     </reaction>
