@@ -27,7 +27,7 @@ PATHPWD=$(pwd)
 
 # Organisms list
 declare -a ORG_LIST=(
-  "lrt" "snj" "gyc" "lct" "blj"
+  "tprf"
 )
 
 #==============================================================
