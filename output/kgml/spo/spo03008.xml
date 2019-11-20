@@ -1,44 +1,349 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<title>Access forbidden!</title>
-<link rev="made" href="mailto:http://www.genome.jp/feedback/" />
-<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
-    body { color: #000000; background-color: #FFFFFF; }
-    a:link { color: #0000CC; }
-    p, address {margin-left: 3em;}
-    span {font-size: smaller;}
-/*]]>*/--></style>
-</head>
-
-<body>
-<h1>Access forbidden!</h1>
-<p>
-
-
-  
-
-    You don't have permission to access the requested object.
-    It is either read-protected or not readable by the server.
-
-  
-
-</p>
-<p>
-If you think this is a server error, please contact
-the <a href="http://www.genome.jp/feedback/">webmaster</a>.
-
-</p>
-
-<h2>Error 403</h2>
-<address>
-  <a href="/">rest.kegg.jp</a><br />
-  
-  <span>Wed Nov 20 01:19:07 2019<br />
-  Apache</span>
-</address>
-</body>
-</html>
-
+<?xml version="1.0"?>
+<!DOCTYPE pathway SYSTEM "http://www.kegg.jp/kegg/xml/KGML_v0.7.2_.dtd">
+<!-- Creation date: Sep 10, 2014 17:51:36 +0900 (GMT+09:00) -->
+<pathway name="path:spo03008" org="spo" number="03008"
+         title="Ribosome biogenesis in eukaryotes"
+         image="http://www.kegg.jp/kegg/pathway/spo/spo03008.png"
+         link="http://www.kegg.jp/kegg-bin/show_pathway?spo03008">
+    <entry id="39" name="path:spo03008" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo03008">
+        <graphics name="TITLE:Ribosome biogenesis in eukaryotes" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="195" y="58" width="310" height="25"/>
+    </entry>
+    <entry id="43" name="path:spo03010" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo03010">
+        <graphics name="Ribosome" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="416" y="893" width="92" height="25"/>
+    </entry>
+    <entry id="44" name="spo:SPBC1289.03c" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPBC1289.03c">
+        <graphics name="spi1" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="399" y="704" width="46" height="17"/>
+    </entry>
+    <entry id="45" name="spo:SPAC1805.17" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPAC1805.17">
+        <graphics name="crm1" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="399" y="722" width="46" height="19"/>
+    </entry>
+    <entry id="46" name="spo:SPAC16C9.03" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPAC16C9.03">
+        <graphics name="nmd3" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="399" y="738" width="46" height="17"/>
+    </entry>
+    <entry id="55" name="ko:K14483" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14483">
+        <graphics name="K14483" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="380" y="181" width="46" height="17"/>
+    </entry>
+    <entry id="56" name="spo:SPRRNA.42 spo:SPRRNA.43 spo:SPRRNA.44 spo:SPRRNA.45 spo:SPRRNA.46 spo:ScpofMr12" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPRRNA.42+spo:SPRRNA.43+spo:SPRRNA.44+spo:SPRRNA.45+spo:SPRRNA.46+spo:ScpofMr12">
+        <graphics name="SPRRNA.42..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="63" y="141" width="46" height="17"/>
+    </entry>
+    <entry id="57" name="spo:SPRRNA.50 spo:SPRRNA.51 spo:SPRRNA.52" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPRRNA.50+spo:SPRRNA.51+spo:SPRRNA.52">
+        <graphics name="SPRRNA.50..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="118" y="141" width="46" height="17"/>
+    </entry>
+    <entry id="58" name="spo:SPRRNA.47 spo:SPRRNA.48 spo:SPRRNA.49 spo:ScpofMr11" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPRRNA.47+spo:SPRRNA.48+spo:SPRRNA.49+spo:ScpofMr11">
+        <graphics name="SPRRNA.47..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="173" y="141" width="46" height="17"/>
+    </entry>
+    <entry id="59" name="spo:SPRRNA.03 spo:SPRRNA.04 spo:SPRRNA.05 spo:SPRRNA.06 spo:SPRRNA.07 spo:SPRRNA.10 spo:SPRRNA.11 spo:SPRRNA.12 spo:SPRRNA.13 spo:SPRRNA.14 spo:SPRRNA.15 spo:SPRRNA.16 spo:SPRRNA.17 spo:SPRRNA.18 spo:SPRRNA.19 spo:SPRRNA.20 spo:SPRRNA.24 spo:SPRRNA.26 spo:SPRRNA.27 spo:SPRRNA.28 spo:SPRRNA.29 spo:SPRRNA.30 spo:SPRRNA.31 spo:SPRRNA.33 spo:SPRRNA.34 spo:SPRRNA.35 spo:SPRRNA.36 spo:SPRRNA.37 spo:SPRRNA.38 spo:SPRRNA.39 spo:SPRRNA.40 spo:SPRRNA.41" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPRRNA.03+spo:SPRRNA.04+spo:SPRRNA.05+spo:SPRRNA.06+spo:SPRRNA.07+spo:SPRRNA.10+spo:SPRRNA.11+spo:SPRRNA.12+spo:SPRRNA.13+spo:SPRRNA.14+spo:SPRRNA.15+spo:SPRRNA.16+spo:SPRRNA.17+spo:SPRRNA.18+spo:SPRRNA.19+spo:SPRRNA.20+spo:SPRRNA.24+spo:SPRRNA.26+spo:SPRRNA.27+spo:SPRRNA.28+spo:SPRRNA.29+spo:SPRRNA.30+spo:SPRRNA.31+spo:SPRRNA.33+spo:SPRRNA.34+spo:SPRRNA.35+spo:SPRRNA.36+spo:SPRRNA.37+spo:SPRRNA.38+spo:SPRRNA.39+spo:SPRRNA.40+spo:SPRRNA.41">
+        <graphics name="SPRRNA.03..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="228" y="141" width="46" height="17"/>
+    </entry>
+    <entry id="60" name="ko:K14562" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14562">
+        <graphics name="K14562" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="301" y="164" width="46" height="17"/>
+    </entry>
+    <entry id="61" name="spo:SPAC607.03c" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPAC607.03c">
+        <graphics name="snu13" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="378" y="238" width="46" height="17"/>
+    </entry>
+    <entry id="62" name="spo:SPAC23G3.06" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPAC23G3.06">
+        <graphics name="SPAC23G3.06" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="332" y="238" width="46" height="17"/>
+    </entry>
+    <entry id="63" name="spo:SPBC646.10c" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPBC646.10c">
+        <graphics name="SPBC646.10c" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="378" y="221" width="46" height="17"/>
+    </entry>
+    <entry id="64" name="spo:SPBC2D10.10c" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPBC2D10.10c">
+        <graphics name="fib1" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="332" y="221" width="46" height="17"/>
+    </entry>
+    <entry id="65" name="spo:SPAP27G11.13c" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPAP27G11.13c">
+        <graphics name="nop10" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="509" y="238" width="46" height="17"/>
+    </entry>
+    <entry id="66" name="spo:SPAC1782.10c" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPAC1782.10c">
+        <graphics name="nhp2" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="509" y="221" width="46" height="17"/>
+    </entry>
+    <entry id="67" name="spo:SPBC20F10.01" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPBC20F10.01">
+        <graphics name="gar1" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="463" y="238" width="46" height="17"/>
+    </entry>
+    <entry id="68" name="spo:SPAC29A4.04c" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPAC29A4.04c">
+        <graphics name="cbf5" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="463" y="221" width="46" height="17"/>
+    </entry>
+    <entry id="72" name="spo:SPBC32H8.04c" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPBC32H8.04c">
+        <graphics name="SPBC32H8.04c" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="300" y="299" width="46" height="17"/>
+    </entry>
+    <entry id="73" name="spo:SPBC119.11c" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPBC119.11c">
+        <graphics name="pac1" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="563" y="311" width="46" height="17"/>
+    </entry>
+    <entry id="74" name="spo:SPAC20G8.09c" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPAC20G8.09c">
+        <graphics name="SPAC20G8.09c" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="468" y="382" width="46" height="17"/>
+    </entry>
+    <entry id="75" name="spo:SPAC57A7.06" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPAC57A7.06">
+        <graphics name="SPAC57A7.06" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="468" y="299" width="46" height="17"/>
+    </entry>
+    <entry id="76" name="spo:SPBC31E1.06" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPBC31E1.06">
+        <graphics name="bms1" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="373" y="382" width="46" height="17"/>
+    </entry>
+    <entry id="116" name="spo:SPAC12G12.06c" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPAC12G12.06c">
+        <graphics name="SPAC12G12.06c" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="355" y="410" width="46" height="17"/>
+    </entry>
+    <entry id="133" name="spo:SPAC23C4.12 spo:SPBC3H7.15" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPAC23C4.12+spo:SPBC3H7.15">
+        <graphics name="hhp2..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="422" y="659" width="46" height="17"/>
+    </entry>
+    <entry id="138" name="spo:SPAC25B8.16 spo:SPAC323.08 spo:SPAC3A12.04c spo:SPAC6C3.09 spo:SPBC1703.01c spo:SPBC1709.20 spo:SPBP8B7.01c spo:SPCC16C4.05 spo:SPCC16C4.19 spo:SPCC830.09c" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPAC25B8.16+spo:SPAC323.08+spo:SPAC3A12.04c+spo:SPAC6C3.09+spo:SPBC1703.01c+spo:SPBC1709.20+spo:SPBP8B7.01c+spo:SPCC16C4.05+spo:SPCC16C4.19+spo:SPCC830.09c">
+        <graphics name="SPAC25B8.16..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="431" y="490" width="46" height="17"/>
+    </entry>
+    <entry id="158" name="spo:SPAC17A5.14 spo:SPAC26A3.12c" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPAC17A5.14+spo:SPAC26A3.12c">
+        <graphics name="exo2..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="573" y="591" width="46" height="17"/>
+    </entry>
+    <entry id="159" name="spo:SPBC651.01c" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPBC651.01c">
+        <graphics name="nog1" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="651" y="551" width="46" height="17"/>
+    </entry>
+    <entry id="160" name="spo:SPAC6F6.03c spo:SPBC26H8.08c" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPAC6F6.03c+spo:SPBC26H8.08c">
+        <graphics name="SPAC6F6.03c..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="651" y="583" width="46" height="17"/>
+    </entry>
+    <entry id="161" name="spo:SPCC737.08" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPCC737.08">
+        <graphics name="SPCC737.08" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="651" y="625" width="46" height="17"/>
+    </entry>
+    <entry id="162" name="spo:SPBC16E9.10c" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPBC16E9.10c">
+        <graphics name="SPBC16E9.10c" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="651" y="604" width="46" height="17"/>
+    </entry>
+    <entry id="165" name="spo:SPAC637.09 spo:SPBC1347.07" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPAC637.09+spo:SPBC1347.07">
+        <graphics name="SPAC637.09..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="505" y="591" width="46" height="17"/>
+    </entry>
+    <entry id="173" name="spo:SPBC1921.03c" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPBC1921.03c">
+        <graphics name="mex67" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="453" y="705" width="46" height="17"/>
+    </entry>
+    <entry id="174" name="spo:SPAPB1A10.03" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPAPB1A10.03">
+        <graphics name="nxt1" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="453" y="722" width="46" height="17"/>
+    </entry>
+    <entry id="183" name="spo:SPAC23C11.03" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPAC23C11.03">
+        <graphics name="SPAC23C11.03" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="88" y="467" width="46" height="17"/>
+    </entry>
+    <entry id="184" name="spo:SPAC19A8.07c" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPAC19A8.07c">
+        <graphics name="SPAC19A8.07c" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="109" y="484" width="46" height="17"/>
+    </entry>
+    <entry id="185" name="spo:SPAC19D5.05c" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPAC19D5.05c">
+        <graphics name="imp3" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="63" y="484" width="46" height="17"/>
+    </entry>
+    <entry id="186" name="ko:K14551" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14551">
+        <graphics name="K14551" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="201" y="342" width="46" height="17"/>
+    </entry>
+    <entry id="187" name="spo:SPAC1B3.13" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPAC1B3.13">
+        <graphics name="SPAC1B3.13" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="201" y="359" width="46" height="17"/>
+    </entry>
+    <entry id="188" name="spo:SPBC428.19c" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPBC428.19c">
+        <graphics name="utp15" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="155" y="342" width="46" height="17"/>
+    </entry>
+    <entry id="189" name="spo:SPBC19F5.02c" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPBC19F5.02c">
+        <graphics name="utp4" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="109" y="359" width="46" height="17"/>
+    </entry>
+    <entry id="190" name="spo:SPBC23E6.04c" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPBC23E6.04c">
+        <graphics name="utp10" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="155" y="359" width="46" height="17"/>
+    </entry>
+    <entry id="191" name="ko:K14547" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14547">
+        <graphics name="K14547" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="109" y="342" width="46" height="17"/>
+    </entry>
+    <entry id="192" name="spo:SPAC20H4.01 spo:SPCC1450.03" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPAC20H4.01+spo:SPCC1450.03">
+        <graphics name="utp5..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="63" y="350" width="46" height="17"/>
+    </entry>
+    <entry id="193" name="spo:SPBC29A3.06" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPBC29A3.06">
+        <graphics name="SPBC29A3.06" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="63" y="403" width="46" height="17"/>
+    </entry>
+    <entry id="194" name="spo:SPCC16A11.02" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPCC16A11.02">
+        <graphics name="utp13" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="109" y="403" width="46" height="17"/>
+    </entry>
+    <entry id="195" name="spo:SPBC244.02c" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPBC244.02c">
+        <graphics name="SPBC244.02c" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="155" y="412" width="46" height="17"/>
+    </entry>
+    <entry id="196" name="spo:SPBC713.04c" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPBC713.04c">
+        <graphics name="SPBC713.04c" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="201" y="412" width="46" height="17"/>
+    </entry>
+    <entry id="197" name="spo:SPCC1672.07" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPCC1672.07">
+        <graphics name="SPCC1672.07" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="63" y="420" width="46" height="17"/>
+    </entry>
+    <entry id="198" name="spo:SPBC3D6.12" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPBC3D6.12">
+        <graphics name="SPBC3D6.12" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="109" y="420" width="46" height="17"/>
+    </entry>
+    <entry id="199" name="spo:SPAC23C11.11" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPAC23C11.11">
+        <graphics name="cka1" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="88" y="282" width="46" height="17"/>
+    </entry>
+    <entry id="200" name="spo:SPAC1851.03 spo:SPBC2G5.02c" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPAC1851.03+spo:SPBC2G5.02c">
+        <graphics name="ckb1..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="88" y="265" width="46" height="17"/>
+    </entry>
+    <entry id="201" name="spo:SPBC776.08c" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPBC776.08c">
+        <graphics name="SPBC776.08c" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="63" y="299" width="46" height="17"/>
+    </entry>
+    <entry id="202" name="spo:SPAC3F10.16c" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPAC3F10.16c">
+        <graphics name="SPAC3F10.16c" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="573" y="787" width="46" height="17"/>
+    </entry>
+    <entry id="203" name="spo:SPCC553.08c" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPCC553.08c">
+        <graphics name="SPCC553.08c" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="510" y="797" width="46" height="17"/>
+    </entry>
+    <entry id="204" name="spo:SPBC776.17" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPBC776.17">
+        <graphics name="SPBC776.17" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="109" y="299" width="46" height="17"/>
+    </entry>
+    <entry id="222" name="spo:SPAC10F6.10" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPAC10F6.10">
+        <graphics name="SPAC10F6.10" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="334" y="781" width="46" height="17"/>
+    </entry>
+    <entry id="223" name="spo:SPBC56F2.07c" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPBC56F2.07c">
+        <graphics name="SPBC56F2.07c" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="627" y="787" width="46" height="17"/>
+    </entry>
+    <entry id="224" name="spo:SPBC1703.05" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPBC1703.05">
+        <graphics name="SPBC1703.05" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="334" y="804" width="46" height="17"/>
+    </entry>
+    <entry id="225" name="spo:SPCC830.11c" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPCC830.11c">
+        <graphics name="SPCC830.11c" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="266" y="804" width="46" height="17"/>
+    </entry>
+    <entry id="234" name="ko:K14576" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K14576">
+        <graphics name="K14576" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="431" y="507" width="46" height="17"/>
+    </entry>
+    <entry id="235" name="spo:SPCC1919.09" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPCC1919.09">
+        <graphics name="tif6" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="510" y="722" width="46" height="17"/>
+    </entry>
+    <entry id="236" name="spo:SPAC18G6.07c" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPAC18G6.07c">
+        <graphics name="mra1" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="373" y="360" width="46" height="17"/>
+    </entry>
+    <entry id="240" name="spo:SPAC4F8.03" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPAC4F8.03">
+        <graphics name="sdo1" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="510" y="780" width="46" height="17"/>
+    </entry>
+    <entry id="243" name="spo:SPBC4F6.14" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPBC4F6.14">
+        <graphics name="SPBC4F6.14" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="586" y="646" width="46" height="17"/>
+    </entry>
+    <entry id="244" name="spo:SPAC1486.09" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?spo:SPAC1486.09">
+        <graphics name="SPAC1486.09" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="348" y="660" width="46" height="17"/>
+    </entry>
+    <relation entry1="240" entry2="203" type="PCrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="235" entry2="240" type="PCrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+</pathway>

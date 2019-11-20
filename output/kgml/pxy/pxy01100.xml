@@ -6330,11 +6330,6 @@
         <graphics name="G12396" fgcolor="#E0E0E0" bgcolor="#E0E0E0"
              type="circle" x="1745" y="540" width="14" height="14"/>
     </entry>
-    <entry id="5065" name="ko:K05286" type="ortholog" reaction="rn:R05922"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K05286">
-        <graphics name="K05286" fgcolor="#E0E0E0" bgcolor="#FFFFFF"
-             type="line" coords="1794,243,1794,302"/>
-    </entry>
     <entry id="5054" name="ko:K01127" type="ortholog" reaction="rn:R06623"
         link="http://www.kegg.jp/dbget-bin/www_bget?K01127">
         <graphics name="K01127" fgcolor="#E0E0E0" bgcolor="#FFFFFF"
@@ -28702,6 +28697,11 @@
         <graphics name="G00146" fgcolor="#99CCFF" bgcolor="#99CCFF"
              type="circle" x="1794" y="425" width="14" height="14"/>
     </entry>
+    <entry id="5065" name="pxy:105392366" type="gene" reaction="rn:R05922"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pxy:105392366">
+        <graphics name="105392366" fgcolor="#99CCFF" bgcolor="#FFFFFF"
+             type="line" coords="1794,243,1794,302"/>
+    </entry>
     <entry id="5066" name="pxy:105386597 pxy:105388900" type="gene" reaction="rn:R08107"
         link="http://www.kegg.jp/dbget-bin/www_bget?pxy:105386597+pxy:105388900">
         <graphics name="105386597..." fgcolor="#99CCFF" bgcolor="#FFFFFF"
@@ -33672,6 +33672,10 @@
     <reaction id="5059" name="rn:R12351" type="reversible">
         <substrate id="5070" name="gl:G00148"/>
         <product id="5060" name="gl:G13128"/>
+    </reaction>
+    <reaction id="5065" name="rn:R05922" type="reversible">
+        <substrate id="5071" name="gl:G00149"/>
+        <product id="5070" name="gl:G00148"/>
     </reaction>
     <reaction id="5066" name="rn:R08107" type="reversible">
         <substrate id="5071" name="gl:G00149"/>

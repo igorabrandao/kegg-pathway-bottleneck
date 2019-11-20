@@ -20,14 +20,14 @@
         <graphics name="105184911" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="826" y="225" width="46" height="17"/>
     </entry>
-    <entry id="8" name="ko:K04730" type="ortholog"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K04730">
-        <graphics name="K04730" fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="8" name="hst:105187682" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?hst:105187682">
+        <graphics name="105187682" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="870" y="191" width="46" height="17"/>
     </entry>
-    <entry id="9" name="ko:K04733" type="ortholog"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K04733">
-        <graphics name="K04733" fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="9" name="hst:105180475" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?hst:105180475">
+        <graphics name="105180475" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="847" y="208" width="46" height="17"/>
     </entry>
     <entry id="13" name="hst:105188976" type="gene"
@@ -294,6 +294,10 @@
     <relation entry1="6" entry2="7" type="PPrel">
         <subtype name="activation" value="--&gt;"/>
     </relation>
+    <relation entry1="8" entry2="28" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
     <relation entry1="135" entry2="147" type="PPrel">
         <subtype name="activation" value="--&gt;"/>
         <subtype name="phosphorylation" value="+p"/>
@@ -330,6 +334,12 @@
     </relation>
     <relation entry1="100" entry2="84" type="PPrel">
         <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="9" entry2="7" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="9" entry2="8" type="PPrel">
+        <subtype name="binding/association" value="---"/>
     </relation>
     <relation entry1="28" entry2="27" type="PPrel">
         <subtype name="binding/association" value="---"/>

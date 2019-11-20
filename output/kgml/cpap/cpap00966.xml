@@ -40,6 +40,11 @@
         <graphics name="110823544" fgcolor="#66CC66" bgcolor="#FFFFFF"
              type="line" coords="510,292,555,292"/>
     </entry>
+    <entry id="9" name="cpap:110807854 cpap:110809090 cpap:110818989" type="gene" reaction="rn:R08622"
+        link="http://www.kegg.jp/dbget-bin/www_bget?cpap:110807854+cpap:110809090+cpap:110818989">
+        <graphics name="110807854..." fgcolor="#66CC66" bgcolor="#FFFFFF"
+             type="line" coords="237,292,287,292"/>
+    </entry>
     <entry id="10" name="ko:K15741 ko:K15742" type="ortholog" reaction="rn:R08619"
         link="http://www.kegg.jp/dbget-bin/www_bget?K15741+K15742">
         <graphics name="K15741..." fgcolor="#000000" bgcolor="#FFFFFF"
@@ -139,6 +144,11 @@
         link="http://www.kegg.jp/dbget-bin/www_bget?K21360">
         <graphics name="K21360" fgcolor="#000000" bgcolor="#FFFFFF"
              type="line" coords="232,374,232,404"/>
+    </entry>
+    <entry id="30" name="cpap:110807854 cpap:110809090 cpap:110818989" type="gene" reaction="rn:R08626"
+        link="http://www.kegg.jp/dbget-bin/www_bget?cpap:110807854+cpap:110809090+cpap:110818989">
+        <graphics name="110807854..." fgcolor="#66CC66" bgcolor="#FFFFFF"
+             type="line" coords="237,409,287,409"/>
     </entry>
     <entry id="31" name="ko:K15742" type="ortholog" reaction="rn:R08627"
         link="http://www.kegg.jp/dbget-bin/www_bget?K15742">
@@ -600,6 +610,21 @@
         <graphics name="K13401" fgcolor="#000000" bgcolor="#FFFFFF"
              type="line" coords="927,178,972,178"/>
     </entry>
+    <entry id="195" name="cpap:110807854 cpap:110809090 cpap:110818989" type="gene" reaction="rn:R01214"
+        link="http://www.kegg.jp/dbget-bin/www_bget?cpap:110807854+cpap:110809090+cpap:110818989">
+        <graphics name="110807854..." fgcolor="#66CC66" bgcolor="#FFFFFF"
+             type="line" coords="868,178,918,178"/>
+    </entry>
+    <entry id="196" name="cpap:110807854 cpap:110809090 cpap:110818989" type="gene" reaction="rn:R01090"
+        link="http://www.kegg.jp/dbget-bin/www_bget?cpap:110807854+cpap:110809090+cpap:110818989">
+        <graphics name="110807854..." fgcolor="#66CC66" bgcolor="#FFFFFF"
+             type="line" coords="868,278,918,278"/>
+    </entry>
+    <entry id="197" name="cpap:110807854 cpap:110809090 cpap:110818989" type="gene" reaction="rn:R02199"
+        link="http://www.kegg.jp/dbget-bin/www_bget?cpap:110807854+cpap:110809090+cpap:110818989">
+        <graphics name="110807854..." fgcolor="#66CC66" bgcolor="#FFFFFF"
+             type="line" coords="868,390,918,390"/>
+    </entry>
     <entry id="198" name="cpd:C08418" type="compound"
         link="http://www.kegg.jp/dbget-bin/www_bget?C08418">
         <graphics name="C08418" fgcolor="#000000" bgcolor="#FFFFFF"
@@ -658,6 +683,10 @@
         <substrate id="121" name="cpd:C17244"/>
         <product id="72" name="cpd:C08412"/>
     </reaction>
+    <reaction id="9" name="rn:R08622" type="reversible">
+        <substrate id="13" name="cpd:C17211"/>
+        <product id="14" name="cpd:C17213"/>
+    </reaction>
     <reaction id="5" name="rn:R08668" type="irreversible">
         <substrate id="120" name="cpd:C17243"/>
         <product id="121" name="cpd:C17244"/>
@@ -669,6 +698,10 @@
     <reaction id="28" name="rn:R08624" type="irreversible">
         <substrate id="126" name="cpd:C17214"/>
         <product id="127" name="cpd:C17215"/>
+    </reaction>
+    <reaction id="30" name="rn:R08626" type="reversible">
+        <substrate id="16" name="cpd:C17216"/>
+        <product id="19" name="cpd:C17217"/>
     </reaction>
     <reaction id="32" name="rn:R08628" type="irreversible">
         <substrate id="128" name="cpd:C17218"/>
@@ -737,5 +770,17 @@
     <reaction id="105" name="rn:R10672" type="irreversible">
         <substrate id="176" name="cpd:C04350"/>
         <product id="177" name="cpd:C17238"/>
+    </reaction>
+    <reaction id="195" name="rn:R01214" type="reversible">
+        <substrate id="199" name="cpd:C00183"/>
+        <product id="200" name="cpd:C00141"/>
+    </reaction>
+    <reaction id="196" name="rn:R01090" type="reversible">
+        <substrate id="202" name="cpd:C00123"/>
+        <product id="203" name="cpd:C00233"/>
+    </reaction>
+    <reaction id="197" name="rn:R02199" type="reversible">
+        <substrate id="205" name="cpd:C00407"/>
+        <product id="206" name="cpd:C00671"/>
     </reaction>
 </pathway>

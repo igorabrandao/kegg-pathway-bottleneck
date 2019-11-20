@@ -180,9 +180,9 @@
         <graphics name="105320785..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="642" y="219" width="46" height="17"/>
     </entry>
-    <entry id="59" name="ko:K07408 ko:K07409" type="ortholog" reaction="rn:R08392"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K07408+K07409">
-        <graphics name="K07408..." fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="59" name="crg:105329067 crg:105337488 crg:105338164" type="gene" reaction="rn:R08392"
+        link="http://www.kegg.jp/dbget-bin/www_bget?crg:105329067+crg:105337488+crg:105338164">
+        <graphics name="105329067..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="642" y="198" width="46" height="17"/>
     </entry>
     <entry id="61" name="cpd:C16678" type="compound"
@@ -250,9 +250,9 @@
         <graphics name="105320785..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="593" y="283" width="46" height="17"/>
     </entry>
-    <entry id="79" name="ko:K07408" type="ortholog" reaction="rn:R08390"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K07408">
-        <graphics name="K07408" fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="79" name="crg:105329067 crg:105337488 crg:105338164" type="gene" reaction="rn:R08390"
+        link="http://www.kegg.jp/dbget-bin/www_bget?crg:105329067+crg:105337488+crg:105338164">
+        <graphics name="105329067..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="593" y="262" width="46" height="17"/>
     </entry>
     <entry id="80" name="ko:K07425" type="ortholog" reaction="rn:R08390"
@@ -265,9 +265,9 @@
         <graphics name="K17683..." fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="641" y="262" width="46" height="17"/>
     </entry>
-    <entry id="82" name="ko:K07408 ko:K07409" type="ortholog"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K07408+K07409">
-        <graphics name="K07408..." fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="82" name="crg:105329067 crg:105337488 crg:105338164" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?crg:105329067+crg:105337488+crg:105338164">
+        <graphics name="105329067..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="804" y="198" width="46" height="17"/>
     </entry>
     <entry id="83" name="crg:105320785 crg:105320786 crg:105325143 crg:105331505 crg:105335480 crg:105335491 crg:105343044 crg:105344634 crg:105345458 crg:105347766 crg:105348863" type="gene"
@@ -382,10 +382,16 @@
     <relation entry1="15" entry2="56" type="ECrel">
         <subtype name="compound" value="16"/>
     </relation>
+    <relation entry1="15" entry2="59" type="ECrel">
+        <subtype name="compound" value="16"/>
+    </relation>
     <relation entry1="15" entry2="58" type="ECrel">
         <subtype name="compound" value="16"/>
     </relation>
     <relation entry1="15" entry2="75" type="ECrel">
+        <subtype name="compound" value="16"/>
+    </relation>
+    <relation entry1="15" entry2="79" type="ECrel">
         <subtype name="compound" value="16"/>
     </relation>
     <relation entry1="15" entry2="78" type="ECrel">
@@ -394,22 +400,52 @@
     <relation entry1="15" entry2="77" type="ECrel">
         <subtype name="compound" value="16"/>
     </relation>
+    <relation entry1="56" entry2="79" type="ECrel">
+        <subtype name="compound" value="16"/>
+    </relation>
     <relation entry1="56" entry2="78" type="ECrel">
         <subtype name="compound" value="16"/>
     </relation>
     <relation entry1="56" entry2="77" type="ECrel">
         <subtype name="compound" value="16"/>
     </relation>
+    <relation entry1="59" entry2="75" type="ECrel">
+        <subtype name="compound" value="16"/>
+    </relation>
+    <relation entry1="59" entry2="78" type="ECrel">
+        <subtype name="compound" value="16"/>
+    </relation>
+    <relation entry1="59" entry2="77" type="ECrel">
+        <subtype name="compound" value="16"/>
+    </relation>
     <relation entry1="58" entry2="75" type="ECrel">
+        <subtype name="compound" value="16"/>
+    </relation>
+    <relation entry1="58" entry2="79" type="ECrel">
         <subtype name="compound" value="16"/>
     </relation>
     <relation entry1="75" entry2="77" type="ECrel">
         <subtype name="compound" value="16"/>
     </relation>
+    <relation entry1="79" entry2="77" type="ECrel">
+        <subtype name="compound" value="16"/>
+    </relation>
+    <relation entry1="56" entry2="82" type="ECrel">
+        <subtype name="compound" value="57"/>
+    </relation>
     <relation entry1="56" entry2="83" type="ECrel">
         <subtype name="compound" value="57"/>
     </relation>
+    <relation entry1="59" entry2="66" type="ECrel">
+        <subtype name="compound" value="57"/>
+    </relation>
+    <relation entry1="59" entry2="83" type="ECrel">
+        <subtype name="compound" value="57"/>
+    </relation>
     <relation entry1="58" entry2="66" type="ECrel">
+        <subtype name="compound" value="57"/>
+    </relation>
+    <relation entry1="58" entry2="82" type="ECrel">
         <subtype name="compound" value="57"/>
     </relation>
     <relation entry1="50" entry2="93" type="ECrel">
@@ -456,6 +492,10 @@
         <substrate id="16" name="cpd:C00777"/>
         <product id="57" name="cpd:C16677"/>
     </reaction>
+    <reaction id="59" name="rn:R08392" type="irreversible">
+        <substrate id="16" name="cpd:C00777"/>
+        <product id="57" name="cpd:C16677"/>
+    </reaction>
     <reaction id="69" name="rn:R02124 rn:R08379" type="reversible">
         <substrate id="7" name="cpd:C00473"/>
         <product id="10" name="cpd:C00376"/>
@@ -473,6 +513,10 @@
         <product id="72" name="cpd:C16680"/>
     </reaction>
     <reaction id="78" name="rn:R08390" type="irreversible">
+        <substrate id="16" name="cpd:C00777"/>
+        <product id="73" name="cpd:C16679"/>
+    </reaction>
+    <reaction id="79" name="rn:R08390" type="irreversible">
         <substrate id="16" name="cpd:C00777"/>
         <product id="73" name="cpd:C16679"/>
     </reaction>

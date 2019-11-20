@@ -525,14 +525,14 @@
         <graphics name="K15899" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="1281" y="513" width="46" height="17"/>
     </entry>
-    <entry id="180" name="ko:K12451" type="ortholog" reaction="rn:R08705"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K12451">
-        <graphics name="K12451" fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="180" name="dfa:DFA_11698" type="gene" reaction="rn:R08705"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dfa:DFA_11698">
+        <graphics name="DFA_11698" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="1076" y="1002" width="46" height="17"/>
     </entry>
-    <entry id="182" name="ko:K12451" type="ortholog" reaction="rn:R08704"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K12451">
-        <graphics name="K12451" fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="182" name="dfa:DFA_11698" type="gene" reaction="rn:R08704"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dfa:DFA_11698">
+        <graphics name="DFA_11698" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="965" y="1002" width="46" height="17"/>
     </entry>
     <entry id="185" name="ko:K16190" type="ortholog" reaction="rn:R01476"
@@ -1459,6 +1459,12 @@
     <relation entry1="295" entry2="194" type="ECrel">
         <subtype name="compound" value="343"/>
     </relation>
+    <relation entry1="191" entry2="182" type="ECrel">
+        <subtype name="compound" value="342"/>
+    </relation>
+    <relation entry1="182" entry2="180" type="ECrel">
+        <subtype name="compound" value="341"/>
+    </relation>
     <relation entry1="194" entry2="192" type="ECrel">
         <subtype name="compound" value="370"/>
     </relation>
@@ -1501,6 +1507,14 @@
     <relation entry1="61" entry2="99" type="maplink">
         <subtype name="compound" value="104"/>
     </relation>
+    <reaction id="182" name="rn:R08704" type="irreversible">
+        <substrate id="342" name="cpd:C04089"/>
+        <product id="341" name="cpd:C17328"/>
+    </reaction>
+    <reaction id="180" name="rn:R08705" type="irreversible">
+        <substrate id="341" name="cpd:C17328"/>
+        <product id="340" name="cpd:C02199"/>
+    </reaction>
     <reaction id="191" name="rn:R00293" type="irreversible">
         <substrate id="343" name="cpd:C00029"/>
         <product id="342" name="cpd:C04089"/>

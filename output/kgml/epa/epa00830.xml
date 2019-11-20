@@ -180,9 +180,9 @@
         <graphics name="110239491..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="642" y="219" width="46" height="17"/>
     </entry>
-    <entry id="59" name="epa:110247558" type="gene" reaction="rn:R08392"
-        link="http://www.kegg.jp/dbget-bin/www_bget?epa:110247558">
-        <graphics name="110247558" fgcolor="#000000" bgcolor="#BFFFBF"
+    <entry id="59" name="ko:K07408 ko:K07409" type="ortholog" reaction="rn:R08392"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K07408+K07409">
+        <graphics name="K07408..." fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="642" y="198" width="46" height="17"/>
     </entry>
     <entry id="61" name="cpd:C16678" type="compound"
@@ -265,9 +265,9 @@
         <graphics name="K17683..." fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="641" y="262" width="46" height="17"/>
     </entry>
-    <entry id="82" name="epa:110247558" type="gene"
-        link="http://www.kegg.jp/dbget-bin/www_bget?epa:110247558">
-        <graphics name="110247558" fgcolor="#000000" bgcolor="#BFFFBF"
+    <entry id="82" name="ko:K07408 ko:K07409" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K07408+K07409">
+        <graphics name="K07408..." fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="804" y="198" width="46" height="17"/>
     </entry>
     <entry id="83" name="epa:110239491 epa:110239492 epa:110239494 epa:110239511 epa:110240904 epa:110241873 epa:110241994 epa:110244115 epa:110244127 epa:110244129 epa:110244730 epa:110244907 epa:110245416 epa:110245417 epa:110246099 epa:110247089 epa:110247538 epa:110247585 epa:110247632 epa:110253179" type="gene"
@@ -385,9 +385,6 @@
     <relation entry1="70" entry2="15" type="ECrel">
         <subtype name="compound" value="10"/>
     </relation>
-    <relation entry1="15" entry2="59" type="ECrel">
-        <subtype name="compound" value="16"/>
-    </relation>
     <relation entry1="15" entry2="58" type="ECrel">
         <subtype name="compound" value="16"/>
     </relation>
@@ -400,15 +397,6 @@
     <relation entry1="15" entry2="90" type="ECrel">
         <subtype name="compound" value="16"/>
     </relation>
-    <relation entry1="59" entry2="78" type="ECrel">
-        <subtype name="compound" value="16"/>
-    </relation>
-    <relation entry1="59" entry2="77" type="ECrel">
-        <subtype name="compound" value="16"/>
-    </relation>
-    <relation entry1="59" entry2="90" type="ECrel">
-        <subtype name="compound" value="16"/>
-    </relation>
     <relation entry1="58" entry2="90" type="ECrel">
         <subtype name="compound" value="16"/>
     </relation>
@@ -417,12 +405,6 @@
     </relation>
     <relation entry1="77" entry2="90" type="ECrel">
         <subtype name="compound" value="16"/>
-    </relation>
-    <relation entry1="59" entry2="83" type="ECrel">
-        <subtype name="compound" value="57"/>
-    </relation>
-    <relation entry1="58" entry2="82" type="ECrel">
-        <subtype name="compound" value="57"/>
     </relation>
     <relation entry1="91" entry2="93" type="ECrel">
         <subtype name="compound" value="7"/>
@@ -464,10 +446,6 @@
         <product id="48" name="cpd:C03455"/>
     </reaction>
     <reaction id="58" name="rn:R08392" type="irreversible">
-        <substrate id="16" name="cpd:C00777"/>
-        <product id="57" name="cpd:C16677"/>
-    </reaction>
-    <reaction id="59" name="rn:R08392" type="irreversible">
         <substrate id="16" name="cpd:C00777"/>
         <product id="57" name="cpd:C16677"/>
     </reaction>

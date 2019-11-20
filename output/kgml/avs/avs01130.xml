@@ -4902,6 +4902,11 @@
         <graphics name="C11434" fgcolor="#E0E0E0" bgcolor="#E0E0E0"
              type="circle" x="1240" y="731" width="14" height="14"/>
     </entry>
+    <entry id="1020" name="cpd:C00042" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00042">
+        <graphics name="C00042" fgcolor="#E0E0E0" bgcolor="#E0E0E0"
+             type="circle" x="1309" y="1436" width="14" height="14"/>
+    </entry>
     <entry id="1018" name="cpd:C05379" type="compound"
         link="http://www.kegg.jp/dbget-bin/www_bget?C05379">
         <graphics name="C05379" fgcolor="#E0E0E0" bgcolor="#E0E0E0"
@@ -5168,6 +5173,11 @@
         link="http://www.kegg.jp/dbget-bin/www_bget?K01899+K01900+K01902+K01903+K18118">
         <graphics name="K01899..." fgcolor="#E0E0E0" bgcolor="#FFFFFF"
              type="line" coords="1310,1438,1338,1460,1338,1460,1343,1464,1349,1468,1356,1472,1363,1475,1371,1479,1379,1482,1386,1485,1393,1487,1399,1489,1399,1489,1434,1496"/>
+    </entry>
+    <entry id="847" name="ko:K00234 ko:K00235 ko:K00236 ko:K00237 ko:K00239 ko:K00240 ko:K00241 ko:K00242 ko:K00244 ko:K00245 ko:K00246 ko:K00247" type="ortholog" reaction="rn:R02164"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K00234+K00235+K00236+K00237+K00239+K00240+K00241+K00242+K00244+K00245+K00246+K00247">
+        <graphics name="K00234..." fgcolor="#E0E0E0" bgcolor="#FFFFFF"
+             type="line" coords="1253,1315,1253,1315,1253,1315,1254,1321,1255,1328,1257,1335,1259,1343,1261,1351,1263,1359,1265,1366,1267,1373,1269,1379,1269,1379,1268,1375,1268,1375,1271,1381,1274,1387,1278,1394,1283,1401,1288,1409,1292,1415,1297,1422,1302,1427,1306,1432,1306,1432,1310,1436"/>
     </entry>
     <entry id="845" name="ko:K01681 ko:K01682" type="ortholog" reaction="rn:R01900"
         link="http://www.kegg.jp/dbget-bin/www_bget?K01681+K01682">
@@ -8272,11 +8282,6 @@
         <graphics name="AWM76_09675" fgcolor="#8080F7" bgcolor="#FFFFFF"
              type="line" coords="1607,1423,1617,1408,1617,1408,1620,1403,1623,1398,1627,1392,1630,1385,1633,1378,1636,1372,1639,1365,1641,1359,1643,1354,1643,1354,1644,1353,1644,1353,1645,1348,1647,1341,1648,1334,1649,1327,1650,1320,1651,1313,1651,1306,1652,1299,1652,1294,1652,1294,1651,1267"/>
     </entry>
-    <entry id="847" name="avs:AWM76_01285" type="gene" reaction="rn:R02164"
-        link="http://www.kegg.jp/dbget-bin/www_bget?avs:AWM76_01285">
-        <graphics name="AWM76_01285" fgcolor="#8080F7" bgcolor="#FFFFFF"
-             type="line" coords="1253,1315,1253,1315,1253,1315,1254,1321,1255,1328,1257,1335,1259,1343,1261,1351,1263,1359,1265,1366,1267,1373,1269,1379,1269,1379,1268,1375,1268,1375,1271,1381,1274,1387,1278,1394,1283,1401,1288,1409,1292,1415,1297,1422,1302,1427,1306,1432,1306,1432,1310,1436"/>
-    </entry>
     <entry id="849" name="avs:AWM76_07760" type="gene" reaction="rn:R08549"
         link="http://www.kegg.jp/dbget-bin/www_bget?avs:AWM76_07760">
         <graphics name="AWM76_07760" fgcolor="#8080F7" bgcolor="#FFFFFF"
@@ -8811,11 +8816,6 @@
         link="http://www.kegg.jp/dbget-bin/www_bget?C00091">
         <graphics name="C00091" fgcolor="#8080F7" bgcolor="#8080F7"
              type="circle" x="1434" y="1494" width="14" height="14"/>
-    </entry>
-    <entry id="1020" name="cpd:C00042" type="compound"
-        link="http://www.kegg.jp/dbget-bin/www_bget?C00042">
-        <graphics name="C00042" fgcolor="#8080F7" bgcolor="#8080F7"
-             type="circle" x="1309" y="1436" width="14" height="14"/>
     </entry>
     <entry id="1021" name="cpd:C00122" type="compound"
         link="http://www.kegg.jp/dbget-bin/www_bget?C00122">
@@ -9974,10 +9974,6 @@
     <reaction id="849" name="rn:R08549" type="reversible">
         <substrate id="1014" name="cpd:C00026"/>
         <product id="1019" name="cpd:C00091"/>
-    </reaction>
-    <reaction id="847" name="rn:R02164" type="reversible">
-        <substrate id="1020" name="cpd:C00042"/>
-        <product id="1021" name="cpd:C00122"/>
     </reaction>
     <reaction id="846" name="rn:R00709" type="reversible">
         <substrate id="1017" name="cpd:C00311"/>

@@ -893,9 +893,9 @@
         <graphics name="K01439" fgcolor="#000000" bgcolor="#FFFFFF"
              type="line" coords="952,788,1002,788"/>
     </entry>
-    <entry id="183" name="ko:K01778" type="ortholog" reaction="rn:R02735"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K01778">
-        <graphics name="K01778" fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="183" name="gsl:Gasu_06920" type="gene" reaction="rn:R02735"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gsl:Gasu_06920">
+        <graphics name="Gasu_06920" fgcolor="#66CC66" bgcolor="#FFFFFF"
              type="line" coords="1015,788,1065,788"/>
     </entry>
     <entry id="184" name="gsl:Gasu_05900" type="gene" reaction="rn:R00451"
@@ -1614,6 +1614,10 @@
     <reaction id="180" name="rn:R07613" type="irreversible">
         <substrate id="174" name="cpd:C03972"/>
         <product id="177" name="cpd:C00666"/>
+    </reaction>
+    <reaction id="183" name="rn:R02735" type="irreversible">
+        <substrate id="177" name="cpd:C00666"/>
+        <product id="178" name="cpd:C00680"/>
     </reaction>
     <reaction id="184" name="rn:R00451" type="irreversible">
         <substrate id="178" name="cpd:C00680"/>

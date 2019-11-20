@@ -100,9 +100,9 @@
         <graphics name="K00128..." fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="609" y="860" width="46" height="17"/>
     </entry>
-    <entry id="67" name="ko:K00797" type="ortholog" reaction="rn:R01920"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K00797">
-        <graphics name="K00797" fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="67" name="ppol:X809_11955" type="gene" reaction="rn:R01920"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppol:X809_11955">
+        <graphics name="X809_11955" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="961" y="792" width="46" height="17"/>
     </entry>
     <entry id="68" name="ppol:X809_07360 ppol:X809_35540" type="gene" reaction="rn:R00178"
@@ -982,8 +982,20 @@
     <relation entry1="83" entry2="78" type="maplink">
         <subtype name="compound" value="261"/>
     </relation>
+    <relation entry1="68" entry2="67" type="ECrel">
+        <subtype name="compound" value="260"/>
+    </relation>
+    <relation entry1="67" entry2="129" type="ECrel">
+        <subtype name="compound" value="253"/>
+    </relation>
+    <relation entry1="67" entry2="110" type="maplink">
+        <subtype name="compound" value="253"/>
+    </relation>
     <relation entry1="129" entry2="110" type="maplink">
         <subtype name="compound" value="253"/>
+    </relation>
+    <relation entry1="113" entry2="67" type="ECrel">
+        <subtype name="compound" value="259"/>
     </relation>
     <relation entry1="68" entry2="109" type="maplink">
         <subtype name="compound" value="262"/>
@@ -1046,6 +1058,11 @@
     <reaction id="129" name="rn:R01152" type="irreversible">
         <substrate id="285" name="cpd:C00436"/>
         <product id="253" name="cpd:C00134"/>
+    </reaction>
+    <reaction id="67" name="rn:R01920" type="irreversible">
+        <substrate id="260" name="cpd:C01137"/>
+        <substrate id="253" name="cpd:C00134"/>
+        <product id="259" name="cpd:C00315"/>
     </reaction>
     <reaction id="68" name="rn:R00178" type="irreversible">
         <substrate id="262" name="cpd:C00019"/>

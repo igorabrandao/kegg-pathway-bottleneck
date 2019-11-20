@@ -1,44 +1,218 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<title>Access forbidden!</title>
-<link rev="made" href="mailto:http://www.genome.jp/feedback/" />
-<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
-    body { color: #000000; background-color: #FFFFFF; }
-    a:link { color: #0000CC; }
-    p, address {margin-left: 3em;}
-    span {font-size: smaller;}
-/*]]>*/--></style>
-</head>
-
-<body>
-<h1>Access forbidden!</h1>
-<p>
-
-
-  
-
-    You don't have permission to access the requested object.
-    It is either read-protected or not readable by the server.
-
-  
-
-</p>
-<p>
-If you think this is a server error, please contact
-the <a href="http://www.genome.jp/feedback/">webmaster</a>.
-
-</p>
-
-<h2>Error 403</h2>
-<address>
-  <a href="/">rest.kegg.jp</a><br />
-  
-  <span>Sat Nov 16 08:36:27 2019<br />
-  Apache</span>
-</address>
-</body>
-</html>
-
+<?xml version="1.0"?>
+<!DOCTYPE pathway SYSTEM "http://www.kegg.jp/kegg/xml/KGML_v0.7.2_.dtd">
+<!-- Creation date: Jan 31, 2017 17:20:39 +0900 (GMT+9) -->
+<pathway name="path:boc02040" org="boc" number="02040"
+         title="Flagellar assembly"
+         image="http://www.kegg.jp/kegg/pathway/boc/boc02040.png"
+         link="http://www.kegg.jp/kegg-bin/show_pathway?boc02040">
+    <entry id="1" name="path:boc03070" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?boc03070">
+        <graphics name="Bacterial secretion system" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="400" y="578" width="140" height="26"/>
+    </entry>
+    <entry id="2" name="path:boc02030" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?boc02030">
+        <graphics name="Bacterial chemotaxis" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="439" y="531" width="122" height="26"/>
+    </entry>
+    <entry id="3" name="boc:BG90_1701 boc:BG90_2297" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?boc:BG90_1701+boc:BG90_2297">
+        <graphics name="BG90_1701..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="294" y="654" width="46" height="17"/>
+    </entry>
+    <entry id="4" name="boc:BG90_1702" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?boc:BG90_1702">
+        <graphics name="flhC" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="294" y="637" width="46" height="17"/>
+    </entry>
+    <entry id="5" name="boc:BG90_1338" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?boc:BG90_1338">
+        <graphics name="flgM" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="209" y="687" width="46" height="17"/>
+    </entry>
+    <entry id="6" name="boc:BG90_1337 boc:BG90_4173" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?boc:BG90_1337+boc:BG90_4173">
+        <graphics name="flgA..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="48" y="589" width="46" height="17"/>
+    </entry>
+    <entry id="7" name="boc:BG90_1339 boc:BG90_4172" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?boc:BG90_1339+boc:BG90_4172">
+        <graphics name="BG90_1339..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="48" y="570" width="46" height="17"/>
+    </entry>
+    <entry id="8" name="boc:BG90_1389" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?boc:BG90_1389">
+        <graphics name="BG90_1389" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="192" y="570" width="46" height="17"/>
+    </entry>
+    <entry id="9" name="boc:BG90_1396" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?boc:BG90_1396">
+        <graphics name="fliJ" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="96" y="570" width="46" height="17"/>
+    </entry>
+    <entry id="10" name="boc:BG90_1390 boc:BG90_4166" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?boc:BG90_1390+boc:BG90_4166">
+        <graphics name="fliS..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="144" y="570" width="46" height="17"/>
+    </entry>
+    <entry id="11" name="boc:BG90_1546 boc:BG90_4154" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?boc:BG90_1546+boc:BG90_4154">
+        <graphics name="fliR..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="299" y="587" width="46" height="17"/>
+    </entry>
+    <entry id="12" name="boc:BG90_1548 boc:BG90_4156" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?boc:BG90_1548+boc:BG90_4156">
+        <graphics name="fliP..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="253" y="587" width="46" height="17"/>
+    </entry>
+    <entry id="13" name="boc:BG90_1547 boc:BG90_4155" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?boc:BG90_1547+boc:BG90_4155">
+        <graphics name="fliQ..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="299" y="570" width="46" height="17"/>
+    </entry>
+    <entry id="14" name="boc:BG90_1549" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?boc:BG90_1549">
+        <graphics name="fliO" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="253" y="570" width="46" height="17"/>
+    </entry>
+    <entry id="15" name="boc:BG90_1395 boc:BG90_4163" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?boc:BG90_1395+boc:BG90_4163">
+        <graphics name="fliI..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="253" y="553" width="46" height="17"/>
+    </entry>
+    <entry id="16" name="boc:BG90_1394 boc:BG90_4162" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?boc:BG90_1394+boc:BG90_4162">
+        <graphics name="BG90_1394..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="253" y="536" width="46" height="17"/>
+    </entry>
+    <entry id="17" name="boc:BG90_1550 boc:BG90_4157" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?boc:BG90_1550+boc:BG90_4157">
+        <graphics name="fliN..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="391" y="504" width="46" height="17"/>
+    </entry>
+    <entry id="18" name="boc:BG90_1551" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?boc:BG90_1551">
+        <graphics name="fliM" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="391" y="487" width="46" height="17"/>
+    </entry>
+    <entry id="19" name="boc:BG90_1393 boc:BG90_4161" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?boc:BG90_1393+boc:BG90_4161">
+        <graphics name="fliG..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="391" y="470" width="46" height="17"/>
+    </entry>
+    <entry id="20" name="boc:BG90_1392 boc:BG90_4160" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?boc:BG90_1392+boc:BG90_4160">
+        <graphics name="fliF..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="391" y="446" width="46" height="17"/>
+    </entry>
+    <entry id="21" name="boc:BG90_1397 boc:BG90_4168" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?boc:BG90_1397+boc:BG90_4168">
+        <graphics name="BG90_1397..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="514" y="263" width="46" height="17"/>
+    </entry>
+    <entry id="22" name="boc:BG90_1693 boc:BG90_4149" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?boc:BG90_1693+boc:BG90_4149">
+        <graphics name="BG90_1693..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="441" y="144" width="46" height="17"/>
+    </entry>
+    <entry id="23" name="boc:BG90_1334 boc:BG90_4177" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?boc:BG90_1334+boc:BG90_4177">
+        <graphics name="BG90_1334..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="514" y="280" width="46" height="17"/>
+    </entry>
+    <entry id="24" name="boc:BG90_1332 boc:BG90_4179" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?boc:BG90_1332+boc:BG90_4179">
+        <graphics name="flgF..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="186" y="333" width="46" height="17"/>
+    </entry>
+    <entry id="25" name="boc:BG90_1333 boc:BG90_4178" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?boc:BG90_1333+boc:BG90_4178">
+        <graphics name="BG90_1333..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="345" y="271" width="46" height="17"/>
+    </entry>
+    <entry id="26" name="boc:BG90_1326 boc:BG90_4184" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?boc:BG90_1326+boc:BG90_4184">
+        <graphics name="flgK..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="417" y="221" width="46" height="17"/>
+    </entry>
+    <entry id="27" name="boc:BG90_1325 boc:BG90_4185" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?boc:BG90_1325+boc:BG90_4185">
+        <graphics name="flgL..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="417" y="198" width="46" height="17"/>
+    </entry>
+    <entry id="28" name="boc:BG90_1692 boc:BG90_4165 boc:BG90_5562" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?boc:BG90_1692+boc:BG90_4165+boc:BG90_5562">
+        <graphics name="BG90_1692..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="488" y="51" width="46" height="17"/>
+    </entry>
+    <entry id="29" name="path:boc02040" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?boc02040">
+        <graphics name="TITLE:Flagellar assembly" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="134" y="58" width="188" height="25"/>
+    </entry>
+    <entry id="30" name="boc:BG90_1391 boc:BG90_4159" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?boc:BG90_1391+boc:BG90_4159">
+        <graphics name="fliE..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="345" y="411" width="46" height="17"/>
+    </entry>
+    <entry id="31" name="boc:BG90_1335 boc:BG90_4176" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?boc:BG90_1335+boc:BG90_4176">
+        <graphics name="flgC..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="437" y="411" width="46" height="17"/>
+    </entry>
+    <entry id="32" name="boc:BG90_1336 boc:BG90_4175" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?boc:BG90_1336+boc:BG90_4175">
+        <graphics name="flgB..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="391" y="411" width="46" height="17"/>
+    </entry>
+    <entry id="33" name="boc:BG90_1329 boc:BG90_4182" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?boc:BG90_1329+boc:BG90_4182">
+        <graphics name="BG90_1329..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="357" y="383" width="46" height="17"/>
+    </entry>
+    <entry id="34" name="boc:BG90_1330 boc:BG90_4181" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?boc:BG90_1330+boc:BG90_4181">
+        <graphics name="BG90_1330..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="357" y="362" width="46" height="17"/>
+    </entry>
+    <entry id="35" name="boc:BG90_1331 boc:BG90_4180" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?boc:BG90_1331+boc:BG90_4180">
+        <graphics name="flgF..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="345" y="333" width="46" height="17"/>
+    </entry>
+    <entry id="36" name="boc:BG90_1703 boc:BG90_4150" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?boc:BG90_1703+boc:BG90_4150">
+        <graphics name="motA..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="182" y="444" width="46" height="17"/>
+    </entry>
+    <entry id="37" name="boc:BG90_1719 boc:BG90_4152" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?boc:BG90_1719+boc:BG90_4152">
+        <graphics name="flhA..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="235" y="502" width="46" height="17"/>
+    </entry>
+    <entry id="38" name="boc:BG90_1718 boc:BG90_4153" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?boc:BG90_1718+boc:BG90_4153">
+        <graphics name="flhB..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="292" y="502" width="46" height="17"/>
+    </entry>
+    <entry id="39" name="boc:BG90_1722 boc:BG90_4170" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?boc:BG90_1722+boc:BG90_4170">
+        <graphics name="BG90_1722..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="294" y="687" width="46" height="17"/>
+    </entry>
+    <entry id="40" name="ko:K21218" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K21218">
+        <graphics name="K21218" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="126" y="333" width="46" height="17"/>
+    </entry>
+    <entry id="41" name="ko:K21217" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K21217">
+        <graphics name="K21217" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="80" y="333" width="46" height="17"/>
+    </entry>
+    <entry id="42" name="boc:BG90_1704 boc:BG90_4151" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?boc:BG90_1704+boc:BG90_4151">
+        <graphics name="BG90_1704..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="159" y="407" width="46" height="17"/>
+    </entry>
+</pathway>

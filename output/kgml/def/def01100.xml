@@ -15923,11 +15923,6 @@
         <graphics name="K12927" fgcolor="#E0E0E0" bgcolor="#FFFFFF"
              type="line" coords="620,2132,620,2182"/>
     </entry>
-    <entry id="2593" name="ko:K01823" type="ortholog" reaction="rn:R01123"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K01823">
-        <graphics name="K01823" fgcolor="#E0E0E0" bgcolor="#FFFFFF"
-             type="line" coords="1013,1897,1132,1897"/>
-    </entry>
     <entry id="2592" name="ko:K15096" type="ortholog" reaction="rn:R06120"
         link="http://www.kegg.jp/dbget-bin/www_bget?K15096">
         <graphics name="K15096" fgcolor="#E0E0E0" bgcolor="#FFFFFF"
@@ -27157,6 +27152,11 @@
         <graphics name="CNY67_07285..." fgcolor="#FFB3CC" bgcolor="#FFFFFF"
              type="line" coords="4288,2334,4288,2399"/>
     </entry>
+    <entry id="2593" name="def:CNY67_07990" type="gene" reaction="rn:R01123"
+        link="http://www.kegg.jp/dbget-bin/www_bget?def:CNY67_07990">
+        <graphics name="CNY67_07990" fgcolor="#9EE284" bgcolor="#FFFFFF"
+             type="line" coords="1013,1897,1132,1897"/>
+    </entry>
     <entry id="2594" name="def:CNY67_05815" type="gene" reaction="rn:R01658"
         link="http://www.kegg.jp/dbget-bin/www_bget?def:CNY67_05815">
         <graphics name="CNY67_05815" fgcolor="#9EE284" bgcolor="#FFFFFF"
@@ -33020,6 +33020,10 @@
     <reaction id="1867" name="rn:R02239 rn:R02240 rn:R09944" type="reversible">
         <substrate id="4329" name="cpd:C00641"/>
         <product id="3280" name="cpd:C00416"/>
+    </reaction>
+    <reaction id="2593" name="rn:R01123" type="reversible">
+        <substrate id="3111" name="cpd:C00129"/>
+        <product id="3121" name="cpd:C00235"/>
     </reaction>
     <reaction id="2594" name="rn:R01658" type="reversible">
         <substrate id="5040" name="cpd:C00341"/>

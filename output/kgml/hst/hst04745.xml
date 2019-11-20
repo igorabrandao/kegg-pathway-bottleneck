@@ -190,9 +190,9 @@
         <graphics name="105180659" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="431" y="723" width="46" height="17"/>
     </entry>
-    <entry id="84" name="ko:K04515" type="ortholog"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K04515">
-        <graphics name="K04515" fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="84" name="hst:105185279" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?hst:105185279">
+        <graphics name="105185279" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="332" y="598" width="46" height="17"/>
     </entry>
     <entry id="87" name="cpd:C00219" type="compound"
@@ -272,6 +272,10 @@
     </relation>
     <relation entry1="38" entry2="33" type="PPrel">
         <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="84" entry2="61" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
         <subtype name="phosphorylation" value="+p"/>
     </relation>
     <relation entry1="83" entry2="61" type="PPrel">

@@ -30,9 +30,9 @@
         <graphics name="108843550" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="596" y="159" width="46" height="17"/>
     </entry>
-    <entry id="11" name="ko:K20600" type="ortholog"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K20600">
-        <graphics name="K20600" fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="11" name="rsz:108844277 rsz:108846602" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?rsz:108844277+rsz:108846602">
+        <graphics name="108844277..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="670" y="159" width="46" height="17"/>
     </entry>
     <entry id="16" name="rsz:108805628 rsz:108830011 rsz:108852161 rsz:108856388 rsz:108859465" type="gene"
@@ -105,9 +105,9 @@
         <graphics name="108808898..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="670" y="409" width="46" height="17"/>
     </entry>
-    <entry id="51" name="ko:K20600" type="ortholog"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K20600">
-        <graphics name="K20600" fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="51" name="rsz:108844277 rsz:108846602" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?rsz:108844277+rsz:108846602">
+        <graphics name="108844277..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="670" y="474" width="46" height="17"/>
     </entry>
     <entry id="54" name="rsz:108812755 rsz:108833641 rsz:108848937 rsz:108852834" type="gene"
@@ -130,8 +130,8 @@
         <graphics name="108856784" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="399" y="359" width="46" height="17"/>
     </entry>
-    <entry id="61" name="rsz:108822237 rsz:108822793 rsz:108826299 rsz:108829845 rsz:108841820 rsz:108857195" type="gene"
-        link="http://www.kegg.jp/dbget-bin/www_bget?rsz:108822237+rsz:108822793+rsz:108826299+rsz:108829845+rsz:108841820+rsz:108857195">
+    <entry id="61" name="rsz:108822237 rsz:108822793 rsz:108824186 rsz:108826299 rsz:108829845 rsz:108841820 rsz:108857195" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?rsz:108822237+rsz:108822793+rsz:108824186+rsz:108826299+rsz:108829845+rsz:108841820+rsz:108857195">
         <graphics name="108822237..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="594" y="359" width="48" height="17"/>
     </entry>
@@ -170,8 +170,8 @@
         <graphics name="108817526..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="759" y="614" width="46" height="17"/>
     </entry>
-    <entry id="88" name="rsz:108807054 rsz:108809680 rsz:108809684 rsz:108852286 rsz:108859711" type="gene"
-        link="http://www.kegg.jp/dbget-bin/www_bget?rsz:108807054+rsz:108809680+rsz:108809684+rsz:108852286+rsz:108859711">
+    <entry id="88" name="rsz:108807054 rsz:108809680 rsz:108809684 rsz:108845991 rsz:108852286 rsz:108859711" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?rsz:108807054+rsz:108809680+rsz:108809684+rsz:108845991+rsz:108852286+rsz:108859711">
         <graphics name="108807054..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="873" y="614" width="46" height="17"/>
     </entry>
@@ -225,8 +225,8 @@
         <graphics name="108843550" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="596" y="824" width="46" height="17"/>
     </entry>
-    <entry id="131" name="rsz:108812759 rsz:108815538 rsz:108830511 rsz:108836045 rsz:108847676 rsz:108851255 rsz:108854218 rsz:108859961" type="gene"
-        link="http://www.kegg.jp/dbget-bin/www_bget?rsz:108812759+rsz:108815538+rsz:108830511+rsz:108836045+rsz:108847676+rsz:108851255+rsz:108854218+rsz:108859961">
+    <entry id="131" name="rsz:108812759 rsz:108815538 rsz:108830511 rsz:108836045 rsz:108844277 rsz:108846602 rsz:108847676 rsz:108851255 rsz:108854218 rsz:108859961" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?rsz:108812759+rsz:108815538+rsz:108830511+rsz:108836045+rsz:108844277+rsz:108846602+rsz:108847676+rsz:108851255+rsz:108854218+rsz:108859961">
         <graphics name="108812759..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="670" y="824" width="46" height="17"/>
     </entry>
@@ -388,6 +388,14 @@
         <subtype name="indirect effect" value="..&gt;"/>
     </relation>
     <relation entry1="9" entry2="10" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="10" entry2="11" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="11" entry2="16" type="PPrel">
         <subtype name="activation" value="--&gt;"/>
         <subtype name="phosphorylation" value="+p"/>
     </relation>

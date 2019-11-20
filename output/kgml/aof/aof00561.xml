@@ -115,9 +115,9 @@
         <graphics name="K18097" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="294" y="330" width="46" height="17"/>
     </entry>
-    <entry id="58" name="ko:K00011" type="ortholog" reaction="rn:R01036 rn:R01041"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K00011">
-        <graphics name="K00011" fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="58" name="aof:109827816" type="gene" reaction="rn:R01036 rn:R01041"
+        link="http://www.kegg.jp/dbget-bin/www_bget?aof:109827816">
+        <graphics name="109827816" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="484" y="279" width="46" height="17"/>
     </entry>
     <entry id="60" name="aof:109823674 aof:109830308 aof:109830441 aof:109839548 aof:109839572 aof:109840303 aof:109845011" type="gene" reaction="rn:R01752"
@@ -456,6 +456,12 @@
     <relation entry1="60" entry2="64" type="ECrel">
         <subtype name="compound" value="80"/>
     </relation>
+    <relation entry1="58" entry2="60" type="ECrel">
+        <subtype name="compound" value="80"/>
+    </relation>
+    <relation entry1="55" entry2="58" type="ECrel">
+        <subtype name="compound" value="82"/>
+    </relation>
     <relation entry1="55" entry2="64" type="ECrel">
         <subtype name="compound" value="82"/>
     </relation>
@@ -588,6 +594,9 @@
     <relation entry1="41" entry2="62" type="maplink">
         <subtype name="compound" value="85"/>
     </relation>
+    <relation entry1="51" entry2="58" type="ECrel">
+        <subtype name="compound" value="82"/>
+    </relation>
     <relation entry1="51" entry2="64" type="ECrel">
         <subtype name="compound" value="82"/>
     </relation>
@@ -704,6 +713,10 @@
     <reaction id="55" name="rn:R00847" type="irreversible">
         <substrate id="82" name="cpd:C00116"/>
         <product id="77" name="cpd:C00093"/>
+    </reaction>
+    <reaction id="58" name="rn:R01036 rn:R01041" type="reversible">
+        <substrate id="82" name="cpd:C00116"/>
+        <product id="80" name="cpd:C00577"/>
     </reaction>
     <reaction id="60" name="rn:R01752" type="reversible">
         <substrate id="80" name="cpd:C00577"/>

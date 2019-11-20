@@ -645,4 +645,25 @@
         <graphics name="C22149" fgcolor="#000000" bgcolor="#FFFFFF"
              type="circle" x="734" y="584" width="8" height="8"/>
     </entry>
-    <entry id="209" name="ko:K23668" type="ortholog" reacti
+    <entry id="209" name="ko:K23668" type="ortholog" reaction="rn:R12420"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K23668">
+        <graphics name="K23668" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="578" y="585" width="46" height="17"/>
+    </entry>
+    <entry id="210" name="cpd:C00041" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00041">
+        <graphics name="C00041" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="429" y="619" width="8" height="8"/>
+    </entry>
+    <relation entry1="159" entry2="154" type="maplink">
+        <subtype name="compound" value="155"/>
+    </relation>
+    <reaction id="117" name="rn:R11705" type="irreversible">
+        <substrate id="115" name="cpd:C01005"/>
+        <product id="118" name="cpd:C21559"/>
+    </reaction>
+    <reaction id="159" name="rn:R00672" type="irreversible">
+        <substrate id="155" name="cpd:C00077"/>
+        <product id="158" name="cpd:C00515"/>
+    </reaction>
+</pathway>

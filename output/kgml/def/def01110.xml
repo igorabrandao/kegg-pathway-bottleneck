@@ -1545,11 +1545,6 @@
         <graphics name="C02280" fgcolor="#E0E0E0" bgcolor="#E0E0E0"
              type="circle" x="1317" y="413" width="14" height="14"/>
     </entry>
-    <entry id="2332" name="ko:K01823" type="ortholog" reaction="rn:R01123"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K01823">
-        <graphics name="K01823" fgcolor="#E0E0E0" bgcolor="#FFFFFF"
-             type="line" coords="728,529,731,529,731,529,735,529,738,531,742,532,745,535,748,537,750,541,752,544,754,548,754,552,754,552,754,847,754,847,754,851,752,854,750,858,748,861,745,864,742,866,738,868,735,870,731,870,731,870,727,870"/>
-    </entry>
     <entry id="2331" name="cpd:C00826" type="compound"
         link="http://www.kegg.jp/dbget-bin/www_bget?C00826">
         <graphics name="C00826" fgcolor="#E0E0E0" bgcolor="#E0E0E0"
@@ -11350,6 +11345,11 @@
         <graphics name="C00097" fgcolor="#FFCC66" bgcolor="#FFCC66"
              type="circle" x="1518" y="1522" width="14" height="14"/>
     </entry>
+    <entry id="2332" name="def:CNY67_07990" type="gene" reaction="rn:R01123"
+        link="http://www.kegg.jp/dbget-bin/www_bget?def:CNY67_07990">
+        <graphics name="CNY67_07990" fgcolor="#9EE284" bgcolor="#FFFFFF"
+             type="line" coords="728,529,731,529,731,529,735,529,738,531,742,532,745,535,748,537,750,541,752,544,754,548,754,552,754,552,754,847,754,847,754,851,752,854,750,858,748,861,745,864,742,866,738,868,735,870,731,870,731,870,727,870"/>
+    </entry>
     <entry id="2333" name="cpd:C00235" type="compound"
         link="http://www.kegg.jp/dbget-bin/www_bget?C00235">
         <graphics name="C00235" fgcolor="#9EE284" bgcolor="#9EE284"
@@ -11977,6 +11977,10 @@
     <reaction id="805" name="rn:R05637" type="reversible">
         <substrate id="1243" name="cpd:C11436"/>
         <product id="1244" name="cpd:C11453"/>
+    </reaction>
+    <reaction id="2332" name="rn:R01123" type="reversible">
+        <substrate id="2434" name="cpd:C00129"/>
+        <product id="2333" name="cpd:C00235"/>
     </reaction>
     <reaction id="837" name="rn:R01072" type="reversible">
         <substrate id="1275" name="cpd:C03090"/>

@@ -160,9 +160,9 @@
         <graphics name="C01115" fgcolor="#000000" bgcolor="#FFFFFF"
              type="circle" x="543" y="442" width="8" height="8"/>
     </entry>
-    <entry id="70" name="spen:107013955" type="gene" reaction="rn:R08615"
-        link="http://www.kegg.jp/dbget-bin/www_bget?spen:107013955">
-        <graphics name="107013955" fgcolor="#000000" bgcolor="#BFFFBF"
+    <entry id="70" name="ko:K00699" type="ortholog" reaction="rn:R08615"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K00699">
+        <graphics name="K00699" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="310" y="128" width="46" height="17"/>
     </entry>
     <entry id="71" name="path:spen00520" type="map"
@@ -599,18 +599,6 @@
     <relation entry1="71" entry2="56" type="maplink">
         <subtype name="compound" value="50"/>
     </relation>
-    <relation entry1="39" entry2="70" type="ECrel">
-        <subtype name="compound" value="42"/>
-    </relation>
-    <relation entry1="74" entry2="70" type="ECrel">
-        <subtype name="compound" value="42"/>
-    </relation>
-    <relation entry1="36" entry2="70" type="ECrel">
-        <subtype name="compound" value="61"/>
-    </relation>
-    <relation entry1="37" entry2="70" type="ECrel">
-        <subtype name="compound" value="61"/>
-    </relation>
     <relation entry1="58" entry2="132" type="ECrel">
         <subtype name="compound" value="166"/>
     </relation>
@@ -732,10 +720,6 @@
     <reaction id="58" name="rn:R00640" type="irreversible">
         <substrate id="65" name="cpd:C01115"/>
         <product id="166" name="cpd:C00072"/>
-    </reaction>
-    <reaction id="70" name="rn:R08615" type="irreversible">
-        <substrate id="42" name="cpd:C00167"/>
-        <product id="61" name="cpd:C00191"/>
     </reaction>
     <reaction id="74" name="rn:R01381" type="reversible">
         <substrate id="41" name="cpd:C05385"/>

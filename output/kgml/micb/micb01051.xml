@@ -240,9 +240,9 @@
         <graphics name="MicB006_3071" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="529" y="130" width="46" height="17"/>
     </entry>
-    <entry id="230" name="ko:K16017" type="ortholog" reaction="rn:R06587"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K16017">
-        <graphics name="K16017" fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="230" name="micb:MicB006_3066" type="gene" reaction="rn:R06587"
+        link="http://www.kegg.jp/dbget-bin/www_bget?micb:MicB006_3066">
+        <graphics name="MicB006_3066" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="408" y="130" width="46" height="17"/>
     </entry>
     <entry id="231" name="micb:MicB006_3068" type="gene" reaction="rn:R06595"
@@ -360,6 +360,12 @@
         <graphics name="K16027" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="521" y="285" width="46" height="17"/>
     </entry>
+    <relation entry1="228" entry2="230" type="ECrel">
+        <subtype name="compound" value="174"/>
+    </relation>
+    <relation entry1="229" entry2="230" type="ECrel">
+        <subtype name="compound" value="197"/>
+    </relation>
     <relation entry1="232" entry2="231" type="ECrel">
         <subtype name="compound" value="184"/>
     </relation>
@@ -378,6 +384,10 @@
     <reaction id="229" name="rn:R06588" type="irreversible">
         <substrate id="197" name="cpd:C12212"/>
         <product id="185" name="cpd:C12213"/>
+    </reaction>
+    <reaction id="230" name="rn:R06587" type="irreversible">
+        <substrate id="174" name="cpd:C12211"/>
+        <product id="197" name="cpd:C12212"/>
     </reaction>
     <reaction id="231" name="rn:R06595" type="irreversible">
         <substrate id="184" name="cpd:C12108"/>

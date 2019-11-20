@@ -65,8 +65,8 @@
         <graphics name="K04441" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="774" y="381" width="46" height="17"/>
     </entry>
-    <entry id="34" name="lsv:111882592 lsv:111886575 lsv:111898462 lsv:111898484 lsv:111900859 lsv:111912183 lsv:111914111" type="gene"
-        link="http://www.kegg.jp/dbget-bin/www_bget?lsv:111882592+lsv:111886575+lsv:111898462+lsv:111898484+lsv:111900859+lsv:111912183+lsv:111914111">
+    <entry id="34" name="lsv:111882592 lsv:111886575 lsv:111898462 lsv:111898484 lsv:111900859 lsv:111905073 lsv:111912183 lsv:111914111" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lsv:111882592+lsv:111886575+lsv:111898462+lsv:111898484+lsv:111900859+lsv:111905073+lsv:111912183+lsv:111914111">
         <graphics name="111882592..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="774" y="337" width="46" height="17"/>
     </entry>
@@ -210,9 +210,9 @@
         <graphics name="PI3K-Akt signaling pathway" fgcolor="#000000" bgcolor="#FFFFFF"
              type="roundrectangle" x="417" y="623" width="109" height="34"/>
     </entry>
-    <entry id="88" name="lsv:111883274 lsv:111894871 lsv:111905180" type="gene"
-        link="http://www.kegg.jp/dbget-bin/www_bget?lsv:111883274+lsv:111894871+lsv:111905180">
-        <graphics name="111883274..." fgcolor="#000000" bgcolor="#BFFFBF"
+    <entry id="88" name="ko:K05740" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K05740">
+        <graphics name="K05740" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="412" y="464" width="46" height="17"/>
     </entry>
     <entry id="90" name="ko:K06236 ko:K19720 ko:K06237" type="ortholog"
@@ -245,8 +245,8 @@
         <graphics name="K07201" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="908" y="586" width="46" height="17"/>
     </entry>
-    <entry id="102" name="lsv:111881274 lsv:111883879 lsv:111885675 lsv:111899628 lsv:111901377 lsv:111902582 lsv:111902618 lsv:111908715 lsv:111911320 lsv:111915286 lsv:111915451" type="gene"
-        link="http://www.kegg.jp/dbget-bin/www_bget?lsv:111881274+lsv:111883879+lsv:111885675+lsv:111899628+lsv:111901377+lsv:111902582+lsv:111902618+lsv:111908715+lsv:111911320+lsv:111915286+lsv:111915451">
+    <entry id="102" name="lsv:111881274 lsv:111883879 lsv:111885675 lsv:111899628 lsv:111901377 lsv:111902582 lsv:111902618 lsv:111908715 lsv:111911320 lsv:111914997 lsv:111915286 lsv:111915451" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lsv:111881274+lsv:111883879+lsv:111885675+lsv:111899628+lsv:111901377+lsv:111902582+lsv:111902618+lsv:111908715+lsv:111911320+lsv:111914997+lsv:111915286+lsv:111915451">
         <graphics name="111881274..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="669" y="507" width="46" height="17"/>
     </entry>
@@ -395,9 +395,5 @@
     </relation>
     <relation entry1="150" entry2="154" type="PCrel">
         <subtype name="activation" value="--&gt;"/>
-    </relation>
-    <relation entry1="88" entry2="102" type="PPrel">
-        <subtype name="activation" value="--&gt;"/>
-        <subtype name="indirect effect" value="..&gt;"/>
     </relation>
 </pathway>

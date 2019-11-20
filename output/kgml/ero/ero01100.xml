@@ -3297,6 +3297,11 @@
         <graphics name="C05727" fgcolor="#E0E0E0" bgcolor="#E0E0E0"
              type="circle" x="3172" y="2780" width="14" height="14"/>
     </entry>
+    <entry id="6224" name="cpd:C00127" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00127">
+        <graphics name="C00127" fgcolor="#E0E0E0" bgcolor="#E0E0E0"
+             type="circle" x="3172" y="2391" width="14" height="14"/>
+    </entry>
     <entry id="6223" name="cpd:C04260" type="compound"
         link="http://www.kegg.jp/dbget-bin/www_bget?C04260">
         <graphics name="C04260" fgcolor="#E0E0E0" bgcolor="#E0E0E0"
@@ -26024,6 +26029,11 @@
         <graphics name="K03367..." fgcolor="#E0E0E0" bgcolor="#FFFFFF"
              type="line" coords="2499,1733,2552,1733"/>
     </entry>
+    <entry id="675" name="ko:K00383 ko:K05360 ko:K05361 ko:K00432 ko:K21888 ko:K00310" type="ortholog" reaction="rn:R00115 rn:R00120 rn:R00274 rn:R01108 rn:R01109 rn:R01110 rn:R01111 rn:R01875 rn:R02824 rn:R03167 rn:R03915 rn:R03984 rn:R04039"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K00383+K05360+K05361+K00432+K21888+K00310">
+        <graphics name="K00383..." fgcolor="#E0E0E0" bgcolor="#FFFFFF"
+             type="line" coords="3172,2453,3172,2390"/>
+    </entry>
     <entry id="674" name="ko:K20838" type="ortholog" reaction="rn:R04950"
         link="http://www.kegg.jp/dbget-bin/www_bget?K20838">
         <graphics name="K20838" fgcolor="#E0E0E0" bgcolor="#FFFFFF"
@@ -29083,11 +29093,6 @@
         <graphics name="EROM_101670" fgcolor="#FF9900" bgcolor="#FFFFFF"
              type="line" coords="3172,2741,3172,2695"/>
     </entry>
-    <entry id="675" name="ero:EROM_020350" type="gene" reaction="rn:R00115 rn:R00120 rn:R00274 rn:R01108 rn:R01109 rn:R01110 rn:R01111 rn:R01875 rn:R02824 rn:R03167 rn:R03915 rn:R03984 rn:R04039"
-        link="http://www.kegg.jp/dbget-bin/www_bget?ero:EROM_020350">
-        <graphics name="EROM_020350" fgcolor="#FF9900" bgcolor="#FFFFFF"
-             type="line" coords="3172,2453,3172,2390"/>
-    </entry>
     <entry id="716" name="ero:EROM_110760" type="gene" reaction="rn:R04773"
         link="http://www.kegg.jp/dbget-bin/www_bget?ero:EROM_110760">
         <graphics name="EROM_110760" fgcolor="#FF9900" bgcolor="#FFFFFF"
@@ -31134,11 +31139,6 @@
         <graphics name="C05336" fgcolor="#FF9900" bgcolor="#FF9900"
              type="circle" x="3424" y="2738" width="14" height="14"/>
     </entry>
-    <entry id="6224" name="cpd:C00127" type="compound"
-        link="http://www.kegg.jp/dbget-bin/www_bget?C00127">
-        <graphics name="C00127" fgcolor="#FF9900" bgcolor="#FF9900"
-             type="circle" x="3172" y="2391" width="14" height="14"/>
-    </entry>
     <entry id="6225" name="cpd:C02320" type="compound"
         link="http://www.kegg.jp/dbget-bin/www_bget?C02320">
         <graphics name="C02320" fgcolor="#FF9900" bgcolor="#FF9900"
@@ -32783,10 +32783,6 @@
     <reaction id="716" name="rn:R04773" type="reversible">
         <substrate id="6183" name="cpd:C05335"/>
         <product id="6188" name="cpd:C05336"/>
-    </reaction>
-    <reaction id="675" name="rn:R00115 rn:R00120 rn:R00274 rn:R01108 rn:R01109 rn:R01110 rn:R01111 rn:R01875 rn:R02824 rn:R03167 rn:R03915 rn:R03984 rn:R04039" type="reversible">
-        <substrate id="6224" name="cpd:C00127"/>
-        <product id="3154" name="cpd:C00051"/>
     </reaction>
     <reaction id="672" name="rn:R03916" type="reversible">
         <substrate id="6225" name="cpd:C02320"/>

@@ -5802,11 +5802,6 @@
         <graphics name="C01007" fgcolor="#E0E0E0" bgcolor="#E0E0E0"
              type="circle" x="4412" y="807" width="14" height="14"/>
     </entry>
-    <entry id="5497" name="ko:K10026" type="ortholog" reaction="rn:R10002"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K10026">
-        <graphics name="K10026" fgcolor="#E0E0E0" bgcolor="#FFFFFF"
-             type="line" coords="4530,406,4592,406"/>
-    </entry>
     <entry id="5496" name="cpd:C18910" type="compound"
         link="http://www.kegg.jp/dbget-bin/www_bget?C18910">
         <graphics name="C18910" fgcolor="#E0E0E0" bgcolor="#E0E0E0"
@@ -30187,6 +30182,11 @@
         <graphics name="C04454" fgcolor="#FFB3CC" bgcolor="#FFB3CC"
              type="circle" x="4349" y="438" width="14" height="14"/>
     </entry>
+    <entry id="5497" name="sdl:Sdel_1878" type="gene" reaction="rn:R10002"
+        link="http://www.kegg.jp/dbget-bin/www_bget?sdl:Sdel_1878">
+        <graphics name="Sdel_1878" fgcolor="#FFB3CC" bgcolor="#FFFFFF"
+             type="line" coords="4530,406,4592,406"/>
+    </entry>
     <entry id="5498" name="sdl:Sdel_1877" type="gene" reaction="rn:R09978"
         link="http://www.kegg.jp/dbget-bin/www_bget?sdl:Sdel_1877">
         <graphics name="Sdel_1877" fgcolor="#FFB3CC" bgcolor="#FFFFFF"
@@ -33744,6 +33744,10 @@
     <reaction id="5498" name="rn:R09978" type="reversible">
         <substrate id="5500" name="cpd:C20248"/>
         <product id="5501" name="cpd:C15996"/>
+    </reaction>
+    <reaction id="5497" name="rn:R10002" type="reversible">
+        <substrate id="5503" name="cpd:C20239"/>
+        <product id="5500" name="cpd:C20248"/>
     </reaction>
     <reaction id="1787" name="rn:R01291" type="reversible">
         <substrate id="4007" name="cpd:C03539"/>

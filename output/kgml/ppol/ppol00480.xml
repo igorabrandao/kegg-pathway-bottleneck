@@ -370,9 +370,9 @@
         <graphics name="K01581" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="208" y="683" width="46" height="17"/>
     </entry>
-    <entry id="147" name="ko:K00797" type="ortholog" reaction="rn:R01920"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K00797">
-        <graphics name="K00797" fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="147" name="ppol:X809_11955" type="gene" reaction="rn:R01920"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppol:X809_11955">
+        <graphics name="X809_11955" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="290" y="643" width="46" height="17"/>
     </entry>
     <entry id="148" name="ko:K01833" type="ortholog" reaction="rn:R01918"
@@ -410,9 +410,9 @@
         <graphics name="K01833" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="557" y="865" width="46" height="17"/>
     </entry>
-    <entry id="155" name="ko:K00797" type="ortholog" reaction="rn:R08359"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K00797">
-        <graphics name="K00797" fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="155" name="ppol:X809_11955" type="gene" reaction="rn:R08359"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ppol:X809_11955">
+        <graphics name="X809_11955" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="237" y="921" width="46" height="17"/>
     </entry>
     <entry id="156" name="ko:K01833" type="ortholog" reaction="rn:R08354"
@@ -553,5 +553,13 @@
     <reaction id="145" name="rn:R01528" type="irreversible">
         <substrate id="76" name="cpd:C00006"/>
         <product id="75" name="cpd:C00005"/>
+    </reaction>
+    <reaction id="147" name="rn:R01920" type="irreversible">
+        <substrate id="101" name="cpd:C00134"/>
+        <product id="102" name="cpd:C00315"/>
+    </reaction>
+    <reaction id="155" name="rn:R08359" type="irreversible">
+        <substrate id="134" name="cpd:C01672"/>
+        <product id="135" name="cpd:C16565"/>
     </reaction>
 </pathway>

@@ -235,9 +235,9 @@
         <graphics name="K20146" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="871" y="277" width="46" height="17"/>
     </entry>
-    <entry id="78" name="rsz:108819034 rsz:108852986" type="gene" reaction="rn:R00160"
-        link="http://www.kegg.jp/dbget-bin/www_bget?rsz:108819034+rsz:108852986">
-        <graphics name="108819034..." fgcolor="#000000" bgcolor="#BFFFBF"
+    <entry id="78" name="ko:K01513" type="ortholog" reaction="rn:R00160"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K01513">
+        <graphics name="K01513" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="918" y="151" width="46" height="17"/>
     </entry>
     <entry id="79" name="rsz:108812445 rsz:108819252 rsz:108830432 rsz:108830433 rsz:108830434 rsz:108831273 rsz:108831274 rsz:108859882 rsz:108863578" type="gene" reaction="rn:R00548"
@@ -323,16 +323,7 @@
     <relation entry1="79" entry2="40" type="ECrel">
         <subtype name="compound" value="49"/>
     </relation>
-    <relation entry1="79" entry2="78" type="ECrel">
-        <subtype name="compound" value="49"/>
-    </relation>
-    <relation entry1="41" entry2="78" type="ECrel">
-        <subtype name="compound" value="49"/>
-    </relation>
     <relation entry1="80" entry2="39" type="ECrel">
-        <subtype name="compound" value="49"/>
-    </relation>
-    <relation entry1="80" entry2="78" type="ECrel">
         <subtype name="compound" value="49"/>
     </relation>
     <relation entry1="80" entry2="40" type="ECrel">
@@ -380,10 +371,6 @@
         <product id="19" name="cpd:C00016"/>
     </reaction>
     <reaction id="40" name="rn:R00160" type="irreversible">
-        <substrate id="19" name="cpd:C00016"/>
-        <product id="49" name="cpd:C00061"/>
-    </reaction>
-    <reaction id="78" name="rn:R00160" type="irreversible">
         <substrate id="19" name="cpd:C00016"/>
         <product id="49" name="cpd:C00061"/>
     </reaction>

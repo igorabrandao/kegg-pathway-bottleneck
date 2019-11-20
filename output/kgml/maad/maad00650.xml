@@ -495,9 +495,9 @@
         <graphics name="Arginine and proline metabolism" fgcolor="#000000" bgcolor="#FFFFFF"
              type="roundrectangle" x="111" y="433" width="120" height="34"/>
     </entry>
-    <entry id="171" name="ko:K18121" type="ortholog" reaction="rn:R09281"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K18121">
-        <graphics name="K18121" fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="171" name="maad:AZF01_17200" type="gene" reaction="rn:R09281"
+        link="http://www.kegg.jp/dbget-bin/www_bget?maad:AZF01_17200">
+        <graphics name="AZF01_17200" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="343" y="411" width="46" height="17"/>
     </entry>
     <entry id="173" name="cpd:C20657" type="compound"
@@ -644,7 +644,16 @@
     <relation entry1="168" entry2="102" type="maplink">
         <subtype name="compound" value="117"/>
     </relation>
+    <relation entry1="168" entry2="171" type="ECrel">
+        <subtype name="compound" value="141"/>
+    </relation>
     <relation entry1="168" entry2="103" type="maplink">
+        <subtype name="compound" value="141"/>
+    </relation>
+    <relation entry1="85" entry2="171" type="ECrel">
+        <subtype name="compound" value="141"/>
+    </relation>
+    <relation entry1="171" entry2="103" type="maplink">
         <subtype name="compound" value="141"/>
     </relation>
     <relation entry1="169" entry2="76" type="maplink">
@@ -719,6 +728,10 @@
     <reaction id="168" name="rn:R00714" type="irreversible">
         <substrate id="141" name="cpd:C00232"/>
         <product id="117" name="cpd:C00042"/>
+    </reaction>
+    <reaction id="171" name="rn:R09281" type="reversible">
+        <substrate id="140" name="cpd:C00989"/>
+        <product id="141" name="cpd:C00232"/>
     </reaction>
     <reaction id="175" name="rn:R10505" type="reversible">
         <substrate id="173" name="cpd:C20657"/>

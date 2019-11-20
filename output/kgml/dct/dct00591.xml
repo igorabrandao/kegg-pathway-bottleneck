@@ -5,9 +5,9 @@
          title="Linoleic acid metabolism"
          image="http://www.kegg.jp/kegg/pathway/dct/dct00591.png"
          link="http://www.kegg.jp/kegg-bin/show_pathway?dct00591">
-    <entry id="19" name="ko:K07409" type="ortholog" reaction="rn:R07055"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K07409">
-        <graphics name="K07409" fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="19" name="dct:110113345" type="gene" reaction="rn:R07055"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dct:110113345">
+        <graphics name="110113345" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="378" y="356" width="46" height="17"/>
     </entry>
     <entry id="20" name="cpd:C04717" type="compound"
@@ -75,9 +75,9 @@
         <graphics name="Arachidonic acid metabolism" fgcolor="#000000" bgcolor="#FFFFFF"
              type="roundrectangle" x="120" y="138" width="162" height="25"/>
     </entry>
-    <entry id="33" name="ko:K07409" type="ortholog" reaction="rn:R07056"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K07409">
-        <graphics name="K07409" fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="33" name="dct:110113345" type="gene" reaction="rn:R07056"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dct:110113345">
+        <graphics name="110113345" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="273" y="356" width="46" height="17"/>
     </entry>
     <entry id="35" name="cpd:C14827" type="compound"
@@ -100,9 +100,9 @@
         <graphics name="K00460" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="730" y="311" width="46" height="17"/>
     </entry>
-    <entry id="40" name="dct:110097141 dct:110099300 dct:110105735" type="gene" reaction="rn:R07064"
-        link="http://www.kegg.jp/dbget-bin/www_bget?dct:110097141+dct:110099300+dct:110105735">
-        <graphics name="110097141..." fgcolor="#000000" bgcolor="#BFFFBF"
+    <entry id="40" name="dct:110092200 dct:110097141 dct:110099300 dct:110105735" type="gene" reaction="rn:R07064"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dct:110092200+dct:110097141+dct:110099300+dct:110105735">
+        <graphics name="110092200..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="378" y="204" width="46" height="17"/>
     </entry>
     <entry id="41" name="ko:K21794" type="ortholog" reaction="rn:R05718"
@@ -270,7 +270,25 @@
         <graphics name="K17862" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="566" y="258" width="46" height="17"/>
     </entry>
+    <relation entry1="33" entry2="40" type="ECrel">
+        <subtype name="compound" value="51"/>
+    </relation>
+    <relation entry1="19" entry2="40" type="ECrel">
+        <subtype name="compound" value="51"/>
+    </relation>
     <relation entry1="36" entry2="40" type="ECrel">
+        <subtype name="compound" value="51"/>
+    </relation>
+    <relation entry1="33" entry2="36" type="ECrel">
+        <subtype name="compound" value="51"/>
+    </relation>
+    <relation entry1="19" entry2="36" type="ECrel">
+        <subtype name="compound" value="51"/>
+    </relation>
+    <relation entry1="33" entry2="78" type="ECrel">
+        <subtype name="compound" value="51"/>
+    </relation>
+    <relation entry1="19" entry2="78" type="ECrel">
         <subtype name="compound" value="51"/>
     </relation>
     <relation entry1="36" entry2="78" type="ECrel">
@@ -279,6 +297,14 @@
     <relation entry1="78" entry2="40" type="ECrel">
         <subtype name="compound" value="51"/>
     </relation>
+    <reaction id="19" name="rn:R07055" type="irreversible">
+        <substrate id="51" name="cpd:C01595"/>
+        <product id="31" name="cpd:C14825"/>
+    </reaction>
+    <reaction id="33" name="rn:R07056" type="irreversible">
+        <substrate id="51" name="cpd:C01595"/>
+        <product id="50" name="cpd:C14826"/>
+    </reaction>
     <reaction id="36" name="rn:R03626" type="irreversible">
         <substrate id="51" name="cpd:C01595"/>
         <product id="20" name="cpd:C04717"/>

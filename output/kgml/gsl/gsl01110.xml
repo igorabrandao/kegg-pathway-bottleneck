@@ -6131,11 +6131,6 @@
         <graphics name="K01582" fgcolor="#E0E0E0" bgcolor="#FFFFFF"
              type="line" coords="2101,1362,2254,1362"/>
     </entry>
-    <entry id="783" name="ko:K01778" type="ortholog" reaction="rn:R02735"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K01778">
-        <graphics name="K01778" fgcolor="#E0E0E0" bgcolor="#FFFFFF"
-             type="line" coords="1894,1362,2005,1362"/>
-    </entry>
     <entry id="771" name="ko:K00808" type="ortholog" reaction="rn:R00018"
         link="http://www.kegg.jp/dbget-bin/www_bget?K00808">
         <graphics name="K00808" fgcolor="#E0E0E0" bgcolor="#FFFFFF"
@@ -9255,6 +9250,11 @@
         <graphics name="Gasu_26260" fgcolor="#FFCC66" bgcolor="#FFFFFF"
              type="line" coords="1791,1362,1896,1362"/>
     </entry>
+    <entry id="783" name="gsl:Gasu_06920" type="gene" reaction="rn:R02735"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gsl:Gasu_06920">
+        <graphics name="Gasu_06920" fgcolor="#FFCC66" bgcolor="#FFFFFF"
+             type="line" coords="1894,1362,2005,1362"/>
+    </entry>
     <entry id="785" name="gsl:Gasu_05900" type="gene" reaction="rn:R00451"
         link="http://www.kegg.jp/dbget-bin/www_bget?gsl:Gasu_05900">
         <graphics name="Gasu_05900" fgcolor="#FFCC66" bgcolor="#FFFFFF"
@@ -10857,9 +10857,9 @@
         <graphics name="C20258" fgcolor="#FFCC66" bgcolor="#FFCC66"
              type="circle" x="1681" y="1303" width="14" height="14"/>
     </entry>
-    <entry id="1995" name="gsl:Gasu_26380" type="gene" reaction="rn:R00238"
-        link="http://www.kegg.jp/dbget-bin/www_bget?gsl:Gasu_26380">
-        <graphics name="Gasu_26380" fgcolor="#9EE284" bgcolor="#FFFFFF"
+    <entry id="1995" name="gsl:Gasu_26380 gsl:Gasu_55920" type="gene" reaction="rn:R00238"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gsl:Gasu_26380+gsl:Gasu_55920">
+        <graphics name="Gasu_26380..." fgcolor="#9EE284" bgcolor="#FFFFFF"
              type="line" coords="1309,945,1455,945"/>
     </entry>
     <entry id="1996" name="cpd:C00024" type="compound"
@@ -11983,6 +11983,10 @@
     <reaction id="782" name="rn:R07613" type="reversible">
         <substrate id="1681" name="cpd:C00666"/>
         <product id="1680" name="cpd:C03972"/>
+    </reaction>
+    <reaction id="783" name="rn:R02735" type="reversible">
+        <substrate id="1681" name="cpd:C00666"/>
+        <product id="1682" name="cpd:C00680"/>
     </reaction>
     <reaction id="786" name="rn:R06740" type="reversible">
         <substrate id="1230" name="cpd:C01672"/>

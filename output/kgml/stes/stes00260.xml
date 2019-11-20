@@ -175,9 +175,9 @@
         <graphics name="K00314" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="489" y="547" width="46" height="17"/>
     </entry>
-    <entry id="91" name="ko:K01079 ko:K02203 ko:K22305" type="ortholog" reaction="rn:R00582"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K01079+K02203+K22305">
-        <graphics name="K01079..." fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="91" name="stes:MG068_04040" type="gene" reaction="rn:R00582"
+        link="http://www.kegg.jp/dbget-bin/www_bget?stes:MG068_04040">
+        <graphics name="MG068_04040" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="595" y="218" width="46" height="17"/>
     </entry>
     <entry id="92" name="stes:MG068_02890" type="gene" reaction="rn:R00945"
@@ -729,6 +729,9 @@
     <relation entry1="80" entry2="88" type="ECrel">
         <subtype name="compound" value="142"/>
     </relation>
+    <relation entry1="88" entry2="91" type="ECrel">
+        <subtype name="compound" value="146"/>
+    </relation>
     <relation entry1="83" entry2="92" type="ECrel">
         <subtype name="compound" value="151"/>
     </relation>
@@ -738,10 +741,22 @@
     <relation entry1="83" entry2="105" type="ECrel">
         <subtype name="compound" value="151"/>
     </relation>
+    <relation entry1="83" entry2="91" type="ECrel">
+        <subtype name="compound" value="151"/>
+    </relation>
     <relation entry1="92" entry2="126" type="ECrel">
         <subtype name="compound" value="151"/>
     </relation>
     <relation entry1="92" entry2="105" type="ECrel">
+        <subtype name="compound" value="151"/>
+    </relation>
+    <relation entry1="91" entry2="92" type="ECrel">
+        <subtype name="compound" value="151"/>
+    </relation>
+    <relation entry1="91" entry2="126" type="ECrel">
+        <subtype name="compound" value="151"/>
+    </relation>
+    <relation entry1="91" entry2="105" type="ECrel">
         <subtype name="compound" value="151"/>
     </relation>
     <relation entry1="68" entry2="70" type="ECrel">
@@ -825,6 +840,9 @@
     <relation entry1="100" entry2="108" type="maplink">
         <subtype name="compound" value="151"/>
     </relation>
+    <relation entry1="91" entry2="108" type="maplink">
+        <subtype name="compound" value="151"/>
+    </relation>
     <relation entry1="126" entry2="107" type="maplink">
         <subtype name="compound" value="151"/>
     </relation>
@@ -835,6 +853,9 @@
         <subtype name="compound" value="151"/>
     </relation>
     <relation entry1="100" entry2="107" type="maplink">
+        <subtype name="compound" value="151"/>
+    </relation>
+    <relation entry1="91" entry2="107" type="maplink">
         <subtype name="compound" value="151"/>
     </relation>
     <relation entry1="126" entry2="101" type="maplink">
@@ -850,6 +871,12 @@
         <subtype name="compound" value="151"/>
     </relation>
     <relation entry1="100" entry2="101" type="maplink">
+        <subtype name="compound" value="151"/>
+    </relation>
+    <relation entry1="91" entry2="101" type="maplink">
+        <subtype name="compound" value="151"/>
+    </relation>
+    <relation entry1="91" entry2="100" type="maplink">
         <subtype name="compound" value="151"/>
     </relation>
     <relation entry1="105" entry2="119" type="maplink">
@@ -942,6 +969,9 @@
     <relation entry1="199" entry2="101" type="maplink">
         <subtype name="compound" value="151"/>
     </relation>
+    <relation entry1="199" entry2="91" type="ECrel">
+        <subtype name="compound" value="151"/>
+    </relation>
     <relation entry1="108" entry2="195" type="maplink">
         <subtype name="compound" value="151"/>
     </relation>
@@ -958,6 +988,9 @@
         <subtype name="compound" value="151"/>
     </relation>
     <relation entry1="195" entry2="101" type="maplink">
+        <subtype name="compound" value="151"/>
+    </relation>
+    <relation entry1="195" entry2="91" type="ECrel">
         <subtype name="compound" value="151"/>
     </relation>
     <relation entry1="188" entry2="71" type="maplink">
@@ -982,6 +1015,9 @@
         <subtype name="compound" value="151"/>
     </relation>
     <relation entry1="203" entry2="105" type="ECrel">
+        <subtype name="compound" value="151"/>
+    </relation>
+    <relation entry1="203" entry2="91" type="ECrel">
         <subtype name="compound" value="151"/>
     </relation>
     <relation entry1="203" entry2="101" type="maplink">
@@ -1057,6 +1093,10 @@
     <reaction id="88" name="rn:R04173" type="reversible">
         <substrate id="146" name="cpd:C01005"/>
         <product id="142" name="cpd:C03232"/>
+    </reaction>
+    <reaction id="91" name="rn:R00582" type="irreversible">
+        <substrate id="146" name="cpd:C01005"/>
+        <product id="151" name="cpd:C00065"/>
     </reaction>
     <reaction id="92" name="rn:R00945" type="reversible">
         <substrate id="147" name="cpd:C00037"/>

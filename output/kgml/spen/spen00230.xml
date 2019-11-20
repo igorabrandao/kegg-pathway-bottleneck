@@ -1295,14 +1295,14 @@
         <graphics name="K00839" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="1211" y="800" width="46" height="17"/>
     </entry>
-    <entry id="444" name="spen:107024026 spen:107024500" type="gene" reaction="rn:R00087"
-        link="http://www.kegg.jp/dbget-bin/www_bget?spen:107024026+spen:107024500">
-        <graphics name="107024026..." fgcolor="#000000" bgcolor="#BFFFBF"
+    <entry id="444" name="ko:K01513 ko:K04765" type="ortholog" reaction="rn:R00087"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K01513+K04765">
+        <graphics name="K01513..." fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="1244" y="377" width="46" height="17"/>
     </entry>
-    <entry id="445" name="spen:107024026 spen:107024500" type="gene" reaction="rn:R00426"
-        link="http://www.kegg.jp/dbget-bin/www_bget?spen:107024026+spen:107024500">
-        <graphics name="107024026..." fgcolor="#000000" bgcolor="#BFFFBF"
+    <entry id="445" name="ko:K01513 ko:K04765" type="ortholog" reaction="rn:R00426"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K01513+K04765">
+        <graphics name="K01513..." fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="558" y="361" width="46" height="17"/>
     </entry>
     <entry id="446" name="ko:K18550" type="ortholog" reaction="rn:R01126"
@@ -1929,57 +1929,6 @@
     <relation entry1="177" entry2="175" type="ECrel">
         <subtype name="compound" value="324"/>
     </relation>
-    <relation entry1="235" entry2="445" type="ECrel">
-        <subtype name="compound" value="380"/>
-    </relation>
-    <relation entry1="296" entry2="445" type="ECrel">
-        <subtype name="compound" value="380"/>
-    </relation>
-    <relation entry1="236" entry2="445" type="ECrel">
-        <subtype name="compound" value="380"/>
-    </relation>
-    <relation entry1="252" entry2="445" type="maplink">
-        <subtype name="compound" value="380"/>
-    </relation>
-    <relation entry1="251" entry2="445" type="maplink">
-        <subtype name="compound" value="380"/>
-    </relation>
-    <relation entry1="298" entry2="445" type="ECrel">
-        <subtype name="compound" value="365"/>
-    </relation>
-    <relation entry1="212" entry2="445" type="ECrel">
-        <subtype name="compound" value="365"/>
-    </relation>
-    <relation entry1="218" entry2="445" type="ECrel">
-        <subtype name="compound" value="365"/>
-    </relation>
-    <relation entry1="205" entry2="445" type="ECrel">
-        <subtype name="compound" value="365"/>
-    </relation>
-    <relation entry1="242" entry2="445" type="ECrel">
-        <subtype name="compound" value="380"/>
-    </relation>
-    <relation entry1="444" entry2="182" type="ECrel">
-        <subtype name="compound" value="325"/>
-    </relation>
-    <relation entry1="444" entry2="184" type="ECrel">
-        <subtype name="compound" value="325"/>
-    </relation>
-    <relation entry1="444" entry2="185" type="ECrel">
-        <subtype name="compound" value="325"/>
-    </relation>
-    <relation entry1="444" entry2="186" type="ECrel">
-        <subtype name="compound" value="325"/>
-    </relation>
-    <relation entry1="187" entry2="444" type="ECrel">
-        <subtype name="compound" value="325"/>
-    </relation>
-    <relation entry1="181" entry2="444" type="ECrel">
-        <subtype name="compound" value="325"/>
-    </relation>
-    <relation entry1="180" entry2="444" type="ECrel">
-        <subtype name="compound" value="325"/>
-    </relation>
     <relation entry1="251" entry2="252" type="maplink">
         <subtype name="compound" value="380"/>
     </relation>
@@ -2299,13 +2248,5 @@
     <reaction id="433" name="rn:R01057" type="reversible">
         <substrate id="388" name="cpd:C00620"/>
         <product id="311" name="cpd:C00117"/>
-    </reaction>
-    <reaction id="444" name="rn:R00087" type="irreversible">
-        <substrate id="379" name="cpd:C00002"/>
-        <product id="325" name="cpd:C00020"/>
-    </reaction>
-    <reaction id="445" name="rn:R00426" type="irreversible">
-        <substrate id="380" name="cpd:C00044"/>
-        <product id="365" name="cpd:C00144"/>
     </reaction>
 </pathway>

@@ -10,9 +10,9 @@
         <graphics name="TITLE:Peroxisome" fgcolor="#000000" bgcolor="#FFFFFF"
              type="roundrectangle" x="100" y="58" width="120" height="25"/>
     </entry>
-    <entry id="20" name="ko:K13343" type="ortholog"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K13343">
-        <graphics name="K13343" fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="20" name="mis:MICPUN_102686" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?mis:MICPUN_102686">
+        <graphics name="MICPUN_102686" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="617" y="221" width="46" height="17"/>
     </entry>
     <entry id="21" name="mis:MICPUN_101136" type="gene"
@@ -377,6 +377,10 @@
     </entry>
     <relation entry1="33" entry2="32" type="PPrel">
     </relation>
+    <relation entry1="32" entry2="20" type="PPrel">
+    </relation>
     <relation entry1="22" entry2="23" type="PPrel">
+    </relation>
+    <relation entry1="25" entry2="20" type="PPrel">
     </relation>
 </pathway>

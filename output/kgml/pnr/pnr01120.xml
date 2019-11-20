@@ -1175,16 +1175,6 @@
         <graphics name="C10833" fgcolor="#E0E0E0" bgcolor="#E0E0E0"
              type="circle" x="1611" y="1099" width="14" height="14"/>
     </entry>
-    <entry id="1928" name="cpd:C18347" type="compound"
-        link="http://www.kegg.jp/dbget-bin/www_bget?C18347">
-        <graphics name="C18347" fgcolor="#E0E0E0" bgcolor="#E0E0E0"
-             type="circle" x="1513" y="957" width="14" height="14"/>
-    </entry>
-    <entry id="1927" name="cpd:C18348" type="compound"
-        link="http://www.kegg.jp/dbget-bin/www_bget?C18348">
-        <graphics name="C18348" fgcolor="#E0E0E0" bgcolor="#E0E0E0"
-             type="circle" x="1433" y="957" width="14" height="14"/>
-    </entry>
     <entry id="1926" name="cpd:C18349" type="compound"
         link="http://www.kegg.jp/dbget-bin/www_bget?C18349">
         <graphics name="C18349" fgcolor="#E0E0E0" bgcolor="#E0E0E0"
@@ -5383,11 +5373,6 @@
         <graphics name="K15061" fgcolor="#E0E0E0" bgcolor="#FFFFFF"
              type="line" coords="1434,957,1358,957"/>
     </entry>
-    <entry id="336" name="ko:K15060" type="ortholog" reaction="rn:R09275"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K15060">
-        <graphics name="K15060" fgcolor="#E0E0E0" bgcolor="#FFFFFF"
-             type="line" coords="1515,957,1433,957"/>
-    </entry>
     <entry id="330" name="ko:K15066" type="ortholog" reaction="rn:R09271"
         link="http://www.kegg.jp/dbget-bin/www_bget?K15066">
         <graphics name="K15066" fgcolor="#E0E0E0" bgcolor="#FFFFFF"
@@ -6784,6 +6769,11 @@
         link="http://www.kegg.jp/dbget-bin/www_bget?pnr:AT302_09270+pnr:AT302_09275">
         <graphics name="AT302_09270..." fgcolor="#DA8E82" bgcolor="#FFFFFF"
              type="line" coords="1386,1192,1386,1120,1386,1120,1386,1117,1387,1113,1389,1110,1391,1108,1394,1105,1396,1103,1399,1101,1403,1100,1406,1100,1406,1100,1526,1100"/>
+    </entry>
+    <entry id="336" name="pnr:AT302_05935" type="gene" reaction="rn:R09275"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pnr:AT302_05935">
+        <graphics name="AT302_05935" fgcolor="#DA8E82" bgcolor="#FFFFFF"
+             type="line" coords="1515,957,1433,957"/>
     </entry>
     <entry id="344" name="pnr:AT302_00525" type="gene" reaction="rn:R00345"
         link="http://www.kegg.jp/dbget-bin/www_bget?pnr:AT302_00525">
@@ -8934,6 +8924,16 @@
         <graphics name="C00085" fgcolor="#CC99FF" bgcolor="#CC99FF"
              type="circle" x="1608" y="216" width="14" height="14"/>
     </entry>
+    <entry id="1927" name="cpd:C18348" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C18348">
+        <graphics name="C18348" fgcolor="#DA8E82" bgcolor="#DA8E82"
+             type="circle" x="1433" y="957" width="14" height="14"/>
+    </entry>
+    <entry id="1928" name="cpd:C18347" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C18347">
+        <graphics name="C18347" fgcolor="#DA8E82" bgcolor="#DA8E82"
+             type="circle" x="1513" y="957" width="14" height="14"/>
+    </entry>
     <entry id="1929" name="cpd:C18345" type="compound"
         link="http://www.kegg.jp/dbget-bin/www_bget?C18345">
         <graphics name="C18345" fgcolor="#DA8E82" bgcolor="#DA8E82"
@@ -10644,6 +10644,10 @@
         <substrate id="1920" name="cpd:C00149"/>
         <product id="2203" name="cpd:C00011"/>
         <product id="1921" name="cpd:C00022"/>
+    </reaction>
+    <reaction id="336" name="rn:R09275" type="reversible">
+        <substrate id="1928" name="cpd:C18347"/>
+        <product id="1927" name="cpd:C18348"/>
     </reaction>
     <reaction id="331" name="rn:R09272" type="reversible">
         <substrate id="1300" name="cpd:C05616"/>

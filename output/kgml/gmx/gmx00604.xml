@@ -5,9 +5,9 @@
          title="Glycosphingolipid biosynthesis - ganglio series"
          image="http://www.kegg.jp/kegg/pathway/gmx/gmx00604.png"
          link="http://www.kegg.jp/kegg-bin/show_pathway?gmx00604">
-    <entry id="17" name="gmx:100815746" type="gene" reaction="rn:R05949"
-        link="http://www.kegg.jp/dbget-bin/www_bget?gmx:100815746">
-        <graphics name="100815746" fgcolor="#000000" bgcolor="#BFFFBF"
+    <entry id="17" name="ko:K00780 ko:K03368" type="ortholog" reaction="rn:R05949"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K00780+K03368">
+        <graphics name="K00780..." fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="536" y="447" width="46" height="17"/>
     </entry>
     <entry id="35" name="gmx:100783905" type="gene" reaction="rn:R06010"
@@ -195,9 +195,9 @@
         <graphics name="K03372" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="536" y="148" width="46" height="17"/>
     </entry>
-    <entry id="72" name="gmx:100815746" type="gene" reaction="rn:R05942"
-        link="http://www.kegg.jp/dbget-bin/www_bget?gmx:100815746">
-        <graphics name="100815746" fgcolor="#000000" bgcolor="#BFFFBF"
+    <entry id="72" name="ko:K00780 ko:K03368" type="ortholog" reaction="rn:R05942"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K00780+K03368">
+        <graphics name="K00780..." fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="376" y="447" width="46" height="17"/>
     </entry>
     <entry id="73" name="ko:K03370" type="ortholog" reaction="rn:R05937"
@@ -225,9 +225,9 @@
         <graphics name="K00725" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="353" y="224" width="46" height="17"/>
     </entry>
-    <entry id="80" name="gmx:100815746" type="gene" reaction="rn:R05957"
-        link="http://www.kegg.jp/dbget-bin/www_bget?gmx:100815746">
-        <graphics name="100815746" fgcolor="#000000" bgcolor="#BFFFBF"
+    <entry id="80" name="ko:K00780 ko:K03368" type="ortholog" reaction="rn:R05957"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K00780+K03368">
+        <graphics name="K00780..." fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="214" y="447" width="46" height="17"/>
     </entry>
     <entry id="81" name="ko:K00725" type="ortholog" reaction="rn:R05946"
@@ -320,9 +320,9 @@
         <graphics name="K03369" fgcolor="#000000" bgcolor="#FFFFFF"
              type="line" coords="205,787,235,787"/>
     </entry>
-    <entry id="103" name="gmx:100815746" type="gene" reaction="rn:R05957 rn:R05942 rn:R05949 rn:R05954"
-        link="http://www.kegg.jp/dbget-bin/www_bget?gmx:100815746">
-        <graphics name="100815746" fgcolor="#66CC66" bgcolor="#FFFFFF"
+    <entry id="103" name="ko:K00780 ko:K03368" type="ortholog" reaction="rn:R05957 rn:R05942 rn:R05949 rn:R05954"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K00780+K03368">
+        <graphics name="K00780..." fgcolor="#000000" bgcolor="#FFFFFF"
              type="line" coords="298,787,313,802"/>
     </entry>
     <entry id="105" name="ko:K03373 ko:K03374 ko:K03375 ko:K03376" type="ortholog" reaction="rn:R05959 rn:R05945 rn:R05951"
@@ -353,9 +353,6 @@
     <relation entry1="35" entry2="36" type="ECrel">
         <subtype name="compound" value="92"/>
     </relation>
-    <relation entry1="35" entry2="72" type="ECrel">
-        <subtype name="compound" value="91"/>
-    </relation>
     <reaction id="35" name="rn:R06010" type="irreversible">
         <substrate id="91" name="gl:G00110"/>
         <product id="92" name="gl:G00109"/>
@@ -363,17 +360,5 @@
     <reaction id="36" name="rn:R06004" type="irreversible">
         <substrate id="92" name="gl:G00109"/>
         <product id="93" name="gl:G00108"/>
-    </reaction>
-    <reaction id="17" name="rn:R05949" type="irreversible">
-        <substrate id="64" name="gl:G00115"/>
-        <product id="96" name="gl:G00116"/>
-    </reaction>
-    <reaction id="72" name="rn:R05942" type="irreversible">
-        <substrate id="91" name="gl:G00110"/>
-        <product id="90" name="gl:G00111"/>
-    </reaction>
-    <reaction id="80" name="rn:R05957" type="irreversible">
-        <substrate id="88" name="gl:G00124"/>
-        <product id="55" name="gl:G00125"/>
     </reaction>
 </pathway>

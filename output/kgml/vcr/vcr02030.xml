@@ -1,44 +1,258 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<title>Access forbidden!</title>
-<link rev="made" href="mailto:http://www.genome.jp/feedback/" />
-<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
-    body { color: #000000; background-color: #FFFFFF; }
-    a:link { color: #0000CC; }
-    p, address {margin-left: 3em;}
-    span {font-size: smaller;}
-/*]]>*/--></style>
-</head>
-
-<body>
-<h1>Access forbidden!</h1>
-<p>
-
-
-  
-
-    You don't have permission to access the requested object.
-    It is either read-protected or not readable by the server.
-
-  
-
-</p>
-<p>
-If you think this is a server error, please contact
-the <a href="http://www.genome.jp/feedback/">webmaster</a>.
-
-</p>
-
-<h2>Error 403</h2>
-<address>
-  <a href="/">rest.kegg.jp</a><br />
-  
-  <span>Fri Nov  8 05:02:10 2019<br />
-  Apache</span>
-</address>
-</body>
-</html>
-
+<?xml version="1.0"?>
+<!DOCTYPE pathway SYSTEM "http://www.kegg.jp/kegg/xml/KGML_v0.7.2_.dtd">
+<!-- Creation date: Oct 17, 2017 15:18:47 +0900 (GMT+9) -->
+<pathway name="path:vcr02030" org="vcr" number="02030"
+         title="Bacterial chemotaxis"
+         image="http://www.kegg.jp/kegg/pathway/vcr/vcr02030.png"
+         link="http://www.kegg.jp/kegg-bin/show_pathway?vcr02030">
+    <entry id="1" name="path:vcr02030" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcr02030">
+        <graphics name="TITLE:Bacterial chemotaxis" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="142" y="58" width="204" height="25"/>
+    </entry>
+    <entry id="2" name="path:vcr02040" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcr02040">
+        <graphics name="Flagellar assembly" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="551" y="339" width="118" height="25"/>
+    </entry>
+    <entry id="3" name="vcr:VC395_0909" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcr:VC395_0909">
+        <graphics name="pomB" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="615" y="286" width="46" height="17"/>
+    </entry>
+    <entry id="4" name="vcr:VC395_0908" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcr:VC395_0908">
+        <graphics name="pomA" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="615" y="269" width="46" height="17"/>
+    </entry>
+    <entry id="5" name="vcr:VC395_2239" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcr:VC395_2239">
+        <graphics name="fliN" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="506" y="294" width="46" height="17"/>
+    </entry>
+    <entry id="6" name="vcr:VC395_2240" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcr:VC395_2240">
+        <graphics name="fliM" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="506" y="277" width="46" height="17"/>
+    </entry>
+    <entry id="7" name="vcr:VC395_2246" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcr:VC395_2246">
+        <graphics name="fliG" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="506" y="260" width="46" height="17"/>
+    </entry>
+    <entry id="8" name="vcr:VC395_2179" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcr:VC395_2179">
+        <graphics name="cheZ" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="447" y="181" width="46" height="17"/>
+    </entry>
+    <entry id="9" name="vcr:VC395_1435 vcr:VC395_1514 vcr:VC395_1517 vcr:VC395_2180 vcr:VC395_A1117" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcr:VC395_1435+vcr:VC395_1514+vcr:VC395_1517+vcr:VC395_2180+vcr:VC395_A1117">
+        <graphics name="VC395_1435..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="398" y="277" width="46" height="17"/>
+    </entry>
+    <entry id="10" name="vcr:VC395_1518 vcr:VC395_2317 vcr:VC395_A1112" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcr:VC395_1518+vcr:VC395_2317+vcr:VC395_A1112">
+        <graphics name="cheR-1..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="291" y="181" width="46" height="17"/>
+    </entry>
+    <entry id="11" name="vcr:VC395_1521 vcr:VC395_2174 vcr:VC395_2175 vcr:VC395_A1114 vcr:VC395_A1115" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcr:VC395_1521+vcr:VC395_2174+vcr:VC395_2175+vcr:VC395_A1114+vcr:VC395_A1115">
+        <graphics name="VC395_1521..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="290" y="294" width="46" height="17"/>
+    </entry>
+    <entry id="12" name="vcr:VC395_1516 vcr:VC395_2178 vcr:VC395_A1116" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcr:VC395_1516+vcr:VC395_2178+vcr:VC395_A1116">
+        <graphics name="cheA-1..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="290" y="277" width="46" height="17"/>
+    </entry>
+    <entry id="13" name="vcr:VC395_1520 vcr:VC395_2177 vcr:VC395_A1110" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcr:VC395_1520+vcr:VC395_2177+vcr:VC395_A1110">
+        <graphics name="cheB-1..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="291" y="213" width="46" height="17"/>
+    </entry>
+    <entry id="14" name="ko:K05877" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K05877">
+        <graphics name="K05877" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="875" y="299" width="46" height="17"/>
+    </entry>
+    <entry id="15" name="ko:K05876" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K05876">
+        <graphics name="K05876" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="875" y="262" width="46" height="17"/>
+    </entry>
+    <entry id="16" name="ko:K05875" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K05875">
+        <graphics name="K05875" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="874" y="188" width="46" height="17"/>
+    </entry>
+    <entry id="17" name="ko:K05874" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K05874">
+        <graphics name="K05874" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="875" y="153" width="46" height="17"/>
+    </entry>
+    <entry id="18" name="ko:K12368" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K12368">
+        <graphics name="K12368" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="793" y="300" width="46" height="17"/>
+    </entry>
+    <entry id="19" name="vcr:VC395_1444" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcr:VC395_1444">
+        <graphics name="mglB" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="793" y="272" width="46" height="17"/>
+    </entry>
+    <entry id="20" name="vcr:VC395_A0123" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcr:VC395_A0123">
+        <graphics name="rbsB" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="793" y="244" width="46" height="17"/>
+    </entry>
+    <entry id="21" name="vcr:VC395_A0970" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcr:VC395_A0970">
+        <graphics name="malE" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="793" y="214" width="46" height="17"/>
+    </entry>
+    <entry id="22" name="ko:K03776" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K03776">
+        <graphics name="K03776" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="875" y="336" width="46" height="17"/>
+    </entry>
+    <entry id="23" name="cpd:C00716" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00716">
+        <graphics name="C00716" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="809" y="153" width="8" height="8"/>
+    </entry>
+    <entry id="24" name="cpd:C00049" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00049">
+        <graphics name="C00049" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="809" y="187" width="8" height="8"/>
+    </entry>
+    <entry id="25" name="cpd:C00208" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00208">
+        <graphics name="C00208" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="730" y="213" width="8" height="8"/>
+    </entry>
+    <entry id="26" name="cpd:C00121" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00121">
+        <graphics name="C00121" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="730" y="243" width="8" height="8"/>
+    </entry>
+    <entry id="27" name="cpd:C00124" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00124">
+        <graphics name="C00124" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="730" y="271" width="8" height="8"/>
+    </entry>
+    <entry id="28" name="cpd:C00107" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00107">
+        <graphics name="C00107" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="730" y="299" width="8" height="8"/>
+    </entry>
+    <entry id="29" name="vcr:VC395_1718 vcr:VC395_2121 vcr:VC395_2318 vcr:VC395_A0979" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcr:VC395_1718+vcr:VC395_2121+vcr:VC395_2318+vcr:VC395_A0979">
+        <graphics name="cheV-1..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="291" y="344" width="46" height="17"/>
+    </entry>
+    <entry id="30" name="vcr:VC395_1098" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcr:VC395_1098">
+        <graphics name="VC395_1098" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="396" y="181" width="46" height="17"/>
+    </entry>
+    <entry id="31" name="vcr:VC395_0420" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcr:VC395_0420">
+        <graphics name="VC395_0420" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="499" y="181" width="46" height="17"/>
+    </entry>
+    <entry id="32" name="vcr:VC395_A1111" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcr:VC395_A1111">
+        <graphics name="VC395_A1111" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="291" y="150" width="46" height="17"/>
+    </entry>
+    <entry id="33" name="vcr:VC395_0082 vcr:VC395_0248 vcr:VC395_0311 vcr:VC395_0493 vcr:VC395_1367 vcr:VC395_1408 vcr:VC395_1417 vcr:VC395_1432 vcr:VC395_1513 vcr:VC395_1522 vcr:VC395_1524 vcr:VC395_1525 vcr:VC395_1532 vcr:VC395_1653 vcr:VC395_1760 vcr:VC395_1974 vcr:VC395_1983 vcr:VC395_2013 vcr:VC395_2275 vcr:VC395_2554 vcr:VC395_A0008 vcr:VC395_A0061 vcr:VC395_A0167 vcr:VC395_A0305 vcr:VC395_A0541 vcr:VC395_A0649 vcr:VC395_A0654 vcr:VC395_A0888 vcr:VC395_A0948 vcr:VC395_A0999 vcr:VC395_A1004 vcr:VC395_A1012 vcr:VC395_A1054 vcr:VC395_A1057 vcr:VC395_A1079 vcr:VC395_A1091 vcr:VC395_A1109 vcr:VC395_A1113" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcr:VC395_0082+vcr:VC395_0248+vcr:VC395_0311+vcr:VC395_0493+vcr:VC395_1367+vcr:VC395_1408+vcr:VC395_1417+vcr:VC395_1432+vcr:VC395_1513+vcr:VC395_1522+vcr:VC395_1524+vcr:VC395_1525+vcr:VC395_1532+vcr:VC395_1653+vcr:VC395_1760+vcr:VC395_1974+vcr:VC395_1983+vcr:VC395_2013+vcr:VC395_2275+vcr:VC395_2554+vcr:VC395_A0008+vcr:VC395_A0061+vcr:VC395_A0167+vcr:VC395_A0305+vcr:VC395_A0541+vcr:VC395_A0649+vcr:VC395_A0654+vcr:VC395_A0888+vcr:VC395_A0948+vcr:VC395_A0999+vcr:VC395_A1004+vcr:VC395_A1012+vcr:VC395_A1054+vcr:VC395_A1057+vcr:VC395_A1079+vcr:VC395_A1091+vcr:VC395_A1109+vcr:VC395_A1113">
+        <graphics name="VC395_0082..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="181" y="266" width="46" height="17"/>
+    </entry>
+    <entry id="34" name="ko:K03776" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K03776">
+        <graphics name="K03776" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="181" y="289" width="46" height="17"/>
+    </entry>
+    <entry id="35" name="undefined" type="group">
+        <graphics fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="506" y="277" width="46" height="51"/>
+        <component id="5"/>
+        <component id="6"/>
+        <component id="7"/>
+    </entry>
+    <entry id="36" name="undefined" type="group">
+        <graphics fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="290" y="285" width="46" height="34"/>
+        <component id="11"/>
+        <component id="12"/>
+    </entry>
+    <entry id="37" name="undefined" type="group">
+        <graphics fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="615" y="277" width="46" height="34"/>
+        <component id="3"/>
+        <component id="4"/>
+    </entry>
+    <relation entry1="12" entry2="9" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="12" entry2="13" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="8" entry2="9" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="dephosphorylation" value="-p"/>
+    </relation>
+    <relation entry1="9" entry2="35" type="PPrel">
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="33" entry2="36" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="9" entry2="30" type="PPrel">
+        <subtype name="dissociation" value="-+-"/>
+    </relation>
+    <relation entry1="30" entry2="32" type="PPrel">
+        <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="32" entry2="33" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="10" entry2="33" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="methylation" value="+m"/>
+    </relation>
+    <relation entry1="13" entry2="33" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="demethylation" value=""/>
+    </relation>
+    <relation entry1="35" entry2="37" type="PPrel">
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="31" entry2="9" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="dephosphorylation" value="-p"/>
+    </relation>
+    <relation entry1="5" entry2="9" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="dephosphorylation" value="-p"/>
+    </relation>
+    <relation entry1="12" entry2="29" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="25" entry2="21" type="PCrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="26" entry2="20" type="PCrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="27" entry2="19" type="PCrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+</pathway>

@@ -107,11 +107,11 @@
         <graphics name="110093006..." fgcolor="#66CC66" bgcolor="#FFFFFF"
              type="line" coords="347,142,347,187"/>
     </entry>
-    <entry id="23" name="dct:110100579 dct:110106790 dct:110115773" type="gene" reaction="rn:R01830"
-        link="http://www.kegg.jp/dbget-bin/www_bget?dct:110100579+dct:110106790+dct:110115773">
-        <graphics name="110100579..." fgcolor="#66CC66" bgcolor="#FFFFFF"
+    <entry id="23" name="dct:110100138 dct:110100579 dct:110106790 dct:110115773" type="gene" reaction="rn:R01830"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dct:110100138+dct:110100579+dct:110106790+dct:110115773">
+        <graphics name="110100138..." fgcolor="#66CC66" bgcolor="#FFFFFF"
              type="line" coords="353,135,403,135"/>
-        <graphics name="110100579..." fgcolor="#66CC66" bgcolor="#FFFFFF"
+        <graphics name="110100138..." fgcolor="#66CC66" bgcolor="#FFFFFF"
              type="line" coords="379,134,381,134,381,134,383,134,384,135,386,135,387,136,388,137,389,138,389,140,390,141,390,143,390,143,390,187"/>
     </entry>
     <entry id="25" name="cpd:C00231" type="compound"
@@ -953,11 +953,11 @@
         <graphics name="110096380..." fgcolor="#66CC66" bgcolor="#FFFFFF"
              type="line" coords="396,193,529,193"/>
     </entry>
-    <entry id="196" name="dct:110100579 dct:110106790 dct:110115773" type="gene" reaction="rn:R01641"
-        link="http://www.kegg.jp/dbget-bin/www_bget?dct:110100579+dct:110106790+dct:110115773">
-        <graphics name="110100579..." fgcolor="#66CC66" bgcolor="#FFFFFF"
+    <entry id="196" name="dct:110100138 dct:110100579 dct:110106790 dct:110115773" type="gene" reaction="rn:R01641"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dct:110100138+dct:110100579+dct:110106790+dct:110115773">
+        <graphics name="110100138..." fgcolor="#66CC66" bgcolor="#FFFFFF"
              type="line" coords="536,142,536,187"/>
-        <graphics name="110100579..." fgcolor="#66CC66" bgcolor="#FFFFFF"
+        <graphics name="110100138..." fgcolor="#66CC66" bgcolor="#FFFFFF"
              type="line" coords="411,141,411,157,411,157,411,159,412,160,412,162,413,163,414,164,415,165,417,165,418,166,420,166,420,166,528,166,528,166,529,166,531,167,532,167,533,168,535,169,536,170,536,172,537,173,537,175,537,175,537,177"/>
     </entry>
     <entry id="198" name="cpd:C02739" type="compound"
@@ -1045,9 +1045,9 @@
         <graphics name="110108423" fgcolor="#66CC66" bgcolor="#FFFFFF"
              type="line" coords="857,135,907,135"/>
     </entry>
-    <entry id="215" name="ko:K00013 ko:K14152" type="ortholog" reaction="rn:R01158"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K00013+K14152">
-        <graphics name="K00013..." fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="215" name="dct:110109940" type="gene" reaction="rn:R01158"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dct:110109940">
+        <graphics name="110109940" fgcolor="#66CC66" bgcolor="#FFFFFF"
              type="line" coords="1109,135,1159,135"/>
     </entry>
     <entry id="216" name="cpd:C04691" type="compound"
@@ -1711,6 +1711,10 @@
     <reaction id="214" name="rn:R04558" type="irreversible">
         <substrate id="201" name="cpd:C04916"/>
         <product id="202" name="cpd:C04666"/>
+    </reaction>
+    <reaction id="215" name="rn:R01158" type="irreversible">
+        <substrate id="205" name="cpd:C00860"/>
+        <product id="206" name="cpd:C00135"/>
     </reaction>
     <reaction id="223" name="rn:R01826" type="irreversible">
         <substrate id="11" name="cpd:C00074"/>

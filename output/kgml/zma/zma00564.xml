@@ -115,8 +115,8 @@
         <graphics name="TIDP3610..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="763" y="231" width="46" height="17"/>
     </entry>
-    <entry id="96" name="zma:100191566 zma:100216649 zma:100382466 zma:103636624" type="gene" reaction="rn:R01315"
-        link="http://www.kegg.jp/dbget-bin/www_bget?zma:100191566+zma:100216649+zma:100382466+zma:103636624">
+    <entry id="96" name="zma:100191566 zma:100216649 zma:100281846 zma:100382466 zma:103636624" type="gene" reaction="rn:R01315"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zma:100191566+zma:100216649+zma:100281846+zma:100382466+zma:103636624">
         <graphics name="100191566..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="763" y="187" width="46" height="17"/>
     </entry>
@@ -160,8 +160,8 @@
         <graphics name="K17103..." fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="426" y="633" width="46" height="17"/>
     </entry>
-    <entry id="105" name="zma:100191566 zma:100216649 zma:100382466 zma:103636624" type="gene" reaction="rn:R02053"
-        link="http://www.kegg.jp/dbget-bin/www_bget?zma:100191566+zma:100216649+zma:100382466+zma:103636624">
+    <entry id="105" name="zma:100191566 zma:100216649 zma:100281846 zma:100382466 zma:103636624" type="gene" reaction="rn:R02053"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zma:100191566+zma:100216649+zma:100281846+zma:100382466+zma:103636624">
         <graphics name="100191566..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="763" y="592" width="46" height="17"/>
     </entry>
@@ -215,9 +215,9 @@
         <graphics name="100191950" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="170" y="250" width="46" height="17"/>
     </entry>
-    <entry id="118" name="zma:109942425" type="gene" reaction="rn:R02114"
-        link="http://www.kegg.jp/dbget-bin/www_bget?zma:109942425">
-        <graphics name="109942425" fgcolor="#000000" bgcolor="#BFFFBF"
+    <entry id="118" name="ko:K00650" type="ortholog" reaction="rn:R02114"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K00650">
+        <graphics name="K00650" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="763" y="166" width="46" height="17"/>
     </entry>
     <entry id="119" name="ko:K03735 ko:K03736 ko:K04019" type="ortholog" reaction="rn:R00749"
@@ -335,9 +335,9 @@
         <graphics name="100191201..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="981" y="231" width="46" height="17"/>
     </entry>
-    <entry id="142" name="zma:100274532 zma:103643956 zma:103644849 zma:103647285" type="gene" reaction="rn:R02746"
-        link="http://www.kegg.jp/dbget-bin/www_bget?zma:100274532+zma:103643956+zma:103644849+zma:103647285">
-        <graphics name="100274532..." fgcolor="#000000" bgcolor="#BFFFBF"
+    <entry id="142" name="zma:103643956 zma:103644849" type="gene" reaction="rn:R02746"
+        link="http://www.kegg.jp/dbget-bin/www_bget?zma:103643956+zma:103644849">
+        <graphics name="103643956..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="861" y="212" width="46" height="17"/>
     </entry>
     <entry id="143" name="zma:100191740 zma:100280283 zma:100281051 zma:100281738 zma:100281851 zma:100282930 zma:100382119 zma:100382138 zma:100382183 zma:103648202 zma:103650549 zma:103655222" type="gene" reaction="rn:R06872"
@@ -854,18 +854,6 @@
     <relation entry1="71" entry2="101" type="ECrel">
         <subtype name="compound" value="183"/>
     </relation>
-    <relation entry1="95" entry2="118" type="ECrel">
-        <subtype name="compound" value="156"/>
-    </relation>
-    <relation entry1="94" entry2="118" type="ECrel">
-        <subtype name="compound" value="156"/>
-    </relation>
-    <relation entry1="118" entry2="138" type="ECrel">
-        <subtype name="compound" value="156"/>
-    </relation>
-    <relation entry1="100" entry2="118" type="ECrel">
-        <subtype name="compound" value="156"/>
-    </relation>
     <relation entry1="95" entry2="96" type="ECrel">
         <subtype name="compound" value="156"/>
     </relation>
@@ -1006,9 +994,6 @@
     </relation>
     <relation entry1="102" entry2="136" type="ECrel">
         <subtype name="compound" value="184"/>
-    </relation>
-    <relation entry1="118" entry2="142" type="ECrel">
-        <subtype name="compound" value="152"/>
     </relation>
     <relation entry1="96" entry2="142" type="ECrel">
         <subtype name="compound" value="152"/>
@@ -1262,10 +1247,6 @@
     <reaction id="117" name="rn:R00848" type="reversible">
         <substrate id="169" name="cpd:C00093"/>
         <product id="166" name="cpd:C00111"/>
-    </reaction>
-    <reaction id="118" name="rn:R02114" type="irreversible">
-        <substrate id="156" name="cpd:C00157"/>
-        <product id="152" name="cpd:C04230"/>
     </reaction>
     <reaction id="120" name="rn:R02029" type="irreversible">
         <substrate id="160" name="cpd:C03892"/>

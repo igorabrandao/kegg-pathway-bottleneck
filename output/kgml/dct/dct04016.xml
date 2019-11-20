@@ -30,13 +30,13 @@
         <graphics name="110111309" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="596" y="159" width="46" height="17"/>
     </entry>
-    <entry id="11" name="ko:K20600" type="ortholog"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K20600">
-        <graphics name="K20600" fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="11" name="dct:110098268 dct:110106174" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dct:110098268+dct:110106174">
+        <graphics name="110098268..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="670" y="159" width="46" height="17"/>
     </entry>
-    <entry id="16" name="dct:110092636 dct:110095341 dct:110096599 dct:110100038 dct:110102956 dct:110106178" type="gene"
-        link="http://www.kegg.jp/dbget-bin/www_bget?dct:110092636+dct:110095341+dct:110096599+dct:110100038+dct:110102956+dct:110106178">
+    <entry id="16" name="dct:110092636 dct:110095341 dct:110096599 dct:110098746 dct:110100038 dct:110102956 dct:110106178" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dct:110092636+dct:110095341+dct:110096599+dct:110098746+dct:110100038+dct:110102956+dct:110106178">
         <graphics name="110092636..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="759" y="159" width="46" height="17"/>
     </entry>
@@ -105,9 +105,9 @@
         <graphics name="110092230..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="670" y="409" width="46" height="17"/>
     </entry>
-    <entry id="51" name="ko:K20600" type="ortholog"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K20600">
-        <graphics name="K20600" fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="51" name="dct:110098268 dct:110106174" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dct:110098268+dct:110106174">
+        <graphics name="110098268..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="670" y="474" width="46" height="17"/>
     </entry>
     <entry id="54" name="dct:110105770" type="gene"
@@ -225,8 +225,8 @@
         <graphics name="110111309" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="596" y="824" width="46" height="17"/>
     </entry>
-    <entry id="131" name="dct:110092230 dct:110109873 dct:110112011" type="gene"
-        link="http://www.kegg.jp/dbget-bin/www_bget?dct:110092230+dct:110109873+dct:110112011">
+    <entry id="131" name="dct:110092230 dct:110098268 dct:110106174 dct:110109873 dct:110112011" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dct:110092230+dct:110098268+dct:110106174+dct:110109873+dct:110112011">
         <graphics name="110092230..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="670" y="824" width="46" height="17"/>
     </entry>
@@ -315,8 +315,8 @@
         <graphics name="110115064..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="873" y="1159" width="46" height="17"/>
     </entry>
-    <entry id="199" name="dct:110091892 dct:110103764 dct:110106509 dct:110107884 dct:110108849 dct:110110183 dct:110110746 dct:110111569 dct:110113407 dct:110113517 dct:110114322 dct:110116199 dct:114580463 dct:114580465" type="gene"
-        link="http://www.kegg.jp/dbget-bin/www_bget?dct:110091892+dct:110103764+dct:110106509+dct:110107884+dct:110108849+dct:110110183+dct:110110746+dct:110111569+dct:110113407+dct:110113517+dct:110114322+dct:110116199+dct:114580463+dct:114580465">
+    <entry id="199" name="dct:110091892 dct:110103764 dct:110106509 dct:110106510 dct:110106511 dct:110107884 dct:110108849 dct:110110183 dct:110110746 dct:110111569 dct:110113407 dct:110113517 dct:110114322 dct:110116199 dct:114580463 dct:114580465" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dct:110091892+dct:110103764+dct:110106509+dct:110106510+dct:110106511+dct:110107884+dct:110108849+dct:110110183+dct:110110746+dct:110111569+dct:110113407+dct:110113517+dct:110114322+dct:110116199+dct:114580463+dct:114580465">
         <graphics name="110091892..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="565" y="1119" width="46" height="17"/>
     </entry>
@@ -381,6 +381,14 @@
         <subtype name="indirect effect" value="..&gt;"/>
     </relation>
     <relation entry1="9" entry2="10" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="10" entry2="11" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="11" entry2="16" type="PPrel">
         <subtype name="activation" value="--&gt;"/>
         <subtype name="phosphorylation" value="+p"/>
     </relation>
