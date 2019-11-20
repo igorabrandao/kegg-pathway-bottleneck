@@ -65,8 +65,8 @@
         <graphics name="109150199..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="265" y="424" width="47" height="18"/>
     </entry>
-    <entry id="97" name="ini:109152299 ini:109157805 ini:109165696 ini:109167302 ini:109171869 ini:109177702 ini:109180346 ini:109186529 ini:109187113 ini:109191496" type="gene" reaction="rn:R00308"
-        link="http://www.kegg.jp/dbget-bin/www_bget?ini:109152299+ini:109157805+ini:109165696+ini:109167302+ini:109171869+ini:109177702+ini:109180346+ini:109186529+ini:109187113+ini:109191496">
+    <entry id="97" name="ini:109152299 ini:109157805 ini:109165696 ini:109167302 ini:109171869 ini:109173590 ini:109177702 ini:109180346 ini:109186529 ini:109187113 ini:109191496" type="gene" reaction="rn:R00308"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ini:109152299+ini:109157805+ini:109165696+ini:109167302+ini:109171869+ini:109173590+ini:109177702+ini:109180346+ini:109186529+ini:109187113+ini:109191496">
         <graphics name="109152299..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="264" y="379" width="46" height="17"/>
     </entry>
@@ -105,9 +105,9 @@
         <graphics name="109148848..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="575" y="156" width="46" height="17"/>
     </entry>
-    <entry id="107" name="ini:109171069 ini:109186768" type="gene" reaction="rn:R00287"
-        link="http://www.kegg.jp/dbget-bin/www_bget?ini:109171069+ini:109186768">
-        <graphics name="109171069..." fgcolor="#000000" bgcolor="#BFFFBF"
+    <entry id="107" name="ko:K01513" type="ortholog" reaction="rn:R00287"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K01513">
+        <graphics name="K01513" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="668" y="376" width="46" height="17"/>
     </entry>
     <entry id="109" name="ko:K00978" type="ortholog" reaction="rn:R00956"
@@ -220,8 +220,8 @@
         <graphics name="109152738..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="1038" y="495" width="46" height="17"/>
     </entry>
-    <entry id="133" name="ini:109152681 ini:109153080 ini:109153362 ini:109166290 ini:109167081 ini:109167083 ini:109167084 ini:109167086 ini:109182313 ini:109189197" type="gene" reaction="rn:R11262"
-        link="http://www.kegg.jp/dbget-bin/www_bget?ini:109152681+ini:109153080+ini:109153362+ini:109166290+ini:109167081+ini:109167083+ini:109167084+ini:109167086+ini:109182313+ini:109189197">
+    <entry id="133" name="ini:109152681 ini:109153080 ini:109153362 ini:109166290 ini:109167066 ini:109167081 ini:109167083 ini:109167084 ini:109167086 ini:109182313 ini:109189197" type="gene" reaction="rn:R11262"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ini:109152681+ini:109153080+ini:109153362+ini:109166290+ini:109167066+ini:109167081+ini:109167083+ini:109167084+ini:109167086+ini:109182313+ini:109189197">
         <graphics name="109152681..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="1038" y="357" width="46" height="17"/>
     </entry>
@@ -680,8 +680,8 @@
         <graphics name="K01225..." fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="264" y="551" width="46" height="17"/>
     </entry>
-    <entry id="243" name="ini:109152681 ini:109153080 ini:109153362 ini:109166290 ini:109167081 ini:109167083 ini:109167084 ini:109167086 ini:109182313 ini:109189197" type="gene" reaction="rn:R02112"
-        link="http://www.kegg.jp/dbget-bin/www_bget?ini:109152681+ini:109153080+ini:109153362+ini:109166290+ini:109167081+ini:109167083+ini:109167084+ini:109167086+ini:109182313+ini:109189197">
+    <entry id="243" name="ini:109152681 ini:109153080 ini:109153362 ini:109166290 ini:109167066 ini:109167081 ini:109167083 ini:109167084 ini:109167086 ini:109182313 ini:109189197" type="gene" reaction="rn:R02112"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ini:109152681+ini:109153080+ini:109153362+ini:109166290+ini:109167066+ini:109167081+ini:109167083+ini:109167084+ini:109167086+ini:109182313+ini:109189197">
         <graphics name="109152681..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="1038" y="476" width="46" height="17"/>
     </entry>
@@ -774,9 +774,6 @@
     <relation entry1="113" entry2="114" type="ECrel">
         <subtype name="compound" value="158"/>
     </relation>
-    <relation entry1="107" entry2="114" type="ECrel">
-        <subtype name="compound" value="158"/>
-    </relation>
     <relation entry1="102" entry2="114" type="ECrel">
         <subtype name="compound" value="158"/>
     </relation>
@@ -787,12 +784,6 @@
         <subtype name="compound" value="158"/>
     </relation>
     <relation entry1="106" entry2="113" type="ECrel">
-        <subtype name="compound" value="158"/>
-    </relation>
-    <relation entry1="102" entry2="107" type="ECrel">
-        <subtype name="compound" value="158"/>
-    </relation>
-    <relation entry1="106" entry2="107" type="ECrel">
         <subtype name="compound" value="158"/>
     </relation>
     <relation entry1="102" entry2="106" type="ECrel">
@@ -816,25 +807,13 @@
     <relation entry1="116" entry2="117" type="ECrel">
         <subtype name="compound" value="218"/>
     </relation>
-    <relation entry1="107" entry2="116" type="ECrel">
-        <subtype name="compound" value="218"/>
-    </relation>
     <relation entry1="136" entry2="146" type="ECrel">
         <subtype name="compound" value="218"/>
     </relation>
     <relation entry1="117" entry2="146" type="ECrel">
         <subtype name="compound" value="218"/>
     </relation>
-    <relation entry1="107" entry2="146" type="ECrel">
-        <subtype name="compound" value="218"/>
-    </relation>
     <relation entry1="117" entry2="136" type="ECrel">
-        <subtype name="compound" value="218"/>
-    </relation>
-    <relation entry1="107" entry2="136" type="ECrel">
-        <subtype name="compound" value="218"/>
-    </relation>
-    <relation entry1="107" entry2="117" type="ECrel">
         <subtype name="compound" value="218"/>
     </relation>
     <relation entry1="113" entry2="118" type="maplink">
@@ -850,9 +829,6 @@
         <subtype name="compound" value="218"/>
     </relation>
     <relation entry1="117" entry2="118" type="maplink">
-        <subtype name="compound" value="218"/>
-    </relation>
-    <relation entry1="107" entry2="118" type="maplink">
         <subtype name="compound" value="218"/>
     </relation>
     <relation entry1="90" entry2="93" type="ECrel">
@@ -939,9 +915,6 @@
     <relation entry1="193" entry2="113" type="maplink">
         <subtype name="compound" value="158"/>
     </relation>
-    <relation entry1="193" entry2="107" type="maplink">
-        <subtype name="compound" value="158"/>
-    </relation>
     <relation entry1="193" entry2="114" type="maplink">
         <subtype name="compound" value="158"/>
     </relation>
@@ -985,9 +958,6 @@
         <subtype name="compound" value="168"/>
     </relation>
     <relation entry1="248" entry2="113" type="ECrel">
-        <subtype name="compound" value="158"/>
-    </relation>
-    <relation entry1="248" entry2="107" type="ECrel">
         <subtype name="compound" value="158"/>
     </relation>
     <relation entry1="248" entry2="102" type="ECrel">
@@ -1079,10 +1049,6 @@
     <reaction id="106" name="rn:R00766" type="irreversible">
         <substrate id="158" name="cpd:C00029"/>
         <product id="156" name="cpd:C02591"/>
-    </reaction>
-    <reaction id="107" name="rn:R00287" type="irreversible">
-        <substrate id="158" name="cpd:C00029"/>
-        <product id="218" name="cpd:C00103"/>
     </reaction>
     <reaction id="113" name="rn:R00289" type="irreversible">
         <substrate id="218" name="cpd:C00103"/>

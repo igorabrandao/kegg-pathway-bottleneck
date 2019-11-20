@@ -105,8 +105,8 @@
         <graphics name="110019381..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="981" y="509" width="46" height="17"/>
     </entry>
-    <entry id="94" name="peq:110025312 peq:110026499 peq:110028171 peq:110035053 peq:110035558" type="gene" reaction="rn:R01312"
-        link="http://www.kegg.jp/dbget-bin/www_bget?peq:110025312+peq:110026499+peq:110028171+peq:110035053+peq:110035558">
+    <entry id="94" name="peq:110025312 peq:110026499 peq:110028171 peq:110035053 peq:110035558 peq:110036802" type="gene" reaction="rn:R01312"
+        link="http://www.kegg.jp/dbget-bin/www_bget?peq:110025312+peq:110026499+peq:110028171+peq:110035053+peq:110035558+peq:110036802">
         <graphics name="110025312..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="681" y="301" width="46" height="17"/>
     </entry>
@@ -180,8 +180,8 @@
         <graphics name="Glycine, serine and threonine metabolism" fgcolor="#000000" bgcolor="#FFFFFF"
              type="roundrectangle" x="706" y="729" width="122" height="34"/>
     </entry>
-    <entry id="110" name="peq:110025312 peq:110026499 peq:110028171 peq:110035053 peq:110035558" type="gene" reaction="rn:R02052"
-        link="http://www.kegg.jp/dbget-bin/www_bget?peq:110025312+peq:110026499+peq:110028171+peq:110035053+peq:110035558">
+    <entry id="110" name="peq:110025312 peq:110026499 peq:110028171 peq:110035053 peq:110035558 peq:110036802" type="gene" reaction="rn:R02052"
+        link="http://www.kegg.jp/dbget-bin/www_bget?peq:110025312+peq:110026499+peq:110028171+peq:110035053+peq:110035558+peq:110036802">
         <graphics name="110025312..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="684" y="547" width="46" height="17"/>
     </entry>
@@ -190,9 +190,9 @@
         <graphics name="110019541..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="763" y="638" width="46" height="17"/>
     </entry>
-    <entry id="112" name="peq:110035303 peq:110036575" type="gene" reaction="rn:R06870"
-        link="http://www.kegg.jp/dbget-bin/www_bget?peq:110035303+peq:110036575">
-        <graphics name="110035303..." fgcolor="#000000" bgcolor="#BFFFBF"
+    <entry id="112" name="ko:K06124" type="ortholog" reaction="rn:R06870"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K06124">
+        <graphics name="K06124" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="981" y="528" width="46" height="17"/>
     </entry>
     <entry id="114" name="peq:110017988 peq:110020494 peq:110022915 peq:110026363 peq:110029690 peq:110035715 peq:110036566 peq:110036838 peq:110037735 peq:110037888" type="gene" reaction="rn:R00851"
@@ -310,9 +310,9 @@
         <graphics name="110029374..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="588" y="624" width="46" height="17"/>
     </entry>
-    <entry id="137" name="peq:110035303 peq:110036575" type="gene" reaction="rn:R06871"
-        link="http://www.kegg.jp/dbget-bin/www_bget?peq:110035303+peq:110036575">
-        <graphics name="110035303..." fgcolor="#000000" bgcolor="#BFFFBF"
+    <entry id="137" name="ko:K06124" type="ortholog" reaction="rn:R06871"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K06124">
+        <graphics name="K06124" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="981" y="322" width="46" height="17"/>
     </entry>
     <entry id="138" name="peq:110017882" type="gene" reaction="rn:R01320"
@@ -730,8 +730,8 @@
         <graphics name="K14286" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="981" y="464" width="46" height="17"/>
     </entry>
-    <entry id="249" name="peq:110025312 peq:110026499 peq:110028171 peq:110035053 peq:110035558" type="gene" reaction="rn:R02027"
-        link="http://www.kegg.jp/dbget-bin/www_bget?peq:110025312+peq:110026499+peq:110028171+peq:110035053+peq:110035558">
+    <entry id="249" name="peq:110025312 peq:110026499 peq:110028171 peq:110035053 peq:110035558 peq:110036802" type="gene" reaction="rn:R02027"
+        link="http://www.kegg.jp/dbget-bin/www_bget?peq:110025312+peq:110026499+peq:110028171+peq:110035053+peq:110035558+peq:110036802">
         <graphics name="110025312..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="449" y="760" width="46" height="17"/>
     </entry>
@@ -1016,19 +1016,10 @@
     <relation entry1="88" entry2="89" type="ECrel">
         <subtype name="compound" value="154"/>
     </relation>
-    <relation entry1="88" entry2="137" type="ECrel">
-        <subtype name="compound" value="154"/>
-    </relation>
     <relation entry1="89" entry2="126" type="ECrel">
         <subtype name="compound" value="154"/>
     </relation>
-    <relation entry1="126" entry2="137" type="ECrel">
-        <subtype name="compound" value="154"/>
-    </relation>
     <relation entry1="89" entry2="141" type="ECrel">
-        <subtype name="compound" value="155"/>
-    </relation>
-    <relation entry1="137" entry2="141" type="ECrel">
         <subtype name="compound" value="155"/>
     </relation>
     <relation entry1="92" entry2="123" type="ECrel">
@@ -1037,22 +1028,13 @@
     <relation entry1="93" entry2="125" type="ECrel">
         <subtype name="compound" value="188"/>
     </relation>
-    <relation entry1="112" entry2="125" type="ECrel">
-        <subtype name="compound" value="188"/>
-    </relation>
     <relation entry1="92" entry2="125" type="ECrel">
         <subtype name="compound" value="188"/>
     </relation>
     <relation entry1="92" entry2="93" type="ECrel">
         <subtype name="compound" value="188"/>
     </relation>
-    <relation entry1="92" entry2="112" type="ECrel">
-        <subtype name="compound" value="188"/>
-    </relation>
     <relation entry1="93" entry2="103" type="ECrel">
-        <subtype name="compound" value="167"/>
-    </relation>
-    <relation entry1="103" entry2="112" type="ECrel">
         <subtype name="compound" value="167"/>
     </relation>
     <relation entry1="111" entry2="128" type="ECrel">
@@ -1232,10 +1214,6 @@
         <substrate id="184" name="cpd:C00350"/>
         <product id="177" name="cpd:C05973"/>
     </reaction>
-    <reaction id="112" name="rn:R06870" type="irreversible">
-        <substrate id="188" name="cpd:C00346"/>
-        <product id="167" name="cpd:C00189"/>
-    </reaction>
     <reaction id="114" name="rn:R00851" type="irreversible">
         <substrate id="169" name="cpd:C00093"/>
         <product id="173" name="cpd:C00681"/>
@@ -1292,10 +1270,6 @@
     <reaction id="136" name="rn:R02055" type="irreversible">
         <substrate id="183" name="cpd:C02737"/>
         <product id="184" name="cpd:C00350"/>
-    </reaction>
-    <reaction id="137" name="rn:R06871" type="irreversible">
-        <substrate id="154" name="cpd:C00588"/>
-        <product id="155" name="cpd:C00114"/>
     </reaction>
     <reaction id="138" name="rn:R01320" type="irreversible">
         <substrate id="189" name="cpd:C04308"/>

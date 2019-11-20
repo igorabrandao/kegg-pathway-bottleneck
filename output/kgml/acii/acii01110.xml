@@ -7507,11 +7507,6 @@
         <graphics name="K18383" fgcolor="#E0E0E0" bgcolor="#FFFFFF"
              type="line" coords="2285,1019,2285,1086"/>
     </entry>
-    <entry id="439" name="ko:K03181 ko:K18240" type="ortholog" reaction="rn:R01302"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K03181+K18240">
-        <graphics name="K03181..." fgcolor="#E0E0E0" bgcolor="#FFFFFF"
-             type="line" coords="1137,1156,1137,711,1137,711,1137,708,1138,706,1139,703,1141,701,1143,699,1145,697,1148,696,1150,695,1153,695,1153,695,1948,695,1948,695,1951,695,1953,696,1956,697,1958,699,1960,701,1962,703,1963,706,1964,708,1964,711,1964,711,1964,757"/>
-    </entry>
     <entry id="438" name="ko:K05356" type="ortholog" reaction="rn:R09250"
         link="http://www.kegg.jp/dbget-bin/www_bget?K05356">
         <graphics name="K05356" fgcolor="#E0E0E0" bgcolor="#FFFFFF"
@@ -9413,6 +9408,11 @@
         link="http://www.kegg.jp/dbget-bin/www_bget?acii:C4901_05115">
         <graphics name="C4901_05115" fgcolor="#9EE284" bgcolor="#FFFFFF"
              type="line" coords="1117,1073,1117,984,1117,984,1117,981,1116,977,1114,974,1112,972,1109,969,1107,967,1104,965,1100,964,1097,964,1097,964,614,964,614,964,611,964,607,963,604,961,602,959,599,956,597,954,595,951,594,947,594,944,594,944,594,864"/>
+    </entry>
+    <entry id="439" name="acii:C4901_07725" type="gene" reaction="rn:R01302"
+        link="http://www.kegg.jp/dbget-bin/www_bget?acii:C4901_07725">
+        <graphics name="C4901_07725" fgcolor="#FFB3CC" bgcolor="#FFFFFF"
+             type="line" coords="1137,1156,1137,711,1137,711,1137,708,1138,706,1139,703,1141,701,1143,699,1145,697,1148,696,1150,695,1153,695,1153,695,1948,695,1948,695,1951,695,1953,696,1956,697,1958,699,1960,701,1962,703,1963,706,1964,708,1964,711,1964,711,1964,757"/>
     </entry>
     <entry id="447" name="acii:C4901_11715" type="gene" reaction="rn:R00489"
         link="http://www.kegg.jp/dbget-bin/www_bget?acii:C4901_11715">
@@ -12257,6 +12257,10 @@
         <substrate id="1414" name="cpd:C05847"/>
         <substrate id="1381" name="cpd:C00156"/>
         <product id="1406" name="cpd:C05848"/>
+    </reaction>
+    <reaction id="439" name="rn:R01302" type="reversible">
+        <substrate id="1381" name="cpd:C00156"/>
+        <product id="2041" name="cpd:C00251"/>
     </reaction>
     <reaction id="963" name="rn:R09736" type="reversible">
         <substrate id="1423" name="cpd:C19847"/>

@@ -65,9 +65,9 @@
         <graphics name="K17755" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="99" y="483" width="46" height="17"/>
     </entry>
-    <entry id="68" name="ko:K00108" type="ortholog" reaction="rn:R01025"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K00108">
-        <graphics name="K00108" fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="68" name="psom:113335848" type="gene" reaction="rn:R01025"
+        link="http://www.kegg.jp/dbget-bin/www_bget?psom:113335848">
+        <graphics name="113335848" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="149" y="464" width="46" height="17"/>
     </entry>
     <entry id="70" name="psom:113272418 psom:113276374 psom:113289787 psom:113294637 psom:113296270 psom:113313674 psom:113323772 psom:113328159 psom:113332085 psom:113337233 psom:113343708" type="gene" reaction="rn:R02565 rn:R02566"
@@ -768,6 +768,9 @@
     <relation entry1="91" entry2="126" type="ECrel">
         <subtype name="compound" value="151"/>
     </relation>
+    <relation entry1="68" entry2="70" type="ECrel">
+        <subtype name="compound" value="132"/>
+    </relation>
     <relation entry1="92" entry2="120" type="ECrel">
         <subtype name="compound" value="167"/>
     </relation>
@@ -1023,6 +1026,9 @@
     <relation entry1="190" entry2="60" type="maplink">
         <subtype name="compound" value="131"/>
     </relation>
+    <relation entry1="190" entry2="68" type="maplink">
+        <subtype name="compound" value="131"/>
+    </relation>
     <relation entry1="111" entry2="120" type="ECrel">
         <subtype name="compound" value="168"/>
     </relation>
@@ -1163,6 +1169,10 @@
         <product id="157" name="cpd:C00740"/>
     </reaction>
     <reaction id="60" name="rn:R07409" type="irreversible">
+        <substrate id="131" name="cpd:C00114"/>
+        <product id="132" name="cpd:C00576"/>
+    </reaction>
+    <reaction id="68" name="rn:R01025" type="irreversible">
         <substrate id="131" name="cpd:C00114"/>
         <product id="132" name="cpd:C00576"/>
     </reaction>

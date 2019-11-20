@@ -5191,11 +5191,6 @@
         <graphics name="C15996" fgcolor="#E0E0E0" bgcolor="#E0E0E0"
              type="circle" x="4651" y="406" width="14" height="14"/>
     </entry>
-    <entry id="5500" name="cpd:C20248" type="compound"
-        link="http://www.kegg.jp/dbget-bin/www_bget?C20248">
-        <graphics name="C20248" fgcolor="#E0E0E0" bgcolor="#E0E0E0"
-             type="circle" x="4590" y="406" width="14" height="14"/>
-    </entry>
     <entry id="5499" name="ko:K06879 ko:K09457" type="ortholog" reaction="rn:R07605"
         link="http://www.kegg.jp/dbget-bin/www_bget?K06879+K09457">
         <graphics name="K06879..." fgcolor="#E0E0E0" bgcolor="#FFFFFF"
@@ -5205,11 +5200,6 @@
         link="http://www.kegg.jp/dbget-bin/www_bget?K06920">
         <graphics name="K06920" fgcolor="#E0E0E0" bgcolor="#FFFFFF"
              type="line" coords="4589,406,4653,406"/>
-    </entry>
-    <entry id="5497" name="ko:K10026" type="ortholog" reaction="rn:R10002"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K10026">
-        <graphics name="K10026" fgcolor="#E0E0E0" bgcolor="#FFFFFF"
-             type="line" coords="4530,406,4592,406"/>
     </entry>
     <entry id="5496" name="cpd:C18910" type="compound"
         link="http://www.kegg.jp/dbget-bin/www_bget?C18910">
@@ -29591,6 +29581,16 @@
         <graphics name="C04454" fgcolor="#FFB3CC" bgcolor="#FFB3CC"
              type="circle" x="4349" y="438" width="14" height="14"/>
     </entry>
+    <entry id="5497" name="hoh:Hoch_2111" type="gene" reaction="rn:R10002"
+        link="http://www.kegg.jp/dbget-bin/www_bget?hoh:Hoch_2111">
+        <graphics name="Hoch_2111" fgcolor="#FFB3CC" bgcolor="#FFFFFF"
+             type="line" coords="4530,406,4592,406"/>
+    </entry>
+    <entry id="5500" name="cpd:C20248" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C20248">
+        <graphics name="C20248" fgcolor="#FFB3CC" bgcolor="#FFB3CC"
+             type="circle" x="4590" y="406" width="14" height="14"/>
+    </entry>
     <entry id="5503" name="cpd:C20239" type="compound"
         link="http://www.kegg.jp/dbget-bin/www_bget?C20239">
         <graphics name="C20239" fgcolor="#FFB3CC" bgcolor="#FFB3CC"
@@ -31008,8 +31008,8 @@
         <graphics name="C19153" fgcolor="#CC99FF" bgcolor="#CC99FF"
              type="circle" x="1944" y="2404" width="14" height="14"/>
     </entry>
-    <entry id="6786" name="hoh:Hoch_1925 hoh:Hoch_1927 hoh:Hoch_1928 hoh:Hoch_1929 hoh:Hoch_1930 hoh:Hoch_4515 hoh:Hoch_4516 hoh:Hoch_4517 hoh:Hoch_4518 hoh:Hoch_4519 hoh:Hoch_4520 hoh:Hoch_4521" type="gene"
-        link="http://www.kegg.jp/dbget-bin/www_bget?hoh:Hoch_1925+hoh:Hoch_1927+hoh:Hoch_1928+hoh:Hoch_1929+hoh:Hoch_1930+hoh:Hoch_4515+hoh:Hoch_4516+hoh:Hoch_4517+hoh:Hoch_4518+hoh:Hoch_4519+hoh:Hoch_4520+hoh:Hoch_4521">
+    <entry id="6786" name="hoh:Hoch_1925 hoh:Hoch_1926 hoh:Hoch_1927 hoh:Hoch_1928 hoh:Hoch_1929 hoh:Hoch_1930 hoh:Hoch_4515 hoh:Hoch_4516 hoh:Hoch_4517 hoh:Hoch_4518 hoh:Hoch_4519 hoh:Hoch_4520 hoh:Hoch_4521" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?hoh:Hoch_1925+hoh:Hoch_1926+hoh:Hoch_1927+hoh:Hoch_1928+hoh:Hoch_1929+hoh:Hoch_1930+hoh:Hoch_4515+hoh:Hoch_4516+hoh:Hoch_4517+hoh:Hoch_4518+hoh:Hoch_4519+hoh:Hoch_4520+hoh:Hoch_4521">
         <graphics name="Hoch_1925..." fgcolor="#CC99FF" bgcolor="#FFFFFF"
              type="line" coords="2693,3054,2695,3054,2695,3054,2701,3053,2706,3052,2711,3049,2716,3045,2720,3041,2724,3036,2727,3031,2728,3026,2729,3020,2729,3020,2729,3016,2729,3016,2728,3010,2727,3005,2724,3000,2720,2995,2716,2991,2711,2987,2706,2984,2701,2983,2695,2982,2695,2982,2693,2982"/>
         <graphics name="Hoch_1925..." fgcolor="#CC99FF" bgcolor="#FFFFFF"
@@ -34381,6 +34381,10 @@
     <reaction id="147" name="rn:R09959" type="reversible">
         <substrate id="5472" name="cpd:C04895"/>
         <product id="5503" name="cpd:C20239"/>
+    </reaction>
+    <reaction id="5497" name="rn:R10002" type="reversible">
+        <substrate id="5503" name="cpd:C20239"/>
+        <product id="5500" name="cpd:C20248"/>
     </reaction>
     <reaction id="1135" name="rn:R03472" type="reversible">
         <substrate id="5488" name="cpd:C03373"/>

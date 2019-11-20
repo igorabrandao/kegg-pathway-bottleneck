@@ -115,9 +115,9 @@
         <graphics name="K18097" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="294" y="330" width="46" height="17"/>
     </entry>
-    <entry id="58" name="ko:K00011" type="ortholog" reaction="rn:R01036 rn:R01041"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K00011">
-        <graphics name="K00011" fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="58" name="vra:106780536" type="gene" reaction="rn:R01036 rn:R01041"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vra:106780536">
+        <graphics name="106780536" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="484" y="279" width="46" height="17"/>
     </entry>
     <entry id="60" name="vra:106758153 vra:106762243 vra:106765066 vra:106765921 vra:106769426 vra:106769529 vra:106771087 vra:106777172 vra:106779020 vra:106779917" type="gene" reaction="rn:R01752"
@@ -140,9 +140,9 @@
         <graphics name="TITLE:Glycerolipid metabolism" fgcolor="#000000" bgcolor="#FFFFFF"
              type="roundrectangle" x="150" y="58" width="219" height="25"/>
     </entry>
-    <entry id="64" name="vra:106773536 vra:106774226 vra:106774371 vra:106774374 vra:106778051 vra:106778699" type="gene" reaction="rn:R01041"
-        link="http://www.kegg.jp/dbget-bin/www_bget?vra:106773536+vra:106774226+vra:106774371+vra:106774374+vra:106778051+vra:106778699">
-        <graphics name="106773536..." fgcolor="#000000" bgcolor="#BFFFBF"
+    <entry id="64" name="vra:106754917 vra:106767786 vra:106773536 vra:106774226 vra:106774371 vra:106774374 vra:106778699" type="gene" reaction="rn:R01041"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vra:106754917+vra:106767786+vra:106773536+vra:106774226+vra:106774371+vra:106774374+vra:106778699">
+        <graphics name="106754917..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="434" y="279" width="46" height="17"/>
     </entry>
     <entry id="65" name="ko:K01059" type="ortholog" reaction="rn:R01350"
@@ -456,6 +456,12 @@
     <relation entry1="60" entry2="64" type="ECrel">
         <subtype name="compound" value="80"/>
     </relation>
+    <relation entry1="58" entry2="60" type="ECrel">
+        <subtype name="compound" value="80"/>
+    </relation>
+    <relation entry1="55" entry2="58" type="ECrel">
+        <subtype name="compound" value="82"/>
+    </relation>
     <relation entry1="55" entry2="64" type="ECrel">
         <subtype name="compound" value="82"/>
     </relation>
@@ -588,6 +594,9 @@
     <relation entry1="41" entry2="62" type="maplink">
         <subtype name="compound" value="85"/>
     </relation>
+    <relation entry1="51" entry2="58" type="ECrel">
+        <subtype name="compound" value="82"/>
+    </relation>
     <relation entry1="51" entry2="64" type="ECrel">
         <subtype name="compound" value="82"/>
     </relation>
@@ -704,6 +713,10 @@
     <reaction id="55" name="rn:R00847" type="irreversible">
         <substrate id="82" name="cpd:C00116"/>
         <product id="77" name="cpd:C00093"/>
+    </reaction>
+    <reaction id="58" name="rn:R01036 rn:R01041" type="reversible">
+        <substrate id="82" name="cpd:C00116"/>
+        <product id="80" name="cpd:C00577"/>
     </reaction>
     <reaction id="60" name="rn:R01752" type="reversible">
         <substrate id="80" name="cpd:C00577"/>

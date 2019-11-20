@@ -115,9 +115,9 @@
         <graphics name="K00656" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="999" y="365" width="46" height="17"/>
     </entry>
-    <entry id="79" name="ko:K00248" type="ortholog" reaction="rn:R01175"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K00248">
-        <graphics name="K00248" fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="79" name="ptep:107450516" type="gene" reaction="rn:R01175"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptep:107450516">
+        <graphics name="107450516" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="744" y="366" width="46" height="17"/>
     </entry>
     <entry id="80" name="ko:K00634" type="ortholog" reaction="rn:R01174"
@@ -551,6 +551,12 @@
     <relation entry1="75" entry2="76" type="ECrel">
         <subtype name="compound" value="142"/>
     </relation>
+    <relation entry1="79" entry2="86" type="ECrel">
+        <subtype name="compound" value="123"/>
+    </relation>
+    <relation entry1="71" entry2="79" type="ECrel">
+        <subtype name="compound" value="125"/>
+    </relation>
     <relation entry1="66" entry2="71" type="ECrel">
         <subtype name="compound" value="137"/>
     </relation>
@@ -635,6 +641,9 @@
     <relation entry1="86" entry2="56" type="maplink">
         <subtype name="compound" value="123"/>
     </relation>
+    <relation entry1="79" entry2="56" type="maplink">
+        <subtype name="compound" value="123"/>
+    </relation>
     <relation entry1="169" entry2="76" type="maplink">
         <subtype name="compound" value="142"/>
     </relation>
@@ -677,6 +686,10 @@
     <reaction id="76" name="rn:R00261" type="irreversible">
         <substrate id="143" name="cpd:C00025"/>
         <product id="142" name="cpd:C00334"/>
+    </reaction>
+    <reaction id="79" name="rn:R01175" type="irreversible">
+        <substrate id="123" name="cpd:C00136"/>
+        <product id="125" name="cpd:C00877"/>
     </reaction>
     <reaction id="84" name="rn:R00713" type="irreversible">
         <substrate id="141" name="cpd:C00232"/>

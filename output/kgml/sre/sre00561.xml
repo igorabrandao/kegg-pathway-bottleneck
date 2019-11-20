@@ -5,9 +5,9 @@
          title="Glycerolipid metabolism"
          image="http://www.kegg.jp/kegg/pathway/sre/sre00561.png"
          link="http://www.kegg.jp/kegg-bin/show_pathway?sre00561">
-    <entry id="35" name="sre:PTSG_08974" type="gene" reaction="rn:R05333"
-        link="http://www.kegg.jp/dbget-bin/www_bget?sre:PTSG_08974">
-        <graphics name="PTSG_08974" fgcolor="#000000" bgcolor="#BFFFBF"
+    <entry id="35" name="ko:K00679" type="ortholog" reaction="rn:R05333"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K00679">
+        <graphics name="K00679" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="636" y="564" width="46" height="17"/>
     </entry>
     <entry id="36" name="ko:K06118" type="ortholog" reaction="rn:R05775"
@@ -489,9 +489,6 @@
     <relation entry1="41" entry2="73" type="ECrel">
         <subtype name="compound" value="75"/>
     </relation>
-    <relation entry1="35" entry2="73" type="ECrel">
-        <subtype name="compound" value="75"/>
-    </relation>
     <relation entry1="42" entry2="73" type="ECrel">
         <subtype name="compound" value="75"/>
     </relation>
@@ -501,13 +498,7 @@
     <relation entry1="41" entry2="45" type="ECrel">
         <subtype name="compound" value="75"/>
     </relation>
-    <relation entry1="35" entry2="45" type="ECrel">
-        <subtype name="compound" value="75"/>
-    </relation>
     <relation entry1="42" entry2="45" type="ECrel">
-        <subtype name="compound" value="75"/>
-    </relation>
-    <relation entry1="35" entry2="47" type="ECrel">
         <subtype name="compound" value="75"/>
     </relation>
     <relation entry1="42" entry2="47" type="ECrel">
@@ -540,13 +531,7 @@
     <relation entry1="122" entry2="48" type="ECrel">
         <subtype name="compound" value="88"/>
     </relation>
-    <relation entry1="41" entry2="35" type="ECrel">
-        <subtype name="compound" value="75"/>
-    </relation>
     <relation entry1="122" entry2="41" type="ECrel">
-        <subtype name="compound" value="75"/>
-    </relation>
-    <relation entry1="122" entry2="35" type="ECrel">
         <subtype name="compound" value="75"/>
     </relation>
     <relation entry1="122" entry2="47" type="ECrel">
@@ -573,10 +558,6 @@
     <relation entry1="141" entry2="49" type="maplink">
         <subtype name="compound" value="142"/>
     </relation>
-    <reaction id="35" name="rn:R05333" type="irreversible">
-        <substrate id="75" name="cpd:C00641"/>
-        <product id="74" name="cpd:C00422"/>
-    </reaction>
     <reaction id="41" name="rn:R02250" type="irreversible">
         <substrate id="74" name="cpd:C00422"/>
         <product id="85" name="cpd:C00162"/>

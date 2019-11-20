@@ -625,9 +625,9 @@
         <graphics name="C00423" fgcolor="#000000" bgcolor="#FFFFFF"
              type="circle" x="64" y="361" width="8" height="8"/>
     </entry>
-    <entry id="211" name="ko:K00487" type="ortholog" reaction="rn:R02253"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K00487">
-        <graphics name="K00487" fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="211" name="soe:110783961 soe:110797393" type="gene" reaction="rn:R02253"
+        link="http://www.kegg.jp/dbget-bin/www_bget?soe:110783961+soe:110797393">
+        <graphics name="110783961..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="127" y="362" width="46" height="17"/>
     </entry>
     <entry id="218" name="cpd:C00353" type="compound"
@@ -792,6 +792,12 @@
     <relation entry1="150" entry2="71" type="maplink">
         <subtype name="compound" value="108"/>
     </relation>
+    <relation entry1="114" entry2="211" type="ECrel">
+        <subtype name="compound" value="93"/>
+    </relation>
+    <relation entry1="10" entry2="211" type="maplink">
+        <subtype name="compound" value="209"/>
+    </relation>
     <relation entry1="222" entry2="221" type="ECrel">
         <subtype name="compound" value="226"/>
     </relation>
@@ -920,6 +926,10 @@
     <reaction id="181" name="rn:R03816" type="irreversible">
         <substrate id="121" name="cpd:C02059"/>
         <product id="182" name="cpd:C03313"/>
+    </reaction>
+    <reaction id="211" name="rn:R02253" type="irreversible">
+        <substrate id="209" name="cpd:C00423"/>
+        <product id="93" name="cpd:C00811"/>
     </reaction>
     <reaction id="229" name="rn:R10710" type="irreversible">
         <substrate id="225" name="cpd:C20737"/>

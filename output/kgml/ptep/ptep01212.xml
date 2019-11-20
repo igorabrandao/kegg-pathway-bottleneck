@@ -936,9 +936,9 @@
         <graphics name="C00877" fgcolor="#000000" bgcolor="#FFFFFF"
              type="circle" x="147" y="341" width="8" height="8"/>
     </entry>
-    <entry id="240" name="ko:K00248 ko:K06445 ko:K09478" type="ortholog" reaction="rn:R01175"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K00248+K06445+K09478">
-        <graphics name="K00248..." fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="240" name="ptep:107450516" type="gene" reaction="rn:R01175"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptep:107450516">
+        <graphics name="107450516" fgcolor="#66CC66" bgcolor="#FFFFFF"
              type="line" coords="147,348,147,373"/>
     </entry>
     <entry id="241" name="cpd:C16165" type="compound"
@@ -1201,8 +1201,8 @@
         <graphics name="107443419..." fgcolor="#66CC66" bgcolor="#FFFFFF"
              type="line" coords="231,1401,281,1401"/>
     </entry>
-    <entry id="312" name="ptep:107438452 ptep:107441230 ptep:107445632 ptep:107445633 ptep:107450948" type="gene" reaction="rn:R04751"
-        link="http://www.kegg.jp/dbget-bin/www_bget?ptep:107438452+ptep:107441230+ptep:107445632+ptep:107445633+ptep:107450948">
+    <entry id="312" name="ptep:107438452 ptep:107441230 ptep:107445632 ptep:107445633 ptep:107450516 ptep:107450948" type="gene" reaction="rn:R04751"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptep:107438452+ptep:107441230+ptep:107445632+ptep:107445633+ptep:107450516+ptep:107450948">
         <graphics name="107438452..." fgcolor="#66CC66" bgcolor="#FFFFFF"
              type="line" coords="143,516,143,541"/>
     </entry>
@@ -1897,6 +1897,10 @@
     <reaction id="112" name="rn:R01177" type="reversible">
         <substrate id="111" name="cpd:C00136"/>
         <product id="113" name="cpd:C05269"/>
+    </reaction>
+    <reaction id="240" name="rn:R01175" type="reversible">
+        <substrate id="111" name="cpd:C00136"/>
+        <product id="239" name="cpd:C00877"/>
     </reaction>
     <reaction id="235" name="rn:R03026" type="reversible">
         <substrate id="238" name="cpd:C01144"/>

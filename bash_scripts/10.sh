@@ -27,7 +27,7 @@ PATHPWD=$(pwd)
 
 # Organisms list
 declare -a ORG_LIST=(
-  "dic" "dja" "dji" "dsl" "dso" "dsq" "dsu" "dte" "dti" "dto" "dtr" "dts" "dtx" "dun" "dvg" "dvl" "dvu" "dye" "dzc" "dze" "dzi" "eaa" "eab" "eae" "eah" "ecg" "ech" "echg" "echj" "echl" "echs" "echv" "echw" "eci" "eck" "ecl" "ecla" "eclc" "ecle" "eclg" "eclo" "ecls" "ecly" "edh" "edi" "edj" "eec" "eex" "efe" "efk" "efv" "hak" "halo" "halz" "ham" "han" "hap" "hat" "jre" "kab" "kaf" "kak" "kbl" "kbt" "kci" "kct" "kde" "keu" "kga" "kgo" "kgy" "kie" "kit" "kla" "kle" "kll" "kma" "kmi" "kmx" "kna" "koc" "koe" "kok" "kos" "kox" "kpa" "kpb" "kpc" "kpe" "kpg" "kph" "kpi" "kpk" "kpm" "kpne" "kpnk" "kpnu" "kpo" "kpq" "kpr" "kpt" "kpw" "kpy" "kpz" "kqu" "kqv" "malg" "mali" "man" "maqu" "marc" "marf" "myi" "myv" "mza" "mzh" "nac" "naf" "nag" "nai" "naj" "nam" "nan" 
+  "sbn" "mcl" "jeu" "pac" "hay" "azz" "vsp" "sthe" "bapg" "kak" "lhu" "rez" "oaq" "tpq" "epe" "sug" "tcb" "gbe" "sphu" "sab" "echl" "don" "ots" "hey" "yrb" "vvl" "mfa" "esl" "nat" "mthn" "hmn" "xbo" "kpt" "len" "wba" "aep" "scon" "tgo" "ccon" "bat" "stu" "rps" "srq" "paf" "meti" "lrr" 
 )
 
 #==============================================================

@@ -30,8 +30,8 @@
         <graphics name="Glycerophospholipid metabolism" fgcolor="#000000" bgcolor="#FFFFFF"
              type="roundrectangle" x="94" y="461" width="117" height="34"/>
     </entry>
-    <entry id="41" name="smin:v1.2.016398.t1 smin:v1.2.037542.t1" type="gene" reaction="rn:R02250"
-        link="http://www.kegg.jp/dbget-bin/www_bget?smin:v1.2.016398.t1+smin:v1.2.037542.t1">
+    <entry id="41" name="smin:v1.2.016398.t1 smin:v1.2.036653.t1 smin:v1.2.037542.t1" type="gene" reaction="rn:R02250"
+        link="http://www.kegg.jp/dbget-bin/www_bget?smin:v1.2.016398.t1+smin:v1.2.036653.t1+smin:v1.2.037542.t1">
         <graphics name="symbB.v1.2.016398.t1..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="636" y="522" width="46" height="17"/>
     </entry>
@@ -60,13 +60,13 @@
         <graphics name="K14458..." fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="489" y="523" width="46" height="17"/>
     </entry>
-    <entry id="47" name="smin:v1.2.016398.t1 smin:v1.2.037542.t1" type="gene" reaction="rn:R02687"
-        link="http://www.kegg.jp/dbget-bin/www_bget?smin:v1.2.016398.t1+smin:v1.2.037542.t1">
+    <entry id="47" name="smin:v1.2.016398.t1 smin:v1.2.036653.t1 smin:v1.2.037542.t1" type="gene" reaction="rn:R02687"
+        link="http://www.kegg.jp/dbget-bin/www_bget?smin:v1.2.016398.t1+smin:v1.2.036653.t1+smin:v1.2.037542.t1">
         <graphics name="symbB.v1.2.016398.t1..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="557" y="512" width="46" height="17"/>
     </entry>
-    <entry id="48" name="smin:v1.2.002725.t1 smin:v1.2.002725.t2 smin:v1.2.016398.t1 smin:v1.2.023121.t1 smin:v1.2.023432.t1 smin:v1.2.037542.t1 smin:v1.2.038285.t1" type="gene" reaction="rn:R02241"
-        link="http://www.kegg.jp/dbget-bin/www_bget?smin:v1.2.002725.t1+smin:v1.2.002725.t2+smin:v1.2.016398.t1+smin:v1.2.023121.t1+smin:v1.2.023432.t1+smin:v1.2.037542.t1+smin:v1.2.038285.t1">
+    <entry id="48" name="smin:v1.2.002725.t1 smin:v1.2.002725.t2 smin:v1.2.016398.t1 smin:v1.2.023121.t1 smin:v1.2.023432.t1 smin:v1.2.036653.t1 smin:v1.2.037542.t1 smin:v1.2.038285.t1" type="gene" reaction="rn:R02241"
+        link="http://www.kegg.jp/dbget-bin/www_bget?smin:v1.2.002725.t1+smin:v1.2.002725.t2+smin:v1.2.016398.t1+smin:v1.2.023121.t1+smin:v1.2.023432.t1+smin:v1.2.036653.t1+smin:v1.2.037542.t1+smin:v1.2.038285.t1">
         <graphics name="symbB.v1.2.002725.t1..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="382" y="528" width="46" height="17"/>
     </entry>
@@ -140,9 +140,9 @@
         <graphics name="TITLE:Glycerolipid metabolism" fgcolor="#000000" bgcolor="#FFFFFF"
              type="roundrectangle" x="150" y="58" width="219" height="25"/>
     </entry>
-    <entry id="64" name="smin:v1.2.013976.t1" type="gene" reaction="rn:R01041"
-        link="http://www.kegg.jp/dbget-bin/www_bget?smin:v1.2.013976.t1">
-        <graphics name="symbB.v1.2.013976.t1" fgcolor="#000000" bgcolor="#BFFFBF"
+    <entry id="64" name="ko:K00002" type="ortholog" reaction="rn:R01041"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K00002">
+        <graphics name="K00002" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="434" y="279" width="46" height="17"/>
     </entry>
     <entry id="65" name="ko:K01059" type="ortholog" reaction="rn:R01350"
@@ -453,9 +453,6 @@
     <relation entry1="60" entry2="61" type="ECrel">
         <subtype name="compound" value="79"/>
     </relation>
-    <relation entry1="60" entry2="64" type="ECrel">
-        <subtype name="compound" value="80"/>
-    </relation>
     <relation entry1="48" entry2="52" type="ECrel">
         <subtype name="compound" value="87"/>
     </relation>
@@ -543,9 +540,6 @@
     <relation entry1="41" entry2="62" type="maplink">
         <subtype name="compound" value="85"/>
     </relation>
-    <relation entry1="51" entry2="64" type="ECrel">
-        <subtype name="compound" value="82"/>
-    </relation>
     <relation entry1="122" entry2="48" type="ECrel">
         <subtype name="compound" value="88"/>
     </relation>
@@ -628,10 +622,6 @@
     <reaction id="61" name="rn:R01514" type="irreversible">
         <substrate id="79" name="cpd:C00258"/>
         <product id="78" name="cpd:C00197"/>
-    </reaction>
-    <reaction id="64" name="rn:R01041" type="reversible">
-        <substrate id="82" name="cpd:C00116"/>
-        <product id="80" name="cpd:C00577"/>
     </reaction>
     <reaction id="66" name="rn:R04470" type="irreversible">
         <substrate id="94" name="cpd:C06037"/>

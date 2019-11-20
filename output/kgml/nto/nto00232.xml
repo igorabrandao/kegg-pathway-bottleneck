@@ -50,9 +50,9 @@
         <graphics name="C16355" fgcolor="#000000" bgcolor="#FFFFFF"
              type="circle" x="393" y="390" width="8" height="8"/>
     </entry>
-    <entry id="38" name="ko:K07409" type="ortholog" reaction="rn:R07943"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K07409">
-        <graphics name="K07409" fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="38" name="nto:104093821" type="gene" reaction="rn:R07943"
+        link="http://www.kegg.jp/dbget-bin/www_bget?nto:104093821">
+        <graphics name="104093821" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="651" y="627" width="46" height="17"/>
     </entry>
     <entry id="40" name="nto:104111014" type="gene" reaction="rn:R07942"
@@ -115,9 +115,9 @@
         <graphics name="K12731" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="601" y="338" width="46" height="17"/>
     </entry>
-    <entry id="54" name="ko:K07409" type="ortholog" reaction="rn:R07945"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K07409">
-        <graphics name="K07409" fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="54" name="nto:104093821" type="gene" reaction="rn:R07945"
+        link="http://www.kegg.jp/dbget-bin/www_bget?nto:104093821">
+        <graphics name="104093821" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="451" y="158" width="46" height="17"/>
     </entry>
     <entry id="55" name="ko:K00622" type="ortholog" reaction="rn:R07940"
@@ -155,9 +155,9 @@
         <graphics name="C07481" fgcolor="#000000" bgcolor="#FFFFFF"
              type="circle" x="701" y="344" width="8" height="8"/>
     </entry>
-    <entry id="63" name="ko:K07409" type="ortholog" reaction="rn:R07939"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K07409">
-        <graphics name="K07409" fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="63" name="nto:104093821" type="gene" reaction="rn:R07939"
+        link="http://www.kegg.jp/dbget-bin/www_bget?nto:104093821">
+        <graphics name="104093821" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="634" y="268" width="46" height="17"/>
     </entry>
     <entry id="64" name="ko:K21723" type="ortholog" reaction="rn:R07954 rn:R07939"
@@ -255,6 +255,19 @@
         <graphics name="C16361" fgcolor="#000000" bgcolor="#FFFFFF"
              type="circle" x="729" y="430" width="8" height="8"/>
     </entry>
+    <relation entry1="63" entry2="65" type="ECrel">
+        <subtype name="compound" value="30"/>
+    </relation>
+    <relation entry1="38" entry2="65" type="ECrel">
+        <subtype name="compound" value="30"/>
+    </relation>
+    <relation entry1="38" entry2="40" type="ECrel">
+        <subtype name="compound" value="70"/>
+    </relation>
+    <reaction id="38" name="rn:R07943" type="irreversible">
+        <substrate id="30" name="cpd:C13747"/>
+        <product id="70" name="cpd:C16358"/>
+    </reaction>
     <reaction id="40" name="rn:R07942" type="irreversible">
         <substrate id="70" name="cpd:C16358"/>
         <product id="35" name="cpd:C16359"/>
@@ -267,9 +280,17 @@
         <substrate id="73" name="cpd:C07480"/>
         <product id="79" name="cpd:C16360"/>
     </reaction>
+    <reaction id="54" name="rn:R07945" type="irreversible">
+        <substrate id="30" name="cpd:C13747"/>
+        <product id="71" name="cpd:C16356"/>
+    </reaction>
     <reaction id="59" name="rn:R07979" type="irreversible">
         <substrate id="78" name="cpd:C16353"/>
         <product id="37" name="cpd:C16355"/>
+    </reaction>
+    <reaction id="63" name="rn:R07939" type="irreversible">
+        <substrate id="62" name="cpd:C07481"/>
+        <product id="30" name="cpd:C13747"/>
     </reaction>
     <reaction id="65" name="rn:R07977" type="irreversible">
         <substrate id="30" name="cpd:C13747"/>

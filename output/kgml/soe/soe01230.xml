@@ -1045,9 +1045,9 @@
         <graphics name="110786904..." fgcolor="#66CC66" bgcolor="#FFFFFF"
              type="line" coords="857,135,907,135"/>
     </entry>
-    <entry id="215" name="ko:K00013 ko:K14152" type="ortholog" reaction="rn:R01158"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K00013+K14152">
-        <graphics name="K00013..." fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="215" name="soe:110802091" type="gene" reaction="rn:R01158"
+        link="http://www.kegg.jp/dbget-bin/www_bget?soe:110802091">
+        <graphics name="110802091" fgcolor="#66CC66" bgcolor="#FFFFFF"
              type="line" coords="1109,135,1159,135"/>
     </entry>
     <entry id="216" name="cpd:C04691" type="compound"
@@ -1711,6 +1711,10 @@
     <reaction id="214" name="rn:R04558" type="irreversible">
         <substrate id="201" name="cpd:C04916"/>
         <product id="202" name="cpd:C04666"/>
+    </reaction>
+    <reaction id="215" name="rn:R01158" type="irreversible">
+        <substrate id="205" name="cpd:C00860"/>
+        <product id="206" name="cpd:C00135"/>
     </reaction>
     <reaction id="223" name="rn:R01826" type="irreversible">
         <substrate id="11" name="cpd:C00074"/>

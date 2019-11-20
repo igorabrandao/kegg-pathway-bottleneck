@@ -230,9 +230,9 @@
         <graphics name="K10524..." fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="789" y="211" width="46" height="17"/>
     </entry>
-    <entry id="104" name="ko:K01239" type="ortholog" reaction="rn:R01273"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K01239">
-        <graphics name="K01239" fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="104" name="csh:Closa_0492" type="gene" reaction="rn:R01273"
+        link="http://www.kegg.jp/dbget-bin/www_bget?csh:Closa_0492">
+        <graphics name="Closa_0492" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="653" y="257" width="46" height="17"/>
     </entry>
     <entry id="105" name="csh:Closa_1682 csh:Closa_3404" type="gene" reaction="rn:R02294"
@@ -749,6 +749,9 @@
     <relation entry1="204" entry2="105" type="ECrel">
         <subtype name="compound" value="168"/>
     </relation>
+    <relation entry1="204" entry2="104" type="ECrel">
+        <subtype name="compound" value="168"/>
+    </relation>
     <relation entry1="205" entry2="74" type="ECrel">
         <subtype name="compound" value="157"/>
     </relation>
@@ -799,6 +802,10 @@
     <reaction id="100" name="rn:R00137" type="reversible">
         <substrate id="156" name="cpd:C00455"/>
         <product id="154" name="cpd:C00003"/>
+    </reaction>
+    <reaction id="104" name="rn:R01273" type="irreversible">
+        <substrate id="168" name="cpd:C03150"/>
+        <product id="181" name="cpd:C00153"/>
     </reaction>
     <reaction id="105" name="rn:R02294" type="reversible">
         <substrate id="168" name="cpd:C03150"/>

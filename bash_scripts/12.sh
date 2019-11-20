@@ -27,7 +27,7 @@ PATHPWD=$(pwd)
 
 # Organisms list
 declare -a ORG_LIST=(
-  "nao" "nap" "nat" "nau" "nba" "nbg" "nmj" "nmm" "nmn" "nmp" "nmq" "nms" "nmt" "nmu" "nmw" "nmx" "nob" "noc" "noj" "nok" "nom" "nou" "npa" "npe" "npl" "otm" "ots" "ott" "our" "ovi" "pab" "pac" "paca" "pace" "pach" "pacn" "pacr" "parc" "paro" "parr" "pars" "part" "paru" "pary" "pat" "pau" "paur" "pavl" "pay" "pazo" "pbar" "pbb" "pbc" "pbh" "pfa" "pfae" "pfb" "pfc" "pfd" "pfe" "pff" "pfg" "pfh" "pfi" "pfj" "pfk" "pfl" "pfn" "pfo" "pfp" "pfr" "pfre" "pfs" "pfu" "pfv" "pll" "pln" "plo" "plq" "plu" "plum" "plv" "plw" "plx" "ply" "pmai" "pman" "pmar" "pmib" "psv" "psw" "pswu" "psx" "psy" "psyg" "psyr" "psz" "pta" "ptc" "pte" "ptep" "pth" "pti" "ptl" "sedi" "seds" "see" "seeh" "seen" "sef" "seg" "sega" "seh" "sei" "sek" "sel" "sele" "selo" "selt" "sena" "send" 
+  "fin" "csph" "srg" "tkm" "ykr" "ebd" "ncb" "six" "ccav" "izh" "ppb" "lcd" "rso" "pswu" "bck" "acv" "ndi" "mec" "mbah" "spit" "bgy" "axo" "xbc" "rtc" "pfre" "ysi" "sulz" "ljf" "blag" "lrm" 
 )
 
 #==============================================================

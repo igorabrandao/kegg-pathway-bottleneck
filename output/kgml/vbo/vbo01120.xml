@@ -1125,16 +1125,6 @@
         <graphics name="C18345" fgcolor="#E0E0E0" bgcolor="#E0E0E0"
              type="circle" x="1386" y="1009" width="14" height="14"/>
     </entry>
-    <entry id="1928" name="cpd:C18347" type="compound"
-        link="http://www.kegg.jp/dbget-bin/www_bget?C18347">
-        <graphics name="C18347" fgcolor="#E0E0E0" bgcolor="#E0E0E0"
-             type="circle" x="1513" y="957" width="14" height="14"/>
-    </entry>
-    <entry id="1927" name="cpd:C18348" type="compound"
-        link="http://www.kegg.jp/dbget-bin/www_bget?C18348">
-        <graphics name="C18348" fgcolor="#E0E0E0" bgcolor="#E0E0E0"
-             type="circle" x="1433" y="957" width="14" height="14"/>
-    </entry>
     <entry id="1926" name="cpd:C18349" type="compound"
         link="http://www.kegg.jp/dbget-bin/www_bget?C18349">
         <graphics name="C18349" fgcolor="#E0E0E0" bgcolor="#E0E0E0"
@@ -5287,11 +5277,6 @@
         <graphics name="K15061" fgcolor="#E0E0E0" bgcolor="#FFFFFF"
              type="line" coords="1434,957,1358,957"/>
     </entry>
-    <entry id="336" name="ko:K15060" type="ortholog" reaction="rn:R09275"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K15060">
-        <graphics name="K15060" fgcolor="#E0E0E0" bgcolor="#FFFFFF"
-             type="line" coords="1515,957,1433,957"/>
-    </entry>
     <entry id="335" name="ko:K04100 ko:K04101 ko:K15065" type="ortholog" reaction="rn:R04280"
         link="http://www.kegg.jp/dbget-bin/www_bget?K04100+K04101+K15065">
         <graphics name="K04100..." fgcolor="#E0E0E0" bgcolor="#FFFFFF"
@@ -6688,6 +6673,11 @@
         link="http://www.kegg.jp/dbget-bin/www_bget?vbo:CKY39_25590">
         <graphics name="CKY39_25590" fgcolor="#CC99FF" bgcolor="#FFFFFF"
              type="line" coords="2882,782,2330,782"/>
+    </entry>
+    <entry id="336" name="vbo:CKY39_11535" type="gene" reaction="rn:R09275"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vbo:CKY39_11535">
+        <graphics name="CKY39_11535" fgcolor="#DA8E82" bgcolor="#FFFFFF"
+             type="line" coords="1515,957,1433,957"/>
     </entry>
     <entry id="344" name="vbo:CKY39_25920" type="gene" reaction="rn:R00345"
         link="http://www.kegg.jp/dbget-bin/www_bget?vbo:CKY39_25920">
@@ -8884,6 +8874,16 @@
         <graphics name="C00085" fgcolor="#CC99FF" bgcolor="#CC99FF"
              type="circle" x="1608" y="216" width="14" height="14"/>
     </entry>
+    <entry id="1927" name="cpd:C18348" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C18348">
+        <graphics name="C18348" fgcolor="#DA8E82" bgcolor="#DA8E82"
+             type="circle" x="1433" y="957" width="14" height="14"/>
+    </entry>
+    <entry id="1928" name="cpd:C18347" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C18347">
+        <graphics name="C18347" fgcolor="#DA8E82" bgcolor="#DA8E82"
+             type="circle" x="1513" y="957" width="14" height="14"/>
+    </entry>
     <entry id="1932" name="cpd:C11537" type="compound"
         link="http://www.kegg.jp/dbget-bin/www_bget?C11537">
         <graphics name="C11537" fgcolor="#CC99FF" bgcolor="#CC99FF"
@@ -10647,6 +10647,10 @@
         <substrate id="1920" name="cpd:C00149"/>
         <product id="2203" name="cpd:C00011"/>
         <product id="1921" name="cpd:C00022"/>
+    </reaction>
+    <reaction id="336" name="rn:R09275" type="reversible">
+        <substrate id="1928" name="cpd:C18347"/>
+        <product id="1927" name="cpd:C18348"/>
     </reaction>
     <reaction id="326" name="rn:R07136 rn:R07137" type="reversible">
         <substrate id="1932" name="cpd:C11537"/>

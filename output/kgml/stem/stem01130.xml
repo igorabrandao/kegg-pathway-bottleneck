@@ -5156,11 +5156,6 @@
         <graphics name="K01655..." fgcolor="#E0E0E0" bgcolor="#FFFFFF"
              type="line" coords="1606,1496,1606,1421"/>
     </entry>
-    <entry id="805" name="ko:K01079 ko:K02203 ko:K22305" type="ortholog" reaction="rn:R00582"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K01079+K02203+K22305">
-        <graphics name="K01079..." fgcolor="#E0E0E0" bgcolor="#FFFFFF"
-             type="line" coords="1518,731,1518,1188"/>
-    </entry>
     <entry id="802" name="ko:K12748" type="ortholog" reaction="rn:R07402"
         link="http://www.kegg.jp/dbget-bin/www_bget?K12748">
         <graphics name="K12748" fgcolor="#E0E0E0" bgcolor="#FFFFFF"
@@ -8075,6 +8070,11 @@
         <graphics name="CLM74_13520" fgcolor="#FFCC66" bgcolor="#FFFFFF"
              type="line" coords="1518,623,1518,734"/>
     </entry>
+    <entry id="805" name="stem:CLM74_04325" type="gene" reaction="rn:R00582"
+        link="http://www.kegg.jp/dbget-bin/www_bget?stem:CLM74_04325">
+        <graphics name="CLM74_04325" fgcolor="#FFCC66" bgcolor="#FFFFFF"
+             type="line" coords="1518,731,1518,1188"/>
+    </entry>
     <entry id="806" name="stem:CLM74_02635" type="gene" reaction="rn:R00891"
         link="http://www.kegg.jp/dbget-bin/www_bget?stem:CLM74_02635">
         <graphics name="CLM74_02635" fgcolor="#FFCC66" bgcolor="#FFFFFF"
@@ -10247,6 +10247,10 @@
     <reaction id="804" name="rn:R04173" type="reversible">
         <substrate id="1084" name="cpd:C01005"/>
         <product id="2100" name="cpd:C03232"/>
+    </reaction>
+    <reaction id="805" name="rn:R00582" type="reversible">
+        <substrate id="1084" name="cpd:C01005"/>
+        <product id="1012" name="cpd:C00065"/>
     </reaction>
     <reaction id="792" name="rn:R06363" type="reversible">
         <substrate id="1087" name="cpd:C00395"/>

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!DOCTYPE pathway SYSTEM "http://www.kegg.jp/kegg/xml/KGML_v0.7.2_.dtd">
-<!-- Creation date: Sep 11, 2019 16:31:13 +0900 (GMT+9) -->
+<!-- Creation date: Nov 13, 2019 14:35:35 +0900 (GMT+9) -->
 <pathway name="path:ccav00310" org="ccav" number="00310"
          title="Lysine degradation"
          image="http://www.kegg.jp/kegg/pathway/ccav/ccav00310.png"
@@ -40,9 +40,9 @@
         <graphics name="112516102" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="272" y="94" width="46" height="17"/>
     </entry>
-    <entry id="77" name="ccav:112516750" type="gene" reaction="rn:R02315"
-        link="http://www.kegg.jp/dbget-bin/www_bget?ccav:112516750">
-        <graphics name="112516750" fgcolor="#000000" bgcolor="#BFFFBF"
+    <entry id="77" name="ko:K00293" type="ortholog" reaction="rn:R02315"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K00293">
+        <graphics name="K00293" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="553" y="94" width="46" height="17"/>
     </entry>
     <entry id="78" name="path:map00311" type="map"
@@ -345,9 +345,9 @@
         <graphics name="K18804" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="496" y="701" width="46" height="17"/>
     </entry>
-    <entry id="149" name="ccav:112501907 ccav:112502294 ccav:112502899 ccav:112504010 ccav:112504406 ccav:112507709 ccav:112509305 ccav:112509945 ccav:112511969 ccav:112515933 ccav:112516142 ccav:112518153 ccav:112519713 ccav:112520348 ccav:112521078 ccav:112521683 ccav:112522801 ccav:112523766 ccav:112524278 ccav:112527883" type="gene" reaction="rn:R04867"
-        link="http://www.kegg.jp/dbget-bin/www_bget?ccav:112501907+ccav:112502294+ccav:112502899+ccav:112504010+ccav:112504406+ccav:112507709+ccav:112509305+ccav:112509945+ccav:112511969+ccav:112515933+ccav:112516142+ccav:112518153+ccav:112519713+ccav:112520348+ccav:112521078+ccav:112521683+ccav:112522801+ccav:112523766+ccav:112524278+ccav:112527883">
-        <graphics name="112501907..." fgcolor="#000000" bgcolor="#BFFFBF"
+    <entry id="149" name="ccav:112501072 ccav:112501907 ccav:112502294 ccav:112502899 ccav:112504010 ccav:112504406 ccav:112507709 ccav:112509305 ccav:112509945 ccav:112511969 ccav:112515933 ccav:112516142 ccav:112518153 ccav:112519713 ccav:112520348 ccav:112521078 ccav:112521683 ccav:112522801 ccav:112523766 ccav:112524278 ccav:112527883" type="gene" reaction="rn:R04867"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ccav:112501072+ccav:112501907+ccav:112502294+ccav:112502899+ccav:112504010+ccav:112504406+ccav:112507709+ccav:112509305+ccav:112509945+ccav:112511969+ccav:112515933+ccav:112516142+ccav:112518153+ccav:112519713+ccav:112520348+ccav:112521078+ccav:112521683+ccav:112522801+ccav:112523766+ccav:112524278+ccav:112527883">
+        <graphics name="112501072..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="496" y="739" width="46" height="17"/>
     </entry>
     <entry id="151" name="ccav:112502786 ccav:112509698 ccav:112510787 ccav:112511498 ccav:112512809 ccav:112514659 ccav:112515215 ccav:112515883 ccav:112516483 ccav:112519319 ccav:112520952" type="gene" reaction="rn:R03283"
@@ -588,13 +588,7 @@
     <relation entry1="76" entry2="87" type="ECrel">
         <subtype name="compound" value="122"/>
     </relation>
-    <relation entry1="76" entry2="77" type="ECrel">
-        <subtype name="compound" value="122"/>
-    </relation>
     <relation entry1="87" entry2="88" type="ECrel">
-        <subtype name="compound" value="118"/>
-    </relation>
-    <relation entry1="77" entry2="88" type="ECrel">
         <subtype name="compound" value="118"/>
     </relation>
     <relation entry1="139" entry2="141" type="ECrel">
@@ -627,10 +621,6 @@
     <reaction id="76" name="rn:R00716" type="irreversible">
         <substrate id="126" name="cpd:C00047"/>
         <product id="122" name="cpd:C00449"/>
-    </reaction>
-    <reaction id="77" name="rn:R02315" type="reversible">
-        <substrate id="122" name="cpd:C00449"/>
-        <product id="118" name="cpd:C04076"/>
     </reaction>
     <reaction id="139" name="rn:R04866" type="irreversible">
         <substrate id="153" name="cpd:C05544"/>

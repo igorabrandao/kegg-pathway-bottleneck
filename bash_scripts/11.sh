@@ -27,7 +27,7 @@ PATHPWD=$(pwd)
 
 # Organisms list
 declare -a ORG_LIST=(
-  "xoy" "xoz" "xpo" "ypf" "ypg" "yph" "ypi" "ypj" "ypk" "ypl" "ypm" "ypn" "ypo" "ypp" "ypq" "ypr" "yps" "ypt" "ypu" "ypv" "ypw" "ypx" "ypy" "ypz" "yrb" "bceo" "bcep" "bcew" "bch" "bchi" "bci" "bcib" "bcig" "bcj" "bck" "bcl" "bcm" "bcn" "bcoa" "bcom" "bcon" "bprl" "bpsa" "bpsd" "bpse" "bpsh" "bpsi" "bpsl" "bpsm" "bpso" "bpsu" "bpt" "bpu" "bpum" "bpus" "bpw" "bpx" "bpy" "bpz" "bql" "bqr" "bqu" "btrh" "btrm" "bts" "btv" "btx" "bty" "btz" "bua" "bub" "buc" "bud" "bue" "buf" "bug" "bui" "buk" "buo" "bup" "buq" "bur" "cdn" "cdq" "cdu" "cea" "ced" "ceh" "cek" "cel" "cell" "cpsd" "dax" "dfa" "dnx" "ecan" "eclz" "ecz" "eta" "frc" "gps" "gtn" "hpx" "bmae" "pnr" "lez" "lfa" "lfe" "lff" "lfu" "lga" "lgi" "lgl" "lgn" "lgt" "lgu" "lgy" "lha" "lhd" "lhe" "lhf" "lhh" 
+  "agr" "aat" "fus" "bcom" "bop" "koe" "hem" "pha" "pic" "aqb" "tac" "eli" "hen" "ssf" "mmas" "bcep" "bgf" "bbar" "bgw" "buz" "aeh" "vaa" "bpe" "kpw" "ppy" "pmul" "saui" "paen" "nri" "cmar" "ftv" "banr" "lan" "dsa" "arv" "hcp" "sauv" "hhm" "crb" "hml" "gbs" "panr" "syi" "thw" "prl" 
 )
 
 #==============================================================

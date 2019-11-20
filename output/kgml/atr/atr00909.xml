@@ -180,9 +180,9 @@
         <graphics name="K15801" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="527" y="499" width="46" height="17"/>
     </entry>
-    <entry id="84" name="atr:18448295" type="gene" reaction="rn:R07648"
-        link="http://www.kegg.jp/dbget-bin/www_bget?atr:18448295">
-        <graphics name="18448295" fgcolor="#000000" bgcolor="#BFFFBF"
+    <entry id="84" name="ko:K15803 ko:K10187" type="ortholog" reaction="rn:R07648"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K15803+K10187">
+        <graphics name="K15803..." fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="528" y="579" width="46" height="17"/>
     </entry>
     <entry id="85" name="ko:K14182" type="ortholog" reaction="rn:R06523"
@@ -858,12 +858,6 @@
     <relation entry1="49" entry2="58" type="maplink">
         <subtype name="compound" value="50"/>
     </relation>
-    <relation entry1="49" entry2="84" type="maplink">
-        <subtype name="compound" value="50"/>
-    </relation>
-    <relation entry1="58" entry2="84" type="ECrel">
-        <subtype name="compound" value="50"/>
-    </relation>
     <relation entry1="172" entry2="204" type="ECrel">
         <subtype name="compound" value="205"/>
     </relation>
@@ -872,9 +866,6 @@
     </relation>
     <relation entry1="204" entry2="214" type="maplink">
         <subtype name="compound" value="206"/>
-    </relation>
-    <relation entry1="171" entry2="84" type="ECrel">
-        <subtype name="compound" value="50"/>
     </relation>
     <relation entry1="171" entry2="58" type="ECrel">
         <subtype name="compound" value="50"/>
@@ -886,10 +877,6 @@
     <reaction id="62" name="rn:R10412" type="irreversible">
         <substrate id="54" name="cpd:C01126"/>
         <product id="61" name="cpd:C03461"/>
-    </reaction>
-    <reaction id="84" name="rn:R07648" type="irreversible">
-        <substrate id="50" name="cpd:C00448"/>
-        <product id="76" name="cpd:C16142"/>
     </reaction>
     <reaction id="172" name="rn:R02872" type="irreversible">
         <substrate id="173" name="cpd:C03428"/>

@@ -240,9 +240,9 @@
         <graphics name="105561772" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="209" y="482" width="46" height="17"/>
     </entry>
-    <entry id="293" name="ko:K07198" type="ortholog"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K07198">
-        <graphics name="K07198" fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="293" name="vem:105561556" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vem:105561556">
+        <graphics name="105561556" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="456" y="482" width="46" height="17"/>
     </entry>
     <entry id="294" name="vem:105559446" type="gene"
@@ -525,9 +525,9 @@
         <graphics name="105560943" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="783" y="1239" width="46" height="17"/>
     </entry>
-    <entry id="350" name="ko:K01365" type="ortholog"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K01365">
-        <graphics name="K01365" fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="350" name="vem:105563153 vem:105563345" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vem:105563153+vem:105563345">
+        <graphics name="105563153..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="783" y="1269" width="46" height="17"/>
     </entry>
     <entry id="351" name="ko:K01363" type="ortholog"
@@ -765,12 +765,36 @@
     <relation entry1="268" entry2="304" type="PPrel">
         <subtype name="inhibition" value="--|"/>
     </relation>
+    <relation entry1="292" entry2="293" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="293" entry2="379" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="293" entry2="273" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
     <relation entry1="269" entry2="297" type="PPrel">
         <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="294" entry2="293" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="295" entry2="293" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
     </relation>
     <relation entry1="296" entry2="297" type="PPrel">
         <subtype name="activation" value="--&gt;"/>
         <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="298" entry2="293" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="phosphorylation" value="+p"/>
     </relation>
     <relation entry1="298" entry2="281" type="PPrel">
         <subtype name="inhibition" value="--|"/>

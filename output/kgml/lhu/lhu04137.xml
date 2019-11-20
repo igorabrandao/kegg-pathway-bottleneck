@@ -165,9 +165,9 @@
         <graphics name="K21347" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="763" y="182" width="46" height="17"/>
     </entry>
-    <entry id="82" name="ko:K20168 ko:K19945" type="ortholog"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K20168+K19945">
-        <graphics name="K20168..." fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="82" name="lhu:105672120" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lhu:105672120">
+        <graphics name="105672120" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="1028" y="319" width="46" height="17"/>
     </entry>
     <entry id="85" name="lhu:105671556" type="gene"
@@ -365,5 +365,14 @@
     </relation>
     <relation entry1="53" entry2="31" type="PPrel">
         <subtype name="binding/association" value="---"/>
+    </relation>
+    <relation entry1="82" entry2="31" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="82" entry2="85" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="86" entry2="82" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
     </relation>
 </pathway>

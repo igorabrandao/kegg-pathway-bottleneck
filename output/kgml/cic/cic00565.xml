@@ -235,9 +235,9 @@
         <graphics name="C20825" fgcolor="#000000" bgcolor="#FFFFFF"
              type="circle" x="794" y="564" width="8" height="8"/>
     </entry>
-    <entry id="92" name="cic:CICLE_v10028419mg" type="gene" reaction="rn:R10804"
-        link="http://www.kegg.jp/dbget-bin/www_bget?cic:CICLE_v10028419mg">
-        <graphics name="CICLE_v10028419mg" fgcolor="#000000" bgcolor="#BFFFBF"
+    <entry id="92" name="ko:K04628" type="ortholog" reaction="rn:R10804"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K04628">
+        <graphics name="K04628" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="794" y="453" width="46" height="17"/>
     </entry>
     <entry id="93" name="ko:K01019" type="ortholog" reaction="rn:R10805"
@@ -265,9 +265,6 @@
     </relation>
     <relation entry1="79" entry2="78" type="ECrel">
         <subtype name="compound" value="10"/>
-    </relation>
-    <relation entry1="92" entry2="66" type="ECrel">
-        <subtype name="compound" value="14"/>
     </relation>
     <reaction id="66" name="rn:R06364" type="irreversible">
         <substrate id="14" name="cpd:C03201"/>
@@ -300,9 +297,5 @@
     <reaction id="72" name="rn:R03437" type="irreversible">
         <substrate id="11" name="cpd:C04317"/>
         <product id="17" name="cpd:C04598"/>
-    </reaction>
-    <reaction id="92" name="rn:R10804" type="irreversible">
-        <substrate id="14" name="cpd:C03201"/>
-        <product id="89" name="cpd:C20859"/>
     </reaction>
 </pathway>

@@ -60,9 +60,9 @@
         <graphics name="107442576" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="515" y="805" width="46" height="17"/>
     </entry>
-    <entry id="17" name="ko:K04670 ko:K13596" type="ortholog"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K04670+K13596">
-        <graphics name="K04670..." fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="17" name="ptep:107436981" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptep:107436981">
+        <graphics name="107436981" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="228" y="858" width="46" height="17"/>
     </entry>
     <entry id="18" name="ko:K13567 ko:K13568" type="ortholog"
@@ -135,9 +135,9 @@
         <graphics name="107450421..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="769" y="263" width="46" height="17"/>
     </entry>
-    <entry id="32" name="ko:K04670 ko:K13596" type="ortholog"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K04670+K13596">
-        <graphics name="K04670..." fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="32" name="ptep:107436981" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptep:107436981">
+        <graphics name="107436981" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="228" y="785" width="46" height="17"/>
     </entry>
     <entry id="33" name="ptep:107436899" type="gene"
@@ -416,6 +416,9 @@
         <component id="43"/>
     </entry>
     <relation entry1="57" entry2="55" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="34" entry2="32" type="PPrel">
         <subtype name="activation" value="--&gt;"/>
     </relation>
     <relation entry1="60" entry2="46" type="PPrel">

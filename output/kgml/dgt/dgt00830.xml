@@ -180,9 +180,9 @@
         <graphics name="K17689..." fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="642" y="219" width="46" height="17"/>
     </entry>
-    <entry id="59" name="ko:K07408 ko:K07409" type="ortholog" reaction="rn:R08392"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K07408+K07409">
-        <graphics name="K07408..." fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="59" name="dgt:114521459 dgt:114521839" type="gene" reaction="rn:R08392"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dgt:114521459+dgt:114521839">
+        <graphics name="114521459..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="642" y="198" width="46" height="17"/>
     </entry>
     <entry id="61" name="cpd:C16678" type="compound"
@@ -250,9 +250,9 @@
         <graphics name="K17689..." fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="593" y="283" width="46" height="17"/>
     </entry>
-    <entry id="79" name="ko:K07408" type="ortholog" reaction="rn:R08390"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K07408">
-        <graphics name="K07408" fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="79" name="dgt:114521459 dgt:114521839" type="gene" reaction="rn:R08390"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dgt:114521459+dgt:114521839">
+        <graphics name="114521459..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="593" y="262" width="46" height="17"/>
     </entry>
     <entry id="80" name="ko:K07425" type="ortholog" reaction="rn:R08390"
@@ -265,9 +265,9 @@
         <graphics name="K17683..." fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="641" y="262" width="46" height="17"/>
     </entry>
-    <entry id="82" name="ko:K07408 ko:K07409" type="ortholog"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K07408+K07409">
-        <graphics name="K07408..." fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="82" name="dgt:114521459 dgt:114521839" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?dgt:114521459+dgt:114521839">
+        <graphics name="114521459..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="804" y="198" width="46" height="17"/>
     </entry>
     <entry id="83" name="ko:K17689 ko:K17690 ko:K17691 ko:K07424" type="ortholog"
@@ -358,6 +358,12 @@
     <relation entry1="70" entry2="91" type="ECrel">
         <subtype name="compound" value="7"/>
     </relation>
+    <relation entry1="59" entry2="90" type="ECrel">
+        <subtype name="compound" value="16"/>
+    </relation>
+    <relation entry1="79" entry2="90" type="ECrel">
+        <subtype name="compound" value="16"/>
+    </relation>
     <relation entry1="91" entry2="93" type="ECrel">
         <subtype name="compound" value="7"/>
     </relation>
@@ -404,6 +410,10 @@
         <substrate id="22" name="cpd:C00899"/>
         <product id="48" name="cpd:C03455"/>
     </reaction>
+    <reaction id="59" name="rn:R08392" type="irreversible">
+        <substrate id="16" name="cpd:C00777"/>
+        <product id="57" name="cpd:C16677"/>
+    </reaction>
     <reaction id="69" name="rn:R02124 rn:R08379" type="reversible">
         <substrate id="7" name="cpd:C00473"/>
         <product id="10" name="cpd:C00376"/>
@@ -411,6 +421,10 @@
     <reaction id="70" name="rn:R02124 rn:R08379" type="reversible">
         <substrate id="7" name="cpd:C00473"/>
         <product id="10" name="cpd:C00376"/>
+    </reaction>
+    <reaction id="79" name="rn:R08390" type="irreversible">
+        <substrate id="16" name="cpd:C00777"/>
+        <product id="73" name="cpd:C16679"/>
     </reaction>
     <reaction id="87" name="rn:R08383" type="reversible">
         <substrate id="27" name="cpd:C16682"/>

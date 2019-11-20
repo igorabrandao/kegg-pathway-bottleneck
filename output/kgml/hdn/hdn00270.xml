@@ -1010,4 +1010,182 @@
     <relation entry1="215" entry2="98" type="ECrel">
         <subtype name="compound" value="115"/>
     </relation>
-    <relation entry1="215" entry2
+    <relation entry1="215" entry2="222" type="maplink">
+        <subtype name="compound" value="115"/>
+    </relation>
+    <relation entry1="98" entry2="222" type="maplink">
+        <subtype name="compound" value="115"/>
+    </relation>
+    <relation entry1="97" entry2="101" type="ECrel">
+        <subtype name="compound" value="116"/>
+    </relation>
+    <relation entry1="99" entry2="101" type="ECrel">
+        <subtype name="compound" value="116"/>
+    </relation>
+    <relation entry1="102" entry2="103" type="ECrel">
+        <subtype name="compound" value="118"/>
+    </relation>
+    <relation entry1="101" entry2="103" type="ECrel">
+        <subtype name="compound" value="119"/>
+    </relation>
+    <relation entry1="101" entry2="90" type="ECrel">
+        <subtype name="compound" value="119"/>
+    </relation>
+    <relation entry1="103" entry2="90" type="ECrel">
+        <subtype name="compound" value="119"/>
+    </relation>
+    <relation entry1="84" entry2="86" type="ECrel">
+        <subtype name="compound" value="73"/>
+    </relation>
+    <relation entry1="158" entry2="253" type="ECrel">
+        <subtype name="compound" value="159"/>
+    </relation>
+    <relation entry1="260" entry2="268" type="maplink">
+        <subtype name="compound" value="113"/>
+    </relation>
+    <relation entry1="260" entry2="243" type="maplink">
+        <subtype name="compound" value="113"/>
+    </relation>
+    <relation entry1="260" entry2="269" type="maplink">
+        <subtype name="compound" value="113"/>
+    </relation>
+    <relation entry1="260" entry2="262" type="ECrel">
+        <subtype name="compound" value="259"/>
+    </relation>
+    <relation entry1="262" entry2="265" type="ECrel">
+        <subtype name="compound" value="264"/>
+    </relation>
+    <relation entry1="243" entry2="268" type="maplink">
+        <subtype name="compound" value="113"/>
+    </relation>
+    <relation entry1="243" entry2="269" type="maplink">
+        <subtype name="compound" value="113"/>
+    </relation>
+    <relation entry1="268" entry2="269" type="maplink">
+        <subtype name="compound" value="113"/>
+    </relation>
+    <relation entry1="291" entry2="295" type="ECrel">
+        <subtype name="compound" value="245"/>
+    </relation>
+    <reaction id="62" name="rn:R01288" type="irreversible">
+        <substrate id="209" name="cpd:C01118"/>
+        <product id="115" name="cpd:C00155"/>
+    </reaction>
+    <reaction id="84" name="rn:R04420" type="irreversible">
+        <substrate id="73" name="cpd:C04188"/>
+        <product id="72" name="cpd:C04582"/>
+    </reaction>
+    <reaction id="86" name="rn:R01402" type="irreversible">
+        <substrate id="75" name="cpd:C00170"/>
+        <product id="73" name="cpd:C04188"/>
+    </reaction>
+    <reaction id="90" name="rn:R00178" type="irreversible">
+        <substrate id="119" name="cpd:C00019"/>
+        <product id="76" name="cpd:C01137"/>
+    </reaction>
+    <reaction id="97" name="rn:R00946" type="irreversible">
+        <substrate id="115" name="cpd:C00155"/>
+        <product id="116" name="cpd:C00073"/>
+    </reaction>
+    <reaction id="98" name="rn:R01286" type="irreversible">
+        <substrate id="117" name="cpd:C02291"/>
+        <product id="115" name="cpd:C00155"/>
+    </reaction>
+    <reaction id="99" name="rn:R04405" type="irreversible">
+        <substrate id="115" name="cpd:C00155"/>
+        <product id="116" name="cpd:C00073"/>
+    </reaction>
+    <reaction id="101" name="rn:R00177" type="irreversible">
+        <substrate id="116" name="cpd:C00073"/>
+        <product id="119" name="cpd:C00019"/>
+    </reaction>
+    <reaction id="102" name="rn:R00192" type="irreversible">
+        <substrate id="118" name="cpd:C00021"/>
+        <product id="115" name="cpd:C00155"/>
+    </reaction>
+    <reaction id="103" name="rn:R04858" type="irreversible">
+        <substrate id="119" name="cpd:C00019"/>
+        <product id="118" name="cpd:C00021"/>
+    </reaction>
+    <reaction id="132" name="rn:R00897" type="irreversible">
+        <substrate id="134" name="cpd:C00979"/>
+        <substrate id="139" name="cpd:C00283"/>
+        <product id="136" name="cpd:C00097"/>
+    </reaction>
+    <reaction id="133" name="rn:R00586" type="reversible">
+        <substrate id="130" name="cpd:C00065"/>
+        <product id="134" name="cpd:C00979"/>
+    </reaction>
+    <reaction id="158" name="rn:R02433" type="reversible">
+        <substrate id="152" name="cpd:C00506"/>
+        <product id="159" name="cpd:C05528"/>
+    </reaction>
+    <reaction id="285" name="rn:R02408" type="irreversible">
+        <substrate id="172" name="cpd:C00491"/>
+        <product id="178" name="cpd:C01962"/>
+    </reaction>
+    <reaction id="185" name="rn:R02619" type="irreversible">
+        <substrate id="183" name="cpd:C00606"/>
+        <product id="187" name="cpd:C05527"/>
+    </reaction>
+    <reaction id="194" name="rn:R00782" type="reversible">
+        <substrate id="136" name="cpd:C00097"/>
+        <product id="188" name="cpd:C00022"/>
+    </reaction>
+    <reaction id="198" name="rn:R03105" type="irreversible">
+        <substrate id="197" name="cpd:C00957"/>
+        <product id="188" name="cpd:C00022"/>
+    </reaction>
+    <reaction id="199" name="rn:R00896" type="reversible">
+        <substrate id="136" name="cpd:C00097"/>
+        <product id="197" name="cpd:C00957"/>
+    </reaction>
+    <reaction id="207" name="rn:R01776" type="irreversible">
+        <substrate id="206" name="cpd:C00263"/>
+        <product id="210" name="cpd:C01077"/>
+    </reaction>
+    <reaction id="208" name="rn:R01777" type="reversible">
+        <substrate id="206" name="cpd:C00263"/>
+        <product id="209" name="cpd:C01118"/>
+    </reaction>
+    <reaction id="215" name="rn:R01287 rn:R02026" type="irreversible">
+        <substrate id="210" name="cpd:C01077"/>
+        <product id="115" name="cpd:C00155"/>
+    </reaction>
+    <reaction id="224" name="rn:R01773 rn:R01775" type="reversible">
+        <substrate id="206" name="cpd:C00263"/>
+        <product id="225" name="cpd:C00441"/>
+    </reaction>
+    <reaction id="227" name="rn:R02291" type="irreversible">
+        <substrate id="228" name="cpd:C03082"/>
+        <product id="225" name="cpd:C00441"/>
+    </reaction>
+    <reaction id="230" name="rn:R00480" type="irreversible">
+        <substrate id="231" name="cpd:C00049"/>
+        <product id="228" name="cpd:C03082"/>
+    </reaction>
+    <reaction id="253" name="rn:R07136" type="reversible">
+        <substrate id="160" name="cpd:C11537"/>
+        <product id="159" name="cpd:C05528"/>
+    </reaction>
+    <reaction id="265" name="rn:R10994" type="irreversible">
+        <substrate id="264" name="cpd:C21015"/>
+        <product id="266" name="cpd:C21016"/>
+    </reaction>
+    <reaction id="262" name="rn:R10993" type="irreversible">
+        <substrate id="259" name="cpd:C02356"/>
+        <product id="264" name="cpd:C21015"/>
+    </reaction>
+    <reaction id="260" name="rn:R10991" type="reversible">
+        <substrate id="113" name="cpd:C00109"/>
+        <product id="259" name="cpd:C02356"/>
+    </reaction>
+    <reaction id="291" name="rn:R04173" type="reversible">
+        <substrate id="245" name="cpd:C01005"/>
+        <product id="293" name="cpd:C03232"/>
+    </reaction>
+    <reaction id="295" name="rn:R07274" type="irreversible">
+        <substrate id="245" name="cpd:C01005"/>
+        <product id="136" name="cpd:C00097"/>
+    </reaction>
+</pathway>

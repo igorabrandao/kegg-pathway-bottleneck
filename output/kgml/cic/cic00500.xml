@@ -35,8 +35,8 @@
         <graphics name="TITLE:Starch and sucrose metabolism" fgcolor="#000000" bgcolor="#FFFFFF"
              type="roundrectangle" x="178" y="58" width="276" height="25"/>
     </entry>
-    <entry id="90" name="cic:CICLE_v10004465mg cic:CICLE_v10007827mg cic:CICLE_v10013701mg cic:CICLE_v10019134mg cic:CICLE_v10025243mg cic:CICLE_v10025259mg cic:CICLE_v10027399mg" type="gene" reaction="rn:R03921"
-        link="http://www.kegg.jp/dbget-bin/www_bget?cic:CICLE_v10004465mg+cic:CICLE_v10007827mg+cic:CICLE_v10013701mg+cic:CICLE_v10019134mg+cic:CICLE_v10025243mg+cic:CICLE_v10025259mg+cic:CICLE_v10027399mg">
+    <entry id="90" name="cic:CICLE_v10004465mg cic:CICLE_v10007827mg cic:CICLE_v10013701mg cic:CICLE_v10019134mg cic:CICLE_v10025243mg cic:CICLE_v10025259mg cic:CICLE_v10027399mg cic:CICLE_v10027570mg" type="gene" reaction="rn:R03921"
+        link="http://www.kegg.jp/dbget-bin/www_bget?cic:CICLE_v10004465mg+cic:CICLE_v10007827mg+cic:CICLE_v10013701mg+cic:CICLE_v10019134mg+cic:CICLE_v10025243mg+cic:CICLE_v10025259mg+cic:CICLE_v10027399mg+cic:CICLE_v10027570mg">
         <graphics name="CICLE_v10004465mg..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="139" y="171" width="46" height="17"/>
     </entry>
@@ -50,8 +50,8 @@
         <graphics name="CICLE_v10014196mg..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="264" y="210" width="46" height="17"/>
     </entry>
-    <entry id="94" name="cic:CICLE_v10004465mg cic:CICLE_v10007827mg cic:CICLE_v10013701mg cic:CICLE_v10019134mg cic:CICLE_v10025243mg cic:CICLE_v10025259mg cic:CICLE_v10027399mg" type="gene" reaction="rn:R00801"
-        link="http://www.kegg.jp/dbget-bin/www_bget?cic:CICLE_v10004465mg+cic:CICLE_v10007827mg+cic:CICLE_v10013701mg+cic:CICLE_v10019134mg+cic:CICLE_v10025243mg+cic:CICLE_v10025259mg+cic:CICLE_v10027399mg">
+    <entry id="94" name="cic:CICLE_v10004465mg cic:CICLE_v10007827mg cic:CICLE_v10013701mg cic:CICLE_v10019134mg cic:CICLE_v10025243mg cic:CICLE_v10025259mg cic:CICLE_v10027399mg cic:CICLE_v10027570mg" type="gene" reaction="rn:R00801"
+        link="http://www.kegg.jp/dbget-bin/www_bget?cic:CICLE_v10004465mg+cic:CICLE_v10007827mg+cic:CICLE_v10013701mg+cic:CICLE_v10019134mg+cic:CICLE_v10025243mg+cic:CICLE_v10025259mg+cic:CICLE_v10027399mg+cic:CICLE_v10027570mg">
         <graphics name="CICLE_v10004465mg..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="264" y="229" width="46" height="17"/>
     </entry>
@@ -105,9 +105,9 @@
         <graphics name="CICLE_v10004221mg..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="575" y="156" width="46" height="17"/>
     </entry>
-    <entry id="107" name="cic:CICLE_v10008105mg" type="gene" reaction="rn:R00287"
-        link="http://www.kegg.jp/dbget-bin/www_bget?cic:CICLE_v10008105mg">
-        <graphics name="CICLE_v10008105mg" fgcolor="#000000" bgcolor="#BFFFBF"
+    <entry id="107" name="ko:K01513" type="ortholog" reaction="rn:R00287"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K01513">
+        <graphics name="K01513" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="668" y="376" width="46" height="17"/>
     </entry>
     <entry id="109" name="ko:K00978" type="ortholog" reaction="rn:R00956"
@@ -774,9 +774,6 @@
     <relation entry1="113" entry2="114" type="ECrel">
         <subtype name="compound" value="158"/>
     </relation>
-    <relation entry1="107" entry2="114" type="ECrel">
-        <subtype name="compound" value="158"/>
-    </relation>
     <relation entry1="102" entry2="114" type="ECrel">
         <subtype name="compound" value="158"/>
     </relation>
@@ -787,12 +784,6 @@
         <subtype name="compound" value="158"/>
     </relation>
     <relation entry1="106" entry2="113" type="ECrel">
-        <subtype name="compound" value="158"/>
-    </relation>
-    <relation entry1="102" entry2="107" type="ECrel">
-        <subtype name="compound" value="158"/>
-    </relation>
-    <relation entry1="106" entry2="107" type="ECrel">
         <subtype name="compound" value="158"/>
     </relation>
     <relation entry1="102" entry2="106" type="ECrel">
@@ -816,25 +807,13 @@
     <relation entry1="116" entry2="117" type="ECrel">
         <subtype name="compound" value="218"/>
     </relation>
-    <relation entry1="107" entry2="116" type="ECrel">
-        <subtype name="compound" value="218"/>
-    </relation>
     <relation entry1="136" entry2="146" type="ECrel">
         <subtype name="compound" value="218"/>
     </relation>
     <relation entry1="117" entry2="146" type="ECrel">
         <subtype name="compound" value="218"/>
     </relation>
-    <relation entry1="107" entry2="146" type="ECrel">
-        <subtype name="compound" value="218"/>
-    </relation>
     <relation entry1="117" entry2="136" type="ECrel">
-        <subtype name="compound" value="218"/>
-    </relation>
-    <relation entry1="107" entry2="136" type="ECrel">
-        <subtype name="compound" value="218"/>
-    </relation>
-    <relation entry1="107" entry2="117" type="ECrel">
         <subtype name="compound" value="218"/>
     </relation>
     <relation entry1="113" entry2="118" type="maplink">
@@ -850,9 +829,6 @@
         <subtype name="compound" value="218"/>
     </relation>
     <relation entry1="117" entry2="118" type="maplink">
-        <subtype name="compound" value="218"/>
-    </relation>
-    <relation entry1="107" entry2="118" type="maplink">
         <subtype name="compound" value="218"/>
     </relation>
     <relation entry1="90" entry2="93" type="ECrel">
@@ -939,9 +915,6 @@
     <relation entry1="193" entry2="113" type="maplink">
         <subtype name="compound" value="158"/>
     </relation>
-    <relation entry1="193" entry2="107" type="maplink">
-        <subtype name="compound" value="158"/>
-    </relation>
     <relation entry1="193" entry2="114" type="maplink">
         <subtype name="compound" value="158"/>
     </relation>
@@ -985,9 +958,6 @@
         <subtype name="compound" value="168"/>
     </relation>
     <relation entry1="248" entry2="113" type="ECrel">
-        <subtype name="compound" value="158"/>
-    </relation>
-    <relation entry1="248" entry2="107" type="ECrel">
         <subtype name="compound" value="158"/>
     </relation>
     <relation entry1="248" entry2="102" type="ECrel">
@@ -1079,10 +1049,6 @@
     <reaction id="106" name="rn:R00766" type="irreversible">
         <substrate id="158" name="cpd:C00029"/>
         <product id="156" name="cpd:C02591"/>
-    </reaction>
-    <reaction id="107" name="rn:R00287" type="irreversible">
-        <substrate id="158" name="cpd:C00029"/>
-        <product id="218" name="cpd:C00103"/>
     </reaction>
     <reaction id="113" name="rn:R00289" type="irreversible">
         <substrate id="218" name="cpd:C00103"/>

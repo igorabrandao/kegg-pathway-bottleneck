@@ -214,9 +214,9 @@
         <graphics name="K00053" fgcolor="#000000" bgcolor="#FFFFFF"
              type="line" coords="228,540,278,540"/>
     </entry>
-    <entry id="45" name="smin:v1.2.025894.t1" type="gene" reaction="rn:R04441"
-        link="http://www.kegg.jp/dbget-bin/www_bget?smin:v1.2.025894.t1">
-        <graphics name="symbB.v1.2.025894.t1" fgcolor="#66CC66" bgcolor="#FFFFFF"
+    <entry id="45" name="smin:v1.2.004819.t1 smin:v1.2.025894.t1" type="gene" reaction="rn:R04441"
+        link="http://www.kegg.jp/dbget-bin/www_bget?smin:v1.2.004819.t1+smin:v1.2.025894.t1">
+        <graphics name="symbB.v1.2.004819.t1..." fgcolor="#66CC66" bgcolor="#FFFFFF"
              type="line" coords="166,540,216,540"/>
     </entry>
     <entry id="46" name="smin:v1.2.001722.t1 smin:v1.2.005061.t1 smin:v1.2.008358.t1 smin:v1.2.008358.t2 smin:v1.2.021373.t1" type="gene" reaction="rn:R01214"
@@ -244,9 +244,9 @@
         <graphics name="C06007" fgcolor="#000000" bgcolor="#FFFFFF"
              type="circle" x="222" y="711" width="8" height="8"/>
     </entry>
-    <entry id="51" name="smin:v1.2.025894.t1" type="gene" reaction="rn:R05070"
-        link="http://www.kegg.jp/dbget-bin/www_bget?smin:v1.2.025894.t1">
-        <graphics name="symbB.v1.2.025894.t1" fgcolor="#66CC66" bgcolor="#FFFFFF"
+    <entry id="51" name="smin:v1.2.004819.t1 smin:v1.2.025894.t1" type="gene" reaction="rn:R05070"
+        link="http://www.kegg.jp/dbget-bin/www_bget?smin:v1.2.004819.t1+smin:v1.2.025894.t1">
+        <graphics name="symbB.v1.2.004819.t1..." fgcolor="#66CC66" bgcolor="#FFFFFF"
              type="line" coords="166,711,216,711"/>
     </entry>
     <entry id="52" name="cpd:C00671" type="compound"
@@ -1045,9 +1045,9 @@
         <graphics name="symbB.v1.2.010568.t1" fgcolor="#66CC66" bgcolor="#FFFFFF"
              type="line" coords="857,135,907,135"/>
     </entry>
-    <entry id="215" name="ko:K00013 ko:K14152" type="ortholog" reaction="rn:R01158"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K00013+K14152">
-        <graphics name="K00013..." fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="215" name="smin:v1.2.004318.t1" type="gene" reaction="rn:R01158"
+        link="http://www.kegg.jp/dbget-bin/www_bget?smin:v1.2.004318.t1">
+        <graphics name="symbB.v1.2.004318.t1" fgcolor="#66CC66" bgcolor="#FFFFFF"
              type="line" coords="1109,135,1159,135"/>
     </entry>
     <entry id="216" name="cpd:C04691" type="compound"
@@ -1619,6 +1619,10 @@
     <reaction id="214" name="rn:R04558" type="irreversible">
         <substrate id="201" name="cpd:C04916"/>
         <product id="202" name="cpd:C04666"/>
+    </reaction>
+    <reaction id="215" name="rn:R01158" type="irreversible">
+        <substrate id="205" name="cpd:C00860"/>
+        <product id="206" name="cpd:C00135"/>
     </reaction>
     <reaction id="223" name="rn:R01826" type="irreversible">
         <substrate id="11" name="cpd:C00074"/>

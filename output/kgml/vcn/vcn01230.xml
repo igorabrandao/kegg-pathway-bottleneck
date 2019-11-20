@@ -1005,9 +1005,9 @@
         <graphics name="C00135" fgcolor="#000000" bgcolor="#FFFFFF"
              type="circle" x="1166" y="135" width="8" height="8"/>
     </entry>
-    <entry id="207" name="ko:K00765 ko:K02502" type="ortholog" reaction="rn:R01071"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K00765+K02502">
-        <graphics name="K00765..." fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="207" name="vcn:VOLCADRAFT_106379" type="gene" reaction="rn:R01071"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vcn:VOLCADRAFT_106379">
+        <graphics name="VOLCADRAFT_106379" fgcolor="#66CC66" bgcolor="#FFFFFF"
              type="line" coords="605,135,655,135"/>
     </entry>
     <entry id="208" name="vcn:VOLCADRAFT_59102" type="gene" reaction="rn:R04035"
@@ -1675,6 +1675,10 @@
         <substrate id="194" name="cpd:C05382"/>
         <product id="25" name="cpd:C00231"/>
         <product id="27" name="cpd:C00117"/>
+    </reaction>
+    <reaction id="207" name="rn:R01071" type="irreversible">
+        <substrate id="28" name="cpd:C00119"/>
+        <product id="198" name="cpd:C02739"/>
     </reaction>
     <reaction id="208" name="rn:R04035" type="irreversible">
         <substrate id="198" name="cpd:C02739"/>

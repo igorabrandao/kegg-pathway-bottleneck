@@ -75,9 +75,9 @@
         <graphics name="105565980..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="566" y="753" width="46" height="17"/>
     </entry>
-    <entry id="24" name="ko:K04515" type="ortholog"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K04515">
-        <graphics name="K04515" fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="24" name="vem:105560165" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vem:105560165">
+        <graphics name="105560165" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="566" y="722" width="46" height="17"/>
     </entry>
     <entry id="25" name="vem:105564252 vem:105565508 vem:105567543" type="gene"
@@ -598,6 +598,9 @@
     </relation>
     <relation entry1="29" entry2="28" type="PPrel">
         <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="25" entry2="24" type="PPrel">
+        <subtype name="compound" value="12"/>
     </relation>
     <relation entry1="25" entry2="23" type="PPrel">
         <subtype name="compound" value="12"/>

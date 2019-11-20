@@ -65,9 +65,9 @@
         <graphics name="18422301..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="336" y="340" width="46" height="17"/>
     </entry>
-    <entry id="48" name="atr:18428202" type="gene" reaction="rn:R02541"
-        link="http://www.kegg.jp/dbget-bin/www_bget?atr:18428202">
-        <graphics name="18428202" fgcolor="#000000" bgcolor="#BFFFBF"
+    <entry id="48" name="ko:K01117 ko:K12350 ko:K12351 ko:K12352 ko:K12353 ko:K12354" type="ortholog" reaction="rn:R02541"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K01117+K12350+K12351+K12352+K12353+K12354">
+        <graphics name="K01117..." fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="705" y="375" width="46" height="17"/>
     </entry>
     <entry id="49" name="ko:K04710" type="ortholog" reaction="rn:R01496"
@@ -396,9 +396,6 @@
     <relation entry1="42" entry2="46" type="ECrel">
         <subtype name="compound" value="59"/>
     </relation>
-    <relation entry1="48" entry2="77" type="ECrel">
-        <subtype name="compound" value="100"/>
-    </relation>
     <relation entry1="53" entry2="77" type="ECrel">
         <subtype name="compound" value="100"/>
     </relation>
@@ -406,15 +403,6 @@
         <subtype name="compound" value="100"/>
     </relation>
     <relation entry1="44" entry2="77" type="ECrel">
-        <subtype name="compound" value="100"/>
-    </relation>
-    <relation entry1="48" entry2="53" type="ECrel">
-        <subtype name="compound" value="100"/>
-    </relation>
-    <relation entry1="48" entry2="75" type="ECrel">
-        <subtype name="compound" value="100"/>
-    </relation>
-    <relation entry1="44" entry2="48" type="ECrel">
         <subtype name="compound" value="100"/>
     </relation>
     <relation entry1="53" entry2="75" type="ECrel">
@@ -489,9 +477,6 @@
     <relation entry1="53" entry2="126" type="ECrel">
         <subtype name="compound" value="100"/>
     </relation>
-    <relation entry1="48" entry2="126" type="ECrel">
-        <subtype name="compound" value="100"/>
-    </relation>
     <relation entry1="46" entry2="125" type="ECrel">
         <subtype name="compound" value="60"/>
     </relation>
@@ -530,10 +515,6 @@
     <reaction id="47" name="rn:R06525" type="irreversible">
         <substrate id="57" name="cpd:C00836"/>
         <product id="58" name="cpd:C12144"/>
-    </reaction>
-    <reaction id="48" name="rn:R02541" type="irreversible">
-        <substrate id="105" name="cpd:C00550"/>
-        <product id="100" name="cpd:C00195"/>
     </reaction>
     <reaction id="53" name="rn:R01495" type="irreversible">
         <substrate id="100" name="cpd:C00195"/>

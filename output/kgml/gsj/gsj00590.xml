@@ -365,9 +365,9 @@
         <graphics name="K00461" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="693" y="284" width="46" height="17"/>
     </entry>
-    <entry id="133" name="ko:K01254" type="ortholog" reaction="rn:R03057"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K01254">
-        <graphics name="K01254" fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="133" name="gsj:114403007" type="gene" reaction="rn:R03057"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gsj:114403007">
+        <graphics name="114403007" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="474" y="279" width="46" height="17"/>
     </entry>
     <entry id="134" name="ko:K17726" type="ortholog" reaction="rn:R03866"
@@ -395,8 +395,8 @@
         <graphics name="K01831" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="300" y="431" width="46" height="17"/>
     </entry>
-    <entry id="139" name="gsj:114368781 gsj:114383905 gsj:114408565 gsj:114418674" type="gene" reaction="rn:R02265"
-        link="http://www.kegg.jp/dbget-bin/www_bget?gsj:114368781+gsj:114383905+gsj:114408565+gsj:114418674">
+    <entry id="139" name="gsj:114368781 gsj:114408565 gsj:114418674" type="gene" reaction="rn:R02265"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gsj:114368781+gsj:114408565+gsj:114418674">
         <graphics name="114368781..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="252" y="347" width="46" height="17"/>
     </entry>
@@ -415,13 +415,13 @@
         <graphics name="K01830..." fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="251" y="403" width="46" height="17"/>
     </entry>
-    <entry id="144" name="gsj:114389247 gsj:114411566 gsj:114419631" type="gene" reaction="rn:R02581"
-        link="http://www.kegg.jp/dbget-bin/www_bget?gsj:114389247+gsj:114411566+gsj:114419631">
+    <entry id="144" name="gsj:114389247 gsj:114408218 gsj:114411566 gsj:114414083 gsj:114421948 gsj:114425636" type="gene" reaction="rn:R02581"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gsj:114389247+gsj:114408218+gsj:114411566+gsj:114414083+gsj:114421948+gsj:114425636">
         <graphics name="114389247..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="174" y="318" width="46" height="17"/>
     </entry>
-    <entry id="145" name="gsj:114389247 gsj:114411566 gsj:114419631" type="gene" reaction="rn:R02581"
-        link="http://www.kegg.jp/dbget-bin/www_bget?gsj:114389247+gsj:114411566+gsj:114419631">
+    <entry id="145" name="gsj:114389247 gsj:114408218 gsj:114411566 gsj:114414083 gsj:114421948 gsj:114425636" type="gene" reaction="rn:R02581"
+        link="http://www.kegg.jp/dbget-bin/www_bget?gsj:114389247+gsj:114408218+gsj:114411566+gsj:114414083+gsj:114421948+gsj:114425636">
         <graphics name="114389247..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="224" y="318" width="46" height="17"/>
     </entry>
@@ -656,6 +656,10 @@
     <reaction id="130" name="rn:R01317" type="reversible">
         <substrate id="150" name="cpd:C00157"/>
         <product id="148" name="cpd:C00219"/>
+    </reaction>
+    <reaction id="133" name="rn:R03057" type="irreversible">
+        <substrate id="152" name="cpd:C00909"/>
+        <product id="151" name="cpd:C02165"/>
     </reaction>
     <reaction id="136" name="rn:R09875" type="irreversible">
         <substrate id="154" name="cpd:C02166"/>

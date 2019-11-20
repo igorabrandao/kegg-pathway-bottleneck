@@ -240,9 +240,9 @@
         <graphics name="MAP2K_1" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="596" y="891" width="46" height="17"/>
     </entry>
-    <entry id="140" name="ko:K20716" type="ortholog"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K20716">
-        <graphics name="K20716" fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="140" name="smo:SELMODRAFT_74353" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?smo:SELMODRAFT_74353">
+        <graphics name="SELMODRAFT_74353" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="523" y="891" width="46" height="17"/>
     </entry>
     <entry id="144" name="smo:SELMODRAFT_101704 smo:SELMODRAFT_117026 smo:SELMODRAFT_123334 smo:SELMODRAFT_132071 smo:SELMODRAFT_135818 smo:SELMODRAFT_161269 smo:SELMODRAFT_231224 smo:SELMODRAFT_49053 smo:SELMODRAFT_58736 smo:SELMODRAFT_80077" type="gene"
@@ -335,8 +335,8 @@
         <graphics name="K20729" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="133" y="1239" width="46" height="17"/>
     </entry>
-    <entry id="207" name="smo:SELMODRAFT_102522 smo:SELMODRAFT_107124 smo:SELMODRAFT_114051 smo:SELMODRAFT_155267 smo:SELMODRAFT_169795 smo:SELMODRAFT_402057 smo:SELMODRAFT_427364" type="gene"
-        link="http://www.kegg.jp/dbget-bin/www_bget?smo:SELMODRAFT_102522+smo:SELMODRAFT_107124+smo:SELMODRAFT_114051+smo:SELMODRAFT_155267+smo:SELMODRAFT_169795+smo:SELMODRAFT_402057+smo:SELMODRAFT_427364">
+    <entry id="207" name="smo:SELMODRAFT_102522 smo:SELMODRAFT_107124 smo:SELMODRAFT_114051 smo:SELMODRAFT_155267 smo:SELMODRAFT_169795 smo:SELMODRAFT_427364" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?smo:SELMODRAFT_102522+smo:SELMODRAFT_107124+smo:SELMODRAFT_114051+smo:SELMODRAFT_155267+smo:SELMODRAFT_169795+smo:SELMODRAFT_427364">
         <graphics name="ERb-1..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="219" y="1239" width="46" height="17"/>
     </entry>
@@ -412,6 +412,13 @@
     </relation>
     <relation entry1="74" entry2="108" type="GErel">
         <subtype name="repression" value="--|"/>
+    </relation>
+    <relation entry1="146" entry2="140" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="indirect effect" value="..&gt;"/>
+    </relation>
+    <relation entry1="140" entry2="137" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
     </relation>
     <relation entry1="207" entry2="204" type="PPrel">
         <subtype name="activation" value="--&gt;"/>

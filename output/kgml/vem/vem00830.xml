@@ -110,9 +110,9 @@
         <graphics name="K11158" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="198" y="419" width="46" height="17"/>
     </entry>
-    <entry id="36" name="ko:K00061 ko:K11152 ko:K11153" type="ortholog" reaction="rn:R08382 rn:R08383"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K00061+K11152+K11153">
-        <graphics name="K00061..." fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="36" name="vem:105561121 vem:105561122 vem:105567453 vem:105567637 vem:105569075 vem:105569774" type="gene" reaction="rn:R08382 rn:R08383"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vem:105561121+vem:105561122+vem:105567453+vem:105567637+vem:105569075+vem:105569774">
+        <graphics name="105561121..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="276" y="139" width="46" height="17"/>
     </entry>
     <entry id="41" name="cpd:C00778" type="compound"
@@ -210,9 +210,9 @@
         <graphics name="Carotenoid biosynthesis" fgcolor="#000000" bgcolor="#FFFFFF"
              type="roundrectangle" x="360" y="162" width="75" height="34"/>
     </entry>
-    <entry id="69" name="ko:K11150 ko:K11151 ko:K11152 ko:K11153 ko:K11154" type="ortholog" reaction="rn:R02124 rn:R08379"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K11150+K11151+K11152+K11153+K11154">
-        <graphics name="K11150..." fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="69" name="vem:105561121 vem:105561122 vem:105567453 vem:105567637 vem:105569075 vem:105569774" type="gene" reaction="rn:R02124 rn:R08379"
+        link="http://www.kegg.jp/dbget-bin/www_bget?vem:105561121+vem:105561122+vem:105567453+vem:105567637+vem:105569075+vem:105569774">
+        <graphics name="105561121..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="252" y="280" width="46" height="17"/>
     </entry>
     <entry id="70" name="vem:105563830" type="gene" reaction="rn:R02124 rn:R08379"
@@ -328,6 +328,9 @@
     <relation entry1="9" entry2="50" type="ECrel">
         <subtype name="compound" value="7"/>
     </relation>
+    <relation entry1="69" entry2="50" type="ECrel">
+        <subtype name="compound" value="7"/>
+    </relation>
     <relation entry1="70" entry2="50" type="ECrel">
         <subtype name="compound" value="7"/>
     </relation>
@@ -338,9 +341,17 @@
         <substrate id="7" name="cpd:C00473"/>
         <product id="10" name="cpd:C00376"/>
     </reaction>
+    <reaction id="36" name="rn:R08382 rn:R08383" type="reversible">
+        <substrate id="27" name="cpd:C16682"/>
+        <product id="29" name="cpd:C16681"/>
+    </reaction>
     <reaction id="46" name="rn:R08381" type="irreversible">
         <substrate id="22" name="cpd:C00899"/>
         <product id="48" name="cpd:C03455"/>
+    </reaction>
+    <reaction id="69" name="rn:R02124 rn:R08379" type="reversible">
+        <substrate id="7" name="cpd:C00473"/>
+        <product id="10" name="cpd:C00376"/>
     </reaction>
     <reaction id="70" name="rn:R02124 rn:R08379" type="reversible">
         <substrate id="7" name="cpd:C00473"/>

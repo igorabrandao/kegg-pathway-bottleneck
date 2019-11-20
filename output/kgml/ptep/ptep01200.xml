@@ -1156,8 +1156,8 @@
         <graphics name="C00136" fgcolor="#000000" bgcolor="#FFFFFF"
              type="circle" x="1342" y="1249" width="20" height="20"/>
     </entry>
-    <entry id="282" name="ptep:107438452 ptep:107445632 ptep:107445633 ptep:107450948" type="gene" reaction="rn:R04432 rn:R12356"
-        link="http://www.kegg.jp/dbget-bin/www_bget?ptep:107438452+ptep:107445632+ptep:107445633+ptep:107450948">
+    <entry id="282" name="ptep:107438452 ptep:107445632 ptep:107445633 ptep:107450516 ptep:107450948" type="gene" reaction="rn:R04432 rn:R12356"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptep:107438452+ptep:107445632+ptep:107445633+ptep:107450516+ptep:107450948">
         <graphics name="107438452..." fgcolor="#66CC66" bgcolor="#FFFFFF"
              type="line" coords="707,1363,707,1403"/>
     </entry>
@@ -1206,9 +1206,9 @@
         <graphics name="K01610" fgcolor="#000000" bgcolor="#FFFFFF"
              type="line" coords="471,1115,471,860,471,860,471,859,472,857,472,856,473,855,474,853,475,852,477,852,478,851,480,851,480,851,698,851"/>
     </entry>
-    <entry id="292" name="ko:K00248" type="ortholog" reaction="rn:R01175"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K00248">
-        <graphics name="K00248" fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="292" name="ptep:107450516" type="gene" reaction="rn:R01175"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptep:107450516">
+        <graphics name="107450516" fgcolor="#66CC66" bgcolor="#FFFFFF"
              type="line" coords="1229,1253,1329,1253"/>
     </entry>
     <entry id="293" name="cpd:C00227" type="compound"
@@ -1585,6 +1585,10 @@
     <reaction id="290" name="rn:R00258" type="reversible">
         <substrate id="289" name="cpd:C00041"/>
         <product id="157" name="cpd:C00022"/>
+    </reaction>
+    <reaction id="292" name="rn:R01175" type="irreversible">
+        <substrate id="281" name="cpd:C00136"/>
+        <product id="231" name="cpd:C00877"/>
     </reaction>
     <reaction id="297" name="rn:R00235" type="irreversible">
         <substrate id="296" name="cpd:C00033"/>

@@ -300,9 +300,9 @@
         <graphics name="Linoleic acid metabolism" fgcolor="#000000" bgcolor="#FFFFFF"
              type="roundrectangle" x="880" y="383" width="135" height="25"/>
     </entry>
-    <entry id="112" name="mrt:MRET_0102" type="gene" reaction="rn:R07035"
-        link="http://www.kegg.jp/dbget-bin/www_bget?mrt:MRET_0102">
-        <graphics name="MRET_0102" fgcolor="#000000" bgcolor="#BFFFBF"
+    <entry id="112" name="ko:K00432" type="ortholog" reaction="rn:R07035"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K00432">
+        <graphics name="K00432" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="474" y="471" width="46" height="17"/>
     </entry>
     <entry id="118" name="ko:K07422" type="ortholog" reaction="rn:R07046"
@@ -325,9 +325,9 @@
         <graphics name="C04805" fgcolor="#000000" bgcolor="#FFFFFF"
              type="circle" x="601" y="225" width="8" height="8"/>
     </entry>
-    <entry id="125" name="mrt:MRET_0102" type="gene" reaction="rn:R07034"
-        link="http://www.kegg.jp/dbget-bin/www_bget?mrt:MRET_0102">
-        <graphics name="MRET_0102" fgcolor="#000000" bgcolor="#BFFFBF"
+    <entry id="125" name="ko:K00432" type="ortholog" reaction="rn:R07034"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K00432">
+        <graphics name="K00432" fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="601" y="257" width="46" height="17"/>
     </entry>
     <entry id="126" name="path:mrt00590" type="map"
@@ -639,14 +639,6 @@
     <relation entry1="50" entry2="109" type="maplink">
         <subtype name="compound" value="148"/>
     </relation>
-    <reaction id="112" name="rn:R07035" type="irreversible">
-        <substrate id="161" name="cpd:C05966"/>
-        <product id="94" name="cpd:C04742"/>
-    </reaction>
-    <reaction id="125" name="rn:R07034" type="irreversible">
-        <substrate id="153" name="cpd:C05356"/>
-        <product id="124" name="cpd:C04805"/>
-    </reaction>
     <reaction id="130" name="rn:R01317" type="reversible">
         <substrate id="150" name="cpd:C00157"/>
         <product id="148" name="cpd:C00219"/>

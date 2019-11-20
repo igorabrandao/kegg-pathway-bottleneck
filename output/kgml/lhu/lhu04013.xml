@@ -420,9 +420,9 @@
         <graphics name="105672334" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="136" y="1052" width="46" height="17"/>
     </entry>
-    <entry id="246" name="ko:K09260" type="ortholog"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K09260">
-        <graphics name="K09260" fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="246" name="lhu:105676128" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?lhu:105676128">
+        <graphics name="105676128" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="790" y="1012" width="46" height="17"/>
     </entry>
     <entry id="249" name="lhu:105673691" type="gene"
@@ -747,11 +747,17 @@
     <relation entry1="218" entry2="219" type="PPrel">
         <subtype name="phosphorylation" value="+p"/>
     </relation>
+    <relation entry1="218" entry2="246" type="PPrel">
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
     <relation entry1="218" entry2="232" type="GErel">
         <subtype name="expression" value="--&gt;"/>
         <subtype name="indirect effect" value="..&gt;"/>
     </relation>
     <relation entry1="219" entry2="254" type="GErel">
+        <subtype name="expression" value="--&gt;"/>
+    </relation>
+    <relation entry1="246" entry2="249" type="GErel">
         <subtype name="expression" value="--&gt;"/>
     </relation>
 </pathway>

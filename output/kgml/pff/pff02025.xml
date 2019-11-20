@@ -1,44 +1,520 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<title>Access forbidden!</title>
-<link rev="made" href="mailto:http://www.genome.jp/feedback/" />
-<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
-    body { color: #000000; background-color: #FFFFFF; }
-    a:link { color: #0000CC; }
-    p, address {margin-left: 3em;}
-    span {font-size: smaller;}
-/*]]>*/--></style>
-</head>
-
-<body>
-<h1>Access forbidden!</h1>
-<p>
-
-
-  
-
-    You don't have permission to access the requested object.
-    It is either read-protected or not readable by the server.
-
-  
-
-</p>
-<p>
-If you think this is a server error, please contact
-the <a href="http://www.genome.jp/feedback/">webmaster</a>.
-
-</p>
-
-<h2>Error 403</h2>
-<address>
-  <a href="/">rest.kegg.jp</a><br />
-  
-  <span>Wed Nov  6 20:02:44 2019<br />
-  Apache</span>
-</address>
-</body>
-</html>
-
+<?xml version="1.0"?>
+<!DOCTYPE pathway SYSTEM "http://www.kegg.jp/kegg/xml/KGML_v0.7.2_.dtd">
+<!-- Creation date: Jan 24, 2019 10:35:13 +0900 (GMT+9) -->
+<pathway name="path:pff02025" org="pff" number="02025"
+         title="Biofilm formation - Pseudomonas aeruginosa"
+         image="http://www.kegg.jp/kegg/pathway/pff/pff02025.png"
+         link="http://www.kegg.jp/kegg-bin/show_pathway?pff02025">
+    <entry id="1" name="pff:PFLUOLIPICF710120" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff:PFLUOLIPICF710120">
+        <graphics name="PFLUOLIPICF710120" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="254" y="158" width="46" height="17"/>
+    </entry>
+    <entry id="2" name="pff:PFLUOLIPICF710115" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff:PFLUOLIPICF710115">
+        <graphics name="PFLUOLIPICF710115" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="344" y="164" width="46" height="17"/>
+    </entry>
+    <entry id="3" name="pff:PFLUOLIPICF710110" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff:PFLUOLIPICF710110">
+        <graphics name="PFLUOLIPICF710110" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="344" y="187" width="46" height="17"/>
+    </entry>
+    <entry id="4" name="pff:PFLUOLIPICF710125" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff:PFLUOLIPICF710125">
+        <graphics name="PFLUOLIPICF710125" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="212" y="175" width="46" height="17"/>
+    </entry>
+    <entry id="5" name="pff:PFLUOLIPICF710130" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff:PFLUOLIPICF710130">
+        <graphics name="PFLUOLIPICF710130" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="257" y="175" width="46" height="17"/>
+    </entry>
+    <entry id="6" name="ko:K01768" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K01768">
+        <graphics name="K01768" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="431" y="174" width="46" height="17"/>
+    </entry>
+    <entry id="7" name="cpd:C00575" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00575">
+        <graphics name="C00575" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="494" y="174" width="8" height="8"/>
+    </entry>
+    <entry id="8" name="pff:PFLUOLIPICF705860 pff:PFLUOLIPICF721155" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff:PFLUOLIPICF705860+pff:PFLUOLIPICF721155">
+        <graphics name="PFLUOLIPICF705860..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="431" y="210" width="46" height="17"/>
+    </entry>
+    <entry id="9" name="pff:PFLUOLIPICF707250 pff:PFLUOLIPICF711090" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff:PFLUOLIPICF707250+pff:PFLUOLIPICF711090">
+        <graphics name="PFLUOLIPICF707250..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="557" y="175" width="46" height="17"/>
+    </entry>
+    <entry id="10" name="ko:K13060" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K13060">
+        <graphics name="K13060" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="407" y="478" width="46" height="17"/>
+    </entry>
+    <entry id="11" name="ko:K18304" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K18304">
+        <graphics name="K18304" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="407" y="498" width="46" height="17"/>
+    </entry>
+    <entry id="12" name="ko:K13061" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K13061">
+        <graphics name="K13061" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="506" y="406" width="46" height="17"/>
+    </entry>
+    <entry id="13" name="ko:K18000" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K18000">
+        <graphics name="K18000" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="358" y="320" width="46" height="17"/>
+    </entry>
+    <entry id="14" name="ko:K18001" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K18001">
+        <graphics name="K18001" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="406" y="320" width="46" height="17"/>
+    </entry>
+    <entry id="15" name="ko:K18002" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K18002">
+        <graphics name="K18002" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="454" y="320" width="46" height="17"/>
+    </entry>
+    <entry id="16" name="ko:K18003" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K18003">
+        <graphics name="K18003" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="358" y="339" width="46" height="17"/>
+    </entry>
+    <entry id="17" name="ko:K17940" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K17940">
+        <graphics name="K17940" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="454" y="339" width="46" height="17"/>
+    </entry>
+    <entry id="18" name="ko:K19735" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K19735">
+        <graphics name="K19735" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="407" y="362" width="46" height="17"/>
+    </entry>
+    <entry id="19" name="path:pff02025" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff02025">
+        <graphics name="TITLE:Biofilm formation - Pseudomonas aeruginosa" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="240" y="58" width="400" height="25"/>
+    </entry>
+    <entry id="20" name="pff:PFLUOLIPICF720245" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff:PFLUOLIPICF720245">
+        <graphics name="PFLUOLIPICF720245" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="212" y="744" width="46" height="17"/>
+    </entry>
+    <entry id="21" name="pff:PFLUOLIPICF711880" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff:PFLUOLIPICF711880">
+        <graphics name="PFLUOLIPICF711880" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="212" y="701" width="46" height="17"/>
+    </entry>
+    <entry id="22" name="pff:PFLUOLIPICF705320" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff:PFLUOLIPICF705320">
+        <graphics name="PFLUOLIPICF705320" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="212" y="783" width="46" height="17"/>
+    </entry>
+    <entry id="23" name="pff:PFLUOLIPICF726635" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff:PFLUOLIPICF726635">
+        <graphics name="PFLUOLIPICF726635" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="299" y="744" width="46" height="17"/>
+    </entry>
+    <entry id="24" name="ko:K20969" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K20969">
+        <graphics name="K20969" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="386" y="735" width="46" height="17"/>
+    </entry>
+    <entry id="25" name="ko:K20970" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K20970">
+        <graphics name="K20970" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="386" y="755" width="46" height="17"/>
+    </entry>
+    <entry id="26" name="pff:PFLUOLIPICF714900 pff:PFLUOLIPICF717085 pff:PFLUOLIPICF717920" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff:PFLUOLIPICF714900+pff:PFLUOLIPICF717085+pff:PFLUOLIPICF717920">
+        <graphics name="PFLUOLIPICF714900..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="506" y="743" width="46" height="17"/>
+    </entry>
+    <entry id="27" name="pff:PFLUOLIPICF727875" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff:PFLUOLIPICF727875">
+        <graphics name="PFLUOLIPICF727875" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="212" y="585" width="46" height="17"/>
+    </entry>
+    <entry id="28" name="pff:PFLUOLIPICF728280" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff:PFLUOLIPICF728280">
+        <graphics name="PFLUOLIPICF728280" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="212" y="565" width="46" height="17"/>
+    </entry>
+    <entry id="29" name="pff:PFLUOLIPICF718845" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff:PFLUOLIPICF718845">
+        <graphics name="PFLUOLIPICF718845" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="212" y="605" width="46" height="17"/>
+    </entry>
+    <entry id="30" name="pff:PFLUOLIPICF716570" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff:PFLUOLIPICF716570">
+        <graphics name="PFLUOLIPICF716570" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="299" y="585" width="46" height="17"/>
+    </entry>
+    <entry id="31" name="pff:PFLUOLIPICF716565" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff:PFLUOLIPICF716565">
+        <graphics name="PFLUOLIPICF716565" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="301" y="620" width="46" height="17"/>
+    </entry>
+    <entry id="32" name="pff:PFLUOLIPICF716645" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff:PFLUOLIPICF716645">
+        <graphics name="PFLUOLIPICF716645" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="386" y="694" width="46" height="17"/>
+    </entry>
+    <entry id="33" name="path:pff02024" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff02024">
+        <graphics name="Quorum sensing" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="399" y="257" width="102" height="23"/>
+    </entry>
+    <entry id="34" name="pff:PFLUOLIPICF716560" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff:PFLUOLIPICF716560">
+        <graphics name="PFLUOLIPICF716560" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="386" y="620" width="46" height="17"/>
+    </entry>
+    <entry id="35" name="pff:PFLUOLIPICF714960" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff:PFLUOLIPICF714960">
+        <graphics name="PFLUOLIPICF714960" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="386" y="657" width="46" height="17"/>
+    </entry>
+    <entry id="36" name="cpd:C11837" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C11837">
+        <graphics name="C11837" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="148" y="422" width="8" height="8"/>
+    </entry>
+    <entry id="37" name="cpd:C20643 cpd:C11848" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C20643+C11848">
+        <graphics name="C20643..." fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="148" y="353" width="8" height="8"/>
+    </entry>
+    <entry id="38" name="cpd:C21201" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C21201">
+        <graphics name="C21201" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="148" y="499" width="8" height="8"/>
+    </entry>
+    <entry id="39" name="pff:PFLUOLIPICF702240" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff:PFLUOLIPICF702240">
+        <graphics name="PFLUOLIPICF702240" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="386" y="870" width="46" height="17"/>
+    </entry>
+    <entry id="40" name="pff:PFLUOLIPICF716515" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff:PFLUOLIPICF716515">
+        <graphics name="PFLUOLIPICF716515" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="562" y="914" width="46" height="17"/>
+    </entry>
+    <entry id="41" name="pff:PFLUOLIPICF702270" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff:PFLUOLIPICF702270">
+        <graphics name="PFLUOLIPICF702270" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="175" y="870" width="46" height="17"/>
+    </entry>
+    <entry id="42" name="pff:PFLUOLIPICF702255 pff:PFLUOLIPICF702265" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff:PFLUOLIPICF702255+pff:PFLUOLIPICF702265">
+        <graphics name="PFLUOLIPICF702255..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="216" y="852" width="43" height="19"/>
+    </entry>
+    <entry id="43" name="pff:PFLUOLIPICF702250" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff:PFLUOLIPICF702250">
+        <graphics name="PFLUOLIPICF702250" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="220" y="870" width="46" height="17"/>
+    </entry>
+    <entry id="44" name="pff:PFLUOLIPICF724635" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff:PFLUOLIPICF724635">
+        <graphics name="PFLUOLIPICF724635" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="434" y="908" width="46" height="17"/>
+    </entry>
+    <entry id="45" name="pff:PFLUOLIPICF703400" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff:PFLUOLIPICF703400">
+        <graphics name="PFLUOLIPICF703400" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="684" y="982" width="46" height="17"/>
+    </entry>
+    <entry id="46" name="ko:K21022" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K21022">
+        <graphics name="K21022" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="386" y="908" width="46" height="17"/>
+    </entry>
+    <entry id="47" name="ko:K21019" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K21019">
+        <graphics name="K21019" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="434" y="870" width="46" height="17"/>
+    </entry>
+    <entry id="48" name="pff:PFLUOLIPICF706805" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff:PFLUOLIPICF706805">
+        <graphics name="PFLUOLIPICF706805" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="684" y="941" width="46" height="17"/>
+    </entry>
+    <entry id="49" name="pff:PFLUOLIPICF712715" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff:PFLUOLIPICF712715">
+        <graphics name="PFLUOLIPICF712715" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="434" y="889" width="46" height="17"/>
+    </entry>
+    <entry id="50" name="pff:PFLUOLIPICF714360" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff:PFLUOLIPICF714360">
+        <graphics name="PFLUOLIPICF714360" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="435" y="993" width="46" height="17"/>
+    </entry>
+    <entry id="51" name="ko:K21020" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K21020">
+        <graphics name="K21020" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="386" y="889" width="46" height="17"/>
+    </entry>
+    <entry id="52" name="ko:K21025" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K21025">
+        <graphics name="K21025" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="684" y="1011" width="46" height="17"/>
+    </entry>
+    <entry id="53" name="cpd:C16463" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C16463">
+        <graphics name="C16463" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="466" y="940" width="8" height="8"/>
+    </entry>
+    <entry id="54" name="cpd:C00044" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C00044">
+        <graphics name="C00044" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="466" y="829" width="8" height="8"/>
+    </entry>
+    <entry id="55" name="cpd:C18076" type="compound"
+        link="http://www.kegg.jp/dbget-bin/www_bget?C18076">
+        <graphics name="C18076" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="circle" x="466" y="1051" width="8" height="8"/>
+    </entry>
+    <entry id="56" name="path:pff03070" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff03070">
+        <graphics name="Bacterial secretion system" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="793" y="236" width="149" height="23"/>
+    </entry>
+    <entry id="57" name="ko:K18099" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K18099">
+        <graphics name="K18099" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="506" y="426" width="46" height="17"/>
+    </entry>
+    <entry id="58" name="pff:PFLUOLIPICF702245" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff:PFLUOLIPICF702245">
+        <graphics name="PFLUOLIPICF702245" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="273" y="911" width="46" height="17"/>
+    </entry>
+    <entry id="59" name="path:pff02040" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff02040">
+        <graphics name="Flagellar assembly" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="776" y="121" width="118" height="23"/>
+    </entry>
+    <entry id="60" name="pff:PFLUOLIPICF710135" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff:PFLUOLIPICF710135">
+        <graphics name="PFLUOLIPICF710135" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="254" y="192" width="46" height="17"/>
+    </entry>
+    <entry id="61" name="ko:K20968" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K20968">
+        <graphics name="K20968" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="684" y="170" width="46" height="17"/>
+    </entry>
+    <entry id="62" name="pff:PFLUOLIPICF716515" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff:PFLUOLIPICF716515">
+        <graphics name="PFLUOLIPICF716515" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="684" y="146" width="46" height="17"/>
+    </entry>
+    <entry id="63" name="pff:PFLUOLIPICF708805 pff:PFLUOLIPICF708810 pff:PFLUOLIPICF708825 pff:PFLUOLIPICF708830 pff:PFLUOLIPICF708835 pff:PFLUOLIPICF708840 pff:PFLUOLIPICF708845 pff:PFLUOLIPICF708855 pff:PFLUOLIPICF708865 pff:PFLUOLIPICF708870 pff:PFLUOLIPICF708875 pff:PFLUOLIPICF708880 pff:PFLUOLIPICF721250 pff:PFLUOLIPICF721260 pff:PFLUOLIPICF721265 pff:PFLUOLIPICF721280 pff:PFLUOLIPICF721285 pff:PFLUOLIPICF721310 pff:PFLUOLIPICF721320 pff:PFLUOLIPICF721325" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff:PFLUOLIPICF708805+pff:PFLUOLIPICF708810+pff:PFLUOLIPICF708825+pff:PFLUOLIPICF708830+pff:PFLUOLIPICF708835+pff:PFLUOLIPICF708840+pff:PFLUOLIPICF708845+pff:PFLUOLIPICF708855+pff:PFLUOLIPICF708865+pff:PFLUOLIPICF708870+pff:PFLUOLIPICF708875+pff:PFLUOLIPICF708880+pff:PFLUOLIPICF721250+pff:PFLUOLIPICF721260+pff:PFLUOLIPICF721265+pff:PFLUOLIPICF721280+pff:PFLUOLIPICF721285+pff:PFLUOLIPICF721310+pff:PFLUOLIPICF721320+pff:PFLUOLIPICF721325">
+        <graphics name="PFLUOLIPICF708805..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="684" y="743" width="46" height="17"/>
+    </entry>
+    <entry id="64" name="pff:PFLUOLIPICF703445 pff:PFLUOLIPICF727220 pff:PFLUOLIPICF727225 pff:PFLUOLIPICF727230 pff:PFLUOLIPICF727235 pff:PFLUOLIPICF727240 pff:PFLUOLIPICF727245 pff:PFLUOLIPICF727250 pff:PFLUOLIPICF727255 pff:PFLUOLIPICF727260 pff:PFLUOLIPICF727265 pff:PFLUOLIPICF727270 pff:PFLUOLIPICF727275" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff:PFLUOLIPICF703445+pff:PFLUOLIPICF727220+pff:PFLUOLIPICF727225+pff:PFLUOLIPICF727230+pff:PFLUOLIPICF727235+pff:PFLUOLIPICF727240+pff:PFLUOLIPICF727245+pff:PFLUOLIPICF727250+pff:PFLUOLIPICF727255+pff:PFLUOLIPICF727260+pff:PFLUOLIPICF727265+pff:PFLUOLIPICF727270+pff:PFLUOLIPICF727275">
+        <graphics name="PFLUOLIPICF703445..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="684" y="891" width="46" height="17"/>
+    </entry>
+    <entry id="65" name="pff:PFLUOLIPICF710425" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff:PFLUOLIPICF710425">
+        <graphics name="PFLUOLIPICF710425" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="684" y="416" width="46" height="17"/>
+    </entry>
+    <entry id="66" name="ko:K18101" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K18101">
+        <graphics name="K18101" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="732" y="416" width="46" height="17"/>
+    </entry>
+    <entry id="67" name="pff:PFLUOLIPICF700180" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff:PFLUOLIPICF700180">
+        <graphics name="PFLUOLIPICF700180" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="780" y="416" width="46" height="17"/>
+    </entry>
+    <entry id="68" name="pff:PFLUOLIPICF706820" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff:PFLUOLIPICF706820">
+        <graphics name="PFLUOLIPICF706820" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="684" y="922" width="46" height="17"/>
+    </entry>
+    <entry id="69" name="ko:K20258" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K20258">
+        <graphics name="K20258" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="684" y="441" width="46" height="17"/>
+    </entry>
+    <entry id="70" name="ko:K20259" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K20259">
+        <graphics name="K20259" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="732" y="441" width="46" height="17"/>
+    </entry>
+    <entry id="71" name="pff:PFLUOLIPICF706815" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff:PFLUOLIPICF706815">
+        <graphics name="PFLUOLIPICF706815" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="732" y="922" width="46" height="17"/>
+    </entry>
+    <entry id="72" name="pff:PFLUOLIPICF706810" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff:PFLUOLIPICF706810">
+        <graphics name="PFLUOLIPICF706810" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="780" y="922" width="46" height="17"/>
+    </entry>
+    <entry id="73" name="pff:PFLUOLIPICF706800" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff:PFLUOLIPICF706800">
+        <graphics name="PFLUOLIPICF706800" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="732" y="941" width="46" height="17"/>
+    </entry>
+    <entry id="74" name="pff:PFLUOLIPICF706795" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff:PFLUOLIPICF706795">
+        <graphics name="PFLUOLIPICF706795" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="780" y="941" width="46" height="17"/>
+    </entry>
+    <entry id="75" name="pff:PFLUOLIPICF706790" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff:PFLUOLIPICF706790">
+        <graphics name="PFLUOLIPICF706790" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="828" y="932" width="46" height="17"/>
+    </entry>
+    <entry id="76" name="path:pff03070" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff03070">
+        <graphics name="Bacterial secretion system" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="794" y="769" width="149" height="23"/>
+    </entry>
+    <entry id="77" name="pff:PFLUOLIPICF711065" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff:PFLUOLIPICF711065">
+        <graphics name="PFLUOLIPICF711065" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="382" y="300" width="46" height="17"/>
+    </entry>
+    <entry id="78" name="pff:PFLUOLIPICF711070" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?pff:PFLUOLIPICF711070">
+        <graphics name="PFLUOLIPICF711070" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="430" y="300" width="46" height="17"/>
+    </entry>
+    <entry id="79" name="ko:K20257" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K20257">
+        <graphics name="K20257" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="406" y="339" width="46" height="17"/>
+    </entry>
+    <entry id="80" name="ko:K23127" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K23127">
+        <graphics name="K23127" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="684" y="1031" width="46" height="17"/>
+    </entry>
+    <entry id="81" name="undefined" type="group">
+        <graphics fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="234" y="175" width="91" height="51"/>
+        <component id="1"/>
+        <component id="4"/>
+        <component id="5"/>
+        <component id="60"/>
+    </entry>
+    <entry id="82" name="undefined" type="group">
+        <graphics fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="197" y="860" width="91" height="36"/>
+        <component id="41"/>
+        <component id="42"/>
+        <component id="43"/>
+    </entry>
+    <relation entry1="81" entry2="2" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="81" entry2="3" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="9" entry2="62" type="GErel">
+        <subtype name="repression" value="--|"/>
+    </relation>
+    <relation entry1="28" entry2="30" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="27" entry2="30" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="29" entry2="30" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="30" entry2="31" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="31" entry2="34" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="34" entry2="35" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="35" entry2="32" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="21" entry2="20" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="22" entry2="20" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="20" entry2="23" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="26" entry2="63" type="GErel">
+        <subtype name="repression" value="--|"/>
+    </relation>
+    <relation entry1="26" entry2="64" type="GErel">
+        <subtype name="repression" value="--|"/>
+    </relation>
+    <relation entry1="82" entry2="39" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="82" entry2="58" type="PPrel">
+        <subtype name="activation" value="--&gt;"/>
+        <subtype name="phosphorylation" value="+p"/>
+    </relation>
+    <relation entry1="58" entry2="41" type="PPrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+    <relation entry1="40" entry2="64" type="GErel">
+        <subtype name="repression" value="--|"/>
+    </relation>
+    <relation entry1="40" entry2="68" type="GErel">
+        <subtype name="repression" value="--|"/>
+    </relation>
+    <relation entry1="40" entry2="71" type="GErel">
+        <subtype name="repression" value="--|"/>
+    </relation>
+    <relation entry1="40" entry2="72" type="GErel">
+        <subtype name="repression" value="--|"/>
+    </relation>
+    <relation entry1="40" entry2="48" type="GErel">
+        <subtype name="repression" value="--|"/>
+    </relation>
+    <relation entry1="40" entry2="73" type="GErel">
+        <subtype name="repression" value="--|"/>
+    </relation>
+    <relation entry1="40" entry2="74" type="GErel">
+        <subtype name="repression" value="--|"/>
+    </relation>
+    <relation entry1="40" entry2="75" type="GErel">
+        <subtype name="repression" value="--|"/>
+    </relation>
+    <relation entry1="53" entry2="48" type="PCrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="53" entry2="45" type="PCrel">
+        <subtype name="activation" value="--&gt;"/>
+    </relation>
+    <relation entry1="53" entry2="40" type="PCrel">
+        <subtype name="inhibition" value="--|"/>
+    </relation>
+</pathway>

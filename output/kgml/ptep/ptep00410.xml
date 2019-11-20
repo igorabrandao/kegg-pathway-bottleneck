@@ -30,9 +30,9 @@
         <graphics name="Pyrimidine metabolism" fgcolor="#000000" bgcolor="#FFFFFF"
              type="roundrectangle" x="72" y="327" width="74" height="34"/>
     </entry>
-    <entry id="42" name="ko:K00248" type="ortholog" reaction="rn:R04432"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K00248">
-        <graphics name="K00248" fgcolor="#000000" bgcolor="#FFFFFF"
+    <entry id="42" name="ptep:107450516" type="gene" reaction="rn:R04432"
+        link="http://www.kegg.jp/dbget-bin/www_bget?ptep:107450516">
+        <graphics name="107450516" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="791" y="631" width="46" height="17"/>
     </entry>
     <entry id="43" name="ptep:107437387 ptep:107437388 ptep:107457312" type="gene" reaction="rn:R03045"
@@ -407,11 +407,17 @@
     <relation entry1="43" entry2="44" type="ECrel">
         <subtype name="compound" value="97"/>
     </relation>
+    <relation entry1="42" entry2="43" type="ECrel">
+        <subtype name="compound" value="98"/>
+    </relation>
     <relation entry1="68" entry2="40" type="maplink">
         <subtype name="compound" value="121"/>
     </relation>
     <relation entry1="48" entry2="38" type="maplink">
         <subtype name="compound" value="83"/>
+    </relation>
+    <relation entry1="42" entry2="37" type="maplink">
+        <subtype name="compound" value="99"/>
     </relation>
     <relation entry1="77" entry2="78" type="maplink">
         <subtype name="compound" value="92"/>
@@ -446,6 +452,10 @@
     <relation entry1="134" entry2="37" type="maplink">
         <subtype name="compound" value="99"/>
     </relation>
+    <reaction id="42" name="rn:R04432" type="reversible">
+        <substrate id="99" name="cpd:C00100"/>
+        <product id="98" name="cpd:C00894"/>
+    </reaction>
     <reaction id="43" name="rn:R03045" type="reversible">
         <substrate id="97" name="cpd:C05668"/>
         <product id="98" name="cpd:C00894"/>

@@ -20,9 +20,9 @@
         <graphics name="C11555" fgcolor="#000000" bgcolor="#FFFFFF"
              type="circle" x="53" y="414" width="8" height="8"/>
     </entry>
-    <entry id="49" name="cic:CICLE_v10015366mg" type="gene" reaction="rn:R04404"
-        link="http://www.kegg.jp/dbget-bin/www_bget?cic:CICLE_v10015366mg">
-        <graphics name="CICLE_v10015366mg" fgcolor="#000000" bgcolor="#BFFFBF"
+    <entry id="49" name="ko:K01099 ko:K20278 ko:K20279" type="ortholog" reaction="rn:R04404"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K01099+K20278+K20279">
+        <graphics name="K01099..." fgcolor="#000000" bgcolor="#FFFFFF"
              type="rectangle" x="508" y="209" width="46" height="17"/>
     </entry>
     <entry id="50" name="cic:CICLE_v10032104mg" type="gene" reaction="rn:R05800"
@@ -160,9 +160,9 @@
         <graphics name="CICLE_v10030717mg" fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="845" y="236" width="46" height="17"/>
     </entry>
-    <entry id="77" name="cic:CICLE_v100317281m" type="gene" reaction="rn:R03363"
-        link="http://www.kegg.jp/dbget-bin/www_bget?cic:CICLE_v100317281m">
-        <graphics name="CICLE_v100317281m" fgcolor="#000000" bgcolor="#BFFFBF"
+    <entry id="77" name="cic:CICLE_v100317281m cic:CICLE_v100317282m" type="gene" reaction="rn:R03363"
+        link="http://www.kegg.jp/dbget-bin/www_bget?cic:CICLE_v100317281m+cic:CICLE_v100317282m">
+        <graphics name="CICLE_v100317281m..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="895" y="236" width="46" height="17"/>
     </entry>
     <entry id="78" name="path:cic00040" type="map"
@@ -180,8 +180,8 @@
         <graphics name="CICLE_v10015670mg..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="642" y="341" width="46" height="17"/>
     </entry>
-    <entry id="81" name="cic:CICLE_v10028054mg cic:CICLE_v10028080mg cic:CICLE_v10028087mg cic:CICLE_v10031019mg cic:CICLE_v10031029mg" type="gene" reaction="rn:R03435"
-        link="http://www.kegg.jp/dbget-bin/www_bget?cic:CICLE_v10028054mg+cic:CICLE_v10028080mg+cic:CICLE_v10028087mg+cic:CICLE_v10031019mg+cic:CICLE_v10031029mg">
+    <entry id="81" name="cic:CICLE_v10028054mg cic:CICLE_v10028080mg cic:CICLE_v10028087mg cic:CICLE_v10030935mg cic:CICLE_v10031019mg cic:CICLE_v10031029mg" type="gene" reaction="rn:R03435"
+        link="http://www.kegg.jp/dbget-bin/www_bget?cic:CICLE_v10028054mg+cic:CICLE_v10028080mg+cic:CICLE_v10028087mg+cic:CICLE_v10030935mg+cic:CICLE_v10031019mg+cic:CICLE_v10031029mg">
         <graphics name="CICLE_v10028054mg..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="397" y="170" width="46" height="17"/>
     </entry>
@@ -505,9 +505,9 @@
         <graphics name="C19799" fgcolor="#000000" bgcolor="#FFFFFF"
              type="circle" x="443" y="476" width="8" height="8"/>
     </entry>
-    <entry id="167" name="cic:CICLE_v100317281m" type="gene" reaction="rn:R10928"
-        link="http://www.kegg.jp/dbget-bin/www_bget?cic:CICLE_v100317281m">
-        <graphics name="CICLE_v100317281m" fgcolor="#000000" bgcolor="#BFFFBF"
+    <entry id="167" name="cic:CICLE_v100317281m cic:CICLE_v100317282m" type="gene" reaction="rn:R10928"
+        link="http://www.kegg.jp/dbget-bin/www_bget?cic:CICLE_v100317281m+cic:CICLE_v100317282m">
+        <graphics name="CICLE_v100317281m..." fgcolor="#000000" bgcolor="#BFFFBF"
              type="rectangle" x="711" y="69" width="46" height="17"/>
     </entry>
     <entry id="169" name="cic:CICLE_v10011419mg cic:CICLE_v10025215mg" type="gene" reaction="rn:R11680"
@@ -576,13 +576,7 @@
     <relation entry1="81" entry2="75" type="ECrel">
         <subtype name="compound" value="106"/>
     </relation>
-    <relation entry1="81" entry2="49" type="ECrel">
-        <subtype name="compound" value="106"/>
-    </relation>
     <relation entry1="52" entry2="75" type="ECrel">
-        <subtype name="compound" value="106"/>
-    </relation>
-    <relation entry1="52" entry2="49" type="ECrel">
         <subtype name="compound" value="106"/>
     </relation>
     <relation entry1="139" entry2="77" type="ECrel">
@@ -690,9 +684,6 @@
     <relation entry1="135" entry2="136" type="maplink">
         <subtype name="compound" value="128"/>
     </relation>
-    <relation entry1="49" entry2="73" type="ECrel">
-        <subtype name="compound" value="107"/>
-    </relation>
     <relation entry1="75" entry2="73" type="ECrel">
         <subtype name="compound" value="107"/>
     </relation>
@@ -723,9 +714,6 @@
     <relation entry1="169" entry2="75" type="ECrel">
         <subtype name="compound" value="107"/>
     </relation>
-    <relation entry1="169" entry2="49" type="ECrel">
-        <subtype name="compound" value="107"/>
-    </relation>
     <relation entry1="167" entry2="184" type="ECrel">
         <subtype name="compound" value="138"/>
     </relation>
@@ -735,10 +723,6 @@
     <relation entry1="184" entry2="76" type="ECrel">
         <subtype name="compound" value="185"/>
     </relation>
-    <reaction id="49" name="rn:R04404" type="irreversible">
-        <substrate id="106" name="cpd:C04637"/>
-        <product id="107" name="cpd:C01277"/>
-    </reaction>
     <reaction id="50" name="rn:R05800" type="irreversible">
         <substrate id="91" name="cpd:C01245"/>
         <product id="48" name="cpd:C11555"/>

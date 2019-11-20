@@ -1,44 +1,218 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<title>Access forbidden!</title>
-<link rev="made" href="mailto:http://www.genome.jp/feedback/" />
-<style type="text/css"><!--/*--><![CDATA[/*><!--*/ 
-    body { color: #000000; background-color: #FFFFFF; }
-    a:link { color: #0000CC; }
-    p, address {margin-left: 3em;}
-    span {font-size: smaller;}
-/*]]>*/--></style>
-</head>
-
-<body>
-<h1>Access forbidden!</h1>
-<p>
-
-
-  
-
-    You don't have permission to access the requested object.
-    It is either read-protected or not readable by the server.
-
-  
-
-</p>
-<p>
-If you think this is a server error, please contact
-the <a href="http://www.genome.jp/feedback/">webmaster</a>.
-
-</p>
-
-<h2>Error 403</h2>
-<address>
-  <a href="/">rest.kegg.jp</a><br />
-  
-  <span>Sat Nov 16 08:49:25 2019<br />
-  Apache</span>
-</address>
-</body>
-</html>
-
+<?xml version="1.0"?>
+<!DOCTYPE pathway SYSTEM "http://www.kegg.jp/kegg/xml/KGML_v0.7.2_.dtd">
+<!-- Creation date: Jan 31, 2017 17:20:39 +0900 (GMT+9) -->
+<pathway name="path:enc02040" org="enc" number="02040"
+         title="Flagellar assembly"
+         image="http://www.kegg.jp/kegg/pathway/enc/enc02040.png"
+         link="http://www.kegg.jp/kegg-bin/show_pathway?enc02040">
+    <entry id="1" name="path:enc03070" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?enc03070">
+        <graphics name="Bacterial secretion system" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="400" y="578" width="140" height="26"/>
+    </entry>
+    <entry id="2" name="path:enc02030" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?enc02030">
+        <graphics name="Bacterial chemotaxis" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="439" y="531" width="122" height="26"/>
+    </entry>
+    <entry id="3" name="enc:ECL_01400 enc:ECL_03264" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?enc:ECL_01400+enc:ECL_03264">
+        <graphics name="ECL_01400..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="294" y="654" width="46" height="17"/>
+    </entry>
+    <entry id="4" name="enc:ECL_01401 enc:ECL_03263" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?enc:ECL_01401+enc:ECL_03263">
+        <graphics name="ECL_01401..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="294" y="637" width="46" height="17"/>
+    </entry>
+    <entry id="5" name="enc:ECL_02567 enc:ECL_03279" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?enc:ECL_02567+enc:ECL_03279">
+        <graphics name="flgM..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="209" y="687" width="46" height="17"/>
+    </entry>
+    <entry id="6" name="enc:ECL_02566 enc:ECL_03278" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?enc:ECL_02566+enc:ECL_03278">
+        <graphics name="flgA..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="48" y="589" width="46" height="17"/>
+    </entry>
+    <entry id="7" name="enc:ECL_02568 enc:ECL_03280" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?enc:ECL_02568+enc:ECL_03280">
+        <graphics name="flgN..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="48" y="570" width="46" height="17"/>
+    </entry>
+    <entry id="8" name="enc:ECL_01354" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?enc:ECL_01354">
+        <graphics name="fliT" fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="192" y="570" width="46" height="17"/>
+    </entry>
+    <entry id="9" name="enc:ECL_03224 enc:ECL_03298" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?enc:ECL_03224+enc:ECL_03298">
+        <graphics name="fliJ..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="96" y="570" width="46" height="17"/>
+    </entry>
+    <entry id="10" name="enc:ECL_01355 enc:ECL_03282" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?enc:ECL_01355+enc:ECL_03282">
+        <graphics name="fliS..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="144" y="570" width="46" height="17"/>
+    </entry>
+    <entry id="11" name="enc:ECL_03232 enc:ECL_03289 enc:ECL_03290" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?enc:ECL_03232+enc:ECL_03289+enc:ECL_03290">
+        <graphics name="fliR..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="299" y="587" width="46" height="17"/>
+    </entry>
+    <entry id="12" name="enc:ECL_03230 enc:ECL_03292" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?enc:ECL_03230+enc:ECL_03292">
+        <graphics name="fliP..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="253" y="587" width="46" height="17"/>
+    </entry>
+    <entry id="13" name="enc:ECL_03231 enc:ECL_03291" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?enc:ECL_03231+enc:ECL_03291">
+        <graphics name="fliQ..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="299" y="570" width="46" height="17"/>
+    </entry>
+    <entry id="14" name="enc:ECL_03229 enc:ECL_03293" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?enc:ECL_03229+enc:ECL_03293">
+        <graphics name="fliO..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="253" y="570" width="46" height="17"/>
+    </entry>
+    <entry id="15" name="enc:ECL_03223 enc:ECL_03299" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?enc:ECL_03223+enc:ECL_03299">
+        <graphics name="fliI..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="253" y="553" width="46" height="17"/>
+    </entry>
+    <entry id="16" name="enc:ECL_03222 enc:ECL_03300" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?enc:ECL_03222+enc:ECL_03300">
+        <graphics name="fliH..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="253" y="536" width="46" height="17"/>
+    </entry>
+    <entry id="17" name="enc:ECL_03228 enc:ECL_03294" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?enc:ECL_03228+enc:ECL_03294">
+        <graphics name="fliN..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="391" y="504" width="46" height="17"/>
+    </entry>
+    <entry id="18" name="enc:ECL_03227 enc:ECL_03295" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?enc:ECL_03227+enc:ECL_03295">
+        <graphics name="fliM..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="391" y="487" width="46" height="17"/>
+    </entry>
+    <entry id="19" name="enc:ECL_03221 enc:ECL_03301" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?enc:ECL_03221+enc:ECL_03301">
+        <graphics name="fliG..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="391" y="470" width="46" height="17"/>
+    </entry>
+    <entry id="20" name="enc:ECL_03220 enc:ECL_03302 enc:ECL_03303" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?enc:ECL_03220+enc:ECL_03302+enc:ECL_03303">
+        <graphics name="fliF..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="391" y="446" width="46" height="17"/>
+    </entry>
+    <entry id="21" name="enc:ECL_03225 enc:ECL_03297" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?enc:ECL_03225+enc:ECL_03297">
+        <graphics name="fliK..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="514" y="263" width="46" height="17"/>
+    </entry>
+    <entry id="22" name="enc:ECL_01357 enc:ECL_03284" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?enc:ECL_01357+enc:ECL_03284">
+        <graphics name="fliC..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="441" y="144" width="46" height="17"/>
+    </entry>
+    <entry id="23" name="enc:ECL_02563 enc:ECL_03275" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?enc:ECL_02563+enc:ECL_03275">
+        <graphics name="flgD..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="514" y="280" width="46" height="17"/>
+    </entry>
+    <entry id="24" name="enc:ECL_02561 enc:ECL_03273" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?enc:ECL_02561+enc:ECL_03273">
+        <graphics name="flgF..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="186" y="333" width="46" height="17"/>
+    </entry>
+    <entry id="25" name="enc:ECL_02562 enc:ECL_03274" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?enc:ECL_02562+enc:ECL_03274">
+        <graphics name="flgE..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="345" y="271" width="46" height="17"/>
+    </entry>
+    <entry id="26" name="enc:ECL_02556 enc:ECL_03268" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?enc:ECL_02556+enc:ECL_03268">
+        <graphics name="flgK..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="417" y="221" width="46" height="17"/>
+    </entry>
+    <entry id="27" name="enc:ECL_02555 enc:ECL_03267" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?enc:ECL_02555+enc:ECL_03267">
+        <graphics name="flgL..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="417" y="198" width="46" height="17"/>
+    </entry>
+    <entry id="28" name="enc:ECL_01356 enc:ECL_03283" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?enc:ECL_01356+enc:ECL_03283">
+        <graphics name="fliD..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="488" y="51" width="46" height="17"/>
+    </entry>
+    <entry id="29" name="path:enc02040" type="map"
+        link="http://www.kegg.jp/dbget-bin/www_bget?enc02040">
+        <graphics name="TITLE:Flagellar assembly" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="roundrectangle" x="134" y="58" width="188" height="25"/>
+    </entry>
+    <entry id="30" name="enc:ECL_03219 enc:ECL_03304" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?enc:ECL_03219+enc:ECL_03304">
+        <graphics name="fliE..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="345" y="411" width="46" height="17"/>
+    </entry>
+    <entry id="31" name="enc:ECL_02564 enc:ECL_03276" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?enc:ECL_02564+enc:ECL_03276">
+        <graphics name="flgC..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="437" y="411" width="46" height="17"/>
+    </entry>
+    <entry id="32" name="enc:ECL_02565 enc:ECL_03277" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?enc:ECL_02565+enc:ECL_03277">
+        <graphics name="flgB..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="391" y="411" width="46" height="17"/>
+    </entry>
+    <entry id="33" name="enc:ECL_02558 enc:ECL_03270" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?enc:ECL_02558+enc:ECL_03270">
+        <graphics name="flgI..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="357" y="383" width="46" height="17"/>
+    </entry>
+    <entry id="34" name="enc:ECL_02559 enc:ECL_03271" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?enc:ECL_02559+enc:ECL_03271">
+        <graphics name="flgH..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="357" y="362" width="46" height="17"/>
+    </entry>
+    <entry id="35" name="enc:ECL_02560 enc:ECL_03272" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?enc:ECL_02560+enc:ECL_03272">
+        <graphics name="flgG..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="345" y="333" width="46" height="17"/>
+    </entry>
+    <entry id="36" name="enc:ECL_01402 enc:ECL_03262" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?enc:ECL_01402+enc:ECL_03262">
+        <graphics name="motA..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="182" y="444" width="46" height="17"/>
+    </entry>
+    <entry id="37" name="enc:ECL_01419 enc:ECL_03310" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?enc:ECL_01419+enc:ECL_03310">
+        <graphics name="ECL_01419..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="235" y="502" width="46" height="17"/>
+    </entry>
+    <entry id="38" name="enc:ECL_01418 enc:ECL_03309" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?enc:ECL_01418+enc:ECL_03309">
+        <graphics name="ECL_01418..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="292" y="502" width="46" height="17"/>
+    </entry>
+    <entry id="39" name="enc:ECL_01366 enc:ECL_03265" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?enc:ECL_01366+enc:ECL_03265">
+        <graphics name="fliA..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="294" y="687" width="46" height="17"/>
+    </entry>
+    <entry id="40" name="ko:K21218" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K21218">
+        <graphics name="K21218" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="126" y="333" width="46" height="17"/>
+    </entry>
+    <entry id="41" name="ko:K21217" type="ortholog"
+        link="http://www.kegg.jp/dbget-bin/www_bget?K21217">
+        <graphics name="K21217" fgcolor="#000000" bgcolor="#FFFFFF"
+             type="rectangle" x="80" y="333" width="46" height="17"/>
+    </entry>
+    <entry id="42" name="enc:ECL_01403 enc:ECL_03261" type="gene"
+        link="http://www.kegg.jp/dbget-bin/www_bget?enc:ECL_01403+enc:ECL_03261">
+        <graphics name="motB..." fgcolor="#000000" bgcolor="#BFFFBF"
+             type="rectangle" x="159" y="407" width="46" height="17"/>
+    </entry>
+</pathway>

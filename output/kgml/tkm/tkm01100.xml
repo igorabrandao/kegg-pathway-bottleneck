@@ -18600,11 +18600,6 @@
         <graphics name="K13057" fgcolor="#E0E0E0" bgcolor="#FFFFFF"
              type="line" coords="2553,775,2478,775,2478,775,2475,775,2472,774,2469,772,2467,770,2465,768,2463,766,2461,763,2460,760,2460,757,2460,757,2460,641"/>
     </entry>
-    <entry id="1575" name="ko:K03181 ko:K18240" type="ortholog" reaction="rn:R01302"
-        link="http://www.kegg.jp/dbget-bin/www_bget?K03181+K18240">
-        <graphics name="K03181..." fgcolor="#E0E0E0" bgcolor="#FFFFFF"
-             type="line" coords="3287,1339,3287,1334,3287,1334,3287,1331,3288,1327,3290,1324,3292,1322,3295,1319,3297,1317,3300,1315,3304,1314,3307,1314,3307,1314,3867,1314"/>
-    </entry>
     <entry id="1573" name="ko:K21479" type="ortholog" reaction="rn:R11580"
         link="http://www.kegg.jp/dbget-bin/www_bget?K21479">
         <graphics name="K21479" fgcolor="#E0E0E0" bgcolor="#FFFFFF"
@@ -25394,6 +25389,11 @@
         link="http://www.kegg.jp/dbget-bin/www_bget?tkm:TK90_0274+tkm:TK90_1970">
         <graphics name="TK90_0274..." fgcolor="#99CCFF" bgcolor="#FFFFFF"
              type="line" coords="2815,298,2937,298,2937,298,2940,298,2944,297,2947,295,2949,293,2952,290,2954,288,2956,285,2957,281,2957,278,2957,278,2957,272"/>
+    </entry>
+    <entry id="1575" name="tkm:TK90_1054 tkm:TK90_1999" type="gene" reaction="rn:R01302"
+        link="http://www.kegg.jp/dbget-bin/www_bget?tkm:TK90_1054+tkm:TK90_1999">
+        <graphics name="TK90_1054..." fgcolor="#FFB3CC" bgcolor="#FFFFFF"
+             type="line" coords="3287,1339,3287,1334,3287,1334,3287,1331,3288,1327,3290,1324,3292,1322,3295,1319,3297,1317,3300,1315,3304,1314,3307,1314,3307,1314,3867,1314"/>
     </entry>
     <entry id="1578" name="tkm:TK90_1529" type="gene" reaction="rn:R00948 rn:R00951"
         link="http://www.kegg.jp/dbget-bin/www_bget?tkm:TK90_1529">
@@ -33504,6 +33504,10 @@
     <reaction id="2948" name="rn:R06529" type="reversible">
         <substrate id="3685" name="cpd:C06507"/>
         <product id="3687" name="cpd:C06509"/>
+    </reaction>
+    <reaction id="1575" name="rn:R01302" type="reversible">
+        <substrate id="6044" name="cpd:C00251"/>
+        <product id="4106" name="cpd:C00156"/>
     </reaction>
     <reaction id="5243" name="rn:R09736" type="reversible">
         <substrate id="5246" name="cpd:C19847"/>
