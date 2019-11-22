@@ -321,9 +321,9 @@ generateOrganismData <- function(removeNoise_=TRUE) {
   enzyme_present_color <- '#BFFFBF'
   enzyme_missing_color <- '#FFFFFF'
 
-  # REMOVER
-  kgml_list <- kgml_list[164:available_pathways]
-  kgml_index <- 164
+  # APAGAR
+  kgml_list <- kgml_list[102:120]
+  kgml_index <- 102
 
   # Loop 01: Run through all available pathways kgml
   lapply(kgml_list, function(file) {
@@ -395,13 +395,13 @@ generateOrganismData <- function(removeNoise_=TRUE) {
 
           # Perform the enzyme frequency counting
           enzyme_present <- orgData[orgData$bgcolor==enzyme_present_color,]
-          enzyme_missing_color <- orgData[orgData$bgcolor==enzyme_missing_color,]
+          enzyme_missing <- orgData[orgData$bgcolor==enzyme_missing_color,]
 
           if (nrow(enzyme_present) > 0) {
             orgData[orgData$bgcolor==enzyme_present_color,]$freq <- 1
           }
 
-          if (nrow(enzyme_missing_color) > 0) {
+          if (nrow(enzyme_missing) > 0) {
             orgData[orgData$bgcolor==enzyme_missing_color,]$freq <- 0
           }
 

@@ -322,8 +322,8 @@ generateOrganismData <- function(removeNoise_=TRUE) {
   enzyme_missing_color <- '#FFFFFF'
 
   # APAGAR
-  kgml_list <- kgml_list[121:140]
-  kgml_index <- 121
+  kgml_list <- kgml_list[161:180]
+  kgml_index <- 161
 
   # Loop 01: Run through all available pathways kgml
   lapply(kgml_list, function(file) {
