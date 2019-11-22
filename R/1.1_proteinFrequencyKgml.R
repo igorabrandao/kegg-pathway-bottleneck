@@ -433,11 +433,18 @@ generateOrganismData <- function(removeNoise_=TRUE) {
             pathwayOrgWithEntrez <- data.frame(pathway = pathway_code, org = org, entryID = entryIDList, entrez = nodeList,
                                 stringsAsFactors = FALSE)
           } else {
-            pathwayOrgWithEntrez <- data.frame(pathway = pathway_code, org = org, entryID = NA, entrez = nodeList,
+            pathwayOrgWithEntrez <- NULL
+
+            tryCatch({
+              pathwayOrgWithEntrez <- data.frame(pathway = pathway_code, org = org, entryID = entryIDList, entrez = nodeList,
                                 stringsAsFactors = FALSE)
+            }, error=function(e) {
+              pathwayOrgWithEntrez <<- data.frame(pathway = pathway_code, org = org, entryID = entryIDList[1], entrez = nodeList,
+                                                 stringsAsFactors = FALSE)
+            })
 
             # Status message
-            err <- paste0('Error retriving the entryID list from ', org, ' into ', pathway_code, ' pathway. Skipping it...')
+            err <- paste0('Warning: entryID list length from ', org, ' into ', pathway_code, ' pathway is different from its nodeList length')
             print(err)
 
             # Save the log file
