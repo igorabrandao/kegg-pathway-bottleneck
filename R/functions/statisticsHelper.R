@@ -91,12 +91,11 @@ generateDataSet <- function(testName_ = '', folderName_ = 'totalFrequency', filt
     }
 
     if (dir.exists(file.path('./output/statistics/', testName_, '/'))) {
-      save(dataSet, file = paste0('./output/statistics/', testName_, '/', testName_, '.RData'))
+      save(dataSet, file = paste0('./output/statistics/', testName_, '/dataSet.RData'))
     }
 
     if (dir.exists(file.path('~/data3/'))) {
-      save(dataSet, file = paste0('~/data3/kegg-pathway-bottleneck/output/statistics/', testName_, '/',
-                                     testName_, '.RData'))
+      save(dataSet, file = paste0('~/data3/kegg-pathway-bottleneck/output/statistics/', testName_, '/dataSet.RData'))
     }
 
     # Return the generated dataSet
