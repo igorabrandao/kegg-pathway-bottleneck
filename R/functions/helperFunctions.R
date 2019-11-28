@@ -111,3 +111,37 @@ onlyNumber <- function (str_) {
   temp <- gregexpr("[0-9]+", str_)
   str_ <- unlist(regmatches(str_, temp))
 }
+
+#*******************************************************************************************#
+
+# ---- LOG HANDLER ----
+
+#' Function to generate dynamic logs
+#'
+#' @param message_ Message to be written in the log file
+#' @param file_ Filename withou extension
+#' @param folder_ Folder name
+#'
+#' @return This function does not return nothing, just export files.
+#'
+#' @examples
+#' \dontrun{
+#' printLog('Error xyz', 'xpto')
+#' printLog('Error xyz', 'xpto', log)
+#' }
+#'
+#' @author
+#' Igor Brandão
+
+printLog <- function(message_, file_, folder_='log') {
+  # Status message
+  printMessage(paste0('LOG: ', message_))
+
+  # Save the log file
+  if (!dir.exists(file.path(paste0('./', folder_, '/')))) {
+    dir.create(file.path(paste0('./', folder_, '/')), showWarnings = FALSE, mode = "0775")
+  }
+
+  # Generate the log file
+  write(message_, file=paste0('./', folder_, '/', format(Sys.time(), "%Y%m%d_%H%M%S_"), file_, '.txt'))
+}

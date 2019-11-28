@@ -43,7 +43,22 @@ pathwayDetail <- get(load(paste0("./dictionaries", "/", "pathwayDetail.RData")))
 # Pipeline main functions #
 #*************************#
 
-getPathwayEnzymeKGML <- function(removeNoise_=TRUE) {
+#' Parse the KGML file and generate the pathway dataset with enzyme frequencies and graph metrics
+#'
+#' @param removeNoise_ Remove undesirable enzyme such as: ko, map, path, cpd or gl.
+#'
+#' @return This function does not return nothing, just export .RData files.
+#'
+#' @examples
+#' \dontrun{
+#' generatePathwayDataFromKGML()
+#' generatePathwayDataFromKGML(FALSE)
+#' }
+#'
+#' @author
+#' Igor Brandão
+
+generatePathwayDataFromKGML <- function(removeNoise_=TRUE) {
 
   # Reference pathway
   reference_pathway <- 'ec'
@@ -297,7 +312,23 @@ getPathwayEnzymeKGML <- function(removeNoise_=TRUE) {
   return(TRUE)
 }
 
-generateOrganismData <- function(removeNoise_=TRUE) {
+#' Parse the KGML file and generate every pathway dataset of each
+#' organism with enzyme frequency
+#'
+#' @param removeNoise_ Remove undesirable enzyme such as: ko, map, path, cpd or gl.
+#'
+#' @return This function does not return nothing, just export .csv files.
+#'
+#' @examples
+#' \dontrun{
+#' generateOrganismPathwayDataFromKGML()
+#' generateOrganismPathwayDataFromKGML(FALSE)
+#' }
+#'
+#' @author
+#' Igor Brandão
+
+generateOrganismPathwayDataFromKGML <- function(removeNoise_=TRUE) {
 
   # Reference pathway
   reference_pathway <- 'ec'
@@ -367,10 +398,9 @@ generateOrganismData <- function(removeNoise_=TRUE) {
 
           # Load the dataframe
           org_kgml <- KGML2Dataframe(org_folder)
-          org_graph <- KGML2Graph(org_folder, replaceOrg=TRUE, orgToReplace=org)
 
           # Create the pathwayData dataFrame
-          orgData <- org_kgml$nodes[,c('entryID', 'name', 'bgcolor')]
+          orgData <- org_kgml$nodes
           orgData$freq <- 0
           orgData$pathway <- pathway_code
 
@@ -381,8 +411,6 @@ generateOrganismData <- function(removeNoise_=TRUE) {
             orgData <- orgData[!grepl("^cpd:", orgData$name),]
             orgData <- orgData[!grepl("^gl:", orgData$name),]
             orgData <- orgData[!grepl("^ko:", orgData$name),]
-
-            org_graph <- removeNoise(org_graph)
           }
 
           #***************************************##
@@ -401,76 +429,20 @@ generateOrganismData <- function(removeNoise_=TRUE) {
             orgData[orgData$bgcolor==enzyme_missing_color,]$freq <- 0
           }
 
-          #****************************#
-          # Prepare the data to export #
-          #****************************#
+          rm(enzyme_present, enzyme_missing)
 
-          # Output 1
-          pathwayOrg <- data.frame(pathway = orgData$pathway, org = org, entryID = orgData$entryID, freq = orgData$freq,
-                              stringsAsFactors = FALSE)
-
-          # Generate the list of unique entrez
-          nodeList <- unique(c(org_graph$node1, org_graph$node2))
-          entryIDList <- c()
-
-          # Match the entrez list with the orgData$name entrez strings
-          orgData$name <- gsub(" / ", "|", orgData$name)
-
-          for (entrez in nodeList) {
-            for (idx in 1:nrow(orgData)) {
-              if ((grepl(orgData[idx,]$name, entrez))) {
-                entryIDList <- c(entryIDList, orgData[idx,]$entryID)
-                break()
-              }
-            }
-          }
-
-          # Remove the entrez prefix
-          nodeList <- gsub(paste0(org, ":"), "", nodeList)
-
-          # Output 2
-          if (length(nodeList) == length(entryIDList)) {
-            pathwayOrgWithEntrez <- data.frame(pathway = pathway_code, org = org, entryID = entryIDList, entrez = nodeList,
-                                stringsAsFactors = FALSE)
-          } else {
-            pathwayOrgWithEntrez <- NULL
-
-            tryCatch({
-              pathwayOrgWithEntrez <- data.frame(pathway = pathway_code, org = org, entryID = entryIDList, entrez = nodeList,
-                                stringsAsFactors = FALSE)
-            }, error=function(e) {
-              pathwayOrgWithEntrez <<- data.frame(pathway = pathway_code, org = org, entryID = entryIDList[1], entrez = nodeList,
-                                                 stringsAsFactors = FALSE)
-            })
-
-            # Status message
-            err <- paste0('Warning: entryID list length from ', org, ' into ', pathway_code, ' pathway is different from its nodeList length')
-            print(err)
-
-            # Save the log file
-            if (!dir.exists(file.path('./log/'))) {
-              dir.create(file.path('./log/'), showWarnings = FALSE, mode = "0775")
-            }
-
-            write(err, file=paste0('./log/', format(Sys.time(), "%Y%m%d_%H%M%S_"), org, pathway_code, '.txt'))
-          }
+          #**********************************#
+          # Export the organism pathway data #
+          #**********************************#
 
           # Export the pathway data
           if (dir.exists(file.path(current_dir))) {
-            save(pathwayOrg, file=paste0(current_dir, '/', org_index, "_", org, '.RData'), compress = "xz")
-            save(pathwayOrgWithEntrez, file=paste0(current_dir, '/', org_index, "_", org, '_entrez', '.RData'), compress = "xz")
+            write.csv(orgData, file=paste0(current_dir, '/', org_index, "_", org, '.csv'))
           }
         }, error=function(e) {
-          # Status message
-          err <- paste0('The org ', org, ' could no be processed. Skipping it...')
-          print(err)
-
           # Save the log file
-          if (!dir.exists(file.path('./log/'))) {
-            dir.create(file.path('./log/'), showWarnings = FALSE, mode = "0775")
-          }
-
-          write(err, file=paste0('./log/', format(Sys.time(), "%Y%m%d_%H%M%S_"), org, pathway_code, '.txt'))
+          printLog(message_=paste0('Warning: the ', org, ' pathway ', pathway_code, ' could no be processed. Skipping it...'),
+                   file_=paste0(org, pathway_code))
 
           return(FALSE)
         })
@@ -482,21 +454,13 @@ generateOrganismData <- function(removeNoise_=TRUE) {
         # Remove temp variables #
         #***********************#
 
-        rm(org_folder, org_kgml, org_graph, orgData)
+        rm(org_folder, org_kgml, orgData)
 
       }) # End of Loop 02
     }, error=function(e) {
-      # Status message
-      err <- paste0('The pathway ', pathway_code, ' could no be processed. Skipping it...')
-      print(err)
-
       # Save the log file
-      if (!dir.exists(file.path('./log/'))) {
-        dir.create(file.path('./log/'), showWarnings = FALSE, mode = "0775")
-      }
-
-      write(err, file=paste0('./log/', format(Sys.time(), "%Y%m%d_%H%M%S_"), org, pathway_code, '.txt'))
-
+      printLog(message_=paste0('The pathway ', pathway_code, ' could no be processed. Skipping it...'),
+               file_=paste0(org, pathway_code))
       return(FALSE)
     })
 
@@ -514,6 +478,63 @@ generateOrganismData <- function(removeNoise_=TRUE) {
   # Function finished with success
   return(TRUE)
 }
+
+generatePathwayFrequencyFromOrganismData <- function(removeNoise_=TRUE) {
+
+  # Reference pathway
+  reference_pathway <- 'ec'
+
+  # Get the list of files
+  folder = paste0("./output/kgml/", reference_pathway, "/")
+  kgml_list <- list.files(path=folder, pattern='*.xml')
+  kgml_index <- 1
+
+  # Define the number of available pathways
+  available_pathways <- length(kgml_list)
+
+  # Loop 01: Run through all available pathways kgml
+  lapply(kgml_list, function(file) {
+    # Load the dataframe
+    current_kgml <- KGML2Dataframe(paste0(folder, file))
+
+    # Get the pathway code
+    pathway_code <- onlyNumber(file)
+
+    # Get the list of files
+    folder = paste0("./output/00010/")
+    file_list <- grep(list.files(path=folder), pattern='*_entrez', inv=T, value=T)
+
+    # Load all files at once
+    big.list.of.data.frames <- lapply(file_list, function(file) {
+      get(load(file = paste0(folder, file)))
+    })
+
+    # Combine multiple data frames in one
+    dataSet <- do.call(rbind, big.list.of.data.frames)
+
+    # Remove temporaly variables
+    rm(big.list.of.data.frames)
+
+    proteinsCount <- aggregate(dataSet$freq, by=list(dataSet$pathway, dataSet$entryID), FUN=sum, stringsAsFactors=FALSE)
+    proteinsCount <- proteinsCount[order(proteinsCount$Group.2,decreasing = F),]
+
+  })
+}
+
+#' Function to generate interactive networks
+#'
+#' @param removeNoise_ Remove undesirable enzyme such as: map, path, cpd or gl.
+#'
+#' @return This function does not return nothing, just export files.
+#'
+#' @examples
+#' \dontrun{
+#' printInteractiveNetwork()
+#' printInteractiveNetwork(FALSE)
+#' }
+#'
+#' @author
+#' Igor Brandão
 
 printInteractiveNetwork <- function(removeNoise_=TRUE) {
 
@@ -642,8 +663,8 @@ printInteractiveNetwork <- function(removeNoise_=TRUE) {
 #***************************************************************#
 # Step 1: Generate the pathways frequencies from the kgml files #
 #***************************************************************#
-#getPathwayEnzymeKGML()
-generateOrganismData()
+#generatePathwayDataFromKGML()
+generateOrganismPathwayDataFromKGML()
 
 #******************************#
 # Step 2: Generate the network #
