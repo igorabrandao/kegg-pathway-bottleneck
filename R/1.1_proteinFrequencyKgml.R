@@ -481,6 +481,9 @@ generateOrganismPathwayDataFromKGML <- function(removeNoise_=TRUE) {
 
 generatePathwayAllNodes <- function(removeNoise_=TRUE) {
 
+  # Status message
+  printMessage(paste0("GENERATING ALL PATHWAYS NODES LIST"))
+
   # Reference pathway
   reference_pathway <- 'ec'
 
@@ -533,7 +536,10 @@ generatePathwayAllNodes <- function(removeNoise_=TRUE) {
   })
 }
 
-generateEnzymesDictionary <- function(removeNoise_=TRUE) {
+generateEnzymesDictionary <- function() {
+
+  # Status message
+  printMessage(paste0("GENERATING THE PATHWAYS DICTIONARY"))
 
   # Reference pathway
   reference_pathway <- 'ec'
@@ -553,18 +559,19 @@ generateEnzymesDictionary <- function(removeNoise_=TRUE) {
     return(FALSE)
   }
 
+  # Prepare the dictionary
+  dictionary <- data.frame(id=NULL, pathway=NULL, x=NULL, y=NULL, reaction=NULL, ec=NULL, stringsAsFactors=FALSE)
+  dictionary_index <- 1
+
   # Set the dictionary dir
-  current_dir <- './output/'
+  current_dir <- './output/pathwaysDictionary'
 
   if (!dir.exists(file.path(current_dir))) {
     dir.create(file.path(current_dir), showWarnings = FALSE, mode = "0775")
   }
 
   # Loop 01: Run through all available pathways kgml
-  lapply(kgml_list, function(file) {
-
-    # Load the dataframe
-    current_kgml <- KGML2Dataframe(paste0(folder, file))
+  lapply(kgml_list[1:4], function(file) {
 
     # Get the pathway code
     pathway_code <- onlyNumber(file)
@@ -574,11 +581,25 @@ generateEnzymesDictionary <- function(removeNoise_=TRUE) {
 
     tryCatch({
 
+      # Load the dataframe
+      current_kgml <- KGML2Dataframe(paste0(folder, file))
+
+      #********************************##
+      # Load the pathway all nodes list #
+      #********************************##
+
+      # Get the list of files
+      dataSet <- read.csv(file=paste0('./output/allNodes/', pathway_code, '.csv'), header=TRUE, sep=",", stringsAsFactors=FALSE)
+
+      if (is.null(dataSet) | nrow(dataSet) == 0) {
+        return(FALSE)
+      }
+
       #************************##
       # Handle the pathway data #
       #************************##
 
-      # Create the pathwayData dataFrame
+      # Create the reference pathway dataFrame
       pathwayData <- current_kgml$nodes
 
       # Remove unnecessary data from pathway data
@@ -588,8 +609,49 @@ generateEnzymesDictionary <- function(removeNoise_=TRUE) {
       pathwayData <- pathwayData[!grepl("^gl:", pathwayData$name),]
       pathwayData <- pathwayData[!grepl("^ko:", pathwayData$name),]
 
-      #
+      #*********************************************##
+      # Generate the dictionary from current pathway #
+      #*********************************************##
 
+      # Count the reference pathway rows
+      rows <- nrow(pathwayData)
+
+      # Loop over the reference pathway rows
+      for (idx in 1:rows) {
+        # Get the graphical <x,y> enzyme attributes
+        x <- pathwayData[idx,]$x
+        y <- pathwayData[idx,]$y
+
+        # Get the unique reaction for the specific <x,y> enzyme
+        react <- unlist(unique(dataSet[dataSet$x == x & dataSet$y == y, ]$reaction))
+
+        # Apply the information into the dictionary
+        dictionary[dictionary_index, 'id'] <<- dictionary_index
+        dictionary[dictionary_index, 'pathway'] <<- pathway_code
+        dictionary[dictionary_index, 'x'] <<- x
+        dictionary[dictionary_index, 'y'] <<- y
+
+        # Apply the reaction info into the dictionary
+        if (is.null(react) | length(react) == 0) {
+          # Apply the reference pathway reaction
+          dictionary[dictionary_index, 'reaction'] <<- pathwayData[idx,]$reaction
+        } else {
+          # Use the organism pathway reaction
+          dictionary[dictionary_index, 'reaction'] <<- react
+        }
+
+        # Apply the EC info into the dictionary
+        dictionary[dictionary_index, 'ec'] <<- pathwayData[idx,]$name
+
+        # Increment the dictionary index
+        dictionary_index <<- dictionary_index + 1
+      }
+
+      #***********************#
+      # Remove temp variables #
+      #***********************#
+
+      rm(pathway_code, pathwayData, current_kgml)
 
     }, error=function(e) {
       # Save the log file
@@ -601,14 +663,12 @@ generateEnzymesDictionary <- function(removeNoise_=TRUE) {
 
     # Increment the index
     kgml_index <<- kgml_index + 1
-
-    #***********************#
-    # Remove temp variables #
-    #***********************#
-
-    rm(pathway_code, pathwayData, current_kgml)
-
   }) # End of Loop 01
+
+  # Export the dictionary
+  if (dir.exists(file.path(current_dir))) {
+    write.csv(dictionary, file=paste0(current_dir, '/dictionary.csv'))
+  }
 
   # Function finished with success
   return(TRUE)
@@ -801,13 +861,13 @@ printInteractiveNetwork <- function(removeNoise_=TRUE) {
 #**********************************************#
 # Step 2: Generate the pathways all nodes list #
 #**********************************************#
-generatePathwayAllNodes()
+#generatePathwayAllNodes()
 
 #***************************************************#
 # Step 3: Generate all pathways dictionary to match #
 # the reference EC with each node in org pathways   #
 #***************************************************#
-#generateEnzymesDictionary()
+generateEnzymesDictionary()
 
 #************************************************#
 # Step 4: Perform the enzymes frequency counting #
