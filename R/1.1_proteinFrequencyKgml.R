@@ -536,7 +536,7 @@ generatePathwayAllNodes <- function(removeNoise_=TRUE) {
   })
 }
 
-generateEnzymesDictionary <- function() {
+generateNodesDictionary <- function() {
 
   # Status message
   printMessage(paste0("GENERATING THE PATHWAYS DICTIONARY"))
@@ -656,7 +656,7 @@ generateEnzymesDictionary <- function() {
     }, error=function(e) {
       # Save the log file
       printLog(message_=paste0('Warning: the ', pathway_code, ' pathway could no be processed. Skipping it...'),
-               file_=paste0('generateEnzymesDictionary', pathway_code))
+               file_=paste0('generateNodesDictionary', pathway_code))
 
       return(FALSE)
     })
@@ -867,7 +867,7 @@ printInteractiveNetwork <- function(removeNoise_=TRUE) {
 # Step 3: Generate all pathways dictionary to match #
 # the reference EC with each node in org pathways   #
 #***************************************************#
-generateEnzymesDictionary()
+generateNodesDictionary()
 
 #************************************************#
 # Step 4: Perform the enzymes frequency counting #
