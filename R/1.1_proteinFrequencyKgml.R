@@ -479,6 +479,141 @@ generateOrganismPathwayDataFromKGML <- function(removeNoise_=TRUE) {
   return(TRUE)
 }
 
+generatePathwayAllNodes <- function(removeNoise_=TRUE) {
+
+  # Reference pathway
+  reference_pathway <- 'ec'
+
+  # Get the list of files
+  folder = paste0("./output/kgml/", reference_pathway, "/")
+  kgml_list <- list.files(path=folder, pattern='*.xml')
+  kgml_index <- 1
+
+  # Define the number of available pathways
+  available_pathways <- length(kgml_list)
+
+  # Set the dictionary dir
+  current_dir <- './output/allNodes'
+
+  if (!dir.exists(file.path(current_dir))) {
+    dir.create(file.path(current_dir), showWarnings = FALSE, mode = "0775")
+  }
+
+  # Loop 01: Run through all available pathways kgml
+  lapply(kgml_list, function(file) {
+
+    # Get the pathway code
+    pathway_code <- onlyNumber(file)
+
+    # Status message
+    printMessage(paste0("PROCESSING ", pathway_code, " [", kgml_index, " OF ", available_pathways, "]"))
+
+    # Get the list of files
+    folder = paste0("./output/", pathway_code, "/")
+    file_list <- grep(list.files(path=folder), pattern='*.csv', value=T)
+
+    # Load all csv files at once
+    big.list.of.data.frames <- lapply(file_list, function(item) {
+      read.csv(file=paste0(folder, item), header=TRUE, sep=",", stringsAsFactors=FALSE)
+    })
+
+    # Combine multiple data frames in one
+    allNodes <- do.call(rbind, big.list.of.data.frames)
+
+    # Export allNodes
+    if (dir.exists(file.path(current_dir))) {
+      write.csv(allNodes, file=paste0(current_dir, '/', pathway_code, '.csv'))
+    }
+
+    # Remove temporaly variables
+    rm(big.list.of.data.frames, allNodes, pathway_code, folder, file_list)
+
+    # Increment the index
+    kgml_index <<- kgml_index + 1
+  })
+}
+
+generateEnzymesDictionary <- function(removeNoise_=TRUE) {
+
+  # Reference pathway
+  reference_pathway <- 'ec'
+
+  # Get the list of files
+  folder = paste0("./output/kgml/", reference_pathway, "/")
+  kgml_list <- list.files(path=folder, pattern='*.xml')
+  kgml_index <- 1
+
+  # Define the number of available pathways
+  available_pathways <- length(kgml_list)
+
+  # Check if the folder contains files
+  if (is.null(kgml_list) | length(kgml_list) == 0) {
+    # Status message
+    printMessage("There aren't available pathways...")
+    return(FALSE)
+  }
+
+  # Set the dictionary dir
+  current_dir <- './output/'
+
+  if (!dir.exists(file.path(current_dir))) {
+    dir.create(file.path(current_dir), showWarnings = FALSE, mode = "0775")
+  }
+
+  # Loop 01: Run through all available pathways kgml
+  lapply(kgml_list, function(file) {
+
+    # Load the dataframe
+    current_kgml <- KGML2Dataframe(paste0(folder, file))
+
+    # Get the pathway code
+    pathway_code <- onlyNumber(file)
+
+    # Status message
+    printMessage(paste0("PROCESSING ", pathway_code, " [", kgml_index, " OF ", available_pathways, "]"))
+
+    tryCatch({
+
+      #************************##
+      # Handle the pathway data #
+      #************************##
+
+      # Create the pathwayData dataFrame
+      pathwayData <- current_kgml$nodes
+
+      # Remove unnecessary data from pathway data
+      pathwayData <- pathwayData[!grepl("^path:", pathwayData$name),]
+      pathwayData <- pathwayData[!grepl("^map:", pathwayData$name),]
+      pathwayData <- pathwayData[!grepl("^cpd:", pathwayData$name),]
+      pathwayData <- pathwayData[!grepl("^gl:", pathwayData$name),]
+      pathwayData <- pathwayData[!grepl("^ko:", pathwayData$name),]
+
+      #
+
+
+    }, error=function(e) {
+      # Save the log file
+      printLog(message_=paste0('Warning: the ', pathway_code, ' pathway could no be processed. Skipping it...'),
+               file_=paste0('generateEnzymesDictionary', pathway_code))
+
+      return(FALSE)
+    })
+
+    # Increment the index
+    kgml_index <<- kgml_index + 1
+
+    #***********************#
+    # Remove temp variables #
+    #***********************#
+
+    rm(pathway_code, pathwayData, current_kgml)
+
+  }) # End of Loop 01
+
+  # Function finished with success
+  return(TRUE)
+}
+
 generatePathwayFrequencyFromOrganismData <- function(removeNoise_=TRUE) {
 
   # Reference pathway
@@ -494,19 +629,16 @@ generatePathwayFrequencyFromOrganismData <- function(removeNoise_=TRUE) {
 
   # Loop 01: Run through all available pathways kgml
   lapply(kgml_list, function(file) {
-    # Load the dataframe
-    current_kgml <- KGML2Dataframe(paste0(folder, file))
-
     # Get the pathway code
     pathway_code <- onlyNumber(file)
 
     # Get the list of files
-    folder = paste0("./output/00010/")
-    file_list <- grep(list.files(path=folder), pattern='*_entrez', inv=T, value=T)
+    folder = paste0("./output/", pathway_code, "/")
+    file_list <- grep(list.files(path=folder), pattern='*.csv', value=T)
 
-    # Load all files at once
-    big.list.of.data.frames <- lapply(file_list, function(file) {
-      get(load(file = paste0(folder, file)))
+    # Load all csv files at once
+    big.list.of.data.frames <- lapply(file_list, function(item) {
+      read.csv(file=paste0(folder, item), header=TRUE, sep=",", stringsAsFactors=FALSE)
     })
 
     # Combine multiple data frames in one
@@ -515,7 +647,7 @@ generatePathwayFrequencyFromOrganismData <- function(removeNoise_=TRUE) {
     # Remove temporaly variables
     rm(big.list.of.data.frames)
 
-    proteinsCount <- aggregate(dataSet$freq, by=list(dataSet$pathway, dataSet$entryID), FUN=sum, stringsAsFactors=FALSE)
+    proteinsCount <- aggregate(dataSet$freq, by=list(dataSet$pathway, dataSet$entryID, dataSet$reaction), FUN=sum, stringsAsFactors=FALSE)
     proteinsCount <- proteinsCount[order(proteinsCount$Group.2,decreasing = F),]
 
   })
@@ -660,13 +792,29 @@ printInteractiveNetwork <- function(removeNoise_=TRUE) {
 # Pipeline flow #
 #***************#
 
-#***************************************************************#
-# Step 1: Generate the pathways frequencies from the kgml files #
-#***************************************************************#
+#***************************************************************************#
+# Step 1: Generate the pathways orgs intermediate files from the kgml files #
+#***************************************************************************#
 #generatePathwayDataFromKGML()
-generateOrganismPathwayDataFromKGML()
+#generateOrganismPathwayDataFromKGML()
+
+#**********************************************#
+# Step 2: Generate the pathways all nodes list #
+#**********************************************#
+generatePathwayAllNodes()
+
+#***************************************************#
+# Step 3: Generate all pathways dictionary to match #
+# the reference EC with each node in org pathways   #
+#***************************************************#
+#generateEnzymesDictionary()
+
+#************************************************#
+# Step 4: Perform the enzymes frequency counting #
+#************************************************#
+#generatePathwayFrequencyFromOrganismData()
 
 #******************************#
-# Step 2: Generate the network #
+# Step 5: Generate the network #
 #******************************#
 #printInteractiveNetwork()
