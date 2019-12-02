@@ -806,6 +806,7 @@ generatePathwayFrequencyFromOrganismData <- function(removeNoise_=TRUE) {
       if (removeNoise_) {
         pathwayData <- removeNoise(pathwayData)
         pathwayData <- pathwayData[!(pathwayData$type=="group"),]
+        pathwayData <- pathwayData[!(pathwayData$graphicalType=="line"),]
 
         pathwayGraph <- removeNoise(pathwayGraph)
       }
@@ -890,7 +891,7 @@ generatePathwayFrequencyFromOrganismData <- function(removeNoise_=TRUE) {
       # Count the protein frequencies using the dictionary #
       #***************************************************##
 
-      if (!is.null(pathwayData) & nrow(pathwayInstancesDataSet) > 0) {
+      if (!is.null(pathwayData) & !is.null(pathwayInstancesDataSet)) {
         # Group all instances nodes by (x, y, reaction) variables
         proteinsCount <- aggregate(pathwayInstancesDataSet$freq, by=list(pathwayInstancesDataSet$x,
                                                                          pathwayInstancesDataSet$y,
@@ -917,7 +918,7 @@ generatePathwayFrequencyFromOrganismData <- function(removeNoise_=TRUE) {
           if (length(current_ec) != 0 & length(current_reaction) != 0) {
             if (!is.na(current_ec) & !is.null(current_ec) & !is.na(current_reaction) & !is.null(current_reaction)) {
               # Assign the frequency into the pathwayData
-              pathwayData[pathwayData$reaction == current_reaction &
+              pathwayData[pathwayData$x == x & pathwayData$y == y & pathwayData$reaction == current_reaction &
                             pathwayData$name == current_ec, ]$occurrences <- proteinsCount[idx,'occurrences']
             }
           }
