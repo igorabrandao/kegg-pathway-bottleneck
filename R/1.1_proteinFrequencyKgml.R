@@ -571,7 +571,7 @@ generateNodesDictionary <- function() {
   }
 
   # Loop 01: Run through all available pathways kgml
-  lapply(kgml_list[1:4], function(file) {
+  lapply(kgml_list, function(file) {
 
     # Get the pathway code
     pathway_code <- onlyNumber(file)
