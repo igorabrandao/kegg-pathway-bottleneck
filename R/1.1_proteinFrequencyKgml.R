@@ -257,7 +257,11 @@ generatePathwayDataFromKGML <- function(removeNoise_=TRUE) {
             }
           }
         }, error=function(e) {
-          print(paste0('The org ', org, ' could no be processed. Skipping it...'))
+          printMessage(e)
+
+          # Save the log file
+          printLog(toString(e), file_=paste0('generatePathwayDataFromKGML', org))
+
           return(FALSE)
         })
 
@@ -300,7 +304,11 @@ generatePathwayDataFromKGML <- function(removeNoise_=TRUE) {
         save(pathwayData, file=paste0('./output/totalFrequency/', kgml_index, "_", pathway_code, '.RData'), compress = "xz")
       }
     }, error=function(e) {
-      print(paste0('The pathway ', pathway_code, ' could no be processed. Skipping it...'))
+      printMessage(e)
+
+      # Save the log file
+      printLog(toString(e), file_=paste0('generatePathwayDataFromKGML', pathway_code))
+
       return(FALSE)
     })
 
@@ -440,9 +448,10 @@ generateOrganismPathwayDataFromKGML <- function(removeNoise_=TRUE) {
             write.csv(orgData, file=paste0(current_dir, '/', org_index, "_", org, '.csv'))
           }
         }, error=function(e) {
+          printMessage(e)
+
           # Save the log file
-          printLog(message_=paste0('Warning: the ', org, ' pathway ', pathway_code, ' could no be processed. Skipping it...'),
-                   file_=paste0(org, pathway_code))
+          printLog(toString(e), file_=paste0('generateOrganismPathwayDataFromKGML', org, pathway_code))
 
           return(FALSE)
         })
@@ -458,9 +467,11 @@ generateOrganismPathwayDataFromKGML <- function(removeNoise_=TRUE) {
 
       }) # End of Loop 02
     }, error=function(e) {
+      printMessage(e)
+
       # Save the log file
-      printLog(message_=paste0('The pathway ', pathway_code, ' could no be processed. Skipping it...'),
-               file_=paste0(org, pathway_code))
+      printLog(toString(e), file_=paste0('generateOrganismPathwayDataFromKGML', org, pathway_code))
+
       return(FALSE)
     })
 
@@ -669,8 +680,7 @@ generateNodesDictionary <- function() {
       printMessage(e)
 
       # Save the log file
-      printLog(message_=paste0('Warning: the ', pathway_code, ' pathway could no be processed. Skipping it...'),
-               file_=paste0('generateNodesDictionary', pathway_code))
+      printLog(toString(e), file_=paste0('generateNodesDictionary', pathway_code))
 
       return(FALSE)
     })
@@ -689,6 +699,9 @@ generateNodesDictionary <- function() {
 }
 
 generatePathwayFrequencyFromOrganismData <- function(removeNoise_=TRUE) {
+
+  # Status message
+  printMessage(paste0("PERFORMING THE PATHWAYS PROTEINS FREQUENCIES COUNT"))
 
   # Reference pathway
   reference_pathway <- 'ec'
@@ -792,16 +805,28 @@ generatePathwayFrequencyFromOrganismData <- function(removeNoise_=TRUE) {
       # Remove unnecessary data from pathway data/graph
       if (removeNoise_) {
         pathwayData <- removeNoise(pathwayData)
+        pathwayData <- pathwayData[!(pathwayData$type=="group"),]
+
         pathwayGraph <- removeNoise(pathwayGraph)
       }
 
+      if (is.null(pathwayData) | nrow(pathwayData) == 0) {
+        # Save the log file
+        printLog(message_='The pathwayData data frame is empty. Skipping it...',
+                 file_='generatePathwayFrequencyFromOrganismData')
+
+        return(FALSE)
+      }
+
       # Assign the reaction type to each node
-      for (idx in 1:nrow(pathwayData)) {
-        for (idx2 in 1:length(current_kgml$reactions$name)) {
-          # Check the position of the current reaction in reactions list
-          if (current_kgml$reactions$name[idx2] %in% pathwayData[idx,]$reaction) {
-            pathwayData[idx,]$reaction_type <- current_kgml$reactions$type[idx2]
-            break()
+      if (length(current_kgml$reactions) > 0) {
+        for (idx in 1:nrow(pathwayData)) {
+          for (idx2 in 1:length(current_kgml$reactions$name)) {
+            # Check the position of the current reaction in reactions list
+            if (current_kgml$reactions$name[idx2] %in% pathwayData[idx,]$reaction) {
+              pathwayData[idx,]$reaction_type <- current_kgml$reactions$type[idx2]
+              break()
+            }
           }
         }
       }
@@ -865,34 +890,37 @@ generatePathwayFrequencyFromOrganismData <- function(removeNoise_=TRUE) {
       # Count the protein frequencies using the dictionary #
       #***************************************************##
 
-      # Group all instances nodes by (x, y, reaction) variables
-      proteinsCount <- aggregate(pathwayInstancesDataSet$freq, by=list(pathwayInstancesDataSet$x,
-                                                                       pathwayInstancesDataSet$y,
-                                                                       pathwayInstancesDataSet$reaction),
-                                 FUN=sum, stringsAsFactors=FALSE)
+      if (!is.null(pathwayData) & nrow(pathwayInstancesDataSet) > 0) {
+        # Group all instances nodes by (x, y, reaction) variables
+        proteinsCount <- aggregate(pathwayInstancesDataSet$freq, by=list(pathwayInstancesDataSet$x,
+                                                                         pathwayInstancesDataSet$y,
+                                                                         pathwayInstancesDataSet$reaction),
+                                   FUN=sum, stringsAsFactors=FALSE)
 
-      # Rename the group columns
-      names(proteinsCount)[names(proteinsCount) == "x"] <- "occurrences"
-      names(proteinsCount)[names(proteinsCount) == "Group.1"] <- "x"
-      names(proteinsCount)[names(proteinsCount) == "Group.2"] <- "y"
-      names(proteinsCount)[names(proteinsCount) == "Group.3"] <- "reaction"
+        # Rename the group columns
+        names(proteinsCount)[names(proteinsCount) == "x"] <- "occurrences"
+        names(proteinsCount)[names(proteinsCount) == "Group.1"] <- "x"
+        names(proteinsCount)[names(proteinsCount) == "Group.2"] <- "y"
+        names(proteinsCount)[names(proteinsCount) == "Group.3"] <- "reaction"
 
-      for (idx in 1:nrow(proteinsCount)) {
-        # Get the group parameters
-        x <- proteinsCount[idx,'x']
-        y <- proteinsCount[idx,'y']
-        react <- proteinsCount[idx,'reaction']
+        for (idx in 1:nrow(proteinsCount)) {
+          print(idx)
+          # Get the group parameters
+          x <- proteinsCount[idx,'x']
+          y <- proteinsCount[idx,'y']
+          react <- proteinsCount[idx,'reaction']
 
-        # Find the current node into the dictionary
-        current_ec <- dictionary[dictionary$x == x & dictionary$y == y & dictionary$reaction == react, ]$ec
-        current_reaction <- dictionary[dictionary$x == x & dictionary$y == y & dictionary$reaction == react, ]$reaction
+          # Find the current node into the dictionary
+          current_ec <- dictionary[dictionary$x == x & dictionary$y == y & dictionary$reaction == react, ]$ec
+          current_reaction <- dictionary[dictionary$x == x & dictionary$y == y & dictionary$reaction == react, ]$reaction
 
-        # Check if the current node data was found
-        if (length(current_ec) != 0 & length(current_reaction) != 0) {
-          if (!is.na(current_ec) & !is.null(current_ec) & !is.na(current_reaction) & !is.null(current_reaction)) {
-            # Assign the frequency into the pathwayData
-            pathwayData[pathwayData$x == x & pathwayData$y == y & pathwayData$reaction == current_reaction &
-                          pathwayData$name == current_ec, ]$occurrences <- proteinsCount[idx,'occurrences']
+          # Check if the current node data was found
+          if (length(current_ec) != 0 & length(current_reaction) != 0) {
+            if (!is.na(current_ec) & !is.null(current_ec) & !is.na(current_reaction) & !is.null(current_reaction)) {
+              # Assign the frequency into the pathwayData
+              pathwayData[pathwayData$reaction == current_reaction &
+                            pathwayData$name == current_ec, ]$occurrences <- proteinsCount[idx,'occurrences']
+            }
           }
         }
       }
@@ -947,8 +975,7 @@ generatePathwayFrequencyFromOrganismData <- function(removeNoise_=TRUE) {
       printMessage(e)
 
       # Save the log file
-      printLog(message_=paste0('The pathway ', pathway_code, ' could no be processed. Skipping it...'),
-               file_=paste0('generatePathwayFrequencyFromOrganismData', pathway_code))
+      printLog(toString(e), file_=paste0('generatePathwayFrequencyFromOrganismData', pathway_code))
 
       return(FALSE)
     })
@@ -1077,7 +1104,11 @@ printInteractiveNetwork <- function(removeNoise_=TRUE) {
         }
       }
     }, error=function(e) {
-      print(paste0('The pathway ', pathway_code, ' could no be processed. Skipping it...'))
+      printMessage(e)
+
+      # Save the log file
+      printLog(toString(e), file_=paste0('printInteractiveNetwork', pathway_code))
+
       return(FALSE)
     })
 
