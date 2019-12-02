@@ -593,6 +593,15 @@ generateNodesDictionary <- function() {
 
       if (is.null(dataSet) | nrow(dataSet) == 0) {
         return(FALSE)
+      } else {
+        # Remove unnecessary data from pathway data
+        dataSet <- dataSet[!grepl("^path:", dataSet$name),]
+        dataSet <- dataSet[!grepl("^map:", dataSet$name),]
+        dataSet <- dataSet[!grepl("^cpd:", dataSet$name),]
+        dataSet <- dataSet[!grepl("^gl:", dataSet$name),]
+        dataSet <- dataSet[!grepl("^ko:", dataSet$name),]
+        dataSet <- dataSet[!grepl("^undefined:", dataSet$name),]
+        dataSet <- dataSet[!grepl("^group:", dataSet$type),]
       }
 
       #************************##
@@ -608,6 +617,7 @@ generateNodesDictionary <- function() {
       pathwayData <- pathwayData[!grepl("^cpd:", pathwayData$name),]
       pathwayData <- pathwayData[!grepl("^gl:", pathwayData$name),]
       pathwayData <- pathwayData[!grepl("^ko:", pathwayData$name),]
+      pathwayData <- pathwayData[!grepl("^undefined:", pathwayData$name),]
 
       #*********************************************##
       # Generate the dictionary from current pathway #
@@ -622,29 +632,31 @@ generateNodesDictionary <- function() {
         x <- pathwayData[idx,]$x
         y <- pathwayData[idx,]$y
 
-        # Get the unique reaction for the specific <x,y> enzyme
-        react <- unlist(unique(dataSet[dataSet$x == x & dataSet$y == y, ]$reaction))
+        if (!is.na(x) && !is.na(y)) {
+          # Get the unique reaction for the specific <x,y> enzyme
+          react <- unlist(unique(dataSet[dataSet$x == x & dataSet$y == y, ]$reaction))[1]
 
-        # Apply the information into the dictionary
-        dictionary[dictionary_index, 'id'] <<- dictionary_index
-        dictionary[dictionary_index, 'pathway'] <<- pathway_code
-        dictionary[dictionary_index, 'x'] <<- x
-        dictionary[dictionary_index, 'y'] <<- y
+          # Apply the information into the dictionary
+          dictionary[dictionary_index, 'id'] <<- dictionary_index
+          dictionary[dictionary_index, 'pathway'] <<- pathway_code
+          dictionary[dictionary_index, 'x'] <<- x
+          dictionary[dictionary_index, 'y'] <<- y
 
-        # Apply the reaction info into the dictionary
-        if (is.null(react) | length(react) == 0) {
-          # Apply the reference pathway reaction
-          dictionary[dictionary_index, 'reaction'] <<- pathwayData[idx,]$reaction
-        } else {
-          # Use the organism pathway reaction
-          dictionary[dictionary_index, 'reaction'] <<- react
+          # Apply the reaction info into the dictionary
+          if (is.null(react) | length(react) == 0 | is.na(react)) {
+            # Apply the reference pathway reaction
+            dictionary[dictionary_index, 'reaction'] <<- pathwayData[idx,]$reaction
+          } else {
+            # Use the organism pathway reaction
+            dictionary[dictionary_index, 'reaction'] <<- react
+          }
+
+          # Apply the EC info into the dictionary
+          dictionary[dictionary_index, 'ec'] <<- pathwayData[idx,]$name
+
+          # Increment the dictionary index
+          dictionary_index <<- dictionary_index + 1
         }
-
-        # Apply the EC info into the dictionary
-        dictionary[dictionary_index, 'ec'] <<- pathwayData[idx,]$name
-
-        # Increment the dictionary index
-        dictionary_index <<- dictionary_index + 1
       }
 
       #***********************#
@@ -654,6 +666,8 @@ generateNodesDictionary <- function() {
       rm(pathway_code, pathwayData, current_kgml)
 
     }, error=function(e) {
+      printMessage(e)
+
       # Save the log file
       printLog(message_=paste0('Warning: the ', pathway_code, ' pathway could no be processed. Skipping it...'),
                file_=paste0('generateNodesDictionary', pathway_code))
