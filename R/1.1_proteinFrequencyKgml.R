@@ -701,30 +701,261 @@ generatePathwayFrequencyFromOrganismData <- function(removeNoise_=TRUE) {
   # Define the number of available pathways
   available_pathways <- length(kgml_list)
 
+  # Load the dicionaty
+  dictionary <- read.csv(file='./output/pathwaysDictionary/dictionary.csv', header=TRUE, sep=",", stringsAsFactors=FALSE)
+
+  if (is.null(dictionary) | nrow(dictionary) == 0) {
+    # Save the log file
+    printLog(message_='The pathways nodes dictionary could not be found. Skipping it...',
+             file_='generatePathwayFrequencyFromOrganismData')
+
+    return(FALSE)
+  }
+
   # Loop 01: Run through all available pathways kgml
   lapply(kgml_list, function(file) {
+
     # Get the pathway code
     pathway_code <- onlyNumber(file)
 
-    # Get the list of files
-    folder = paste0("./output/", pathway_code, "/")
-    file_list <- grep(list.files(path=folder), pattern='*.csv', value=T)
+    # Status message
+    printMessage(paste0("COUNTING ", pathway_code, " ENZYMES FREQUENCIES [", kgml_index, " OF ", available_pathways, "]"))
+
+    #*************************************************##
+    # Load all instances (orgs) of the current pathway #
+    #*************************************************##
+
+    # Get the list of instance files
+    pathway_folder = paste0("./output/", pathway_code, "/")
+    file_list <- grep(list.files(path=pathway_folder), pattern='*.csv', value=T)
 
     # Load all csv files at once
     big.list.of.data.frames <- lapply(file_list, function(item) {
-      read.csv(file=paste0(folder, item), header=TRUE, sep=",", stringsAsFactors=FALSE)
+      read.csv(file=paste0(pathway_folder, item), header=TRUE, sep=",", stringsAsFactors=FALSE)
     })
 
-    # Combine multiple data frames in one
-    dataSet <- do.call(rbind, big.list.of.data.frames)
+    # Combine multiple organisms data frames in one
+    pathwayInstancesDataSet <- do.call(rbind, big.list.of.data.frames)
 
     # Remove temporaly variables
     rm(big.list.of.data.frames)
 
-    proteinsCount <- aggregate(dataSet$freq, by=list(dataSet$pathway, dataSet$entryID, dataSet$reaction), FUN=sum, stringsAsFactors=FALSE)
-    proteinsCount <- proteinsCount[order(proteinsCount$Group.2,decreasing = F),]
+    #*************************************************************************##
+    # Create the final dataSet with protein frequencies and network properties #
+    #*************************************************************************##
 
-  })
+    tryCatch({
+      # Load the current pathway dataframe
+      current_kgml <- KGML2Dataframe(paste0(folder, file))
+
+      # Convert the pathway data into a graph
+      pathwayGraph <- KGML2Graph(paste0(folder, file), replaceOrg=TRUE, orgToReplace=reference_pathway)
+
+      #*************************##
+      # Prepare the pathway data #
+      #*************************##
+
+      # Create the pathwayData dataFrame
+      pathwayData <- current_kgml$nodes
+
+      # Remove the pathwayData unnecessary columns
+      pathwayData <- pathwayData[,!(names(pathwayData) %in% c('component', 'map'))]
+
+      # Add the default columns
+      pathwayData$reaction_type <- NA
+      pathwayData$org <- reference_pathway
+      pathwayData$pathway <- pathway_code
+      pathwayData$is_bottleneck <- 0
+
+      # Protein frequency columns
+      pathwayData$occurrences <- 0
+      pathwayData$totalSpecies <- 0
+      pathwayData$percentage <- 0
+
+      # Network metrics
+      pathwayData$betweenness <- NA
+      pathwayData$connectivity <- NA
+      pathwayData$triangles <- NA
+      pathwayData$clusteringCoef <- NA
+      pathwayData$closenessCoef <- NA
+      pathwayData$community <- NA
+      pathwayData$eigenvectorScore <- NA
+      pathwayData$eccentricity <- NA
+      pathwayData$radius <- NA
+      pathwayData$diameter <- NA
+      pathwayData$degree <- NA
+      pathwayData$authorityScore <- NA
+      pathwayData$hubScore <- NA
+
+      pathwayData$bottleneck_classification <- NA
+
+      # Remove unnecessary data from pathway data/graph
+      if (removeNoise_) {
+        pathwayData <- removeNoise(pathwayData)
+        pathwayGraph <- removeNoise(pathwayGraph)
+      }
+
+      # Assign the reaction type to each node
+      for (idx in 1:nrow(pathwayData)) {
+        for (idx2 in 1:length(current_kgml$reactions$name)) {
+          # Check the position of the current reaction in reactions list
+          if (current_kgml$reactions$name[idx2] %in% pathwayData[idx,]$reaction) {
+            pathwayData[idx,]$reaction_type <- current_kgml$reactions$type[idx2]
+            break()
+          }
+        }
+      }
+
+      #*************************##
+      # Get the graph properties #
+      #*************************##
+
+      graphProperties <- getGraphProperties(pathwayGraph)
+
+      # Perform the graph bottleneck calculation
+      iGraph <- igraph::graph_from_data_frame(pathwayGraph, directed = FALSE)
+      graphBottleneck <- igraph::as_ids(getGraphBottleneck(iGraph, FALSE))
+
+      # Assign the bottlenecks for enzyme code (ec)
+      if (strcmp(reference_pathway, 'ec')) {
+        pathwayData$is_bottleneck[which(pathwayData$name %in% graphBottleneck)] <- 1
+      }
+
+      #*****************************************##
+      # Assign the graph properties to each node #
+      #*****************************************##
+
+      for (idx in 1:nrow(pathwayData)) {
+        # Prepare the node name to be compared
+        pattern <- gsub('/', '|', pathwayData$name[idx])
+        pattern <- gsub(" ","", pattern)
+
+        # Find which rows in graphProperties match with pathwayData
+        rowsToMerge <- which(grepl(pattern, graphProperties$node))[1]
+
+        pathwayData[idx,]$betweenness <- graphProperties[rowsToMerge,]$betweenness
+        pathwayData[idx,]$connectivity <- graphProperties[rowsToMerge,]$connectivity
+        pathwayData[idx,]$triangles <- graphProperties[rowsToMerge,]$triangles
+        pathwayData[idx,]$clusteringCoef <- graphProperties[rowsToMerge,]$clusteringCoef
+        pathwayData[idx,]$closenessCoef <- graphProperties[rowsToMerge,]$closenessCoef
+        pathwayData[idx,]$community <- graphProperties[rowsToMerge,]$community
+        pathwayData[idx,]$eigenvectorScore <- graphProperties[rowsToMerge,]$eigenvectorScore
+        pathwayData[idx,]$eccentricity <- graphProperties[rowsToMerge,]$eccentricity
+        pathwayData[idx,]$radius <- graphProperties[rowsToMerge,]$radius
+        pathwayData[idx,]$diameter <- graphProperties[rowsToMerge,]$diameter
+        pathwayData[idx,]$degree <- graphProperties[rowsToMerge,]$degree
+        pathwayData[idx,]$authorityScore <- graphProperties[rowsToMerge,]$authorityScore
+        pathwayData[idx,]$hubScore <- graphProperties[rowsToMerge,]$hubScore
+
+        # Assign the bottlenecks for kegg orthology (ko)
+        if (strcmp(reference_pathway, 'ko')) {
+          # Check if at least one bottleneck was found
+          if (length(graphBottleneck) > 0) {
+            if (grepl(pattern, graphBottleneck)) {
+              pathwayData[idx,]$is_bottleneck <- 1
+            }
+          }
+        }
+      }
+
+      # Apply the node classification
+      pathwayData$bottleneck_classification <- classifyBottleneck(pathwayData)$bottleneck_classification
+
+      #***************************************************##
+      # Count the protein frequencies using the dictionary #
+      #***************************************************##
+
+      # Group all instances nodes by (x, y, reaction) variables
+      proteinsCount <- aggregate(pathwayInstancesDataSet$freq, by=list(pathwayInstancesDataSet$x,
+                                                                       pathwayInstancesDataSet$y,
+                                                                       pathwayInstancesDataSet$reaction),
+                                 FUN=sum, stringsAsFactors=FALSE)
+
+      # Rename the group columns
+      names(proteinsCount)[names(proteinsCount) == "x"] <- "occurrences"
+      names(proteinsCount)[names(proteinsCount) == "Group.1"] <- "x"
+      names(proteinsCount)[names(proteinsCount) == "Group.2"] <- "y"
+      names(proteinsCount)[names(proteinsCount) == "Group.3"] <- "reaction"
+
+      for (idx in 1:nrow(proteinsCount)) {
+        # Get the group parameters
+        x <- proteinsCount[idx,'x']
+        y <- proteinsCount[idx,'y']
+        react <- proteinsCount[idx,'reaction']
+
+        # Find the current node into the dictionary
+        current_ec <- dictionary[dictionary$x == x & dictionary$y == y & dictionary$reaction == react, ]$ec
+        current_reaction <- dictionary[dictionary$x == x & dictionary$y == y & dictionary$reaction == react, ]$reaction
+
+        # Check if the current node data was found
+        if (length(current_ec) != 0 & length(current_reaction) != 0) {
+          if (!is.na(current_ec) & !is.null(current_ec) & !is.na(current_reaction) & !is.null(current_reaction)) {
+            # Assign the frequency into the pathwayData
+            pathwayData[pathwayData$x == x & pathwayData$y == y & pathwayData$reaction == current_reaction &
+                          pathwayData$name == current_ec, ]$occurrences <- proteinsCount[idx,'occurrences']
+          }
+        }
+      }
+
+      #*******************##
+      # Handle org metrics #
+      #*******************##
+
+      # Check which species have the current pathway
+      org_list <- sapply(organism2pathway, function(org) {
+        pathway_code %in% org
+      })
+
+      # Retrieve just the species identification
+      org_list <- names(org_list[org_list==TRUE])
+
+      # Define the number of species that have the current pathway
+      available_orgs <- length(org_list)
+      pathwayData$totalSpecies <- available_orgs
+
+      #**********************##
+      # Handle others metrics #
+      #**********************##
+
+      # Calculate the occurrences percentage
+      pathwayData$percentage <- (pathwayData$occurrences / pathwayData$totalSpecies) * 100
+
+      #****************************#
+      # Prepare the data to export #
+      #****************************#
+
+      # Status message
+      printMessage(paste0("EXPORTING PATHWAY ", pathway_code))
+
+      # Export the pathway data
+      if (!dir.exists(file.path('./output/totalFrequency/'))) {
+        dir.create(file.path(paste0('./output/totalFrequency/')), showWarnings = FALSE, mode = "0775")
+      }
+
+      if (dir.exists(file.path('./output/totalFrequency/'))) {
+        write.csv(pathwayData, file=paste0('./output/totalFrequency/', kgml_index, "_", pathway_code, '.csv'))
+      }
+
+      #***********************#
+      # Remove temp variables #
+      #***********************#
+
+      rm(iGraph, graphProperties, graphBottleneck, pathwayData, current_kgml, pathwayInstancesDataSet,
+         org_list, available_orgs, proteinsCount)
+
+    }, error=function(e) {
+      printMessage(e)
+
+      # Save the log file
+      printLog(message_=paste0('The pathway ', pathway_code, ' could no be processed. Skipping it...'),
+               file_=paste0('generatePathwayFrequencyFromOrganismData', pathway_code))
+
+      return(FALSE)
+    })
+
+    # Increment the index
+    kgml_index <<- kgml_index + 1
+  }) # End of Loop 01
 }
 
 #' Function to generate interactive networks
@@ -881,12 +1112,12 @@ printInteractiveNetwork <- function(removeNoise_=TRUE) {
 # Step 3: Generate all pathways dictionary to match #
 # the reference EC with each node in org pathways   #
 #***************************************************#
-generateNodesDictionary()
+#generateNodesDictionary()
 
 #************************************************#
 # Step 4: Perform the enzymes frequency counting #
 #************************************************#
-#generatePathwayFrequencyFromOrganismData()
+generatePathwayFrequencyFromOrganismData()
 
 #******************************#
 # Step 5: Generate the network #
