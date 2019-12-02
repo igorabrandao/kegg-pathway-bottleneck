@@ -103,6 +103,65 @@ generateDataSet <- function(testName_ = '', folderName_ = 'totalFrequency', filt
   }
 }
 
+generateDataSetCSV <- function(testName_ = '', folderName_ = 'totalFrequency', filterColumns_ = TRUE, verbose_ = TRUE) {
+  # Status message
+  if (verbose_) {
+    printMessage("GENERATING THE DATASET BASE")
+  }
+
+  # Get the list of files
+  folder = paste0("./output/", folderName_, "/")
+  file_list <- list.files(path = folder, pattern = '*.csv')
+
+  # Check if the folder contains files
+  if (is.null(file_list) | length(file_list) == 0) {
+    return(FALSE)
+  }
+
+  # Load all files at once
+  big.list.of.data.frames <- lapply(file_list, function(file) {
+    read.csv(file=paste0(folder, file), header=TRUE, sep=",", stringsAsFactors=FALSE)
+  })
+
+  # Combine multiple data frames in one
+  dataSet <- do.call(rbind, big.list.of.data.frames)
+
+  # Remove temporaly variables
+  rm(big.list.of.data.frames)
+
+  # Handle empty graph
+  if (is.null(dataSet) | length(dataSet) == 0) {
+    # Status message
+    if (verbose_) {
+      printMessage("AN ERROR OCCURRED DURING THE DATASET GENERATION")
+    }
+
+    return(NULL)
+  } else {
+    # Status message
+    if (verbose_) {
+      printMessage(paste0(toupper(testName_), " DATASET GENERATED WITH SUCCESS!"))
+      printMessage("SAVING THE GENERATED DATASET...")
+    }
+
+    # Export the pathway data
+    if (!dir.exists(file.path('./output/statistics/'))) {
+      dir.create(file.path(paste0('./output/statistics/')), showWarnings = FALSE, mode = "0775")
+    }
+
+    if (!dir.exists(file.path(paste0('./output/statistics/', testName_, '/')))) {
+      dir.create(file.path(paste0('./output/statistics/', testName_, '/')), showWarnings = FALSE, mode = "0775")
+    }
+
+    if (dir.exists(file.path('./output/statistics/', testName_, '/'))) {
+      write.csv(dataSet, file = paste0('./output/statistics/', testName_, '/dataSet.csv'))
+    }
+
+    # Return the generated dataSet
+    return(dataSet)
+  }
+}
+
 # In order to avoid bias into the analysis, the bottlenecks with ZERO frequency should be removed
 #'
 #' @param dataSet_ Entrez number withou specie
