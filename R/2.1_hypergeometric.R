@@ -78,10 +78,13 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, rangeInterval_
         (dataSet_$percentage[dataSet_$pathway==item]-pathwayMinFrequency)/
         (pathwayMaxFrequency-pathwayMinFrequency)
     }
+
+    # Fix for NAN cases (when min and max frequency have the same values)
+    dataSet_$normalizedFrequency[is.nan(dataSet_$normalizedFrequency)] <- dataSet_$percentage[is.nan(dataSet_$normalizedFrequency)]/100
   }
 
   # Filter dataSet from proteins with ZERO frequency
-  dataSet_ <- dataSet_[!dataSet_$freq ==0,]
+  dataSet_ <- dataSet_[!dataSet_$occurrences==0,]
 
   if (cumulative_) {
     exportFile <- "hypergeometricDistributionCumulative"
@@ -90,7 +93,7 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, rangeInterval_
   }
 
   # Order the dataSet
-  dataSet_ <- dataSet_[order(dataSet_$normalizedFrequency,decreasing = T),]
+  dataSet_ <- dataSet_[order(dataSet_$normalizedFrequency, decreasing = T),]
 
   # Get the unique frequency percentages
   rangeVal <- c(seq(1, nrow(dataSet_), ceiling(nrow(dataSet_) / rangeInterval_)), nrow(dataSet_))
@@ -213,6 +216,54 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, rangeInterval_
               labels = c("blue" = "Significant", "red" = "Non Significant", "gray" = NA ),
               name = "p-value")
 
+  g
+
+  inicio = 1
+  range = 1
+
+  result<-data.frame(range=numeric(),
+                     count=numeric(),
+                     isBtn=numeric(),
+                     signif=numeric())
+
+  while (inicio <= nrow(dataSet_)) {
+    fim = inicio + (nrow(dataSet_)/rangeInterval_)
+
+    print(range)
+
+    if (fim > nrow(dataSet_)) {
+      fim <- nrow(dataSet_)
+    }
+
+    tmp <- dataSet_[inicio:fim, ]
+    btn = nrow(tmp[tmp$is_bottleneck == 1, ])
+    nbtn = nrow(tmp[tmp$is_bottleneck == 0, ])
+    signif <- ifelse(distribution$cor[distribution$range == range] == "blue", 1, 0)
+
+    if (signif == 1) {
+      b <- 1
+      n <- 0
+    } else{
+      b <- 3
+      n <- 2
+    }
+    result[nrow(result) + 1, ] <- c(range, btn, b, signif)
+
+    inicio <- fim + 1
+    range <- range + 1
+  }
+
+  p <- ggplot() +
+    geom_col(data=result[result$signif==1&result$isBtn==1,],
+             aes(x = range, y = count, fill = isBtn), width = 0.9) +
+    geom_col(data=result[result$signif==0&result$isBtn==3,],
+             aes(x = range, y = count, fill = isBtn), width = 0.9) +
+    geom_line(data=distribution,
+              aes(x = range, y = freq/drawn*50), col="red") +
+    xlab("Ranges") +
+    ylab("Bottlenecks count")
+  p
+
   # Export the hypergeometric discrete analysis
   if (!dir.exists(file.path('./output/statistics/'))) {
     dir.create(file.path(paste0('./output/statistics/')), showWarnings = FALSE, mode = "0775")
@@ -331,7 +382,7 @@ dataSet <- get(load("./output/statistics/hypergeometric/hypergeometric.RData"))
 # OR
 
 # Generate the dataSet
-dataSet <- generateDataSet(testName_ = 'hypergeometric')
+dataSet <- generateDataSetCSV(testName_ = 'hypergeometric')
 
 #*********************************************************************#
 # Step 2: Perform the hypergeometric distribution with discretization #
@@ -344,7 +395,7 @@ dataSet <- generateDataSet(testName_ = 'hypergeometric')
 #' normalize = TRUE (the proteins frequency will be normalized by its pathway size)
 #' verbose = TRUE (all status messages will be shown)
 #'
-hypergeometricDistribution(dataSet, p_value_ = 0.01, rangeInterval_ = 20,
+hypergeometricDistribution(dataSet, p_value_ = 0.01, rangeInterval_ = 100,
                                    cumulative_ = TRUE, normalize_ = TRUE, verbose_ = TRUE)
 
 #***********************************#
