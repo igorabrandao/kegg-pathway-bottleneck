@@ -904,7 +904,6 @@ generatePathwayFrequencyFromOrganismData <- function(removeNoise_=TRUE) {
         names(proteinsCount)[names(proteinsCount) == "Group.3"] <- "reaction"
 
         for (idx in 1:nrow(proteinsCount)) {
-          print(idx)
           # Get the group parameters
           x <- proteinsCount[idx,'x']
           y <- proteinsCount[idx,'y']
