@@ -816,6 +816,9 @@ generatePathwayFrequencyFromOrganismData <- function(removeNoise_=TRUE) {
         printLog(message_='The pathwayData data frame is empty. Skipping it...',
                  file_='generatePathwayFrequencyFromOrganismData')
 
+        # Increment the index
+        kgml_index <<- kgml_index + 1
+
         return(FALSE)
       }
 
@@ -971,17 +974,20 @@ generatePathwayFrequencyFromOrganismData <- function(removeNoise_=TRUE) {
       rm(iGraph, graphProperties, graphBottleneck, pathwayData, current_kgml, pathwayInstancesDataSet,
          org_list, available_orgs, proteinsCount)
 
+      # Increment the index
+      kgml_index <<- kgml_index + 1
+
     }, error=function(e) {
       printMessage(e)
+
+      # Increment the index
+      kgml_index <<- kgml_index + 1
 
       # Save the log file
       printLog(toString(e), file_=paste0('generatePathwayFrequencyFromOrganismData', pathway_code))
 
       return(FALSE)
     })
-
-    # Increment the index
-    kgml_index <<- kgml_index + 1
   }) # End of Loop 01
 }
 
