@@ -225,7 +225,7 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, rangeInterval_
   g
 
   if (dir.exists(file.path('./output/statistics/hypergeometric/'))) {
-    ggsave(paste0("./output/statistics/hypergeometric/", exportFile, ".png"), width = 20, height = 15, units = "cm")
+    ggsave(paste0("./output/statistics/hypergeometric/", exportFile, rangeInterval_, "bins.png"), width = 20, height = 15, units = "cm")
     write.csv(distribution, file=paste0("./output/statistics/hypergeometric/", exportFile, ".csv"))
   }
 
@@ -276,7 +276,7 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, rangeInterval_
   p
 
   if (dir.exists(file.path('./output/statistics/hypergeometric/'))) {
-    ggsave(paste0("./output/statistics/hypergeometric/hypergeometricDistribution.png"), width = 20, height = 15, units = "cm")
+    ggsave(paste0("./output/statistics/hypergeometric/hypergeometricDistribution", rangeInterval_, "bins.png"), width = 20, height = 15, units = "cm")
     write.csv(distribution, file=paste0("./output/statistics/hypergeometric/", exportFile, ".csv"))
   }
 
@@ -383,6 +383,7 @@ generateAdditionalPlots <- function(dataSet_, columns_ = NULL,
 
 # Generate the dataSet
 dataSet <- generateDataSetCSV(testName_ = 'hypergeometric')
+dataSet <- fillPathwayCodeWithZeros(dataSet)
 
 #*********************************************************************#
 # Step 2: Perform the hypergeometric distribution with discretization #
