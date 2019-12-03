@@ -343,11 +343,20 @@ orgByPath <- aggregate(data$totalSpecies, by=list(data$pathway), FUN=mean, strin
 names(orgByPath)[names(orgByPath) == "x"] <- "totalSpecies"
 names(orgByPath)[names(orgByPath) == "Group.1"] <- "pathway"
 
+# Order the data by totalSpecies
+orgByPath <- orgByPath[order(orgByPath$totalSpecies),]
+
+orgByPath$pathway <- factor(orgByPath$pathway, levels = orgByPath$pathway[order(orgByPath$totalSpecies)])
+
 ## Use n equally spaced breaks to assign each value to n-1 equal sized bins
-ii <- cut(orgByPath$totalSpecies, breaks = seq(min(orgByPath$totalSpecies), max(orgByPath$totalSpecies), len = 20),
-          include.lowest = TRUE)
-## Use bin indices, ii, to select color from vector of n-1 equally spaced colors
-colors <- colorRampPalette(c("#20639B", "#0c273e"))(19)[ii]
+colors <- c()
+intervals <- 4
+rangeVal <- c(seq(1, nrow(orgByPath), ceiling(nrow(orgByPath) / intervals)), nrow(orgByPath))
+pallete <- c("#ED553B", "#3CAEA3", "#20639B", "#173F5F")
+
+for (idx in 1:length(pallete)) {
+  colors[rangeVal[idx]:rangeVal[idx+1]] <- pallete[idx]
+}
 
 # Plot rganisms by pathways
 ggplot(orgByPath) +
