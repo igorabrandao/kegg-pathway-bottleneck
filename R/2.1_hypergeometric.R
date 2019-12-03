@@ -395,7 +395,7 @@ dataSet <- generateDataSetCSV(testName_ = 'hypergeometric')
 #' normalize = TRUE (the proteins frequency will be normalized by its pathway size)
 #' verbose = TRUE (all status messages will be shown)
 #'
-hypergeometricDistribution(dataSet, p_value_ = 0.01, rangeInterval_ = 100,
+distribution <- hypergeometricDistribution(dataSet, p_value_ = 0.01, rangeInterval_ = 100,
                                    cumulative_ = TRUE, normalize_ = TRUE, verbose_ = TRUE)
 
 #***********************************#
