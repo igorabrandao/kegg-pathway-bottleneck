@@ -170,6 +170,12 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, rangeInterval_
 
   #**********************************************************************************#
 
+  # Export the hypergeometric discrete analysis
+  if (!dir.exists(file.path('./output/statistics/'))) {
+    dir.create(file.path(paste0('./output/statistics/')), showWarnings = FALSE, mode = "0775")
+    dir.create(file.path(paste0('./output/statistics/hypergeometric/')), showWarnings = FALSE, mode = "0775")
+  }
+
   # Status message
   if (verbose_) {
     printMessage("PLOTTING THE DISTRIBUTION...")
@@ -218,6 +224,13 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, rangeInterval_
 
   g
 
+  if (dir.exists(file.path('./output/statistics/hypergeometric/'))) {
+    ggsave(paste0("./output/statistics/hypergeometric/", exportFile, ".png"), width = 20, height = 15, units = "cm")
+    write.csv(distribution, file=paste0("./output/statistics/hypergeometric/", exportFile, ".csv"))
+  }
+
+  #**********************************************************************************#
+
   inicio = 1
   range = 1
 
@@ -228,8 +241,6 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, rangeInterval_
 
   while (inicio <= nrow(dataSet_)) {
     fim = inicio + (nrow(dataSet_)/rangeInterval_)
-
-    print(range)
 
     if (fim > nrow(dataSet_)) {
       fim <- nrow(dataSet_)
@@ -264,15 +275,9 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, rangeInterval_
     ylab("Bottlenecks count")
   p
 
-  # Export the hypergeometric discrete analysis
-  if (!dir.exists(file.path('./output/statistics/'))) {
-    dir.create(file.path(paste0('./output/statistics/')), showWarnings = FALSE, mode = "0775")
-    dir.create(file.path(paste0('./output/statistics/hypergeometric/')), showWarnings = FALSE, mode = "0775")
-  }
-
   if (dir.exists(file.path('./output/statistics/hypergeometric/'))) {
-    ggsave(paste0("./output/statistics/hypergeometric/", exportFile, ".png"), width = 20, height = 15, units = "cm")
-    save(distribution, file=paste0("./output/statistics/hypergeometric/", exportFile, ".RData"))
+    ggsave(paste0("./output/statistics/hypergeometric/hypergeometricDistribution.png"), width = 20, height = 15, units = "cm")
+    write.csv(distribution, file=paste0("./output/statistics/hypergeometric/", exportFile, ".csv"))
   }
 
   # Return the result
@@ -375,11 +380,6 @@ generateAdditionalPlots <- function(dataSet_, columns_ = NULL,
 #******************************#
 # Step 1: Generate the dataSet #
 #******************************#
-
-# Load the dataSet
-dataSet <- get(load("./output/statistics/hypergeometric/hypergeometric.RData"))
-
-# OR
 
 # Generate the dataSet
 dataSet <- generateDataSetCSV(testName_ = 'hypergeometric')

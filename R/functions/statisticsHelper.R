@@ -229,4 +229,30 @@ removeZeroBottlenecks <- function(dataSet_, verbose_ = TRUE) {
   return(dataSet_)
 }
 
+fillPathwayCodeWithZeros <- function(dataSet_, verbose_ = TRUE) {
+  # Status message
+  if (verbose_) {
+    printMessage(paste0("FILLING THE PATHWAYS CODE WITH ZEROS..."))
+  }
+
+  # Count the dataSet rows
+  rows <- nrow(dataSet_)
+
+  # Loop over the reference pathway rows
+  for (idx in 1:rows) {
+    current_pathway <- as.integer(dataSet_[idx,]$pathway)
+
+    if (current_pathway >= 1000) {
+      dataSet_[idx,]$pathway <- paste0('0', dataSet_[idx,]$pathway)
+    } else if (current_pathway >= 100 & current_pathway < 1000) {
+      dataSet_[idx,]$pathway <- paste0('00', dataSet_[idx,]$pathway)
+    } else {
+      dataSet_[idx,]$pathway <- paste0('000', dataSet_[idx,]$pathway)
+    }
+  }
+
+  # Return the result
+  return(dataSet_)
+}
+
 #*******************************************************************************************#

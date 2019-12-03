@@ -63,7 +63,7 @@ descriptiveAnalysis <- function(dataSet_, removeZeroBottlenecks_ = FALSE, column
     dataSet_ <- removeZeroBottlenecks(dataSet_)
 
     # Filter dataSet from proteins with ZERO frequency
-    dataSet_ <- dataSet_[!dataSet_$freq ==0,]
+    dataSet_ <- dataSet_[!dataSet_$occurrences ==0,]
 
     exportFile <- "descriptiveAnalysisWithoutZeroBottleneck"
     plotTitle <- "Descriptive analysis Without Zero Bottleneck"
@@ -100,7 +100,7 @@ descriptiveAnalysis <- function(dataSet_, removeZeroBottlenecks_ = FALSE, column
 
   # Define which dataSet column will be displayed into the plot
   if (is.null(columns_) | length(columns_) == 0) {
-    columns = c("freq", "total_species", "percentage", "is_bottleneck", "bottleneck_classification")
+    columns = c("occurrences", "totalSpecies", "percentage", "is_bottleneck", "bottleneck_classification")
   } else {
     columns = columns_
   }
@@ -115,7 +115,7 @@ descriptiveAnalysis <- function(dataSet_, removeZeroBottlenecks_ = FALSE, column
     plotTitle <- title_
   }
 
-  # Drawing a scatterplot matrix of freq, total_species, percentage, and is_bottleneck using the pairs function
+  # Drawing a scatterplot matrix of freq, totalSpecies, percentage, and is_bottleneck using the pairs function
   plot1 <- ggpairs(dataSet_, columns = columns, columnLabels = columnLabels, title = plotTitle,
                    mapping = aes(color = bottleneck_classification),
                    lower = list(
@@ -169,7 +169,7 @@ descriptiveAnalysis <- function(dataSet_, removeZeroBottlenecks_ = FALSE, column
 #' @author
 #' Igor Brandão
 
-generateCorrelationStudy <- function(dataSet_, removeZeroBottlenecks_ = FALSE, verbose_ = TRUE) {
+generateCorrelationStudy <- function(dataSet_, removeZeroBottlenecks_=TRUE, verbose_=TRUE) {
   # Status message
   if (verbose_) {
     printMessage(paste0("GENERATING CORRELATION STUDY..."))
@@ -177,10 +177,8 @@ generateCorrelationStudy <- function(dataSet_, removeZeroBottlenecks_ = FALSE, v
 
   # First of all, check whether or not remove the ZERO bottlenecks
   if (removeZeroBottlenecks_) {
-    dataSet_ <- removeZeroBottlenecks(dataSet_)
-
     # Filter dataSet from proteins with ZERO frequency
-    dataSet_ <- dataSet_[!dataSet_$freq ==0,]
+    dataSet_ <- dataSet_[!dataSet_$occurrences ==0,]
   }
 
   # Backup the complete dataSet
@@ -188,6 +186,11 @@ generateCorrelationStudy <- function(dataSet_, removeZeroBottlenecks_ = FALSE, v
 
   # Remove non numeric data
   dataSet_ <- dataSet_[ , -which(names(dataSet_) %in% c("bottleneck_classification","pathway"))]
+
+  # Remove the pathwayData unnecessary columns
+  dataSet_ <- dataSet_[,!(names(dataSet_) %in% c('X', 'entryID', 'name', 'type', 'link', 'reaction', 'x', 'y',
+                                                 'graphicalType', 'width', 'height', 'fgcolor', 'bgcolor', 'reaction_type',
+                                                 'org', 'bottleneck_classification', 'pathway'))]
 
   #*********************#
   # General correlation #
@@ -214,7 +217,9 @@ generateCorrelationStudy <- function(dataSet_, removeZeroBottlenecks_ = FALSE, v
 
   # Generate the correlation by protein classificaion
   correlationByGroup <- by(dataSetBkp_, dataSetBkp_$bottleneck_classification,
-                           FUN = function(X) X[ , -which(names(X) %in% c("bottleneck_classification","pathway"))])
+                           FUN = function(X) X[ , -which(names(X) %in% c('X', 'entryID', 'name', 'type', 'link', 'reaction', 'x', 'y',
+                                                                         'graphicalType', 'width', 'height', 'fgcolor', 'bgcolor', 'reaction_type',
+                                                                         'org', 'bottleneck_classification', 'pathway'))])
 
   generateCorrelationByGroup <- function(idx_) {
     # Define the filename
@@ -249,48 +254,6 @@ generateCorrelationStudy <- function(dataSet_, removeZeroBottlenecks_ = FALSE, v
   }
 }
 
-
-organismByPathway <- function(dataSet_) {
-  # Define the plot filename
-  exportFile <- "organismsByPathway"
-
-  # Status message
-  if (verbose_) {
-    printMessage(paste0("RUNNING THE ORGANISMS BY PATHWAY ANALYSIS..."))
-  }
-
-  # Keep just the unique pathways
-  dataSet_ <- dataSet_[!duplicated(dataSet_$pathway),]
-
-  # Adjust the columns
-  dataSet_ <- dataSet_[,c("pathway", "total_species")]
-
-  # Rename the row names
-  rownames(dataSet_) <- 1:nrow(dataSet_)
-
-  # Plot the histogram
-  plot1 <- ggplot(dataSet_, aes(x=total_species), binwi) +
-    geom_histogram(position="identity", color="#0c273e", fill="#20639B", binwidth=100) +
-    geom_vline(data=dataSet_, aes(xintercept=mean(dataSet_$total_species), color="#173F5F"),
-                                                     linetype="dashed") + theme_bw() +
-    labs(title="Organism by Pathway", x="Organisms count distribution", y = "Pathways") +
-    theme_bw() + theme(legend.position="none")
-
-  # Export the hypergeometric Descriptive analysis
-  if (!dir.exists(file.path('./output/statistics/'))) {
-    dir.create(file.path(paste0('./output/statistics/')), showWarnings = FALSE, mode = "0775")
-  }
-
-  if (!dir.exists(file.path('./output/statistics/descriptive/'))) {
-    dir.create(file.path(paste0('./output/statistics/descriptive/')), showWarnings = FALSE, mode = "0775")
-  }
-
-  if (dir.exists(file.path('./output/statistics/descriptive/'))) {
-    print(plot1)
-    ggsave(paste0("./output/statistics/descriptive/", exportFile, ".png"), width = 25, height = 20, units = "cm")
-  }
-}
-
 #*******************************************************************************************#
 
 # ---- PIPELINE SECTION ----
@@ -304,12 +267,8 @@ organismByPathway <- function(dataSet_) {
 #******************************#
 
 # Generate the dataSet
-dataSet <- generateDataSet(testName_ = 'descriptive', filterColumns_ = FALSE)
-
-# OR
-
-# Load the dataSet
-dataSet <- get(load("./output/statistics/descriptive/descriptive.RData"))
+dataSet <- generateDataSetCSV(testName_ = 'descriptive', filterColumns_ = FALSE)
+dataSet <- fillPathwayCodeWithZeros(dataSet)
 
 #******************************************#
 # Step 2: Perform the descriptive analysis #
@@ -317,14 +276,13 @@ dataSet <- get(load("./output/statistics/descriptive/descriptive.RData"))
 
 # Default descriptive analysis
 descriptiveAnalysis(dataSet, removeZeroBottlenecks_ = TRUE, verbose_ = TRUE,
-                    columns_ = c("freq", "total_species", "percentage", "is_bottleneck", "bottleneck_classification"),
+                    columns_ = c("occurrences", "totalSpecies", "percentage", "is_bottleneck", "bottleneck_classification"),
                     columnLabels_ = c("Frequency", "Processed Species", "Frequency (%)", "Is Bottleneck", "Protein Classification"))
 
 #******************************************#
 
 # Protein classification
-data <- removeZeroBottlenecks(dataSet)
-data <- data[!data$freq ==0,]
+data <- dataSet[!dataSet$occurrences==0,]
 
 ggplot(data, aes(fill=bottleneck_classification, x=bottleneck_classification)) +
   geom_bar(position="stack", stat="count") +
@@ -340,8 +298,7 @@ ggsave(paste0("./output/statistics/descriptive/proteinClassification.png"), widt
 #******************************************#
 
 # Proteins by pathway without zero bottlenecks
-data <- removeZeroBottlenecks(dataSet)
-data <- data[!data$freq ==0,]
+data <- dataSet[!dataSet$occurrences==0,]
 
 ggplot(data, aes(fill=bottleneck_classification, x=pathway)) +
     geom_bar(position="stack", stat="count") +
@@ -353,18 +310,6 @@ ggplot(data, aes(fill=bottleneck_classification, x=pathway)) +
     theme(axis.text.x = element_text(angle = 90, hjust = 1))
 
 ggsave(paste0("./output/statistics/descriptive/proteinByPathway.png"), width = 40, height = 20, units = "cm")
-
-# Proteins by pathway
-ggplot(dataSet, aes(fill=bottleneck_classification, x=pathway)) +
-  geom_bar(position="stack", stat="count") +
-  xlab("Pathways") +
-  ylab("Proteins Count") +
-  ggtitle("Proteins by pathway") + theme_bw() +
-  guides(fill=guide_legend(title="Proteins Classification")) +
-  scale_fill_manual(values = c("#ED553B", "#3CAEA3", "#20639B", "#173F5F")) +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
-
-ggsave(paste0("./output/statistics/descriptive/proteinByPathwayAll.png"), width = 40, height = 20, units = "cm")
 
 #******************************************#
 
@@ -385,6 +330,35 @@ descriptiveAnalysis(dataSet, removeZeroBottlenecks_ = TRUE, verbose_ = TRUE,
                                       ,"radius", "triangles"),
                     labelAngle_ = 90, title_ = 'Graph Metrics',
                     exportFile_ = 'graphMetrics')
+
+#******************************************#
+
+# Proteins by pathway without zero bottlenecks
+data <- dataSet[!dataSet$occurrences==0,]
+
+# Aggregate pathways total species
+orgByPath <- aggregate(data$totalSpecies, by=list(data$pathway), FUN=mean, stringsAsFactors=FALSE)
+
+# Rename the group columns
+names(orgByPath)[names(orgByPath) == "x"] <- "totalSpecies"
+names(orgByPath)[names(orgByPath) == "Group.1"] <- "pathway"
+
+## Use n equally spaced breaks to assign each value to n-1 equal sized bins
+ii <- cut(orgByPath$totalSpecies, breaks = seq(min(orgByPath$totalSpecies), max(orgByPath$totalSpecies), len = 20),
+          include.lowest = TRUE)
+## Use bin indices, ii, to select color from vector of n-1 equally spaced colors
+colors <- colorRampPalette(c("#20639B", "#0c273e"))(19)[ii]
+
+# Plot rganisms by pathways
+ggplot(orgByPath) +
+  geom_bar(aes(x=pathway, y=totalSpecies), color='#f6f6f6', fill=colors, stat="identity") +
+  xlab("Pathways") +
+  ylab("Organism Count") +
+  ggtitle("Organism by pathway") + theme_bw() +
+  theme(legend.position="none") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+ggsave(paste0("./output/statistics/descriptive/organismsByPathway.png"), width = 40, height = 20, units = "cm")
 
 #***************************#
 # Step 3: Correlation study #
