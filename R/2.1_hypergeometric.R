@@ -54,13 +54,17 @@ sapply(files.sources, source)
 #' Clóvis F. Reis / Igor Brandão
 
 hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, rangeInterval_ = 20,
-                                               cumulative_ = FALSE, normalize_ = FALSE, verbose_ = TRUE) {
+                                               cumulative_ = TRUE, normalize_ = TRUE, verbose_ = TRUE) {
   # Status message
   if (verbose_) {
     printMessage(paste0("RUNNING THE DISCRETE HYPERGEOMETRIC DISTRIBUTION ANALYSIS..."))
   }
 
-  # Apply the pathway size normalization
+  #**************************************************************************##
+  # Apply the 2nd normalization:                                              #
+  # 100% of occurrence in a pathway can be compared with 50% of other pathway #
+  #**************************************************************************##
+
   if (normalize_) {
     # Get the unique pathways
     uniquePathways <- unique(dataSet_$pathway)
@@ -95,21 +99,27 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, rangeInterval_
   # Order the dataSet
   dataSet_ <- dataSet_[order(dataSet_$normalizedFrequency, decreasing = T),]
 
+  #*****************************************##
+  # Generate the hypergeometric distribution #
+  #*****************************************##
+
+  # Create a dataFrame for the result
+  distribution <- data.frame(range=0, bottleneck=0, non_bottleneck=0, drawn=0, freq=0, hyp=0.01)
+
   # Get the unique frequency percentages
   rangeVal <- c(seq(1, nrow(dataSet_), ceiling(nrow(dataSet_) / rangeInterval_)), nrow(dataSet_))
 
   # Count the bottlenecks and non-bottlenecks
-  countsBase <- c(bottleneck=nrow(dataSet_[dataSet_$is_bottleneck ==1,]),
-                  non_bottleneck=nrow(dataSet_[dataSet_$is_bottleneck !=1,]))
-  countsBase[1]+countsBase[2]
+  countsBase <- c(bottleneck=nrow(dataSet_[dataSet_$is_bottleneck ==1,]), non_bottleneck=nrow(dataSet_[dataSet_$is_bottleneck !=1,]))
 
-  # Create a dataFrame for the result
-  distribution <- data.frame(range=0,
-                             bottleneck=0,
-                             non_bottleneck=0,
-                             drawn=0,
-                             freq=0,
-                             hyp=0.01)
+  # Verification
+  if ((countsBase[1] +countsBase[2]) != nrow(dataSet_)) {
+    # Save the log file
+    printLog(message_='The sum of bottlenecks with non-bottlenecks is different from the dataSet total rows. Skipping it...',
+             file_='hypergeometricDistribution')
+
+    return(FALSE)
+  }
 
   # Define the loop ranges
   range <- 1
@@ -168,7 +178,9 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, rangeInterval_
     printMessage(paste0("RESULT WITH ", nrow(distribution), " RANGES"))
   }
 
-  #**********************************************************************************#
+  #*************************************##
+  # Plot the hypergeometric distribution #
+  #*************************************##
 
   # Export the hypergeometric discrete analysis
   if (!dir.exists(file.path('./output/statistics/'))) {
@@ -181,9 +193,9 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, rangeInterval_
     printMessage("PLOTTING THE DISTRIBUTION...")
   }
 
-  # Set colors properties
+  # Set colors properties (significance)
   distribution$cor <- "red"
-  distribution$cor[distribution$pCor <= 0.01] <- "blue"
+  distribution$cor[distribution$pCor <= p_value_] <- "blue"
   distribution$cor[distribution$pCor == 0.0] <- "red"
   distribution$cor[distribution$range == 0] <- "gray"
 
@@ -194,9 +206,9 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, rangeInterval_
   idx <- 1
   lastIdx <- (nrow(distribution) - 1)
 
+  # Define whether or not the plot is continuous
   for (idx in 2:lastIdx) {
-    if (distribution$cor[idx] == distribution$cor[idx + 1] |
-        distribution$cor[idx] == distribution$cor[idx - 1]) {
+    if (distribution$cor[idx] == distribution$cor[idx + 1] | distribution$cor[idx] == distribution$cor[idx - 1]) {
       distribution$contin[idx] <- 's'
     } else{
       distribution$contin[idx] <- 'n'
@@ -208,6 +220,10 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, rangeInterval_
   if (distribution$cor[idx] == distribution$cor[idx - 1]) {
     distribution$contin[idx] <- 's'
   }
+
+  #*************##
+  # Plot 1: Dots #
+  #*************##
 
   g <- ggplot() + theme_bw() +
     xlab("Proteins") +
@@ -229,26 +245,29 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, rangeInterval_
     write.csv(distribution, file=paste0("./output/statistics/hypergeometric/", exportFile, ".csv"))
   }
 
-  #**********************************************************************************#
+  #***********************##
+  # Plot 2: Bars with line #
+  #***********************##
 
-  inicio = 1
+  # Set the range attributes
+  begin = 2
   range = 1
 
-  result<-data.frame(range=numeric(),
-                     count=numeric(),
-                     isBtn=numeric(),
-                     signif=numeric())
+  # Create a dataFrame for the absolute bottlenecks
+  absoluteBottleneck <- data.frame(range = numeric(), count = numeric(), isBtn = numeric(), signif = numeric())
+  absoluteBottleneck[1,] <- c(range=0, count=0, isBtn=0, signif=0)
 
-  while (inicio <= nrow(dataSet_)) {
-    fim = inicio + (nrow(dataSet_)/rangeInterval_)
+  # Set the absolute bottlenecks distribution
+  while (begin <= nrow(dataSet_)) {
+    fim = begin + (nrow(dataSet_)/rangeInterval_)
 
     if (fim > nrow(dataSet_)) {
       fim <- nrow(dataSet_)
     }
 
-    tmp <- dataSet_[inicio:fim, ]
-    btn = nrow(tmp[tmp$is_bottleneck == 1, ])
-    nbtn = nrow(tmp[tmp$is_bottleneck == 0, ])
+    tmp <- dataSet_[begin:fim, ]
+    btn = nrow(tmp[tmp$is_bottleneck == 1,])
+    nbtn = nrow(tmp[tmp$is_bottleneck == 0,])
     signif <- ifelse(distribution$cor[distribution$range == range] == "blue", 1, 0)
 
     if (signif == 1) {
@@ -258,19 +277,37 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, rangeInterval_
       b <- 3
       n <- 2
     }
-    result[nrow(result) + 1, ] <- c(range, btn, b, signif)
+    absoluteBottleneck[nrow(absoluteBottleneck) + 1,] <- c(range, btn, b, signif)
 
-    inicio <- fim + 1
+    begin <- fim + 1
     range <- range + 1
   }
 
+  # Set the proteins count
+  absoluteBottleneck$totalProtein <- 0
+
+  for(i in 1:(nrow(distribution)-1)){
+    absoluteBottleneck$totalProtein[i+1] <- distribution$drawn[i+1]-distribution$drawn[i]
+  }
+
   p <- ggplot() +
-    geom_col(data=result[result$signif==1&result$isBtn==1,],
+    # adding the absolute significative bottlenecks
+    geom_col(data=absoluteBottleneck[absoluteBottleneck$signif==1 & absoluteBottleneck$isBtn==1,],
              aes(x = range, y = count, fill = isBtn), width = 0.9) +
-    geom_col(data=result[result$signif==0&result$isBtn==3,],
+
+    # adding the absolute non significative bottlenecks
+    geom_col(data=absoluteBottleneck[absoluteBottleneck$signif==0 & absoluteBottleneck$isBtn==3,],
              aes(x = range, y = count, fill = isBtn), width = 0.9) +
-    geom_line(data=distribution,
-              aes(x = range, y = freq/drawn*50), col="red") +
+
+    # add the range with total count of proteins
+    # geom_line(data=absoluteBottleneck, aes(x = range, y = totalProtein), col="orange") +
+
+    # adding the cumulative bottlenecks variation
+    geom_line(data=distribution, aes(x = range, y = freq/drawn*100), col="red") +
+
+    # now adding the secondary and reverting the above transformation
+    scale_y_continuous(sec.axis = sec_axis(~.*0.556134762, name = "Bottleneck cumulative variation [%]")) +
+
     xlab("Ranges") +
     ylab("Bottlenecks count")
   p
@@ -396,7 +433,7 @@ dataSet <- fillPathwayCodeWithZeros(dataSet)
 #' normalize = TRUE (the proteins frequency will be normalized by its pathway size)
 #' verbose = TRUE (all status messages will be shown)
 #'
-distribution <- hypergeometricDistribution(dataSet, p_value_ = 0.01, rangeInterval_ = 100,
+distribution <- hypergeometricDistribution(dataSet, p_value_ = 0.01, rangeInterval_ = 40,
                                    cumulative_ = TRUE, normalize_ = TRUE, verbose_ = TRUE)
 
 #***********************************#
