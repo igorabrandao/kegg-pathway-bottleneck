@@ -338,50 +338,63 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, rangeInterval_
   rownames(distribution) <- 1:nrow(distribution)
   rownames(absoluteBottleneck) <- 1:nrow(absoluteBottleneck)
 
+  # Change the bottleneck type factor
+  absoluteBottleneck[absoluteBottleneck$bottleneckType==1,]$bottleneckType <- "Significative"
+  absoluteBottleneck[absoluteBottleneck$bottleneckType==3,]$bottleneckType <- "Non-Significative"
+
+  # Plotting the absolute bottlenecks count
   p1 <- ggplot() +
-    # adding the absolute significative bottlenecks
-    geom_bar(data=absoluteBottleneck[absoluteBottleneck$isSignificant==1 & absoluteBottleneck$bottleneckType==1,],
-             aes(x = range, y = bottleneck), color='#f6f6f6', fill="#3CAEA3", stat="identity") +
-
-    # adding the absolute non significative bottlenecks
-    geom_bar(data=absoluteBottleneck[absoluteBottleneck$isSignificant==0 & absoluteBottleneck$bottleneckType==3,],
-             aes(x = range, y = bottleneck), color='#f6f6f6', fill="#173F5F", stat="identity") +
-
-    # add the range with total count of proteins
-    # geom_line(data=absoluteBottleneck, aes(x = range, y = totalProtein), col="orange") +
+    # adding the absolute bottlenecks 1 = significative 3 = non-significative
+    geom_bar(data = absoluteBottleneck[absoluteBottleneck$bottleneckType=="Significative" | absoluteBottleneck$bottleneckType=="Non-Significative",],
+             aes(x = range, y = bottleneck, fill = as.factor(bottleneckType)), color='#f6f6f6', stat="identity") +
+    scale_fill_manual(values=c("#173F5F", "#3CAEA3")) +
 
     # adding the cumulative bottlenecks variation
     geom_line(data=absoluteBottleneck, mapping = aes(x = range, y = bottleneckCumulativeVariation * max(absoluteBottleneck$bottleneck) /
-                    max(absoluteBottleneck$bottleneckCumulativeVariation), col="red")) +
+                    max(absoluteBottleneck$bottleneckCumulativeVariation)), color='red') +
+
+    geom_point(data=absoluteBottleneck, mapping = aes(x = range, y = bottleneckCumulativeVariation * max(absoluteBottleneck$bottleneck) /
+                    max(absoluteBottleneck$bottleneckCumulativeVariation)), color='#173F5F') +
 
     scale_y_continuous(sec.axis = sec_axis(~ (. * max(absoluteBottleneck$bottleneckCumulativeVariation) /
-                                             max(absoluteBottleneck$bottleneck)), name = "Bottleneck cumulative variation [%]")) +
+                                             max(absoluteBottleneck$bottleneck))/100, labels = percent, name = "Bottleneck cumulative variation [%]")) +
 
     # Set the axis labels
     xlab("") +
     ylab("Bottlenecks count") +
+
+    # Set the title
+    ggtitle("Bottlenecks distribution") +
+
+    # Edit legend title and labels
+    guides(fill=guide_legend("Bottleneck type")) +
+
+    #scale_color_manual(name = "Bottleneck type", labels = c("Significative", "Non-significative")) +
+
     theme_bw() +
     theme(axis.text.x = element_blank(),
           axis.text.y = element_text(face="bold", size=12),
-          legend.position = "none")
-  p1
+          plot.margin=unit(c(1,1,-0.5,1), "cm"))
 
   # Plotting the bottlenecks ocurrences
-  p2 <- ggplot() +
-    geom_bar(data=distribution, aes(x = range, y = avgOccurrenceBottleneck), color='#f6f6f6', fill="#3CAEA3", stat="identity") +
-    xlab("Occurrence rankings") +
-    ylab("") +
+  p2 <- ggplot(distribution) +
+    geom_bar(aes(x = range, y = avgOccurrenceBottleneck), color='#f6f6f6', fill="#ED553B", stat="identity") +
+
+    scale_x_continuous(breaks = seq(1, 40, by = 1)) +
+
+    xlab("Bottlenecks distribution ordered by its normalized occurrence") +
+    ylab("Avg. Absolute occurrence") +
     theme_bw() +
-    theme(axis.text.x = element_text(face="bold", size=12),
-          axis.text.y = element_text(face="bold", size=12),
-          legend.position = "none")
-  p2
+    theme(axis.text.x = element_text(face="bold", size=11),
+          axis.text.y = element_text(face="bold", size=11),
+          plot.margin=unit(c(-0.5,1,1,1), "cm"))
 
   # Define the plot layout
-  ggarrange(p1, p2, heights = c(3, 0.7), ncol = 1, nrow = 2)
+  # ::::::::::::::::::::::::::::::::::::::::::::::::::
+  ggarrange(p1, p2, heights = c(3, 0.7), ncol = 1, nrow = 2, align = "v", legend = "bottom", common.legend = TRUE)
 
   if (dir.exists(file.path('./output/statistics/hypergeometric/'))) {
-    ggsave(paste0("./output/statistics/hypergeometric/hypergeometricDistribution", rangeInterval_, "bins.png"), width = 20, height = 15, units = "cm")
+    ggsave(paste0("./output/statistics/hypergeometric/hypergeometricDistribution", rangeInterval_, "bins.png"), width = 30, height = 20, units = "cm")
     write.csv(distribution, file=paste0("./output/statistics/hypergeometric/", exportFile, ".csv"))
   }
 
