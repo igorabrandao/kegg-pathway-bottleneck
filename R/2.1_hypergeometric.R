@@ -14,6 +14,7 @@
 
 # Import the necessary libraries
 library(ggplot2)
+library(ggpubr)
 library(GGally)
 library(corrplot)
 library(dplyr)
@@ -104,7 +105,8 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, rangeInterval_
   #*****************************************##
 
   # Create a dataFrame for the result
-  distribution <- data.frame(range=0, bottleneck=0, non_bottleneck=0, drawn=0, freq=0, hyp=0.01)
+  distribution <- data.frame(range=0, bottleneck=0, non_bottleneck=0, drawn=0, freq=0,
+                             avgOccurrence=0, avgOccurrenceBottleneck=0, hyp=0.01)
 
   # Get the unique frequency percentages
   rangeVal <- c(seq(1, nrow(dataSet_), ceiling(nrow(dataSet_) / rangeInterval_)), nrow(dataSet_))
@@ -132,6 +134,8 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, rangeInterval_
                             non_bottleneck=numeric(),
                             drawn=numeric(),
                             freq=numeric(),
+                            avgOccurrence=numeric(),
+                            avgOccurrenceBottleneck=numeric(),
                             hyp=numeric())
 
     # Check the method to divide the range values
@@ -156,7 +160,11 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, rangeInterval_
     # The frequency itself
     freq <- nrow(top[top$is_bottleneck == 1,])
 
-    countsTop[1,] <- t(c(range, c(countsBase), drawn, freq, NA))
+    # Average frequencies
+    avgOccurrence <- mean(top$occurrences)
+    avgOccurrenceBottleneck <- mean(top[top$is_bottleneck == 1,]$occurrences)
+
+    countsTop[1,] <- t(c(range, c(countsBase), drawn, freq, avgOccurrence, avgOccurrenceBottleneck, NA))
 
     countsTop[1,"hyp"] <- phyper(countsTop[1,"freq"],
                                  countsTop[1,"bottleneck"],
@@ -254,63 +262,123 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, rangeInterval_
   range = 1
 
   # Create a dataFrame for the absolute bottlenecks
-  absoluteBottleneck <- data.frame(range = numeric(), count = numeric(), isBtn = numeric(), signif = numeric())
-  absoluteBottleneck[1,] <- c(range=0, count=0, isBtn=0, signif=0)
+  absoluteBottleneck <- data.frame(range = numeric(), totalProtein = numeric(),
+                                  nonBottleneck = numeric(), bottleneck = numeric(),
+                                  bottleneckType = numeric(), isSignificant = numeric(),
+                                  bottleneckVariation = numeric(),
+                                  nonBottleneckCumulative = numeric(), bottleneckCumulative = numeric(),
+                                  bottleneckCumulativeVariation = numeric())
+
+  absoluteBottleneck[1,] <- c(range=0, totalProtein=0, nonBottleneck=0, bottleneck=0,
+                              bottleneckType=0, isSignificant=0, bottleneckVariation=0,
+                              nonBottleneckCumulative=0, bottleneckCumulative=0, bottleneckCumulativeVariation=0)
 
   # Set the absolute bottlenecks distribution
   while (begin <= nrow(dataSet_)) {
-    fim = begin + (nrow(dataSet_)/rangeInterval_)
+    # Set the interval size
+    endInterval = begin + (nrow(dataSet_)/rangeInterval_)
 
-    if (fim > nrow(dataSet_)) {
-      fim <- nrow(dataSet_)
+    # If the last interval overflow the dataSet size, force it to end with the dataSet
+    if (endInterval > nrow(dataSet_)) {
+      endInterval <- nrow(dataSet_)
     }
 
-    tmp <- dataSet_[begin:fim, ]
+    # Receive the values from the calculated interval
+    tmp <- dataSet_[begin:endInterval,]
+
+    # Select the bottlenecks
     btn = nrow(tmp[tmp$is_bottleneck == 1,])
+
+    # Select the non-bottlenecks
     nbtn = nrow(tmp[tmp$is_bottleneck == 0,])
+
+    # Set if the interval is significant
     signif <- ifelse(distribution$cor[distribution$range == range] == "blue", 1, 0)
 
+    # Set the bottleneck type
     if (signif == 1) {
-      b <- 1
+      b <- 1 # Bottleneck significant
       n <- 0
-    } else{
-      b <- 3
+    } else {
+      b <- 3 # Bottleneck non-significant
       n <- 2
     }
-    absoluteBottleneck[nrow(absoluteBottleneck) + 1,] <- c(range, btn, b, signif)
 
-    begin <- fim + 1
+    # Bind the current values into the dataSet
+    absoluteBottleneck[nrow(absoluteBottleneck)+1,] <- c(range, 0, 0, btn, b, signif, 0, 0, 0, 0)
+
+    # Update the indexes
+    begin <- endInterval + 1
     range <- range + 1
   }
 
   # Set the proteins count
-  absoluteBottleneck$totalProtein <- 0
+  for(i in 1:(nrow(distribution) - 1)) {
+    # Calculate the current range total protein
+    currentTotalProtein <- (distribution$drawn[i + 1] - distribution$drawn[i])
 
-  for(i in 1:(nrow(distribution)-1)){
-    absoluteBottleneck$totalProtein[i+1] <- distribution$drawn[i+1]-distribution$drawn[i]
+    # Set the total protein
+    absoluteBottleneck$totalProtein[i + 1] <- currentTotalProtein
+
+    # Set the non-bottleneck of the current range
+    absoluteBottleneck$nonBottleneck[i + 1] <- (currentTotalProtein - absoluteBottleneck$bottleneck[i + 1])
+
+    # Set bottleneck variation
+    absoluteBottleneck$bottleneckVariation[i + 1] <- absoluteBottleneck$bottleneck[i + 1]/absoluteBottleneck$nonBottleneck[i + 1]*100
+
+    # Set the cumulative values
+    absoluteBottleneck$nonBottleneckCumulative[i + 1] <- distribution$drawn[i + 1]
+    absoluteBottleneck$bottleneckCumulative[i + 1] <- distribution$freq[i + 1]
+    absoluteBottleneck$bottleneckCumulativeVariation[i + 1] <- absoluteBottleneck$bottleneckCumulative[i + 1]/absoluteBottleneck$nonBottleneckCumulative[i + 1]*100
   }
 
-  p <- ggplot() +
+  # Remove the zero line from the dataSets
+  distribution <- distribution[-1,]
+  absoluteBottleneck <- absoluteBottleneck[-1,]
+  rownames(distribution) <- 1:nrow(distribution)
+  rownames(absoluteBottleneck) <- 1:nrow(absoluteBottleneck)
+
+  p1 <- ggplot() +
     # adding the absolute significative bottlenecks
-    geom_col(data=absoluteBottleneck[absoluteBottleneck$signif==1 & absoluteBottleneck$isBtn==1,],
-             aes(x = range, y = count, fill = isBtn), width = 0.9) +
+    geom_bar(data=absoluteBottleneck[absoluteBottleneck$isSignificant==1 & absoluteBottleneck$bottleneckType==1,],
+             aes(x = range, y = bottleneck), color='#f6f6f6', fill="#3CAEA3", stat="identity") +
 
     # adding the absolute non significative bottlenecks
-    geom_col(data=absoluteBottleneck[absoluteBottleneck$signif==0 & absoluteBottleneck$isBtn==3,],
-             aes(x = range, y = count, fill = isBtn), width = 0.9) +
+    geom_bar(data=absoluteBottleneck[absoluteBottleneck$isSignificant==0 & absoluteBottleneck$bottleneckType==3,],
+             aes(x = range, y = bottleneck), color='#f6f6f6', fill="#173F5F", stat="identity") +
 
     # add the range with total count of proteins
     # geom_line(data=absoluteBottleneck, aes(x = range, y = totalProtein), col="orange") +
 
     # adding the cumulative bottlenecks variation
-    geom_line(data=distribution, aes(x = range, y = freq/drawn*100), col="red") +
+    geom_line(data=absoluteBottleneck, mapping = aes(x = range, y = bottleneckCumulativeVariation * max(absoluteBottleneck$bottleneck) /
+                    max(absoluteBottleneck$bottleneckCumulativeVariation), col="red")) +
 
-    # now adding the secondary and reverting the above transformation
-    scale_y_continuous(sec.axis = sec_axis(~.*0.556134762, name = "Bottleneck cumulative variation [%]")) +
+    scale_y_continuous(sec.axis = sec_axis(~ (. * max(absoluteBottleneck$bottleneckCumulativeVariation) /
+                                             max(absoluteBottleneck$bottleneck)), name = "Bottleneck cumulative variation [%]")) +
 
-    xlab("Ranges") +
-    ylab("Bottlenecks count")
-  p
+    # Set the axis labels
+    xlab("") +
+    ylab("Bottlenecks count") +
+    theme_bw() +
+    theme(axis.text.x = element_blank(),
+          axis.text.y = element_text(face="bold", size=12),
+          legend.position = "none")
+  p1
+
+  # Plotting the bottlenecks ocurrences
+  p2 <- ggplot() +
+    geom_bar(data=distribution, aes(x = range, y = avgOccurrenceBottleneck), color='#f6f6f6', fill="#3CAEA3", stat="identity") +
+    xlab("Occurrence rankings") +
+    ylab("") +
+    theme_bw() +
+    theme(axis.text.x = element_text(face="bold", size=12),
+          axis.text.y = element_text(face="bold", size=12),
+          legend.position = "none")
+  p2
+
+  # Define the plot layout
+  ggarrange(p1, p2, heights = c(3, 0.7), ncol = 1, nrow = 2)
 
   if (dir.exists(file.path('./output/statistics/hypergeometric/'))) {
     ggsave(paste0("./output/statistics/hypergeometric/hypergeometricDistribution", rangeInterval_, "bins.png"), width = 20, height = 15, units = "cm")

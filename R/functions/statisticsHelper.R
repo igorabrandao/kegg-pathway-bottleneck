@@ -255,4 +255,21 @@ fillPathwayCodeWithZeros <- function(dataSet_, verbose_ = TRUE) {
   return(dataSet_)
 }
 
+rescale <- function(x, from, to) {
+  print(x)
+  print(from)
+  print(to)
+
+
+  maxx <- max(x)
+  minx <- min(x)
+  out <- (to - from) * (x - minx)
+  out <- out / (maxx - minx)
+
+  result <- (out + from)
+
+  result <- replace(result, is.na(result), 0)
+  return(result)
+}
+
 #*******************************************************************************************#
