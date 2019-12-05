@@ -54,7 +54,7 @@ sapply(files.sources, source)
 #' @author
 #' Clóvis F. Reis / Igor Brandão
 
-hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, rangeInterval_ = 20,
+hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, rangeInterval_ = 10,
                                                cumulative_ = TRUE, normalize_ = TRUE, verbose_ = TRUE) {
   # Status message
   if (verbose_) {
@@ -262,14 +262,14 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, rangeInterval_
   range = 1
 
   # Create a dataFrame for the absolute bottlenecks
-  absoluteBottleneck <- data.frame(range = numeric(), totalProtein = numeric(),
+  absoluteBottleneck <- data.frame(range = numeric(), rangeMidpoint = numeric(), totalProtein = numeric(),
                                   nonBottleneck = numeric(), bottleneck = numeric(),
                                   bottleneckType = numeric(), isSignificant = numeric(),
                                   bottleneckVariation = numeric(),
                                   nonBottleneckCumulative = numeric(), bottleneckCumulative = numeric(),
                                   bottleneckCumulativeVariation = numeric())
 
-  absoluteBottleneck[1,] <- c(range=0, totalProtein=0, nonBottleneck=0, bottleneck=0,
+  absoluteBottleneck[1,] <- c(range=0, rangeMidpoint=0, totalProtein=0, nonBottleneck=0, bottleneck=0,
                               bottleneckType=0, isSignificant=0, bottleneckVariation=0,
                               nonBottleneckCumulative=0, bottleneckCumulative=0, bottleneckCumulativeVariation=0)
 
@@ -305,7 +305,7 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, rangeInterval_
     }
 
     # Bind the current values into the dataSet
-    absoluteBottleneck[nrow(absoluteBottleneck)+1,] <- c(range, 0, 0, btn, b, signif, 0, 0, 0, 0)
+    absoluteBottleneck[nrow(absoluteBottleneck)+1,] <- c(range, 0, 0, 0, btn, b, signif, 0, 0, 0, 0)
 
     # Update the indexes
     begin <- endInterval + 1
@@ -316,6 +316,9 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, rangeInterval_
   for(i in 1:(nrow(distribution) - 1)) {
     # Calculate the current range total protein
     currentTotalProtein <- (distribution$drawn[i + 1] - distribution$drawn[i])
+
+    # Set the range size
+    absoluteBottleneck$rangeMidpoint[i + 1] <- floor((distribution$drawn[i + 1] + distribution$drawn[i])/2)
 
     # Set the total protein
     absoluteBottleneck$totalProtein[i + 1] <- currentTotalProtein
@@ -333,20 +336,24 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, rangeInterval_
   }
 
   # Remove the zero line from the dataSets
-  distribution <- distribution[-1,]
   absoluteBottleneck <- absoluteBottleneck[-1,]
-  rownames(distribution) <- 1:nrow(distribution)
   rownames(absoluteBottleneck) <- 1:nrow(absoluteBottleneck)
+
+  #distribution <- distribution[-1,]
+  #rownames(distribution) <- 1:nrow(distribution)
 
   # Change the bottleneck type factor
   absoluteBottleneck[absoluteBottleneck$bottleneckType==1,]$bottleneckType <- "Significative"
   absoluteBottleneck[absoluteBottleneck$bottleneckType==3,]$bottleneckType <- "Non-Significative"
 
+  # Set the factor order because ggplot change it without permission =X
+  absoluteBottleneck$rangeMidpoint <- factor( absoluteBottleneck$rangeMidpoint, levels = absoluteBottleneck$rangeMidpoint )
+
   # Plotting the absolute bottlenecks count
   p1 <- ggplot() +
     # adding the absolute bottlenecks 1 = significative 3 = non-significative
     geom_bar(data = absoluteBottleneck[absoluteBottleneck$bottleneckType=="Significative" | absoluteBottleneck$bottleneckType=="Non-Significative",],
-             aes(x = range, y = bottleneck, fill = as.factor(bottleneckType)), color='#f6f6f6', stat="identity") +
+             aes(x = as.factor(absoluteBottleneck$rangeMidpoint), y = bottleneck, fill = as.factor(bottleneckType)), color='#f6f6f6', stat="identity") +
     scale_fill_manual(values=c("#173F5F", "#3CAEA3")) +
 
     # adding the cumulative bottlenecks variation
@@ -356,42 +363,29 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, rangeInterval_
     geom_point(data=absoluteBottleneck, mapping = aes(x = range, y = bottleneckCumulativeVariation * max(absoluteBottleneck$bottleneck) /
                     max(absoluteBottleneck$bottleneckCumulativeVariation)), color='#173F5F') +
 
-    scale_y_continuous(sec.axis = sec_axis(~ (. * max(absoluteBottleneck$bottleneckCumulativeVariation) /
-                                             max(absoluteBottleneck$bottleneck))/100, labels = percent, name = "Bottleneck cumulative variation [%]")) +
+    geom_text(data=absoluteBottleneck, mapping = aes (x = range, y = bottleneckCumulativeVariation * max(absoluteBottleneck$bottleneck) /
+                    max(absoluteBottleneck$bottleneckCumulativeVariation), label = paste0(round(bottleneckCumulativeVariation, 2), "%")),hjust=0, vjust=0) +
 
     # Set the axis labels
-    xlab("") +
     ylab("Bottlenecks count") +
+    xlab("Bottlenecks distribution") +
+
+    # Set the axis ticks
+    #scale_x_discrete(breaks = seq(1, nrow(absoluteBottleneck), by = 1), labels = c(absoluteBottleneck$rangeMidpoint)) +
+
+    scale_y_continuous(sec.axis = sec_axis(~ (. * max(absoluteBottleneck$bottleneckCumulativeVariation) /
+                                                max(absoluteBottleneck$bottleneck))/100, labels = percent, name = "Bottleneck cumulative variation [%]")) +
 
     # Set the title
-    ggtitle("Bottlenecks distribution") +
+    ggtitle("Hypergeometric distribution") +
 
     # Edit legend title and labels
     guides(fill=guide_legend("Bottleneck type")) +
 
-    #scale_color_manual(name = "Bottleneck type", labels = c("Significative", "Non-significative")) +
-
     theme_bw() +
-    theme(axis.text.x = element_blank(),
-          axis.text.y = element_text(face="bold", size=12),
-          plot.margin=unit(c(1,1,-0.5,1), "cm"))
-
-  # Plotting the bottlenecks ocurrences
-  p2 <- ggplot(distribution) +
-    geom_bar(aes(x = range, y = avgOccurrenceBottleneck), color='#f6f6f6', fill="#ED553B", stat="identity") +
-
-    scale_x_continuous(breaks = seq(1, 40, by = 1)) +
-
-    xlab("Bottlenecks distribution ordered by its normalized occurrence") +
-    ylab("Avg. Absolute occurrence") +
-    theme_bw() +
-    theme(axis.text.x = element_text(face="bold", size=11),
-          axis.text.y = element_text(face="bold", size=11),
-          plot.margin=unit(c(-0.5,1,1,1), "cm"))
-
-  # Define the plot layout
-  # ::::::::::::::::::::::::::::::::::::::::::::::::::
-  ggarrange(p1, p2, heights = c(3, 0.7), ncol = 1, nrow = 2, align = "v", legend = "bottom", common.legend = TRUE)
+    theme(axis.text.x = element_text(face="bold", size=12),
+          axis.text.y = element_text(face="bold", size=12))
+  p1
 
   if (dir.exists(file.path('./output/statistics/hypergeometric/'))) {
     ggsave(paste0("./output/statistics/hypergeometric/hypergeometricDistribution", rangeInterval_, "bins.png"), width = 30, height = 20, units = "cm")
@@ -514,7 +508,7 @@ dataSet <- fillPathwayCodeWithZeros(dataSet)
 #' normalize = TRUE (the proteins frequency will be normalized by its pathway size)
 #' verbose = TRUE (all status messages will be shown)
 #'
-distribution <- hypergeometricDistribution(dataSet, p_value_ = 0.01, rangeInterval_ = 40,
+distribution <- hypergeometricDistribution(dataSet, p_value_ = 0.01, rangeInterval_ = 10,
                                    cumulative_ = TRUE, normalize_ = TRUE, verbose_ = TRUE)
 
 #***********************************#
