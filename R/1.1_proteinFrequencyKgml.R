@@ -320,6 +320,99 @@ generatePathwayDataFromKGML <- function(removeNoise_=TRUE) {
   return(TRUE)
 }
 
+generatePathwayGraphFromKGML <- function(removeNoise_=TRUE) {
+
+  # Status message
+  printMessage(paste0("GENERATING THE PATHWAYS GRAPHS"))
+
+  # Reference pathway
+  reference_pathway <- 'ec'
+
+  # Get the list of files
+  folder = paste0("./output/kgml/", reference_pathway, "/")
+  kgml_list <- list.files(path=folder, pattern='*.xml')
+  kgml_index <- 1
+
+  # Define the number of available pathways
+  available_pathways <- length(kgml_list)
+
+  # Loop 01: Run through all available pathways kgml
+  lapply(kgml_list, function(file) {
+
+    # Get the pathway code
+    pathway_code <- onlyNumber(file)
+
+    # Status message
+    printMessage(paste0("GENERATING GRAPH OF PATHWAY ", pathway_code, " [", kgml_index, " OF ", available_pathways, "]"))
+
+    #****************************##
+    # Generate the pathway graph #
+    #****************************##
+
+    tryCatch({
+      # Convert the pathway data into a graph
+      pathwayGraph <- KGML2Graph(paste0(folder, file), replaceOrg=TRUE, orgToReplace=reference_pathway)
+
+      #**************************##
+      # Prepare the pathway graph #
+      #**************************##
+
+      # Remove unnecessary data from pathway data/graph
+      if (removeNoise_) {
+        pathwayGraph <- removeNoise(pathwayGraph)
+      }
+
+      if (is.null(pathwayGraph) | nrow(pathwayGraph) == 0) {
+        # Save the log file
+        printLog(message_='The pathwayGraph data frame is empty. Skipping it...', file_='generatePathwayGraphFromKGML')
+
+        # Increment the index
+        kgml_index <<- kgml_index + 1
+
+        return(FALSE)
+      }
+
+      #****************************#
+      # Prepare the data to export #
+      #****************************#
+
+      # Status message
+      printMessage(paste0("EXPORTING PATHWAY ", pathway_code))
+
+      # Export the pathway data
+      if (!dir.exists(file.path('./output/allGraphs/'))) {
+        dir.create(file.path(paste0('./output/allGraphs/')), showWarnings = FALSE, mode = "0775")
+      }
+
+      if (dir.exists(file.path('./output/allGraphs/'))) {
+        write.csv(pathwayGraph, file=paste0('./output/allGraphs/', kgml_index, "_", pathway_code, '.csv'))
+      }
+
+      #***********************#
+      # Remove temp variables #
+      #***********************#
+
+      rm(pathwayGraph)
+
+      # Increment the index
+      kgml_index <<- kgml_index + 1
+
+    }, error=function(e) {
+      printMessage(e)
+
+      # Increment the index
+      kgml_index <<- kgml_index + 1
+
+      # Save the log file
+      printLog(toString(e), file_=paste0('generatePathwayGraphFromKGML', pathway_code))
+
+      return(FALSE)
+    })
+  }) # End of Loop 01
+
+  return(TRUE)
+}
+
 #' Parse the KGML file and generate every pathway dataset of each
 #' organism with enzyme frequency
 #'
@@ -1140,10 +1233,11 @@ printInteractiveNetwork <- function(removeNoise_=TRUE) {
 #generatePathwayDataFromKGML()
 #generateOrganismPathwayDataFromKGML()
 
-#**********************************************#
-# Step 2: Generate the pathways all nodes list #
-#**********************************************#
+#************************************************************#
+# Step 2: Generate the pathways all nodes list and/or graphs #
+#************************************************************#
 #generatePathwayAllNodes()
+generatePathwayGraphFromKGML()
 
 #***************************************************#
 # Step 3: Generate all pathways dictionary to match #
@@ -1154,7 +1248,7 @@ printInteractiveNetwork <- function(removeNoise_=TRUE) {
 #************************************************#
 # Step 4: Perform the enzymes frequency counting #
 #************************************************#
-generatePathwayFrequencyFromOrganismData()
+#generatePathwayFrequencyFromOrganismData()
 
 #******************************#
 # Step 5: Generate the network #
