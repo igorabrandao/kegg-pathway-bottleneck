@@ -810,85 +810,6 @@ getGraphBottleneck <- function(iGraph_, verbose_=FALSE) {
   return(articulation_points)
 }
 
-#' Function to detect groups of bottlenecks
-#'
-#' @param iGraph_ Pathway iGraph object.
-#' @param verbose_ Whether or not print the status message
-#'
-#' @return This function does not return nothing, just export files.
-#'
-#' @examples
-#' \dontrun{
-#' getGraphBottleneck(iGraph)
-#' }
-#'
-#' @author
-#' Igor Brandão
-
-multipleBottleneckDetection <- function(iGraph_, verbose_=FALSE) {
-
-  combineNode <- function(graph_, u, v) {
-    for (idx in seq(1:length(V(graph_)))) {
-      if (u %in% graph_) {
-        graph_ <- igraph::delete_vertices(graph_, V(graph_)[u])
-
-        if (!(v %in% graph_)) {
-          #print(v)
-          #print(V(graph_)[v])
-          #graph_ <- igraph::add_vertices(graph_, V(graph_)[v])
-        }
-      }
-    }
-
-    return(graph_)
-  }
-
-  worker <- function(g, prefix, arr, u) {
-    AP <- getGraphBottleneck(g)
-    container <- g
-
-    if (V(g)[u]$name %in% AP$name) {
-      if (is(prefix, "igraph.vs")) {
-        arr <- rbind(arr, as_ids(prefix))
-      } else {
-        arr <- rbind(arr, prefix)
-      }
-    } else {
-      for (i in container) {
-        if (is(prefix, "igraph.vs")) {
-          prefix <- as_ids(prefix)
-        }
-
-        if (!(V(g)[i]$name %in% prefix)) {
-          new_prefix <- paste0(prefix, ' ', V(g)[i]$name)
-          new_g <- g
-          new_g <- combineNode(new_g, u, i)
-
-          if (length(V(new_g)) > 1) {
-            arr <- worker(new_g, new_prefix, arr, i)
-          }
-        }
-      }
-    }
-
-    return(arr)
-  }
-
-  iGraph_ <-removeNoise(pathwayToDataframe('ec00010', FALSE))
-  G <- graph_from_data_frame(iGraph_)
-
-  # Define the result vector
-  result <- data.frame(articulation_points = NA)
-
-  for (idx in seq(1:length(V(G)))) {
-    print(paste0('Remove node ', V(G)[idx], ' - ', V(G)[idx]$name))
-    G_sub <- igraph::delete.edges(G, idx)
-    result <- worker(G_sub, V(G)[idx], result, idx)
-  }
-
-  print(result)
-}
-
 #' Function to classify the bottlenecks into the following groups:
 #'
 #' HB - Hub botlenecks
@@ -949,6 +870,50 @@ classifyBottleneck <- function(networkProperties_) {
 
   # Return the updated dataframe
   return(networkProperties_)
+}
+
+getArticulationPointImpact <- function(graph_, verbose_=FALSE) {
+
+  # Status message
+  if (verbose_) {
+    print("Calculating the graph articulation points...")
+  }
+
+  # Select only the columns containing the nodes
+  graph_ <- graph_[,c('node1', 'node2')]
+
+  # Convert the graph into iGraph object
+  g <- igraph::graph_from_data_frame(graph_, directed = TRUE)
+
+  # Calculate the articulation points
+  articulation_points <- getGraphBottleneck(g)
+
+  # Status message
+  if (verbose_) {
+    print("Calculating the articulation points impact...")
+  }
+
+  # Unify the graph nodes and set its community
+  result <- data.frame(ap=as_ids(articulation_points), noComponents=0, componentsSize="0", stringsAsFactors = FALSE)
+
+  # Dismantle the graph to calculate its impact
+  for (idx in 1:length(articulation_points)) {
+    # Set the current articulation point
+    currentAP <- articulation_points[idx]
+
+    # Set a temp graph without the current articulation point
+    tempGraph <- delete_vertices(g, currentAP)
+
+    # Calculate the number and size of the disconnected components
+    components <- components(tempGraph)
+    result$noComponents[idx] <- components$no
+    result$componentsSize[idx] <- paste(components$csize, collapse = ', ')
+
+    plot(tempGraph)
+    rm(tempGraph)
+  }
+
+  return(result)
 }
 
 #*******************************************************************************************#
