@@ -893,24 +893,33 @@ getArticulationPointImpact <- function(graph_, verbose_=FALSE) {
     print("Calculating the articulation points impact...")
   }
 
-  # Unify the graph nodes and set its community
-  result <- data.frame(ap=as_ids(articulation_points), noComponents=0, componentsSize="0", stringsAsFactors = FALSE)
+  if (!is.null(articulation_points) && length(articulation_points) > 0) {
+    # Unify the graph nodes and set its community
+    result <- data.frame(ap=as_ids(articulation_points), noComponents=0, componentsSize="0", impact=0, weightedImpact=0, stringsAsFactors = FALSE)
 
-  # Dismantle the graph to calculate its impact
-  for (idx in 1:length(articulation_points)) {
-    # Set the current articulation point
-    currentAP <- articulation_points[idx]
+    # Dismantle the graph to calculate its impact
+    for (idx in 1:length(articulation_points)) {
+      # Set the current articulation point
+      currentAP <- articulation_points[idx]
 
-    # Set a temp graph without the current articulation point
-    tempGraph <- delete_vertices(g, currentAP)
+      # Set a temp graph without the current articulation point
+      tempGraph <- delete_vertices(g, currentAP)
 
-    # Calculate the number and size of the disconnected components
-    components <- components(tempGraph)
-    result$noComponents[idx] <- components$no
-    result$componentsSize[idx] <- paste(components$csize, collapse = ', ')
+      # Calculate the number and size of the disconnected components
+      components <- components(tempGraph)
+      result$noComponents[idx] <- components$no
+      result$componentsSize[idx] <- paste(components$csize, collapse = ', ')
 
-    plot(tempGraph)
-    rm(tempGraph)
+      # Calculate the AP impact based on: Gabriele Farina paper
+      result$impact[idx] <- min(components$csize)
+
+      # Calculate the AP weighted impact from original creation
+      result$weightedImpact[idx] <- (min(components$csize) * components$no)
+
+      rm(tempGraph)
+    }
+  } else {
+    result <- NULL
   }
 
   return(result)

@@ -872,6 +872,9 @@ generatePathwayFrequencyFromOrganismData <- function(removeNoise_=TRUE) {
       pathwayData$org <- reference_pathway
       pathwayData$pathway <- pathway_code
       pathwayData$is_bottleneck <- 0
+      pathwayData$bottleneckDisconnectedComponents <- 0
+      pathwayData$bottleneckImpact <- 0
+      pathwayData$bottleneckNormalizedImpact <- 0
 
       # Protein frequency columns
       pathwayData$occurrences <- 0
@@ -982,6 +985,37 @@ generatePathwayFrequencyFromOrganismData <- function(removeNoise_=TRUE) {
 
       # Apply the node classification
       pathwayData$bottleneck_classification <- classifyBottleneck(pathwayData)$bottleneck_classification
+
+      # Apply the node bottleneck impact
+      impact <- getArticulationPointImpact(pathwayGraph)
+
+      if (!is.null(impact) && nrow(impact) > 0) {
+        for (idx in 1:nrow(impact)) {
+          # Get the current impact item
+          currentImpact <- impact[idx,]
+
+          # Set the impacts
+          pathwayData$bottleneckImpact[pathwayData$name==currentImpact$ap] <- currentImpact$impact
+          pathwayData$bottleneckDisconnectedComponents[pathwayData$name==currentImpact$ap] <- currentImpact$noComponents
+        }
+
+        # Calculates the normalized impact
+        for (idx in 1:nrow(impact)) {
+          # Get the current impact item
+          currentImpact <- impact[idx,]
+
+          # Calculate the normalized impact
+          pathwayMaxImpact <- max(pathwayData$bottleneckImpact)
+
+          # Min frequency in a pathway
+          pathwayMinImpact <- min(pathwayData$bottleneckImpact)
+
+          # Normalized frequency for each protein
+          pathwayData$bottleneckNormalizedImpact[pathwayData$name==currentImpact$ap] <-
+            (pathwayData$bottleneckImpact[pathwayData$name==currentImpact$ap]-pathwayMinImpact)/
+            (pathwayMaxImpact-pathwayMinImpact)
+        }
+      }
 
       #***************************************************##
       # Count the protein frequencies using the dictionary #
@@ -1237,7 +1271,7 @@ printInteractiveNetwork <- function(removeNoise_=TRUE) {
 # Step 2: Generate the pathways all nodes list and/or graphs #
 #************************************************************#
 #generatePathwayAllNodes()
-generatePathwayGraphFromKGML()
+#generatePathwayGraphFromKGML()
 
 #***************************************************#
 # Step 3: Generate all pathways dictionary to match #
@@ -1248,7 +1282,7 @@ generatePathwayGraphFromKGML()
 #************************************************#
 # Step 4: Perform the enzymes frequency counting #
 #************************************************#
-#generatePathwayFrequencyFromOrganismData()
+generatePathwayFrequencyFromOrganismData()
 
 #******************************#
 # Step 5: Generate the network #
