@@ -857,6 +857,16 @@ generatePathwayFrequencyFromOrganismData <- function(removeNoise_=TRUE) {
       # Convert the pathway data into a graph
       pathwayGraph <- KGML2GraphDictionary(paste0(folder, file), replaceOrg=TRUE, orgToReplace=reference_pathway)
 
+      if (is.null(pathwayGraph) | nrow(pathwayGraph) == 0) {
+        # Save the log file
+        printLog(message_='The pathwayGraph data frame is empty. Skipping it...', file_='generatePathwayFrequencyFromOrganismData')
+
+        # Increment the index
+        kgml_index <<- kgml_index + 1
+
+        return(FALSE)
+      }
+
       #*************************##
       # Prepare the pathway data #
       #*************************##
