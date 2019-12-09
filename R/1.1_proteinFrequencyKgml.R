@@ -1095,6 +1095,7 @@ generatePathwayFrequencyFromOrganismData <- function(removeNoise_=TRUE) {
           # Find the current node into the dictionary
           if (is.null(react)) {
             current_ec <- dictionary[dictionary$x == x & dictionary$y == y, ]$ec
+            current_reaction <- NULL
           } else {
             current_ec <- dictionary[dictionary$x == x & dictionary$y == y & dictionary$reaction == react, ]$ec
             current_reaction <- dictionary[dictionary$x == x & dictionary$y == y & dictionary$reaction == react, ]$reaction
