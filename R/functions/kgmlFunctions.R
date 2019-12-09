@@ -433,3 +433,141 @@ KGML2Graph <- function(kgml_, replaceOrg_=FALSE, orgToReplace_='') {
     return(NULL)
   })
 }
+
+KGML2GraphDictionary <- function(kgml_, replaceOrg_=FALSE, orgToReplace_='') {
+
+  # Load the dicionaty
+  dictionary <- read.csv(file='./output/pathwaysDictionary/dictionary.csv', header=TRUE, sep=",", stringsAsFactors=FALSE)
+
+  if (is.null(dictionary) | nrow(dictionary) == 0) {
+    # Save the log file
+    printLog(message_='The pathways nodes dictionary could not be found. Skipping it...',
+             file_='KGML2GraphDictionary')
+
+    return(FALSE)
+  }
+
+  # Create the KGML dataframe
+  pathway <- KGML2Dataframe(kgml_)
+
+  if (is.null(pathway) | isempty(pathway)) {
+    # Save the log file
+    printLog(message_='The pathway data could not be found. Skipping it...', file_='KGML2GraphDictionary')
+
+    return(FALSE)
+  }
+
+  # Generate the hand-made graph with dictionary identifiers
+  pathwayGraph <- data.frame(node1='', node2='', ec1='', entryID1='', reaction1='', x1='', y1='',
+                             ec2='', entryID2='', reaction2='', x2='',  y2='', org='', pathway='', stringsAsFactors = FALSE)
+
+  #**************************************##
+  # Fill the pathway graph with entry IDs #
+  #**************************************##
+
+  rows <- nrow(pathway$edges)
+
+  if (is.null(rows) | isempty(rows)) {
+    return(NULL)
+  } else {
+    for (edgeIdx in 1:rows) {
+      pathwayGraph[edgeIdx, 'node1'] <- pathway$edges[edgeIdx,]$entry1
+      pathwayGraph[edgeIdx, 'node2'] <- pathway$edges[edgeIdx,]$entry2
+    }
+  }
+
+  # Set basic info
+  if (!replaceOrg_) {
+    pathwayGraph['org'] <- 'ec'
+  } else {
+    pathwayGraph['org'] <- orgToReplace_
+  }
+
+  pathwayGraph['pathway'] <- pathway$pathwayinfo$number
+
+  #**************************************************##
+  # Convert the entry IDs according to the dictionary #
+  #**************************************************##
+
+  rows <- nrow(pathwayGraph)
+  for (nodeIdx in 1:rows) {
+    # Setup the current node
+    currentNode1 <- c()
+    currentNode2 <- c()
+
+    # Get the info related to the current node
+    currentNode1$entryID <- pathwayGraph[nodeIdx, 'node1'] # node1: entry ID
+    currentNode2$entryID <- pathwayGraph[nodeIdx, 'node2'] # node2: entry ID
+    currentNode1$ec <- pathway$nodes[pathway$nodes$entryID==currentNode1$entryID,]$name # node1: EC
+    currentNode2$ec <- pathway$nodes[pathway$nodes$entryID==currentNode2$entryID,]$name # node2: EC
+    currentNode1$reaction <- pathway$nodes[pathway$nodes$entryID==currentNode1$entryID,]$reaction # node1: reaction
+    currentNode2$reaction <- pathway$nodes[pathway$nodes$entryID==currentNode2$entryID,]$reaction # node2: reaction
+    currentNode1$x <- pathway$nodes[pathway$nodes$entryID==currentNode1$entryID,]$x # node1: graph x
+    currentNode2$x <- pathway$nodes[pathway$nodes$entryID==currentNode2$entryID,]$x # node2: graph x
+    currentNode1$y <- pathway$nodes[pathway$nodes$entryID==currentNode1$entryID,]$y # node1: graph y
+    currentNode2$y <- pathway$nodes[pathway$nodes$entryID==currentNode2$entryID,]$y # node2: graph y
+
+    #*********************************************##
+    # Convert the entry IDs into the dictionary ID #
+    #*********************************************##
+
+    # Find the current node into the dictionary
+    if (is.na(currentNode1$reaction)) {
+      dictId1 <- dictionary[dictionary$x == currentNode1$x & dictionary$y == currentNode1$y, ]$id
+    } else {
+      dictId1 <- dictionary[dictionary$x == currentNode1$x & dictionary$y == currentNode1$y & dictionary$reaction == currentNode1$reaction, ]$id
+    }
+
+    if (is.na(currentNode2$reaction)) {
+      dictId2 <- dictionary[dictionary$x == currentNode2$x & dictionary$y == currentNode2$y, ]$id
+    } else {
+      dictId2 <- dictionary[dictionary$x == currentNode2$x & dictionary$y == currentNode2$y & dictionary$reaction == currentNode2$reaction, ]$id
+    }
+
+    # Check if the dictionary contains the node, if the didctionary ID is empty, it means that
+    # the node refers to a pathway connection (e.g:path:00020) or it is a compound
+    if (is.null(dictId1) | isempty(dictId1)) {
+      # Remove the current row
+      pathwayGraph[nodeIdx,] <- NA
+      next()
+    } else {
+      pathwayGraph[nodeIdx, 'node1'] <- dictId1
+    }
+
+    if (is.null(dictId2) | isempty(dictId2)) {
+      # Remove the current row
+      pathwayGraph[nodeIdx,] <- NA
+      next()
+    } else {
+      pathwayGraph[nodeIdx, 'node2'] <- dictId2
+    }
+
+    #***************************##
+    # Set graph other attributes #
+    #***************************##
+
+    pathwayGraph[nodeIdx, 'ec1'] <- currentNode1$ec
+    pathwayGraph[nodeIdx, 'ec2'] <- currentNode2$ec
+    pathwayGraph[nodeIdx, 'entryID1'] <- currentNode1$entryID
+    pathwayGraph[nodeIdx, 'entryID2'] <- currentNode2$entryID
+    pathwayGraph[nodeIdx, 'reaction1'] <- currentNode1$reaction
+    pathwayGraph[nodeIdx, 'reaction2'] <- currentNode2$reaction
+    pathwayGraph[nodeIdx, 'x1'] <- currentNode1$x
+    pathwayGraph[nodeIdx, 'x2'] <- currentNode2$x
+    pathwayGraph[nodeIdx, 'y1'] <- currentNode1$y
+    pathwayGraph[nodeIdx, 'y2'] <- currentNode2$y
+  }
+
+  # Remove the NA rows
+  if ( (any(is.na(pathwayGraph$reaction1)) | any(is.na(pathwayGraph$reaction2))) &
+       (any(is.na(pathwayGraph$node1)) | any(is.na(pathwayGraph$node2))) ) {
+    # Just the complete cases
+    pathwayGraph <- pathwayGraph[complete.cases(pathwayGraph), ]
+
+    # Reindex the dataframe
+    rownames(pathwayGraph) <- 1:nrow(pathwayGraph)
+  }
+
+  # Return the pathway graph
+  return(pathwayGraph)
+}

@@ -351,7 +351,7 @@ generatePathwayGraphFromKGML <- function(removeNoise_=TRUE) {
 
     tryCatch({
       # Convert the pathway data into a graph
-      pathwayGraph <- KGML2Graph(paste0(folder, file), replaceOrg=TRUE, orgToReplace=reference_pathway)
+      pathwayGraph <- KGML2GraphDictionary(paste0(folder, file), replaceOrg=TRUE, orgToReplace=reference_pathway)
 
       #**************************##
       # Prepare the pathway graph #
@@ -362,7 +362,7 @@ generatePathwayGraphFromKGML <- function(removeNoise_=TRUE) {
         pathwayGraph <- removeNoise(pathwayGraph)
       }
 
-      if (is.null(pathwayGraph) | nrow(pathwayGraph) == 0) {
+      if (is.null(pathwayGraph) | isempty(pathwayGraph)) {
         # Save the log file
         printLog(message_='The pathwayGraph data frame is empty. Skipping it...', file_='generatePathwayGraphFromKGML')
 
@@ -855,7 +855,7 @@ generatePathwayFrequencyFromOrganismData <- function(removeNoise_=TRUE) {
       current_kgml <- KGML2Dataframe(paste0(folder, file))
 
       # Convert the pathway data into a graph
-      pathwayGraph <- KGML2Graph(paste0(folder, file), replaceOrg=TRUE, orgToReplace=reference_pathway)
+      pathwayGraph <- KGML2GraphDictionary(paste0(folder, file), replaceOrg=TRUE, orgToReplace=reference_pathway)
 
       #*************************##
       # Prepare the pathway data #
@@ -868,6 +868,7 @@ generatePathwayFrequencyFromOrganismData <- function(removeNoise_=TRUE) {
       pathwayData <- pathwayData[,!(names(pathwayData) %in% c('component', 'map'))]
 
       # Add the default columns
+      pathwayData$dictID <- NA
       pathwayData$reaction_type <- NA
       pathwayData$org <- reference_pathway
       pathwayData$pathway <- pathway_code
@@ -931,6 +932,28 @@ generatePathwayFrequencyFromOrganismData <- function(removeNoise_=TRUE) {
         }
       }
 
+      # Assign the dictionary ID to each node
+      rows <- nrow(pathwayData)
+      for (nodeIdx in 1:rows) {
+        # Setup the current node
+        currentNode <- pathwayData[nodeIdx,]
+
+        # Find the current node into the dictionary
+        dictId1 <- dictionary[(dictionary$x == currentNode$x) & (currentNode$y == currentNode$y) &
+                                (dictionary$reaction == currentNode$reaction) & (dictionary$ec == currentNode$name), ]$id
+
+        # Remove NAs
+        dictId1 <- dictId1[!is.na(dictId1)]
+
+        # Check if the dictionary contains the node, if the didctionary ID is empty, it means that
+        # the node refers to a pathway connection (e.g:path:00020) or it is a compound
+        if (is.null(dictId1) | isempty(dictId1)) {
+          next()
+        } else {
+          pathwayData[nodeIdx, 'dictID'] <- dictId1
+        }
+      }
+
       #*************************##
       # Get the graph properties #
       #*************************##
@@ -943,7 +966,9 @@ generatePathwayFrequencyFromOrganismData <- function(removeNoise_=TRUE) {
 
       # Assign the bottlenecks for enzyme code (ec)
       if (strcmp(reference_pathway, 'ec')) {
-        pathwayData$is_bottleneck[which(pathwayData$name %in% graphBottleneck)] <- 1
+        for (bottleneckIdx in 1:length(graphBottleneck)) {
+          pathwayData$is_bottleneck[which(pathwayData$dictID == graphBottleneck[bottleneckIdx])] <- 1
+        }
       }
 
       #*****************************************##
@@ -951,12 +976,8 @@ generatePathwayFrequencyFromOrganismData <- function(removeNoise_=TRUE) {
       #*****************************************##
 
       for (idx in 1:nrow(pathwayData)) {
-        # Prepare the node name to be compared
-        pattern <- gsub('/', '|', pathwayData$name[idx])
-        pattern <- gsub(" ","", pattern)
-
         # Find which rows in graphProperties match with pathwayData
-        rowsToMerge <- which(grepl(pattern, graphProperties$node))[1]
+        rowsToMerge <- which(pathwayData[idx,]$dictID == graphProperties$node)
 
         pathwayData[idx,]$betweenness <- graphProperties[rowsToMerge,]$betweenness
         pathwayData[idx,]$connectivity <- graphProperties[rowsToMerge,]$connectivity
@@ -995,8 +1016,8 @@ generatePathwayFrequencyFromOrganismData <- function(removeNoise_=TRUE) {
           currentImpact <- impact[idx,]
 
           # Set the impacts
-          pathwayData$bottleneckImpact[pathwayData$name==currentImpact$ap] <- currentImpact$impact
-          pathwayData$bottleneckDisconnectedComponents[pathwayData$name==currentImpact$ap] <- currentImpact$noComponents
+          pathwayData$bottleneckImpact[pathwayData$dictID==currentImpact$ap] <- currentImpact$impact
+          pathwayData$bottleneckDisconnectedComponents[pathwayData$dictID==currentImpact$ap] <- currentImpact$noComponents
         }
 
         # Calculates the normalized impact
@@ -1011,8 +1032,8 @@ generatePathwayFrequencyFromOrganismData <- function(removeNoise_=TRUE) {
           pathwayMinImpact <- min(pathwayData$bottleneckImpact)
 
           # Normalized frequency for each protein
-          pathwayData$bottleneckNormalizedImpact[pathwayData$name==currentImpact$ap] <-
-            (pathwayData$bottleneckImpact[pathwayData$name==currentImpact$ap]-pathwayMinImpact)/
+          pathwayData$bottleneckNormalizedImpact[pathwayData$dictID==currentImpact$ap] <-
+            (pathwayData$bottleneckImpact[pathwayData$dictID==currentImpact$ap]-pathwayMinImpact)/
             (pathwayMaxImpact-pathwayMinImpact)
         }
       }
