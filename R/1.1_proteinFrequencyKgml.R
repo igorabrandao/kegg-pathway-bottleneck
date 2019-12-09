@@ -979,6 +979,10 @@ generatePathwayFrequencyFromOrganismData <- function(removeNoise_=TRUE) {
         # Find which rows in graphProperties match with pathwayData
         rowsToMerge <- which(pathwayData[idx,]$dictID == graphProperties$node)
 
+        if (is.null(rowsToMerge) | isempty(rowsToMerge)) {
+          next()
+        }
+
         pathwayData[idx,]$betweenness <- graphProperties[rowsToMerge,]$betweenness
         pathwayData[idx,]$connectivity <- graphProperties[rowsToMerge,]$connectivity
         pathwayData[idx,]$triangles <- graphProperties[rowsToMerge,]$triangles
