@@ -939,7 +939,7 @@ generatePathwayFrequencyFromOrganismData <- function(removeNoise_=TRUE) {
         currentNode <- pathwayData[nodeIdx,]
 
         # Find the current node into the dictionary
-        dictId1 <- dictionary[(dictionary$x == currentNode$x) & (currentNode$y == currentNode$y) &
+        dictId1 <- dictionary[(dictionary$x == currentNode$x) & (dictionary$y == currentNode$y) &
                                 (dictionary$reaction == currentNode$reaction) & (dictionary$ec == currentNode$name), ]$id
 
         # Remove NAs
@@ -952,6 +952,8 @@ generatePathwayFrequencyFromOrganismData <- function(removeNoise_=TRUE) {
         } else {
           pathwayData[nodeIdx, 'dictID'] <- dictId1
         }
+
+        print(nodeIdx)
       }
 
       #*************************##
