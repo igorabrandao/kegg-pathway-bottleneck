@@ -904,6 +904,7 @@ generatePathwayFrequencyFromOrganismData <- function(removeNoise_=TRUE) {
         pathwayData <- removeNoise(pathwayData)
         pathwayData <- pathwayData[!(pathwayData$type=="group"),]
         pathwayData <- pathwayData[!(pathwayData$graphicalType=="line"),]
+        pathwayData <- pathwayData[!(pathwayData$graphicalType=="roundrectangle"),]
 
         pathwayGraph <- removeNoise(pathwayGraph)
       }
@@ -952,8 +953,6 @@ generatePathwayFrequencyFromOrganismData <- function(removeNoise_=TRUE) {
         } else {
           pathwayData[nodeIdx, 'dictID'] <- dictId1
         }
-
-        print(nodeIdx)
       }
 
       #*************************##
