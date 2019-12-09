@@ -950,8 +950,13 @@ generatePathwayFrequencyFromOrganismData <- function(removeNoise_=TRUE) {
         currentNode <- pathwayData[nodeIdx,]
 
         # Find the current node into the dictionary
-        dictId1 <- dictionary[(dictionary$x == currentNode$x) & (dictionary$y == currentNode$y) &
-                                (dictionary$reaction == currentNode$reaction) & (dictionary$ec == currentNode$name), ]$id
+        if (is.na(currentNode$reaction)) {
+          dictId1 <- dictionary[(dictionary$x == currentNode$x) & (dictionary$y == currentNode$y) &
+                                  (dictionary$ec == currentNode$name), ]$id
+        } else {
+          dictId1 <- dictionary[(dictionary$x == currentNode$x) & (dictionary$y == currentNode$y) &
+                                  (dictionary$reaction == currentNode$reaction) & (dictionary$ec == currentNode$name), ]$id
+        }
 
         # Remove NAs
         dictId1 <- dictId1[!is.na(dictId1)]
@@ -1059,16 +1064,27 @@ generatePathwayFrequencyFromOrganismData <- function(removeNoise_=TRUE) {
 
       if (!is.null(pathwayData) & !is.null(pathwayInstancesDataSet)) {
         # Group all instances nodes by (x, y, reaction) variables
-        proteinsCount <- aggregate(pathwayInstancesDataSet$freq, by=list(pathwayInstancesDataSet$x,
-                                                                         pathwayInstancesDataSet$y,
-                                                                         pathwayInstancesDataSet$reaction),
-                                   FUN=sum, stringsAsFactors=FALSE)
+        if (sum(is.na(pathwayInstancesDataSet$reaction)) > 0) {
+          proteinsCount <- aggregate(pathwayInstancesDataSet$freq, by=list(pathwayInstancesDataSet$x,
+                                                                           pathwayInstancesDataSet$y),
+                                     FUN=sum, stringsAsFactors=FALSE)
 
-        # Rename the group columns
-        names(proteinsCount)[names(proteinsCount) == "x"] <- "occurrences"
-        names(proteinsCount)[names(proteinsCount) == "Group.1"] <- "x"
-        names(proteinsCount)[names(proteinsCount) == "Group.2"] <- "y"
-        names(proteinsCount)[names(proteinsCount) == "Group.3"] <- "reaction"
+          # Rename the group columns
+          names(proteinsCount)[names(proteinsCount) == "x"] <- "occurrences"
+          names(proteinsCount)[names(proteinsCount) == "Group.1"] <- "x"
+          names(proteinsCount)[names(proteinsCount) == "Group.2"] <- "y"
+          names(proteinsCount)[names(proteinsCount) == "Group.3"] <- "reaction"
+        } else {
+          proteinsCount <- aggregate(pathwayInstancesDataSet$freq, by=list(pathwayInstancesDataSet$x,
+                                                                           pathwayInstancesDataSet$y,
+                                                                           pathwayInstancesDataSet$reaction),
+                                     FUN=sum, stringsAsFactors=FALSE)
+
+          # Rename the group columns
+          names(proteinsCount)[names(proteinsCount) == "x"] <- "occurrences"
+          names(proteinsCount)[names(proteinsCount) == "Group.1"] <- "x"
+          names(proteinsCount)[names(proteinsCount) == "Group.2"] <- "y"
+        }
 
         for (idx in 1:nrow(proteinsCount)) {
           # Get the group parameters
@@ -1077,15 +1093,27 @@ generatePathwayFrequencyFromOrganismData <- function(removeNoise_=TRUE) {
           react <- proteinsCount[idx,'reaction']
 
           # Find the current node into the dictionary
-          current_ec <- dictionary[dictionary$x == x & dictionary$y == y & dictionary$reaction == react, ]$ec
-          current_reaction <- dictionary[dictionary$x == x & dictionary$y == y & dictionary$reaction == react, ]$reaction
+          if (is.null(react)) {
+            current_ec <- dictionary[dictionary$x == x & dictionary$y == y, ]$ec
+          } else {
+            current_ec <- dictionary[dictionary$x == x & dictionary$y == y & dictionary$reaction == react, ]$ec
+            current_reaction <- dictionary[dictionary$x == x & dictionary$y == y & dictionary$reaction == react, ]$reaction
+          }
 
           # Check if the current node data was found
-          if (length(current_ec) != 0 & length(current_reaction) != 0) {
+          if (!isempty(current_ec) & !isempty(current_reaction)) {
             if (!is.na(current_ec) & !is.null(current_ec) & !is.na(current_reaction) & !is.null(current_reaction)) {
               # Assign the frequency into the pathwayData
               pathwayData[pathwayData$x == x & pathwayData$y == y & pathwayData$reaction == current_reaction &
                             pathwayData$name == current_ec, ]$occurrences <- proteinsCount[idx,'occurrences']
+            }
+          } else if (!isempty(current_ec)) {
+            if (!is.na(current_ec) & !is.null(current_ec)) {
+              # Assign the frequency into the pathwayData
+              if (nrow(pathwayData[pathwayData$x == x & pathwayData$y == y & pathwayData$name == current_ec, ]) > 0) {
+                pathwayData[pathwayData$x == x & pathwayData$y == y & pathwayData$name == current_ec, ]$occurrences <-
+                  proteinsCount[idx,'occurrences']
+              }
             }
           }
         }
