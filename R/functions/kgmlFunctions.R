@@ -565,7 +565,11 @@ KGML2GraphDictionary <- function(kgml_, replaceOrg_=FALSE, orgToReplace_='') {
     pathwayGraph <- pathwayGraph[complete.cases(pathwayGraph), ]
 
     # Reindex the dataframe
-    rownames(pathwayGraph) <- 1:nrow(pathwayGraph)
+    if (nrow(pathwayGraph) > 0) {
+      rownames(pathwayGraph) <- 1:nrow(pathwayGraph)
+    } else {
+      pathwayGraph <- NULL
+    }
   }
 
   # Return the pathway graph
