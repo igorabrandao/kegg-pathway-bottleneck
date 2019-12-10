@@ -14,6 +14,9 @@
 
 # Import the necessary libraries
 library(ggplot2)
+library(ggpubr)
+library(gghighlight)
+library(grid)
 library(GGally)
 library(corrplot)
 library(dplyr)
@@ -60,8 +63,6 @@ descriptiveAnalysis <- function(dataSet_, removeZeroBottlenecks_ = FALSE, column
 
   # First of all, check whether or not remove the ZERO bottlenecks
   if (removeZeroBottlenecks_) {
-    dataSet_ <- removeZeroBottlenecks(dataSet_)
-
     # Filter dataSet from proteins with ZERO frequency
     dataSet_ <- dataSet_[!dataSet_$occurrences ==0,]
 
@@ -270,50 +271,143 @@ generateCorrelationStudy <- function(dataSet_, removeZeroBottlenecks_=TRUE, verb
 dataSet <- generateDataSetCSV(testName_ = 'descriptive', filterColumns_ = FALSE)
 dataSet <- fillPathwayCodeWithZeros(dataSet)
 
+# Rename the AP classification
+dataSet[dataSet$bottleneck_classification=='HB',]$bottleneck_classification <- 'HAP'
+dataSet[dataSet$bottleneck_classification=='HNB',]$bottleneck_classification <- 'HUB'
+dataSet[dataSet$bottleneck_classification=='NHB',]$bottleneck_classification <- 'AP'
+dataSet[dataSet$bottleneck_classification=='NHNB',]$bottleneck_classification <- 'Others'
+
 #******************************************#
 # Step 2: Perform the descriptive analysis #
 #******************************************#
 
 # Default descriptive analysis
 descriptiveAnalysis(dataSet, removeZeroBottlenecks_ = TRUE, verbose_ = TRUE,
-                    columns_ = c("occurrences", "totalSpecies", "percentage", "is_bottleneck", "bottleneck_classification"),
-                    columnLabels_ = c("Frequency", "Processed Species", "Frequency (%)", "Is Bottleneck", "Protein Classification"))
+                    columns_ = c("occurrences", "totalSpecies", "percentage", "is_bottleneck", "bottleneckNormalizedImpact", "bottleneck_classification"),
+                    columnLabels_ = c("Occurence", "Processed Species", "Frequency (%)", "Is AP", "AP Impact", "AP Classification"))
 
 #******************************************#
 
-# Protein classification
+#************************#
+# Protein classification #
+#************************#
+
 data <- dataSet[!dataSet$occurrences==0,]
 
 ggplot(data, aes(fill=bottleneck_classification, x=bottleneck_classification)) +
+  # Add the bars
   geom_bar(position="stack", stat="count") +
+
+  # Add the label text
+  geom_text(stat='count', aes(label = paste0(..count.., ' (', format( (..count.. / nrow(data)) * 100, digits=3), '%)')),
+            size=6, fontface="bold", vjust=-1) +
+
+  # Chart visual properties
   xlab("Proteins Group") +
   ylab("Proteins Count") +
-  ggtitle("Proteins Classification") + theme_bw() +
+  ggtitle("") +
   guides(fill=guide_legend(title="Proteins Group")) +
   scale_fill_manual(values = c("#ED553B", "#3CAEA3", "#20639B", "#173F5F")) +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+  theme_bw() +
+  theme(axis.title.x = element_text(face="bold", size=20, margin = margin(t = 15, r = 0, b = 0, l = 0)),
+        axis.text.x = element_text(size=18),
+        axis.title.y = element_text(face="bold", size=20, margin = margin(t = 0, r = 15, b = 0, l = 0)),
+        axis.text.y = element_text(size=18),
+        legend.title = element_text(face="bold", size=16),
+        legend.text = element_text(size=16))
 
-ggsave(paste0("./output/statistics/descriptive/proteinClassification.png"), width = 30, height = 20, units = "cm")
+ggsave(paste0("./output/statistics/descriptive/proteinClassification.png"), width = 33, height = 25, units = "cm")
 
 #******************************************#
 
-# Proteins by pathway without zero bottlenecks
+#**********************************************#
+# Proteins by pathway without zero bottlenecks #
+#**********************************************#
+
 data <- dataSet[!dataSet$occurrences==0,]
 
-ggplot(data, aes(fill=bottleneck_classification, x=pathway)) +
-    geom_bar(position="stack", stat="count") +
-    xlab("Pathways") +
-    ylab("Proteins Count") +
-    ggtitle("Proteins by pathway") + theme_bw() +
+# Count the proteins by pathway
+proteinsCount <- as.data.frame(table(data$pathway), stringsAsFactors=FALSE)
+
+# Order the data by totalSpecies
+proteinsCount <- proteinsCount[order(proteinsCount$Freq),]
+
+# Rename the group columns
+names(proteinsCount)[names(proteinsCount) == "Var1"] <- "pathway"
+names(proteinsCount)[names(proteinsCount) == "Freq"] <- "proteinsCount"
+
+# Order the dataSet by the protein count
+data$pathway <- factor(data$pathway, levels = proteinsCount$pathway[order(proteinsCount$proteinsCount)])
+
+proteinByPathway1 <- ggplot(data, aes(fill=bottleneck_classification, x=pathway)) +
+    # Add the bars
+    geom_bar(position="stack", stat="count", width = 0.75) +
+
+    # Chart visual properties
+    xlab("") +
+    #xlab("Pathways") +
+    ylab("") +
+    #ylab("Proteins Count") +
+    ggtitle("") + theme_bw() +
     guides(fill=guide_legend(title="Proteins Classification")) +
     scale_fill_manual(values = c("#ED553B", "#3CAEA3", "#20639B", "#173F5F")) +
-    theme(axis.text.x = element_text(angle = 90, hjust = 1))
+    theme(axis.title.x = element_text(margin = margin(t = 0, r = 0, b = 0, l = 0)),
+        #axis.title.x = element_text(face="bold", size=20, margin = margin(t = 15, r = 0, b = 0, l = 0)),
+        #axis.text.x = element_text(size=9, angle = 90, hjust = 1),
+        axis.text.x = element_blank(),
+        #axis.title.y = element_text(face="bold", size=20, margin = margin(t = 0, r = 15, b = 0, l = 0)),
+        #axis.title.y = element_text(face="bold", size=20, margin = margin(t = 0, r = 15, b = 0, l = 0)),
+        axis.title.y = element_text(face="bold", size=20, margin = margin(t = 0, r = 0, b = 0, l = 0)),
+        axis.text.y = element_text(size=18),
+        legend.title = element_text(face="bold", size=16),
+        legend.text = element_text(size=16),
+        legend.position='top') +
+  annotation_custom(grobTree(textGrob("A", x=0.02,  y=0.90, hjust=0, gp=gpar(col="black", fontsize=30, fontface="bold"))))
 
-ggsave(paste0("./output/statistics/descriptive/proteinByPathway.png"), width = 40, height = 20, units = "cm")
+#ggsave(paste0("./output/statistics/descriptive/proteinByPathway.png"), width = 30, height = 20, units = "cm")
+
+proteinByPathway2 <- ggplot(data, aes(fill=bottleneck_classification, x=pathway)) +
+  # Add the bars
+  geom_bar(position="stack", stat="count", width = 0.75) +
+
+  # Highlighted bars
+  gghighlight(pathway == '00402' | pathway == '00232' | pathway == '00061', unhighlighted_colour = alpha("steelblue", 0.4)) +
+
+  # Add labels to highlighted bars
+  geom_label(stat='count', aes(y = ..count..+20, label = pathway), label.size = 1.5, hjust = 1, vjust = 1, fill = "#173F5F", colour = "white", alpha= 1) +
+
+  # Chart visual properties
+  xlab("Pathways") +
+  ylab("") +
+  #ylab("Proteins Count") +
+  ggtitle("") + theme_bw() +
+  guides(fill=guide_legend(title="Proteins Classification")) +
+  scale_fill_manual(values = c("#ED553B", "#3CAEA3", "#20639B", "#173F5F")) +
+  theme(axis.title.x = element_text(face="bold", size=20, margin = margin(t = 15, r = 0, b = 0, l = 0)),
+        #axis.text.x = element_text(size=9, angle = 90, hjust = 1),
+        axis.text.x = element_blank(),
+        axis.title.y = element_text(face="bold", size=20, margin = margin(t = 0, r = 0, b = 0, l = 0)),
+        axis.text.y = element_text(size=18),
+        legend.title = element_text(face="bold", size=16),
+        legend.text = element_text(size=16),
+        legend.position='top') +
+  annotation_custom(grobTree(textGrob("B", x=0.02,  y=0.90, hjust=0, gp=gpar(col="black", fontsize=30, fontface="bold"))))
+
+#ggsave(paste0("./output/statistics/descriptive/proteinByPathwayHighlight.png"), width = 30, height = 20, units = "cm")
+
+figure <- ggarrange(proteinByPathway1, proteinByPathway2, heights = c(3, 3), ncol = 1, nrow = 2, align = "v", legend = "top", common.legend = TRUE)
+
+annotate_figure(figure,
+                left = text_grob("Proteins Count", color = "#000000", size=20, face = "bold", rot = 90))
+
+ggsave(paste0("./output/statistics/descriptive/proteinByPathwayArrange.png"), width = 30, height = 20, units = "cm")
 
 #******************************************#
 
-# Bottleneck x Betweenness X Degree
+#***********************************#
+# Bottleneck x Betweenness X Degree #
+#***********************************#
+
 descriptiveAnalysis(dataSet, removeZeroBottlenecks_ = TRUE, verbose_ = TRUE,
                     columns_ = c("is_bottleneck", "betweenness", "degree"),
                     columnLabels_ = c("Is Bottleneck", "Betweenness", "Degree"),
@@ -333,7 +427,10 @@ descriptiveAnalysis(dataSet, removeZeroBottlenecks_ = TRUE, verbose_ = TRUE,
 
 #******************************************#
 
-# Proteins by pathway without zero bottlenecks
+#**********************************************#
+# Organisms by pathway without zero bottlenecks #
+#**********************************************#
+
 data <- dataSet[!dataSet$occurrences==0,]
 
 # Aggregate pathways total species
@@ -358,16 +455,45 @@ for (idx in 1:length(pallete)) {
   colors[rangeVal[idx]:rangeVal[idx+1]] <- pallete[idx]
 }
 
+# Classify the data
+orgByPath$group <- ''
+orgByPath$color <- ''
+
+for (idx in 1:(length(rangeVal)-1) ) {
+  # Set the group color
+  orgByPath[rangeVal[idx]:rangeVal[idx+1],]$color <- colors[rangeVal[idx]:rangeVal[idx+1]]
+
+  # Set the group value
+  orgByPath[rangeVal[idx]:rangeVal[idx+1],]$group <- paste0('< ', orgByPath[rangeVal[idx+1],]$totalSpecies, ' organisms')
+}
+
 # Plot rganisms by pathways
 ggplot(orgByPath) +
-  geom_bar(aes(x=pathway, y=totalSpecies), color='#f6f6f6', fill=colors, stat="identity") +
+  # Add the bars
+  geom_bar(aes(x=pathway, y=totalSpecies, fill=group), color='#f6f6f6', stat="identity") +
+
+  # Add labels to bars group
+  #geom_label(data = orgByPath[rangeVal,], aes(y = (totalSpecies + 200), x=pathway, label=totalSpecies, fill=group), label.size = 1.5, hjust = 1, vjust = 1, colour = "white", alpha= 1) +
+
+  # Chart visual properties
   xlab("Pathways") +
   ylab("Organism Count") +
-  ggtitle("Organism by pathway") + theme_bw() +
-  theme(legend.position="none") +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+  ggtitle("") +
+  scale_fill_manual(values = unique(colors[rangeVal])) +
+  guides(fill=guide_legend(title="Pathways Group")) +
+  theme_bw() +
+  theme(axis.title.x = element_text(face="bold", size=20, margin = margin(t = 15, r = 0, b = 0, l = 0)),
+        axis.text.x = element_blank(),
+        axis.title.y = element_text(face="bold", size=20, margin = margin(t = 0, r = 15, b = 0, l = 0)),
+        axis.text.y = element_text(size=18),
+        legend.title = element_text(face="bold", size=16),
+        legend.text = element_text(size=16),
+        legend.position = 'top') +
+  geom_vline(xintercept = which.min(abs(orgByPath$totalSpecies - 2000)), linetype='dashed', color="red", size=0.5) +
+  geom_text(aes(x=which.min(abs(orgByPath$totalSpecies - 2000)), label="\nLess than 2000 organisms", y=4500), colour="#173F5F", angle=90,
+            text=element_text(size=20))
 
-ggsave(paste0("./output/statistics/descriptive/organismsByPathway.png"), width = 40, height = 20, units = "cm")
+ggsave(paste0("./output/statistics/descriptive/organismsByPathway.png"), width = 30, height = 20, units = "cm")
 
 #***************************#
 # Step 3: Correlation study #
