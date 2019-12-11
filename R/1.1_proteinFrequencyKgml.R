@@ -26,8 +26,8 @@
 files.sources = NULL
 files.sources[1] = paste0("./R/functions", "/", "graphFunctions.R")
 files.sources[2] = paste0("./R/functions", "/", "kgmlFunctions.R")
-#files.sources[3] = paste0("./R/functions", "/", "graphPrintFunctions.R")
 files.sources[3] = paste0("./R/functions", "/", "helperFunctions.R")
+files.sources[4] = paste0("./R/functions", "/", "graphPrintFunctions.R")
 sapply(files.sources, source)
 
 # Load the pathways by organisms data
@@ -1231,17 +1231,17 @@ printInteractiveNetwork <- function(removeNoise_=TRUE) {
 
     tryCatch({
       # Get the network properties
-      pathwayData <- paste0('./output/totalFrequency/', kgml_index, '_', pathway_code, '.RData')
+      pathwayData <- paste0('./output/totalFrequency/', kgml_index, '_', pathway_code, '.csv')
 
       if (file.exists(pathwayData)) {
-        pathwayData <- get(load(file=pathwayData))
+        pathwayData <- read.csv(file=pathwayData, header=TRUE, sep=",", stringsAsFactors=FALSE)
       } else {
         printMessage(paste0("The propertie file from pathway  ", pathway_code, " could no be found. Skipping it..."))
         return(FALSE)
       }
 
       # Convert the pathway data into a graph
-      pathwayGraph <- KGML2Graph(paste0(folder, file), replaceOrg=TRUE, orgToReplace=reference_pathway)
+      pathwayGraph <- KGML2GraphDictionary(paste0(folder, file), replaceOrg=TRUE, orgToReplace=reference_pathway)
 
       # Remove unnecessary data from pathway data/graph
       if (removeNoise_) {
@@ -1255,7 +1255,7 @@ printInteractiveNetwork <- function(removeNoise_=TRUE) {
       # Set the pathway index
       pathway_index <- -1
 
-      # Assign the graph properties to each node
+      # Assign the pathway detail to the graph
       for (idx in 1:length(pathwayDetail)) {
         # Check the position of the current pathway in pathway detail list
         if (strcmp(pathwayDetail[[idx]]$ENTRY, paste0('map', pathway_code))) {
@@ -1268,15 +1268,24 @@ printInteractiveNetwork <- function(removeNoise_=TRUE) {
       # [GENERATING THE NETWORK] #
       #--------------------------#
 
+      # Rename the AP classification
+      pathwayData[pathwayData$bottleneck_classification=='HB',]$bottleneck_classification <- 'HAP'
+      pathwayData[pathwayData$bottleneck_classification=='HNB',]$bottleneck_classification <- 'HUB'
+      pathwayData[pathwayData$bottleneck_classification=='NHB',]$bottleneck_classification <- 'AP'
+      pathwayData[pathwayData$bottleneck_classification=='NHNB',]$bottleneck_classification <- 'Others'
+      names(pathwayData)[names(pathwayData) == "bottleneck_classification"] <- "AP_classification"
+
       # Generate the network
       if (pathway_index == -1) {
         generatedNetwork <- generateInteractiveNetwork(pathwayGraph, pathwayData, pathway_code, NULL)
       } else {
-        generatedNetwork <- generateInteractiveNetwork(pathwayGraph, pathwayData, pathway_code, pathwayDetail[[pathway_index]])
+        #network_=pathwayGraph
+        #networkProperties_ = pathwayData
+        #pathway_=pathway_code
+        #pathway_detail_=pathwayDetail[[pathway_index]]
+        #generatedNetwork <- generateInteractiveNetwork(pathwayGraph, pathwayData, pathway_code, pathwayDetail[[pathway_index]])
+        generatedNetwork <- generateInteractiveNetwork(pathwayGraph, pathwayData, pathway_code, NULL)
       }
-
-      # Print the network
-      print(generatedNetwork)
 
       # Export the network
       if (!dir.exists(file.path(paste0('./output/network/')))) {
@@ -1287,8 +1296,7 @@ printInteractiveNetwork <- function(removeNoise_=TRUE) {
         filename <- paste0(kgml_index, '_', pathway_code, '.html')
 
         # Save the HTML file
-        visSave(generatedNetwork, file = filename, selfcontained = TRUE,
-                background = "#eeefff")
+        visSave(generatedNetwork, file = filename, selfcontained = TRUE)
 
         if (file.exists(filename)) {
           # Copy the file into correct directory
@@ -1296,6 +1304,13 @@ printInteractiveNetwork <- function(removeNoise_=TRUE) {
 
           # Remove the generated file
           file.remove(filename)
+
+          # Save the Gephi json file
+          #visNetwork(gephi = paste0(kgml_index, '_', pathway_code, '.json')) %>% visPhysics(stabilization = FALSE,   barnesHut = list(
+          #  gravitationalConstant = -10000,
+          #  springConstant = 0.002,
+          #  springLength = 150
+          #))
         } else {
           printMessage(paste0("Network file not found. Skipping it..."))
           return(FALSE)

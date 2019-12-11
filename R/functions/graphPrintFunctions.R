@@ -115,18 +115,23 @@ generateInteractiveNetwork <- function(network_, networkProperties_, pathway_=""
   # Apply the border color by bottleneck status
   vis.nodes$color.border[which(vis.nodes$is_bottleneck == 0)] <- "white"
   vis.nodes$color.border[which(vis.nodes$is_bottleneck == 1)] <- "blue"
-  vis.nodes$borderWidth[which(vis.nodes$is_bottleneck == 0)] <- 0
-  vis.nodes$borderWidth[which(vis.nodes$is_bottleneck == 1)] <- 4
+  vis.nodes$borderWidth[which(vis.nodes$is_bottleneck == 0)] <- 2 # Node border width
+  vis.nodes$borderWidth[which(vis.nodes$is_bottleneck == 1)] <- 4 # AP Node border width
 
+  vis.nodes$id     <- vis.nodes$dictID # Node ID
+  vis.nodes$label  <- paste0(vis.nodes$name, "\n(", vis.nodes$AP_classification, ")") # Node label
+  vis.nodes$title  <- paste0(vis.nodes$AP_classification, " - ", vis.nodes$name,
+                             " AP impact: ", vis.nodes$bottleneckImpact,
+                             " degree: ", vis.nodes$degree,
+                             " betweenness: ", vis.nodes$betweenness) # Text on click
   vis.nodes$shadow <- TRUE # Nodes will drop shadow
-  vis.nodes$id     <- row.names(vis.nodes) # Node ID
-  vis.nodes$label  <- paste0(row.names(vis.nodes), "\n(", vis.nodes$bottleneck_classification, ")") # Node label
-  vis.nodes$title  <- paste0(vis.nodes$bottleneck_classification, " - ", row.names(vis.nodes), " degree: ", vis.nodes$degree, " betweenness: ", vis.nodes$betweenness) # Text on click
-  vis.nodes$borderWidth <- 2 # Node border width
 
   # Properties when node highlighted
   vis.nodes$color.highlight.background <- "orange"
   vis.nodes$color.highlight.border <- "darkred"
+
+  vis.nodes$color.highlight.background[which(vis.nodes$is_bottleneck == 1)] <- "#20639B"
+  vis.nodes$color.highlight.border[which(vis.nodes$is_bottleneck == 1)] <- "#173F5F"
 
   betweennessScaleValues <- 1
 
@@ -163,35 +168,32 @@ generateInteractiveNetwork <- function(network_, networkProperties_, pathway_=""
   # Generate the visNetwor object
   if (is.null(pathway_detail_) | length(pathway_detail_) == 0) {
     visNetworkObj <- visNetwork(nodes = vis.nodes, edges = vis.links,
-                                background="#eeefff", width = '100%', height = '800px',
+                                background="#ffffff", width = '100%', height = '100vh',
                                 main=paste0("Pathway ", pathway_),
-                                submain=paste0("<b>Nodes:</b> ", length(V(iGraph)), " <b>Edges:</b> ", length(E(iGraph))),
-                                footer= "Note: nodes sizes are related to its frequencies")
+                                submain=paste0("<b>Nodes:</b> ", length(V(iGraph)), " <b>Edges:</b> ", length(E(iGraph))))
   } else {
     visNetworkObj <- visNetwork(nodes = vis.nodes, edges = vis.links,
-                                background="#eeefff", width = '100%', height = '800px',
+                                background="#ffffff", width = '100%', height = '100vh',
                                 main=paste0("Pathway ", pathway_, " - ", pathway_detail_$NAME),
                                 submain=paste0(
                                   "<br> <b>Description:</b> ", pathway_detail_$DESCRIPTION,
                                   "<br><br> <b>Class:</b> ", pathway_detail_$CLASS,
                                   "<br><br> <b>Nodes:</b> ", length(V(iGraph)), " <b>Edges:</b> ", length(E(iGraph))
-                                ),
-                                footer= "Note: nodes sizes are related to its frequencies")
+                                ))
   }
 
   # Define the legend groups
-  visNetworkObj <- visGroups(visNetworkObj, groupname = "Bottleneck", shape = "star",
-                       color = list(background = "gray", border="black"))
-
-  visNetworkObj <- visGroups(visNetworkObj, groupname = "Non-bottleneck", shape = "dot",
-                       color = list(background = "tomato", border="black"))
+  #visNetworkObj <- visGroups(visNetworkObj, groupname = "Bottleneck", shape = "star", color = list(background = "gray", border="black"))
+  #visNetworkObj <- visGroups(visNetworkObj, groupname = "Non-bottleneck", shape = "dot", color = list(background = "tomato", border="black"))
 
   # Add a legend
-  visNetworkObj <- visLegend(visNetworkObj, enabled = TRUE, useGroups = TRUE,
-            main="Legend", position="left", ncol=1)
+  #visNetworkObj <- visLegend(visNetworkObj, enabled = TRUE, useGroups = TRUE, main="Legend", position="left", ncol=1)
 
   # Add custom options
-  visNetworkObj <- visOptions(visNetworkObj, highlightNearest = TRUE, selectedBy = "bottleneck_classification")
+  visNetworkObj <- visOptions(visNetworkObj, autoResize = TRUE, highlightNearest = TRUE, manipulation = TRUE, selectedBy = "AP_classification")
+
+  # Add interaction
+  visNetworkObj <- visInteraction(visNetworkObj, navigationButtons = TRUE, dragNodes = TRUE, dragView = TRUE, zoomView = TRUE)
 
   # Generate the network
   return(visNetworkObj)
