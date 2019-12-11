@@ -110,6 +110,7 @@ trim <- function (str_) {
 onlyNumber <- function (str_) {
   temp <- gregexpr("[0-9]+", str_)
   str_ <- unlist(regmatches(str_, temp))
+  return(str_)
 }
 
 #*******************************************************************************************#

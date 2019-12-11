@@ -1237,6 +1237,10 @@ printInteractiveNetwork <- function(removeNoise_=TRUE) {
         pathwayData <- read.csv(file=pathwayData, header=TRUE, sep=",", stringsAsFactors=FALSE)
       } else {
         printMessage(paste0("The propertie file from pathway  ", pathway_code, " could no be found. Skipping it..."))
+
+        # Increment the index
+        kgml_index <<- kgml_index + 1
+
         return(FALSE)
       }
 
@@ -1269,22 +1273,35 @@ printInteractiveNetwork <- function(removeNoise_=TRUE) {
       #--------------------------#
 
       # Rename the AP classification
-      pathwayData[pathwayData$bottleneck_classification=='HB',]$bottleneck_classification <- 'HAP'
-      pathwayData[pathwayData$bottleneck_classification=='HNB',]$bottleneck_classification <- 'HUB'
-      pathwayData[pathwayData$bottleneck_classification=='NHB',]$bottleneck_classification <- 'AP'
-      pathwayData[pathwayData$bottleneck_classification=='NHNB',]$bottleneck_classification <- 'Others'
+      if (nrow(pathwayData[pathwayData$bottleneck_classification=='HB',]) > 0) {
+        pathwayData[pathwayData$bottleneck_classification=='HB',]$bottleneck_classification <- 'HAP'
+      }
+
+      if (nrow(pathwayData[pathwayData$bottleneck_classification=='HNB',]) > 0) {
+        pathwayData[pathwayData$bottleneck_classification=='HNB',]$bottleneck_classification <- 'HUB'
+      }
+
+      if (nrow(pathwayData[pathwayData$bottleneck_classification=='NHB',]) > 0) {
+        pathwayData[pathwayData$bottleneck_classification=='NHB',]$bottleneck_classification <- 'AP'
+      }
+
+      if (nrow(pathwayData[pathwayData$bottleneck_classification=='NHNB',]) > 0) {
+        pathwayData[pathwayData$bottleneck_classification=='NHNB',]$bottleneck_classification <- 'Others'
+      }
+
       names(pathwayData)[names(pathwayData) == "bottleneck_classification"] <- "AP_classification"
 
       # Generate the network
       if (pathway_index == -1) {
-        generatedNetwork <- generateInteractiveNetwork(pathwayGraph, pathwayData, pathway_code, NULL)
+        generatedNetwork <- generateInteractiveNetwork(network_=pathwayGraph, networkProperties_=pathwayData, pathway_=pathway_code,
+                                                       pathwayDetail_=NULL, dynamicNetwork_=TRUE)
+        generatedDynamicNetwork <- generateInteractiveNetwork(network_=pathwayGraph, networkProperties_=pathwayData, pathway_=pathway_code,
+                                                              pathwayDetail_=NULL, dynamicNetwork_=TRUE)
       } else {
-        #network_=pathwayGraph
-        #networkProperties_ = pathwayData
-        #pathway_=pathway_code
-        #pathway_detail_=pathwayDetail[[pathway_index]]
-        #generatedNetwork <- generateInteractiveNetwork(pathwayGraph, pathwayData, pathway_code, pathwayDetail[[pathway_index]])
-        generatedNetwork <- generateInteractiveNetwork(pathwayGraph, pathwayData, pathway_code, NULL)
+        generatedNetwork <- generateInteractiveNetwork(network_=pathwayGraph, networkProperties_=pathwayData, pathway_=pathway_code,
+                                                       pathwayDetail_=pathwayDetail[[pathway_index]], dynamicNetwork_=TRUE)
+        generatedDynamicNetwork <- generateInteractiveNetwork(network_=pathwayGraph, networkProperties_=pathwayData, pathway_=pathway_code,
+                                                              pathwayDetail_=pathwayDetail[[pathway_index]], dynamicNetwork_=TRUE)
       }
 
       # Export the network
@@ -1318,6 +1335,9 @@ printInteractiveNetwork <- function(removeNoise_=TRUE) {
       }
     }, error=function(e) {
       printMessage(e)
+
+      # Increment the index
+      kgml_index <<- kgml_index + 1
 
       # Save the log file
       printLog(toString(e), file_=paste0('printInteractiveNetwork', pathway_code))
@@ -1362,9 +1382,9 @@ printInteractiveNetwork <- function(removeNoise_=TRUE) {
 #************************************************#
 # Step 4: Perform the enzymes frequency counting #
 #************************************************#
-generatePathwayFrequencyFromOrganismData()
+#generatePathwayFrequencyFromOrganismData()
 
 #******************************#
 # Step 5: Generate the network #
 #******************************#
-#printInteractiveNetwork()
+printInteractiveNetwork()

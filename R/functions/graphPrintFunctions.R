@@ -81,7 +81,8 @@ printBottleneckPathwayImage <- function(pathway_, bottleneck_, verbose_=FALSE) {
 #' @param network_ Network data frame with all properties.
 #' @param networkProperties_ Contains main information about the network nodes.
 #' @param pathway_ Network name.
-#' @param pathway_detail_ The details related to the pathway.
+#' @param pathwayDetail_ The details related to the pathway.
+#' @param dynamicNetwork_ Determins whether or not the network can be manipulated.
 #'
 #' @return This function does not return nothing, just export files.
 #'
@@ -93,7 +94,7 @@ printBottleneckPathwayImage <- function(pathway_, bottleneck_, verbose_=FALSE) {
 #' @author
 #' Igor Brandão
 
-generateInteractiveNetwork <- function(network_, networkProperties_, pathway_="", pathway_detail_=NULL) {
+generateInteractiveNetwork <- function(network_, networkProperties_, pathway_="", pathwayDetail_=NULL, dynamicNetwork_=FALSE) {
 
   # Color pallet
   pal <- brewer.pal(9, "YlOrRd")
@@ -147,7 +148,7 @@ generateInteractiveNetwork <- function(network_, networkProperties_, pathway_=""
   vis.nodes$color.background <- colorRampPalette(pal)(99)[betweennessScaleValues]
 
   # Apply node size according to its frequency
-  vis.nodes$size <- scales::rescale(vis.nodes$freq, to=c(10, 30))
+  vis.nodes$size <- scales::rescale(vis.nodes$occurrences, to=c(10, 30))
 
   # Set network links properties
   vis.links$width <- 1 # line width
@@ -166,7 +167,7 @@ generateInteractiveNetwork <- function(network_, networkProperties_, pathway_=""
   }
 
   # Generate the visNetwor object
-  if (is.null(pathway_detail_) | length(pathway_detail_) == 0) {
+  if (is.null(pathwayDetail_) | length(pathwayDetail_) == 0) {
     visNetworkObj <- visNetwork(nodes = vis.nodes, edges = vis.links,
                                 background="#ffffff", width = '100%', height = '100vh',
                                 main=paste0("Pathway ", pathway_),
@@ -174,10 +175,10 @@ generateInteractiveNetwork <- function(network_, networkProperties_, pathway_=""
   } else {
     visNetworkObj <- visNetwork(nodes = vis.nodes, edges = vis.links,
                                 background="#ffffff", width = '100%', height = '100vh',
-                                main=paste0("Pathway ", pathway_, " - ", pathway_detail_$NAME),
+                                main=paste0("Pathway ", pathway_, " - ", pathwayDetail_$NAME),
                                 submain=paste0(
-                                  "<br> <b>Description:</b> ", pathway_detail_$DESCRIPTION,
-                                  "<br><br> <b>Class:</b> ", pathway_detail_$CLASS,
+                                  "<br> <b>Description:</b> ", pathwayDetail_$DESCRIPTION,
+                                  "<br><br> <b>Class:</b> ", pathwayDetail_$CLASS,
                                   "<br><br> <b>Nodes:</b> ", length(V(iGraph)), " <b>Edges:</b> ", length(E(iGraph))
                                 ))
   }
@@ -189,11 +190,22 @@ generateInteractiveNetwork <- function(network_, networkProperties_, pathway_=""
   # Add a legend
   #visNetworkObj <- visLegend(visNetworkObj, enabled = TRUE, useGroups = TRUE, main="Legend", position="left", ncol=1)
 
-  # Add custom options
-  visNetworkObj <- visOptions(visNetworkObj, autoResize = TRUE, highlightNearest = TRUE, manipulation = TRUE, selectedBy = "AP_classification")
+  # Generate a dynamic network
+  if (dynamicNetwork_) {
+    # Add custom physics
+    visNetworkObj <- visPhysics(visNetworkObj, stabilization = TRUE, solver = 'forceAtlas2Based',
+                                forceAtlas2Based = list(gravitationalConstant = -75, avoidOverlap = 0.3))
 
-  # Add interaction
-  visNetworkObj <- visInteraction(visNetworkObj, navigationButtons = TRUE, dragNodes = TRUE, dragView = TRUE, zoomView = TRUE)
+    # Add custom options
+    visNetworkObj <- visOptions(visNetworkObj, autoResize = TRUE, highlightNearest = TRUE, manipulation = TRUE, selectedBy = 'AP_classification')
+
+    # Add interaction
+    visNetworkObj <- visInteraction(visNetworkObj, navigationButtons = TRUE, dragNodes = TRUE, dragView = TRUE, zoomView = TRUE)
+  } else {
+    # Static network
+    visNetworkObj <- visPhysics(visNetworkObj, stabilization = TRUE, solver = 'forceAtlas2Based',
+                                forceAtlas2Based = list(gravitationalConstant = -75, avoidOverlap = 0.3))
+  }
 
   # Generate the network
   return(visNetworkObj)
