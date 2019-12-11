@@ -39,6 +39,8 @@ network_list <- list.files(path=folder, pattern='*.html')
 menu_idx <- 0
 file_idx <- 0
 
+network_list <- network_list[1:3]
+
 # Define UI object for app
 ui <- dashboardPage(
   dashboardHeader(title = "Networks menu"),
