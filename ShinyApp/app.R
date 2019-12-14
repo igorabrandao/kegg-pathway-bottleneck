@@ -63,7 +63,7 @@ server <- function(input, output, session) {
     menu_list <- lapply(network_list, function(file) {
       menu_idx <<- menu_idx + 1
       menuText <- onlyNumber(file)
-      return(menuItem(menuText[2], tabName = paste0("dashboard", menu_idx), icon = icon("project-diagram")))
+        return(menuItem(menuText[2], tabName = paste0("dashboard", menu_idx), icon = icon("project-diagram")))
     })
 
     sidebarMenu(menu_list)

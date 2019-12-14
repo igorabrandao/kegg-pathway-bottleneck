@@ -57,7 +57,7 @@ sapply(files.sources, source)
 #' Clóvis F. Reis / Igor Brandão
 
 hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, rangeInterval_ = 10,
-                                               cumulative_ = TRUE, normalize_ = TRUE, verbose_ = TRUE) {
+                                       cumulative_ = TRUE, normalize_ = TRUE, verbose_ = TRUE) {
   # Status message
   if (verbose_) {
     printMessage(paste0("RUNNING THE DISCRETE HYPERGEOMETRIC DISTRIBUTION ANALYSIS..."))
@@ -239,14 +239,14 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, rangeInterval_
     xlab("Proteins") +
     ylab("Bottlenecks") +
     geom_point(data = distribution[1, ], color = "gray", pch = 3,
-              aes(x = drawn, y = freq)) +
+               aes(x = drawn, y = freq)) +
     geom_line(data = distribution[distribution$contin == 's', ],
               aes(x = drawn, y = freq, color = cor)) +
     geom_point(data = distribution[distribution$cor != "gray", ],
-              aes(x = drawn, y = freq, color = cor)) +
+               aes(x = drawn, y = freq, color = cor)) +
     scale_color_manual(values = c("blue" = "blue", "red" = "red", "gray" = "gray"),
-              labels = c("blue" = "Significant", "red" = "Non Significant", "gray" = NA ),
-              name = "p-value")
+                       labels = c("blue" = "Significant", "red" = "Non Significant", "gray" = NA ),
+                       name = "p-value")
 
   g
 
@@ -265,10 +265,10 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, rangeInterval_
 
   # Create a dataFrame for the absolute bottlenecks
   absoluteBottleneck <- data.frame(range = numeric(), rangeMidpoint = numeric(), rangeLimit = numeric(), totalProtein = numeric(),
-                                  nonAP = numeric(), AP = numeric(), apType = numeric(), isSignificant = numeric(),
-                                  apVariation = numeric(), apImpact = numeric(),
-                                  nonAPCumulative = numeric(), apCumulative = numeric(),
-                                  apCumulativeVariation = numeric())
+                                   nonAP = numeric(), AP = numeric(), apType = numeric(), isSignificant = numeric(),
+                                   apVariation = numeric(), apImpact = numeric(),
+                                   nonAPCumulative = numeric(), apCumulative = numeric(),
+                                   apCumulativeVariation = numeric())
 
   absoluteBottleneck[1,] <- c(range=0, rangeMidpoint=0, rangeLimit=0, totalProtein=0, nonAP=0, AP=0,
                               apType=0, isSignificant=0, apVariation=0, apImpact=0,
@@ -362,28 +362,37 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, rangeInterval_
   plot1 <- ggplot() +
     # Adding the absolute bottlenecks 1 = significative 3 = non-significative
     geom_bar(data = absoluteBottleneck[absoluteBottleneck$apType=="Significative" | absoluteBottleneck$apType=="Non-Significative",],
-             aes(x = as.factor(absoluteBottleneck$rangeMidpoint), y = AP, fill = as.factor(apType)), color='#f6f6f6', stat="identity") +
+             aes(x = as.factor(absoluteBottleneck$rangeLimit), y = AP, fill = as.factor(apType)), color='#f6f6f6', stat="identity") +
     scale_fill_manual(values=c("#173F5F", "#3CAEA3")) +
 
     # Chart visual properties
 
     # Set the axis labels
     ylab("AP count") +
-    xlab("") +
+    xlab("Proteins distribution") +
 
     # Set the title
     ggtitle("") +
 
     # Edit legend title and labels
-    guides(fill=guide_legend("AP type")) +
+    guides(fill=guide_legend("AP type:")) +
 
     theme_bw() +
-    theme(axis.text.x = element_blank(),
-          axis.title.y = element_text(face="bold", size=18, margin = margin(t = 0, r = 15, b = 0, l = 0)),
-          axis.text.y = element_text(size=16),
+    theme(axis.title.x = element_text(face="bold", size=20, margin = margin(t = 15, r = 0, b = 0, l = 0)),
+          axis.text.x = element_text(size=18),
+          axis.title.y = element_text(face="bold", size=20, margin = margin(t = 0, r = 15, b = 0, l = 0)),
+          axis.text.y = element_text(size=18),
           legend.title = element_text(face="bold", size=16),
-          legend.text = element_text(size=14)) +
-    annotation_custom(grobTree(textGrob("A", x=0.02,  y=0.90, hjust=0, gp=gpar(col="black", fontsize=30, fontface="bold"))))
+          legend.text = element_text(size=16),
+          legend.position='top')
+
+  plot1
+
+  if (dir.exists(file.path('./output/statistics/hypergeometric/'))) {
+    ggsave(paste0("./output/statistics/hypergeometric/hypergeometricDistributionA.png"), width = 30, height = 20, units = "cm")
+  }
+
+  # ::::::::::::::::::::::::::::::::::::::::::::::::::
 
   # B
   plot2 <- ggplot() +
@@ -401,46 +410,60 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, rangeInterval_
     ggtitle("") +
 
     theme_bw() +
-    theme(axis.title.x = element_text(face="bold", size=18, margin = margin(t = 15, r = 0, b = 0, l = 0)),
-          axis.text.x = element_text(size=16, angle = 45, hjust = 1),
-          axis.title.y = element_text(face="bold", size=18, margin = margin(t = 0, r = 15, b = 0, l = 0)),
-          axis.text.y = element_text(size=16),
+    theme(axis.title.x = element_text(face="bold", size=20, margin = margin(t = 15, r = 0, b = 0, l = 0)),
+          axis.text.x = element_text(size=18),
+          axis.title.y = element_text(face="bold", size=20, margin = margin(t = 0, r = 15, b = 0, l = 0)),
+          axis.text.y = element_text(size=18),
           legend.title = element_text(face="bold", size=16),
-          legend.text = element_text(size=16),
-          legend.position='none') +
-    annotation_custom(grobTree(textGrob("B", x=0.02,  y=0.90, hjust=0, gp=gpar(col="black", fontsize=30, fontface="bold"))))
+          legend.text = element_text(size=16))
+
+  plot2
+
+  if (dir.exists(file.path('./output/statistics/hypergeometric/'))) {
+    ggsave(paste0("./output/statistics/hypergeometric/hypergeometricDistributionB.png"), width = 30, height = 20, units = "cm")
+  }
+
+  # ::::::::::::::::::::::::::::::::::::::::::::::::::
 
   # C
-  plot3 <- ggplot(data=absoluteBottleneck, aes(x = rangeLimit, y = apCumulativeVariation)) +
+  plot3 <- ggplot(data=absoluteBottleneck, aes(x = as.factor(absoluteBottleneck$rangeLimit), y = apVariation/100, group = 1)) +
     # adding the cumulative bottlenecks variation
     geom_line(color='red') +
 
     geom_point(color='#173F5F') +
 
-    geom_text(mapping = aes(label =paste0(round(apVariation, 2), "%")), hjust=0, vjust=0) +
+    geom_text(mapping = aes(label =paste0(round(apVariation, 1), "%")), size=5, hjust=0, vjust=0) +
 
     # Set the axis labels
     ylab("AP variation") +
-    xlab("") +
+    xlab("Proteins distribution") +
+
+    scale_y_continuous(labels = scales::percent) +
 
     # Set the title
     ggtitle("") +
 
     theme_bw() +
-    theme(axis.title.x = element_blank(),
-          axis.text.x = element_blank(),
-          axis.title.y = element_text(face="bold", size=18, margin = margin(t = 0, r = 15, b = 0, l = 0)),
-          axis.text.y = element_text(size=16),
+    theme(axis.title.x = element_text(face="bold", size=20, margin = margin(t = 15, r = 0, b = 0, l = 0)),
+          axis.text.x = element_text(size=18),
+          axis.title.y = element_text(face="bold", size=20, margin = margin(t = 0, r = 15, b = 0, l = 0)),
+          axis.text.y = element_text(size=18),
           legend.title = element_text(face="bold", size=16),
-          legend.text = element_text(size=14),
-          legend.position='none') +
-    annotation_custom(grobTree(textGrob("C", x=0.02,  y=0.90, hjust=0, gp=gpar(col="black", fontsize=30, fontface="bold"))))
+          legend.text = element_text(size=16))
+
   plot3
+
+  if (dir.exists(file.path('./output/statistics/hypergeometric/'))) {
+    ggsave(paste0("./output/statistics/hypergeometric/hypergeometricDistributionC.png"), width = 30, height = 20, units = "cm")
+  }
+
+  # ::::::::::::::::::::::::::::::::::::::::::::::::::
 
   # D
 
   # Reshape the data
   reshapedData <- absoluteBottleneck %>% gather(proteinType, total, 4:6)
+  reshapedData[reshapedData$proteinType=='totalProtein',]$proteinType <- 'total'
 
   plot4 <- ggplot(data = reshapedData, aes(x = as.factor(rangeLimit), y = total, fill = proteinType)) +
     # Adding the absolute bottlenecks 1 = significative 3 = non-significative
@@ -448,7 +471,7 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, rangeInterval_
     scale_fill_manual(values = c("#ED553B", "#3CAEA3", "#173F5F")) +
 
     # Add the label text
-    geom_text(stat='identity', aes(label = total), position = position_dodge(width = 1), size=6, fontface="bold", vjust=-0.3) +
+    geom_text(stat='identity', aes(label = total), position = position_dodge(width = 1), size=5, fontface="bold", vjust=-0.3) +
 
     # Chart visual properties
 
@@ -460,28 +483,29 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, rangeInterval_
     ggtitle("") +
 
     # Edit legend title and labels
-    guides(fill=guide_legend("Type:")) +
+    guides(fill=guide_legend("Group type:")) +
 
     theme_bw() +
-    theme(axis.title.x = element_text(face="bold", size=18, margin = margin(t = 15, r = 0, b = 0, l = 0)),
-          axis.text.x = element_text(size=16, angle = 45, hjust = 1),
-          axis.title.y = element_text(face="bold", size=18, margin = margin(t = 0, r = 15, b = 0, l = 0)),
-          axis.text.y = element_text(size=16),
+    theme(axis.title.x = element_text(face="bold", size=20, margin = margin(t = 15, r = 0, b = 0, l = 0)),
+          axis.text.x = element_text(size=18),
+          axis.title.y = element_text(face="bold", size=20, margin = margin(t = 0, r = 15, b = 0, l = 0)),
+          axis.text.y = element_text(size=18),
           legend.title = element_text(face="bold", size=16),
-          legend.text = element_text(size=14),
-          legend.position='right') +
-    annotation_custom(grobTree(textGrob("D", x=0.02,  y=0.90, hjust=0, gp=gpar(col="black", fontsize=30, fontface="bold"))))
+          legend.text = element_text(size=16),
+          legend.position='top')
+
   plot4
+
+  if (dir.exists(file.path('./output/statistics/hypergeometric/'))) {
+    ggsave(paste0("./output/statistics/hypergeometric/hypergeometricDistributionD.png"), width = 30, height = 20, units = "cm")
+  }
+
+  # ::::::::::::::::::::::::::::::::::::::::::::::::::
 
   # Arrange the plots A and B
   # ::::::::::::::::::::::::::::::::::::::::::::::::::
-  figure1 <- ggarrange(plot1, plot2, heights = c(2.5, 1.5), ncol = 1, nrow = 2, align = "v", legend = "right", common.legend = TRUE)
-  figure2 <- ggarrange(plot3, plot4, heights = c(1.3, 2.7), ncol = 1, nrow = 2, align = "v", legend = "right", common.legend = TRUE)
-
-  if (dir.exists(file.path('./output/statistics/hypergeometric/'))) {
-    ggsave(paste0("./output/statistics/hypergeometric/hypergeometricDistribution", rangeInterval_, "bins.png"), width = 30, height = 20, units = "cm")
-    write.csv(distribution, file=paste0("./output/statistics/hypergeometric/", exportFile, ".csv"))
-  }
+  #figure1 <- ggarrange(plot1, plot2, heights = c(2.5, 1.5), ncol = 1, nrow = 2, align = "v", legend = "right", common.legend = TRUE)
+  #figure2 <- ggarrange(plot3, plot4, heights = c(1.3, 2.7), ncol = 1, nrow = 2, align = "v", legend = "right", common.legend = TRUE)
 
   # Return the result
   return(distribution)
@@ -510,8 +534,8 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, rangeInterval_
 #' Igor Brandão
 
 generateAdditionalPlots <- function(dataSet_, columns_ = NULL,
-                                columnLabels_ = NULL, labelAngle_ = 45, title_ = NULL,
-                                exportFile_ = NULL, verbose_ = TRUE) {
+                                    columnLabels_ = NULL, labelAngle_ = 45, title_ = NULL,
+                                    exportFile_ = NULL, verbose_ = TRUE) {
   # Status message
   if (verbose_) {
     printMessage("GENERATING ADDITIONAL PLOTS...")
@@ -600,7 +624,7 @@ dataSet <- fillPathwayCodeWithZeros(dataSet)
 #' verbose = TRUE (all status messages will be shown)
 #'
 distribution <- hypergeometricDistribution(dataSet, p_value_ = 0.05, rangeInterval_ = 10,
-                                   cumulative_ = TRUE, normalize_ = TRUE, verbose_ = TRUE)
+                                           cumulative_ = TRUE, normalize_ = TRUE, verbose_ = TRUE)
 
 #***********************************#
 # Step 3: Generate additional plots #
@@ -608,8 +632,8 @@ distribution <- hypergeometricDistribution(dataSet, p_value_ = 0.05, rangeInterv
 
 # Default hypergeometric analysis
 generateAdditionalPlots(distribution, verbose_ = TRUE,
-                    columns_ = c("range", "bottleneck", "non_bottleneck", "drawn", "freq", "hyp", "pCor"),
-                    columnLabels_ = c("Range", "Qtd. of bottlenecks", "Qtd. of non bottlenecks",
-                                      "Drawns", "Bottleneck frequency", "Hypergeomtric", "Adjusted p-value"),
-                    title_ = 'Hypergeometric Overview',
-                    exportFile_ = 'hyperOverview')
+                        columns_ = c("range", "bottleneck", "non_bottleneck", "drawn", "freq", "hyp", "pCor"),
+                        columnLabels_ = c("Range", "Qtd. of bottlenecks", "Qtd. of non bottlenecks",
+                                          "Drawns", "Bottleneck frequency", "Hypergeomtric", "Adjusted p-value"),
+                        title_ = 'Hypergeometric Overview',
+                        exportFile_ = 'hyperOverview')

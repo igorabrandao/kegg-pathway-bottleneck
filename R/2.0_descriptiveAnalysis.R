@@ -129,8 +129,8 @@ descriptiveAnalysis <- function(dataSet_, removeZeroBottlenecks_ = FALSE, column
   for(i in 1:plot1$nrow) {
     for (j in 1:plot1$ncol) {
       plot1[i, j] <- plot1[i, j] +
-        scale_fill_manual(values = c("#ED553B", "#3CAEA3", "#20639B", "#173F5F")) +
-        scale_color_manual(values = c("#ED553B", "#3CAEA3", "#20639B", "#173F5F"))
+        scale_fill_manual(values = c("#ED553B", "#3CAEA3", "#a98600", "#173F5F")) +
+        scale_color_manual(values = c("#ED553B", "#3CAEA3", "#a98600", "#173F5F"))
     }
   }
 
@@ -300,14 +300,14 @@ ggplot(data, aes(fill=bottleneck_classification, x=bottleneck_classification)) +
 
   # Add the label text
   geom_text(stat='count', aes(label = paste0(..count.., ' (', format( (..count.. / nrow(data)) * 100, digits=3), '%)')),
-            size=6, fontface="bold", vjust=-1) +
+            size=5, fontface="bold", vjust=-1) +
 
   # Chart visual properties
   xlab("Proteins Group") +
   ylab("Proteins Count") +
   ggtitle("") +
   guides(fill=guide_legend(title="Proteins Group")) +
-  scale_fill_manual(values = c("#ED553B", "#3CAEA3", "#20639B", "#173F5F")) +
+  scale_fill_manual(values = c("#ED553B", "#3CAEA3", "#a98600", "#173F5F")) +
   theme_bw() +
   theme(axis.title.x = element_text(face="bold", size=20, margin = margin(t = 15, r = 0, b = 0, l = 0)),
         axis.text.x = element_text(size=18),
@@ -350,7 +350,7 @@ proteinByPathway1 <- ggplot(data, aes(fill=bottleneck_classification, x=pathway)
     #ylab("Proteins Count") +
     ggtitle("") + theme_bw() +
     guides(fill=guide_legend(title="Proteins Classification")) +
-    scale_fill_manual(values = c("#ED553B", "#3CAEA3", "#20639B", "#173F5F")) +
+    scale_fill_manual(values = c("#ED553B", "#3CAEA3", "#a98600", "#173F5F")) +
     theme(axis.title.x = element_text(margin = margin(t = 0, r = 0, b = 0, l = 0)),
         #axis.title.x = element_text(face="bold", size=20, margin = margin(t = 15, r = 0, b = 0, l = 0)),
         #axis.text.x = element_text(size=9, angle = 90, hjust = 1),
@@ -382,7 +382,7 @@ proteinByPathway2 <- ggplot(data, aes(fill=bottleneck_classification, x=pathway)
   #ylab("Proteins Count") +
   ggtitle("") + theme_bw() +
   guides(fill=guide_legend(title="Proteins Classification")) +
-  scale_fill_manual(values = c("#ED553B", "#3CAEA3", "#20639B", "#173F5F")) +
+  scale_fill_manual(values = c("#ED553B", "#3CAEA3", "#a98600", "#173F5F")) +
   theme(axis.title.x = element_text(face="bold", size=20, margin = margin(t = 15, r = 0, b = 0, l = 0)),
         #axis.text.x = element_text(size=9, angle = 90, hjust = 1),
         axis.text.x = element_blank(),
@@ -449,7 +449,7 @@ orgByPath$pathway <- factor(orgByPath$pathway, levels = orgByPath$pathway[order(
 colors <- c()
 intervals <- 4
 rangeVal <- c(seq(1, nrow(orgByPath), ceiling(nrow(orgByPath) / intervals)), nrow(orgByPath))
-pallete <- c("#ED553B", "#3CAEA3", "#20639B", "#173F5F")
+pallete <- c("#ED553B", "#3CAEA3", "#a98600", "#173F5F")
 
 for (idx in 1:length(pallete)) {
   colors[rangeVal[idx]:rangeVal[idx+1]] <- pallete[idx]
