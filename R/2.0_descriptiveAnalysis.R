@@ -477,7 +477,7 @@ ggplot(orgByPath) +
 
   # Chart visual properties
   xlab("Pathways") +
-  ylab("Organism Count") +
+  ylab("Organisms Count") +
   ggtitle("") +
   scale_fill_manual(values = unique(colors[rangeVal])) +
   guides(fill=guide_legend(title="Pathways Group")) +
