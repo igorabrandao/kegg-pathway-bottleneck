@@ -20,6 +20,7 @@ library(grid)
 library(GGally)
 library(corrplot)
 library(dplyr)
+library(tidyr)
 
 # Import the basic functions
 files.sources = NULL
@@ -433,6 +434,10 @@ descriptiveAnalysis(dataSet, removeZeroBottlenecks_ = TRUE, verbose_ = TRUE,
 
 data <- dataSet[!dataSet$occurrences==0,]
 
+# Get the pgylogeny data
+phylogenyPerPathway <- read.csv(file='./dictionaries/phylogenyPerPathway.csv', header=TRUE, sep=",", stringsAsFactors=FALSE)
+phylogenyPerPathway <- fillPathwayCodeWithZeros(phylogenyPerPathway)
+
 # Aggregate pathways total species
 orgByPath <- aggregate(data$totalSpecies, by=list(data$pathway), FUN=mean, stringsAsFactors=FALSE)
 
@@ -442,45 +447,49 @@ names(orgByPath)[names(orgByPath) == "Group.1"] <- "pathway"
 
 # Order the data by totalSpecies
 orgByPath <- orgByPath[order(orgByPath$totalSpecies),]
-
 orgByPath$pathway <- factor(orgByPath$pathway, levels = orgByPath$pathway[order(orgByPath$totalSpecies)])
 
-## Use n equally spaced breaks to assign each value to n-1 equal sized bins
-colors <- c()
-intervals <- 4
-rangeVal <- c(seq(1, nrow(orgByPath), ceiling(nrow(orgByPath) / intervals)), nrow(orgByPath))
-pallete <- c("#ED553B", "#3CAEA3", "#a98600", "#173F5F")
-
-for (idx in 1:length(pallete)) {
-  colors[rangeVal[idx]:rangeVal[idx+1]] <- pallete[idx]
-}
-
-# Classify the data
+# Classify the data by the organisms count
 orgByPath$group <- ''
-orgByPath$color <- ''
 
 for (idx in 1:(length(rangeVal)-1) ) {
-  # Set the group color
-  orgByPath[rangeVal[idx]:rangeVal[idx+1],]$color <- colors[rangeVal[idx]:rangeVal[idx+1]]
-
   # Set the group value
   orgByPath[rangeVal[idx]:rangeVal[idx+1],]$group <- paste0('< ', orgByPath[rangeVal[idx+1],]$totalSpecies, ' organisms')
 }
 
-# Plot rganisms by pathways
+# Merge the organism phylogeny count
+orgByPath <-merge(x=orgByPath, y=phylogenyPerPathway, by='pathway', all.x=TRUE)
+
+# Remove trash columns from the merge
+orgByPath$X <- NULL
+
+# Before the plot verify the sum of Prokaryotes and Eukaryotes if its equals to totalSpecies column
+orgByPath$status <- 'X'
+
+for (idx in 1:nrow(orgByPath)) {
+  if (orgByPath[idx,]$totalSpecies == sum(orgByPath[idx, 4:5]) & orgByPath[idx,]$totalSpecies == sum(orgByPath[idx, 6:11])) {
+    orgByPath[idx,]$status = 'OK'
+  }
+}
+
+# Reshape the data
+reshapedData <- orgByPath[,c('pathway', 'totalSpecies', 'Eukaryotes', 'Prokaryotes')] %>% gather(phylogeny, count, 3:4)
+
+# Plot organisms by pathways
 ggplot(orgByPath) +
   # Add the bars
-  geom_bar(aes(x=pathway, y=totalSpecies, fill=group), color='#f6f6f6', stat="identity") +
+  geom_bar(data=reshapedData, aes(x=pathway, y=count, fill=phylogeny), color='#f6f6f6', stat="identity") +
 
   # Add labels to bars group
   #geom_label(data = orgByPath[rangeVal,], aes(y = (totalSpecies + 200), x=pathway, label=totalSpecies, fill=group), label.size = 1.5, hjust = 1, vjust = 1, colour = "white", alpha= 1) +
 
   # Chart visual properties
-  xlab("Pathways") +
-  ylab("Organisms Count") +
+  xlab("Pathways Code") +
+  ylab("Organisms Count By Pathway") +
   ggtitle("") +
-  scale_fill_manual(values = unique(colors[rangeVal])) +
-  guides(fill=guide_legend(title="Pathways Group")) +
+  #scale_fill_manual(values = c("#ED553B", "#3CAEA3", "#173F5F", "#9777AC", "#2A6636", "#E19F20")) +
+  scale_fill_manual(values = c("#ED553B", "#173F5F")) +
+  guides(fill=guide_legend(title="Organisms Types")) +
   theme_bw() +
   theme(axis.title.x = element_text(face="bold", size=20, margin = margin(t = 15, r = 0, b = 0, l = 0)),
         axis.text.x = element_blank(),
@@ -489,9 +498,12 @@ ggplot(orgByPath) +
         legend.title = element_text(face="bold", size=16),
         legend.text = element_text(size=16),
         legend.position = 'top') +
-  geom_vline(xintercept = which.min(abs(orgByPath$totalSpecies - 2000)), linetype='dashed', color="red", size=0.5) +
-  geom_text(aes(x=which.min(abs(orgByPath$totalSpecies - 2000)), label="\nLess than 2000 organisms", y=4500), colour="#173F5F", angle=90,
-            text=element_text(size=20))
+  #geom_vline(xintercept=66, linetype='dashed', color="red", size=0.5) +
+  #geom_text(aes(x=66, label="\n < 2000 organisms", y=5200), colour="#173F5F", angle=90) +
+  #geom_vline(xintercept=77, linetype='dashed', color="red", size=0.5) +
+  #geom_text(aes(x=77, label="\n < 3000 organisms", y=5200), colour="#173F5F", angle=90) +
+  #geom_vline(xintercept=87, linetype='dashed', color="red", size=0.5) +
+  #geom_text(aes(x=87, label="\n < 4000 organisms", y=5200), colour="#173F5F", angle=90)
 
 ggsave(paste0("./output/statistics/descriptive/organismsByPathway.png"), width = 30, height = 20, units = "cm")
 

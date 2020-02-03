@@ -1,5 +1,5 @@
 # KEGG PATHWAY BOTTLENECK DETECTION
-Pipeline for detection of weaknesses in KEGG (Kyoto Encyclopedia of Genes and Genomes) metabolic pathways.
+Pipeline for detection of articulation points in KEGG (Kyoto Encyclopedia of Genes and Genomes) metabolic pathways.
 
 ## What's new about this?
 
@@ -38,10 +38,11 @@ This project folders are organized in the following way:
 
 ## Team:
 
-* Clóvis Reis ( cfreis@ufrn.edu.br )
-* Diego Arthur ( arthur.vinx@gmail.com )
 * Igor Brandão ( igorabrandao@gmail.com )
+* Diego Arthur ( arthur.vinx@gmail.com )
+* Alice Câmara ( alicecamara@ufrn.edu.br )
 * Leonardo Campos ( leofields@gmail.com )
+* Clóvis Reis ( cfreis@ufrn.edu.br )
 * Rodrigo Dalmolin ( dalmolin_r@yahoo.com.br )
 
 ## Changelog:
