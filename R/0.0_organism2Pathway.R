@@ -27,9 +27,7 @@ sapply(files.sources, source)
 
 #*******************************************************************************************#
 
-#********************#
-# Metabolic pathways #
-#********************#
+# ---- Pathways ----
 
 # Get all the metabolic pathways code
 pathwayList <- names(keggList("pathway"))
@@ -44,9 +42,9 @@ pathwayList <- data.frame(pathway = pathwayList, stringsAsFactors = FALSE)
 # Save the pathwayList
 save(pathwayList, file = "./dictionaries/pathwayList.RData", compress = "xz")
 
-#***********#
-# Organisms #
-#***********#
+#*******************************************************************************************#
+
+# ---- Organisms ----
 
 # Get all organisms code
 organismList <- as.data.frame(keggList("organism"), stringsAsFactors = FALSE)
@@ -55,9 +53,9 @@ save(organismList, file = "./dictionaries/organismList.RData", compress = "xz")
 # Get just the organism identification
 org <- unique(organismList$organism)
 
-#****************************#
-# Metabolic pathways details #
-#****************************#
+#*******************************************************************************************#
+
+# ---- Pathways details ----
 
 # Load all pathway detail at once
 pathwayDetail <- lapply(unlist(pathwayList), function(pathwayCode) {
@@ -83,9 +81,9 @@ pathwayDetail <- lapply(pathwayDetail, function(item) {
 # Save the pathwayDetail (list)
 save(pathwayDetail, file = "./dictionaries/pathwayDetail.RData", compress = "xz")
 
-#********************************#
-# Metabolic pathways x Organisms #
-#********************************#
+#*******************************************************************************************#
+
+# ---- Pathways x Organisms ----
 
 # Get all metabolic pathways by organism
 organism2pathway <- lapply(org, function(i) {
@@ -109,7 +107,7 @@ organism2pathway <- lapply(org, function(i) {
   return(res)
 })
 
-# Rename the listitems
+# Rename the list items
 names(organism2pathway) <- org
 
 # Remove one dimension from the list
@@ -122,3 +120,52 @@ organism2pathway <- lapply(organism2pathway, function(item) {
 
 # Save the organism2pathway (list)
 save(organism2pathway, file = "./dictionaries/organism2pathway.RData", compress = "xz")
+
+#*******************************************************************************************#
+
+# ---- Pathways x Phylogeny ----
+
+# Load the pathway and org dictionary (if exists)
+organismList <- get(load(paste0("./dictionaries", "/", "organismList.RData")))
+phylogenyPerPathway <- get(load(paste0("./dictionaries", "/", "pathwayList.RData")))
+organism2pathway <- get(load(paste0("./dictionaries", "/", "organism2pathway.RData")))
+
+# Split the phylogeny from the dictionary
+uniquePhylogeny <- data.frame(do.call('rbind', strsplit(as.character(organismList$phylogeny),';',fixed=TRUE)))
+phylogeny1 <- data.frame(lapply(unique(uniquePhylogeny$X1), as.character), stringsAsFactors=FALSE)
+phylogeny2 <- data.frame(lapply(unique(uniquePhylogeny$X2), as.character), stringsAsFactors=FALSE)
+phylogeny <- cbind(phylogeny1, phylogeny2)
+
+# Add phylogeny columns to the pathway list based on orgs classification
+for (idx in 1:ncol(phylogeny)) {
+  phylogenyPerPathway[phylogeny[1,idx]] <- 0
+}
+
+# Count the organism phylogeny per pathway
+sapply(organismList$organism, function(org_) {
+  # Get the pathway list from the specif org
+  orgIdx <- which(names(organism2pathway) == org_)
+  orgPathwayList <- unlist(organism2pathway[orgIdx])
+
+  # Get the philogeny of a specific org
+  orgPhylogeny <-
+    organismList[organismList$organism == org_, ]$phylogeny
+
+  # Finally perform the phylogeny count
+  phylogenies <-
+    unlist(strsplit(as.character(orgPhylogeny), ';', fixed = TRUE))
+
+  for (orgPathwayListIdx in 1:length(orgPathwayList)) {
+    # Add-up the count
+    phylogenyPerPathway[phylogenyPerPathway$pathway == orgPathwayList[orgPathwayListIdx],
+                        names(phylogenyPerPathway) %in% phylogenies] <<-
+      phylogenyPerPathway[phylogenyPerPathway$pathway == orgPathwayList[orgPathwayListIdx],
+                          names(phylogenyPerPathway) %in% phylogenies] + 1
+  }
+})
+# end loop
+
+# Save the phylogenyPerPathway dataFrame as CSV
+write.csv(phylogenyPerPathway, file=paste0('./dictionaries/phylogenyPerPathway.csv'))
+
+#*******************************************************************************************#
