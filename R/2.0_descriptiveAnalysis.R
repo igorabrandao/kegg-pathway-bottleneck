@@ -295,7 +295,8 @@ descriptiveAnalysis(dataSet, removeZeroBottlenecks_ = TRUE, verbose_ = TRUE,
 
 data <- dataSet[!dataSet$occurrences==0,]
 
-ggplot(data, aes(fill=bottleneck_classification, x=bottleneck_classification)) +
+# Protein classification chart A
+proteinClassification1 <- ggplot(data, aes(fill=bottleneck_classification, x=bottleneck_classification), ymin = -Inf, ymax = Inf) +
   # Add the bars
   geom_bar(position="stack", stat="count") +
 
@@ -304,20 +305,48 @@ ggplot(data, aes(fill=bottleneck_classification, x=bottleneck_classification)) +
             size=5, fontface="bold", vjust=-1) +
 
   # Chart visual properties
-  xlab("Proteins Group") +
-  ylab("Proteins Count") +
+  xlab("") +
+  #xlab("Proteins Group") +
+  ylab("") +
+  #ylab("Proteins Count") +
   ggtitle("") +
-  guides(fill=guide_legend(title="Proteins Group")) +
+  guides(fill=guide_legend(title="Proteins Classification")) +
   scale_fill_manual(values = c("#ED553B", "#3CAEA3", "#a98600", "#173F5F")) +
   theme_bw() +
-  theme(axis.title.x = element_text(face="bold", size=20, margin = margin(t = 15, r = 0, b = 0, l = 0)),
+  theme(axis.title.x = element_text(face="bold", size=20, margin = margin(t = 0, r = 0, b = 0, l = 0)),
         axis.text.x = element_text(size=18),
         axis.title.y = element_text(face="bold", size=20, margin = margin(t = 0, r = 15, b = 0, l = 0)),
         axis.text.y = element_text(size=18),
         legend.title = element_text(face="bold", size=16),
-        legend.text = element_text(size=16))
+        legend.text = element_text(size=16),
+        legend.position='top') +
+  annotation_custom(grobTree(textGrob("A", x=0.02,  y=0.90, hjust=0, gp=gpar(col="black", fontsize=30, fontface="bold"))))
 
-ggsave(paste0("./output/statistics/descriptive/proteinClassification.png"), width = 33, height = 25, units = "cm")
+# Protein classification chart B
+proteinClassification2 <- ggplot(data, aes(fill=bottleneck_classification, x=pathway)) +
+  # Add the bars
+  geom_bar(position="stack", stat="count", width = 0.75) +
+
+  # Chart visual properties
+  xlab("Pathways") +
+  ylab("") +
+  ggtitle("") + theme_bw() +
+  guides(fill=guide_legend(title="Proteins Classification")) +
+  scale_fill_manual(values = c("#ED553B", "#3CAEA3", "#a98600", "#173F5F")) +
+  theme(axis.title.x = element_text(face="bold", size=20, margin = margin(t = 15, r = 0, b = 0, l = 0)),
+        axis.text.x = element_blank(),
+        axis.title.y = element_text(face="bold", size=20, margin = margin(t = 0, r = 0, b = 0, l = 0)),
+        legend.title = element_text(face="bold", size=16),
+        legend.text = element_text(size=16),
+        legend.position='top') +
+  annotation_custom(grobTree(textGrob("B", x=0.02,  y=0.90, hjust=0, gp=gpar(col="black", fontsize=30, fontface="bold"))))
+
+figure <- ggarrange(proteinClassification1, proteinClassification2, heights = c(3, 3), ncol = 1, nrow = 2,
+                    align = "v", legend = "top", common.legend = TRUE)
+
+annotate_figure(figure, left = text_grob("Proteins Count", color = "#000000", size=20, face = "bold", rot = 90))
+
+ggsave(paste0("./output/statistics/descriptive/proteinClassificationAB.png"), width = 30, height = 20, units = "cm")
 
 #******************************************#
 
@@ -452,6 +481,9 @@ orgByPath$pathway <- factor(orgByPath$pathway, levels = orgByPath$pathway[order(
 # Classify the data by the organisms count
 orgByPath$group <- ''
 
+intervals <- 10
+rangeVal <- c(seq(1, nrow(orgByPath), ceiling(nrow(orgByPath) / intervals)), nrow(orgByPath))
+
 for (idx in 1:(length(rangeVal)-1) ) {
   # Set the group value
   orgByPath[rangeVal[idx]:rangeVal[idx+1],]$group <- paste0('< ', orgByPath[rangeVal[idx+1],]$totalSpecies, ' organisms')
@@ -484,8 +516,8 @@ ggplot(orgByPath) +
   #geom_label(data = orgByPath[rangeVal,], aes(y = (totalSpecies + 200), x=pathway, label=totalSpecies, fill=group), label.size = 1.5, hjust = 1, vjust = 1, colour = "white", alpha= 1) +
 
   # Chart visual properties
-  xlab("Pathways Code") +
-  ylab("Organisms Count By Pathway") +
+  xlab("Pathways") +
+  ylab("Organisms Count") +
   ggtitle("") +
   #scale_fill_manual(values = c("#ED553B", "#3CAEA3", "#173F5F", "#9777AC", "#2A6636", "#E19F20")) +
   scale_fill_manual(values = c("#ED553B", "#173F5F")) +
