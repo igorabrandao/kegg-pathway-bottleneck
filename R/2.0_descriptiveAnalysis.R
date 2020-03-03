@@ -21,6 +21,8 @@ library(GGally)
 library(corrplot)
 library(dplyr)
 library(tidyr)
+library(pheatmap)
+library(ztable)
 
 # Import the basic functions
 files.sources = NULL
@@ -457,9 +459,9 @@ descriptiveAnalysis(dataSet, removeZeroBottlenecks_ = TRUE, verbose_ = TRUE,
 
 #******************************************#
 
-#**********************************************#
+#***********************************************#
 # Organisms by pathway without zero bottlenecks #
-#**********************************************#
+#***********************************************#
 
 data <- dataSet[!dataSet$occurrences==0,]
 
@@ -538,6 +540,90 @@ ggplot(orgByPath) +
   #geom_text(aes(x=87, label="\n < 4000 organisms", y=5200), colour="#173F5F", angle=90)
 
 ggsave(paste0("./output/statistics/descriptive/organismsByPathway.png"), width = 30, height = 20, units = "cm")
+
+#********************************#
+# Articulation points by pathway #
+#********************************#
+
+# Remove proteins without frequency
+data <- dataSet[!dataSet$occurrences==0,]
+
+# Filter just the articulation points
+data <- data[data$is_bottleneck==1,]
+
+# Get the columns EC and pathway code
+data <- data[,c('name', 'pathway')]
+
+# Aggregate APs per pathway
+apPerPathway <- data %>% count(pathway)
+write.csv(apPerPathway, file='./output/statistics/descriptive/apPerPathway.csv')
+
+# Plot APs per pathway
+apPerPathway <- apPerPathway[with(apPerPathway,order(-n)),]
+apPerPathwayPlot <- ggplot(apPerPathway[1:20,]) +
+  # Add the bars
+  geom_bar(aes(x=pathway, y=n), color='#f6f6f6', stat="identity") +
+
+  # Chart visual properties
+  xlab("") +
+  ylab("") +
+  ggtitle("") +
+  guides(fill=guide_legend(title="")) +
+  theme_bw() +
+  theme(axis.title.x = element_text(face="bold", size=20, margin = margin(t = 15, r = 0, b = 0, l = 0)),
+        axis.text.x = element_text(size=18),
+        axis.title.y = element_text(face="bold", size=20, margin = margin(t = 0, r = 15, b = 0, l = 0)),
+        axis.text.y = element_text(size=18),
+        legend.title = element_text(face="bold", size=16),
+        legend.text = element_text(size=16),
+        legend.position = 'top') + coord_flip()
+
+ggsave(paste0("./output/statistics/descriptive/apPerPathway.png"), width = 30, height = 20, units = "cm")
+
+# Aggregate pathways per APs
+pathwayPerAP <- data %>% count(name)
+write.csv(pathwayPerAP, file='./output/statistics/descriptive/pathwayPerAP.csv')
+
+# Plot pathways per AP
+pathwayPerAP <- pathwayPerAP[with(pathwayPerAP,order(-n)),]
+pathwayPerAPPlot <- ggplot(pathwayPerAP[1:30,]) +
+  # Add the bars
+  geom_bar(aes(x=name, y=n), color='#f6f6f6', stat="identity") +
+
+  # Chart visual properties
+  xlab("") +
+  ylab("") +
+  ggtitle("") +
+  guides(fill=guide_legend(title="")) +
+  theme_bw() +
+  theme(axis.title.x = element_text(face="bold", size=20, margin = margin(t = 15, r = 0, b = 0, l = 0)),
+        axis.text.x = element_text(size=18),
+        axis.title.y = element_text(face="bold", size=20, margin = margin(t = 0, r = 15, b = 0, l = 0)),
+        axis.text.y = element_text(size=18),
+        legend.title = element_text(face="bold", size=16),
+        legend.text = element_text(size=16),
+        legend.position = 'top') + coord_flip()
+
+ggsave(paste0("./output/statistics/descriptive/pathwayPerAP.png"), width = 30, height = 20, units = "cm")
+
+# Create a binary matrix
+binMatrix <- table(data)
+write.csv(binMatrix, file='./output/statistics/descriptive/binMatrix.csv')
+binMatrix <- read.csv(file='./output/statistics/descriptive/pathwayPerAP.csv', row.names = 1)
+
+#binMatrix <- t(binMatrix)
+#binMatrix <- binMatrix[!binMatrix==0]
+#binMatrix <- binMatrix[rowSums(binMatrix == 0) != ncol(binMatrix),]
+
+# Plot the binary matrix
+ap_heatmap <- pheatmap(binMatrix)
+
+# Generate a table with articulation points and its pathways
+ztab <- ztable(data, digits=1, caption='Distribution of APs by Pathways')
+
+# name and number column groups
+ztab <- addcgroup(ztab, cgroup = c('Articulation point', 'Pathway'), n.cgroup = c(3, ncol(dfr_dist)-3))   # 3 columns & others
+
 
 #***************************#
 # Step 3: Correlation study #
