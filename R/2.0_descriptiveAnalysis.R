@@ -558,51 +558,67 @@ data <- data[,c('name', 'pathway')]
 apPerPathway <- data %>% count(pathway)
 write.csv(apPerPathway, file='./output/statistics/descriptive/apPerPathway.csv')
 
-# Plot APs per pathway
+# Order the data by numer of APs
 apPerPathway <- apPerPathway[with(apPerPathway,order(-n)),]
-apPerPathwayPlot <- ggplot(apPerPathway[1:20,]) +
+apPerPathway$pathway <- factor(apPerPathway$pathway, levels = apPerPathway$pathway[order(apPerPathway$n)])
+
+# Plot APs per pathway
+ggplot(apPerPathway[1:10,]) +
   # Add the bars
-  geom_bar(aes(x=pathway, y=n), color='#f6f6f6', stat="identity") +
+  geom_bar(aes(x=pathway, y=n), fill="#173F5F", stat="identity", width = 0.75) +
+
+  # Add labels to bars group
+  geom_text(aes(y=(n + 1), x=pathway, label=n), size=6) +
 
   # Chart visual properties
-  xlab("") +
-  ylab("") +
+  xlab("Matabolic Pathways") +
+  ylab("Number of APs") +
   ggtitle("") +
-  guides(fill=guide_legend(title="")) +
-  theme_bw() +
-  theme(axis.title.x = element_text(face="bold", size=20, margin = margin(t = 15, r = 0, b = 0, l = 0)),
-        axis.text.x = element_text(size=18),
+  scale_y_discrete(limits=seq(0, 40, by=5)) +
+  theme_bw() + coord_flip() +
+  theme(plot.title = element_text(face="bold", size=20, hjust = 0),
+        axis.title.x = element_text(face="bold", size=20, margin = margin(t = 15, r = 0, b = 0, l = 0)),
+        axis.text.x = element_text(size=16),
         axis.title.y = element_text(face="bold", size=20, margin = margin(t = 0, r = 15, b = 0, l = 0)),
-        axis.text.y = element_text(size=18),
+        axis.text.y = element_text(size=16),
         legend.title = element_text(face="bold", size=16),
         legend.text = element_text(size=16),
-        legend.position = 'top') + coord_flip()
+        legend.position = 'none')
 
 ggsave(paste0("./output/statistics/descriptive/apPerPathway.png"), width = 30, height = 20, units = "cm")
+
+# ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 # Aggregate pathways per APs
 pathwayPerAP <- data %>% count(name)
 write.csv(pathwayPerAP, file='./output/statistics/descriptive/pathwayPerAP.csv')
 
-# Plot pathways per AP
+# Order the data by totalSpecies
 pathwayPerAP <- pathwayPerAP[with(pathwayPerAP,order(-n)),]
-pathwayPerAPPlot <- ggplot(pathwayPerAP[1:30,]) +
+pathwayPerAP$name <- factor(pathwayPerAP$name, levels = pathwayPerAP$name[order(pathwayPerAP$n)])
+
+# Plot pathways per AP
+ggplot(pathwayPerAP[1:10,]) +
   # Add the bars
-  geom_bar(aes(x=name, y=n), color='#f6f6f6', stat="identity") +
+  geom_bar(aes(x=name, y=n), fill="#3CAEA3", stat="identity", width = 0.75) +
+
+  # Add labels to bars group
+  geom_text(aes(y=(n + 1), x=name, label=n), size=6) +
 
   # Chart visual properties
-  xlab("") +
-  ylab("") +
+  xlab("APs") +
+  ylab("Number of metabolic pathways") +
   ggtitle("") +
-  guides(fill=guide_legend(title="")) +
-  theme_bw() +
-  theme(axis.title.x = element_text(face="bold", size=20, margin = margin(t = 15, r = 0, b = 0, l = 0)),
-        axis.text.x = element_text(size=18),
+  scale_y_discrete(limits=seq(0, 10, by=5)) +
+  theme_bw() + coord_flip() +
+  theme(plot.title = element_text(face="bold", size=20, hjust = 0),
+        axis.title.x = element_text(face="bold", size=20, margin = margin(t = 15, r = 0, b = 0, l = 0)),
+        axis.text.x = element_text(size=16),
         axis.title.y = element_text(face="bold", size=20, margin = margin(t = 0, r = 15, b = 0, l = 0)),
-        axis.text.y = element_text(size=18),
+        axis.text.y = element_text(size=16),
         legend.title = element_text(face="bold", size=16),
         legend.text = element_text(size=16),
-        legend.position = 'top') + coord_flip()
+        legend.position = 'none')
 
 ggsave(paste0("./output/statistics/descriptive/pathwayPerAP.png"), width = 30, height = 20, units = "cm")
 

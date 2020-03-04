@@ -354,6 +354,11 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, rangeInterval_
   # Set the factor order because ggplot change it without permission =X
   absoluteBottleneck$rangeMidpoint <- factor( absoluteBottleneck$rangeMidpoint, levels = absoluteBottleneck$rangeMidpoint )
 
+  # Export the absoluteBottleneck dataSet
+  if (dir.exists(file.path('./output/statistics/hypergeometric/'))) {
+    write.csv(absoluteBottleneck, file=paste0("./output/statistics/hypergeometric/absoluteBottleneck.csv"))
+  }
+
   #********************************************************************#
   # Plotting the absolute bottlenecks count and the range significance #
   #********************************************************************#
