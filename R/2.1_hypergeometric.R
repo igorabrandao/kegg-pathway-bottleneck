@@ -21,6 +21,7 @@ library(corrplot)
 library(dplyr)
 library(pracma)
 library(tidyr)
+library(gghighlight)
 #options(scipen = 999, digits = 2) # sig digits
 
 # Import the basic functions
@@ -56,8 +57,7 @@ sapply(files.sources, source)
 #' @author
 #' Clóvis F. Reis / Igor Brandão
 
-hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, rangeInterval_ = 10,
-                                       cumulative_ = TRUE, normalize_ = TRUE, verbose_ = TRUE) {
+hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, rangeInterval_ = 1, cumulative_ = TRUE, normalize_ = TRUE, verbose_ = TRUE) {
   # Status message
   if (verbose_) {
     printMessage(paste0("RUNNING THE DISCRETE HYPERGEOMETRIC DISTRIBUTION ANALYSIS..."))
@@ -107,8 +107,7 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, rangeInterval_
   #*****************************************##
 
   # Create a dataFrame for the result
-  distribution <- data.frame(range=0, bottleneck=0, non_bottleneck=0, drawn=0, freq=0,
-                             avgOccurrence=0, avgOccurrenceBottleneck=0, hyp=0.01)
+  distribution <- data.frame(range=0, bottleneck=0, non_bottleneck=0, drawn=0, freq=0, percentage=0, hyp=0.01)
 
   # Get the unique frequency percentages
   rangeVal <- c(seq(1, nrow(dataSet_), ceiling(nrow(dataSet_) / rangeInterval_)), nrow(dataSet_))
@@ -136,8 +135,7 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, rangeInterval_
                             non_bottleneck=numeric(),
                             drawn=numeric(),
                             freq=numeric(),
-                            avgOccurrence=numeric(),
-                            avgOccurrenceBottleneck=numeric(),
+                            percentage=numeric(),
                             hyp=numeric())
 
     # Check the method to divide the range values
@@ -163,10 +161,9 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, rangeInterval_
     freq <- nrow(top[top$is_bottleneck == 1,])
 
     # Average frequencies
-    avgOccurrence <- mean(top$occurrences)
-    avgOccurrenceBottleneck <- mean(top[top$is_bottleneck == 1,]$occurrences)
+    percentage <- top[range,]$normalizedFrequency
 
-    countsTop[1,] <- t(c(range, c(countsBase), drawn, freq, avgOccurrence, avgOccurrenceBottleneck, NA))
+    countsTop[1,] <- t(c(range, c(countsBase), drawn, freq, percentage, NA))
 
     countsTop[1,"hyp"] <- phyper(countsTop[1,"freq"],
                                  countsTop[1,"bottleneck"],
@@ -178,10 +175,17 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, rangeInterval_
     distribution <- rbind(distribution,countsTop)
   }
 
-  # Adjust the p-value in order to compensate the accumulated error with
-  # Benjamini-Hochberg method
+  # Adjust the p-value in order to compensate the accumulated error with Benjamini-Hochberg method
   distribution$pCor <- p.adjust(distribution$hyp, method = "BH")
-  nrow(distribution[distribution$pCor<=0.01,])
+
+  # Set colors properties (significance)
+  distribution$cor <- "red"
+  distribution$cor[distribution$hyp <= p_value_] <- "blue"
+  distribution$cor[distribution$hyp == 0.0] <- "red"
+  distribution$cor[distribution$range == 0] <- "gray"
+
+  # Set the continuity param to the graph
+  distribution$contin <- 'n'
 
   # Status message
   if (verbose_) {
@@ -202,15 +206,6 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, rangeInterval_
   if (verbose_) {
     printMessage("PLOTTING THE DISTRIBUTION...")
   }
-
-  # Set colors properties (significance)
-  distribution$cor <- "red"
-  distribution$cor[distribution$pCor <= p_value_] <- "blue"
-  distribution$cor[distribution$pCor == 0.0] <- "red"
-  distribution$cor[distribution$range == 0] <- "gray"
-
-  # Set the continuity param to the graph
-  distribution$contin <- 'n'
 
   # Set the loop indexes
   idx <- 1
@@ -255,350 +250,8 @@ hypergeometricDistribution <- function(dataSet_, p_value_ = 0.05, rangeInterval_
     write.csv(distribution, file=paste0("./output/statistics/hypergeometric/", exportFile, ".csv"))
   }
 
-  #***********************##
-  # Plot 2: Bars with line #
-  #***********************##
-
-  # Set the range attributes
-  begin = 2
-  range = 1
-
-  # Create a dataFrame for the absolute bottlenecks
-  absoluteBottleneck <- data.frame(range = numeric(), rangeMidpoint = numeric(), rangeLimit = numeric(), totalProtein = numeric(),
-                                   nonAP = numeric(), AP = numeric(), apType = numeric(), isSignificant = numeric(),
-                                   apVariation = numeric(), apImpact = numeric(),
-                                   nonAPCumulative = numeric(), apCumulative = numeric(),
-                                   apCumulativeVariation = numeric())
-
-  absoluteBottleneck[1,] <- c(range=0, rangeMidpoint=0, rangeLimit=0, totalProtein=0, nonAP=0, AP=0,
-                              apType=0, isSignificant=0, apVariation=0, apImpact=0,
-                              nonAPCumulative=0, apCumulative=0, apCumulativeVariation=0)
-
-  # Set the absolute bottlenecks distribution
-  while (begin <= nrow(dataSet_)) {
-    # Set the interval size
-    endInterval = begin + (nrow(dataSet_)/rangeInterval_)
-
-    # If the last interval overflow the dataSet size, force it to end with the dataSet
-    if (endInterval > nrow(dataSet_)) {
-      endInterval <- nrow(dataSet_)
-    }
-
-    # Receive the values from the calculated interval
-    tmp <- dataSet_[begin:endInterval,]
-
-    # Select the bottlenecks
-    btn <- nrow(tmp[tmp$is_bottleneck == 1,])
-
-    # Select the non-bottlenecks
-    nbtn <- nrow(tmp[tmp$is_bottleneck == 0,])
-
-    # Calculate the avg impact the bottlenecks
-    impact <- mean(tmp$bottleneckNormalizedImpact)
-
-    # Set if the interval is significant
-    signif <- ifelse(distribution$cor[distribution$range == range] == "blue", 1, 0)
-
-    # Set the bottleneck type
-    if (signif == 1) {
-      b <- 1 # Bottleneck significant
-      n <- 0
-    } else {
-      b <- 3 # Bottleneck non-significant
-      n <- 2
-    }
-
-    # Bind the current values into the dataSet
-    absoluteBottleneck[nrow(absoluteBottleneck)+1,] <- c(range, 0, 0, 0, 0, btn, b, signif, 0, impact, 0, 0, 0)
-
-    # Update the indexes
-    begin <- endInterval + 1
-    range <- range + 1
-  }
-
-  # Set the proteins count
-  for(i in 1:(nrow(distribution) - 1)) {
-    # Calculate the current range total protein
-    currentTotalProtein <- (distribution$drawn[i + 1] - distribution$drawn[i])
-
-    # Set the range size
-    absoluteBottleneck$rangeMidpoint[i + 1] <- floor((distribution$drawn[i + 1] + distribution$drawn[i])/2)
-    absoluteBottleneck$rangeLimit[i + 1] <- (distribution$drawn[i + 1])
-
-    # Set the total protein
-    absoluteBottleneck$totalProtein[i + 1] <- currentTotalProtein
-
-    # Set the non-bottleneck of the current range
-    absoluteBottleneck$nonAP[i + 1] <- (currentTotalProtein - absoluteBottleneck$AP[i + 1])
-
-    # Set bottleneck variation
-    absoluteBottleneck$apVariation[i + 1] <- absoluteBottleneck$AP[i + 1]/absoluteBottleneck$nonAP[i + 1]*100
-
-    # Set the cumulative values
-    absoluteBottleneck$nonAPCumulative[i + 1] <- distribution$drawn[i + 1]
-    absoluteBottleneck$apCumulative[i + 1] <- distribution$freq[i + 1]
-    absoluteBottleneck$apCumulativeVariation[i + 1] <- absoluteBottleneck$apCumulative[i + 1]/absoluteBottleneck$nonAPCumulative[i + 1]*100
-  }
-
-  # Remove the zero line from the dataSets
-  absoluteBottleneck <- absoluteBottleneck[-1,]
-  rownames(absoluteBottleneck) <- 1:nrow(absoluteBottleneck)
-
-  #distribution <- distribution[-1,]
-  #rownames(distribution) <- 1:nrow(distribution)
-
-  # Change the bottleneck type factor
-  absoluteBottleneck[absoluteBottleneck$apType==1,]$apType <- "Significative"
-  absoluteBottleneck[absoluteBottleneck$apType==3,]$apType <- "Non-Significative"
-
-  # Set the factor order because ggplot change it without permission =X
-  absoluteBottleneck$rangeMidpoint <- factor( absoluteBottleneck$rangeMidpoint, levels = absoluteBottleneck$rangeMidpoint )
-
-  # Export the absoluteBottleneck dataSet
-  if (dir.exists(file.path('./output/statistics/hypergeometric/'))) {
-    write.csv(absoluteBottleneck, file=paste0("./output/statistics/hypergeometric/absoluteBottleneck.csv"))
-  }
-
-  #********************************************************************#
-  # Plotting the absolute bottlenecks count and the range significance #
-  #********************************************************************#
-
-  # A
-  plot1 <- ggplot() +
-    # Adding the absolute bottlenecks 1 = significative 3 = non-significative
-    geom_bar(data = absoluteBottleneck[absoluteBottleneck$apType=="Significative" | absoluteBottleneck$apType=="Non-Significative",],
-             aes(x = as.factor(absoluteBottleneck$rangeLimit), y = AP, fill = as.factor(apType)), color='#f6f6f6', stat="identity") +
-    scale_fill_manual(values=c("#173F5F", "#3CAEA3")) +
-
-    # Chart visual properties
-
-    # Set the axis labels
-    ylab("AP count") +
-    xlab("Proteins distribution") +
-
-    # Set the title
-    ggtitle("") +
-
-    # Edit legend title and labels
-    guides(fill=guide_legend("AP type:")) +
-
-    theme_bw() +
-    theme(axis.title.x = element_text(face="bold", size=20, margin = margin(t = 15, r = 0, b = 0, l = 0)),
-          axis.text.x = element_text(size=18),
-          axis.title.y = element_text(face="bold", size=20, margin = margin(t = 0, r = 15, b = 0, l = 0)),
-          axis.text.y = element_text(size=18),
-          legend.title = element_text(face="bold", size=16),
-          legend.text = element_text(size=16),
-          legend.position='top')
-
-  plot1
-
-  if (dir.exists(file.path('./output/statistics/hypergeometric/'))) {
-    ggsave(paste0("./output/statistics/hypergeometric/hypergeometricDistributionA.png"), width = 30, height = 20, units = "cm")
-  }
-
-  # ::::::::::::::::::::::::::::::::::::::::::::::::::
-
-  # B
-  plot2 <- ggplot() +
-    # Adding the absolute bottlenecks 1 = significative 3 = non-significative
-    geom_bar(data = absoluteBottleneck[absoluteBottleneck$apType=="Significative" | absoluteBottleneck$apType=="Non-Significative",],
-             aes(x = as.factor(absoluteBottleneck$rangeLimit), y = apImpact), fill = "#ED553B", color='#f6f6f6', stat="identity") +
-
-    # Chart visual properties
-
-    # Set the axis labels
-    ylab("AP impact") +
-    xlab("Proteins distribution") +
-
-    # Set the title
-    ggtitle("") +
-
-    theme_bw() +
-    theme(axis.title.x = element_text(face="bold", size=20, margin = margin(t = 15, r = 0, b = 0, l = 0)),
-          axis.text.x = element_text(size=18),
-          axis.title.y = element_text(face="bold", size=20, margin = margin(t = 0, r = 15, b = 0, l = 0)),
-          axis.text.y = element_text(size=18),
-          legend.title = element_text(face="bold", size=16),
-          legend.text = element_text(size=16))
-
-  plot2
-
-  if (dir.exists(file.path('./output/statistics/hypergeometric/'))) {
-    ggsave(paste0("./output/statistics/hypergeometric/hypergeometricDistributionB.png"), width = 30, height = 20, units = "cm")
-  }
-
-  # ::::::::::::::::::::::::::::::::::::::::::::::::::
-
-  # C
-  plot3 <- ggplot(data=absoluteBottleneck, aes(x = as.factor(absoluteBottleneck$rangeLimit), y = apVariation/100, group = 1)) +
-    # adding the cumulative bottlenecks variation
-    geom_line(color='red') +
-
-    geom_point(color='#173F5F') +
-
-    geom_text(mapping = aes(label =paste0(round(apVariation, 1), "%")), size=5, hjust=0, vjust=0) +
-
-    # Set the axis labels
-    ylab("AP variation") +
-    xlab("Proteins distribution") +
-
-    scale_y_continuous(labels = scales::percent) +
-
-    # Set the title
-    ggtitle("") +
-
-    theme_bw() +
-    theme(axis.title.x = element_text(face="bold", size=20, margin = margin(t = 15, r = 0, b = 0, l = 0)),
-          axis.text.x = element_text(size=18),
-          axis.title.y = element_text(face="bold", size=20, margin = margin(t = 0, r = 15, b = 0, l = 0)),
-          axis.text.y = element_text(size=18),
-          legend.title = element_text(face="bold", size=16),
-          legend.text = element_text(size=16))
-
-  plot3
-
-  if (dir.exists(file.path('./output/statistics/hypergeometric/'))) {
-    ggsave(paste0("./output/statistics/hypergeometric/hypergeometricDistributionC.png"), width = 30, height = 20, units = "cm")
-  }
-
-  # ::::::::::::::::::::::::::::::::::::::::::::::::::
-
-  # D
-
-  # Reshape the data
-  reshapedData <- absoluteBottleneck %>% gather(proteinType, total, 4:6)
-  reshapedData[reshapedData$proteinType=='totalProtein',]$proteinType <- 'total'
-
-  plot4 <- ggplot(data = reshapedData, aes(x = as.factor(rangeLimit), y = total, fill = proteinType)) +
-    # Adding the absolute bottlenecks 1 = significative 3 = non-significative
-    geom_bar(position="dodge", color='#f6f6f6', stat="identity") +
-    scale_fill_manual(values = c("#ED553B", "#3CAEA3", "#173F5F")) +
-
-    # Add the label text
-    geom_text(stat='identity', aes(label = total), position = position_dodge(width = 1), size=5, fontface="bold", vjust=-0.3) +
-
-    # Chart visual properties
-
-    # Set the axis labels
-    ylab("Protein count by group") +
-    xlab("Proteins distribution") +
-
-    # Set the title
-    ggtitle("") +
-
-    # Edit legend title and labels
-    guides(fill=guide_legend("Group type:")) +
-
-    theme_bw() +
-    theme(axis.title.x = element_text(face="bold", size=20, margin = margin(t = 15, r = 0, b = 0, l = 0)),
-          axis.text.x = element_text(size=18),
-          axis.title.y = element_text(face="bold", size=20, margin = margin(t = 0, r = 15, b = 0, l = 0)),
-          axis.text.y = element_text(size=18),
-          legend.title = element_text(face="bold", size=16),
-          legend.text = element_text(size=16),
-          legend.position='top')
-
-  plot4
-
-  if (dir.exists(file.path('./output/statistics/hypergeometric/'))) {
-    ggsave(paste0("./output/statistics/hypergeometric/hypergeometricDistributionD.png"), width = 30, height = 20, units = "cm")
-  }
-
-  # ::::::::::::::::::::::::::::::::::::::::::::::::::
-
-  # Arrange the plots A and B
-  # ::::::::::::::::::::::::::::::::::::::::::::::::::
-  #figure1 <- ggarrange(plot1, plot2, heights = c(2.5, 1.5), ncol = 1, nrow = 2, align = "v", legend = "right", common.legend = TRUE)
-  #figure2 <- ggarrange(plot3, plot4, heights = c(1.3, 2.7), ncol = 1, nrow = 2, align = "v", legend = "right", common.legend = TRUE)
-
   # Return the result
   return(distribution)
-}
-
-#' Function to generate additional plots of hypergeomtric
-#'
-#' @param dataSet_ Dataframe containing the data to be analysed.
-#' @param removeZeroBottlenecks_ Flag to determine whether or not the bottlenecks without frequency will be included into the analysis.
-#' @param columns_ A vector of strings containing the dataSet columns name to be plotted.
-#' @param columnLabels_ The label associated with the plotted columns.
-#' @param labelAngle_ Define the angle of bottom labels.
-#' @param title_ The plot title.
-#' @param exportFile_ The exported plot filename.
-#' @param verbose_ Print every status message.
-#'
-#' @return This functions returns nothing.
-#'
-#' @examples
-#' \dontrun{
-#' generateAdditionalPlots(dataSet)
-#' generateAdditionalPlots(dataSet, removeZeroBottlenecks_ = TRUE, verbose_ = TRUE)
-#' }
-#'
-#' @author
-#' Igor Brandão
-
-generateAdditionalPlots <- function(dataSet_, columns_ = NULL,
-                                    columnLabels_ = NULL, labelAngle_ = 45, title_ = NULL,
-                                    exportFile_ = NULL, verbose_ = TRUE) {
-  # Status message
-  if (verbose_) {
-    printMessage("GENERATING ADDITIONAL PLOTS...")
-  }
-
-  # Define which dataSet column will be displayed into the plot
-  if (is.null(columns_) | length(columns_) == 0) {
-    columns = c("range", "bottleneck", "non_bottleneck", "drawn", "freq", "hyp", "pCor")
-  } else {
-    columns = columns_
-  }
-
-  if (is.null(columnLabels_) | length(columnLabels_) == 0) {
-    columnLabels = c("Range", "Qtd. of bottlenecks", "Qtd. of non bottlenecks",
-                     "Drawns", "Bottleneck frequency", "Hypergeomtric", "Adjusted p-value")
-  } else {
-    columnLabels = columnLabels_
-  }
-
-  if (!is.null(title_)) {
-    plotTitle <- title_
-  }
-
-  # Drawing a scatterplot matrix of freq, total_species, percentage, and is_bottleneck using the pairs function
-  plot1 <- ggpairs(dataSet_, columns = columns, columnLabels = columnLabels, title = plotTitle,
-                   mapping = aes(color = cor),
-                   lower = list(
-                     continuous = "smooth",
-                     combo = "facetdensity"
-                   ), cardinality_threshold = 1000) +
-    theme(axis.text.x = element_text(angle = labelAngle_, hjust = 1)) + theme_bw()
-
-  # Recolor the matrix
-  for(i in 1:plot1$nrow) {
-    for (j in 1:plot1$ncol) {
-      plot1[i, j] <- plot1[i, j] +
-        scale_fill_manual(values = c("#173F5F", "#4D4E4F", "#ED553B")) +
-        scale_color_manual(values = c("#173F5F", "#4D4E4F", "#ED553B"))
-    }
-  }
-
-  # Export the hypergeometric hypergeometric analysis
-  if (!dir.exists(file.path('./output/statistics/'))) {
-    dir.create(file.path(paste0('./output/statistics/')), showWarnings = FALSE, mode = "0775")
-  }
-
-  if (!dir.exists(file.path('./output/statistics/hypergeometric/'))) {
-    dir.create(file.path(paste0('./output/statistics/hypergeometric/')), showWarnings = FALSE, mode = "0775")
-  }
-
-  if (dir.exists(file.path('./output/statistics/hypergeometric/'))) {
-    print(plot1)
-    if (!is.null(exportFile_)) {
-      exportFile <- exportFile_
-    }
-
-    ggsave(paste0("./output/statistics/hypergeometric/", exportFile, ".png"), width = 25, height = 20, units = "cm")
-  }
 }
 
 #*******************************************************************************************#
@@ -616,6 +269,7 @@ generateAdditionalPlots <- function(dataSet_, columns_ = NULL,
 # Generate the dataSet
 dataSet <- generateDataSetCSV(testName_ = 'hypergeometric')
 dataSet <- fillPathwayCodeWithZeros(dataSet)
+dataSet <- dataSet[!dataSet$occurrences==0,]
 
 #*********************************************************************#
 # Step 2: Perform the hypergeometric distribution with discretization #
@@ -628,17 +282,156 @@ dataSet <- fillPathwayCodeWithZeros(dataSet)
 #' normalize = TRUE (the proteins frequency will be normalized by its pathway size)
 #' verbose = TRUE (all status messages will be shown)
 #'
-distribution <- hypergeometricDistribution(dataSet, p_value_ = 0.05, rangeInterval_ = 10,
-                                           cumulative_ = TRUE, normalize_ = TRUE, verbose_ = TRUE)
+distribution <- hypergeometricDistribution(dataSet, p_value_ = 0.01, rangeInterval_ = nrow(dataSet),
+                                            cumulative_ = TRUE, normalize_ = TRUE, verbose_ = TRUE)
 
 #***********************************#
 # Step 3: Generate additional plots #
 #***********************************#
 
-# Default hypergeometric analysis
-generateAdditionalPlots(distribution, verbose_ = TRUE,
-                        columns_ = c("range", "bottleneck", "non_bottleneck", "drawn", "freq", "hyp", "pCor"),
-                        columnLabels_ = c("Range", "Qtd. of bottlenecks", "Qtd. of non bottlenecks",
-                                          "Drawns", "Bottleneck frequency", "Hypergeomtric", "Adjusted p-value"),
-                        title_ = 'Hypergeometric Overview',
-                        exportFile_ = 'hyperOverview')
+# Remove proteins with zero occurrence
+enzymeList <- dataSet[!dataSet$occurrences==0,]
+
+faixas <- data.frame(percent=numeric(), btn=numeric(), nbtn=numeric(), sig=numeric(), stringsAsFactors=F)
+faixa = 0
+step = 0.5
+
+for (faixa in seq(0, 95, step)) {
+  btn <- nrow(enzymeList[enzymeList$percentage > faixa & enzymeList$percentage <= faixa + 5 & enzymeList$is_bottleneck == 1, ])
+  nbtn <- nrow(enzymeList[enzymeList$percentage > faixa & enzymeList$percentage <= faixa + 5 & enzymeList$is_bottleneck == 0, ])
+
+  faixas[nrow(faixas) + 1, 1] <- faixa + 5
+  faixas[nrow(faixas), 2] <- btn
+  faixas[nrow(faixas), 3] <- nbtn
+
+  faixas[nrow(faixas), 4] <- 0
+
+  print(faixa)
+}
+
+faixas$btnN <- (faixas$btn-min(faixas$btn)) / (max(faixas$btn)-min(faixas$btn))
+faixas$nbtnN <- (faixas$nbtn - min(faixas$nbtn)) / (max(faixas$nbtn)-min(faixas$nbtn))
+
+# Classificacao dos APS que são significativos de acordo com a hipergeometrica
+significativos <- distribution[distribution$cor=='blue',]
+percentSig <- significativos[nrow(significativos),]$percentage * 100
+faixas[faixas$percent >= percentSig,] $sig <- 1
+
+tot <-sum(faixas$btn)+sum(faixas$nbtn)
+
+p <- ggplot(data = faixas) +
+  geom_line(aes(x=percent, y=btn/(btn+nbtn), col=sig)) +
+  geom_line(aes(x=percent, y=nbtn/(btn+nbtn)), col="#ED553B") +
+  geom_rect(aes(xmin = min(faixas[faixas$sig==1,]$percent), xmax = max(faixas[faixas$sig==1,]$percent), ymin = -Inf, ymax = Inf),
+            fill = "pink", alpha = 0.002, linetype = "dashed") +
+  geom_vline(xintercept=min(faixas[faixas$sig==1,]$percent), linetype='dashed', color="#E75480", size=0.5) +
+  geom_vline(xintercept=max(faixas[faixas$sig==1,]$percent), linetype='dashed', color="#E75480", size=0.5) +
+
+  # Chart visual properties
+  xlab("") +
+  ylab("") +
+  ggtitle("") +
+  scale_x_discrete(limits=seq(5, 100, by=5)) +
+  theme_bw() +
+  theme(plot.title = element_text(face="bold", size=20, hjust = 0),
+        axis.title.x = element_text(face="bold", size=20, margin = margin(t = 15, r = 0, b = 0, l = 0)),
+        axis.text.x = element_text(size=16),
+        axis.title.y = element_text(face="bold", size=20, margin = margin(t = 0, r = 15, b = 0, l = 0)),
+        axis.text.y = element_text(size=16),
+        legend.title = element_text(face="bold", size=16),
+        legend.text = element_text(size=16),
+        legend.position = 'none')
+p
+
+ggsave(paste0("./output/statistics/hypergeometric/apXnap_dist.png"), width = 25, height = 20, units = "cm")
+
+p <- ggplot(data = enzymeList) +
+  # Non significant non APs
+  geom_jitter(data = enzymeList[enzymeList$percentage < min(faixas[faixas$sig==1,]$percent) & enzymeList$is_bottleneck==0,],
+              aes(y=percentage, x=1), color='#d0e4f4', fill='white', width=0.5, shape = 3, size = 3) +
+
+  # Significant non APs
+  geom_jitter(data = enzymeList[enzymeList$percentage >= min(faixas[faixas$sig==1,]$percent) & enzymeList$is_bottleneck==0,],
+              aes(y=percentage, x=1), color='#81b6e0', fill='white', width=0.5, shape = 3, size = 3) +
+
+  # Non Significant APs
+  geom_jitter(data = enzymeList[enzymeList$percentage < min(faixas[faixas$sig==1,]$percent) & enzymeList$is_bottleneck==1,],
+              aes(y=percentage, x=1), color='#2e7ebe', fill='white', width=0.5, shape = 23, size = 3) +
+
+  # Significant APs
+  geom_jitter(data = enzymeList[enzymeList$percentage >= min(faixas[faixas$sig==1,]$percent) & enzymeList$is_bottleneck==1,],
+              aes(y=percentage, x=1), color='#173F5F', fill='#173F5F', width=0.5, shape = 23, size = 3) +
+
+  geom_hline(yintercept=min(faixas[faixas$sig==1,]$percent), linetype='dashed', color="#E75480", size=1) +
+
+  # Chart visual properties
+  xlab("") +
+  ylab("") +
+  ggtitle("") +
+  theme_bw() +
+  theme(plot.title = element_text(face="bold", size=20, hjust = 0),
+        axis.title.x = element_text(face="bold", size=20, margin = margin(t = 15, r = 0, b = 0, l = 0)),
+        axis.text.x = element_text(size=16),
+        axis.title.y = element_text(face="bold", size=20, margin = margin(t = 0, r = 15, b = 0, l = 0)),
+        axis.text.y = element_text(size=16),
+        legend.title = element_text(face="bold", size=16),
+        legend.text = element_text(size=16),
+        legend.position = 'none')
+p
+
+ggsave(paste0("./output/statistics/hypergeometric/apXnap_scatter.png"), width = 25, height = 20, units = "cm")
+
+p <- ggplot(data = faixas)+theme_bw()+
+    geom_line(aes(x=percent,y=btn/(btn+nbtn)), col="green")+
+    geom_line(aes(x=percent,y=nbtn/(btn+nbtn)), col="magenta")
+p
+
+p <- ggplot(data = faixas)+theme_bw()+
+  geom_line(aes(x=percent,y=btnN/(btn+nbtn)), col="green")+
+  geom_line(aes(x=percent,y=nbtnN/(btn+nbtn)), col="magenta")
+p
+
+p <- ggplot(data = faixas[faixas$percent>25,])+theme_bw()+
+    geom_line(aes(x=percent,y=btnN), col="red")+
+    geom_line(aes(x=percent,y=nbtnN), col="blue")
+p
+
+p <- ggplot(data = faixas[faixas$percent>25,])+theme_bw()+
+  geom_line(aes(x=percent,y=btn), col="red")+
+  geom_line(aes(x=percent,y=nbtn), col="blue")
+p
+
+ggsave(paste0("./output/statistics/hypergeometric/apXnap_tendency.png"), width = 25, height = 20, units = "cm")
+
+p <- ggplot(data = faixas)+theme_bw() +
+  geom_line(aes(x=percent,y=btn/(tot)), col="green") +
+  geom_line(aes(x=percent,y=nbtn/(tot)), col="magenta")
+p
+
+faixas <- faixas[faixas$percent>15,]
+faixas$btnN <- (faixas$btn-min(faixas$btn)) / (max(faixas$btn)-min(faixas$btn))
+faixas$nbtnN <- (faixas$nbtn - min(faixas$nbtn)) / (max(faixas$nbtn)-min(faixas$nbtn))
+
+p <- ggplot(data = faixas) +
+  geom_tile(aes(y=percent, x=1, fill=(btnN))) +
+  geom_tile(aes(y=percent, x=2), fill='white', color='white') +
+  geom_tile(aes(y=percent, x=3, fill=(nbtnN))) +
+
+  geom_hline(yintercept=min(faixas[faixas$sig==1,]$percent), linetype='dashed', color="#E75480", size=1) +
+
+  # Chart visual properties
+  xlab("") +
+  ylab("") +
+  ggtitle("") +
+  theme_bw() +
+  theme(plot.title = element_text(face="bold", size=20, hjust = 0),
+        axis.title.x = element_text(face="bold", size=20, margin = margin(t = 15, r = 0, b = 0, l = 0)),
+        axis.text.x = element_text(size=16),
+        axis.title.y = element_text(face="bold", size=20, margin = margin(t = 0, r = 15, b = 0, l = 0)),
+        axis.text.y = element_text(size=16),
+        legend.title = element_text(face="bold", size=16),
+        legend.text = element_text(size=16),
+        legend.position = 'none')
+p
+
+ggsave(paste0("./output/statistics/hypergeometric/apXnap_heatmap.png"), width = 25, height = 20, units = "cm")
