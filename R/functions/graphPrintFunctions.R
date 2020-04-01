@@ -203,6 +203,15 @@ generateInteractiveNetwork <- function(network_, networkProperties_, pathway_=""
 
   # Generate a dynamic network
   if (dynamicNetwork_) {
+    visNetworkObj <- visExport(visNetworkObj, type = "png", name = "network", label = paste0("Export as png"), background = "#fff",
+              float = "right", style = NULL,loadDependencies = TRUE)
+
+    visNetworkObj <- visExport(visNetworkObj, type = "jpeg", name = "network", label = paste0("Export as jpeg"), background = "#fff",
+              float = "left", style = NULL,loadDependencies = TRUE)
+
+    visNetworkObj <- visExport(visNetworkObj, type = "pdf", name = "network", label = paste0("Export as pdf"), background = "#fff",
+              float = "right", style = NULL,loadDependencies = TRUE)
+
     # Add custom physics
     visNetworkObj <- visPhysics(visNetworkObj, stabilization = TRUE, solver = 'forceAtlas2Based',
                                 forceAtlas2Based = list(gravitationalConstant = -75, avoidOverlap = 0.3))
