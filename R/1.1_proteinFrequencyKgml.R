@@ -1218,6 +1218,11 @@ printInteractiveNetwork <- function(removeNoise_=TRUE) {
     return(FALSE)
   }
 
+  # General statistics about the networks
+  networkGlobalData <- data.frame(pathway="", nodes="", edges="", total_species="", node_highest_impact="", disconnected_nodes="",
+                                  community="", mean_degree="", mean_betweenness="", ap_number="", hap_number="", hub_number="", others_number="",
+                                  stringsAsFactors=FALSE)
+
   # Loop 01: Run through all available pathways kgml
   lapply(kgml_list, function(file) {
     # Load the dataframe
@@ -1304,6 +1309,30 @@ printInteractiveNetwork <- function(removeNoise_=TRUE) {
                                                               pathwayDetail_=pathwayDetail[[pathway_index]], dynamicNetwork_=TRUE)
       }
 
+      # Generate an igraph object to extract topological features
+      networkGlobalDataGraph <- igraph::graph_from_data_frame(pathwayGraph, directed = FALSE)
+
+      networkGlobalTemp <- data.frame(pathway="", nodes="", edges="", total_species="", node_highest_impact="", disconnected_nodes="",
+                                      community="", mean_degree="", mean_betweenness="", ap_number="", hap_number="", hub_number="", others_number="",
+                                      stringsAsFactors=FALSE)
+
+      # Annotate the network caracteristics
+      networkGlobalTemp$pathway <- pathway_code
+      networkGlobalTemp$nodes <- length(V(networkGlobalDataGraph))
+      networkGlobalTemp$edges <- length(E(networkGlobalDataGraph))
+      networkGlobalTemp$total_species <- mean(pathwayData$totalSpecies)
+      networkGlobalTemp$node_highest_impact <- pathwayData[which.max(pathwayData$bottleneckImpact),]$name
+      networkGlobalTemp$disconnected_nodes <- max(pathwayData$bottleneckImpact)
+      networkGlobalTemp$community <- max(pathwayData$community)
+      networkGlobalTemp$mean_degree <- mean(pathwayData$degree)
+      networkGlobalTemp$mean_betweenness <- mean(pathwayData$betweenness)
+      networkGlobalTemp$ap_number <- nrow(pathwayData[pathwayData$AP_classification=="AP",])
+      networkGlobalTemp$hap_number <- nrow(pathwayData[pathwayData$AP_classification=="HAP",])
+      networkGlobalTemp$hub_number <- nrow(pathwayData[pathwayData$AP_classification=="HUB",])
+      networkGlobalTemp$others_number <- nrow(pathwayData[pathwayData$AP_classification=="Others",])
+
+      networkGlobalData <<- rbind(networkGlobalData, networkGlobalTemp)
+
       # Export the network
       if (!dir.exists(file.path(paste0('./output/network/')))) {
         dir.create(file.path(paste0('./output/network/')), showWarnings = FALSE, mode = "0775")
@@ -1348,6 +1377,9 @@ printInteractiveNetwork <- function(removeNoise_=TRUE) {
     # Increment the index
     kgml_index <<- kgml_index + 1
   }) # End of Loop 01
+
+  # Export the network global data
+  write.csv(networkGlobalData, file=paste0('./output/network/networkGlobalData.csv'))
 
   # Function finished with success
   return(TRUE)

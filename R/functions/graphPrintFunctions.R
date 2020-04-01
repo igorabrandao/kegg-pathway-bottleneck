@@ -121,10 +121,19 @@ generateInteractiveNetwork <- function(network_, networkProperties_, pathway_=""
 
   vis.nodes$id     <- vis.nodes$dictID # Node ID
   vis.nodes$label  <- paste0(vis.nodes$name, "\n(", vis.nodes$AP_classification, ")") # Node label
-  vis.nodes$title  <- paste0(vis.nodes$AP_classification, " - ", vis.nodes$name,
-                             " AP impact: ", vis.nodes$bottleneckImpact,
-                             " degree: ", vis.nodes$degree,
-                             " betweenness: ", vis.nodes$betweenness) # Text on click
+  vis.nodes$title  <- paste0("Node: ", vis.nodes$name, "<hr>",
+                             "Classification: ", vis.nodes$AP_classification, "<br>",
+                             "Is AP: ", ifelse(vis.nodes$is_bottleneck==1, 'Yes', 'No') , "<br>",
+                             "AP impact: ", vis.nodes$bottleneckImpact, "<br>",
+                             "Disconnected components: ", vis.nodes$bottleneckDisconnectedComponents, "<hr>",
+                             "Community: ", vis.nodes$community, "<br>",
+                             "Degree: ", vis.nodes$degree, "<br>",
+                             "Betweenness: ", format(round(vis.nodes$betweenness, 4), nsmall = 4), "<br>",
+                             "Clustering coefficient: ", format(round(vis.nodes$clusteringCoef, 4), nsmall = 4), "<br>",
+                             "Closeness coefficient: ", format(round(vis.nodes$closenessCoef, 4), nsmall = 4), "<br>",
+                             "Authority score: ", format(round(vis.nodes$authorityScore, 4), nsmall = 4), "<br>",
+                             "Hub score: ", format(round(vis.nodes$hubScore, 4), nsmall = 4), "<hr>",
+                             "Frequency: ", format(round(vis.nodes$percentage, 2), nsmall = 2), "%") # Text on click
   vis.nodes$shadow <- TRUE # Nodes will drop shadow
 
   # Properties when node highlighted
@@ -183,6 +192,8 @@ generateInteractiveNetwork <- function(network_, networkProperties_, pathway_=""
                                 ))
   }
 
+  visNetworkObj <- visNetwork(nodes = vis.nodes, edges = vis.links, background="#ffffff", width = '100%', height = '85vh')
+
   # Define the legend groups
   #visNetworkObj <- visGroups(visNetworkObj, groupname = "Bottleneck", shape = "star", color = list(background = "gray", border="black"))
   #visNetworkObj <- visGroups(visNetworkObj, groupname = "Non-bottleneck", shape = "dot", color = list(background = "tomato", border="black"))
@@ -197,10 +208,12 @@ generateInteractiveNetwork <- function(network_, networkProperties_, pathway_=""
                                 forceAtlas2Based = list(gravitationalConstant = -75, avoidOverlap = 0.3))
 
     # Add custom options
-    visNetworkObj <- visOptions(visNetworkObj, autoResize = TRUE, highlightNearest = TRUE, manipulation = TRUE, selectedBy = 'AP_classification')
+    visNetworkObj <- visOptions(visNetworkObj, autoResize = TRUE, manipulation = TRUE, selectedBy = 'AP_classification',
+                                highlightNearest = list(enabled = T, degree = 2, hover = T))
 
     # Add interaction
-    visNetworkObj <- visInteraction(visNetworkObj, navigationButtons = TRUE, dragNodes = TRUE, dragView = TRUE, zoomView = TRUE)
+    visNetworkObj <- visInteraction(visNetworkObj, navigationButtons = TRUE, dragNodes = TRUE, dragView = TRUE, zoomView = TRUE,
+                                    keyboard = TRUE, hideEdgesOnDrag = TRUE, tooltipDelay = 0)
   } else {
     # Static network
     visNetworkObj <- visPhysics(visNetworkObj, stabilization = TRUE, solver = 'forceAtlas2Based',
