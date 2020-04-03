@@ -133,7 +133,8 @@ generateInteractiveNetwork <- function(network_, networkProperties_, pathway_=""
                              "Closeness coefficient: ", format(round(vis.nodes$closenessCoef, 4), nsmall = 4), "<br>",
                              "Authority score: ", format(round(vis.nodes$authorityScore, 4), nsmall = 4), "<br>",
                              "Hub score: ", format(round(vis.nodes$hubScore, 4), nsmall = 4), "<hr>",
-                             "Frequency: ", format(round(vis.nodes$percentage, 2), nsmall = 2), "%") # Text on click
+                             "Frequency: ", format(round(vis.nodes$percentage, 2), nsmall = 2), "% <hr>",
+                             "More info: ", vis.nodes$link) # Text on click
   vis.nodes$shadow <- TRUE # Nodes will drop shadow
 
   # Properties when node highlighted

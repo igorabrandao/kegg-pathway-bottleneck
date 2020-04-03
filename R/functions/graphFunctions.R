@@ -925,6 +925,80 @@ getArticulationPointImpact <- function(graph_, verbose_=FALSE) {
   return(result)
 }
 
+getArticulationPointSubGraphs <- function(graph_, verbose_=FALSE) {
+
+  # Status message
+  if (verbose_) {
+    print("Calculating the graph articulation points...")
+  }
+
+  # Select only the columns containing the nodes
+  graph_ <- graph_[,c('node1', 'node2')]
+
+  # Convert the graph into iGraph object
+  g <- igraph::graph_from_data_frame(graph_, directed = TRUE)
+
+  # Calculate the articulation points
+  articulation_points <- getGraphBottleneck(g)
+
+  # Status message
+  if (verbose_) {
+    print("Calculating the articulation points impact...")
+  }
+
+  if (!is.null(articulation_points) && length(articulation_points) > 0) {
+    # Unify the graph nodes and set its community
+    result <- data.frame(ap=as_ids(articulation_points), eccentricity=igraph::eccentricity(g, articulation_points),
+                         noSubgraphs=0, stringsAsFactors = FALSE)
+
+    # Dismantle the graph to calculate its impact
+    for (idx in 1:length(articulation_points)) {
+      # Set the current articulation point
+      currentAP <- articulation_points[idx]
+
+      # Set a temp graph without the current articulation point
+      tempGraph <- delete_vertices(g, currentAP)
+
+      # Calculate the number and size of the disconnected components
+      components <- igraph::components(tempGraph)
+
+      # Evaluate each subgraph particularly
+      for (idx2 in 1:components$no) {
+        # Select specifically the components of each subgraph
+        subgraph <- igraph::induced_subgraph(g, vids=components$membership==idx2)
+
+        # Set the subgraph column name
+        subgraphColumn <- paste0('subgraph', idx2)
+
+        # Check if the subgraph column already exists in the dataframe
+        if ( paste0(subgraphColumn, '_size') %in% colnames(result) == F ) {
+          # Add the subgraph column
+          result[paste0(subgraphColumn, '_size')] <- NA
+          result[paste0(subgraphColumn, '_community')] <- NA
+          result[paste0(subgraphColumn, '_mean_degree')] <- NA
+        }
+
+        # Fill the subgraph info
+        result[idx, 'noSubgraphs'] <- components$no # components count
+        result[idx, paste0(subgraphColumn, '_size')] <- components$csize[idx2] # subgraph size
+        c3 <- igraph::cluster_walktrap(subgraph) # subgraph communities
+        result[idx, paste0(subgraphColumn, '_community')] <- max(as.integer(igraph::membership(c3)))
+        result[idx, paste0(subgraphColumn, '_mean_degree')] <- mean(igraph::degree(subgraph, V(subgraph)))
+
+        # Remove the temp var
+        rm(subgraph, subgraphColumn)
+      }
+
+      # Remove the temp var
+      rm(currentAP, tempGraph, components)
+    }
+  } else {
+    result <- NULL
+  }
+
+  return(result)
+}
+
 #*******************************************************************************************#
 
 # ---- AUXILIARY FUNCTIONS ----

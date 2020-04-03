@@ -320,6 +320,21 @@ generatePathwayDataFromKGML <- function(removeNoise_=TRUE) {
   return(TRUE)
 }
 
+#' Parse the KGML file and generate the equivalent graph
+#'
+#' @param removeNoise_ Remove undesirable enzyme such as: ko, map, path, cpd or gl.
+#'
+#' @return This function returns nothing, just export .csv files.
+#'
+#' @examples
+#' \dontrun{
+#' generatePathwayGraphFromKGML()
+#' generatePathwayGraphFromKGML(FALSE)
+#' }
+#'
+#' @author
+#' Igor Brandão
+
 generatePathwayGraphFromKGML <- function(removeNoise_=TRUE) {
 
   # Status message
@@ -583,6 +598,21 @@ generateOrganismPathwayDataFromKGML <- function(removeNoise_=TRUE) {
   return(TRUE)
 }
 
+#' Parse the KGML file and export its nodes
+#'
+#' @param removeNoise_ Remove undesirable enzyme such as: ko, map, path, cpd or gl.
+#'
+#' @return This function returns nothing, just export .csv files.
+#'
+#' @examples
+#' \dontrun{
+#' generatePathwayAllNodes()
+#' generatePathwayAllNodes(FALSE)
+#' }
+#'
+#' @author
+#' Igor Brandão
+
 generatePathwayAllNodes <- function(removeNoise_=TRUE) {
 
   # Status message
@@ -639,6 +669,21 @@ generatePathwayAllNodes <- function(removeNoise_=TRUE) {
     kgml_index <<- kgml_index + 1
   })
 }
+
+#' Parse the KGML file and export the nodes dictionary
+#'
+#' @param removeNoise_ Remove undesirable enzyme such as: ko, map, path, cpd or gl.
+#'
+#' @return This function returns nothing, just export .csv files.
+#'
+#' @examples
+#' \dontrun{
+#' generateNodesDictionary()
+#' generateNodesDictionary(FALSE)
+#' }
+#'
+#' @author
+#' Igor Brandão
 
 generateNodesDictionary <- function() {
 
@@ -790,6 +835,21 @@ generateNodesDictionary <- function() {
   # Function finished with success
   return(TRUE)
 }
+
+#' Parse the KGML file and parse the graph mais features and nodes frequencies
+#'
+#' @param removeNoise_ Remove undesirable enzyme such as: ko, map, path, cpd or gl.
+#'
+#' @return This function returns nothing, just export .csv files.
+#'
+#' @examples
+#' \dontrun{
+#' generatePathwayFrequencyFromOrganismData()
+#' generatePathwayFrequencyFromOrganismData(FALSE)
+#' }
+#'
+#' @author
+#' Igor Brandão
 
 generatePathwayFrequencyFromOrganismData <- function(removeNoise_=TRUE) {
 
@@ -1183,6 +1243,175 @@ generatePathwayFrequencyFromOrganismData <- function(removeNoise_=TRUE) {
   }) # End of Loop 01
 }
 
+#' Parse the KGML file, simulates the graph disconnection via its APs and calculates the subgraphs metrics
+#'
+#' @param removeNoise_ Remove undesirable enzyme such as: ko, map, path, cpd or gl.
+#'
+#' @return This function returns nothing, just export .csv files.
+#'
+#' @examples
+#' \dontrun{
+#' calculateAPSubGraphs()
+#' calculateAPSubGraphs(FALSE)
+#' }
+#'
+#' @author
+#' Igor Brandão
+
+calculateAPSubGraphs <- function(removeNoise_=TRUE) {
+
+  # Status message
+  printMessage(paste0("PERFORMING THE PATHWAYS DISCONNECTED SUB-GRAPHS EVALUATION..."))
+
+  # Reference pathway
+  reference_pathway <- 'ec'
+
+  # Get the list of files
+  folder = paste0("./output/kgml/", reference_pathway, "/")
+  kgml_list <- list.files(path=folder, pattern='*.xml')
+  kgml_index <- 1
+
+  # Define the number of available pathways
+  available_pathways <- length(kgml_list)
+
+  # Load the dicionaty
+  dictionary <- read.csv(file='./output/pathwaysDictionary/dictionary.csv', header=TRUE, sep=",", stringsAsFactors=FALSE)
+
+  if (is.null(dictionary) | nrow(dictionary) == 0) {
+    # Save the log file
+    printLog(message_='The pathways nodes dictionary could not be found. Skipping it...',
+             file_='calculateAPSubGraphs')
+
+    return(FALSE)
+  }
+
+  # Loop 01: Run through all available pathways kgml
+  lapply(kgml_list, function(file) {
+
+    # Get the pathway code
+    pathway_code <- onlyNumber(file)
+
+    # Status message
+    printMessage(paste0("SIMULATING ", pathway_code, " SUB-GRAPHS DISCONNECTION [", kgml_index, " OF ", available_pathways, "]"))
+
+    #*************************************************##
+    # Load all instances (orgs) of the current pathway #
+    #*************************************************##
+
+    # Get the list of instance files
+    pathway_folder = paste0("./output/", pathway_code, "/")
+    file_list <- grep(list.files(path=pathway_folder), pattern='*.csv', value=T)
+
+    # Load all csv files at once
+    big.list.of.data.frames <- lapply(file_list, function(item) {
+      read.csv(file=paste0(pathway_folder, item), header=TRUE, sep=",", stringsAsFactors=FALSE)
+    })
+
+    # Combine multiple organisms data frames in one
+    pathwayInstancesDataSet <- do.call(rbind, big.list.of.data.frames)
+
+    # Remove temporaly variables
+    rm(big.list.of.data.frames)
+
+    #*************************************************************************##
+    # Create the final dataSet with protein frequencies and network properties #
+    #*************************************************************************##
+
+    tryCatch({
+      # Load the current pathway dataframe
+      current_kgml <- KGML2Dataframe(paste0(folder, file))
+
+      # Convert the pathway data into a graph
+      pathwayGraph <- KGML2GraphDictionary(paste0(folder, file), replaceOrg=TRUE, orgToReplace=reference_pathway)
+
+      if (is.null(pathwayGraph) | isempty(pathwayGraph)) {
+        # Save the log file
+        printLog(message_='The pathwayGraph data frame is empty. Skipping it...', file_='calculateAPSubGraphs')
+
+        # Increment the index
+        kgml_index <<- kgml_index + 1
+
+        return(FALSE)
+      }
+
+      #*************************##
+      # Prepare the pathway data #
+      #*************************##
+
+      # Remove unnecessary data from pathway data/graph
+      if (removeNoise_) {
+        pathwayGraph <- removeNoise(pathwayGraph)
+      }
+
+      # Convert the graph into iGraph object
+      iGraph <- igraph::graph_from_data_frame(pathwayGraph, directed = TRUE)
+
+      #*****************************************************##
+      # Run the sub-graphs disconnection and get its metrics #
+      #*****************************************************##
+
+      # Apply the node bottleneck impact
+      impact <- getArticulationPointSubGraphs(pathwayGraph)
+
+      # Set other data
+      impact['org'] <- pathwayGraph[1:nrow(impact),]$org
+      impact['pathway'] <- pathwayGraph[1:nrow(impact),]$pathway
+      impact['pathway_nodes'] <- length(V(iGraph))
+      impact['pathway_edges'] <- length(E(iGraph))
+      colnames(impact)[1] <- 'ap_dict_id'
+      impact['ap_ec'] <- NA
+
+      if (!is.null(impact) && nrow(impact) > 0) {
+        for (idx in 1:nrow(impact)) {
+          # Set the AP ec according to the dictionary
+          impact[idx, 'ap_ec'] <- dictionary[dictionary$id==impact[idx, 'ap_dict_id'],]$ec
+        }
+      }
+
+      # Generate the exporting dataset
+      result <- impact[,(ncol(impact)-4):ncol(impact)]
+      result['ap_dict_id'] <- impact$ap_dict_id
+      result <- merge(result, impact[,1:(ncol(impact)-5)], by='ap_dict_id', all=T)
+
+      #****************************#
+      # Prepare the data to export #
+      #****************************#
+
+      # Status message
+      printMessage(paste0("EXPORTING SUB-GRAPHS DATA ", pathway_code))
+
+      # Export the pathway data
+      if (!dir.exists(file.path('./output/subGraph/'))) {
+        dir.create(file.path(paste0('./output/subGraph/')), showWarnings = FALSE, mode = "0775")
+      }
+
+      if (dir.exists(file.path('./output/subGraph/'))) {
+        write.csv(result, file=paste0('./output/subGraph/', kgml_index, "_", pathway_code, '.csv'))
+      }
+
+      #***********************#
+      # Remove temp variables #
+      #***********************#
+
+      rm(current_kgml, pathwayGraph, iGraph, impact, result)
+
+      # Increment the index
+      kgml_index <<- kgml_index + 1
+
+    }, error=function(e) {
+      printMessage(e)
+
+      # Increment the index
+      kgml_index <<- kgml_index + 1
+
+      # Save the log file
+      printLog(toString(e), file_=paste0('calculateAPSubGraphs', pathway_code))
+
+      return(FALSE)
+    })
+  }) # End of Loop 01
+}
+
 #' Function to generate interactive networks
 #'
 #' @param removeNoise_ Remove undesirable enzyme such as: map, path, cpd or gl.
@@ -1416,7 +1645,12 @@ printInteractiveNetwork <- function(removeNoise_=TRUE) {
 #************************************************#
 #generatePathwayFrequencyFromOrganismData()
 
+#****************************************#
+# Step 5: Generate the network subgraphs #
+#****************************************#
+calculateAPSubGraphs()
+
 #******************************#
-# Step 5: Generate the network #
+# Step 6: Generate the network #
 #******************************#
-printInteractiveNetwork()
+#printInteractiveNetwork()
