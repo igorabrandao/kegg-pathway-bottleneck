@@ -13,6 +13,8 @@
 #' Igor Brandão
 
 # Import the necessary libraries
+library(ggplot2)
+library(svglite)
 library(plyr)
 
 #*******************************************************************************************#
@@ -166,6 +168,8 @@ calculateAPSubGraphs <- function(removeNoise_=TRUE) {
       impact['pathway'] <- pathwayGraph[1:nrow(impact),]$pathway
       impact['pathway_nodes'] <- length(V(iGraph))
       impact['pathway_edges'] <- length(E(iGraph))
+      impact['pathway_radius'] <- min(igraph::eccentricity(iGraph))
+      impact['pathway_diameter'] <- max(igraph::eccentricity(iGraph))
       colnames(impact)[1] <- 'ap_dict_id'
       impact['ap_ec'] <- NA
 
@@ -177,16 +181,26 @@ calculateAPSubGraphs <- function(removeNoise_=TRUE) {
       }
 
       # Generate the exporting dataset
-      result <- impact[,(ncol(impact)-4):ncol(impact)]
+      result <- impact[,(ncol(impact)-6):ncol(impact)]
       result['ap_dict_id'] <- as.integer(impact$ap_dict_id)
       result['ap_group'] <- NA
-      result <- merge(result, impact[,1:(ncol(impact)-5)], by='ap_dict_id', all=T)
+      result['ap_percentage'] <- NA
+      result <- merge(result, impact[,1:(ncol(impact)-7)], by='ap_dict_id', all=T)
 
       # Perform the AP classification according to the reference dataset
       groupThreshold <- 80 # Defined according to the paper plot
 
       for (idx in 1:nrow(result)) {
-        result[idx, 'ap_group'] <- ifelse(dataSet[which(dataSet$dictID==result[idx,]$ap_dict_id),]$percentage >= groupThreshold, '>=80', '<30')
+        result[idx, 'ap_percentage'] <- dataSet[which(dataSet$dictID==result[idx,]$ap_dict_id),]$percentage
+
+        if (dataSet[which(dataSet$dictID==result[idx,]$ap_dict_id),]$percentage >= groupThreshold) {
+          result[idx, 'ap_group'] <-'>=80'
+        } else if (dataSet[which(dataSet$dictID==result[idx,]$ap_dict_id),]$percentage < groupThreshold &
+                   dataSet[which(dataSet$dictID==result[idx,]$ap_dict_id),]$percentage >= 30) {
+          result[idx, 'ap_group'] <-'30<=x<80'
+        } else {
+          result[idx, 'ap_group'] <- '<30'
+        }
       }
 
       #****************************#
@@ -303,6 +317,46 @@ generateConsolidatedDataSet <- function(filename_ = '', folderName_ = 'subGraph'
   }
 }
 
+calculatePeripheryMetric <- function(verbose_ = TRUE) {
+  # Status message
+  if (verbose_) {
+    printMessage("CALCULATING PERIPHERY METRIC....")
+  }
+
+  # Load the protein dataSet to split the groups (<30% & >=80%)
+  dataSet <- read.csv(file='./output/subGraph/allSubGraphs.csv', header=TRUE, sep=",", stringsAsFactors=FALSE)
+
+  if (is.null(dataSet) | nrow(dataSet) == 0) {
+    # Save the log file
+    printLog(message_='The nodes dataset could not be found. Skipping it...', file_='calculatePeripheryMetric')
+    return(FALSE)
+  }
+
+  # Get the reference column index
+  columnIdx <- grep("^noSubgraphs$", colnames(dataSet))
+
+  # Iterate over the dataSet to calculate the AP metric
+  for (rowIdx in 1:nrow(dataSet)) {
+    # Select just the columns within the subgraph data
+    currentDf <- dataSet[rowIdx, columnIdx:ncol(dataSet)]
+
+    # Select just the columns related to the subgraph size
+    currentSubgraphsSize <- currentDf[,which(grepl("size", colnames(currentDf)))]
+    currentSubgraphsSize <- currentSubgraphsSize[,!is.na(currentSubgraphsSize)]
+
+    # Select just the columns related to the subgraph community metric
+    currentSubgraphsCommunity <- currentDf[,which(grepl("community", colnames(currentDf)))]
+    currentSubgraphsCommunity <- currentSubgraphsCommunity[,!is.na(currentSubgraphsCommunity)]
+
+    # Select just the columns related to the subgraph degree metric
+    currentSubgraphsDegree <- currentDf[,which(grepl("degree", colnames(currentDf)))]
+    currentSubgraphsDegree <- currentSubgraphsDegree[,!is.na(currentSubgraphsDegree)]
+  }
+
+  # Return the generated dataSet
+  return(dataSet)
+}
+
 #*******************************************************************************************#
 
 # ---- PIPELINE SECTION ----
@@ -319,4 +373,41 @@ calculateAPSubGraphs()
 #**************************************************#
 # Step 2: Export the cnsolidated subgraph datasets #
 #**************************************************#
-generateConsolidatedDataSet(filename_='allSubGraphs')
+dataSet <- generateConsolidatedDataSet(filename_='allSubGraphs')
+
+#*******************************************#
+# Step 3: Perform plots to explore the data #
+#*******************************************#
+
+# ---- plot1 ----
+
+# Filter the dataSet selecting just the groups of interest
+dataSetPlot <- dataSet[dataSet$ap_group=='>=80'|dataSet$ap_group=='<30', c('ap_group', 'eccentricity')]
+
+# Generate the boxplot plot
+plot1 <- ggplot(dataSetPlot, aes(x=ap_group, y=eccentricity, na.rm = TRUE)) +
+  # Add the boxplot
+  stat_boxplot(geom = "errorbar", width = 0.15) +
+  geom_boxplot(aes(group=ap_group), fill='#A4A4A4', color="black", position=position_dodge(0.5)) +
+
+  # Chart visual properties
+  xlab("Articulation point frequency group") +
+  ylab("Eccentricity") +
+  ggtitle("") +
+  guides(fill=guide_legend(title="")) +
+  theme_bw() +
+  theme(plot.title = element_text(face="bold", color="black", size=26, margin = margin(t = 0, r = 0, b = 15, l = 0)),
+        axis.title.x = element_text(face="bold", color="black", size=20, margin = margin(t = 20, r = 0, b = 0, l = 0)),
+        axis.text.x = element_text(face="bold", color="black", size=20, margin = margin(t = 10, r = 0, b = 0, l = 0)),
+        axis.title.y = element_text(face="bold", color="black", size=20, margin = margin(t = 0, r = 15, b = 0, l = 0)),
+        axis.text.y = element_text(face="bold", color="black", size=20),
+        legend.position='none')
+  #annotate("text", x = 1, y = 73, label = "*", size=15)
+
+plot1
+
+ggsave(paste0("./charts/apCenterPeriphery.jpeg"), width = 30, height = 25, units = "cm")
+ggsave(paste0("./charts/diseasesHighGroup.svg"), width = 30, height = 25, units = "cm")
+
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
