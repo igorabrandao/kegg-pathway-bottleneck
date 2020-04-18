@@ -948,8 +948,16 @@ getArticulationPointSubGraphs <- function(graph_, verbose_=FALSE) {
 
   if (!is.null(articulation_points) && length(articulation_points) > 0) {
     # Unify the graph nodes and set its community
-    result <- data.frame(ap=as_ids(articulation_points), eccentricity=igraph::eccentricity(g, articulation_points),
+    result <- data.frame(ap=as_ids(articulation_points),
+                         eccentricity=igraph::eccentricity(g, articulation_points),
+                         degree=igraph::degree(g, articulation_points),
+                         closeness=igraph::closeness(g, articulation_points),
+                         betweenness=igraph::betweenness(g, articulation_points, normalized = TRUE),
+                         eigen_centrality=0,
                          noSubgraphs=0, stringsAsFactors = FALSE)
+
+    # Calculate the eigen centrality score
+    eigen_centrality_score=igraph::eigen_centrality(g, directed = TRUE)[1]
 
     # Dismantle the graph to calculate its impact
     for (idx in 1:length(articulation_points)) {
@@ -961,6 +969,10 @@ getArticulationPointSubGraphs <- function(graph_, verbose_=FALSE) {
 
       # Calculate the number and size of the disconnected components
       components <- igraph::components(tempGraph)
+
+      # Select the eigen centrality score for each AP
+      eigen_centrality_id = which(names(eigen_centrality_score$vector)==as_ids(currentAP))
+      result[idx, 'eigen_centrality'] <- eigen_centrality_score$vector[eigen_centrality_id]
 
       # Evaluate each subgraph particularly
       for (idx2 in 1:components$no) {
