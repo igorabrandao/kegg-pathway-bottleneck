@@ -15,6 +15,7 @@
 # Import the necessary libraries
 library(ggplot2)
 library(svglite)
+library(RColorBrewer)
 library(plyr)
 
 #*******************************************************************************************#
@@ -348,27 +349,40 @@ generateConsolidatedDataSet <- function(filename_ = '', folderName_ = 'subGraph'
 #****************************************#
 # Step 1: Generate the network subgraphs #
 #****************************************#
-calculateAPSubGraphs()
+#calculateAPSubGraphs()
 
   #**************************************************#
 # Step 2: Export the cnsolidated subgraph datasets #
 #**************************************************#
-dataSet <- generateConsolidatedDataSet(filename_='allSubGraphs')
+#dataSet <- generateConsolidatedDataSet(filename_='allSubGraphs')
 
 #*******************************************#
 # Step 3: Perform plots to explore the data #
 #*******************************************#
 
-# ---- plot1 ----
+# Load the dataSet
+dataSet <- read.csv('./output/subGraph/allSubGraphs.csv', header=TRUE, sep=",", stringsAsFactors=FALSE)
 
 # Filter the dataSet selecting just the groups of interest
 dataSetPlot <- dataSet[dataSet$ap_group=='>=80'|dataSet$ap_group=='<30', c('ap_group', 'betweenness')]
+
+# Perform the AP classification according to the reference dataset
+groupThresholdMax <- 80
+groupThresholdMin <- 30
+
+dataSetPlot[dataSetPlot$ap_group =='>=80',]$ap_group <- paste0('\u2265', groupThresholdMax, '%')
+dataSetPlot[dataSetPlot$ap_group =='<30',]$ap_group  <- paste0('<', groupThresholdMin, '%')
+
+# ---- plot1 ----
 
 # Generate the boxplot plot
 plot1 <- ggplot(dataSetPlot, aes(x=ap_group, y=betweenness, na.rm = TRUE)) +
   # Add the boxplot
   stat_boxplot(geom = "errorbar", width = 0.15) +
-  geom_boxplot(aes(group=ap_group), fill='#A4A4A4', color="black", position=position_dodge(0.5)) +
+  #geom_boxplot(aes(group=ap_group, fill=ap_group), colour=c("#831D0C", "#03080C"), fill=c("#ED553B", "#173F5F"), position=position_dodge(0.5)) +
+  geom_boxplot(aes(group=ap_group, fill=ap_group), colour="black", fill="#A4A4A4", position=position_dodge(0.5)) +
+
+  scale_y_continuous(breaks=seq(from = 0, to = 0.5, by = 0.1)) +
 
   # Chart visual properties
   xlab("Articulation point frequency group") +
@@ -381,13 +395,49 @@ plot1 <- ggplot(dataSetPlot, aes(x=ap_group, y=betweenness, na.rm = TRUE)) +
         axis.text.x = element_text(face="bold", color="black", size=20, margin = margin(t = 10, r = 0, b = 0, l = 0)),
         axis.title.y = element_text(face="bold", color="black", size=20, margin = margin(t = 0, r = 15, b = 0, l = 0)),
         axis.text.y = element_text(face="bold", color="black", size=20),
-        legend.position='none')
-  #annotate("text", x = 1, y = 73, label = "*", size=15)
+        legend.title = element_text(face="bold", size=18),
+        legend.text = element_text(size=16),
+        legend.position = 'right') + labs(fill = "AP group")
 
 plot1
 
 ggsave(paste0("./output/statistics/articulationPointCentrality/apCenterPeripheryBetweenness.jpeg"), width = 30, height = 25, units = "cm")
 ggsave(paste0("./output/statistics/articulationPointCentrality/apCenterPeripheryBetweenness.svg"), width = 30, height = 25, units = "cm")
+
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+# ---- plot2 ----
+
+# Generate the violin plot
+plot2 <- ggplot(dataSetPlot, aes(x=ap_group, y=betweenness, na.rm = TRUE)) +
+  # Add the violin
+  #geom_violin(draw_quantiles = c(0.25, 0.75), linetype = "dashed", colour="blue", fill="#A4A4A4") +
+  geom_violin(draw_quantiles = 0.5, colour="red", fill="#A4A4A4", size=0.5) +
+  geom_violin(aes(group=ap_group, fill=ap_group), colour="black", fill="transparent", size=0.5, position=position_dodge(0.5)) +
+  stat_summary(fun.y=mean, geom="point", shape=20, size=3, color="red", fill="red") +
+  stat_boxplot(geom = "errorbar", color="blue", linetype = "dashed", size=1, width = 0.35) +
+
+  scale_y_continuous(breaks=seq(from = 0, to = 0.5, by = 0.1)) +
+
+  # Chart visual properties
+  xlab("Articulation point frequency group") +
+  ylab("Betweenness") +
+  ggtitle("") +
+  guides(fill=guide_legend(title="")) +
+  theme_bw() +
+  theme(plot.title = element_text(face="bold", color="black", size=26, margin = margin(t = 0, r = 0, b = 15, l = 0)),
+        axis.title.x = element_text(face="bold", color="black", size=20, margin = margin(t = 20, r = 0, b = 0, l = 0)),
+        axis.text.x = element_text(face="bold", color="black", size=20, margin = margin(t = 10, r = 0, b = 0, l = 0)),
+        axis.title.y = element_text(face="bold", color="black", size=20, margin = margin(t = 0, r = 15, b = 0, l = 0)),
+        axis.text.y = element_text(face="bold", color="black", size=20),
+        legend.title = element_text(face="bold", size=18),
+        legend.text = element_text(size=16),
+        legend.position = 'right') + labs(fill = "AP group")
+
+plot2
+
+ggsave(paste0("./output/statistics/articulationPointCentrality/apCenterPeripheryBetweennessViolin.jpeg"), width = 30, height = 25, units = "cm")
+ggsave(paste0("./output/statistics/articulationPointCentrality/apCenterPeripheryBetweennessViolin.svg"), width = 30, height = 25, units = "cm")
 
 #::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 

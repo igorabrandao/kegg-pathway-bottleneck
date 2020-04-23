@@ -14,6 +14,7 @@
 
 # Import the necessary libraries
 library(ggplot2)
+library(svglite)
 library(ggpubr)
 library(gghighlight)
 library(grid)
@@ -266,6 +267,8 @@ generateCorrelationStudy <- function(dataSet_, removeZeroBottlenecks_=TRUE, verb
 # Pipeline flow #
 #***************#
 
+# ---- Dataset generation ----
+
 #******************************#
 # Step 1: Generate the dataSet #
 #******************************#
@@ -275,10 +278,16 @@ dataSet <- generateDataSetCSV(testName_ = 'descriptive', filterColumns_ = FALSE)
 dataSet <- fillPathwayCodeWithZeros(dataSet)
 
 # Rename the AP classification
-dataSet[dataSet$bottleneck_classification=='HB',]$bottleneck_classification <- 'HAP'
-dataSet[dataSet$bottleneck_classification=='HNB',]$bottleneck_classification <- 'HUB'
-dataSet[dataSet$bottleneck_classification=='NHB',]$bottleneck_classification <- 'AP'
-dataSet[dataSet$bottleneck_classification=='NHNB',]$bottleneck_classification <- 'Others'
+# dataSet[dataSet$bottleneck_classification=='HB',]$bottleneck_classification <- 'HAP'
+# dataSet[dataSet$bottleneck_classification=='HNB',]$bottleneck_classification <- 'HUB'
+# dataSet[dataSet$bottleneck_classification=='NHB',]$bottleneck_classification <- 'AP'
+# dataSet[dataSet$bottleneck_classification=='NHNB',]$bottleneck_classification <- 'Others'
+
+# New AP classification
+dataSet[dataSet$bottleneck_classification=='NHB' | dataSet$bottleneck_classification=='HB',]$bottleneck_classification <- 'AP'
+dataSet[dataSet$bottleneck_classification=='NHNB' | dataSet$bottleneck_classification=='HNB',]$bottleneck_classification <- 'Non AP'
+
+# ---- Descriptive analysis ----
 
 #******************************************#
 # Step 2: Perform the descriptive analysis #
@@ -295,7 +304,22 @@ descriptiveAnalysis(dataSet, removeZeroBottlenecks_ = TRUE, verbose_ = TRUE,
 # Protein classification #
 #************************#
 
+# ---- Plot protein classification ----
+
 data <- dataSet[!dataSet$occurrences==0,]
+
+# Count the proteins by pathway
+proteinsCount <- as.data.frame(table(data$pathway), stringsAsFactors=FALSE)
+
+# Order the data by totalSpecies
+proteinsCount <- proteinsCount[order(proteinsCount$Freq),]
+
+# Rename the group columns
+names(proteinsCount)[names(proteinsCount) == "Var1"] <- "pathway"
+names(proteinsCount)[names(proteinsCount) == "Freq"] <- "proteinsCount"
+
+# Order the dataSet by the protein count
+data$pathway <- factor(data$pathway, levels = proteinsCount$pathway[order(proteinsCount$proteinsCount)])
 
 # Protein classification chart A
 proteinClassification1 <- ggplot(data, aes(fill=bottleneck_classification, x=bottleneck_classification), ymin = -Inf, ymax = Inf) +
@@ -313,7 +337,8 @@ proteinClassification1 <- ggplot(data, aes(fill=bottleneck_classification, x=bot
   #ylab("Proteins Count") +
   ggtitle("") +
   guides(fill=guide_legend(title="Proteins Classification")) +
-  scale_fill_manual(values = c("#ED553B", "#3CAEA3", "#a98600", "#173F5F")) +
+  #scale_fill_manual(values = c("#ED553B", "#3CAEA3", "#a98600", "#173F5F")) +
+  scale_fill_manual(values = c("#ED553B", "#173F5F")) +
   theme_bw() +
   theme(axis.title.x = element_text(face="bold", size=20, margin = margin(t = 0, r = 0, b = 0, l = 0)),
         axis.text.x = element_text(size=18),
@@ -334,7 +359,8 @@ proteinClassification2 <- ggplot(data, aes(fill=bottleneck_classification, x=pat
   ylab("") +
   ggtitle("") + theme_bw() +
   guides(fill=guide_legend(title="Proteins Classification")) +
-  scale_fill_manual(values = c("#ED553B", "#3CAEA3", "#a98600", "#173F5F")) +
+  #scale_fill_manual(values = c("#ED553B", "#3CAEA3", "#a98600", "#173F5F")) +
+  scale_fill_manual(values = c("#ED553B", "#173F5F")) +
   theme(axis.title.x = element_text(face="bold", size=20, margin = margin(t = 15, r = 0, b = 0, l = 0)),
         axis.text.x = element_blank(),
         axis.title.y = element_text(face="bold", size=20, margin = margin(t = 0, r = 0, b = 0, l = 0)),
@@ -355,6 +381,8 @@ ggsave(paste0("./output/statistics/descriptive/proteinClassificationAB.png"), wi
 #**********************************************#
 # Proteins by pathway without zero bottlenecks #
 #**********************************************#
+
+# ---- Plot proteins by pathway without zero bottlenecks ----
 
 data <- dataSet[!dataSet$occurrences==0,]
 
@@ -440,6 +468,8 @@ ggsave(paste0("./output/statistics/descriptive/proteinByPathwayArrange.png"), wi
 # Bottleneck x Betweenness X Degree #
 #***********************************#
 
+# ---- Bottleneck x Betweenness X Degree ----
+
 descriptiveAnalysis(dataSet, removeZeroBottlenecks_ = TRUE, verbose_ = TRUE,
                     columns_ = c("is_bottleneck", "betweenness", "degree"),
                     columnLabels_ = c("Is Bottleneck", "Betweenness", "Degree"),
@@ -457,11 +487,33 @@ descriptiveAnalysis(dataSet, removeZeroBottlenecks_ = TRUE, verbose_ = TRUE,
                     labelAngle_ = 90, title_ = 'Graph Metrics',
                     exportFile_ = 'graphMetrics')
 
-#******************************************#
+# ::::::::::::::::::::::::::::::::::::::::::::::::::
+
+# Create a binary matrix
+binMatrix <- table(data)
+write.csv(binMatrix, file='./output/statistics/descriptive/binMatrix.csv')
+binMatrix <- read.csv(file='./output/statistics/descriptive/pathwayPerAP.csv', row.names = 1)
+
+#binMatrix <- t(binMatrix)
+#binMatrix <- binMatrix[!binMatrix==0]
+#binMatrix <- binMatrix[rowSums(binMatrix == 0) != ncol(binMatrix),]
+
+# Plot the binary matrix
+ap_heatmap <- pheatmap(binMatrix)
+
+# Generate a table with articulation points and its pathways
+ztab <- ztable(data, digits=1, caption='Distribution of APs by Pathways')
+
+# name and number column groups
+ztab <- addcgroup(ztab, cgroup = c('Articulation point', 'Pathway'), n.cgroup = c(3, ncol(dfr_dist)-3))   # 3 columns & others
+
+# ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 #***********************************************#
 # Organisms by pathway without zero bottlenecks #
 #***********************************************#
+
+# ---- Organisms by pathway without zero bottlenecks ----
 
 data <- dataSet[!dataSet$occurrences==0,]
 
@@ -539,24 +591,51 @@ ggplot(orgByPath) +
   #geom_vline(xintercept=87, linetype='dashed', color="red", size=0.5) +
   #geom_text(aes(x=87, label="\n < 4000 organisms", y=5200), colour="#173F5F", angle=90)
 
-ggsave(paste0("./output/statistics/descriptive/organismsByPathway.png"), width = 30, height = 20, units = "cm")
+  ggsave(paste0("./output/statistics/descriptive/organismsByPathway.png"), width = 30, height = 20, units = "cm")
 
-#********************************#
-# Articulation points by pathway #
-#********************************#
+#***************************#
+# Step 3: Correlation study #
+#***************************#
 
-# Remove proteins without frequency
-data <- dataSet[!dataSet$occurrences==0,]
+# Generate the correlation study
+generateCorrelationStudy(dataSet, removeZeroBottlenecks_ = TRUE, verbose_ = TRUE)
+
+#*****************************#
+# Step 4: Functional analysis #
+#*****************************#
+
+# Perform the AP classification according to the reference dataset
+groupThresholdMax <- 80
+
+# Define whether or no run the quartile analysis for group >=80%
+quartileAnalysis <- T
+
+# ---- Aps by pathway ----
 
 # Filter just the articulation points
-data <- data[data$is_bottleneck==1,]
+if (quartileAnalysis == T) {
+  data <- dataSet[dataSet$is_bottleneck==1 & dataSet$percentage >= groupThresholdMax,]
+  betweennessMedian <- median(data$betweenness)
+  data <- data[data$betweenness>=betweennessMedian,]
+} else if (groupThresholdMax == 80) {
+  data <- dataSet[dataSet$is_bottleneck==1 & dataSet$percentage >= groupThresholdMax,]
+} else {
+  data <- dataSet[dataSet$is_bottleneck==1 & dataSet$percentage < groupThresholdMax,]
+}
 
 # Get the columns EC and pathway code
 data <- data[,c('name', 'pathway')]
 
 # Aggregate APs per pathway
 apPerPathway <- data %>% count(pathway)
-write.csv(apPerPathway, file='./output/statistics/descriptive/apPerPathway.csv')
+
+if (quartileAnalysis == T) {
+  write.csv(apPerPathway, file=paste0('./output/statistics/descriptive/apPerPathway>=', groupThresholdMax ,'Q2.csv'))
+} else if (groupThresholdMax == 80) {
+  write.csv(apPerPathway, file=paste0('./output/statistics/descriptive/apPerPathway>=', groupThresholdMax ,'.csv'))
+} else {
+  write.csv(apPerPathway, file=paste0('./output/statistics/descriptive/apPerPathway<', groupThresholdMax ,'.csv'))
+}
 
 # Order the data by numer of APs
 apPerPathway <- apPerPathway[with(apPerPathway,order(-n)),]
@@ -565,7 +644,7 @@ apPerPathway$pathway <- factor(apPerPathway$pathway, levels = apPerPathway$pathw
 # Plot APs per pathway
 ggplot(apPerPathway[1:10,]) +
   # Add the bars
-  geom_bar(aes(x=pathway, y=n), fill="#173F5F", stat="identity", width = 0.75) +
+  geom_bar(aes(x=pathway, y=n), colour="black", fill="#A4A4A4", stat="identity", width = 0.75) +
 
   # Add labels to bars group
   geom_text(aes(y=(n + 1), x=pathway, label=n), size=6) +
@@ -585,13 +664,52 @@ ggplot(apPerPathway[1:10,]) +
         legend.text = element_text(size=16),
         legend.position = 'none')
 
-ggsave(paste0("./output/statistics/descriptive/apPerPathway.png"), width = 30, height = 20, units = "cm")
+if (quartileAnalysis == T) {
+  ggsave(paste0("./output/statistics/descriptive/apPerPathway>=", groupThresholdMax, "Q2.png"), width = 30, height = 25, units = "cm")
+  ggsave(paste0("./output/statistics/descriptive/apPerPathway>=", groupThresholdMax, "Q2.svg"), width = 30, height = 25, units = "cm")
+} else if (groupThresholdMax == 80) {
+  ggsave(paste0("./output/statistics/descriptive/apPerPathway>=", groupThresholdMax, ".png"), width = 30, height = 25, units = "cm")
+  ggsave(paste0("./output/statistics/descriptive/apPerPathway>=", groupThresholdMax, ".svg"), width = 30, height = 25, units = "cm")
+} else {
+  ggsave(paste0("./output/statistics/descriptive/apPerPathway<", groupThresholdMax, ".png"), width = 30, height = 25, units = "cm")
+  ggsave(paste0("./output/statistics/descriptive/apPerPathway<", groupThresholdMax, ".svg"), width = 30, height = 25, units = "cm")
+}
 
-# ::::::::::::::::::::::::::::::::::::::::::::::::::
+#*****************#
+# Pathway per APs #
+#*****************#
+
+# ---- Pathway per APs ----
+
+# Perform the AP classification according to the reference dataset
+groupThresholdMax <- 80
+
+# Define whether or no run the quartile analysis for group >=80%
+quartileAnalysis <- T
+
+# ---- Aps by pathway ----
+
+# Filter just the articulation points
+if (quartileAnalysis == T) {
+  data <- dataSet[dataSet$is_bottleneck==1 & dataSet$percentage >= groupThresholdMax,]
+  betweennessMedian <- median(data$betweenness)
+  data <- data[data$betweenness>=betweennessMedian,]
+} else if (groupThresholdMax == 80) {
+  data <- dataSet[dataSet$is_bottleneck==1 & dataSet$percentage >= groupThresholdMax,]
+} else {
+  data <- dataSet[dataSet$is_bottleneck==1 & dataSet$percentage < groupThresholdMax,]
+}
 
 # Aggregate pathways per APs
 pathwayPerAP <- data %>% count(name)
-write.csv(pathwayPerAP, file='./output/statistics/descriptive/pathwayPerAP.csv')
+
+if (quartileAnalysis == T) {
+  write.csv(pathwayPerAP, file=paste0('./output/statistics/descriptive/pathwayPerAP>=', groupThresholdMax ,'Q2.csv'))
+} else if (groupThresholdMax == 80) {
+  write.csv(pathwayPerAP, file=paste0('./output/statistics/descriptive/pathwayPerAP>=', groupThresholdMax ,'.csv'))
+} else {
+  write.csv(pathwayPerAP, file=paste0('./output/statistics/descriptive/pathwayPerAP<', groupThresholdMax ,'.csv'))
+}
 
 # Order the data by totalSpecies
 pathwayPerAP <- pathwayPerAP[with(pathwayPerAP,order(-n)),]
@@ -600,7 +718,7 @@ pathwayPerAP$name <- factor(pathwayPerAP$name, levels = pathwayPerAP$name[order(
 # Plot pathways per AP
 ggplot(pathwayPerAP[1:10,]) +
   # Add the bars
-  geom_bar(aes(x=name, y=n), fill="#3CAEA3", stat="identity", width = 0.75) +
+  geom_bar(aes(x=name, y=n), colour="black", fill="#A4A4A4", stat="identity", width = 0.75) +
 
   # Add labels to bars group
   geom_text(aes(y=(n + 1), x=name, label=n), size=6) +
@@ -620,30 +738,13 @@ ggplot(pathwayPerAP[1:10,]) +
         legend.text = element_text(size=16),
         legend.position = 'none')
 
-ggsave(paste0("./output/statistics/descriptive/pathwayPerAP.png"), width = 30, height = 20, units = "cm")
-
-# Create a binary matrix
-binMatrix <- table(data)
-write.csv(binMatrix, file='./output/statistics/descriptive/binMatrix.csv')
-binMatrix <- read.csv(file='./output/statistics/descriptive/pathwayPerAP.csv', row.names = 1)
-
-#binMatrix <- t(binMatrix)
-#binMatrix <- binMatrix[!binMatrix==0]
-#binMatrix <- binMatrix[rowSums(binMatrix == 0) != ncol(binMatrix),]
-
-# Plot the binary matrix
-ap_heatmap <- pheatmap(binMatrix)
-
-# Generate a table with articulation points and its pathways
-ztab <- ztable(data, digits=1, caption='Distribution of APs by Pathways')
-
-# name and number column groups
-ztab <- addcgroup(ztab, cgroup = c('Articulation point', 'Pathway'), n.cgroup = c(3, ncol(dfr_dist)-3))   # 3 columns & others
-
-
-#***************************#
-# Step 3: Correlation study #
-#***************************#
-
-# Generate the correlation study
-generateCorrelationStudy(dataSet, removeZeroBottlenecks_ = TRUE, verbose_ = TRUE)
+if (quartileAnalysis == T) {
+  ggsave(paste0("./output/statistics/descriptive/pathwayPerAP>=", groupThresholdMax, "Q2.png"), width = 30, height = 25, units = "cm")
+  ggsave(paste0("./output/statistics/descriptive/pathwayPerAP>=", groupThresholdMax, "Q2.svg"), width = 30, height = 25, units = "cm")
+} else if (groupThresholdMax == 80) {
+  ggsave(paste0("./output/statistics/descriptive/pathwayPerAP>=", groupThresholdMax, ".png"), width = 30, height = 25, units = "cm")
+  ggsave(paste0("./output/statistics/descriptive/pathwayPerAP>=", groupThresholdMax, ".svg"), width = 30, height = 25, units = "cm")
+} else {
+  ggsave(paste0("./output/statistics/descriptive/pathwayPerAP<", groupThresholdMax, ".png"), width = 30, height = 25, units = "cm")
+  ggsave(paste0("./output/statistics/descriptive/pathwayPerAP<", groupThresholdMax, ".svg"), width = 30, height = 25, units = "cm")
+}

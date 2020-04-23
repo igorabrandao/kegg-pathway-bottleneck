@@ -4,7 +4,7 @@
 
 # ---- IMPORT SECTION ----
 
-# 2.0_hypergeometric #
+# 2.1_hypergeometric #
 
 #' This is the pipeline script to perform
 #' the hypergeometric analysis
@@ -22,6 +22,8 @@ library(dplyr)
 library(pracma)
 library(tidyr)
 library(gghighlight)
+library(svglite)
+library(RColorBrewer)
 #options(scipen = 999, digits = 2) # sig digits
 
 # Import the basic functions
@@ -344,6 +346,7 @@ p <- ggplot(data = faixas) +
 p
 
 ggsave(paste0("./output/statistics/hypergeometric/apXnap_dist.png"), width = 25, height = 20, units = "cm")
+ggsave(paste0("./output/statistics/hypergeometric/apXnap_dist.svg"), width = 30, height = 20, units = "cm")
 
 p <- ggplot(data = enzymeList) +
   # Non significant non APs
@@ -417,6 +420,10 @@ p <- ggplot(data = faixas) +
   geom_tile(aes(y=percent, x=2), fill='white', color='white') +
   geom_tile(aes(y=percent, x=3, fill=(nbtnN))) +
 
+  scale_fill_gradient(low = "white", high = "#173F5F") +
+  #scale_fill_gradient(low = "white", high = "black") +
+  #scale_fill_gradientn(colours = terrain.colors(10)) +
+
   geom_hline(yintercept=min(faixas[faixas$sig==1,]$percent), linetype='dashed', color="#E75480", size=1) +
 
   # Chart visual properties
@@ -429,9 +436,10 @@ p <- ggplot(data = faixas) +
         axis.text.x = element_text(size=16),
         axis.title.y = element_text(face="bold", size=20, margin = margin(t = 0, r = 15, b = 0, l = 0)),
         axis.text.y = element_text(size=16),
-        legend.title = element_text(face="bold", size=16),
+        legend.title = element_text(face="bold", size=18),
         legend.text = element_text(size=16),
-        legend.position = 'none')
+        legend.position = 'right') + labs(fill = "Density")
 p
 
 ggsave(paste0("./output/statistics/hypergeometric/apXnap_heatmap.png"), width = 25, height = 20, units = "cm")
+ggsave(paste0("./output/statistics/hypergeometric/apXnap_heatmap.svg"), width = 30, height = 20, units = "cm")
