@@ -321,6 +321,16 @@ names(proteinsCount)[names(proteinsCount) == "Freq"] <- "proteinsCount"
 # Order the dataSet by the protein count
 data$pathway <- factor(data$pathway, levels = proteinsCount$pathway[order(proteinsCount$proteinsCount)])
 
+#************************************************************************************************#
+# Aggregate enzyme type by pathways
+enzymeTypeByPathway <- data[,c('pathway', 'bottleneck_classification')]
+enzymeTypeByPathway <- enzymeTypeByPathway %>% count(pathway, bottleneck_classification)
+
+# Print the max and min APs occurrences
+max(enzymeTypeByPathway[enzymeTypeByPathway$bottleneck_classification=='AP',]$n)
+min(enzymeTypeByPathway[enzymeTypeByPathway$bottleneck_classification=='AP',]$n)
+#************************************************************************************************#
+
 # Protein classification chart A
 proteinClassification1 <- ggplot(data, aes(fill=bottleneck_classification, x=bottleneck_classification), ymin = -Inf, ymax = Inf) +
   # Add the bars
@@ -604,13 +614,13 @@ generateCorrelationStudy(dataSet, removeZeroBottlenecks_ = TRUE, verbose_ = TRUE
 # Step 4: Functional analysis #
 #*****************************#
 
+# ---- APs by pathway ----
+
 # Perform the AP classification according to the reference dataset
 groupThresholdMax <- 80
 
 # Define whether or no run the quartile analysis for group >=80%
-quartileAnalysis <- T
-
-# ---- Aps by pathway ----
+quartileAnalysis <- F
 
 # Filter just the articulation points
 if (quartileAnalysis == T) {
@@ -624,7 +634,7 @@ if (quartileAnalysis == T) {
 }
 
 # Get the columns EC and pathway code
-data <- data[,c('name', 'pathway')]
+data <- data[,c('name', 'pathway', 'percentage')]
 
 # Aggregate APs per pathway
 apPerPathway <- data %>% count(pathway)
@@ -675,9 +685,7 @@ if (quartileAnalysis == T) {
   ggsave(paste0("./output/statistics/descriptive/apPerPathway<", groupThresholdMax, ".svg"), width = 30, height = 25, units = "cm")
 }
 
-#*****************#
-# Pathway per APs #
-#*****************#
+# :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 # ---- Pathway per APs ----
 
@@ -685,9 +693,7 @@ if (quartileAnalysis == T) {
 groupThresholdMax <- 80
 
 # Define whether or no run the quartile analysis for group >=80%
-quartileAnalysis <- T
-
-# ---- Aps by pathway ----
+quartileAnalysis <- F
 
 # Filter just the articulation points
 if (quartileAnalysis == T) {
@@ -701,7 +707,16 @@ if (quartileAnalysis == T) {
 }
 
 # Aggregate pathways per APs
-pathwayPerAP <- data %>% count(name)
+pathwayPerAP <- data.frame(name=unique(data$name),n=0, stringsAsFactors=F)
+
+# Count the pathways per articulation point
+for (idx in 1:nrow(pathwayPerAP)) {
+  pathwayPerAP[idx, 'n'] <- length(unique(data[data$name==pathwayPerAP[idx, 'name'],]$pathway))
+}
+
+# Order the data by totalSpecies
+pathwayPerAP <- pathwayPerAP[with(pathwayPerAP,order(-n)),]
+pathwayPerAP$name <- factor(pathwayPerAP$name, levels = pathwayPerAP$name[order(pathwayPerAP$n)])
 
 if (quartileAnalysis == T) {
   write.csv(pathwayPerAP, file=paste0('./output/statistics/descriptive/pathwayPerAP>=', groupThresholdMax ,'Q2.csv'))
@@ -710,10 +725,6 @@ if (quartileAnalysis == T) {
 } else {
   write.csv(pathwayPerAP, file=paste0('./output/statistics/descriptive/pathwayPerAP<', groupThresholdMax ,'.csv'))
 }
-
-# Order the data by totalSpecies
-pathwayPerAP <- pathwayPerAP[with(pathwayPerAP,order(-n)),]
-pathwayPerAP$name <- factor(pathwayPerAP$name, levels = pathwayPerAP$name[order(pathwayPerAP$n)])
 
 # Plot pathways per AP
 ggplot(pathwayPerAP[1:10,]) +
@@ -748,3 +759,4 @@ if (quartileAnalysis == T) {
   ggsave(paste0("./output/statistics/descriptive/pathwayPerAP<", groupThresholdMax, ".png"), width = 30, height = 25, units = "cm")
   ggsave(paste0("./output/statistics/descriptive/pathwayPerAP<", groupThresholdMax, ".svg"), width = 30, height = 25, units = "cm")
 }
+

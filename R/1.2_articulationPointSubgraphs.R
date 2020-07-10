@@ -39,6 +39,10 @@ organism2pathway <- get(load(paste0("./dictionaries", "/", "organism2pathway.RDa
 pathwayList <- get(load(paste0("./dictionaries", "/", "pathwayList.RData")))
 pathwayDetail <- get(load(paste0("./dictionaries", "/", "pathwayDetail.RData")))
 
+# Defined according to the paper plot
+groupThresholdMax <- 70
+groupThresholdMin <- 30
+
 #*******************************************************************************************#
 
 # ---- FUNCTIONS SECTION ----
@@ -191,26 +195,22 @@ calculateAPSubGraphs <- function(removeNoise_=TRUE) {
         result <- merge(result, impact[,1:(ncol(impact)-7)], by='ap_dict_id', all=T)
 
         # Perform the AP classification according to the reference dataset
-        # Defined according to the paper plot
-        groupThresholdMax <- 80
-        groupThresholdMin <- 30
-
         for (idx in 1:nrow(result)) {
           result[idx, 'ap_percentage'] <- dataSet[which(dataSet$dictID==result[idx,]$ap_dict_id),]$percentage
 
           if (dataSet[which(dataSet$dictID==result[idx,]$ap_dict_id),]$percentage >= groupThresholdMax) {
-            result[idx, 'ap_group'] <-'>=80'
+            result[idx, 'ap_group'] <- paste0('>=', groupThresholdMax)
           } else if (dataSet[which(dataSet$dictID==result[idx,]$ap_dict_id),]$percentage < groupThresholdMax &
                      dataSet[which(dataSet$dictID==result[idx,]$ap_dict_id),]$percentage >= groupThresholdMin) {
-            result[idx, 'ap_group'] <-'30<=x<80'
+            result[idx, 'ap_group'] <- paste0(groupThresholdMin, '<=x<', groupThresholdMax)
           } else {
-            result[idx, 'ap_group'] <- '<30'
+            result[idx, 'ap_group'] <- paste0('<', groupThresholdMin)
           }
         }
 
-        #******************************************#
-        # Calculates the custom p[eriphery metric] #
-        #******************************************#
+        #****************************************#
+        # Calculates the custom periphery metric #
+        #****************************************#
 
         # TODO: Put the calculations here!
 
@@ -351,7 +351,7 @@ generateConsolidatedDataSet <- function(filename_ = '', folderName_ = 'subGraph'
 #****************************************#
 #calculateAPSubGraphs()
 
-  #**************************************************#
+#**************************************************#
 # Step 2: Export the cnsolidated subgraph datasets #
 #**************************************************#
 #dataSet <- generateConsolidatedDataSet(filename_='allSubGraphs')
@@ -364,14 +364,11 @@ generateConsolidatedDataSet <- function(filename_ = '', folderName_ = 'subGraph'
 dataSet <- read.csv('./output/subGraph/allSubGraphs.csv', header=TRUE, sep=",", stringsAsFactors=FALSE)
 
 # Filter the dataSet selecting just the groups of interest
-dataSetPlot <- dataSet[dataSet$ap_group=='>=80'|dataSet$ap_group=='<30', c('ap_group', 'betweenness')]
+dataSetPlot <- dataSet[dataSet$ap_group==paste0('>=', groupThresholdMax) |
+                         dataSet$ap_group==paste0('<', groupThresholdMin), c('ap_group', 'betweenness')]
 
-# Perform the AP classification according to the reference dataset
-groupThresholdMax <- 80
-groupThresholdMin <- 30
-
-dataSetPlot[dataSetPlot$ap_group =='>=80',]$ap_group <- paste0('\u2265', groupThresholdMax, '%')
-dataSetPlot[dataSetPlot$ap_group =='<30',]$ap_group  <- paste0('<', groupThresholdMin, '%')
+dataSetPlot[dataSetPlot$ap_group == paste0('>=', groupThresholdMax),]$ap_group <- paste0('\u2265', groupThresholdMax, '%')
+dataSetPlot[dataSetPlot$ap_group == paste0('<', groupThresholdMin),]$ap_group  <- paste0('<', groupThresholdMin, '%')
 
 # ---- plot1 ----
 
