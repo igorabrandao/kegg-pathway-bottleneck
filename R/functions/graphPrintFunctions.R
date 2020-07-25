@@ -94,7 +94,7 @@ printBottleneckPathwayImage <- function(pathway_, bottleneck_, verbose_=FALSE) {
 #' @author
 #' Igor Brandão
 
-generateInteractiveNetwork <- function(network_, networkProperties_, pathway_="", pathwayDetail_=NULL, dynamicNetwork_=FALSE) {
+generateInteractiveNetwork <- function(network_, networkProperties_, pathway_="", org_="", pathwayDetail_=NULL, dynamicNetwork_=FALSE) {
 
   # Color pallet
   pal <- brewer.pal(9, "YlOrRd")
@@ -180,12 +180,12 @@ generateInteractiveNetwork <- function(network_, networkProperties_, pathway_=""
   if (is.null(pathwayDetail_) | length(pathwayDetail_) == 0) {
     visNetworkObj <- visNetwork(nodes = vis.nodes, edges = vis.links,
                                 background="#ffffff", width = '100%', height = '100vh',
-                                main=paste0("Pathway ", pathway_),
+                                main=paste0("Pathway ", org_, pathway_),
                                 submain=paste0("<b>Nodes:</b> ", length(V(iGraph)), " <b>Edges:</b> ", length(E(iGraph))))
   } else {
     visNetworkObj <- visNetwork(nodes = vis.nodes, edges = vis.links,
                                 background="#ffffff", width = '100%', height = '100vh',
-                                main=paste0("Pathway ", pathway_, " - ", pathwayDetail_$NAME),
+                                main=paste0("Pathway ", org_, pathway_, " - ", pathwayDetail_$NAME),
                                 submain=paste0(
                                   "<br> <b>Description:</b> ", pathwayDetail_$DESCRIPTION,
                                   "<br><br> <b>Class:</b> ", pathwayDetail_$CLASS,
@@ -193,7 +193,7 @@ generateInteractiveNetwork <- function(network_, networkProperties_, pathway_=""
                                 ))
   }
 
-  visNetworkObj <- visNetwork(nodes = vis.nodes, edges = vis.links, background="#ffffff", width = '100%', height = '85vh')
+  #visNetworkObj <- visNetwork(nodes = vis.nodes, edges = vis.links, background="#ffffff", width = '100%', height = '85vh')
 
   # Define the legend groups
   #visNetworkObj <- visGroups(visNetworkObj, groupname = "Bottleneck", shape = "star", color = list(background = "gray", border="black"))
