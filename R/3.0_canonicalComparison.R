@@ -38,7 +38,7 @@ sapply(files.sources, source)
 # Saccharomyces cerevisiae => sce
 # Caenorhabditis elegans => cel
 modelOrgList = c("ec", "hsa", "mmu", "dme", "sce", "cel")
-pathwayList = c("00010")
+pathwayList = c("00010", "00020", "00030")
 
 #*******************************************************************************************#
 
@@ -120,6 +120,7 @@ generateOrgNetworks <- function(pathwayList_, orgList_, removeNoise_=TRUE) {
         pathwayData <- pathwayData[,!(names(pathwayData) %in% c('link', 'component', 'map', 'fgcolor'))]
 
         # Add the default columns
+        pathwayData$entrez <- NA
         pathwayData$dictID <- NA
         pathwayData$reaction_type <- NA
         pathwayData$org <- currentOrg
@@ -230,6 +231,10 @@ generateOrgNetworks <- function(pathwayList_, orgList_, removeNoise_=TRUE) {
         # Get the enzyme dictionary ID #
         #*****************************##
 
+        if (!strcmp(currentOrg, 'ec')) {
+          pathwayData$entrez <- pathwayData$name
+        }
+
         # Assign the dictionary ID to each node
         rows <- nrow(pathwayData)
         for (nodeIdx in 1:rows) {
@@ -238,22 +243,25 @@ generateOrgNetworks <- function(pathwayList_, orgList_, removeNoise_=TRUE) {
 
           # Find the current node into the dictionary
           if (is.na(currentNode$reaction)) {
-            dictId1 <- dictionary[(dictionary$x == currentNode$x) & (dictionary$y == currentNode$y) &
-                                    (dictionary$ec == currentNode$name), ]$id
+            dictId <- dictionary[(dictionary$x == currentNode$x) & (dictionary$y == currentNode$y), ]
           } else {
-            dictId1 <- dictionary[(dictionary$x == currentNode$x) & (dictionary$y == currentNode$y) &
-                                    (dictionary$reaction == currentNode$reaction) & (dictionary$ec == currentNode$name), ]$id
+            dictId <- dictionary[(dictionary$x == currentNode$x) & (dictionary$y == currentNode$y) &
+                                    (dictionary$reaction == currentNode$reaction), ]
           }
 
           # Remove NAs
-          dictId1 <- dictId1[!is.na(dictId1)]
+          dictId <- dictId[!is.na(dictId$ec),]
 
           # Check if the dictionary contains the node, if the didctionary ID is empty, it means that
           # the node refers to a pathway connection (e.g:path:00020) or it is a compound
-          if (is.null(dictId1) | isempty(dictId1)) {
+          if (is.null(dictId) | isempty(dictId)) {
             next()
           } else {
-            pathwayData[nodeIdx, 'dictID'] <- dictId1
+            pathwayData[nodeIdx, 'dictID'] <- dictId$id
+
+            if (!strcmp(currentOrg, 'ec')) {
+              pathwayData[nodeIdx, 'name'] <- dictId$ec
+            }
           }
         }
 
@@ -287,6 +295,11 @@ generateOrgNetworks <- function(pathwayList_, orgList_, removeNoise_=TRUE) {
 
         printInteractiveNetwork(pathway_code, currentOrg, pathwayData, graphDictionary)
 
+        #*********************#
+        # Increment the index #
+        #*********************#
+        kgml_index <<- kgml_index + 1
+
       }, error=function(e) {
         printMessage(e)
 
@@ -297,8 +310,6 @@ generateOrgNetworks <- function(pathwayList_, orgList_, removeNoise_=TRUE) {
       })
     }) # End of Loop 02
 
-    # Increment the index
-    kgml_index <<- kgml_index + 1
   }) # End of Loop 01
 
   # Function finished with success
@@ -357,7 +368,7 @@ printInteractiveNetwork <- function(pathwayCode_, org_, pathwayData_, pathwayGra
 
   # Generate the network
   generatedNetwork <- generateInteractiveNetwork(network_=pathwayGraph, networkProperties_=pathwayData, pathway_=pathwayCode, org_=currentOrg,
-                                                 pathwayDetail_=NULL, dynamicNetwork_=FALSE)
+                                                 pathwayDetail_=NULL, dynamicNetwork_=TRUE)
 
   #---------------------------------#
   # [EXPORT THE NETWORK PROPERTIES] #
@@ -366,17 +377,17 @@ printInteractiveNetwork <- function(pathwayCode_, org_, pathwayData_, pathwayGra
   # Generate an igraph object to extract topological features
   networkGlobalDataGraph <- igraph::graph_from_data_frame(pathwayGraph, directed = FALSE)
 
-  networkGlobalTemp <- data.frame(pathway="", nodes="", edges="", total_species="", node_highest_impact="", disconnected_nodes="",
-                                  community="", mean_degree="", mean_betweenness="", ap_number="", hap_number="", hub_number="", others_number="",
-                                  stringsAsFactors=FALSE)
+  # General statistics about the networks
+  networkGlobalData <- data.frame(pathway="", nodes="", edges="", community="", mean_degree="", mean_betweenness="", ap_number="",
+                                  hap_number="", hub_number="", others_number="", stringsAsFactors=FALSE)
+
+  networkGlobalTemp <- data.frame(pathway="", nodes="", edges="", community="", mean_degree="", mean_betweenness="", ap_number="",
+                                  hap_number="", hub_number="", others_number="", stringsAsFactors=FALSE)
 
   # Annotate the network caracteristics
   networkGlobalTemp$pathway <- pathwayCode
   networkGlobalTemp$nodes <- length(V(networkGlobalDataGraph))
   networkGlobalTemp$edges <- length(E(networkGlobalDataGraph))
-  networkGlobalTemp$total_species <- mean(pathwayData$totalSpecies)
-  networkGlobalTemp$node_highest_impact <- pathwayData[which.max(pathwayData$bottleneckImpact),]$name
-  networkGlobalTemp$disconnected_nodes <- max(pathwayData$bottleneckImpact)
   networkGlobalTemp$community <- max(pathwayData$community)
   networkGlobalTemp$mean_degree <- mean(pathwayData$degree)
   networkGlobalTemp$mean_betweenness <- mean(pathwayData$betweenness)

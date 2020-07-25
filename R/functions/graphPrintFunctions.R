@@ -121,7 +121,8 @@ generateInteractiveNetwork <- function(network_, networkProperties_, pathway_=""
 
   vis.nodes$id     <- vis.nodes$dictID # Node ID
   vis.nodes$label  <- paste0(vis.nodes$name, "\n(", vis.nodes$AP_classification, ")") # Node label
-  vis.nodes$title  <- paste0("Node: ", vis.nodes$name, "<hr>",
+  vis.nodes$title  <- paste0("EC: ", vis.nodes$name, "<br>",
+                             "Entrez: ", vis.nodes$entrez, "<hr>",
                              "Classification: ", vis.nodes$AP_classification, "<br>",
                              "Is AP: ", ifelse(vis.nodes$is_bottleneck==1, 'Yes', 'No') , "<br>",
                              "AP impact: ", vis.nodes$bottleneckImpact, "<br>",
