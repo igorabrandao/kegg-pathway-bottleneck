@@ -40,7 +40,7 @@ pathwayList <- get(load(paste0("./dictionaries", "/", "pathwayList.RData")))
 pathwayDetail <- get(load(paste0("./dictionaries", "/", "pathwayDetail.RData")))
 
 # Defined according to the paper plot
-groupThresholdMax <- 70
+groupThresholdMax <- 80
 groupThresholdMin <- 30
 
 #*******************************************************************************************#
@@ -356,9 +356,9 @@ generateConsolidatedDataSet <- function(filename_ = '', folderName_ = 'subGraph'
 #**************************************************#
 #dataSet <- generateConsolidatedDataSet(filename_='allSubGraphs')
 
-#*******************************************#
-# Step 3: Perform plots to explore the data #
-#*******************************************#
+#*********************************************************#
+# Step 3: Perform plots to explore the betweenness metric #
+#*********************************************************#
 
 # Load the dataSet
 dataSet <- read.csv('./output/subGraph/allSubGraphs.csv', header=TRUE, sep=",", stringsAsFactors=FALSE)
@@ -438,3 +438,57 @@ ggsave(paste0("./output/statistics/articulationPointCentrality/apCenterPeriphery
 
 #::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
+#*******************************************************#
+# Step 4: Perform plots to explore the AP impact metric #
+#*******************************************************#
+
+# ---- plot3 ----
+
+# Select all the columns related to the graph components size
+graphComponentsSize <- dataSet[,which(grepl("subgraph[0-9]{1,2}_size", names(dataSet)))]
+
+# Calculates each AP impact score
+dataSet$impact_score <- 0
+
+# impactScore = totalNodes - maxComponentSize
+for (idx in 1:nrow(dataSet)) {
+  #dataSet[idx,]$impact_score <- dataSet[idx,]$pathway_nodes - max(graphComponentsSize[idx,], na.rm = T)
+  dataSet[idx,]$impact_score <- dataSet[idx,]$pathway_nodes - mean(as.numeric(graphComponentsSize[idx,]), na.rm = T)
+}
+
+# Filter the dataSet selecting just the groups of interest
+dataSetImpactPlot <- dataSet[dataSet$ap_group==paste0('>=', groupThresholdMax) |
+                         dataSet$ap_group==paste0('<', groupThresholdMin), c('ap_group', 'impact_score')]
+
+# Generate the boxplot plot
+plot3 <- ggplot(dataSetImpactPlot, aes(x=ap_group, y=impact_score, na.rm = TRUE)) +
+  # Add the boxplot
+  stat_boxplot(geom = "errorbar", width = 0.15) +
+  #geom_boxplot(aes(group=ap_group, fill=ap_group), colour=c("#831D0C", "#03080C"), fill=c("#ED553B", "#173F5F"), position=position_dodge(0.5)) +
+  geom_boxplot(aes(group=ap_group, fill=ap_group), colour="black", fill="#A4A4A4", position=position_dodge(0.5)) +
+
+  #scale_y_continuous(breaks=seq(from = 0, to = 0.5, by = 0.1)) +
+
+  # Chart visual properties
+  xlab("Articulation point frequency group") +
+  ylab("Articulation point impact") +
+  ggtitle("") +
+  guides(fill=guide_legend(title="")) +
+  theme_bw() +
+  theme(plot.title = element_text(face="bold", color="black", size=26, margin = margin(t = 0, r = 0, b = 15, l = 0)),
+        axis.title.x = element_text(face="bold", color="black", size=20, margin = margin(t = 20, r = 0, b = 0, l = 0)),
+        axis.text.x = element_text(face="bold", color="black", size=20, margin = margin(t = 10, r = 0, b = 0, l = 0)),
+        axis.title.y = element_text(face="bold", color="black", size=20, margin = margin(t = 0, r = 15, b = 0, l = 0)),
+        axis.text.y = element_text(face="bold", color="black", size=20),
+        legend.title = element_text(face="bold", size=18),
+        legend.text = element_text(size=16),
+        legend.position = 'right') + labs(fill = "AP group")
+
+plot3
+
+ggsave(paste0("./output/statistics/articulationPointCentrality/apCenterPeripheryImpact.jpeg"), width = 30, height = 25, units = "cm")
+ggsave(paste0("./output/statistics/articulationPointCentrality/apCenterPeripheryImpact.svg"), width = 30, height = 25, units = "cm")
+
+write.csv(dataSetImpactPlot, file=paste0('./output/statistics/articulationPointCentrality/apImpact', groupThresholdMax, '.csv'), row.names = F)
+
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::

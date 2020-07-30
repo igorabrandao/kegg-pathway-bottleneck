@@ -13,6 +13,7 @@
 #' Igor Brandão
 
 # Import the necessary libraries
+library(biomaRt)
 
 #*******************************************************************************************#
 
