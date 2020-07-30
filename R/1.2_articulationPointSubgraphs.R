@@ -401,6 +401,10 @@ plot1
 ggsave(paste0("./output/statistics/articulationPointCentrality/apCenterPeripheryBetweenness.jpeg"), width = 30, height = 25, units = "cm")
 ggsave(paste0("./output/statistics/articulationPointCentrality/apCenterPeripheryBetweenness.svg"), width = 30, height = 25, units = "cm")
 
+# Run the Mann-Whitney Wilcoxon test
+wilcox.test(dataSetPlot[dataSetPlot$ap_group==paste0('\u2265', groupThresholdMax, '%'),]$betweenness,
+            dataSetPlot[dataSetPlot$ap_group==paste0('<', groupThresholdMin, '%'),]$betweenness)
+
 #::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 # ---- plot2 ----
@@ -436,6 +440,10 @@ plot2
 ggsave(paste0("./output/statistics/articulationPointCentrality/apCenterPeripheryBetweennessViolin.jpeg"), width = 30, height = 25, units = "cm")
 ggsave(paste0("./output/statistics/articulationPointCentrality/apCenterPeripheryBetweennessViolin.svg"), width = 30, height = 25, units = "cm")
 
+# Run the Mann-Whitney Wilcoxon test
+wilcox.test(dataSetPlot[dataSetPlot$ap_group==paste0('\u2265', groupThresholdMax, '%'),]$betweenness,
+            dataSetPlot[dataSetPlot$ap_group==paste0('<', groupThresholdMin, '%'),]$betweenness)
+
 #::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 #*******************************************************#
@@ -459,6 +467,9 @@ for (idx in 1:nrow(dataSet)) {
 # Filter the dataSet selecting just the groups of interest
 dataSetImpactPlot <- dataSet[dataSet$ap_group==paste0('>=', groupThresholdMax) |
                          dataSet$ap_group==paste0('<', groupThresholdMin), c('ap_group', 'impact_score')]
+
+dataSetImpactPlot[dataSetImpactPlot$ap_group == paste0('>=', groupThresholdMax),]$ap_group <- paste0('\u2265', groupThresholdMax, '%')
+dataSetImpactPlot[dataSetImpactPlot$ap_group == paste0('<', groupThresholdMin),]$ap_group  <- paste0('<', groupThresholdMin, '%')
 
 # Generate the boxplot plot
 plot3 <- ggplot(dataSetImpactPlot, aes(x=ap_group, y=impact_score, na.rm = TRUE)) +
@@ -488,6 +499,10 @@ plot3
 
 ggsave(paste0("./output/statistics/articulationPointCentrality/apCenterPeripheryImpact.jpeg"), width = 30, height = 25, units = "cm")
 ggsave(paste0("./output/statistics/articulationPointCentrality/apCenterPeripheryImpact.svg"), width = 30, height = 25, units = "cm")
+
+# Run the Mann-Whitney Wilcoxon test
+wilcox.test(dataSetImpactPlot[dataSetImpactPlot$ap_group==paste0('\u2265', groupThresholdMax, '%'),]$impact_score,
+            dataSetImpactPlot[dataSetImpactPlot$ap_group==paste0('<', groupThresholdMin, '%'),]$impact_score)
 
 write.csv(dataSetImpactPlot, file=paste0('./output/statistics/articulationPointCentrality/apImpact', groupThresholdMax, '.csv'), row.names = F)
 
