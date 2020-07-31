@@ -75,24 +75,20 @@ generateOrgGeneList <- function(orgList_) {
     # Get the organism pathway list of files
     folder = paste0("./output/kgml/", currentOrg, "/")
     kgml_list <- list.files(path=folder, pattern='*.xml')
+
+    # Define the number of available pathways
+    available_pathways <- length(kgml_list)
     kgml_index <- 1
 
-    # Filter the files according to the pathway list
-    kgml_list <- sapply(1:length(kgml_list), function(x) kgml_list[grepl(pathwayList_[x], kgml_list)])
-    kgml_list <- unlist(kgml_list[!is.na(unlist(kgml_list, use.names=FALSE))])
+    # Check if the folder contains files
+    if (is.null(kgml_list) | length(kgml_list) == 0) {
+      # Status message
+      printMessage(paste0("There aren't available pathways for ", currentOrg, "..."))
+      return(FALSE)
+    }
 
     # Loop 02: Run through all KGMLs in list
     lapply(kgml_list, function(file) {
-
-      # Define the number of available pathways
-      available_pathways <- length(kgml_list)
-
-      # Check if the folder contains files
-      if (is.null(kgml_list) | length(kgml_list) == 0) {
-        # Status message
-        printMessage("There aren't available pathways...")
-        return(FALSE)
-      }
 
       # Load the dataframe
       current_kgml <- KGML2Dataframe(paste0(folder, file))
@@ -102,6 +98,11 @@ generateOrgGeneList <- function(orgList_) {
 
       # Status message
       printMessage(paste0("GATHERING ", currentOrg, " PATHWAY ", pathway_code, " DATA [", kgml_index, " OF ", available_pathways, "]"))
+
+      # Skip the global metabolic map
+      if (pathway_code %in% c('01100')) {
+        return(FALSE)
+      }
 
       tryCatch({
         # Convert the pathway data into a graph
@@ -144,19 +145,21 @@ generateOrgGeneList <- function(orgList_) {
         pathwayData$bottleneck_classification <- NA
 
         # Remove unnecessary data from pathway data/graph
-        if (removeNoise_) {
-          pathwayGraph <- removeNoise(pathwayGraph)
+        pathwayGraph <- removeNoise(pathwayGraph)
 
-          pathwayData <- pathwayData[!grepl("^path:", pathwayData$name),]
-          pathwayData <- pathwayData[!grepl("^map:", pathwayData$name),]
-          pathwayData <- pathwayData[!grepl("^cpd:", pathwayData$name),]
-          pathwayData <- pathwayData[!grepl("^gl:", pathwayData$name),]
-          pathwayData <- pathwayData[!grepl("^ko:", pathwayData$name),]
-        }
+        pathwayData <- pathwayData[!grepl("^path:", pathwayData$name),]
+        pathwayData <- pathwayData[!grepl("^map:", pathwayData$name),]
+        pathwayData <- pathwayData[!grepl("^cpd:", pathwayData$name),]
+        pathwayData <- pathwayData[!grepl("^gl:", pathwayData$name),]
+        pathwayData <- pathwayData[!grepl("^ko:", pathwayData$name),]
 
         # Assign the reaction type to each node
         for (idx in 1:nrow(pathwayData)) {
           for (idx2 in 1:length(current_kgml$reactions$name)) {
+            if (is.null(current_kgml$reactions$name[idx2]) | is.na(pathwayData[idx,]$reaction)) {
+              next()
+            }
+
             # Check the position of the current reaction in reactions list
             if (current_kgml$reactions$name[idx2] %in% pathwayData[idx,]$reaction) {
               pathwayData[idx,]$reaction_type <- current_kgml$reactions$type[idx2]
@@ -252,7 +255,8 @@ generateOrgGeneList <- function(orgList_) {
 
           # Check if the dictionary contains the node, if the didctionary ID is empty, it means that
           # the node refers to a pathway connection (e.g:path:00020) or it is a compound
-          if (is.null(dictId) | isempty(dictId)) {
+          if (is.null(dictId) | isempty(dictId) | nrow(dictId) == 0) {
+            pathwayData[nodeIdx, 'name'] <- NA
             next()
           } else {
             pathwayData[nodeIdx, 'dictID'] <- dictId$id
@@ -271,27 +275,19 @@ generateOrgGeneList <- function(orgList_) {
         printMessage(paste0("EXPORTING ", currentOrg, " PATHWAY ", pathway_code, " DATA [", kgml_index, " OF ", available_pathways, "]"))
 
         # Create the canonical analysis folder
-        if (!dir.exists(file.path('./output/canonicalNetworkComparison/'))) {
-          dir.create(file.path(paste0('./output/canonicalNetworkComparison/')), showWarnings = FALSE, mode = "0775")
+        if (!dir.exists(file.path('./output/essentialGenes/'))) {
+          dir.create(file.path(paste0('./output/essentialGenes/')), showWarnings = FALSE, mode = "0775")
         }
 
         # Create the org folder
-        if (!dir.exists(file.path(paste0('./output/canonicalNetworkComparison/', currentOrg)))) {
-          dir.create(file.path(paste0('./output/canonicalNetworkComparison/', currentOrg)), showWarnings = FALSE, mode = "0775")
+        if (!dir.exists(file.path(paste0('./output/essentialGenes/', currentOrg)))) {
+          dir.create(file.path(paste0('./output/essentialGenes/', currentOrg)), showWarnings = FALSE, mode = "0775")
         }
 
         # Save the org pathwayData into its folder
-        if (dir.exists(paste0('./output/canonicalNetworkComparison/', currentOrg))) {
-          write.csv(pathwayData, file=paste0('./output/canonicalNetworkComparison/', currentOrg, '/', pathway_code, '.csv'), row.names=FALSE)
+        if (dir.exists(paste0('./output/essentialGenes/', currentOrg))) {
+          write.csv(pathwayData, file=paste0('./output/essentialGenes/', currentOrg, '/', pathway_code, '.csv'), row.names=FALSE)
         }
-
-        #**********************************#
-        # Generate the interactive network #
-        #**********************************#
-        graphDictionary <- KGML2GraphDictionary(paste0(folder, file), replaceOrg=TRUE, orgToReplace=currentOrg)
-        graphDictionary <- removeNoise(graphDictionary)
-
-        printInteractiveNetwork(pathway_code, currentOrg, pathwayData, graphDictionary)
 
         #*********************#
         # Increment the index #
@@ -302,7 +298,7 @@ generateOrgGeneList <- function(orgList_) {
         printMessage(e)
 
         # Save the log file
-        printLog(toString(e), file_=paste0('generatePathwayDataFromKGML', pathway_code))
+        printLog(toString(e), file_=paste0('generateOrgGeneList', pathway_code))
 
         return(FALSE)
       })
@@ -384,9 +380,18 @@ convertPeptideToEnsembl <- function(biomaRtOrgs_) {
 # Step 1: Convert the genes from peptide ID to ensembl #
 # Warning: to heavy, run just once                     #
 #******************************************************#
-convertPeptideToEnsembl(biomaRtOrgs)
+#convertPeptideToEnsembl(biomaRtOrgs)
 
-#**************************************************#
-# Step 2: Match the KEGG APs with the lethal genes #
-#**************************************************#
+#*************************************************************************#
+# Step 2: Generate the organisms list of genes for all available pathways #
+#*************************************************************************#
+generateOrgGeneList(modelOrgList)
+
+#******************************************************************************************#
+# Step 3: Match the organisms genes with the list of lethal genes (essentialGenesModelOrg) #
+#******************************************************************************************#
+
+#*******************************************************#
+# Step 4: Perform plots to explore the lethality metric #
+#*******************************************************#
 
