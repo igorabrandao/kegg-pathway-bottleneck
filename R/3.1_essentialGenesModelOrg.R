@@ -331,6 +331,8 @@ convertPeptideToEnsembl <- function(biomaRtOrgs_) {
 
   # Add the ensembl_gene_id column
   essentialGenesModelOrg$ensembl_gene_id <- NA
+  essentialGenesModelOrg$entrezgene_id <- NA
+  essentialGenesModelOrg$entrezgene_accession <- NA
 
   # Loop counters
   index <- 1
@@ -346,17 +348,26 @@ convertPeptideToEnsembl <- function(biomaRtOrgs_) {
 
     # Filter the ensembl ID
     ids <- getBM(filters = "ensembl_peptide_id",
-                      attributes = c("ensembl_peptide_id", "ensembl_gene_id"),
-                      values = essentialGenesModelOrg$ensembl_peptide_id, mart = ensembl)
+             attributes = c("ensembl_peptide_id", "ensembl_gene_id", 'entrezgene_id', 'entrezgene_accession'),
+             values = essentialGenesModelOrg$ensembl_peptide_id, mart = ensembl)
 
     # Remove NA cases
     ids[ids == ""] <- NA
     ids <- na.omit(ids)
 
-    # Apply the ensembl IDs by the peptide ID
+    # Apply the ensembl IDs and the entrez_id by the peptide ID
     for (idx in 1:nrow(ids)) {
+      # Ensembl ID
       essentialGenesModelOrg[essentialGenesModelOrg$ensembl_peptide_id == ids[idx,]$ensembl_peptide_id,]$ensembl_gene_id <<-
         ids[idx,]$ensembl_gene_id
+
+      # Entrez ID
+      essentialGenesModelOrg[essentialGenesModelOrg$ensembl_peptide_id == ids[idx,]$ensembl_peptide_id,]$entrezgene_id <<-
+        ids[idx,]$entrezgene_id
+
+      # Entrez accession
+      essentialGenesModelOrg[essentialGenesModelOrg$ensembl_peptide_id == ids[idx,]$ensembl_peptide_id,]$entrezgene_accession <<-
+        ids[idx,]$entrezgene_accession
     }
 
     # Increment the index
@@ -417,6 +428,91 @@ joinOrgDatasets <- function(orgList_) {
   })
 }
 
+#' Function to match the organisms genes by its entrez ID with the ensembl ID
+#' from gene essential list
+#'
+#' @param orgList_ List of KEGG organism code
+#'
+#' @return This function does not return nothing, just export .csv files.
+#'
+#' @examples
+#' \dontrun{
+#' matchOrgEntrezWithEnsembl(c("mmu", "dme", "sce", "cel"))
+#' }
+#'
+#' @author
+#' Igor Brandão
+#'
+matchOrgEntrezWithEnsembl <- function(orgList_) {
+
+  # Loop counters
+  index <- 1
+  available_orgs <- length(orgList_)
+
+  # Loop 01: Run through all organism in list
+  lapply(orgList_, function(currentOrg) {
+
+    # Status message
+    printMessage(paste0("MATCHING THE ", currentOrg, " GENE LIST WITH THE LETHALITY LIST [", index, " OF ", available_orgs, "]"))
+
+    # Get the list of files
+    orgGenes <- read.csv(paste0("./output/essentialGenes/", currentOrg, ".csv"), header=TRUE, sep=",", stringsAsFactors=FALSE)
+
+    # Extra fields to orgGenes df
+    orgGenes$lethal_nonlethal <- NA
+    orgGenes$entrezgene_accession <- NA
+
+    # Loop 02: Run through all organism gene list
+    idx = 1
+    apply(orgGenes, 1, function(currentGene) {
+      # Current lethality status
+      lethalityStatus <- c()
+      accessionIDs <- c()
+
+      # Generate a temporary entrez list for the current gene
+      currentEntrezList <- orgGenes[idx,]$entrez
+
+      # Remove the org code from entrez
+      currentEntrezList <- gsub(paste0(currentOrg, ':'), '', currentEntrezList)
+
+      # Split the entrez list
+      currentEntrezList <- unlist(str_split(currentEntrezList, " / "))
+
+      # Loop 03: Run through all entrez in the current gene
+      for (idx2 in 1:length(currentEntrezList)) {
+        # Retrieve the lethality status for the current entrez
+        currentEntrez <- essentialGenesModelOrg[which(essentialGenesModelOrg$entrezgene_id == currentEntrezList[idx2]),]
+
+        # Append the status to the current gene status
+        lethalityStatus <- c(lethalityStatus, currentEntrez$lethal_nonlethal)
+        accessionIDs <- c(accessionIDs, currentEntrez$entrezgene_accession)
+      }
+
+      #*******************************************************************************************************************************#
+      # Verify the lethalityStatus, if at least one entrez is classified as lethal the whole group is lethal                          #
+      #                                                                                                                               #
+      # This situation reflects the case of an enzyme (EC) that has several subunits (several entrez id or mgids). The hypothesis     #
+      # is that the loss of a subunit probably affects the structure of the enzyme as a whole and, therefore, if you find a subunit   #
+      # that generates lethality, this alteration is also likely to be lethal as a whole                                              #
+      #*******************************************************************************************************************************#
+      orgGenes[idx,]$lethal_nonlethal <<- ifelse('lethal' %in% lethalityStatus, 'lethal', 'nonlethal')
+      orgGenes[idx,]$entrezgene_accession <<- toString(accessionIDs)
+
+      # Increment the index
+      idx <<- idx + 1
+    })
+
+    # Export the organisms genes with the lethality status
+    write.csv(orgGenes, file=paste0('./output/essentialGenes/', currentOrg, '.csv'))
+
+    # Remove temporaly variables
+    rm(orgGenes)
+
+    # Increment the index
+    index <<- index + 1
+  })
+}
+
 #*******************************************************************************************#
 
 # ---- PIPELINE SECTION ----
@@ -444,9 +540,8 @@ joinOrgDatasets(modelOrgList)
 #******************************************************************************************#
 # Step 4: Match the organisms genes with the list of lethal genes (essentialGenesModelOrg) #
 #******************************************************************************************#
-
+matchOrgEntrezWithEnsembl(modelOrgList)
 
 #*******************************************************#
 # Step 5: Perform plots to explore the lethality metric #
 #*******************************************************#
-
