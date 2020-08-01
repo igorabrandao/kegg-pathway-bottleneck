@@ -368,6 +368,55 @@ convertPeptideToEnsembl <- function(biomaRtOrgs_) {
   save(essentialGenesModelOrg, file = "./dictionaries/essentialGenesModelOrg2.RData", compress = "xz")
 }
 
+#' Function to aggregate all org datasets into one
+#'
+#' @param orgList_ List of KEGG organism code
+#'
+#' @return This function does not return nothing, just export .csv files.
+#'
+#' @examples
+#' \dontrun{
+#' joinOrgDatasets(c("mmu", "dme", "sce", "cel"))
+#' }
+#'
+#' @author
+#' Igor Brandão
+#'
+joinOrgDatasets <- function(orgList_) {
+
+  # Loop counters
+  index <- 1
+  available_orgs <- length(orgList_)
+
+  # Loop 01: Run through all organism in list
+  lapply(orgList_, function(currentOrg) {
+
+    # Status message
+    printMessage(paste0("MERGING ", currentOrg, " datasets [", index, " OF ", available_orgs, "]"))
+
+    # Get the list of files
+    folder = paste0("./output/essentialGenes/", currentOrg, "/")
+    file_list <- grep(list.files(path=folder), pattern='*.csv', value=T)
+
+    # Load all csv files at once
+    big.list.of.data.frames <- lapply(file_list, function(item) {
+      read.csv(file=paste0(folder, item), header=TRUE, sep=",", stringsAsFactors=FALSE)
+    })
+
+    # Combine multiple data frames in one
+    allNodes <- do.call(rbind, big.list.of.data.frames)
+
+    # Export allNodes
+    write.csv(allNodes, file=paste0('./output/essentialGenes/', currentOrg, '.csv'))
+
+    # Remove temporaly variables
+    rm(big.list.of.data.frames, allNodes, folder, file_list)
+
+    # Increment the index
+    index <<- index + 1
+  })
+}
+
 #*******************************************************************************************#
 
 # ---- PIPELINE SECTION ----
@@ -380,18 +429,24 @@ convertPeptideToEnsembl <- function(biomaRtOrgs_) {
 # Step 1: Convert the genes from peptide ID to ensembl #
 # Warning: to heavy, run just once                     #
 #******************************************************#
-#convertPeptideToEnsembl(biomaRtOrgs)
+convertPeptideToEnsembl(biomaRtOrgs)
 
 #*************************************************************************#
 # Step 2: Generate the organisms list of genes for all available pathways #
 #*************************************************************************#
 generateOrgGeneList(modelOrgList)
 
+#*****************************************************************#
+# Step 3: Join organisms list of genes for all available pathways #
+#*****************************************************************#
+joinOrgDatasets(modelOrgList)
+
 #******************************************************************************************#
-# Step 3: Match the organisms genes with the list of lethal genes (essentialGenesModelOrg) #
+# Step 4: Match the organisms genes with the list of lethal genes (essentialGenesModelOrg) #
 #******************************************************************************************#
 
+
 #*******************************************************#
-# Step 4: Perform plots to explore the lethality metric #
+# Step 5: Perform plots to explore the lethality metric #
 #*******************************************************#
 
