@@ -18,6 +18,8 @@ library(svglite)
 library(RColorBrewer)
 library(plyr)
 
+library(DataExplorer)
+
 #*******************************************************************************************#
 
 # ---- SETTINGS SECTION ----
@@ -32,6 +34,7 @@ files.sources[1] = paste0("./R/functions", "/", "graphFunctions.R")
 files.sources[2] = paste0("./R/functions", "/", "kgmlFunctions.R")
 files.sources[3] = paste0("./R/functions", "/", "helperFunctions.R")
 files.sources[4] = paste0("./R/functions", "/", "graphPrintFunctions.R")
+files.sources[5] = paste0("./R/functions", "/", "statisticsHelper.R")
 sapply(files.sources, source)
 
 # Load the pathways by organisms data
@@ -466,7 +469,11 @@ for (idx in 1:nrow(dataSet)) {
 
 # Filter the dataSet selecting just the groups of interest
 dataSetImpactPlot <- dataSet[dataSet$ap_group==paste0('>=', groupThresholdMax) |
-                         dataSet$ap_group==paste0('<', groupThresholdMin), c('ap_group', 'impact_score')]
+                         dataSet$ap_group==paste0('<', groupThresholdMin),
+                         c('ap_dict_id', 'pathway', 'ap_group', 'pathway_nodes', 'pathway_edges', 'betweenness', 'degree', 'noSubgraphs', 'impact_score')]
+
+# Fill the pathway code with zeros
+dataSetImpactPlot <- fillPathwayCodeWithZeros(dataSetImpactPlot)
 
 dataSetImpactPlot[dataSetImpactPlot$ap_group == paste0('>=', groupThresholdMax),]$ap_group <- paste0('\u2265', groupThresholdMax, '%')
 dataSetImpactPlot[dataSetImpactPlot$ap_group == paste0('<', groupThresholdMin),]$ap_group  <- paste0('<', groupThresholdMin, '%')
@@ -497,13 +504,16 @@ plot3 <- ggplot(dataSetImpactPlot, aes(x=ap_group, y=impact_score, na.rm = TRUE)
 
 plot3
 
-ggsave(paste0("./output/statistics/articulationPointCentrality/apCenterPeripheryImpact.jpeg"), width = 30, height = 25, units = "cm")
-ggsave(paste0("./output/statistics/articulationPointCentrality/apCenterPeripheryImpact.svg"), width = 30, height = 25, units = "cm")
-
 # Run the Mann-Whitney Wilcoxon test
 wilcox.test(dataSetImpactPlot[dataSetImpactPlot$ap_group==paste0('\u2265', groupThresholdMax, '%'),]$impact_score,
             dataSetImpactPlot[dataSetImpactPlot$ap_group==paste0('<', groupThresholdMin, '%'),]$impact_score)
 
+ggsave(paste0("./output/statistics/articulationPointCentrality/apCenterPeripheryImpact.jpeg"), width = 30, height = 25, units = "cm")
+ggsave(paste0("./output/statistics/articulationPointCentrality/apCenterPeripheryImpact.svg"), width = 30, height = 25, units = "cm")
+
 write.csv(dataSetImpactPlot, file=paste0('./output/statistics/articulationPointCentrality/apImpact', groupThresholdMax, '.csv'), row.names = F)
+
+# Generate a exploratory report
+DataExplorer::create_report(dataSetImpactPlot)
 
 #::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::

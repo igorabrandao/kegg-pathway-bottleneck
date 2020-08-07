@@ -14,6 +14,17 @@
 
 # Import the necessary libraries
 library(biomaRt)
+library(ggplot2)
+library(svglite)
+library(RColorBrewer)
+library(plyr)
+
+library(ggpubr)
+library(gghighlight)
+library(grid)
+library(GGally)
+
+library(DataExplorer)
 
 #*******************************************************************************************#
 
@@ -27,8 +38,8 @@ library(biomaRt)
 files.sources = NULL
 files.sources[1] = paste0("./R/functions", "/", "graphFunctions.R")
 files.sources[2] = paste0("./R/functions", "/", "kgmlFunctions.R")
-files.sources[3] = paste0("./R/functions", "/", "helperFunctions.R")
-files.sources[4] = paste0("./R/functions", "/", "graphPrintFunctions.R")
+files.sources[3] = paste0("./R/functions", "/", "statisticsHelper.R")
+files.sources[4] = paste0("./R/functions", "/", "helperFunctions.R")
 sapply(files.sources, source)
 
 # Load the pathways by organisms data
@@ -418,7 +429,7 @@ joinOrgDatasets <- function(orgList_) {
     allNodes <- do.call(rbind, big.list.of.data.frames)
 
     # Export allNodes
-    write.csv(allNodes, file=paste0('./output/essentialGenes/', currentOrg, '.csv'))
+    write.csv(allNodes, file=paste0('./output/essentialGenes/', currentOrg, '.csv'), row.names = F)
 
     # Remove temporaly variables
     rm(big.list.of.data.frames, allNodes, folder, file_list)
@@ -461,6 +472,7 @@ matchOrgEntrezWithEnsembl <- function(orgList_) {
     # Extra fields to orgGenes df
     orgGenes$lethal_nonlethal <- NA
     orgGenes$entrezgene_accession <- NA
+    orgGenes$ensembl_gene_id <- NA
 
     # Loop 02: Run through all organism gene list
     idx = 1
@@ -468,6 +480,7 @@ matchOrgEntrezWithEnsembl <- function(orgList_) {
       # Current lethality status
       lethalityStatus <- c()
       accessionIDs <- c()
+      ensemblIDs <- c()
 
       # Generate a temporary entrez list for the current gene
       currentEntrezList <- orgGenes[idx,]$entrez
@@ -486,6 +499,7 @@ matchOrgEntrezWithEnsembl <- function(orgList_) {
         # Append the status to the current gene status
         lethalityStatus <- c(lethalityStatus, currentEntrez$lethal_nonlethal)
         accessionIDs <- c(accessionIDs, currentEntrez$entrezgene_accession)
+        ensemblIDs <- c(ensemblIDs, currentEntrez$ensembl_gene_id)
       }
 
       #*******************************************************************************************************************************#
@@ -497,13 +511,14 @@ matchOrgEntrezWithEnsembl <- function(orgList_) {
       #*******************************************************************************************************************************#
       orgGenes[idx,]$lethal_nonlethal <<- ifelse('lethal' %in% lethalityStatus, 'lethal', 'nonlethal')
       orgGenes[idx,]$entrezgene_accession <<- toString(accessionIDs)
+      orgGenes[idx,]$ensembl_gene_id <<- toString(ensemblIDs)
 
       # Increment the index
       idx <<- idx + 1
     })
 
     # Export the organisms genes with the lethality status
-    write.csv(orgGenes, file=paste0('./output/essentialGenes/', currentOrg, '.csv'))
+    write.csv(orgGenes, file=paste0('./output/essentialGenes/', currentOrg, '.csv'), row.names = F)
 
     # Remove temporaly variables
     rm(orgGenes)
@@ -545,3 +560,311 @@ matchOrgEntrezWithEnsembl(modelOrgList)
 #*******************************************************#
 # Step 5: Perform plots to explore the lethality metric #
 #*******************************************************#
+
+# ---- PLOT SECTION ----
+
+# Get the list of files
+folder = paste0("./output/essentialGenes/")
+file_list <- grep(list.files(path=folder), pattern='*.csv', value=T)
+
+# Load all csv files at once
+big.list.of.data.frames <- lapply(file_list, function(item) {
+  read.csv(file=paste0(folder, item), header=TRUE, sep=",", stringsAsFactors=FALSE)
+})
+
+# Combine multiple data frames in one
+orgGenes <- do.call(rbind, big.list.of.data.frames)
+rm(big.list.of.data.frames)
+
+# For now we'll use just the MMU data since its better annotated
+# TODO: Remove the next line
+orgGenes <- orgGenes[orgGenes$org == 'mmu',]
+
+write.csv(orgGenes, file=paste0('./output/essentialGenes/mmuGenesList.csv'))
+
+#**************#
+# Data summary #
+#**************#
+
+# A more advanced and complete way to see the structure of our dataset
+str(orgGenes)
+
+# Summarize the data
+print(summary(orgGenes))
+print(summary(as.factor(orgGenes$reaction_type)))
+print(summary(as.factor(orgGenes$is_bottleneck)))
+print(summary(as.factor(orgGenes$lethal_nonlethal)))
+
+#**************#
+# Summary plot #
+#**************#
+
+# Define which dataSet column will be displayed into the plot
+columns = c("reaction_type", "is_bottleneck", "betweenness", "degree", "lethal_nonlethal")
+columnLabels = c("Reaction type", "AP status", "Betweenness", "Degree", "Lethality status")
+plotTitle = paste0("Data summary")
+
+# ---- plot1 ----
+
+# Drawing a scatterplot matrix of freq, totalSpecies, percentage, and is_bottleneck using the pairs function
+plot1 <- ggpairs(orgGenes, columns = columns, columnLabels = columnLabels, title = plotTitle,
+                 mapping = aes(color = lethal_nonlethal),
+                 lower = list(
+                   continuous = "smooth",
+                   combo = "facetdensity"
+                 ), cardinality_threshold = 1000) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) + theme_bw()
+
+# Recolor the matrix
+for (i in 1:plot1$nrow) {
+  for (j in 1:plot1$ncol) {
+    plot1[i, j] <- plot1[i, j] +
+      scale_fill_manual(values = c("#ED553B", "#173F5F")) +
+      scale_color_manual(values = c("#ED553B", "#173F5F"))
+  }
+}
+
+plot1
+
+ggsave(paste0("./output/essentialGenes/plots/dataSummary.jpeg"), width = 30, height = 25, units = "cm")
+ggsave(paste0("./output/essentialGenes/plots/dataSummary.svg"), width = 30, height = 25, units = "cm")
+
+#*****************#
+# Reaction status #
+#*****************#
+
+# Add the gene classification
+orgGenes$gene_reaction_group <- NA
+
+# Loop 01: Run through all organism gene list
+# Warning: it's heavy!
+idx = 1
+apply(orgGenes, 1, function(currentGene) {
+  # Apply the gene classification
+  if (is.na(orgGenes[idx,]$reaction_type)) {
+    orgGenes[idx,]$gene_reaction_group <<- 0
+  }
+  else if (orgGenes[idx,]$reaction_type == 'irreversible') {
+    orgGenes[idx,]$gene_reaction_group <<- 1
+  } else if (orgGenes[idx,]$reaction_type == 'reversible') {
+    orgGenes[idx,]$gene_reaction_group <<- 2
+  }
+
+  # Increment the index
+  idx <<- idx + 1
+})
+
+#******************#
+# Lethality status #
+#******************#
+
+# Add the gene classification
+orgGenes$gene_classification <- NA
+orgGenes$gene_classification_group <- NA
+
+# Loop 01: Run through all organism gene list
+# Warning: it's heavy!
+idx = 1
+apply(orgGenes, 1, function(currentGene) {
+  # Apply the gene classification
+  if (orgGenes[idx,]$lethal_nonlethal == 'lethal' & orgGenes[idx,]$is_bottleneck == 1) {
+    orgGenes[idx,]$gene_classification <<- 'AP lethal'
+    orgGenes[idx,]$gene_classification_group <<- 1
+  } else if (orgGenes[idx,]$lethal_nonlethal == 'lethal' & orgGenes[idx,]$is_bottleneck == 0) {
+    orgGenes[idx,]$gene_classification <<- 'Non AP lethal'
+    orgGenes[idx,]$gene_classification_group <<- 2
+  } else if (orgGenes[idx,]$lethal_nonlethal == 'nonlethal' & orgGenes[idx,]$is_bottleneck == 1) {
+    orgGenes[idx,]$gene_classification <<- 'AP non lethal'
+    orgGenes[idx,]$gene_classification_group <<- 3
+  } else {
+    orgGenes[idx,]$gene_classification <<- 'Non AP non lethal'
+    orgGenes[idx,]$gene_classification_group <<- 4
+  }
+
+  # Increment the index
+  idx <<- idx + 1
+})
+
+# Rewrite the gene list dataSet with the reaction and lethality classification
+write.csv(orgGenes, file=paste0('./output/essentialGenes/orgGenesWithClassification.csv'), row.names = F)
+
+# Load the gene list dataSet with the reaction and lethality classification
+orgGenes <- read.csv(file='./output/essentialGenes/orgGenesWithClassification.csv', header=TRUE, sep=",", stringsAsFactors=FALSE)
+
+# ---- plot2 ----
+
+# Status message
+printMessage("Lethality status plot")
+
+# Generate the boxplot plot
+plot2 <- ggplot(orgGenes, aes(fill=gene_classification, x=org), ymin = -Inf, ymax = Inf) +
+  # Add the bars
+  geom_bar(position="dodge", stat="count") +
+
+  scale_y_continuous(breaks=seq(from = 0, to = nrow(orgGenes), by = 2500)) +
+  scale_fill_manual(values = c("#ED553B", "#3CAEA3", "#a98600", "#173F5F")) +
+
+  # Chart visual properties
+  xlab("Genes classification") +
+  ylab("Genes count") +
+  ggtitle("") +
+  guides(fill=guide_legend(title="")) +
+  theme_bw() +
+  theme(plot.title = element_text(face="bold", color="black", size=26, margin = margin(t = 0, r = 0, b = 15, l = 0)),
+        axis.title.x = element_text(face="bold", color="black", size=20, margin = margin(t = 20, r = 0, b = 0, l = 0)),
+        axis.text.x = element_text(face="bold", color="black", size=20, margin = margin(t = 10, r = 0, b = 0, l = 0)),
+        axis.title.y = element_text(face="bold", color="black", size=20, margin = margin(t = 0, r = 15, b = 0, l = 0)),
+        axis.text.y = element_text(face="bold", color="black", size=20),
+        legend.title = element_text(face="bold", size=18),
+        legend.text = element_text(size=16),
+        legend.position = 'right') + labs(fill = "Classification")
+
+plot2
+
+ggsave(paste0("./output/essentialGenes/plots/genesClassificationOrg.jpeg"), width = 30, height = 25, units = "cm")
+ggsave(paste0("./output/essentialGenes/plots/genesClassificationOrg.svg"), width = 30, height = 25, units = "cm")
+
+#******************************#
+# AP status x Lethality status #
+#******************************#
+
+# ---- plot3 ----
+
+# Status message
+printMessage("AP status x Lethality status")
+
+# Run the Mann-Whitney Wilcoxon test
+apStatus_lethalityStatus_test <- wilcox.test(orgGenes[orgGenes$gene_classification=='AP lethal',]$gene_classification_group,
+            orgGenes[orgGenes$gene_classification=='AP non lethal',]$gene_classification_group)
+
+# Generate the boxplot plot
+plot3 <- ggplot(orgGenes[orgGenes$gene_classification=='AP lethal' | orgGenes$gene_classification=='AP non lethal',],
+                         aes(fill=gene_classification, x=org), ymin = -Inf, ymax = Inf) +
+  # Add the bars
+  geom_bar(position="dodge", stat="count") +
+
+  scale_y_continuous(breaks=seq(from = 0, to = nrow(orgGenes), by = 500)) +
+  scale_fill_manual(values = c("#ED553B", "#3CAEA3")) +
+
+  # Chart visual properties
+  xlab("Genes classification") +
+  ylab("Genes count") +
+  ggtitle("") +
+  guides(fill=guide_legend(title="")) +
+  theme_bw() +
+  theme(plot.title = element_text(face="bold", color="black", size=26, margin = margin(t = 0, r = 0, b = 15, l = 0)),
+        axis.title.x = element_text(face="bold", color="black", size=20, margin = margin(t = 20, r = 0, b = 0, l = 0)),
+        axis.text.x = element_text(face="bold", color="black", size=20, margin = margin(t = 10, r = 0, b = 0, l = 0)),
+        axis.title.y = element_text(face="bold", color="black", size=20, margin = margin(t = 0, r = 15, b = 0, l = 0)),
+        axis.text.y = element_text(face="bold", color="black", size=20),
+        legend.title = element_text(face="bold", size=18),
+        legend.text = element_text(size=16),
+        legend.position = 'right') + labs(fill = "Classification")
+
+annotate_figure(plot3, text_grob("p-value < 2.2e-16", x=0.2,  y=-2, hjust=0, color = "#000000", size=12))
+
+ggsave(paste0("./output/essentialGenes/plots/genesApClassificationOrg.jpeg"), width = 30, height = 25, units = "cm")
+ggsave(paste0("./output/essentialGenes/plots/genesApClassificationOrg.svg"), width = 30, height = 25, units = "cm")
+
+# ---- plot4 ----
+
+# Status message
+printMessage("Reaction type plot")
+
+reactionDf <- orgGenes[!is.na(orgGenes$reaction_type),]
+
+# Generate the boxplot plot
+plot4 <- ggplot(reactionDf, aes(fill=reaction_type, x=gene_classification), ymin = -Inf, ymax = Inf) +
+  # Add the bars
+  geom_bar(position="dodge", stat="count") +
+
+  scale_y_continuous(breaks=seq(from = 0, to = nrow(orgGenes), by = 250)) +
+  scale_fill_manual(values = c("#ED553B", "#3CAEA3", "#a98600", "#173F5F")) +
+
+  # Chart visual properties
+  xlab("Reaction classification per gene type") +
+  ylab("Genes count") +
+  ggtitle("") +
+  guides(fill=guide_legend(title="")) +
+  theme_bw() +
+  theme(plot.title = element_text(face="bold", color="black", size=26, margin = margin(t = 0, r = 0, b = 15, l = 0)),
+        axis.title.x = element_text(face="bold", color="black", size=20, margin = margin(t = 20, r = 0, b = 0, l = 0)),
+        axis.text.x = element_text(color="black", size=18, margin = margin(t = 10, r = 0, b = 0, l = 0)),
+        axis.title.y = element_text(face="bold", color="black", size=20, margin = margin(t = 0, r = 15, b = 0, l = 0)),
+        axis.text.y = element_text(face="bold", color="black", size=20),
+        legend.title = element_text(face="bold", size=18),
+        legend.text = element_text(size=16),
+        legend.position = 'right') + labs(fill = "Classification")
+
+plot4
+
+ggsave(paste0("./output/essentialGenes/plots/genesReactionsClassification.jpeg"), width = 30, height = 25, units = "cm")
+ggsave(paste0("./output/essentialGenes/plots/genesReactionsClassification.svg"), width = 30, height = 25, units = "cm")
+
+# ---- plot5 ----
+
+# Status message
+printMessage("Betweenness by gene classification")
+
+# Run the Kruskal-Wallis test
+gene_classification_betweenness_test <- kruskal.test(betweenness ~ gene_classification, data = orgGenes)
+pairwise.wilcox.test(orgGenes$betweenness, orgGenes$gene_classification, p.adjust.method = "BH")
+
+# Generate the boxplot plot
+plot5 <- ggplot(orgGenes, aes(x=gene_classification, y=betweenness, na.rm = TRUE)) +
+  # Add the boxplot
+  stat_boxplot(geom = "errorbar", width = 0.15) +
+  geom_boxplot(aes(group=gene_classification, fill=gene_classification), color=gene_classification,
+               palette=c("#C92D12", "#1E5953", "#5d4900", "#0d2539"),
+               fill=c("#ED553B", "#3CAEA3", "#a98600", "#173F5F"), position=position_dodge(0.5)) +
+
+  scale_fill_manual(values = c("#ED553B", "#3CAEA3", "#a98600", "#173F5F")) +
+
+  # Chart visual properties
+  xlab("Genes classification") +
+  ylab("Betweenness") +
+  ggtitle("") +
+  guides(fill=guide_legend(title="")) +
+  theme_bw() +
+  theme(plot.title = element_text(face="bold", color="black", size=26, margin = margin(t = 0, r = 0, b = 15, l = 0)),
+        axis.title.x = element_text(face="bold", color="black", size=20, margin = margin(t = 20, r = 0, b = 0, l = 0)),
+        axis.text.x = element_text(color="black", size=18, margin = margin(t = 10, r = 0, b = 0, l = 0)),
+        axis.title.y = element_text(face="bold", color="black", size=20, margin = margin(t = 0, r = 15, b = 0, l = 0)),
+        axis.text.y = element_text(face="bold", color="black", size=20),
+        legend.title = element_text(face="bold", size=18),
+        legend.text = element_text(size=16),
+        legend.position = 'top') + labs(fill = "Classification")
+
+annotate_figure(plot5, text_grob('Kruskal-Wallis, p-value < 2.2e-16', x=0.2,  y=-2, hjust=0, color = "#000000", size=12))
+
+ggsave(paste0("./output/essentialGenes/plots/genesClassificationBetweenness.jpeg"), width = 30, height = 25, units = "cm")
+ggsave(paste0("./output/essentialGenes/plots/genesClassificationBetweenness.svg"), width = 30, height = 25, units = "cm")
+
+# ---- plot6 ----
+
+# Status message
+printMessage("Genes AP, lethal and irreversible distribution")
+
+genesApLethalIrreversibleList <- orgGenes[orgGenes$reaction_type == 'irreversible' &
+                                            orgGenes$is_bottleneck == 1 & orgGenes$lethal_nonlethal == 'lethal',]
+
+genesApLethalIrreversibleList <- genesApLethalIrreversibleList[!is.na(genesApLethalIrreversibleList$reaction_type) &
+                                                               !is.na(genesApLethalIrreversibleList$is_bottleneck) &
+                                                                 !is.na(genesApLethalIrreversibleList$lethal_nonlethal),]
+
+genesApLethalIrreversibleList <- genesApLethalIrreversibleList[,c('pathway', 'org', 'dictID', 'name', 'entrez', 'ensembl_gene_id', 'reaction', 'reaction_type', 'is_bottleneck', 'betweenness', 'degree',
+                                                                  'community', 'lethal_nonlethal', 'gene_classification')]
+
+# Fill the pathway code with zeros
+genesApLethalIrreversibleList <- fillPathwayCodeWithZeros(genesApLethalIrreversibleList)
+
+View(genesApLethalIrreversibleList)
+DataExplorer::create_report(genesApLethalIrreversibleList)
+
+# Write the genesApLethalIrreversibleList
+write.csv(genesApLethalIrreversibleList, file=paste0('./output/essentialGenes/genesApLethalIrreversibleList.csv'), row.names = F)
+
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+dfReport <- orgGenes[,c('reaction_type', 'betweenness', 'is_bottleneck', 'lethal_nonlethal', 'gene_classification')]
+DataExplorer::create_report(dfReport)

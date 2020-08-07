@@ -1,0 +1,52 @@
+MMU gene list summary
+=========================
+
+   entryID           name               type             reaction               x                y          graphicalType          width            height         bgcolor             entrez         
+ Min.   :   1.0   Length:19676       Length:19676       Length:19676       Min.   :   1.0   Min.   :   1.0   Length:19676       Min.   :  1.00   Min.   :  1.00   Length:19676       Length:19676      
+ 1st Qu.:  39.0   Class :character   Class :character   Class :character   1st Qu.: 379.0   1st Qu.: 311.0   Class :character   1st Qu.: 46.00   1st Qu.: 17.00   Class :character   Class :character  
+ Median :  82.0   Mode  :character   Mode  :character   Mode  :character   Median : 623.5   Median : 501.0   Mode  :character   Median : 46.00   Median : 17.00   Mode  :character   Mode  :character  
+ Mean   : 128.4                                                            Mean   : 657.6   Mean   : 547.8                      Mean   : 46.24   Mean   : 17.63                                        
+ 3rd Qu.: 167.0                                                            3rd Qu.: 894.0   3rd Qu.: 723.0                      3rd Qu.: 46.00   3rd Qu.: 17.00                                        
+ Max.   :1686.0                                                            Max.   :2055.0   Max.   :2101.0                      Max.   :455.00   Max.   :123.00                                        
+                                                                           NA's   :790      NA's   :790                         NA's   :790      NA's   :790        
+                                   
+     dictID      reaction_type          org               pathway     is_bottleneck         freq        betweenness     connectivity        triangles       clusteringCoef  closenessCoef  
+ Min.   :   1    Length:19676       Length:19676       Min.   :  10   Min.   :0.0000   Min.   :0.000   Min.   :0.000   Min.   :   0.000   Min.   :   0.00   Min.   :0.000   Min.   :0.000  
+ 1st Qu.:1118    Class :character   Class :character   1st Qu.:4024   1st Qu.:0.0000   1st Qu.:1.000   1st Qu.:0.000   1st Qu.:   1.000   1st Qu.:   0.00   1st Qu.:0.000   1st Qu.:0.000  
+ Median :2568    Mode  :character   Mode  :character   Median :4620   Median :0.0000   Median :1.000   Median :0.000   Median :   1.000   Median :   0.00   Median :0.000   Median :0.000  
+ Mean   :2666                                          Mean   :3944   Mean   :0.1316   Mean   :0.968   Mean   :0.011   Mean   :   3.978   Mean   :  20.57   Mean   :0.098   Mean   :0.002  
+ 3rd Qu.:3784                                          3rd Qu.:5135   3rd Qu.:0.0000   3rd Qu.:1.000   3rd Qu.:0.004   3rd Qu.:   4.000   3rd Qu.:   0.00   3rd Qu.:0.000   3rd Qu.:0.000  
+ Max.   :6466                                          Max.   :5418   Max.   :1.0000   Max.   :1.000   Max.   :0.714   Max.   :1092.000   Max.   :2567.00   Max.   :1.000   Max.   :1.000  
+ NA's   :17509                                                                                         NA's   :3732    NA's   :3721       NA's   :3721      NA's   :3721    NA's   :3721   
+
+   community       eigenvectorScore  eccentricity         radius           diameter           degree         authorityScore       hubScore       bottleneck_classification lethal_nonlethal  
+ Min.   :  1.000   Min.   :0.000    Min.   :  0.000   Min.   :  0.000   Min.   :  0.000   Min.   :   1.000   Min.   :  0.000   Min.   :  0.000   Length:19676              Length:19676      
+ 1st Qu.:  2.000   1st Qu.:0.000    1st Qu.:  2.000   1st Qu.:  1.000   1st Qu.:  3.000   1st Qu.:   2.000   1st Qu.:  0.000   1st Qu.:  0.000   Class :character          Class :character  
+ Median :  4.000   Median :0.000    Median :  6.000   Median :  1.000   Median :  6.000   Median :   4.000   Median :  0.000   Median :  0.000   Mode  :character          Mode  :character  
+ Mean   :  9.659   Mean   :0.190    Mean   :  6.104   Mean   :  2.673   Mean   :  7.093   Mean   :   8.594   Mean   :  0.792   Mean   :  0.778                                               
+ 3rd Qu.:  9.000   3rd Qu.:0.165    3rd Qu.:  8.000   3rd Qu.:  3.000   3rd Qu.:  9.000   3rd Qu.:   8.000   3rd Qu.:  0.186   3rd Qu.:  0.103                                               
+ Max.   :493.000   Max.   :1.000    Max.   :292.000   Max.   :292.000   Max.   :292.000   Max.   :1093.000   Max.   :292.000   Max.   :292.000                                               
+ NA's   :3721      NA's   :3721     NA's   :3617      NA's   :3617      NA's   :3617      NA's   :3617       NA's   :3617      NA's   :3617   
+                                               
+ entrezgene_accession gene_classification gene_classification_group gene_reaction_group
+ Length:19676         Length:19676        Min.   :1.000             Min.   :0.0000     
+ Class :character     Class :character    1st Qu.:2.000             1st Qu.:0.0000     
+ Mode  :character     Mode  :character    Median :4.000             Median :0.0000     
+                                          Mean   :3.338             Mean   :0.1604     
+                                          3rd Qu.:4.000             3rd Qu.:0.0000     
+                                          Max.   :4.000             Max.   :2.0000     
+                                                                                       
+Reaction type
+==============
+irreversible   reversible         NA's 
+        1987          585        17104 
+
+Is AP
+==============
+    0     1 
+17087  2589 
+
+Lethality status
+===================
+   lethal nonlethal 
+     5217     14459 
