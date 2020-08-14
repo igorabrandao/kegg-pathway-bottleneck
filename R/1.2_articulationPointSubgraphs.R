@@ -17,6 +17,7 @@ library(ggplot2)
 library(svglite)
 library(RColorBrewer)
 library(plyr)
+library(corrplot)
 
 library(DataExplorer)
 
@@ -373,7 +374,9 @@ dataSetPlot <- dataSet[dataSet$ap_group==paste0('>=', groupThresholdMax) |
 dataSetPlot[dataSetPlot$ap_group == paste0('>=', groupThresholdMax),]$ap_group <- paste0('\u2265', groupThresholdMax, '%')
 dataSetPlot[dataSetPlot$ap_group == paste0('<', groupThresholdMin),]$ap_group  <- paste0('<', groupThresholdMin, '%')
 
-# ---- plot1 ----
+# ---- PLOT SECTION----
+
+# ---- Betweenness x APs group ----
 
 # Generate the boxplot plot
 plot1 <- ggplot(dataSetPlot, aes(x=ap_group, y=betweenness, na.rm = TRUE)) +
@@ -411,7 +414,6 @@ wilcox.test(dataSetPlot[dataSetPlot$ap_group==paste0('\u2265', groupThresholdMax
 #::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 # ---- plot2 ----
-
 # Generate the violin plot
 plot2 <- ggplot(dataSetPlot, aes(x=ap_group, y=betweenness, na.rm = TRUE)) +
   # Add the violin
@@ -453,7 +455,7 @@ wilcox.test(dataSetPlot[dataSetPlot$ap_group==paste0('\u2265', groupThresholdMax
 # Step 4: Perform plots to explore the AP impact metric #
 #*******************************************************#
 
-# ---- plot3 ----
+# ---- AP Impact x APs group ----
 
 # Select all the columns related to the graph components size
 graphComponentsSize <- dataSet[,which(grepl("subgraph[0-9]{1,2}_size", names(dataSet)))]
@@ -477,6 +479,12 @@ dataSetImpactPlot <- fillPathwayCodeWithZeros(dataSetImpactPlot)
 
 dataSetImpactPlot[dataSetImpactPlot$ap_group == paste0('>=', groupThresholdMax),]$ap_group <- paste0('\u2265', groupThresholdMax, '%')
 dataSetImpactPlot[dataSetImpactPlot$ap_group == paste0('<', groupThresholdMin),]$ap_group  <- paste0('<', groupThresholdMin, '%')
+
+# Filter the impact score by the frequency groups
+impactScoreGroupThresholdMax = dataSetImpactPlot[dataSetImpactPlot$ap_group==paste0('\u2265', groupThresholdMax, '%'),
+                                                 c('ap_dict_id', 'pathway', 'ap_group', 'pathway_nodes', 'pathway_edges', 'betweenness', 'degree', 'noSubgraphs', 'impact_score')]
+impactScoreGroupThresholdMin = dataSetImpactPlot[dataSetImpactPlot$ap_group==paste0('<', groupThresholdMin, '%'),
+                                                 c('ap_dict_id', 'pathway', 'ap_group', 'pathway_nodes', 'pathway_edges', 'betweenness', 'degree', 'noSubgraphs', 'impact_score')]
 
 # Generate the boxplot plot
 plot3 <- ggplot(dataSetImpactPlot, aes(x=ap_group, y=impact_score, na.rm = TRUE)) +
@@ -517,3 +525,138 @@ write.csv(dataSetImpactPlot, file=paste0('./output/statistics/articulationPointC
 DataExplorer::create_report(dataSetImpactPlot)
 
 #::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+# ---- Disconnected components x APs group ----
+
+# Generate the boxplot plot (AP group x disconnected components)
+plot4 <- ggplot(dataSetImpactPlot, aes(x=ap_group, y=noSubgraphs, na.rm = TRUE)) +
+  # Add the boxplot
+  stat_boxplot(geom = "errorbar", width = 0.15) +
+  #geom_boxplot(aes(group=ap_group, fill=ap_group), colour=c("#831D0C", "#03080C"), fill=c("#ED553B", "#173F5F"), position=position_dodge(0.5)) +
+  geom_boxplot(aes(group=ap_group, fill=ap_group), colour="black", fill="#A4A4A4", position=position_dodge(0.5)) +
+
+  scale_y_continuous(breaks=seq(from = 0, to = max(dataSetImpactPlot$noSubgraphs), by = 2)) +
+
+  # Chart visual properties
+  xlab("Articulation point frequency group") +
+  ylab("Disconnected components") +
+  ggtitle("") +
+  guides(fill=guide_legend(title="")) +
+  theme_bw() +
+  theme(plot.title = element_text(face="bold", color="black", size=26, margin = margin(t = 0, r = 0, b = 15, l = 0)),
+        axis.title.x = element_text(face="bold", color="black", size=20, margin = margin(t = 20, r = 0, b = 0, l = 0)),
+        axis.text.x = element_text(face="bold", color="black", size=20, margin = margin(t = 10, r = 0, b = 0, l = 0)),
+        axis.title.y = element_text(face="bold", color="black", size=20, margin = margin(t = 0, r = 15, b = 0, l = 0)),
+        axis.text.y = element_text(face="bold", color="black", size=20),
+        legend.title = element_text(face="bold", size=18),
+        legend.text = element_text(size=16),
+        legend.position = 'right') + labs(fill = "AP group")
+
+plot4
+
+# Run the Mann-Whitney Wilcoxon test
+wilcox.test(dataSetImpactPlot[dataSetImpactPlot$ap_group==paste0('\u2265', groupThresholdMax, '%'),]$noSubgraphs,
+            dataSetImpactPlot[dataSetImpactPlot$ap_group==paste0('<', groupThresholdMin, '%'),]$noSubgraphs)
+
+ggsave(paste0("./output/statistics/articulationPointCentrality/apCenterPeripheryComponents.jpeg"), width = 30, height = 25, units = "cm")
+ggsave(paste0("./output/statistics/articulationPointCentrality/apCenterPeripheryComponents.svg"), width = 30, height = 25, units = "cm")
+
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+# ---- Highest AP impact by pathway ----
+
+# Calculate the mean impact by pathway
+impactByPathway <- aggregate(dataSetImpactPlot$impact_score, list(dataSetImpactPlot$pathway), mean)
+
+# Order the data by impact score
+impactByPathway <- impactByPathway[order(impactByPathway$x, decreasing=T),]
+
+# Rename the group columns
+names(impactByPathway)[names(impactByPathway) == "Group.1"] <- "pathway"
+names(impactByPathway)[names(impactByPathway) == "x"] <- "impact_score"
+
+# Select the top 20
+impactByPathway = impactByPathway[1:20,]
+
+# Order the dataSet by the protein count
+#impactByPathway$pathway <- factor(impactByPathway$pathway, levels = impactByPathway$pathway[order(impactByPathway$proteinsCount)])
+
+plot5 <- ggplot(impactByPathway, aes(x=pathway, y=impact_score)) +
+  # Add the bars
+  geom_bar(stat="identity", fill="#173F5F", width = 0.75) +
+
+  scale_y_continuous(breaks=seq(from = 0, to = max(impactByPathway$impact_score), by = 25)) +
+
+  # Chart visual properties
+  xlab("Pathways") +
+  ylab("Mean AP impact score") +
+  ggtitle("") + theme_bw() +
+  theme(axis.title.x = element_text(face="bold", size=20, margin = margin(t = 15, r = 0, b = 0, l = 0)),
+        axis.text.x = element_text(size=18, angle = 45, hjust = 1),
+        axis.title.y = element_text(face="bold", color="black", size=20, margin = margin(t = 0, r = 15, b = 0, l = 0)),
+        axis.text.y = element_text(size=18),
+        legend.title = element_text(face="bold", size=16),
+        legend.text = element_text(size=16),
+        legend.position='top')
+
+plot5
+
+ggsave(paste0("./output/statistics/articulationPointCentrality/highestApImpactScorePerPathway.jpeg"), width = 30, height = 25, units = "cm")
+ggsave(paste0("./output/statistics/articulationPointCentrality/highestApImpactScorePerPathway.svg"), width = 30, height = 25, units = "cm")
+
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+# ---- Lowest AP impact by pathway ----
+
+# Calculate the mean impact by pathway
+impactByPathway <- aggregate(dataSetImpactPlot$impact_score, list(dataSetImpactPlot$pathway), mean)
+
+# Order the data by impact score
+impactByPathway <- impactByPathway[order(impactByPathway$x, decreasing=T),]
+
+# Rename the group columns
+names(impactByPathway)[names(impactByPathway) == "Group.1"] <- "pathway"
+names(impactByPathway)[names(impactByPathway) == "x"] <- "impact_score"
+
+impactByPathway = impactByPathway[1:20,]
+
+plot6 <- ggplot(impactByPathway, aes(x=pathway, y=impact_score)) +
+  # Add the bars
+  geom_bar(stat="identity", fill="#173F5F", width = 0.75) +
+
+  scale_y_continuous(breaks=seq(from = 0, to = max(impactByPathway$impact_score), by = 25)) +
+
+  # Chart visual properties
+  xlab("Pathways") +
+  ylab("Mean AP impact score") +
+  ggtitle("") + theme_bw() +
+  theme(axis.title.x = element_text(face="bold", size=20, margin = margin(t = 15, r = 0, b = 0, l = 0)),
+        axis.text.x = element_text(size=18, angle = 45, hjust = 1),
+        axis.title.y = element_text(face="bold", color="black", size=20, margin = margin(t = 0, r = 15, b = 0, l = 0)),
+        axis.text.y = element_text(size=18),
+        legend.title = element_text(face="bold", size=16),
+        legend.text = element_text(size=16),
+        legend.position='top')
+
+plot6
+
+ggsave(paste0("./output/statistics/articulationPointCentrality/apImpactScorePerPathway.jpeg"), width = 30, height = 25, units = "cm")
+ggsave(paste0("./output/statistics/articulationPointCentrality/apImpactScorePerPathway.svg"), width = 30, height = 25, units = "cm")
+
+# ---- Correlation matrix ----
+
+# Generate the correlation matrix
+correlationMatrix <- cor(dataSetImpactPlot[,c('pathway_nodes', 'pathway_edges', 'betweenness', 'degree', 'noSubgraphs', 'impact_score')],
+                         method = c("spearman"), use = "complete.obs")
+
+# Define the color scale
+col <- colorRampPalette(c("#BB4444", "#EE9988", "#FFFFFF", "#77AADD", "#4477AA"))
+
+# Save the correlogram (plot1)
+png(file="./output/statistics/articulationPointCentrality/correlationMatrix.png", res=300, width=3500, height=3500)
+corrplot(correlationMatrix, method="color",
+         addCoef.col = "black", # Add coefficient of correlation
+         tl.col = "black", tl.srt = 45, #Text label color and rotation
+         # hide correlation coefficient on the principal diagonal
+         diag=TRUE)
+dev.off()

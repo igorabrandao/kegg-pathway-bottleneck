@@ -582,6 +582,11 @@ orgGenes <- orgGenes[orgGenes$org == 'mmu',]
 
 write.csv(orgGenes, file=paste0('./output/essentialGenes/mmuGenesList.csv'))
 
+# OR
+
+# Load the gene list dataSet with the reaction and lethality classification
+orgGenes <- read.csv(file='./output/essentialGenes/mmuGenesWithClassification.csv', header=TRUE, sep=",", stringsAsFactors=FALSE)
+
 #**************#
 # Data summary #
 #**************#
@@ -691,6 +696,8 @@ write.csv(orgGenes, file=paste0('./output/essentialGenes/orgGenesWithClassificat
 # Load the gene list dataSet with the reaction and lethality classification
 orgGenes <- read.csv(file='./output/essentialGenes/orgGenesWithClassification.csv', header=TRUE, sep=",", stringsAsFactors=FALSE)
 
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
 # ---- plot2 ----
 
 # Status message
@@ -723,6 +730,8 @@ plot2
 
 ggsave(paste0("./output/essentialGenes/plots/genesClassificationOrg.jpeg"), width = 30, height = 25, units = "cm")
 ggsave(paste0("./output/essentialGenes/plots/genesClassificationOrg.svg"), width = 30, height = 25, units = "cm")
+
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 #******************************#
 # AP status x Lethality status #
@@ -766,6 +775,8 @@ annotate_figure(plot3, text_grob("p-value < 2.2e-16", x=0.2,  y=-2, hjust=0, col
 ggsave(paste0("./output/essentialGenes/plots/genesApClassificationOrg.jpeg"), width = 30, height = 25, units = "cm")
 ggsave(paste0("./output/essentialGenes/plots/genesApClassificationOrg.svg"), width = 30, height = 25, units = "cm")
 
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
 # ---- plot4 ----
 
 # Status message
@@ -801,6 +812,43 @@ plot4
 ggsave(paste0("./output/essentialGenes/plots/genesReactionsClassification.jpeg"), width = 30, height = 25, units = "cm")
 ggsave(paste0("./output/essentialGenes/plots/genesReactionsClassification.svg"), width = 30, height = 25, units = "cm")
 
+#::::::::::::::::::::::::::::::::
+
+reactionDf <- reactionDf[reactionDf$is_bottleneck==1,]
+
+print(nrow(reactionDf[reactionDf$reaction_type == 'irreversible',]))
+print(nrow(reactionDf[reactionDf$reaction_type == 'reversible',]))
+
+# Generate the boxplot plot
+plot4_2 <- ggplot(reactionDf, aes(fill=reaction_type, x=reaction_type), ymin = -Inf, ymax = Inf) +
+  # Add the bars
+  geom_bar(position="dodge", stat="count") +
+
+  scale_y_continuous(breaks=seq(from = 0, to = nrow(orgGenes), by = 250)) +
+  scale_fill_manual(values = c("#ED553B", "#3CAEA3", "#a98600", "#173F5F")) +
+
+  # Chart visual properties
+  xlab("Reaction classification") +
+  ylab("APs count") +
+  ggtitle("") +
+  guides(fill=guide_legend(title="")) +
+  theme_bw() +
+  theme(plot.title = element_text(face="bold", color="black", size=26, margin = margin(t = 0, r = 0, b = 15, l = 0)),
+        axis.title.x = element_text(face="bold", color="black", size=20, margin = margin(t = 20, r = 0, b = 0, l = 0)),
+        axis.text.x = element_text(color="black", size=18, margin = margin(t = 10, r = 0, b = 0, l = 0)),
+        axis.title.y = element_text(face="bold", color="black", size=20, margin = margin(t = 0, r = 15, b = 0, l = 0)),
+        axis.text.y = element_text(face="bold", color="black", size=20),
+        legend.title = element_text(face="bold", size=18),
+        legend.text = element_text(size=16),
+        legend.position = 'right') + labs(fill = "Classification")
+
+plot4_2
+
+ggsave(paste0("./output/essentialGenes/plots/apsReactionsClassification.jpeg"), width = 30, height = 25, units = "cm")
+ggsave(paste0("./output/essentialGenes/plots/apsReactionsClassification.svg"), width = 30, height = 25, units = "cm")
+
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
 # ---- plot5 ----
 
 # Status message
@@ -810,15 +858,27 @@ printMessage("Betweenness by gene classification")
 gene_classification_betweenness_test <- kruskal.test(betweenness ~ gene_classification, data = orgGenes)
 pairwise.wilcox.test(orgGenes$betweenness, orgGenes$gene_classification, p.adjust.method = "BH")
 
+# Remove NA cases and non sense betweenness
+betweennessDataset <- orgGenes[!is.na(orgGenes$betweenness),]
+betweennessDataset <- betweennessDataset[betweennessDataset$betweenness >= 0 & betweennessDataset$betweenness <= 1,]
+
+# Keep just the AP genes data
+betweennessDataset <- betweennessDataset[betweennessDataset$is_bottleneck == 1,]
+
+# Remove the outliers
+betweennessDataset <- betweennessDataset[betweennessDataset$betweenness >= 0 & betweennessDataset$betweenness <= 0.45,]
+
+# Print some metrics related to AP lethal and AP non lethal
+print(mean(betweennessDataset[betweennessDataset$gene_classification_group==1,]$betweenness))
+print(mean(betweennessDataset[betweennessDataset$gene_classification_group==3,]$betweenness))
+
 # Generate the boxplot plot
-plot5 <- ggplot(orgGenes, aes(x=gene_classification, y=betweenness, na.rm = TRUE)) +
+plot5 <- ggplot(betweennessDataset, aes(x=gene_classification, y=betweenness, na.rm = TRUE)) +
   # Add the boxplot
   stat_boxplot(geom = "errorbar", width = 0.15) +
-  geom_boxplot(aes(group=gene_classification, fill=gene_classification), color=gene_classification,
-               palette=c("#C92D12", "#1E5953", "#5d4900", "#0d2539"),
-               fill=c("#ED553B", "#3CAEA3", "#a98600", "#173F5F"), position=position_dodge(0.5)) +
-
-  scale_fill_manual(values = c("#ED553B", "#3CAEA3", "#a98600", "#173F5F")) +
+  geom_boxplot(aes(group=gene_classification, fill=gene_classification),
+               colour=c("#C92D12", "#1E5953"),
+               fill=c("#ED553B", "#3CAEA3"), position=position_dodge(0.5)) +
 
   # Chart visual properties
   xlab("Genes classification") +
@@ -839,6 +899,8 @@ annotate_figure(plot5, text_grob('Kruskal-Wallis, p-value < 2.2e-16', x=0.2,  y=
 
 ggsave(paste0("./output/essentialGenes/plots/genesClassificationBetweenness.jpeg"), width = 30, height = 25, units = "cm")
 ggsave(paste0("./output/essentialGenes/plots/genesClassificationBetweenness.svg"), width = 30, height = 25, units = "cm")
+
+#::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 # ---- plot6 ----
 
