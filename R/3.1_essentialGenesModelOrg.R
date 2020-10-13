@@ -43,15 +43,17 @@ files.sources[4] = paste0("./R/functions", "/", "helperFunctions.R")
 sapply(files.sources, source)
 
 # Load the pathways by organisms data
-essentialGenesModelOrg <- get(load(paste0("./dictionaries", "/", "essentialGenesModelOrg.RData")))
+#essentialGenesModelOrg <- get(load(paste0("./dictionaries", "/", "essentialGenesModelOrg.csv")))
+essentialGenesModelOrg <- read.csv(file='./dictionaries/essentialGenesModelOrg.csv', header=TRUE, sep=",", stringsAsFactors=FALSE)
 
 # Set the list of model organisms according to KEGG nomenclature
-# Mus musculus => mmu
-# Drosophila melanogaster => dme
-# Saccharomyces cerevisiae => sce
-# Caenorhabditis elegans => cel
-modelOrgList = c("mmu", "dme", "sce", "cel")
-biomaRtOrgs = c("mmusculus_gene_ensembl", "dmelanogaster_gene_ensembl", "scerevisiae_gene_ensembl", "celegans_gene_ensembl")
+modelOrgList = unique(essentialGenesModelOrg$org)
+modelOrgList = c("hsa", "spo", "dme", "pau", "eco", "mtv", "sey", "sao", "hin", "mpn") # Lista prioridade Clóvis
+biomaRtOrgs = c("hsapiens_gene_ensembl", "", "dmelanogaster_gene_ensembl", "", "", "", "", "", "", "")
+
+# List the biomart orgs
+#ensembl <- useMart("ENSEMBL_MART_ENSEMBL", dataset = biomaRtOrg)
+#listDatasets(ensembl)
 
 #*******************************************************************************************#
 
@@ -428,6 +430,10 @@ joinOrgDatasets <- function(orgList_) {
     # Combine multiple data frames in one
     allNodes <- do.call(rbind, big.list.of.data.frames)
 
+    # Clear the unnecessary fields
+    #Precisamos do Nome do organismo, codigo kegg, pathway, EnsGenID e is_ap
+    allNodes <- allNodes[,c('org', 'pathway', 'name', 'entrez', 'is_bottleneck', 'reaction_type')]
+
     # Export allNodes
     write.csv(allNodes, file=paste0('./output/essentialGenes/', currentOrg, '.csv'), row.names = F)
 
@@ -509,6 +515,26 @@ matchOrgEntrezWithEnsembl <- function(orgList_) {
       # is that the loss of a subunit probably affects the structure of the enzyme as a whole and, therefore, if you find a subunit   #
       # that generates lethality, this alteration is also likely to be lethal as a whole                                              #
       #*******************************************************************************************************************************#
+      #  E, DE (?), ES (?), D (?) - essential
+      #*******************************************************************************************************************************#
+      #  NE - nonessential
+      #*******************************************************************************************************************************#
+      # Condicionais:
+      # growth defective (GD)
+      # growth advantaged (GA)
+      # F: fitness in vitro
+      # E-infection: required for single infection to lung of mice
+      # F-infection: Potential intermediate attenuation during single infection
+      # E-co-infection: required for co-infection to lung of mice
+      # F-co-infection: Potential intermediate attenuation during co-infection
+      #*******************************************************************************************************************************#
+      # Desconhecido:
+      # ND, U
+      #*******************************************************************************************************************************#
+      # Incerto
+      # S
+      #*******************************************************************************************************************************#
+
       orgGenes[idx,]$lethal_nonlethal <<- ifelse('lethal' %in% lethalityStatus, 'lethal', 'nonlethal')
       orgGenes[idx,]$entrezgene_accession <<- toString(accessionIDs)
       orgGenes[idx,]$ensembl_gene_id <<- toString(ensemblIDs)

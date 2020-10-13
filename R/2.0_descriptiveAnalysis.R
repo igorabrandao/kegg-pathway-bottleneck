@@ -572,7 +572,7 @@ for (idx in 1:nrow(orgByPath)) {
 reshapedData <- orgByPath[,c('pathway', 'totalSpecies', 'Eukaryotes', 'Prokaryotes')] %>% gather(phylogeny, count, 3:4)
 
 # Plot organisms by pathways
-ggplot(orgByPath) +
+paperFig1EukProk <- ggplot(orgByPath) +
   # Add the bars
   geom_bar(data=reshapedData, aes(x=pathway, y=count, fill=phylogeny), color='#f6f6f6', stat="identity") +
 
@@ -583,7 +583,6 @@ ggplot(orgByPath) +
   xlab("Pathways") +
   ylab("Organisms Count") +
   ggtitle("") +
-  #scale_fill_manual(values = c("#ED553B", "#3CAEA3", "#173F5F", "#9777AC", "#2A6636", "#E19F20")) +
   scale_fill_manual(values = c("#ED553B", "#173F5F")) +
   guides(fill=guide_legend(title="Organisms Types")) +
   theme_bw() +
@@ -593,7 +592,7 @@ ggplot(orgByPath) +
         axis.text.y = element_text(size=18),
         legend.title = element_text(face="bold", size=16),
         legend.text = element_text(size=16),
-        legend.position = 'top') +
+        legend.position = 'top')
   #geom_vline(xintercept=66, linetype='dashed', color="red", size=0.5) +
   #geom_text(aes(x=66, label="\n < 2000 organisms", y=5200), colour="#173F5F", angle=90) +
   #geom_vline(xintercept=77, linetype='dashed', color="red", size=0.5) +
@@ -601,7 +600,146 @@ ggplot(orgByPath) +
   #geom_vline(xintercept=87, linetype='dashed', color="red", size=0.5) +
   #geom_text(aes(x=87, label="\n < 4000 organisms", y=5200), colour="#173F5F", angle=90)
 
-  ggsave(paste0("./output/statistics/descriptive/organismsByPathway.png"), width = 30, height = 20, units = "cm")
+ggsave(paste0("./output/statistics/descriptive/organismsByPathway.png"), width = 30, height = 20, units = "cm")
+
+#:::::::::::::::::::::::::::::::::::::::::::::::::
+# Version 2 with all phylogeny classification
+
+# Reshape the data with all phylogeny
+reshapedData <- orgByPath[,c('pathway', 'totalSpecies', 'Animals', 'Plants',
+                             'Fungi', 'Protists', 'Bacteria', 'Archaea')] %>% gather(phylogeny, count, 3:8)
+
+# Plot organisms by pathways
+paperFig1 <- ggplot() +
+  # Add the bars
+  geom_bar(data=reshapedData, aes(x=pathway, y=count, fill=factor(phylogeny,
+          levels=c('Protists', 'Plants', 'Fungi', 'Animals', 'Archaea', 'Bacteria')) ),
+          color='#f6f6f6', stat="identity") +
+
+  # Chart visual properties
+  xlab("Pathways") +
+  ylab("") +
+  ggtitle("") +
+  scale_fill_manual(values = c("#E19F20", "#54845e", "#9777AC", "#ED553B", "#3CAEA3", "#173F5F")) +
+  guides(fill=guide_legend(title="Organisms Types")) +
+  theme_bw() +
+  theme(axis.title.x = element_text(face="bold", size=20, margin = margin(t = 15, r = 0, b = 0, l = 0)),
+        axis.text.x = element_blank(),
+        axis.title.y = element_text(face="bold", size=20, margin = margin(t = 0, r = 15, b = 0, l = 0)),
+        axis.text.y = element_text(size=18),
+        legend.title = element_text(face="bold", size=16),
+        legend.text = element_text(size=16),
+        legend.position = 'top') +
+  annotation_custom(grobTree(textGrob("A", x=0.02,  y=0.90, hjust=0, gp=gpar(col="black", fontsize=30, fontface="bold"))))
+
+#ggsave(paste0("./output/statistics/descriptive/organismsByPathwayAll.png"), width = 30, height = 20, units = "cm")
+#ggsave(paste0("./output/statistics/descriptive/organismsByPathwayAll.svg"), width = 30, height = 20, units = "cm")
+
+#:::::::::::::::::::::::::::::::::::::::::::::::::
+# Organisms distribution by classificatiion
+
+orgDistribution = data.frame(classification = NA, count = NA, stringsAsFactors = F)
+orgDistribution[1,] = c("Prokaryotes", 5687)
+orgDistribution[2,] = c("Eukaryotes", 534)
+
+orgDistribution = data.frame(classification = NA, count = NA, stringsAsFactors = F)
+orgDistribution[1,] = c("Protists", 50)
+orgDistribution[2,] = c("Plants", 106)
+orgDistribution[3,] = c("Fungi", 128)
+orgDistribution[4,] = c("Animals", 250)
+orgDistribution[5,] = c("Archaea", 304)
+orgDistribution[6,] = c("Bacteria", 5383)
+orgDistribution$count = as.numeric(orgDistribution$count)
+orgDistribution$percent <- (orgDistribution$count / sum(orgDistribution$count)) * 100
+orgDistribution$percent <- format(round(orgDistribution$percent, 2), nsmall = 2)
+orgDistribution$percent <- as.numeric(orgDistribution$percent)
+
+# Order the data by numer of APs
+orgDistribution <- orgDistribution[with(orgDistribution,order(-count)),]
+orgDistribution$classification <- factor(orgDistribution$classification, levels =
+                                           orgDistribution$classification[order(orgDistribution$count)])
+
+# Plot the organisms classification (Supplementary Figure S2 Bar Chart)
+paperFigS2BarPlot <- ggplot() +
+  # Add the bars
+  geom_bar(data=orgDistribution, aes(x=classification, y=percent, fill=classification),
+           color='#f6f6f6', stat="identity") +
+
+  # Chart visual properties
+  xlab("Classification") +
+  ylab("") +
+  ggtitle("") +
+  #scale_fill_manual(values = c("#E19F20", "#54845e", "#9777AC", "#ED553B", "#3CAEA3", "#173F5F")) +
+  scale_fill_manual(values = c("#ED553B", "#173F5F")) +
+  scale_y_continuous(labels=function(x) paste0(x,"%")) +
+  guides(fill=guide_legend(title="Organisms Types")) +
+  theme_bw() +
+  theme(axis.title.x = element_text(face="bold", size=20, margin = margin(t = 15, r = 0, b = 0, l = 0)),
+        axis.text.x = element_text(size=16),
+        axis.title.y = element_text(face="bold", size=20, margin = margin(t = 0, r = 15, b = 0, l = 0)),
+        axis.text.y = element_text(size=18),
+        legend.title = element_text(face="bold", size=16),
+        legend.text = element_text(size=16),
+        legend.position = 'top') +
+  annotation_custom(grobTree(textGrob("B", x=0.02,  y=0.90, hjust=0, gp=gpar(col="black", fontsize=30, fontface="bold"))))
+
+# Plot the organisms classification (Supplementary Figure S2 Pie Chart)
+# Compute the position of labels
+orgDistribution <- orgDistribution %>%
+  arrange(desc(classification)) %>%
+  mutate(prop = count / sum(orgDistribution$count) *100) %>%
+  mutate(ypos = cumsum(prop)- 0.5*prop )
+
+paperFigS2PiePlot <- ggplot(orgDistribution, aes(x="", y=prop, fill=paste0(classification, ' (', percent, '%)'))) +
+  geom_bar(stat="identity", width=1, color="white") +
+  coord_polar("y", start=0) +
+
+  #geom_text(aes(y = ypos, label = classification), color = "white", size=6) +
+
+  # Chart visual properties
+  xlab("") +
+  ylab("") +
+  ggtitle("") +
+  #scale_fill_manual(values = c("#ED553B", "#3CAEA3", "#173F5F", "#9777AC", "#54845e", "#E19F20")) +
+  scale_fill_manual(values = c("#ED553B", "#173F5F")) +
+  guides(fill=guide_legend(title="Organisms Distribution")) +
+  theme_void() + # remove background, grid, numeric labels
+  theme(axis.title.x = element_blank(),
+        axis.text.x = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text.y = element_blank(),
+        legend.title = element_text(face="bold", size=16),
+        legend.text = element_text(size=16),
+        legend.position = 'right')
+
+#:::::::::::::::::::::::::::::::::::::::::::::::::
+# Figure 1 combinations
+
+# Figure 1 + S2 bar chart without Eukayote and prokaryote classifications
+figureVersion1 <- ggarrange(paperFig1, paperFigS2BarPlot, heights = c(3, 3), ncol = 1, nrow = 2,
+                    align = "v", legend = "top", common.legend = TRUE)
+
+annotate_figure(figureVersion1, left = text_grob("Organism Count", color = "#000000", size=20, face = "bold", rot = 90))
+
+ggsave(paste0("./output/statistics/descriptive/organismsByPathwayAllABv1.png"), width = 30, height = 20, units = "cm")
+ggsave(paste0("./output/statistics/descriptive/organismsByPathwayAllABv1.svg"), width = 30, height = 20, units = "cm")
+
+# Figure 1 + S2 bar chart without Eukayote and prokaryote classifications
+figureVersion2 <- ggarrange(paperFig1, paperFigS2PiePlot, widths = c(3, 1.75), ncol = 2, nrow = 1,
+                            align = "v", legend = "top", common.legend = TRUE)
+
+ggsave(paste0("./output/statistics/descriptive/organismsByPathwayAllABv2.png"), width = 30, height = 20, units = "cm")
+ggsave(paste0("./output/statistics/descriptive/organismsByPathwayAllABv2.svg"), width = 30, height = 20, units = "cm")
+
+# Figure 1 + S2 bar chart without Eukayote and prokaryote classifications
+figureVersion1 <- ggarrange(paperFig1EukProk, paperFigS2BarPlot, heights = c(3, 3), ncol = 1, nrow = 2,
+                            align = "v", legend = "top", common.legend = TRUE)
+
+annotate_figure(figureVersion1, left = text_grob("Organism Count", color = "#000000", size=20, face = "bold", rot = 90))
+
+ggsave(paste0("./output/statistics/descriptive/organismsByPathwayAllABv3.png"), width = 30, height = 20, units = "cm")
+ggsave(paste0("./output/statistics/descriptive/organismsByPathwayAllABv3.svg"), width = 30, height = 20, units = "cm")
+
 
 #***************************#
 # Step 3: Correlation study #
