@@ -14,6 +14,8 @@
 
 # Import the necessary libraries
 library(biomaRt)
+library(biomartr)
+
 library(ggplot2)
 library(svglite)
 library(RColorBrewer)
@@ -52,8 +54,7 @@ modelOrgList = c("hsa", "spo", "dme", "pau", "eco", "mtv", "sey", "sao", "hin", 
 biomaRtOrgs = c("hsapiens_gene_ensembl", "", "dmelanogaster_gene_ensembl", "", "", "", "", "", "", "")
 
 # List the biomart orgs
-#ensembl <- useMart("ENSEMBL_MART_ENSEMBL", dataset = biomaRtOrg)
-#listDatasets(ensembl)
+#biomaRt::listDatasets(ensembl)
 
 #*******************************************************************************************#
 
@@ -323,73 +324,68 @@ generateOrgGeneList <- function(orgList_) {
   return(TRUE)
 }
 
-#' Convert the ensembl peptide ID to ensembl ID
+#' Function to add the organism mart dataset name into the dictionary
 #'
-#' @param biomaRtOrgs_ List of biomart organism datasets
+#' @param orgList_ List of KEGG organism name
 #'
-#' @return This function does not return nothing, just export .RData file.
+#' @return This function does not return nothing, just export .csv file.
 #'
 #' @examples
 #' \dontrun{
-#' generateOrgDataFromKGML(c("mmusculus_gene_ensembl", "dmelanogaster_gene_ensembl", "scerevisiae_gene_ensembl", "celegans_gene_ensembl"))
+#' generateOrgDataFromKGML(c("Homo sapiens", "Mus musculus"))
 #' }
 #'
 #' @author
 #' Igor Brandão
 #'
-convertPeptideToEnsembl <- function(biomaRtOrgs_) {
+addOrgMartDatasetName <- function(orgList_) {
 
   # Load the pathways by organisms data
-  essentialGenesModelOrg <- get(load(paste0("./dictionaries", "/", "essentialGenesModelOrg.RData")))
+  essentialGenesModelOrg <- read.csv(file='./dictionaries/essentialGenesModelOrg.csv', header=TRUE, sep=",", stringsAsFactors=FALSE)
 
   # Add the ensembl_gene_id column
-  essentialGenesModelOrg$ensembl_gene_id <- NA
-  essentialGenesModelOrg$entrezgene_id <- NA
-  essentialGenesModelOrg$entrezgene_accession <- NA
+  essentialGenesModelOrg$biomartDataset <- NA
 
   # Loop counters
   index <- 1
-  available_orgs <- length(biomaRtOrgs_)
+  available_orgs <- length(orgList_)
 
   # Loop 01: Run through all available pathways kgml
-  lapply(biomaRtOrgs_, function(biomaRtOrg) {
+  lapply(orgList_, function(org) {
     # Status message
-    printMessage(paste0("CONVERTING ", biomaRtOrg, " DATASET [", index, " OF ", available_orgs, "]"))
+    printMessage(paste0("GETTING ", org, " BIOMART DATASET NAME [", index, " OF ", available_orgs, "]"))
 
-    # Retrieve the ensembl info
-    ensembl <- useMart("ENSEMBL_MART_ENSEMBL", dataset = biomaRtOrg)
+    orgAttributes <- NULL
 
-    # Filter the ensembl ID
-    ids <- getBM(filters = "ensembl_peptide_id",
-             attributes = c("ensembl_peptide_id", "ensembl_gene_id", 'entrezgene_id', 'entrezgene_accession'),
-             values = essentialGenesModelOrg$ensembl_peptide_id, mart = ensembl)
-
-    # Remove NA cases
-    ids[ids == ""] <- NA
-    ids <- na.omit(ids)
-
-    # Apply the ensembl IDs and the entrez_id by the peptide ID
-    for (idx in 1:nrow(ids)) {
-      # Ensembl ID
-      essentialGenesModelOrg[essentialGenesModelOrg$ensembl_peptide_id == ids[idx,]$ensembl_peptide_id,]$ensembl_gene_id <<-
-        ids[idx,]$ensembl_gene_id
-
-      # Entrez ID
-      essentialGenesModelOrg[essentialGenesModelOrg$ensembl_peptide_id == ids[idx,]$ensembl_peptide_id,]$entrezgene_id <<-
-        ids[idx,]$entrezgene_id
-
-      # Entrez accession
-      essentialGenesModelOrg[essentialGenesModelOrg$ensembl_peptide_id == ids[idx,]$ensembl_peptide_id,]$entrezgene_accession <<-
-        ids[idx,]$entrezgene_accession
-    }
+    tryCatch({
+      # Retrieve the org attributes
+      orgAttributes <- biomartr::organismBM(organism = org)
+    }, error=function(e) {
+      # Save the log file
+      printLog(toString(e), file_=paste0('addOrgMartDatasetName', org))
+    })
 
     # Increment the index
     index <<- index + 1
 
+    if (is.null(orgAttributes) | length(orgAttributes) == 0) {
+      return(FALSE)
+    } else {
+      datasetName <- grep(orgAttributes$dataset, pattern='*_gene_ensembl', value=T)
+
+      if (is.null(datasetName) | length(datasetName) == 0) {
+        return(FALSE)
+      } else {
+        printMessage(datasetName)
+
+        # Add the biomart dataset name to the essential genes list
+        essentialGenesModelOrg[essentialGenesModelOrg$sciName == org,]$biomartDataset <<- datasetName
+      }
+    }
   }) # End of Loop 01
 
   # Update the dataSet
-  save(essentialGenesModelOrg, file = "./dictionaries/essentialGenesModelOrg2.RData", compress = "xz")
+  write.csv(essentialGenesModelOrg, file=paste0('./dictionaries/essentialGenesModelOrg2.csv'), row.names = F)
 }
 
 #' Function to aggregate all org datasets into one
@@ -566,7 +562,7 @@ matchOrgEntrezWithEnsembl <- function(orgList_) {
 # Step 1: Convert the genes from peptide ID to ensembl #
 # Warning: to heavy, run just once                     #
 #******************************************************#
-convertPeptideToEnsembl(biomaRtOrgs)
+addOrgMartDatasetName(unique(essentialGenesModelOrg$sciName))
 
 #*************************************************************************#
 # Step 2: Generate the organisms list of genes for all available pathways #
