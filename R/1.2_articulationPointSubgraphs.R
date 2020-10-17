@@ -471,8 +471,8 @@ for (idx in 1:nrow(dataSet)) {
 
 # Filter the dataSet selecting just the groups of interest
 dataSetImpactPlot <- dataSet[dataSet$ap_group==paste0('>=', groupThresholdMax) |
-                         dataSet$ap_group==paste0('<', groupThresholdMin),
-                         c('ap_dict_id', 'pathway', 'ap_group', 'pathway_nodes', 'pathway_edges', 'betweenness', 'degree', 'noSubgraphs', 'impact_score')]
+                               dataSet$ap_group==paste0('<', groupThresholdMin),
+                             c('ap_dict_id', 'pathway', 'ap_group', 'pathway_nodes', 'pathway_edges', 'betweenness', 'degree', 'noSubgraphs', 'impact_score')]
 
 # Fill the pathway code with zeros
 dataSetImpactPlot <- fillPathwayCodeWithZeros(dataSetImpactPlot)

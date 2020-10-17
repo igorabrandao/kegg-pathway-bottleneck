@@ -54,6 +54,7 @@ modelOrgList = c("hsa", "spo", "dme", "pau", "eco", "mtv", "sey", "sao", "hin", 
 biomaRtOrgs = c("hsapiens_gene_ensembl", "", "dmelanogaster_gene_ensembl", "", "", "", "", "", "", "")
 
 # List the biomart orgs
+#ensembl=useMart("ensembl")
 #biomaRt::listDatasets(ensembl)
 
 #*******************************************************************************************#
