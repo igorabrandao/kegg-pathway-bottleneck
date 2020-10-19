@@ -17,6 +17,7 @@
 #*********#
 
 # ---- PIPELINE ----
+library(plyr)
 
 #***************************************************************************#
 # ----  Passo 1: Carregar os dados para a análise ----
@@ -63,8 +64,8 @@ dataSetAP$expectedQuartile <- with(dataSetAP, factor(findInterval(dataSetAP$freq
                         labels=c("Q1","Q2","Q3","Q4")))
 
 # Conta os quartiles do grupo de enzimas APs
-count(dataSetAP$quartile)
-count(dataSetAP$expectedQuartile)
+dataSetAPCount <- count(dataSetAP$quartile)
+dataSetAPExpectedCount <- count(dataSetAP$expectedQuartile)
 
 #*********#
 # Non APs #
@@ -84,8 +85,8 @@ dataSetNonAP$expectedQuartile <- with(dataSetNonAP, factor(findInterval(dataSetN
                         labels=c("Q1","Q2","Q3","Q4")))
 
 # Conta os quartiles do grupo de enzimas não APs
-count(dataSetNonAP$quartile)
-count(dataSetNonAP$expectedQuartile)
+dataSetNonAPCount <- count(dataSetNonAP$quartile)
+dataSetNonAPExpectedCount <- count(dataSetNonAP$expectedQuartile)
 
 #***********************************************************************#
 # ----  Passo 3: Análises estatísticas ----
@@ -94,5 +95,42 @@ count(dataSetNonAP$expectedQuartile)
 # H0: A distribuiçào das enzimas é equitativa
 # H1: A distribuiçào das enzimas não é equitativa
 
+# Faça uma binomial entre a proporção Ap/nonAp entre cada quartil
+# Se der significativo temos nossa justificativa das faixas escolhidas
+
+# Dataframe que armazena o resultado do teste binomial para todos os quartiles
+resultadoBinomial = data.frame(quartile=character(), less=numeric(), greater=numeric(), two.sided=numeric(),  stringsAsFactors = FALSE)
+
+# Realiza o teste binomial para todos os quartis (AP x não AP)
+for (idx in 1:nrow(dataSetAPCount)) {
+  # Data frame temporário para adicionar ao resultado
+  temp <- data.frame(quartile=NA, less=NA, greater=NA, two.sided=NA, stringsAsFactors = FALSE)
+
+  # Pega o nome do quartile
+  temp$quartile <- paste0("Q", idx)
+
+  # Binomial unicaudal inferior
+  binomTest <- binom.test(dataSetAPCount[idx,]$freq, dataSetNonAPCount[idx,]$freq, alternative="less")
+  temp$less <- binomTest$p.value
+
+  # Binomial unicaudal superior
+  binomTest <- binom.test(dataSetAPCount[idx,]$freq, dataSetNonAPCount[idx,]$freq, alternative="greater")
+  temp$greater <- binomTest$p.value
+
+  # Binomial bicaudal
+  binomTest <- binom.test(dataSetAPCount[idx,]$freq, dataSetNonAPCount[idx,]$freq, alternative="two.sided")
+  temp$two.sided <- binomTest$p.value
+
+  # Adiciona ao resultado final
+  resultadoBinomial <- rbind(resultadoBinomial, temp)
+}
+
+# Imprimi o resultado
+resultadoBinomial
+
+# :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+# Limpa as variáveis sem uso
+rm(temp, binomTest)
 
 #*******************************************************************************************#
