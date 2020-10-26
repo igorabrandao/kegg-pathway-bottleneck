@@ -48,14 +48,11 @@ sapply(files.sources, source)
 #essentialGenesModelOrg <- get(load(paste0("./dictionaries", "/", "essentialGenesModelOrg.csv")))
 essentialGenesModelOrg <- read.csv(file='./dictionaries/essentialGenesModelOrg.csv', header=TRUE, sep=",", stringsAsFactors=FALSE)
 
-# Set the list of model organisms according to KEGG nomenclature
-modelOrgList = unique(essentialGenesModelOrg$org)
-modelOrgList = c("hsa", "spo", "dme", "pau", "eco", "mtv", "sey", "sao", "hin", "mpn") # Lista prioridade Clóvis
-biomaRtOrgs = c("hsapiens_gene_ensembl", "", "dmelanogaster_gene_ensembl", "", "", "", "", "", "", "")
+# Set the list of model organisms that contains a biomart dataSet according to KEGG nomenclature
+modelOrgList = unique(essentialGenesModelOrg[!is.na(essentialGenesModelOrg$biomartDataset),]$org)
 
-# List the biomart orgs
-#ensembl=useMart("ensembl")
-#biomaRt::listDatasets(ensembl)
+# Set the list of biomart dataSets
+biomaRtOrgsDataset = unique(essentialGenesModelOrg[!is.na(essentialGenesModelOrg$biomartDataset),]$biomartDataset)
 
 #*******************************************************************************************#
 
@@ -333,7 +330,7 @@ generateOrgGeneList <- function(orgList_) {
 #'
 #' @examples
 #' \dontrun{
-#' generateOrgDataFromKGML(c("Homo sapiens", "Mus musculus"))
+#' addOrgMartDatasetName(c("Homo sapiens", "Mus musculus"))
 #' }
 #'
 #' @author
@@ -389,6 +386,84 @@ addOrgMartDatasetName <- function(orgList_) {
   write.csv(essentialGenesModelOrg, file=paste0('./dictionaries/essentialGenesModelOrg2.csv'), row.names = F)
 }
 
+#' Function to convert the ensembl ID from OGEEE dataSet to entrez ID
+#'
+#' @param biomaRtOrgsDataset_ List of available organisms biomart datasets
+#'
+#' @return This function does not return nothing, just export .csv file.
+#'
+#' @examples
+#' \dontrun{
+#' convertEnsemblIdToEntrez(c("scerevisiae_gene_ensembl", "celegans_gene_ensembl", "dmelanogaster_gene_ensembl"))
+#' }
+#'
+#' @author
+#' Igor Brandão
+#'
+convertEnsemblIdToEntrez <- function(biomaRtOrgsDataset_) {
+
+  # Load the pathways by organisms data
+  if (is.null(essentialGenesModelOrg) | length(essentialGenesModelOrg) == 0) {
+    essentialGenesModelOrg <- read.csv(file='./dictionaries/essentialGenesModelOrg.csv', header=TRUE, sep=",", stringsAsFactors=FALSE)
+  }
+
+  # Add the entrez ID column
+  essentialGenesModelOrg$ensemblId <- NA
+  essentialGenesModelOrg$entrezGeneId <- NA
+  essentialGenesModelOrg$entrezGeneAccession <- NA
+
+  # Loop counters
+  index <- 1
+  available_orgs <- length(biomaRtOrgsDataset_)
+
+  # Loop 01: Run through all available organisms
+  lapply(biomaRtOrgsDataset_, function(biomaRtOrg) {
+    # Status message
+    printMessage(paste0("CONVERTING ", biomaRtOrg, " ENSEMBL IDs TO ENTREZ [", index, " OF ", available_orgs, "]"))
+
+    tryCatch({
+      # Retrieve the ensembl info
+      ensembl <- useMart("ensembl", dataset = biomaRtOrg)
+
+      # Filter the ensemblList according to the current biomart dataset
+      ensemblList <- essentialGenesModelOrg[strcmp(essentialGenesModelOrg$biomartDataset, biomaRtOrg) == 0,]$locus
+
+      # Filter the ensembl ID
+      ids <- getBM(filters = "ensembl_gene_id",
+                   attributes = c("ensembl_gene_id", 'entrezgene_id', 'entrezgene_accession'),
+                   values = ensemblList, mart = ensembl)
+
+      # Remove NA cases
+      ids[ids == ""] <- NA
+      ids <- na.omit(ids)
+
+      # Apply the entrez_id by the ensembl IDs
+      for (idx in 1:nrow(ids)) {
+        # Ensembl ID
+        essentialGenesModelOrg[essentialGenesModelOrg$locus == ids[idx,]$ensembl_gene_id,]$ensemblId <<-
+          ids[idx,]$ensembl_gene_id
+
+        # Entrez ID
+        essentialGenesModelOrg[essentialGenesModelOrg$locus == ids[idx,]$ensembl_gene_id,]$entrezGeneId <<-
+          ids[idx,]$entrezgene_id
+
+        # Entrez accession
+        essentialGenesModelOrg[essentialGenesModelOrg$locus == ids[idx,]$ensembl_gene_id,]$entrezGeneAccession <<-
+          ids[idx,]$entrezgene_accession
+      }
+    }, error=function(e) {
+      # Save the log file
+      printLog(toString(e), file_=paste0('convertEnsemblIdToEntrez', org))
+    })
+
+    # Increment the index
+    index <<- index + 1
+  }) # End of Loop 01
+
+  # Update the dataSet
+  write.csv(essentialGenesModelOrg, file=paste0('./dictionaries/essentialGenesModelOrg2.csv'), row.names = F)
+}
+
 #' Function to aggregate all org datasets into one
 #'
 #' @param orgList_ List of KEGG organism code
@@ -429,7 +504,7 @@ joinOrgDatasets <- function(orgList_) {
 
     # Clear the unnecessary fields
     #Precisamos do Nome do organismo, codigo kegg, pathway, EnsGenID e is_ap
-    allNodes <- allNodes[,c('org', 'pathway', 'name', 'entrez', 'is_bottleneck', 'reaction_type')]
+    allNodes <- allNodes[,c('dictID', 'org', 'pathway', 'name', 'entrez', 'is_bottleneck', 'reaction_type')]
 
     # Export allNodes
     write.csv(allNodes, file=paste0('./output/essentialGenes/', currentOrg, '.csv'), row.names = F)
@@ -463,28 +538,32 @@ matchOrgEntrezWithEnsembl <- function(orgList_) {
   index <- 1
   available_orgs <- length(orgList_)
 
+  # Load the essential genes data
+  if (is.null(essentialGenesModelOrg) | length(essentialGenesModelOrg) == 0) {
+    essentialGenesModelOrg <- read.csv(file='./dictionaries/essentialGenesModelOrg.csv', header=TRUE, sep=",", stringsAsFactors=FALSE)
+  }
+
+  # Remove the organisms that don't have the biomart data
+  essentialGenesModelOrg <- essentialGenesModelOrg[!is.na(essentialGenesModelOrg$biomartDataset),]
+
+  # Prepare the extra columns
+  essentialGenesModelOrg$dictID <- NA
+  essentialGenesModelOrg$pathway <- NA
+  essentialGenesModelOrg$ec <- NA
+  essentialGenesModelOrg$is_ap <- NA
+  essentialGenesModelOrg$reaction_type <- NA
+
   # Loop 01: Run through all organism in list
   lapply(orgList_, function(currentOrg) {
-
     # Status message
-    printMessage(paste0("MATCHING THE ", currentOrg, " GENE LIST WITH THE LETHALITY LIST [", index, " OF ", available_orgs, "]"))
+    printMessage(paste0("MATCHING THE ", currentOrg, " GENE LIST WITH THE ESSENTIAL GENE LIST [", index, " OF ", available_orgs, "]"))
 
     # Get the list of files
     orgGenes <- read.csv(paste0("./output/essentialGenes/", currentOrg, ".csv"), header=TRUE, sep=",", stringsAsFactors=FALSE)
 
-    # Extra fields to orgGenes df
-    orgGenes$lethal_nonlethal <- NA
-    orgGenes$entrezgene_accession <- NA
-    orgGenes$ensembl_gene_id <- NA
-
     # Loop 02: Run through all organism gene list
     idx = 1
     apply(orgGenes, 1, function(currentGene) {
-      # Current lethality status
-      lethalityStatus <- c()
-      accessionIDs <- c()
-      ensemblIDs <- c()
-
       # Generate a temporary entrez list for the current gene
       currentEntrezList <- orgGenes[idx,]$entrez
 
@@ -496,59 +575,38 @@ matchOrgEntrezWithEnsembl <- function(orgList_) {
 
       # Loop 03: Run through all entrez in the current gene
       for (idx2 in 1:length(currentEntrezList)) {
-        # Retrieve the lethality status for the current entrez
-        currentEntrez <- essentialGenesModelOrg[which(essentialGenesModelOrg$entrezgene_id == currentEntrezList[idx2]),]
+        # Check if there is a match between the entrezGeneId column with the current entrez
+        matchidx <- which(essentialGenesModelOrg$entrezGeneId == currentEntrezList[idx2])
 
-        # Append the status to the current gene status
-        lethalityStatus <- c(lethalityStatus, currentEntrez$lethal_nonlethal)
-        accessionIDs <- c(accessionIDs, currentEntrez$entrezgene_accession)
-        ensemblIDs <- c(ensemblIDs, currentEntrez$ensembl_gene_id)
+        # If no match was found
+        if (length(matchidx) == 0) {
+          # Try again but matching with the locus column
+          matchidx <- which(essentialGenesModelOrg$locus == currentEntrezList[idx2])
+        }
+
+        # Append the current entrez into the essential genes dataSet
+        if (length(matchidx) != 0) {
+          essentialGenesModelOrg[matchidx,]$dictID <<- orgGenes[idx,]$dictID
+          essentialGenesModelOrg[matchidx,]$pathway <<- orgGenes[idx,]$pathway
+          essentialGenesModelOrg[matchidx,]$ec <<- orgGenes[idx,]$name
+          essentialGenesModelOrg[matchidx,]$is_ap <<- orgGenes[idx,]$is_bottleneck
+          essentialGenesModelOrg[matchidx,]$reaction_type <<- orgGenes[idx,]$reaction_type
+        }
       }
-
-      #*******************************************************************************************************************************#
-      # Verify the lethalityStatus, if at least one entrez is classified as lethal the whole group is lethal                          #
-      #                                                                                                                               #
-      # This situation reflects the case of an enzyme (EC) that has several subunits (several entrez id or mgids). The hypothesis     #
-      # is that the loss of a subunit probably affects the structure of the enzyme as a whole and, therefore, if you find a subunit   #
-      # that generates lethality, this alteration is also likely to be lethal as a whole                                              #
-      #*******************************************************************************************************************************#
-      #  E, DE (?), ES (?), D (?) - essential
-      #*******************************************************************************************************************************#
-      #  NE - nonessential
-      #*******************************************************************************************************************************#
-      # Condicionais:
-      # growth defective (GD)
-      # growth advantaged (GA)
-      # F: fitness in vitro
-      # E-infection: required for single infection to lung of mice
-      # F-infection: Potential intermediate attenuation during single infection
-      # E-co-infection: required for co-infection to lung of mice
-      # F-co-infection: Potential intermediate attenuation during co-infection
-      #*******************************************************************************************************************************#
-      # Desconhecido:
-      # ND, U
-      #*******************************************************************************************************************************#
-      # Incerto
-      # S
-      #*******************************************************************************************************************************#
-
-      orgGenes[idx,]$lethal_nonlethal <<- ifelse('lethal' %in% lethalityStatus, 'lethal', 'nonlethal')
-      orgGenes[idx,]$entrezgene_accession <<- toString(accessionIDs)
-      orgGenes[idx,]$ensembl_gene_id <<- toString(ensemblIDs)
 
       # Increment the index
       idx <<- idx + 1
-    })
-
-    # Export the organisms genes with the lethality status
-    write.csv(orgGenes, file=paste0('./output/essentialGenes/', currentOrg, '.csv'), row.names = F)
+    }) # End of loop 2
 
     # Remove temporaly variables
     rm(orgGenes)
 
     # Increment the index
     index <<- index + 1
-  })
+  }) # End of loop 1
+
+  # Export the organisms genes with the lethality status
+  write.csv(essentialGenesModelOrg, file=paste0('./dictionaries/essentialGenesModelOrgClovis.csv'), row.names = F)
 }
 
 #*******************************************************************************************#
@@ -559,29 +617,33 @@ matchOrgEntrezWithEnsembl <- function(orgList_) {
 # Pipeline flow #
 #***************#
 
-#******************************************************#
-# Step 1: Convert the genes from peptide ID to ensembl #
-# Warning: to heavy, run just once                     #
-#******************************************************#
-addOrgMartDatasetName(unique(essentialGenesModelOrg$sciName))
+#***************************************************************************#
+# Step 1: Get the biomart dataSet according to the organism scientific name #
+#***************************************************************************#
+# addOrgMartDatasetName(unique(essentialGenesModelOrg$sciName))
+
+#***************************************************************#
+# Step 2: Convert the essential genes from ensembl ID to entrez #
+#***************************************************************#
+convertEnsemblIdToEntrez(biomaRtOrgsDataset)
 
 #*************************************************************************#
-# Step 2: Generate the organisms list of genes for all available pathways #
+# Step 3: Generate the organisms list of genes for all available pathways #
 #*************************************************************************#
-generateOrgGeneList(modelOrgList)
+#generateOrgGeneList(modelOrgList)
 
 #*****************************************************************#
-# Step 3: Join organisms list of genes for all available pathways #
+# Step 4: Join organisms list of genes for all available pathways #
 #*****************************************************************#
 joinOrgDatasets(modelOrgList)
 
 #******************************************************************************************#
-# Step 4: Match the organisms genes with the list of lethal genes (essentialGenesModelOrg) #
+# Step 5: Match the organisms genes with the list of lethal genes (essentialGenesModelOrg) #
 #******************************************************************************************#
 matchOrgEntrezWithEnsembl(modelOrgList)
 
 #*******************************************************#
-# Step 5: Perform plots to explore the lethality metric #
+# Step 6: Perform plots to explore the lethality metric #
 #*******************************************************#
 
 # ---- PLOT SECTION ----
