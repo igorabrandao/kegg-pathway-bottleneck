@@ -54,63 +54,122 @@ library(svglite)
 # Nota: lembre de ajustar o caminho do arquivo de acordo com o seu ambiente #
 #***************************************************************************#
 
-# Carrega o dataSet referente a análise deste major
-dataSet <- read.csv("./revisao_jbc/revisor1/major1/dataset.csv", header=TRUE, sep=",", stringsAsFactors=FALSE)
+# Carrega o dataSet com os genes do OGEE
+dataSetOGEE <- read.csv("./revisao_jbc/revisor1/major1/t1_OGEE.csv", header=TRUE, sep=",", stringsAsFactors=FALSE)
 
-# Limpa o dataSet e remove os casos dos genes sem classificação de AP
-dataSet <- dataSet[!is.na(dataSet$is_ap),]
+# Carrega o dataSet com os genes do KEGG + métricas de rede
+dataSetOrgGenes <- read.csv("./revisao_jbc/revisor1/major1/t2_orgGenes.csv", header=TRUE, sep=",", stringsAsFactors=FALSE)
+
+# Carrega o dataSet com o dicionário (ensemvlID -> Entrez ID)
+ensemblEntrezDictionary <- read.csv("./revisao_jbc/revisor1/major1/t3_ensemblEntrezDictionary.csv", header=TRUE, sep=",", stringsAsFactors=FALSE)
+
+#***************************************************************************#
+# ----  Passo 2: Match dos dataSets através do dicionário ----
+#***************************************************************************#
+
+# Faz o match entre os dataSets
+dataSetMatch <- dataSetOrgGenes
+dataSetMatch <- cbind(dataSetMatch, sciName = NA)
+dataSetMatch <- cbind(dataSetMatch, kingdom = NA)
+dataSetMatch <- cbind(dataSetMatch, ensemblID = NA)
+dataSetMatch <- cbind(dataSetMatch, symbols = NA)
+dataSetMatch <- cbind(dataSetMatch, datasets = NA)
+dataSetMatch <- cbind(dataSetMatch, datasetIDs = NA)
+dataSetMatch <- cbind(dataSetMatch, essentiality.status = NA)
+dataSetMatch <- cbind(dataSetMatch, essentiality.consensus = NA)
+dataSetMatch <- cbind(dataSetMatch, biomartDataset = NA)
+
+# Percorre todos os genes do KEGG e faz um match com os dados do OGEE
+# Aviso: esse trecho é muito pesado!
+idx = 1
+apply(dataSetOrgGenes, 1, function(x) {
+  # Busca o item do dicionário correspondente ao gene atual
+  currentDictionaryEntry <- ensemblEntrezDictionary[ensemblEntrezDictionary$ensemblID == dataSetOGEE[idx,]$ensemblID,]
+
+  # Se não houver correspondências com o dicionário pula o gene atual
+  if (nrow(currentDictionaryEntry) > 0) {
+    # Find which rows in graphProperties match with pathwayData
+    rowsToMerge <- which(grepl(paste0('\\', dataSetOGEE[idx,]$org, ':', currentDictionaryEntry$entrezGeneID, '\\b'), dataSetOrgGenes$entrez))
+
+    print(paste0('Index: ', idx))
+    print(paste0('Rows to merge: ', rowsToMerge))
+
+    # Se houver alguma correspondência, faz o match com o gene correspondente
+    if (length(rowsToMerge) != 0) {
+      for (idx2 in 1:length(rowsToMerge)) {
+        print(paste0('Current row: ', rowsToMerge[idx2]))
+
+        dataSetMatch[rowsToMerge[idx2],]$sciName <<- dataSetOGEE[idx,]$sciName
+        dataSetMatch[rowsToMerge[idx2],]$kingdom <<- dataSetOGEE[idx,]$kingdom
+        dataSetMatch[rowsToMerge[idx2],]$ensemblID <<- dataSetOGEE[idx,]$ensemblID
+        dataSetMatch[rowsToMerge[idx2],]$symbols <<- dataSetOGEE[idx,]$symbols
+        dataSetMatch[rowsToMerge[idx2],]$datasets <<- dataSetOGEE[idx,]$datasets
+        dataSetMatch[rowsToMerge[idx2],]$datasetIDs <<- dataSetOGEE[idx,]$datasetIDs
+        dataSetMatch[rowsToMerge[idx2],]$essentiality.status <<- dataSetOGEE[idx,]$essentiality.status
+        dataSetMatch[rowsToMerge[idx2],]$essentiality.consensus <<- dataSetOGEE[idx,]$essentiality.consensus
+        dataSetMatch[rowsToMerge[idx2],]$biomartDataset <<- dataSetOGEE[idx,]$biomartDataset
+      }
+    }
+  }
+
+  # Increment the index
+  idx <<- idx + 1
+})
+
+# Exporta as correspondências entre os dados do KEGG e OGEE
+write.csv(dataSetMatch, file=paste0('./revisao_jbc/revisor1/major1/t4_dataSetMatch.csv'), row.names = F)
+
+#**********************************************************************************************#
+# ----  Passo 3: Separar os genes essenciais e não essenciais nos datasets de APs e non-APs ----
+#**********************************************************************************************#
+
+# Carrega o dataSet de correspondência entre os dados do KEGG e OGEE
+dataSetMatch <- read.csv("./revisao_jbc/revisor1/major1/t4_dataSetMatch.csv", header=TRUE, sep=",", stringsAsFactors=FALSE)
+
+# Remove casos inválidos
+dataSetMatch <- dataSetMatch[!is.na(dataSetMatch$essentiality.consensus),]
+
+# Remove os genes duplicados pelo KEGG
+dataSetMatch <- unique(dataSetMatch)
 
 # Separa os dataSets the APs e Non APs
-dataSetAp <-  dataSet[dataSet$is_ap == 1,]
-dataSetNonAp <-  dataSet[dataSet$is_ap == 0,]
+dataSetAp <- dataSetMatch[dataSetMatch$is_bottleneck == 1,]
+dataSetNonAp <- dataSetMatch[dataSetMatch$is_bottleneck == 0,]
 
-# Filtra somente os genes essenciais
-dataSetEssential <- dataSet[dataSet$essential %in% c('E', 'DE', 'ES', 'D'),]
-
-#**********************************************************************************************#
-# ----  Passo 2: Separar os genes essenciais e não essenciais nos datasets de APs e non-APs ----
-#**********************************************************************************************#
-
-# Nota: veja a tabela de classificação no início deste arquivo
-
-#*****#
-# APs #
-#*****#
+# ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 # Filtra os APs essenciais
-apEssential <- dataSetAp[dataSetAp$essential %in% c('E', 'DE', 'ES', 'D'),]
+apEssential <- dataSetMatch[dataSetMatch$is_bottleneck == 1 & dataSetMatch$essentiality.consensus == 'Essential',]
 
 # Filtra os APs não essenciais
-apNonEssential <- dataSetAp[dataSetAp$essential %in% c('NE'),]
+apNonEssential <- dataSetMatch[dataSetMatch$is_bottleneck == 1 & dataSetMatch$essentiality.consensus == 'Nonessential',]
 
-#*********#
-# Non APs #
-#*********#
+# Filtra os APs com essencialidade condicional
+apEssentialityConditional <- dataSetMatch[dataSetMatch$is_bottleneck == 1 & dataSetMatch$essentiality.consensus == 'Conditional',]
 
 # Filtra os não APs essenciais
-nonApEssential <- dataSetNonAp[dataSetNonAp$essential %in% c('E', 'DE', 'ES', 'D'),]
+nonApEssential <- dataSetMatch[dataSetMatch$is_bottleneck == 0 & dataSetMatch$essentiality.consensus == 'Essential',]
 
 # Filtra os não APs não essenciais
-nonApNonEssential <- dataSetNonAp[dataSetNonAp$essential %in% c('NE'),]
+nonApNonEssential <- dataSetMatch[dataSetMatch$is_bottleneck == 0 & dataSetMatch$essentiality.consensus == 'Nonessential',]
+
+# Filtra os não APs com essencialidade condicional
+nonApEssentialityConditional <- dataSetMatch[dataSetMatch$is_bottleneck == 0 & dataSetMatch$essentiality.consensus == 'Conditional',]
 
 #************************************************************************#
-# ----  Passo 3: Verificar as proporações de APs e non APs essenciais ----
+# ----  Passo 4: Verificar as proporações de APs e non APs essenciais ----
 #************************************************************************#
 
 # Calcula as proporções dos APs e non APs essenciais ou não comparando com todos os genes do dataSet
 genesProportionAllGenes <- data.frame(apClassification = NA, essentialityClassification = NA, proportion = NA, stringsAsFactors = F)
 
-# APs essenciais
-genesProportionAllGenes[1,] <- c('AP', 'Essential', (nrow(apEssential) / nrow(dataSet)))
+genesProportionAllGenes[1,] <- c('AP', 'Conditional', (nrow(apEssentialityConditional) / nrow(dataSetMatch))) # APs com essencialidade condicional
+genesProportionAllGenes[2,] <- c('AP', 'Essential', (nrow(apEssential) / nrow(dataSetMatch))) # APs essenciais
+genesProportionAllGenes[3,] <- c('AP', 'Non-Essential', (nrow(apNonEssential) / nrow(dataSetMatch))) # APs não essenciais
 
-# APs não essenciais
-genesProportionAllGenes[2,] <- c('AP', 'Non-Essential', (nrow(apNonEssential) / nrow(dataSet)))
-
-# Non APs essenciais
-genesProportionAllGenes[3,] <- c('Non-AP', 'Essential', (nrow(nonApEssential) / nrow(dataSet)))
-
-# Non APs non essenciais
-genesProportionAllGenes[4,] <- c('Non-AP', 'Non-Essential', (nrow(nonApNonEssential) / nrow(dataSet)))
+genesProportionAllGenes[4,] <- c('Non-AP', 'Conditional', (nrow(nonApEssentialityConditional) / nrow(dataSetMatch))) # Non APs com essencialidade condicional
+genesProportionAllGenes[5,] <- c('Non-AP', 'Essential', (nrow(nonApEssential) / nrow(dataSetMatch))) # Non APs essenciais
+genesProportionAllGenes[6,] <- c('Non-AP', 'Non-Essential', (nrow(nonApNonEssential) / nrow(dataSetMatch))) # Non APs non essenciais
 
 # Converte as proporções para o tipo numérico
 genesProportionAllGenes$proportion = as.numeric(genesProportionAllGenes$proportion)
@@ -120,23 +179,19 @@ genesProportionAllGenes$proportion = as.numeric(genesProportionAllGenes$proporti
 # Calcula as proporções dos APs e non APs essenciais ou não somente no mesmo grupo (AP ou non-AP)
 genesProportion <- data.frame(apClassification = NA, essentialityClassification = NA, proportion = NA, stringsAsFactors = F)
 
-# APs essenciais
-genesProportion[1,] <- c('AP', 'Essential', (nrow(apEssential) / nrow(dataSetAp)))
+genesProportion[1,] <- c('AP', 'Conditional', (nrow(apEssentialityConditional) / nrow(dataSetAp))) # APs com essencialidade condicional
+genesProportion[2,] <- c('AP', 'Essential', (nrow(apEssential) / nrow(dataSetAp))) # APs essenciais
+genesProportion[3,] <- c('AP', 'Non-Essential', (nrow(apNonEssential) / nrow(dataSetAp))) # APs não essenciais
 
-# APs não essenciais
-genesProportion[2,] <- c('AP', 'Non-Essential', (nrow(apNonEssential) / nrow(dataSetAp)))
-
-# Non APs essenciais
-genesProportion[3,] <- c('Non-AP', 'Essential', (nrow(nonApEssential) / nrow(dataSetNonAp)))
-
-# Non APs non essenciais
-genesProportion[4,] <- c('Non-AP', 'Non-Essential', (nrow(nonApNonEssential) / nrow(dataSetNonAp)))
+genesProportion[4,] <- c('Non-AP', 'Conditional', (nrow(nonApEssentialityConditional) / nrow(dataSetNonAp))) # Non APs com essencialidade condicional
+genesProportion[5,] <- c('Non-AP', 'Essential', (nrow(nonApEssential) / nrow(dataSetNonAp))) # Non APs essenciais
+genesProportion[6,] <- c('Non-AP', 'Non-Essential', (nrow(nonApNonEssential) / nrow(dataSetNonAp))) # Non APs non essenciais
 
 # Converte as proporções para o tipo numérico
 genesProportion$proportion = as.numeric(genesProportion$proportion)
 
 #**************************************#
-# ----  Passo 4: Criar alguns plots ----
+# ----  Passo 5: Criar alguns plots ----
 #**************************************#
 
 # ----  plot 1 ----
@@ -147,11 +202,11 @@ plot1 <- ggplot(genesProportionAllGenes) +
   geom_bar(aes(fill=essentialityClassification, x=apClassification, y=proportion), position="dodge", stat="identity") +
 
   # Add labels to bars group
-  geom_text(aes(y=(proportion + 0.06), x=c(0.75, 1.20, 1.75, 2.20), label=(paste0(format(round(proportion * 100, 2), nsmall = 2), '%'))),
+  geom_text(aes(y=(proportion + 0.06), x=c(0.7, 1, 1.3, 1.7, 2, 2.3), label=(paste0(format(round(proportion * 100, 2), nsmall = 2), '%'))),
             size=6) +
 
   scale_y_continuous(limits=c(0, 1), labels = scales::percent) +
-  scale_fill_manual(values = c("#ED553B", "#173F5F")) +
+  scale_fill_manual(values = c("#a98600", "#173F5F", "#ED553B")) +
 
   # Chart visual properties
   xlab("Classification") +
@@ -170,8 +225,8 @@ plot1 <- ggplot(genesProportionAllGenes) +
 plot1
 
 # Exporta a imagem para edição posterior
-ggsave(paste0("./revisao_jbc/revisor1/major1/genesClassificationAllGenes.jpeg"), width = 30, height = 20, units = "cm")
-ggsave(paste0("./revisao_jbc/revisor1/major1/genesClassificationAllGenes.svg"), width = 30, height = 20, units = "cm")
+ggsave(paste0("./revisao_jbc/revisor1/major1/figuras/genesClassificationAllGenes.jpeg"), width = 30, height = 20, units = "cm")
+ggsave(paste0("./revisao_jbc/revisor1/major1/figuras/genesClassificationAllGenes.svg"), width = 30, height = 20, units = "cm")
 
 # ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -183,11 +238,11 @@ plot2 <- ggplot(genesProportion) +
   geom_bar(aes(fill=essentialityClassification, x=apClassification, y=proportion), position="dodge", stat="identity") +
 
   # Add labels to bars group
-  geom_text(aes(y=(proportion + 0.06), x=c(0.75, 1.20, 1.75, 2.20), label=(paste0(format(round(proportion * 100, 2), nsmall = 2), '%'))),
+  geom_text(aes(y=(proportion + 0.06), x=c(0.7, 1, 1.3, 1.7, 2, 2.3), label=(paste0(format(round(proportion * 100, 2), nsmall = 2), '%'))),
             size=6) +
 
   scale_y_continuous(limits=c(0, 1), labels = scales::percent) +
-  scale_fill_manual(values = c("#ED553B", "#173F5F")) +
+  scale_fill_manual(values = c("#a98600", "#173F5F", "#ED553B")) +
 
   # Chart visual properties
   xlab("Classification") +
@@ -205,6 +260,9 @@ plot2 <- ggplot(genesProportion) +
 
 plot2
 
+print(paste0("Quantidade de Genes APs: ", nrow(dataSetAp)))
+print(paste0("Quantidade de Genes não APs: ", nrow(dataSetNonAp)))
+
 # Exporta a imagem para edição posterior
-ggsave(paste0("./revisao_jbc/revisor1/major1/genesClassification.jpeg"), width = 30, height = 20, units = "cm")
-ggsave(paste0("./revisao_jbc/revisor1/major1/genesClassification.svg"), width = 30, height = 20, units = "cm")
+ggsave(paste0("./revisao_jbc/revisor1/major1/figuras/genesClassification.jpeg"), width = 30, height = 20, units = "cm")
+ggsave(paste0("./revisao_jbc/revisor1/major1/figuras/genesClassification.svg"), width = 30, height = 20, units = "cm")

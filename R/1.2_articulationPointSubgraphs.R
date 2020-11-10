@@ -267,6 +267,200 @@ calculateAPSubGraphs <- function(removeNoise_=TRUE) {
   }) # End of Loop 01
 }
 
+#' Parse the KGML file and account the articulation points neighbors in N levels
+#'
+#' @param orgList_ List of KEGG organism code
+#' @param removeNoise_ Remove undesirable enzyme such as: ko, map, path, cpd or gl.
+#'
+#' @return This function returns nothing, just export .csv files.
+#'
+#' @examples
+#' \dontrun{
+#' calculateAPSNeighbors()
+#' calculateAPSNeighbors(c("ec", "hsa", "mmu"), FALSE)
+#' }
+#'
+#' @author
+#' Igor Brandão
+#'
+calculateAPsNeighbors <- function(orgList_, removeNoise_=TRUE) {
+
+  # Status message
+  printMessage(paste0("PERFORMING THE AP NEIGHBORS EVALUATION..."))
+
+  # Load the dicionaty
+  dictionary <- read.csv(file='./output/pathwaysDictionary/dictionary.csv', header=TRUE, sep=",", stringsAsFactors=FALSE)
+
+  # Load the dataset containing the APs
+  dataSet <- read.csv(file='./output/statistics/hypergeometric/dataSet.csv', header=TRUE, sep=",", stringsAsFactors=FALSE)
+  dataSet <- dataSet[dataSet$is_bottleneck == 1,]
+
+  if (is.null(dictionary) | nrow(dictionary) == 0) {
+    # Save the log file
+    printLog(message_='The pathways nodes dictionary could not be found. Skipping it...', file_='calculateAPSubGraphs')
+    return(FALSE)
+  }
+
+  if (is.null(dataSet) | nrow(dataSet) == 0) {
+    # Save the log file
+    printLog(message_='The nodes dataset could not be found. Skipping it...', file_='calculateAPSubGraphs')
+    return(FALSE)
+  }
+
+  # Loop 01: Run through all organism in list
+  lapply(orgList_, function(currentOrg) {
+
+    # Get the organism pathway list of files
+    folder = paste0("./output/kgml/", currentOrg, "/")
+    kgml_list <- list.files(path=folder, pattern='*.xml')
+
+    # Define the number of available pathways
+    available_pathways <- length(kgml_list)
+    kgml_index <- 1
+
+    # Loop 02: Run through all available pathways kgml
+    lapply(kgml_list, function(file) {
+
+      # Get the pathway code
+      pathway_code <- onlyNumber(file)
+
+      # Status message
+      printMessage(paste0("PERFORMING ", currentOrg, " APS NEIGHBORS DATA OF PATHWAY ", pathway_code, " DATA [", kgml_index, " OF ", available_pathways, "]"))
+
+      #**************************************************************##
+      # Get the current reference pathway to perform the calculations #
+      #**************************************************************##
+
+      tryCatch({
+        # Load the current pathway dataframe
+        current_kgml <- KGML2Dataframe(paste0(folder, file))
+
+        # Convert the pathway data into a graph
+        pathwayGraph <- KGML2GraphDictionary(paste0(folder, file), replaceOrg=TRUE, orgToReplace=currentOrg)
+
+        if (is.null(pathwayGraph) | isempty(pathwayGraph)) {
+          # Save the log file
+          printLog(message_=paste0('The network ', pathway_code, ' [', kgml_index, ' of ', available_pathways,  '] data frame is empty. Skipping it...'), file_='calculateAPsNeighbors')
+
+          # Increment the index
+          kgml_index <<- kgml_index + 1
+
+          return(FALSE)
+        }
+
+        #*************************##
+        # Prepare the pathway data #
+        #*************************##
+
+        # Remove unnecessary data from pathway data/graph
+        if (removeNoise_) {
+          pathwayGraph <- removeNoise(pathwayGraph)
+        }
+
+        # Convert the graph into iGraph object
+        iGraph <- igraph::graph_from_data_frame(pathwayGraph, directed = TRUE)
+
+        #*****************************************************##
+        # Run the sub-graphs disconnection and get its metrics #
+        #*****************************************************##
+
+        # Apply the node bottleneck impact
+        apNeighbors <- getArticulationPointNeighbors(pathwayGraph)
+
+        # Check if some result was returned
+        if (!is.null(apNeighbors) && nrow(apNeighbors) > 0) {
+          # Set other data
+          apNeighbors['org'] <- pathwayGraph[1:nrow(apNeighbors),]$org
+          apNeighbors['pathway'] <- pathwayGraph[1:nrow(apNeighbors),]$pathway
+          apNeighbors['pathway_nodes'] <- length(V(iGraph))
+          apNeighbors['pathway_edges'] <- length(E(iGraph))
+          colnames(apNeighbors)[1] <- 'ap_dict_id'
+
+          if (currentOrg == 'ec') {
+            # Handle the reference pathway
+            apNeighbors['ec'] <- NA
+
+            for (idx in 1:nrow(apNeighbors)) {
+              # Set the AP ec according to the dictionary
+              apNeighbors[idx, 'ec'] <- dictionary[dictionary$id==apNeighbors[idx, 'ap_dict_id'],]$ec
+            }
+          } else {
+            # Handle the org pathway
+            apNeighbors['entrez'] <- NA
+
+            for (idx in 1:nrow(apNeighbors)) {
+              # Set the AP ec according to the pathwayGraph dataFrame
+              currentEntrez = unique(pathwayGraph[pathwayGraph$node1==apNeighbors[idx, 'ap_dict_id'],]$ec1)
+
+              if (is.null(currentEntrez) | length(currentEntrez) == 0) {
+                currentEntrez = unique(pathwayGraph[pathwayGraph$node2==apNeighbors[idx, 'ap_dict_id'],]$ec2)
+              }
+
+              apNeighbors[idx, 'entrez'] <- currentEntrez
+            }
+          }
+
+          # Generate the exporting dataset
+          result <- apNeighbors[,(ncol(apNeighbors)-4):ncol(apNeighbors)]
+          result['ap_dict_id'] <- as.integer(apNeighbors$ap_dict_id)
+          result['frequency'] <- NA
+          result <- merge(result, apNeighbors[,1:(ncol(apNeighbors)-5)], by='ap_dict_id', all=T)
+
+          # Remove unnecessary columns
+          result <- result[ , -which(names(result) %in% c('eccentricity', 'degree', 'closeness', 'betweenness', 'eigen_centrality'))]
+
+          # Perform the AP classification according to the reference dataset
+          for (idx in 1:nrow(result)) {
+            result[idx, 'frequency'] <- dataSet[which(dataSet$dictID==result[idx,]$ap_dict_id),]$percentage
+          }
+
+          #****************************#
+          # Prepare the data to export #
+          #****************************#
+
+          # Export the pathway data
+          if (!dir.exists(file.path('./output/apNeighborhood/'))) {
+            dir.create(file.path(paste0('./output/apNeighborhood/')), showWarnings = FALSE, mode = "0775")
+          }
+
+          # Create the org folder
+          if (!dir.exists(file.path(paste0('./output/apNeighborhood/', currentOrg)))) {
+            dir.create(file.path(paste0('./output/apNeighborhood/', currentOrg)), showWarnings = FALSE, mode = "0775")
+          }
+
+          if (dir.exists(paste0('./output/apNeighborhood/', currentOrg))) {
+            write.csv(result, file=paste0('./output/apNeighborhood/', currentOrg, '/', pathway_code, '.csv'))
+          }
+        } else {
+          # Save the log file
+          printLog(message_=paste0('The network ', pathway_code, ' [', kgml_index, ' of ', available_pathways,  '] doesnt have any articulation point. Skipping it...'), file_='calculateAPsNeighbors')
+        }
+
+        #***********************#
+        # Remove temp variables #
+        #***********************#
+
+        rm(current_kgml, pathwayGraph, iGraph, apNeighbors)
+
+        # Increment the index
+        kgml_index <<- kgml_index + 1
+
+      }, error=function(e) {
+        printMessage(e)
+
+        # Increment the index
+        kgml_index <<- kgml_index + 1
+
+        # Save the log file
+        printLog(toString(e), file_=paste0('calculateAPSNeighbors', pathway_code))
+
+        return(FALSE)
+      })
+    }) # End of Loop 02
+
+  }) # End of Loop 01
+}
+
 #' Get all data from a folder and bind it together
 #'
 #' @param filename_ The name of the generated file
@@ -355,13 +549,18 @@ generateConsolidatedDataSet <- function(filename_ = '', folderName_ = 'subGraph'
 #****************************************#
 #calculateAPSubGraphs()
 
+#***********************************************#
+# Step 2: Generate the network APs neighborhood #
+#***********************************************#
+calculateAPsNeighbors(c("hsa", "mmu"))
+
 #**************************************************#
-# Step 2: Export the cnsolidated subgraph datasets #
+# Step 3: Export the cnsolidated subgraph datasets #
 #**************************************************#
 #dataSet <- generateConsolidatedDataSet(filename_='allSubGraphs')
 
 #*********************************************************#
-# Step 3: Perform plots to explore the betweenness metric #
+# Step 4: Perform plots to explore the betweenness metric #
 #*********************************************************#
 
 # Load the dataSet

@@ -53,6 +53,7 @@ modelOrgList = unique(essentialGenesModelOrg[!is.na(essentialGenesModelOrg$bioma
 
 # Set the list of biomart dataSets
 biomaRtOrgsDataset = unique(essentialGenesModelOrg[!is.na(essentialGenesModelOrg$biomartDataset),]$biomartDataset)
+biomaRtOrgsDataset = c('hsapiens_gene_ensembl', 'mmusculus_gene_ensembl')
 
 #*******************************************************************************************#
 
@@ -402,15 +403,15 @@ addOrgMartDatasetName <- function(orgList_) {
 #'
 convertEnsemblIdToEntrez <- function(biomaRtOrgsDataset_) {
 
+  essentialGenesModelOrg <- read.csv(file='./revisao_jbc/revisor1/major1/t1_OGEE.csv', header=TRUE, sep=",", stringsAsFactors=FALSE)
+
   # Load the pathways by organisms data
   if (is.null(essentialGenesModelOrg) | length(essentialGenesModelOrg) == 0) {
-    essentialGenesModelOrg <- read.csv(file='./dictionaries/essentialGenesModelOrg.csv', header=TRUE, sep=",", stringsAsFactors=FALSE)
+    #essentialGenesModelOrg <- read.csv(file='./dictionaries/essentialGenesModelOrg.csv', header=TRUE, sep=",", stringsAsFactors=FALSE)
   }
 
-  # Add the entrez ID column
-  essentialGenesModelOrg$ensemblId <- NA
-  essentialGenesModelOrg$entrezGeneId <- NA
-  essentialGenesModelOrg$entrezGeneAccession <- NA
+  # Create an ensemblID -> Entrez ID dictionary
+  ensemblEntrezDictionary <- data.frame(org = NA, ensemblID = NA, entrezGeneID = NA, entrezGeneAccession = NA, stringsAsFactors = F)
 
   # Loop counters
   index <- 1
@@ -426,9 +427,10 @@ convertEnsemblIdToEntrez <- function(biomaRtOrgsDataset_) {
       ensembl <- useMart("ensembl", dataset = biomaRtOrg)
 
       # Filter the ensemblList according to the current biomart dataset
-      ensemblList <- essentialGenesModelOrg[strcmp(essentialGenesModelOrg$biomartDataset, biomaRtOrg) == 0,]$locus
+      ensemblList <- essentialGenesModelOrg[essentialGenesModelOrg$biomartDataset == biomaRtOrg,]$ensemblID
+      currentOrg <- unique(essentialGenesModelOrg[essentialGenesModelOrg$biomartDataset == biomaRtOrg,]$org)
 
-      # Filter the ensembl ID
+      # Get the entrez from biomart and filter the ensembl ID (warning: too slow)
       ids <- getBM(filters = "ensembl_gene_id",
                    attributes = c("ensembl_gene_id", 'entrezgene_id', 'entrezgene_accession'),
                    values = ensemblList, mart = ensembl)
@@ -437,20 +439,22 @@ convertEnsemblIdToEntrez <- function(biomaRtOrgsDataset_) {
       ids[ids == ""] <- NA
       ids <- na.omit(ids)
 
-      # Apply the entrez_id by the ensembl IDs
-      for (idx in 1:nrow(ids)) {
-        # Ensembl ID
-        essentialGenesModelOrg[essentialGenesModelOrg$locus == ids[idx,]$ensembl_gene_id,]$ensemblId <<-
-          ids[idx,]$ensembl_gene_id
+      # Add the org data
+      ids$org <- NA
+      ids$org <- currentOrg
 
-        # Entrez ID
-        essentialGenesModelOrg[essentialGenesModelOrg$locus == ids[idx,]$ensembl_gene_id,]$entrezGeneId <<-
-          ids[idx,]$entrezgene_id
+      # Reorder and rename the biomart columns
+      ids <- ids[,c('org', 'ensembl_gene_id', 'entrezgene_id', 'entrezgene_accession')]
+      names(ids)[names(ids) == "ensembl_gene_id"] <- "ensemblID"
+      names(ids)[names(ids) == "entrezgene_id"] <- "entrezGeneID"
+      names(ids)[names(ids) == "entrezgene_accession"] <- "entrezGeneAccession"
 
-        # Entrez accession
-        essentialGenesModelOrg[essentialGenesModelOrg$locus == ids[idx,]$ensembl_gene_id,]$entrezGeneAccession <<-
-          ids[idx,]$entrezgene_accession
-      }
+      # Bind the current ensemblIDs to the dicionary
+      ensemblEntrezDictionary <<- rbind(ensemblEntrezDictionary, ids)
+
+      # Remove the NA cases from the dictionary
+      ensemblEntrezDictionary <<- na.omit(ensemblEntrezDictionary)
+
     }, error=function(e) {
       # Save the log file
       printLog(toString(e), file_=paste0('convertEnsemblIdToEntrez', org))
@@ -461,7 +465,7 @@ convertEnsemblIdToEntrez <- function(biomaRtOrgsDataset_) {
   }) # End of Loop 01
 
   # Update the dataSet
-  write.csv(essentialGenesModelOrg, file=paste0('./dictionaries/essentialGenesModelOrg2.csv'), row.names = F)
+  write.csv(ensemblEntrezDictionary, file=paste0('./dictionaries/ensemblEntrezDictionary.csv'), row.names = F)
 }
 
 #' Function to aggregate all org datasets into one
@@ -504,7 +508,8 @@ joinOrgDatasets <- function(orgList_) {
 
     # Clear the unnecessary fields
     #Precisamos do Nome do organismo, codigo kegg, pathway, EnsGenID e is_ap
-    allNodes <- allNodes[,c('dictID', 'org', 'pathway', 'name', 'entrez', 'is_bottleneck', 'reaction_type')]
+    allNodes <- allNodes[,c('dictID', 'org', 'pathway', 'name', 'entrez', 'is_bottleneck', 'reaction_type',
+                            'betweenness', 'degree', 'community', 'eccentricity', 'radius', 'diameter')]
 
     # Export allNodes
     write.csv(allNodes, file=paste0('./output/essentialGenes/', currentOrg, '.csv'), row.names = F)
@@ -627,7 +632,7 @@ matchOrgEntrezWithEnsembl <- function(orgList_) {
 #***************************************************************#
 convertEnsemblIdToEntrez(biomaRtOrgsDataset)
 
-#*************************************************************************#
+h#*************************************************************************#
 # Step 3: Generate the organisms list of genes for all available pathways #
 #*************************************************************************#
 #generateOrgGeneList(modelOrgList)

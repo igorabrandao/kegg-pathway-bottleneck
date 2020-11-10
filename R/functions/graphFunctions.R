@@ -1011,6 +1011,80 @@ getArticulationPointSubGraphs <- function(graph_, verbose_=FALSE) {
   return(result)
 }
 
+getArticulationPointNeighbors <- function(graph_, verbose_=FALSE) {
+
+  # Status message
+  if (verbose_) {
+    print("Calculating the graph articulation points...")
+  }
+
+  # Select only the columns containing the nodes
+  graph_ <- graph_[,c('node1', 'node2')]
+
+  # Convert the graph into iGraph object
+  g <- igraph::graph_from_data_frame(graph_, directed = TRUE)
+
+  # Calculate the articulation points
+  articulation_points <- getGraphBottleneck(g)
+
+  # Status message
+  if (verbose_) {
+    print("Calculating the articulation points impact...")
+  }
+
+  if (!is.null(articulation_points) && length(articulation_points) > 0) {
+    # Unify the graph nodes and set its community
+    result <- data.frame(ap=as_ids(articulation_points),
+                         eccentricity=igraph::eccentricity(g, articulation_points),
+                         degree=igraph::degree(g, articulation_points),
+                         closeness=igraph::closeness(g, articulation_points),
+                         betweenness=igraph::betweenness(g, articulation_points, normalized = TRUE),
+                         eigen_centrality=0,
+                         networkDiameter=igraph::diameter(g, directed = TRUE),
+                         neighborsL1=0, stringsAsFactors = FALSE)
+
+    # Calculate the eigen centrality score
+    eigen_centrality_score=igraph::eigen_centrality(g, directed = TRUE)[1]
+
+    # Set the current neighbor equal to the node degree
+    result$neighborsL1 <- result$degree
+
+    # Set the current neighborhood level
+    # Note: Level 0 = the self node
+    # Level 1 = First level neighboors
+    # Level 2 = Second level neighboors
+    # Level N = Nth level neighboors
+    neighborhoodLevel = 2
+
+    # Dismantle the graph to calculate its impact
+    for (idx in 1:length(articulation_points)) {
+      # Set the current articulation point
+      currentAP <- articulation_points[idx]
+
+      # Select the eigen centrality score for each AP
+      eigen_centrality_id = which(names(eigen_centrality_score$vector)==as_ids(currentAP))
+      result[idx, 'eigen_centrality'] <- eigen_centrality_score$vector[eigen_centrality_id]
+
+      # Evaluate each subgraph particularly
+      for (level in neighborhoodLevel:result[idx,]$networkDiameter) {
+        # Check if the current neighborhood level column already exists in the dataframe
+        if ( paste0('neighborsL', level) %in% colnames(result) == F ) {
+          # Add the subgraph column
+          result[paste0('neighborsL', level)] <- NA
+        }
+
+        # Set the current neighborhood level
+        # Note: We subtracted 1 since the current node shouldn't be accounted
+        result[idx, paste0('neighborsL', level)] <- ego_size(g, order = level, nodes = currentAP, mode = "all") - 1
+      }
+    }
+  } else {
+    result <- NULL
+  }
+
+  return(result)
+}
+
 #*******************************************************************************************#
 
 # ---- AUXILIARY FUNCTIONS ----
