@@ -508,7 +508,7 @@ joinOrgDatasets <- function(orgList_) {
 
     # Clear the unnecessary fields
     #Precisamos do Nome do organismo, codigo kegg, pathway, EnsGenID e is_ap
-    allNodes <- allNodes[,c('dictID', 'org', 'pathway', 'name', 'entrez', 'is_bottleneck', 'reaction_type',
+    allNodes <- allNodes[,c('dictID', 'org', 'pathway', 'name', 'entrez', 'is_bottleneck', 'reaction', 'reaction_type',
                             'betweenness', 'degree', 'community', 'eccentricity', 'radius', 'diameter')]
 
     # Export allNodes

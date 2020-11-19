@@ -152,3 +152,34 @@ resultadoBinomial
 rm(temp, binomTest)
 
 #*******************************************************************************************#
+
+#***********************************************************************#
+# ----  Passo 4: Clusterização dos dados ----
+#***********************************************************************#
+
+library(useful)
+
+# Dataset para clusterizar
+clusterDataSet <- dataSetAP
+
+# O processo de clusterização trabalha somente com dados numéricos
+clusterDataSet <- clusterDataSet[,c("occurrences", "totalSpecies", "frequency")]
+
+# Determina o número otimizado de clustes com base na regra de Hartigan
+dataSetBestK <- FitKMeans(clusterDataSet, max.clusters=100L, nstart=25, seed=278613, algorithm = "Hartigan-Wong")
+PlotHartigan(dataSetBestK)
+ggsave(paste0("./revisao_jbc/revisor1/major2/figuras/melhoresClusters.jpeg"), width = 30, height = 20, units = "cm")
+
+# Separa o dataSet em N clusters
+set.seed(278613)
+dataSetK4N25 <- kmeans(x=clusterDataSet, centers=4, nstart=25)
+
+# Plot the clusterization
+clusterPlot <- plot(dataSetK4N25, data=dataSetAP, class="isAp")
+clusterPlot
+
+# Exporta a imagem para edição posterior
+ggsave(paste0("./revisao_jbc/revisor1/major2/figuras/clusterizacao.jpeg"), width = 30, height = 20, units = "cm")
+ggsave(paste0("./revisao_jbc/revisor1/major2/figuras/clusterizacao.svg"), width = 30, height = 20, units = "cm")
+
+#*******************************************************************************************#

@@ -1317,6 +1317,20 @@ printInteractiveNetwork <- function(removeNoise_=TRUE) {
         pathwayGraph <- removeNoise(pathwayGraph)
       }
 
+      #---------------------------#
+      # Apply the reaction status #
+      #---------------------------#
+
+      # Initialize the reaction status
+      pathwayGraph$reaction1Status = NA
+      pathwayGraph$reaction2Status = NA
+
+      # Get the reaction status data
+      for (idx in 1:nrow(pathwayGraph)) {
+        pathwayGraph[idx,]$reaction1Status <- pathwayData[pathwayData$reaction == pathwayGraph[idx,]$reaction1,]$reaction_type[1]
+        pathwayGraph[idx,]$reaction2Status <- pathwayData[pathwayData$reaction == pathwayGraph[idx,]$reaction2,]$reaction_type[1]
+      }
+
       #-------------------------------#
       # [GETTING THE PATHWAY DETAILS] #
       #-------------------------------#
@@ -1339,11 +1353,11 @@ printInteractiveNetwork <- function(removeNoise_=TRUE) {
 
       # Rename the AP classification
       if (nrow(pathwayData[pathwayData$bottleneck_classification=='HB',]) > 0) {
-        pathwayData[pathwayData$bottleneck_classification=='HB',]$bottleneck_classification <- 'HAP'
+        pathwayData[pathwayData$bottleneck_classification=='HB',]$bottleneck_classification <- 'AP'
       }
 
       if (nrow(pathwayData[pathwayData$bottleneck_classification=='HNB',]) > 0) {
-        pathwayData[pathwayData$bottleneck_classification=='HNB',]$bottleneck_classification <- 'HUB'
+        pathwayData[pathwayData$bottleneck_classification=='HNB',]$bottleneck_classification <- 'Non-AP'
       }
 
       if (nrow(pathwayData[pathwayData$bottleneck_classification=='NHB',]) > 0) {
@@ -1351,7 +1365,7 @@ printInteractiveNetwork <- function(removeNoise_=TRUE) {
       }
 
       if (nrow(pathwayData[pathwayData$bottleneck_classification=='NHNB',]) > 0) {
-        pathwayData[pathwayData$bottleneck_classification=='NHNB',]$bottleneck_classification <- 'Others'
+        pathwayData[pathwayData$bottleneck_classification=='NHNB',]$bottleneck_classification <- 'Non-AP'
       }
 
       names(pathwayData)[names(pathwayData) == "bottleneck_classification"] <- "AP_classification"

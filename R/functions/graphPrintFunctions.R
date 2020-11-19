@@ -15,7 +15,9 @@
 library(igraph)
 library(RColorBrewer)
 library(visNetwork)
+library(ggraph)
 library(scales)
+library(svglite)
 
 #*******************************************************************************************#
 
@@ -110,6 +112,12 @@ generateInteractiveNetwork <- function(network_, networkProperties_, pathway_=""
   vis.nodes <- networkProperties_
   vis.links <- data$edges
 
+  # Define the nodes group
+  vis.nodes$group = vis.nodes$is_bottleneck
+  vis.nodes[vis.nodes$group == 1,]$group <- 'AP'
+  vis.nodes[vis.nodes$group == 0,]$group <- 'Non-AP'
+
+  # Set the initial nodes attributes
   vis.nodes$color.border <- "white"
   vis.nodes$borderWidth <- 0
 
@@ -159,23 +167,33 @@ generateInteractiveNetwork <- function(network_, networkProperties_, pathway_=""
   vis.nodes$color.background <- colorRampPalette(pal)(99)[betweennessScaleValues]
 
   # Apply node size according to its frequency
-  vis.nodes$size <- scales::rescale(vis.nodes$occurrences, to=c(10, 30))
+  vis.nodes$size <- scales::rescale(vis.nodes$percentage, to=c(10, 30))
 
   # Set network links properties
   vis.links$width <- 1 # line width
-  vis.links$color <- "gray"    # line color
   vis.links$arrows <- "middle" # arrows: 'from', 'to', or 'middle'
-  vis.links$smooth <- FALSE    # should the edges be curved?
+  vis.links$smooth <- TRUE    # should the edges be curved?
   vis.links$shadow <- FALSE    # edge shadow
 
-  # Paint the edges bridges in red
-  G <- igraph::graph_from_data_frame(vis.links[,1:2], directed = FALSE)
-  num_comp <- length(decompose.graph(G))
+  # line color
+  vis.links$color <- NA
+  vis.links[vis.links$reaction1Status == 'reversible',]$color <- "gray"
+  vis.links[vis.links$reaction1Status == 'irreversible',]$color <- "darkred"
 
-  for (i in 1:length(E(G))) {
-    G_sub <- delete.edges(G, i)
-    if ( length( decompose.graph(G_sub) ) > num_comp ) vis.links$color[i] <- "red"
-  }
+  # Line title
+  vis.links$title <- paste0("Reaction: ", vis.links$reaction1, "<br>",
+                            "Status: ", vis.links$reaction1Status, "<br>",
+                            "Node1: ", vis.links$ec1, "<br>",
+                            "Node2: ", vis.links$ec2, "<br>") # Text on click
+
+  # Paint the edges bridges in red
+  #G <- igraph::graph_from_data_frame(vis.links[,1:2], directed = FALSE)
+  #num_comp <- length(decompose.graph(G))
+
+  #for (i in 1:length(E(G))) {
+  #  G_sub <- delete.edges(G, i)
+  #  if ( length( decompose.graph(G_sub) ) > num_comp ) vis.links$color[i] <- "red"
+  #}
 
   # Generate the visNetwor object
   if (is.null(pathwayDetail_) | length(pathwayDetail_) == 0) {
@@ -195,13 +213,6 @@ generateInteractiveNetwork <- function(network_, networkProperties_, pathway_=""
   }
 
   #visNetworkObj <- visNetwork(nodes = vis.nodes, edges = vis.links, background="#ffffff", width = '100%', height = '85vh')
-
-  # Define the legend groups
-  #visNetworkObj <- visGroups(visNetworkObj, groupname = "Bottleneck", shape = "star", color = list(background = "gray", border="black"))
-  #visNetworkObj <- visGroups(visNetworkObj, groupname = "Non-bottleneck", shape = "dot", color = list(background = "tomato", border="black"))
-
-  # Add a legend
-  #visNetworkObj <- visLegend(visNetworkObj, enabled = TRUE, useGroups = TRUE, main="Legend", position="left", ncol=1)
 
   # Generate a dynamic network
   if (dynamicNetwork_) {
@@ -233,4 +244,50 @@ generateInteractiveNetwork <- function(network_, networkProperties_, pathway_=""
 
   # Generate the network
   return(visNetworkObj)
+}
+
+#' Function to generate a static network based on ggraph library
+#'
+#' @param network_ Network data frame with all properties.
+#' @param networkProperties_ Contains main information about the network nodes.
+#' @param pathway_ Network name.
+#' @param org_ Organism name.
+#'
+#' @return This function does not return nothing, just export files.
+#'
+#' @examples
+#' \dontrun{
+#' generateStaticNetwork(pathwayData, properties)
+#' }
+#'
+#' @author
+#' Igor Brandão
+#'
+generateStaticNetwork <- function(network_, networkProperties_, pathway_="", org_="") {
+
+  # Color pallet
+  pal <- brewer.pal(9, "YlOrRd")
+  pal2 <- brewer.pal(8, "Dark2")
+
+  # Plot the static graph
+  ggraph(iGraph, layout = "stress") +
+    geom_edge_link0(aes(edge_width = weight),edge_colour = "grey66") +
+
+    geom_node_point(aes(fill = clu,size = size),shape=21) +
+
+    geom_node_text(aes(filter = size>=26, label = name),family="serif") +
+
+    scale_fill_manual(values = pal) +
+
+    scale_edge_width_continuous(range = c(0.2,3)) +
+
+    scale_size_continuous(range = c(1,6)) +
+
+    theme_graph() +
+    theme(legend.position = "bottom")
+
+  ggraph::autograph(network_)
+
+  ggsave(paste0("teste.png"), width = 30, height = 20, units = "cm")
+  ggsave(paste0("teste.svg"), width = 30, height = 20, units = "cm")
 }
