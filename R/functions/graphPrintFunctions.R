@@ -12,11 +12,25 @@
 #' Igor Brandão
 
 # Import the necessary libraries
+library(dplyr)
+
+# Graph handling
 library(igraph)
-library(RColorBrewer)
 library(visNetwork)
+
+# Graph plot
 library(ggraph)
+
+# Graph layouts
+library(graphlayouts)
+library(oaqc)
+
+# Color pallete and scale
+library(RColorBrewer)
+library(viridis)
 library(scales)
+
+# Image export
 library(svglite)
 
 #*******************************************************************************************#
@@ -263,31 +277,161 @@ generateInteractiveNetwork <- function(network_, networkProperties_, pathway_=""
 #' @author
 #' Igor Brandão
 #'
-generateStaticNetwork <- function(network_, networkProperties_, pathway_="", org_="") {
+generateStaticNetwork <- function(network_, networkProperties_, pathway_="", org_="ec") {
+
+  #----------------------------#
+  # [ORGANIZZE THE GRAPH DATA] #
+  #----------------------------#
+  vertices <- networkProperties_
+  relations <- network_
+
+  #--------------------------#
+  # [PREPARE THE GRAPH DATA] #
+  #--------------------------#
+
+  # Remove unnecessary data
+  vertices$X <- NULL
+  vertices$x <- NULL
+  vertices$y <- NULL
+
+  # Adjust the columns names
+  names(relations)[names(relations) == "node1"] <- "from"
+  names(relations)[names(relations) == "node2"] <- "to"
+
+  # Change the relation from -> to names
+  relations$from <- relations$entryID1
+  relations$to <- relations$entryID2
+
+  #---------------------#
+  # [VERTEX AESTHETICS] #
+  #---------------------#
+
+  # Set the node label
+  vertices$label  <- paste0(vertices$name, "\n(", vertices$AP_classification, ")")
+
+  # Set the initial nodes aesthetic attributes
+  vertices$color.border <- "white"
+  vertices$borderWidth <- 0
+
+  # Apply the border color by bottleneck status
+  vertices$color.border[which(vertices$is_bottleneck == 0)] <- "#ffffff"
+  vertices$color.border[which(vertices$is_bottleneck == 1)] <- "#005b96"
+  vertices$borderWidth[which(vertices$is_bottleneck == 0)] <- 1 # Node border width
+  vertices$borderWidth[which(vertices$is_bottleneck == 1)] <- 2 # AP Node border width
+
+  # Vertex drop shadow
+  vertices$shadow <- TRUE # Nodes will drop shadow
+
+  # Vertex shape
+  vertices$shape[which(vertices$is_bottleneck == 0)] <- "circle"
+  vertices$shape[which(vertices$is_bottleneck == 1)] <- "triangle"
+
+  #:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+  # ********************************************** #
+  # Vertex aesthetics binded to scalar attributes
+  # ********************************************** #
+
+  # Vertex background color scale according to the betweenness
+  betweennessScaleValues <- 1
+
+  tryCatch({
+    # Generates the background color scale
+    betweennessScaleValues <- cut(vertices$betweenness, breaks = seq(min(vertices$betweenness),
+        max(vertices$betweenness), len = 100), include.lowest = TRUE)
+
+  }, error=function(e) {})
 
   # Color pallet
-  pal <- brewer.pal(9, "YlOrRd")
-  pal2 <- brewer.pal(8, "Dark2")
+  pal <- brewer.pal(9, "YlOrBr")
 
-  # Plot the static graph
-  ggraph(iGraph, layout = "stress") +
-    geom_edge_link0(aes(edge_width = weight),edge_colour = "grey66") +
+  # Apply the background color scale
+  vertices$color.background <- colorRampPalette(pal)(99)[betweennessScaleValues]
 
-    geom_node_point(aes(fill = clu,size = size),shape=21) +
+  # Apply node size according to its frequency
+  vertices$vertex_size <- scales::rescale(vertices$percentage, to=c(0, 100))
 
-    geom_node_text(aes(filter = size>=26, label = name),family="serif") +
+  #--------------------#
+  # [EDGES AESTHETICS] #
+  #--------------------#
 
-    scale_fill_manual(values = pal) +
+  # Set network links properties
+  relations$edge_width <- 0.1 # line width
+  relations$edge_arrows <- "middle" # arrows: 'from', 'to', or 'middle'
+  relations$edge_smooth <- TRUE    # should the edges be curved?
+  relations$edge_shadow <- FALSE    # edge shadow
 
+  # line color
+  relations$edge_color <- NA
+  relations[relations$reaction1Status == 'reversible',]$edge_color <- "gray"
+  relations[relations$reaction1Status == 'irreversible',]$edge_color <- "darkred"
+
+  #-------------------------#
+  # [SET THE FACTORS ORDER] #
+  #-------------------------#
+
+  # Order the vertices by the entryID
+  vertices$entryID <- factor(vertices$entryID, levels = vertices$entryID[order(vertices$entryID)])
+
+  #-----------------------------#
+  # [GENERATE THE GRAPH OBJECT] #
+  #-----------------------------#
+  iGraph <- igraph::graph_from_data_frame(relations, directed = FALSE, vertices = vertices)
+
+  #------------------#
+  # [PLOT THE GRAPH] #
+  #------------------#
+  staticGraph <- ggraph(iGraph, layout = "gem") +
+    # Edges
+    geom_edge_fan(aes(colour = reaction1Status),
+                  edge_alpha = 0.3,
+                  angle_calc = 'along',
+                  label_dodge = unit(2.5, 'mm'),
+                  arrow = arrow(length = unit(2, 'mm'), type = 'closed'),
+                  end_cap = circle(3, 'mm')) +
+
+    # Nodes
+    geom_node_point(aes(fill = betweenness, size = vertex_size, stroke = borderWidth, colour = AP_classification),
+                    shape=21, alpha = 1) +
+
+    # Nodes label
+    geom_node_text(aes(filter = vertex_size >= 0, label = label),
+                   size = 3.5, family="serif", repel = TRUE, check_overlap = TRUE,
+                   nudge_x = 0.1, nudge_y = 0.1) +
+
+    # Nodes customizations
+    scale_fill_gradientn("Betweenness", colours = brewer.pal(9, "YlOrBr"), limits=c(min(vertices$betweenness), max(vertices$betweenness))) +
+    scale_color_manual("AP classification", values = c('blue', 'black')) +
+
+    # Edges customizations
+    scale_edge_color_manual("Reaction status", values = c('darkred', 'grey66')) +
     scale_edge_width_continuous(range = c(0.2,3)) +
 
-    scale_size_continuous(range = c(1,6)) +
-
+    # Theming
     theme_graph() +
-    theme(legend.position = "bottom")
+    theme(legend.position = "right") +
 
-  ggraph::autograph(network_)
+    # Rename the legends
+    labs(size = "Enzymes frequency (%)") +
 
-  ggsave(paste0("teste.png"), width = 30, height = 20, units = "cm")
-  ggsave(paste0("teste.svg"), width = 30, height = 20, units = "cm")
+    # Set the legends order
+    guides(size = guide_legend(order = 1),
+           colour = guide_legend(order = 2))
+
+  staticGraph
+
+  #---------------------------#
+  # [EXPORT THE GRAPH FIGURE] #
+  #---------------------------#
+  filename <- paste0(org_, pathway_)
+
+  # Export the network
+  if (!dir.exists(file.path(paste0('./output/network/static')))) {
+    dir.create(file.path(paste0('./output/network/static')), showWarnings = FALSE, mode = "0775")
+  }
+
+  if (dir.exists(file.path(paste0('./output/network/static')))) {
+    ggsave(paste0('./output/network/static/', filename, '.png'), width = 35, height = 20, units = "cm")
+    ggsave(paste0('./output/network/static/', filename, '.svg'), width = 35, height = 20, units = "cm")
+  }
 }
