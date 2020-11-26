@@ -1370,7 +1370,19 @@ printInteractiveNetwork <- function(removeNoise_=TRUE) {
 
       names(pathwayData)[names(pathwayData) == "bottleneck_classification"] <- "AP_classification"
 
-      # Generate the network
+      #-------------------------------#
+      # Generate the static network
+      #-------------------------------#
+      tryCatch({
+        generateStaticNetwork(network_=pathwayGraph, networkProperties_=pathwayData, pathway_=pathway_code, org_=reference_pathway)
+      }, error=function(e) {
+        generateStaticNetwork(network_=pathwayGraph, networkProperties_=pathwayData, pathway_=pathway_code,
+                              org_=reference_pathway, customLayout_="stress")
+      })
+
+      #-------------------------------#
+      # Generate the dynamic network
+      #-------------------------------#
       if (pathway_index == -1) {
         generatedNetwork <- generateInteractiveNetwork(network_=pathwayGraph, networkProperties_=pathwayData, pathway_=pathway_code,
                                                        pathwayDetail_=NULL, dynamicNetwork_=TRUE)

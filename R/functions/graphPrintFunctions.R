@@ -128,8 +128,14 @@ generateInteractiveNetwork <- function(network_, networkProperties_, pathway_=""
 
   # Define the nodes group
   vis.nodes$group = vis.nodes$is_bottleneck
-  vis.nodes[vis.nodes$group == 1,]$group <- 'AP'
-  vis.nodes[vis.nodes$group == 0,]$group <- 'Non-AP'
+
+  if (sum(vis.nodes$group == 1, na.rm = T) > 0) {
+    vis.nodes[vis.nodes$group == 1,]$group <- 'AP'
+  }
+
+  if (sum(vis.nodes$group == 0, na.rm = T) > 0) {
+    vis.nodes[vis.nodes$group == 0,]$group <- 'Non-AP'
+  }
 
   # Set the initial nodes attributes
   vis.nodes$color.border <- "white"
@@ -169,6 +175,11 @@ generateInteractiveNetwork <- function(network_, networkProperties_, pathway_=""
 
   betweennessScaleValues <- 1
 
+  # Replace NA values
+  if (sum(is.na(vis.nodes$betweenness), na.rm = T) > 0) {
+    vis.nodes[is.na(vis.nodes$betweenness),]$betweenness = 0
+  }
+
   tryCatch({
     # Generates the background color scale
     betweennessScaleValues <- cut(vis.nodes$betweenness, breaks = seq(min(vis.nodes$betweenness),
@@ -191,8 +202,18 @@ generateInteractiveNetwork <- function(network_, networkProperties_, pathway_=""
 
   # line color
   vis.links$color <- NA
-  vis.links[vis.links$reaction1Status == 'reversible',]$color <- "gray"
-  vis.links[vis.links$reaction1Status == 'irreversible',]$color <- "darkred"
+
+  if (sum(is.na(vis.links$reaction1Status), na.rm = T) > 0) {
+    vis.links[is.na(vis.links$reaction1Status),]$reaction1Status = 'reversible'
+  }
+
+  if (sum(vis.links$reaction1Status == 'reversible', na.rm = T) > 0) {
+    vis.links[vis.links$reaction1Status == 'reversible',]$edge_color <- "gray"
+  }
+
+  if (sum(vis.links$reaction1Status == 'irreversible', na.rm = T) > 0) {
+    vis.links[vis.links$reaction1Status == 'irreversible',]$edge_color <- "darkred"
+  }
 
   # Line title
   vis.links$title <- paste0("Reaction: ", vis.links$reaction1, "<br>",
@@ -277,7 +298,7 @@ generateInteractiveNetwork <- function(network_, networkProperties_, pathway_=""
 #' @author
 #' Igor Brandão
 #'
-generateStaticNetwork <- function(network_, networkProperties_, pathway_="", org_="ec") {
+generateStaticNetwork <- function(network_, networkProperties_, pathway_="", org_="", customLayout_="sparse_stress") {
 
   #----------------------------#
   # [ORGANIZZE THE GRAPH DATA] #
@@ -307,24 +328,25 @@ generateStaticNetwork <- function(network_, networkProperties_, pathway_="", org
   #---------------------#
 
   # Set the node label
-  vertices$label  <- paste0(vertices$name, "\n(", vertices$AP_classification, ")")
+  vertices$label  <- vertices$name
 
   # Set the initial nodes aesthetic attributes
   vertices$color.border <- "white"
   vertices$borderWidth <- 0
 
   # Apply the border color by bottleneck status
-  vertices$color.border[which(vertices$is_bottleneck == 0)] <- "#ffffff"
-  vertices$color.border[which(vertices$is_bottleneck == 1)] <- "#005b96"
-  vertices$borderWidth[which(vertices$is_bottleneck == 0)] <- 1 # Node border width
-  vertices$borderWidth[which(vertices$is_bottleneck == 1)] <- 2 # AP Node border width
+  if (sum(vertices$is_bottleneck == 0, na.rm = T) > 0) {
+    vertices$color.border[which(vertices$is_bottleneck == 0)] <- "#ffffff"
+    vertices$borderWidth[which(vertices$is_bottleneck == 0)] <- 1 # Node border width
+  }
+
+  if (sum(vertices$is_bottleneck == 1, na.rm = T) > 0) {
+    vertices$color.border[which(vertices$is_bottleneck == 1)] <- "#005b96"
+    vertices$borderWidth[which(vertices$is_bottleneck == 1)] <- 2 # AP Node border width
+  }
 
   # Vertex drop shadow
   vertices$shadow <- TRUE # Nodes will drop shadow
-
-  # Vertex shape
-  vertices$shape[which(vertices$is_bottleneck == 0)] <- "circle"
-  vertices$shape[which(vertices$is_bottleneck == 1)] <- "triangle"
 
   #:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -334,6 +356,11 @@ generateStaticNetwork <- function(network_, networkProperties_, pathway_="", org
 
   # Vertex background color scale according to the betweenness
   betweennessScaleValues <- 1
+
+  # Replace NA values
+  if (sum(is.na(vertices$betweenness), na.rm = T) > 0) {
+    vertices[is.na(vertices$betweenness),]$betweenness = 0
+  }
 
   tryCatch({
     # Generates the background color scale
@@ -363,8 +390,18 @@ generateStaticNetwork <- function(network_, networkProperties_, pathway_="", org
 
   # line color
   relations$edge_color <- NA
-  relations[relations$reaction1Status == 'reversible',]$edge_color <- "gray"
-  relations[relations$reaction1Status == 'irreversible',]$edge_color <- "darkred"
+
+  if (sum(is.na(relations$reaction1Status), na.rm = T) > 0) {
+    relations[is.na(relations$reaction1Status),]$reaction1Status = 'reversible'
+  }
+
+  if (sum(relations$reaction1Status == 'reversible', na.rm = T) > 0) {
+    relations[relations$reaction1Status == 'reversible',]$edge_color <- "gray"
+  }
+
+  if (sum(relations$reaction1Status == 'irreversible', na.rm = T) > 0) {
+    relations[relations$reaction1Status == 'irreversible',]$edge_color <- "darkred"
+  }
 
   #-------------------------#
   # [SET THE FACTORS ORDER] #
@@ -381,10 +418,17 @@ generateStaticNetwork <- function(network_, networkProperties_, pathway_="", org
   #------------------#
   # [PLOT THE GRAPH] #
   #------------------#
-  staticGraph <- ggraph(iGraph, layout = "gem") +
+  # Validate the used layout since the sparse stress require additional parameters
+  if (customLayout_ == "sparse_stress") {
+    staticGraph <- ggraph(iGraph, layout = customLayout_, pivots = nrow(vertices), weights = NA)
+  } else {
+    staticGraph <- ggraph(iGraph, layout = customLayout_)
+  }
+
+  staticGraph <- staticGraph +
     # Edges
     geom_edge_fan(aes(colour = reaction1Status),
-                  edge_alpha = 0.3,
+                  edge_alpha = 0.5,
                   angle_calc = 'along',
                   label_dodge = unit(2.5, 'mm'),
                   arrow = arrow(length = unit(2, 'mm'), type = 'closed'),
@@ -396,15 +440,15 @@ generateStaticNetwork <- function(network_, networkProperties_, pathway_="", org
 
     # Nodes label
     geom_node_text(aes(filter = vertex_size >= 0, label = label),
-                   size = 3.5, family="serif", repel = TRUE, check_overlap = TRUE,
-                   nudge_x = 0.1, nudge_y = 0.1) +
+                   size = 3, family="serif", repel = TRUE, check_overlap = TRUE,
+                   nudge_y = -0.19) +
 
     # Nodes customizations
     scale_fill_gradientn("Betweenness", colours = brewer.pal(9, "YlOrBr"), limits=c(min(vertices$betweenness), max(vertices$betweenness))) +
     scale_color_manual("AP classification", values = c('blue', 'black')) +
 
     # Edges customizations
-    scale_edge_color_manual("Reaction status", values = c('darkred', 'grey66')) +
+    scale_edge_color_manual("Reaction status", values = c('#ff7b7b', 'grey66')) +
     scale_edge_width_continuous(range = c(0.2,3)) +
 
     # Theming
@@ -432,6 +476,12 @@ generateStaticNetwork <- function(network_, networkProperties_, pathway_="", org
 
   if (dir.exists(file.path(paste0('./output/network/static')))) {
     ggsave(paste0('./output/network/static/', filename, '.png'), width = 35, height = 20, units = "cm")
-    ggsave(paste0('./output/network/static/', filename, '.svg'), width = 35, height = 20, units = "cm")
+
+    # Export the svg
+    if (!dir.exists(file.path(paste0('./output/network/static/svg')))) {
+      dir.create(file.path(paste0('./output/network/static/svg')), showWarnings = FALSE, mode = "0775")
+    }
+
+    ggsave(paste0('./output/network/static/svg/', filename, '.svg'), width = 35, height = 20, units = "cm")
   }
 }
